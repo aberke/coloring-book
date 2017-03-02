@@ -2,12 +2,12 @@
 
 
 Plan:
-Pattern(paper, path, [generatorFunction, generatorFunction,...])
+Pattern(paper, path, [generatorFunction, generatorFunction,...], {options})
 
 */
 'use strict';
 
-var DEFAULT_STROKE_COLOR = 'black'; // 'darkmagenta';
+var DEFAULT_STROKE_COLOR = 'black';
 var DEFAULT_STROKE_WIDTH = 2;
 
 class FriezePattern {
@@ -19,7 +19,7 @@ class FriezePattern {
 		this.generatorGetters = generatorGetters;
 
 		// handle options
-		options = options || {};
+		this.options = options || {};
 		this.id = options.id || 'anonymous';
 		// add styling options
 		this.stroke = options.stroke || DEFAULT_STROKE_COLOR;
@@ -47,7 +47,6 @@ class FriezePattern {
         });
         this.paperSet = newPaperSet;
         // redraw the removed items
-        console.log('this.redraw 0 with:', this.id);
         this.redraw();
 	}
 
@@ -78,7 +77,6 @@ class FriezePattern {
 	}
 
 	redraw() {
-        console.log('this.redraw 1 with this.id:', this.id);
     	// while redrawing, remove the opacity attribute and 'clickable-ness'
 		this.removePaperSetHandlers();
 		var offsetX = ((this.paperSet.getBBox().x2) > 0) ? this.paperSet.getBBox().x2 : 0;
@@ -136,7 +134,7 @@ class FriezePattern {
                 return recursiveTranslateH(self.paper, workingSet, options);
             }
             var transformGetter = self.generatorGetters[i];
-            var transformString = "..." + transformGetter(workingSet);
+            var transformString = "..." + transformGetter(workingSet, self.options);
             var clonedSet = workingSet.clone();
             var animateCallback = function() {
                 workingSet = self.paper.set().push(workingSet).push(clonedSet);

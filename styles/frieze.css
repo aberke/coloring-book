@@ -37,11 +37,11 @@ h1 a {
 #title h1{
 	display: inline-block;
 }
-#title .hover-description {
+#title #hover-description {
 	opacity: 0;
 	cursor: pointer;
 }
-#title .hover-description:hover {
+#title #hover-description:hover {
 	opacity: 1;
 }
 

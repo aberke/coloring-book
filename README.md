@@ -31,7 +31,7 @@ Open source, online coloring book through which one can explore the mathematics 
 	- minimal glide relection vector length = half length of minimal translation vector
 		- because G^2 = T
 
-- p112 (aka p2): (TR): 2 half-turns
+- p112 (aka p2): (TR): 2 180° Rotations
 	- `pdpdpdpd` OR `ZZZZZZZ`
 	- distance between any 2 adjacent half-turn centers is half the minimal translation vector
 
@@ -168,17 +168,8 @@ for action in actionsX1:
 	newSet.push(clonedSet)
 	set = newSet
 
-while set.getBBox.x2 < paperWidth:
-	Translate
-
-
-
 
 for translations:
-
-- define path with syntax `path = "M10,30l50,0l-50,50l50,0";`
-- always using relative coordinates
-- to translate, update M.
 
 - Can also use arrays to deliver coordinates: 
 `var tri = paper.path([["M", 90, 90], ["L", 10, 70], ["L", 50, 5], ["L", 90, 90]]);` 

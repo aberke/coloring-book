@@ -3,6 +3,17 @@ Templates
 Currently not in an html template file because that would require running a server
 */
 
+var SYMMETRY_SET_STYLES = {
+	'h1': {'stroke': 'red', 'stroke-width': 4},
+	'v1': {'stroke': 'mediumpurple', 'stroke-width': 4},
+	'v2': {'stroke': 'darkmagenta', 'stroke-width': 4},
+	'g': {
+    	'stroke': 'green',
+    	'stroke-dasharray': '-',
+    	'stroke-width': 4,
+    },
+}
+
 var getFriezeTemplate = function() {
   return `
     <div id='frieze-page'>
@@ -16,7 +27,7 @@ var getPatternTemplate = function() {
   var html = `
     <div id='title'>
         <h1>{{ patternName }}</h1>
-        <span class='hover-description'>: {{ patternDescription }}</span>
+        <span id='hover-description'>: {{ patternDescription }}</span>
     </div>
     <div id='canvas' class='canvas'></div>
   `;
@@ -24,12 +35,25 @@ var getPatternTemplate = function() {
 }
 
 var patternsData = {
-	'p1': {},
-	'p11m': {},
+	'p1': {
+		description: 'Translation only',
+	},
+	'p11m': {
+		description: 'Horizontal reflection',
+	},
+	'p1m1': {
+		description: 'Vertical Reflection',
+	},
+	'p1a1': {
+		description: 'Glide Reflection',
+	},
+	'p2': {
+		description: 'Order-2 Rotations',
+	},
+	'p2mg': {
+		description: 'Vertical Reflection + Glide Reflection + Order-2 Rotations',
+	},
 	'p2mm': {
-		generators: [1, 3],
 		description: 'Horizontal Reflection + Vertical Reflections + Order-2 Rotations + Translation',
 	},
 };
-
-

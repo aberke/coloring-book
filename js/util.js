@@ -97,6 +97,50 @@ function drawXaxis(paper, xAxisCoord, color=undefined) {
 }
 
 /*
+Constructor for glide reflection transformation string
+@pathSet: (Paper.path | Paper.set) to construct transformation from
+@options: (Object) dictionary of arguments:
+    @mirrorOffset: (Number) distance from bottom of pathset to create H mirror
+    @gap: (Number) distance to translate past the width of the pathSet
+Returns (String) transformation
+*/
+function getGlideH(pathSet, options) {
+    options = options || {};
+    mirrorOffset = options.mirrorOffset || 0;
+    gap = options.gap || 0;
+    var bbox = pathSet.getBBox();
+    var mirrorX = bbox.x;  // could be either x or x2
+    var mirrorY = bbox.y2;
+
+    var transformString = "";
+    // add mirror portion
+    transformString += ("S1,-1," + String(mirrorX) + "," + String(mirrorY - mirrorOffset));
+    // add translation
+    transformString += getTranslationH(pathSet, gap);
+    return transformString;
+}
+
+/*
+Returns transformation string for order-2 rotation that extends pathSet
+in the horizontal direction.
+@pathSet: (Paper.path | Paper.set) to construct transformation from
+@options: Dict of optional items:
+
+Returns (String) transformation
+*/
+function getOrder2RotationH(pathSet, options) {
+    options = options || {};
+
+    var bbox = pathSet.getBBox();
+
+    var rotationOffset = options.rotationOffset || (1/2)*bbox.height;
+    var transformString = "R180," + String(bbox.x2) + "," + String(bbox.y2 - rotationOffset);
+
+    return transformString;
+}
+
+
+/*
 Constructor for horizontal mirror transformation string
 @pathSet: (Paper.path | Paper.set) to construct transformation from
 Returns (String) transformation
