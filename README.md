@@ -34,9 +34,7 @@ Starting to generate & put together the pieces.  They are shown in pieces.html.
 
 Easy:
 
-- clean up circular tessellation -- remove console logs
-
-- change interface to conform to other shape creations
+- add fractals as submodule
 
 
 - break out fundamentalLineSlices in the circular-tesselation into its own class

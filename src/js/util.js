@@ -1,3 +1,5 @@
+"use-strict";
+
 /*
 	Collection of helper functions
 

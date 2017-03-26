@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="description" content="TODO">
+    <meta name="author" content="Alex Berke | aberke">
+
+    <link rel="shortcut icon" href="https://aberke.github.io/fractals/img/sierpinski-triangle.png" type="image/x-icon">
+    <meta property="og:image" content="https://aberke.github.io/fractals/img/pythagoras-tree-1.gif" />
+
+
+    <script type="text/javascript" src="js/raphael/raphael.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.min.js"></script>
+
+    <script type="text/javascript" src="js/constants.js"></script>
+    <script type="text/javascript" src="js/colors.js"></script>
+
+    <script type="text/javascript" src="js/shapes/utility.js"></script>
+    <script type="text/javascript" src="js/shapes/regular-polygons.js"></script>
+
+    <script type="text/javascript" src="js/paths.js"></script>
+    <script type="text/javascript" src="js/util.js"></script>
+    <script type="text/javascript" src="js/draw-wrappers.js"></script>
+    <script type="text/javascript" src="js/pattern.js"></script>
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,600,700,800" rel="stylesheet">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <title>Coloring Book | Book</title>
+</head>
+<body>
+    <!-- TODO: integrate this with the index page -->
+
+
+    <section class="page" id="book">
+        <!-- Book cover section -->
+        <section class="book-section" id="book-cover">
+
+            <!-- TODO: Replace with better name -->
+            <div id="book-title-container">
+                <h1 id="book-title">Coloring Book of Group Theory</h1>
+            </div>
+
+                <p>Mathematics is about more than just numbers.  Numbers can be beautiful, but they are only one way to talk about their underlying mathematical concepts.  In this "book" our language of math will be visual and focus on shapes and patterns.</p>
+
+                <div class="text-content-graphic">
+                    TODO: Create and insert Pascal's triangle turning into Sierpinski's triangle
+                    OR
+                    Use Sierpinski Triangle Animation
+                </div>
+
+                <p>Group theory is the study of algebraic structures, and with it we can explore symmetry.</p>
+        </section>
+
+        <!-- Shapes & Symmetries Section -->
+        <section class="book-section" id="book-shapes">
+
+            <h2 class="book-section-title">Shapes &amp; Symmetries</h2>
+
+            <div class="text-coloring-content-container">
+                <div class="text-content">
+                    <p>We have intuitive ideas of symmetry. Some shapes look "more symmetric" than others.  For example, a square is more "symmetric" than a rectangle.</p>
+                    <div class="text-content-graphic line">
+                        <div class="canvas" id="square-vs-rectangle-square"></div>
+                        <div class="canvas" id="square-vs-rectangle-rectangle"></div>
+
+                        <script>
+                            "use-strict";
+                            let squareVsTriangle_square = {};
+                            squareVsTriangle_square.paper = new Raphael("square-vs-rectangle-square");
+                
+                            squareVsTriangle_square.path = drawInCanvasCenter(squareVsTriangle_square.paper, drawSquare);
+
+                            let squareVsTriangle_rectangle = {};
+                            squareVsTriangle_rectangle.paper = new Raphael("square-vs-rectangle-rectangle");
+                            squareVsTriangle_rectangle.path = drawInCanvasCenter(squareVsTriangle_rectangle.paper, drawRectangle);
+
+                            
+                        </script>
+                    </div>
+                    <p>But what does that mean?  We can be more precise.  We can even count how much symmetry a shape has.</p>
+                </div>
+                <!-- text-content -->
+                <!-- coloring-content -->
+                <div class="coloring-content">
+                    TODO
+                </div>
+            </div>
+
+            <h3 class="book-section-subtitle">Rotations // Cyclic Groups</h3>
+
+            <div class="text-coloring-content-container" id="cn-1">
+
+                <div class="text-content">
+                    <p>An equilateral triangle can be rotated &frac13; of the way around a circle and appear unchanged.</p>
+                    <div class="text-content-graphic line">
+
+                        <div class="canvas" id="cn-1-triangle"></div>
+
+                        <script>
+                            "use-strict";
+
+                            let cn1Triangle = {};
+
+                            cn1Triangle.paper = new Raphael("cn-1-triangle");
+                            cn1Triangle.centeredDrawing = drawInCanvasCenter(cn1Triangle.paper, drawInscribedRegularNGon, {N: 3}, {autoRotateDegrees: 120});
+                        </script>
+                    </div>
+
+                    <p>If the triangle were instead rotated by an arbitrary amount, like ¼ of the way around a circle, it would then appear changed, since it is oriented differently.</p>
+                    <div class="text-content-graphic line">
+
+                        <div class="canvas" id="cn-1-triangles-1-90deg"></div>
+                        <div class="canvas" id="cn-1-triangles-1-180deg"></div>
+                        <div class="canvas" id="cn-1-triangles-1-270deg"></div>
+
+                        <script>
+                            "use-strict";
+
+                            // line of triangles inscribed within circles -- each side  has different stroke type
+                            // Rotated at 90deg; 180deg; 270deg;  on hovering over section, all rotate 90deg;
+
+                            let cn1Triangles1_90 = {};
+                            let cn1Triangles1_180 = {};
+                            let cn1Triangles1_270 = {};
+
+
+                            cn1Triangles1_90.paper = new Raphael("cn-1-triangles-1-90deg");
+                            cn1Triangles1_180.paper = new Raphael("cn-1-triangles-1-180deg");
+                            cn1Triangles1_270.paper = new Raphael("cn-1-triangles-1-270deg");
+                
+                            cn1Triangles1_90.centeredDrawing = drawInCanvasCenter(cn1Triangles1_90.paper, drawInscribedRegularNGon, {N: 3}, {text: '1/4 turn'});
+                            cn1Triangles1_90.centeredDrawing.pathSet.rotate(90, cn1Triangles1_90.centeredDrawing.origin.X, cn1Triangles1_90.centeredDrawing.origin.Y);
+
+
+                            cn1Triangles1_180.centeredDrawing = drawInCanvasCenter(cn1Triangles1_180.paper, drawInscribedRegularNGon, {N: 3}, {text: '2/4 turn'});
+                            cn1Triangles1_180.centeredDrawing.pathSet.rotate(180, cn1Triangles1_180.centeredDrawing.origin.X, cn1Triangles1_180.centeredDrawing.origin.Y);
+
+                            cn1Triangles1_270.centeredDrawing = drawInCanvasCenter(cn1Triangles1_270.paper, drawInscribedRegularNGon, {N: 3}, {text: '3/4 turn'});
+                            cn1Triangles1_270.centeredDrawing.pathSet.rotate(270, cn1Triangles1_270.centeredDrawing.origin.X, cn1Triangles1_270.centeredDrawing.origin.Y);
+
+                        </script>
+                    </div>
+                </div>
+
+                <div class="coloring-content">
+                    TODO
+                    Line of triangles
+                    ? [Sierpinski triangles] ?
+                </div>
+            </div>
+
+            <div class="text-coloring-content-container">
+                <div class="text-content">
+                    <p>We can still rotate that triangle by more than &frac13; of the way around a circle without changing it.  It can be rotated by twice that much - &frac23; of the way around the circle - or by 3 times that much, which is all the way around the circle.</p>
+                    <div class="text-content-graphic line">
+                        <div class="canvas" id="cn-1-triangles-1-0deg"></div>
+                        <div class="canvas" id="cn-1-triangles-1-120deg"></div>
+                        <div class="canvas" id="cn-1-triangles-1-240deg"></div>
+
+                        <script>
+                            "use-strict";
+
+                            // line of 3 triangles inscribed within circles -- each side has different stroke type,
+                            // rotated 0deg; 120deg; 240deg;  on hovering over section, all rotate 120deg;
+                
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-1-0deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 0}, {text: '0 turn / full turn', autoRotateDegrees: 120});
+
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-1-120deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 1}, {text: '1/3 turn', autoRotateDegrees: 120});
+
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-1-240deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 2}, {text: '2/3 turn', autoRotateDegrees: 120});
+                        </script>
+                    </div>
+
+                    <p>We can keep rotating - by 4 times that much, 5 times that much, 6 times that much... and keep going towards infinity.  The triangle seems to have an infinite number of rotations, but after rotating 3 times and reaching a full turn the rotations become repetitive.</p>
+                    <!-- 
+                    [line of 6 triangles - each side diff stroke, rotated at intervals of 120deg; - index @ zero]
+                    -->
+                    <div class="text-content-graphic line">
+                        <div class="canvas" id="cn-1-triangles-2-0deg"></div><div class="canvas" id="cn-1-triangles-2-120deg"></div><div class="canvas" id="cn-1-triangles-2-240deg"></div>
+                    </div>
+                    <div class="text-content-graphic line">
+                        <div class="canvas" id="cn-1-triangles-2-360deg"></div><div class="canvas" id="cn-1-triangles-2-480deg"></div><div class="canvas" id="cn-1-triangles-2-600deg"></div>
+
+                        <script>
+                            "use-strict";
+                
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-0deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 0}, {text: '0 turn', autoRotateDegrees: 120});
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-120deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 1}, {text: '1/3 turn', autoRotateDegrees: 120});
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-240deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 2}, {text: '2/3 turn', autoRotateDegrees: 120});
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-360deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 0}, {text: '3/3 turn', autoRotateDegrees: 120});
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-480deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 1}, {text: '4/3', autoRotateDegrees: 120});
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-600deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 2}, {text: '5/3', autoRotateDegrees: 120});
+                        </script>
+                    </div>
+
+                    <p>There are only 3 unique rotations for a triangle.  We'll talk about them by referring to the rotations that are less than a full turn.</p>
+                </div>
+                <div class="coloring-content">
+                    TODO
+                    Circular tessellations of rotational symmetry=3 inscribed within triangles
+                </div>
+            </div>
+
+            <div class="text-coloring-content-container">
+                <div class="text-content">
+                </div>
+                <div class="coloring-content">
+                </div>
+            </div>
+
+            <div class="text-coloring-content-container">
+                <div class="text-content">
+                </div>
+                <div class="coloring-content">
+                </div>
+            </div>
+
+            <div class="text-coloring-content-container">
+                <div class="text-content">
+                </div>
+                <div class="coloring-content">
+                </div>
+            </div>
+
+        </section>
+
+    </section>
+
+
+
+
+
+
+
+</body>
+</html>

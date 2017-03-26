@@ -1,0 +1,139 @@
+/*
+Colors:
+	LIGHT_GRAY: #d3d3d3;
+	PURPLE: #670067;
+
+*/
+
+/* ====== DEBUG ==== */
+.canvas {
+	border: 1px solid gray;
+}
+/* ====== DEBUG ==== */
+
+
+body {
+	font-family: 'Raleway', sans-serif;
+
+	padding: 0;
+	margin: 0;
+}
+
+/* ==============
+Writing 
+*/
+h1, h2, h3 {
+	text-align: center;
+}
+h1, #book-title {
+	font-size: 2em;
+	padding: 4px;
+}
+.book-section-title {
+
+}
+.book-section-subtitle {
+
+}
+
+p {
+	text-align: left;
+	line-height: 1.3;
+}
+/* Writing */
+
+
+
+/* ==================
+Structure
+*/
+.page {
+	padding: 10px;
+	margin: auto;
+	display: block;
+}
+
+#book-cover p {
+	padding: 20px;
+	max-width: 500px;
+	text-align: center;
+	margin: auto;
+	line-height: 1.4;
+}
+
+
+.text-coloring-content-container {
+	border: 1px solid green;
+}
+.text-content, .coloring-content {
+	display: inline-block;
+	padding: 5px;
+}
+.text-content {
+	border-right: 1px solid gray;
+	width: 40%;
+}
+.coloring-content {
+	border: 1px solid red;
+	width: 55%;
+}
+
+
+
+/* Structure */
+
+
+/* ===== Pieces ===========*/
+
+.text-content-graphic {
+	border: 1px solid blue;
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+
+
+.canvas {
+	width: 70px;
+	height: 70px;
+	display: inline-block;
+}
+
+
+/* Pieces */
+
+@media (max-width: 700px) {
+
+	p {
+		text-align: center;
+	}
+
+
+	/* ==================
+	Structure
+	*/
+	.text-content {
+		border-right: 1px solid gray;
+		width: 100%;
+	}
+	.coloring-content {
+		border: 1px solid red;
+		width: 100%;
+	}
+
+
+
+	/* Structure */
+
+
+
+}
+
+
+
+
+
+
+
+
+

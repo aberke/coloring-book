@@ -1,6 +1,11 @@
 "use strict";
 
 
+// Ways to style the sides of the polygon
+// with path.attr({'stroke-dasharray': string})
+const STROKE_DASH_ARRAY = ["", "-", ".", "--..", "-.", "-..", ". ", "- ", "--", "- .", "--."];
+
+
 /**
 Draws regular polygon with N sides/rotations
 where the polygon sits with the bottom side horizontally
@@ -8,11 +13,17 @@ aligned along the x-axis.
 */
 class RegularNGon {
 
-	constructor(paper, origin, size, N) {
+	constructor(paper, origin, size, N, options) {
 		this.paper = paper;
 		this.origin = origin;
 		this.size = size;
 		this.N = N;
+
+        this.options = options || {};
+
+        // can optionally draw each side of polygon with a different stroke type
+        this.useDifferentSideStrokes = options.useDifferentSideStrokes || false;
+        this.sideStrokeOffset = options.sideStrokeOffset || 0;
 
 		this.rotationTransformString = getRotationTransformString(this.origin, this.N);
 
@@ -36,13 +47,15 @@ class RegularNGon {
 		];
 
 		let linePath = this.paper.path(linePathList);
+		this.styleSide(linePath, 0);
 		pathSet.push(linePath);
 
 		// draw the other sides by cloning bottom side and rotating
-		for (let r = 1; r < this.N; r++) {
+		for (let n = 1; n < this.N; n++) {
 			let newLinePath = linePath.clone();
+			this.styleSide(newLinePath, n);
 
-			let degreesToRotate = r*(360/this.N);
+			let degreesToRotate = n*(360/this.N);
 			let transformString = [
 				"...R" + String(degreesToRotate),
 				String(this.origin.X),
@@ -52,6 +65,16 @@ class RegularNGon {
 			pathSet.push(newLinePath);
 		}
 		this.pathSet = pathSet;
+	}
+
+	// n is which side it is, where 0 is the bottom side
+	styleSide(path, n) {
+		if (this.useDifferentSideStrokes && this.N < STROKE_DASH_ARRAY.length) {
+            let strokeDashArray = STROKE_DASH_ARRAY[(this.sideStrokeOffset + n) % this.N];
+            path.attr({
+                'stroke-dasharray': strokeDashArray
+            });
+        }
 	}
 }
 
