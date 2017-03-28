@@ -3,6 +3,18 @@
 Open source, online coloring book through which one can explore the mathematics of symmetry and group theory.
 
 
+### Pieces
+
+Starting to generate & put together the pieces.  They are shown in pieces.html.
+
+
+## TODO
+
+- break out fundamentalLineSlices in the circular-tesselation into its own class
+- use to generate more interesting frieze groups
+- put in Pieces
+
+
 ### Notes:
 
 #### Frieze Groups
@@ -140,33 +152,6 @@ Illustrate pmm2 -> pma2
 /\/\/\/\/\/\      \/\/\/\/\/\/\
 
 
-
-#### Using RaphaelJS
-
-- can you transform a paper.set() ?
-	- YES
-- can you have a paper.set() of sets?
-	- YES
-	- and YES you can assign attributes to all the members
-- can you get the BBox (read: cordinates + width, height) of paper.set() ?
-	- YES
-	- use those values for transformations!
-IDEA:
-	- create the patterns with recursion
-
-set = paper.set()
-shape = create shape
-set = set.push(shape) // set = [shape]
-
-for action in actionsX1:
-	clonedSet = set.clone()
-	clonedSet = act on clonedSet
-
-	// create set of sets
-	newSet = paper.set()
-	newSet.push(set)
-	newSet.push(clonedSet)
-	set = newSet
 
 
 for translations:
