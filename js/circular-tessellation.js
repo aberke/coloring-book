@@ -25,6 +25,7 @@ class CircularTessellation {
 	@param {number} diameter
 	@param {Object} options:
 		withReclection: {boolean} withReflection -- set true for symmetric line
+		slicesCount: {number} number of slices per level
 	*/
 	constructor(paper, levels, origin, diameter, rotations, options) {
 		this.paper = paper;
