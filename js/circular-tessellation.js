@@ -20,18 +20,16 @@ class CircularTessellation {
 	Draws circular tessellation.  It rotates when clicked or hovered over.
 
 	@param {Object} paper on which to draw
-	@param {number} levels.  Ie, number of time slices repeat along the line
 	@param {X: number, Y: number} origin point
 	@param {number} diameter
 	@param {Object} options:
+		levels: {number} levels.  Ie, number of time slices repeat along the line
 		withReclection: {boolean} withReflection -- set true for symmetric line
 		slicesCount: {number} number of slices per level
 	*/
-	constructor(paper, levels, origin, diameter, rotations, options) {
+	constructor(paper, origin, diameter, rotations, options) {
 		this.paper = paper;
 		this.pathSet = this.paper.set();
-
-		this.levels = levels;
 
 		this.origin = origin;
 		
@@ -48,9 +46,9 @@ class CircularTessellation {
 
 		// handle options
 		this.options = options || {};
+		this.levels = this.options.levels || 1;
 		this.scaleFactor = 2;
 		this.withReflection = this.options.withReflection ? this.options.withReflection : false;
-		
 		// slicesCount is the number of items in a line segment to be repeated
 		// make this number larger for more complicated patterns
 		this.slicesCount = this.options.slicesCount || 3;
@@ -187,7 +185,6 @@ class CircularTessellation {
 			X: startPoint.X,
 			Y: startPoint.Y + height
 		}
-		console.log('this.withReflection', this.withReflection)
 
 		// randomly generate either a linear path or a curved path
 		if (Math.random() > 0.5) {

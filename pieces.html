@@ -93,13 +93,13 @@
 				    // total desired diameter := minumum boundary minus some buffer (since goes outside bounds of circle)
 				    CT1.diameter = Math.min(CT1.paperWidth, CT1.paperHeight) - 50;
 
-				    CT1.levels = 1;
 				    CT1.rotations = 4;
 				    CT1.options = {
+				    	levels: 1,
 				    	slicesCount: 4,
 				        withReflection: false,
 				    }
-				    CT1.circularTessellationSet = new CircularTessellation(CT1.paper, CT1.levels, CT1.origin, CT1.diameter, CT1.rotations, CT1.options);
+				    CT1.circularTessellationSet = new CircularTessellation(CT1.paper, CT1.origin, CT1.diameter, CT1.rotations, CT1.options);
 
 				    </script>
 				</div>
@@ -122,12 +122,12 @@
 				    // total desired diameter := minumum boundary minus some buffer (since goes outside bounds of circle)
 				    CT2.diameter = Math.min(CT2.paperWidth, CT2.paperHeight) - 40;
 
-				    CT2.levels = 2;
 				    CT2.rotations = 6;
 				    CT2.options = {
+				    	levels: 2,
 				        withReflection: true,
 				    }
-				    CT2.circularTessellationSet = new CircularTessellation(CT2.paper, CT2.levels, CT2.origin, CT2.diameter, CT2.rotations, CT2.options);
+				    CT2.circularTessellationSet = new CircularTessellation(CT2.paper, CT2.origin, CT2.diameter, CT2.rotations, CT2.options);
 				    </script>
 				</div>
 			</div>
