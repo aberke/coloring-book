@@ -4,35 +4,6 @@
 	Each returns a (String) path
 */
 
-/*
-Returns path for a regular N-sided polygon
-Borrowed from https://www.safaribooksonline.com/library/view/raphaeljs/9781449365356/ch04.html
-
-@params:
-    x: center x coordinate
-    y: center y coordinate
-    N: number of sides
-    side: length of sides
-*/
-function RegularNGon(x, y, N, side) {
-
-    var path = "", n, temp_x, temp_y, angle;
-
-    for (n = 0; n <= N; n += 1) {
-        // the angle (in radians) as an nth fraction of the whole circle
-        angle = n / N * 2 * Math.PI;
-
-        // The starting x value of the point adjusted by the angle
-        temp_x = x + Math.cos(angle) * side;
-        // The starting y value of the point adjusted by the angle
-        temp_y = y + Math.sin(angle) * side;
-
-        // Start with "M" if it's the first point, otherwise L
-        path += (n === 0 ? "M" : "L") + temp_x + "," + temp_y;
-    }
-    return path;
-}
-
 
 var curves = function(n, startX, startY, width, height) {
     // draw the path with start at MstartX,startY

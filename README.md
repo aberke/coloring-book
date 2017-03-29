@@ -10,6 +10,13 @@ Starting to generate & put together the pieces.  They are shown in pieces.html.
 
 ## TODO
 
+Easy:
+
+- clean up circular tessellation -- remove console logs
+
+- change interface to conform to other shape creations
+
+
 - break out fundamentalLineSlices in the circular-tesselation into its own class
 - use to generate more interesting frieze groups
 - put in Pieces

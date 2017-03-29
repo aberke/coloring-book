@@ -6,6 +6,9 @@
 	<script type="text/javascript" src="js/constants.js"></script>
 
     <script type="text/javascript" src="js/circular-tessellation.js"></script>
+    <script type="text/javascript" src="js/shapes/regular-polygons.js"></script>
+    <script type="text/javascript" src="js/shapes/utility.js"></script>
+
     <script type="text/javascript" src="js/paths.js"></script>
     <script type="text/javascript" src="js/util.js"></script>
     <script type="text/javascript" src="js/pattern.js"></script>
@@ -39,9 +42,15 @@
             margin: 10px;
         }
         .half {
+        	display: inline-block;
         	width: 45%;
-        	float: left;
         }
+        @media (max-width: 600px) {
+        	.half {
+        		width: 100%;
+        	}
+        }
+
     </style>
 
     <div>
@@ -54,84 +63,125 @@
 		<div>
 
 			<!-- circular tessellation -->
-			<h3>Circular Tesselation</h3>
-			<p>They rotate on hover.</p>
-			<p>Randomly generated.  Can configure for:</p>
-			<ul>
-				<li>Number of rotations</li>
-				<li>Whether has mirror symmetry</li>
-				<li>Number of "levels" in lines</li>
-				<li>Number of "slices" per "level"</li>
-			</ul>
-			<div class="half">
-		    	<div id="canvas-circular-tessellation-1" class="canvas"></div>
-		    	<p></p>
+			<div>
+				<h3>Circular Tesselation</h3>
+				<p>They rotate on hover.</p>
+				<p>Randomly generated.  Can configure for:</p>
+				<ul>
+					<li>Number of rotations</li>
+					<li>Whether has mirror symmetry</li>
+					<li>Number of "levels" in lines</li>
+					<li>Number of "slices" per "level"</li>
+				</ul>
+				<div class="half">
+			    	<div id="canvas-circular-tessellation-1" class="canvas"></div>
+			    	<p></p>
 
-			    <script>
-			    "use strict";
+				    <script>
+				    "use strict";
 
-			    // put the variables for circular-tessellation-1 in here
-			    let CT1 = {};
+				    // put the variables for circular-tessellation-1 in here
+				    let CT1 = {};
 
-			    CT1.paper = new Raphael("canvas-circular-tessellation-1", "100%", 400);
-				CT1.paperWidth = CT1.paper.getSize().width;
-				CT1.paperHeight = CT1.paper.getSize().height;
-			    CT1.origin = {
-			    	X: CT1.paperWidth/2,
-			    	Y: CT1.paperHeight/2
-			   	};
-			    // total desired diameter := minumum boundary minus some buffer (since goes outside bounds of circle)
-			    CT1.diameter = Math.min(CT1.paperWidth, CT1.paperHeight) - 50;
+				    CT1.paper = new Raphael("canvas-circular-tessellation-1", "100%", 400);
+					CT1.paperWidth = CT1.paper.getSize().width;
+					CT1.paperHeight = CT1.paper.getSize().height;
+				    CT1.origin = {
+				    	X: CT1.paperWidth/2,
+				    	Y: CT1.paperHeight/2
+				   	};
+				    // total desired diameter := minumum boundary minus some buffer (since goes outside bounds of circle)
+				    CT1.diameter = Math.min(CT1.paperWidth, CT1.paperHeight) - 50;
 
-			    CT1.levels = 1;
-			    CT1.rotations = 4;
-			    CT1.options = {
-			    	slicesCount: 4,
-			        withReflection: false,
-			    }
-			    CT1.circularTessellationSet = new CircularTessellation(CT1.paper, CT1.levels, CT1.origin, CT1.diameter, CT1.rotations, CT1.options);
+				    CT1.levels = 1;
+				    CT1.rotations = 4;
+				    CT1.options = {
+				    	slicesCount: 4,
+				        withReflection: false,
+				    }
+				    CT1.circularTessellationSet = new CircularTessellation(CT1.paper, CT1.levels, CT1.origin, CT1.diameter, CT1.rotations, CT1.options);
 
-			    </script>
-			</div>
-			<div class="half">
-		    	<div id="canvas-circular-tessellation-2" class="canvas"></div>
-		    	<p></p>
+				    </script>
+				</div>
+				<div class="half">
+			    	<div id="canvas-circular-tessellation-2" class="canvas"></div>
 
-			    <script>
-			    "use strict";
+				    <script>
+				    "use strict";
 
-			    // put the variables for circular-tessellation-2 in here
-			    let CT2 = {};
+				    // put the variables for circular-tessellation-2 in here
+				    let CT2 = {};
 
-			    CT2.paper = new Raphael("canvas-circular-tessellation-2", "100%", 400);
-				CT2.paperWidth = CT2.paper.getSize().width;
-				CT2.paperHeight = CT2.paper.getSize().height;
-			    CT2.origin = {
-			    	X: CT2.paperWidth/2,
-			    	Y: CT2.paperHeight/2
-			   	};
-			    // total desired diameter := minumum boundary minus some buffer (since goes outside bounds of circle)
-			    CT2.diameter = Math.min(CT2.paperWidth, CT2.paperHeight) - 40;
+				    CT2.paper = new Raphael("canvas-circular-tessellation-2", "100%", 400);
+					CT2.paperWidth = CT2.paper.getSize().width;
+					CT2.paperHeight = CT2.paper.getSize().height;
+				    CT2.origin = {
+				    	X: CT2.paperWidth/2,
+				    	Y: CT2.paperHeight/2
+				   	};
+				    // total desired diameter := minumum boundary minus some buffer (since goes outside bounds of circle)
+				    CT2.diameter = Math.min(CT2.paperWidth, CT2.paperHeight) - 40;
 
-			    CT2.levels = 2;
-			    CT2.rotations = 6;
-			    CT2.options = {
-			        withReflection: true,
-			    }
-			    CT2.circularTessellationSet = new CircularTessellation(CT2.paper, CT2.levels, CT2.origin, CT2.diameter, CT2.rotations, CT2.options);
-			    </script>
+				    CT2.levels = 2;
+				    CT2.rotations = 6;
+				    CT2.options = {
+				        withReflection: true,
+				    }
+				    CT2.circularTessellationSet = new CircularTessellation(CT2.paper, CT2.levels, CT2.origin, CT2.diameter, CT2.rotations, CT2.options);
+				    </script>
+				</div>
 			</div>
 		    <!-- circular tessellation -->
 
+		    <!-- n-gons -->
+			<div>
+				<h2>N Gons</h2>
+				<div class="half">
+					<p>5-gon</p>
+			    	<div id="canvas-ngon-5" class="canvas"></div>
+			    	<script>
+			    		"use-strict";
+
+					    let NGON5 = {};
+				    	NGON5.paper = new Raphael("canvas-ngon-5", "100%", 400);
+				    	NGON5.buffer = 10;
+						NGON5.paperWidth = NGON5.paper.getSize().width;
+						NGON5.paperHeight = NGON5.paper.getSize().height;
+					    NGON5.origin = {
+					    	X: NGON5.paperWidth/2,
+					    	Y: NGON5.paperHeight/2
+					   	};
+						NGON5.size = Math.min(NGON5.paperWidth, NGON5.paperHeight) - NGON5.buffer;
+
+						NGON5.NGon = new RegularNGon(NGON5.paper, NGON5.origin, NGON5.size, 5);
+
+			    	</script>
+			    </div>
+				<div class="half">
+					<p>8-gon</p>
+			    	<div id="canvas-ngon-8" class="canvas"></div>
+			    	<script>
+			    		"use-strict";
+
+					    let NGON8 = {};
+				    	NGON8.paper = new Raphael("canvas-ngon-8", "100%", 400);
+				    	NGON8.buffer = 10;
+						NGON8.paperWidth = CT2.paper.getSize().width;
+						NGON8.paperHeight = CT2.paper.getSize().height;
+					    NGON8.origin = {
+					    	X: NGON8.paperWidth/2,
+					    	Y: NGON8.paperHeight/2
+					   	};
+						NGON8.size = Math.min(NGON8.paperWidth, NGON8.paperHeight) - NGON8.buffer;
+
+						NGON8.NGon = new RegularNGon(NGON8.paper, NGON8.origin, NGON8.size, 8);
+
+			    	</script>
+			    </div>
+		    </div>
+		    <!-- n-gons -->
+		   </div>
 	</div>
 
 </body>
 </html>
-
-
-
-
-
-
-
-

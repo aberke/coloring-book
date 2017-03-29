@@ -29,7 +29,7 @@ class CircularTessellation {
 	*/
 	constructor(paper, levels, origin, diameter, rotations, options) {
 		this.paper = paper;
-		this.paperSet = this.paper.set();
+		this.pathSet = this.paper.set();
 
 		this.levels = levels;
 
@@ -41,11 +41,7 @@ class CircularTessellation {
 		this.rotations = rotations;
 		// set up rotation transform string
 		this.rotationDegrees = 360/rotations;
-		this.rotationTransformString = [
-			"...R" + String(this.rotationDegrees),
-			String(this.origin.X),
-			String(this.origin.Y),
-		].join(",");
+		this.rotationTransformString = getRotationTransformString(this.origin, this.rotations);
 		// keep track of whether currently rotating to avoid setting
 		// off rotation twice at the same time
 		this.isRotating = false;
@@ -73,7 +69,7 @@ class CircularTessellation {
 		this.isRotating = true;
 
 		let self = this;
-		this.paperSet.animate({transform: this.rotationTransformString}, 1000, function() {
+		this.pathSet.animate({transform: this.rotationTransformString}, 1000, function() {
 			self.isRotating = false;
 		});
 	}
@@ -82,7 +78,7 @@ class CircularTessellation {
 	draw() {
 		// get a line to rotate
 		let lineSet = this.getFundamentalDomainLine();
-		this.paperSet.push(lineSet); // add it to the paperSet
+		this.pathSet.push(lineSet); // add it to the paperSet
 
 		// reuse that line -- clone it and rotate it, and add that clone to paperSet
 		for (let r = 1; r < this.rotations; r++) {
@@ -95,12 +91,12 @@ class CircularTessellation {
 	        	String(this.origin.Y),
 	        ].join(",");
 	        newLine.transform(transformString);
-	        this.paperSet.push(newLine);
+	        this.pathSet.push(newLine);
 	    }
-		this.paperSet.attr({'cursor': 'pointer'});
-		this.paperSet.mouseup(this.rotate.bind(this));
-		this.paperSet.mouseover(this.rotate.bind(this));
-	    return this.paperSet;
+		this.pathSet.attr({'cursor': 'pointer'});
+		this.pathSet.mouseup(this.rotate.bind(this));
+		this.pathSet.mouseover(this.rotate.bind(this));
+	    return this.pathSet;
 	}
 
 
