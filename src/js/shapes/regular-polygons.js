@@ -1,10 +1,9 @@
 "use strict";
 
-
-// Ways to style the sides of the polygon
-// with path.attr({'stroke-dasharray': string})
-const STROKE_DASH_ARRAY = ["", "-", ".", "--..", "-.", "-..", ". ", "- ", "--", "- .", "--."];
-
+/**
+Dependencies
+- Uses styling in styles.js
+*/
 
 /**
 Draws regular polygon with N sides/rotations
@@ -21,9 +20,12 @@ class RegularNGon {
 
         this.options = options || {};
 
+        // can optionally make this a concave (star) polygon
+        this.concave = this.options.concave || false;
+
         // can optionally draw each side of polygon with a different stroke type
-        this.useDifferentSideStrokes = options.useDifferentSideStrokes || false;
-        this.sideStrokeOffset = options.sideStrokeOffset || 0;
+        this.useDifferentSideStrokes = this.options.useDifferentSideStrokes || false;
+        this.sideStrokeOffset = this.options.sideStrokeOffset || 0;
 
 		this.rotationTransformString = getRotationTransformString(this.origin, this.N);
 
@@ -41,11 +43,23 @@ class RegularNGon {
 		
 		let deltaX = (1/2)*this.size*Math.sin(halfRotationRadians);
 		let deltaY = (1/2)*this.size*Math.cos(halfRotationRadians);
+
+		// initialize the start point and draw bottom differently
+		// depending on whether this n-gon is convex or concave
 		let linePathList = [
-			["M", this.origin.X - deltaX, this.origin.Y + deltaY],
+			["M", this.origin.X - deltaX, this.origin.Y + deltaY]
+		];
+		// if shape is concave, then there is an extra point in the bottom of the line
+		if (this.concave) {
+			linePathList += [
+				["L", this.origin.X, this.origin.Y + (1/2)*deltaY],
+			];
+		}
+		linePathList += [
 			["L", this.origin.X + deltaX, this.origin.Y + deltaY]
 		];
 
+		// draw the linePathList as a path on the paper
 		let linePath = this.paper.path(linePathList);
 		this.styleSide(linePath, 0);
 		pathSet.push(linePath);

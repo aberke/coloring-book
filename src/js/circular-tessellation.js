@@ -11,7 +11,11 @@ Logic:
 		- Reflect other side
 		- Compose sides
 	- Rotate
-- 
+
+
+Dependencies:
+	- path.js
+
 */
 
 class CircularTessellation {
@@ -26,6 +30,7 @@ class CircularTessellation {
 		levels: {number} levels.  Ie, number of time slices repeat along the line
 		withReclection: {boolean} withReflection -- set true for symmetric line
 		slicesCount: {number} number of slices per level
+		slicesPathList: {array} pathList of slices to use
 	*/
 	constructor(paper, origin, diameter, rotations, options) {
 		this.paper = paper;
@@ -52,6 +57,8 @@ class CircularTessellation {
 		// slicesCount is the number of items in a line segment to be repeated
 		// make this number larger for more complicated patterns
 		this.slicesCount = this.options.slicesCount || 3;
+		// slices pathList could have optionally be passed
+		this.slicesPathList = this.options.slicesPathList || null;
 
 		// set the starting height and width of a slice.  Hooray whipping out the binary tree math
 		this.height = this.radius/(this.scaleFactor**this.levels - 1);
@@ -110,9 +117,11 @@ class CircularTessellation {
 		// initialize the final set of paths that will be returned
 	    let lineSet = this.paper.set();
 
-		// generate base slices
-		let slicesPathList = this.getFundamentalDomainLineSlices();
-		let slicesPath = this.paper.path(slicesPathList);
+		// generate base slices if do not already have them
+		if (!this.slicesPathList)
+			this.slicesPathList = getFundamentalDomainLineSlices(this.origin, this.width, this.height, this.slicesCount, this.withReflection);
+		
+		let slicesPath = this.paper.path(this.slicesPathList);
 		// for each level, add the base slices, scaled and translated appropriately
 		lineSet.push(slicesPath);
 		for (let l=1; l<this.levels; l++) {
@@ -129,118 +138,4 @@ class CircularTessellation {
 		}
 	    return lineSet;
 	}
-
-	/**
-	Creates path for slice of fundamental domain line, contained within
-	(width, height) and oriented with line on the right.
-
-	@returns {array} pathList
-	*/
-	getFundamentalDomainLineSlices() {
-		let slicesCount = this.slicesCount;
-		let width = this.width;
-		let height = this.height;
-
-		let pathList = [];
-
-		// divide slices total height into pieces and make a slice per piece
-		let sliceHeight = height/slicesCount;
-		for (var s=0; s<slicesCount; s++) {
-
-			// scale the width of the slices as they get further from the ORIGIN
-			let w = (s + 1)*width;
-
-			let sliceStartPoint = {
-				X: this.origin.X,
-				Y: this.origin.Y + s*sliceHeight,
-			};
-			// how many lines for this given slice? randomly choose from pathNumbers
-			// for the first slice, it should be 0 or 1
-			// number of potential paths scales with slices
-			// reasoning: at the origin, can't visually handle too many paths
-			let pathsNumber = Math.round(Math.random()*(s + 1));
-			for (let i=0; i < pathsNumber; i++) {
-				pathList += this.getFundamentalDomainLineSlicePath(sliceStartPoint, w, sliceHeight);
-			}
-		}
-		return pathList;
-	}
-
-
-	/**
-	Generates a path that starts at startPoint, and ends further along
-	the fundamental domain line slice.  Path is randomly generated.
-
-	@param {X: number, Y: number} startPoint to start drawing along line
-	@param {number} width of the slice
-	@param {number} height of the slice
-	@param {boolean} withReflection whether or not two sides of line should be symmetric
-
-	@returns {array} pathList used to draw Path
-	*/
-	getFundamentalDomainLineSlicePath(startPoint, width, height) {
-		let pathList = [];  // initialize pathList
-		let startPointPathPart = ["M", startPoint.X, startPoint.Y];
-		let endPoint = {
-			X: startPoint.X,
-			Y: startPoint.Y + height
-		}
-
-		// randomly generate either a linear path or a curved path
-		if (Math.random() > 0.5) {
-			// generate line path
-
-			// add two sides
-			// generate deltas for side 1
-			let deltaX1 = Math.random()*width;
-			let deltaY1 = Math.random()*height;
-
-			// get deltas for side  2 -- same as side 1 if with reflection
-			let deltaX2 = this.withReflection ? deltaX1 : Math.random()*width;
-			let deltaY2 = this.withReflection ? deltaY1 : Math.random()*height;
-
-			// add sides to the pathList
-			pathList += [
-				// add side 1
-				startPointPathPart,
-				["L", startPoint.X + deltaX1, startPoint.Y + deltaY1],
-				["L", endPoint.X, endPoint.Y],
-				// add side 2
-				startPointPathPart,
-				["L", startPoint.X - deltaX2, startPoint.Y + deltaY2],
-				["L", endPoint.X, endPoint.Y],
-			];
-		} else {
-			// generate curved path
-			let centerPoint = {
-				X: startPoint.X + width,
-				Y: startPoint.Y + height/2
-			}
-			// get path for side 1
-			let multiplier1 = Math.random();
-			let curvedPath1 = getCatmullRomPath(startPoint, endPoint, centerPoint, multiplier1, multiplier1);
-
-			// get path for side 2
-			let multiplier2 = this.withReflection ? multiplier1 : Math.random();
-			let curvedPath2 = getCatmullRomPath(startPoint, endPoint, centerPoint, (-1)*multiplier2, multiplier2);
-
-			// add sides to the pathList
-			pathList += [
-				// add side 1
-				startPointPathPart,
-				curvedPath1,
-				// add side 2
-				startPointPathPart,
-				curvedPath2,
-			];
-		}
-		return pathList;
-	}
 };
-
-
-function getCatmullRomPath(fromPoint, toPoint, centerPoint, multiplierX, multiplierY) {
-	let differenceX = (centerPoint.X - fromPoint.X);
-	let differenceY = (centerPoint.Y - fromPoint.Y);
-	return ["R", fromPoint.X + multiplierX*differenceX, fromPoint.Y + multiplierY*differenceY, toPoint.X, toPoint.Y];
-}
