@@ -1,0 +1,3 @@
+[submodule "fractals"]
+	path = fractals
+	url = https://github.com/aberke/fractals

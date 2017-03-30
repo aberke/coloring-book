@@ -3,6 +3,16 @@
 Open source, online coloring book through which one can explore the mathematics of symmetry and group theory.
 
 
+## Development
+
+- Clone the repo `$ git clone git@github.com:aberke/coloring-book.git`
+
+Fractals Submodule:
+This repo uses a submodule, which is the `fractals` directory.  This will initally be empty.
+- Fill the fractals directory: run `git submodule update --init --recursive`
+- To pull in changes from the `fractals` repo, run `$ git submodule update`
+
+
 ### Pieces
 
 Starting to generate & put together the pieces.  They are shown in pieces.html.
@@ -158,10 +168,3 @@ Illustrate pmm2 -> pma2
 \/\/\/\/\/\/ ---> \/\/\/\/\/\/
 /\/\/\/\/\/\      \/\/\/\/\/\/\
 
-
-
-
-for translations:
-
-- Can also use arrays to deliver coordinates: 
-`var tri = paper.path([["M", 90, 90], ["L", 10, 70], ["L", 50, 5], ["L", 90, 90]]);` 
