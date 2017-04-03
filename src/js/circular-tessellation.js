@@ -44,9 +44,9 @@ class CircularTessellation {
 
 		// handle options
 		this.options = options || {};
-		this.levels = this.options.levels || 1;
+		this.levels = Number(this.options.levels) || 1;
 		this.scaleFactor = 2;
-		this.withReflection = this.options.withReflection ? this.options.withReflection : false;
+		this.withReflection = this.options.withReflection ? Boolean(this.options.withReflection) : false;
 		// slicesCount is the number of items in a line segment to be repeated
 		// make this number larger for more complicated patterns
 		this.slicesCount = this.options.slicesCount || 3;

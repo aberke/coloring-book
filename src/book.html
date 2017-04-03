@@ -1,5 +1,6 @@
 <!doctype html>
-<html>
+<!-- TODO: not this app -->
+<html ng-app='directivesModule'>
 <head>
 
     <meta charset="utf-8">
@@ -34,6 +35,9 @@
     <script type="text/javascript" src="js/util.js"></script>
     <script type="text/javascript" src="js/draw-wrappers.js"></script>
     <script type="text/javascript" src="js/pattern.js"></script>
+
+    <!-- directives -->
+    <script type='text/javascript' src='js/directives.js'></script>
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,600,700,800" rel="stylesheet">
@@ -104,22 +108,8 @@
                 <div class="text-content">
                     <p>We have intuitive ideas of symmetry. Some shapes look "more symmetric" than others.  For example, a square is "more symmetric" than a rectangle.</p>
                     <div class="text-content-graphic line">
-                        <div class="canvas" id="square-vs-rectangle-square"></div>
-                        <div class="canvas" id="square-vs-rectangle-rectangle"></div>
-
-                        <script>
-                            "use-strict";
-                            let squareVsRectangle_square = {};
-                            squareVsRectangle_square.paper = new Raphael("square-vs-rectangle-square");
-                
-                            squareVsRectangle_square.path = drawInCanvasCenter(squareVsRectangle_square.paper, drawSquare);
-
-                            let squareVsRectangle_rectangle = {};
-                            squareVsRectangle_rectangle.paper = new Raphael("square-vs-rectangle-rectangle");
-                            squareVsRectangle_rectangle.path = drawInCanvasCenter(squareVsRectangle_rectangle.paper, drawRectangle);
-
-                            
-                        </script>
+                        <div class="canvas" canvas-centered-drawing draw-function='drawSquare'></div>
+                        <div class="canvas" canvas-centered-drawing draw-function='drawRectangle'></div>
                     </div>
                     <p>But what does that mean?  We can be more precise.  We can even count how much symmetry a shape has.</p>
                 </div>
@@ -356,111 +346,16 @@
                     <p>There are only 3 unique rotations for a triangle.  We'll talk about them by referring to the rotations that are less than a full turn.</p>
                 </div>
                 <div class="coloring-content">
+
                     <!-- This one is by itself -->
-                    <div class="clickable canvas" id="triangles-0-coloring-content"></div>
-
-                    <!-- TODO -->
+                    <div class="canvas" with-redraw circular-tessellation rotations=3 slices-count=5 levels=2 margin=10></div>
                     <!-- Circular tessellations of rotational symmetry=3 inscribed within triangles -->
-                                    <!-- coloring-content -->
 
-                    <div class="third clickable canvas" id="triangles-1-coloring-content-a"></div>
-                    <div class="third clickable canvas" id="triangles-1-coloring-content-b"></div>
-                    <div class="third clickable canvas" id="triangles-1-coloring-content-c"></div>
+                    <div class="canvas third" with-redraw circular-tessellation rotations=3 slices-count=2 levels=2 margin=20></div>
+                    <div class="canvas third" with-redraw circular-tessellation rotations=3 slices-count=5 levels=1 margin=20></div>
+                    <div class="canvas third" with-redraw circular-tessellation rotations=3 slices-count=2 levels=2 margin=20></div>
                 </div>
 
-                    <script>
-                    "use strict";
-
-                    // TODO: make this work
-                    // handle the lone drawing
-                    let triangles0_coloring = { // this one is by itself, so it has more space
-                        paper: new Raphael("triangles-0-coloring-content"),
-                        options: {
-                            rotations: 3,
-                            slicesCount: 5,
-                            levels: 2,
-                        }
-                    };
-
-                    // draw with a margin
-                    triangles0_coloring.margin = 10;
-                    triangles0_coloring.diameter = Math.min(triangles0_coloring.paper.getSize().width, triangles0_coloring.paper.getSize().height) - triangles0_coloring.margin;
-
-                    triangles0_coloring.origin = getCanvasCenter(triangles0_coloring.paper);
-
-                    // wrap the drawing in a function that can be called onclick to redraw
-                    // since this function generates the paths randomly, each redraw creates new drawings
-                    triangles0_coloring.redraw = function() {
-                        // clear the paper of their previous drawing
-                        triangles0_coloring.paper.clear();
-
-                        // generate circular tessellation
-                        triangles0_coloring.circularTessellation = new CircularTessellation(triangles0_coloring.paper, triangles0_coloring.origin, triangles0_coloring.diameter, triangles0_coloring.options);
-                    };
-                    // draw for the first time
-                    triangles0_coloring.redraw();
-                    // add mouse-up handler to the canvas to cause redraw
-                    triangles0_coloring.paper.canvas.addEventListener('mouseup', triangles0_coloring.redraw);
-
-
-                    // handle the others:
-
-                    let triangles1_coloring = {
-                        a: {
-                            paper: new Raphael("triangles-1-coloring-content-a"),
-                            options: {
-                                rotations: 3,
-                                slicesCount: 2,
-                                levels: 2,
-                            }
-                        },
-                        b: {
-                            paper: new Raphael("triangles-1-coloring-content-b"),
-                            options: {
-                                rotations: 3,
-                                slicesCount: 5,
-                                levels: 1,
-                            }
-                        },
-                        c: {
-                            paper: new Raphael("triangles-1-coloring-content-c"),
-                            options: {
-                                rotations: 3,
-                                slicesCount: 2,
-                                levels: 2,
-                            }
-                        }
-                    };
-
-                    // ASSUMPTION: all the canvases have the same size, and therefore the same origin
-                    triangles1_coloring.origin = getCanvasCenter(triangles1_coloring.a.paper);
-
-                    triangles1_coloring.diameter = Math.min(triangles1_coloring.a.paper.getSize().width, triangles1_coloring.a.paper.getSize().height) - 20; // subtract buffer
-
-                    // wrap the drawing in a function that can be called onclick to redraw
-                    // since this function generates the paths randomly, each redraw creates new drawings
-                    triangles1_coloring.redraw = function() {
-
-                        // clear the papers of their previous drawings
-                        triangles1_coloring.a.paper.clear();
-                        triangles1_coloring.b.paper.clear();
-                        triangles1_coloring.c.paper.clear();
-
-                        // generate circular tessellation atessellations
-                        triangles1_coloring.a.circularTessellation = new CircularTessellation(triangles1_coloring.a.paper, triangles1_coloring.origin, triangles1_coloring.diameter, triangles1_coloring.a.options);
-
-                        // generate circular tessellation b
-                        new CircularTessellation(triangles1_coloring.b.paper, triangles1_coloring.origin, triangles1_coloring.diameter, triangles1_coloring.b.options);
-                        // generate c
-                        new CircularTessellation(triangles1_coloring.c.paper, triangles1_coloring.origin, triangles1_coloring.diameter, triangles1_coloring.c.options);
-                    };
-                    // draw for the first time
-                    triangles1_coloring.redraw();
-                    // add mouse-up handlers to the canvases to cause redraw
-                    triangles1_coloring.a.paper.canvas.addEventListener('mouseup', triangles1_coloring.redraw);
-                    triangles1_coloring.b.paper.canvas.addEventListener('mouseup', triangles1_coloring.redraw);
-                    triangles1_coloring.c.paper.canvas.addEventListener('mouseup', triangles1_coloring.redraw);
-                    </script>
             </div>
 
             <div class="text-coloring-content-container">
