@@ -16,8 +16,7 @@ class CyclicShape {
         this.options = options || {};
         this.N = this.options.rotations || this.options.N;
         this.withReflection = this.options.withReflection || false;
-        this.pathList = this.options.pathList || getFundamentalDomainLineSlices(this.origin, this.width, this.height, 1, this.withReflection);
-
+        
         // can optionally draw each side of polygon with a different stroke type
         this.useDifferentSideStrokes = this.options.useDifferentSideStrokes || false;
         this.sideStrokeOffset = this.options.sideStrokeOffset || 0;

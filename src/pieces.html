@@ -19,6 +19,7 @@
     <script type="text/javascript" src="js/shapes/cyclic-shapes.js"></script>
     <script type="text/javascript" src="js/shapes/dihedral-shapes.js"></script>
     <script type="text/javascript" src="js/shapes/regular-polygons.js"></script>
+    <script type="text/javascript" src="js/shapes/rectangles.js"></script>
     <script type="text/javascript" src="js/shapes/utility.js"></script>
 
     <script type="text/javascript" src="js/paths.js"></script>
@@ -355,7 +356,44 @@
 			    	</script>
 			    </div>
 		    </div>
-		    <!-- shapes -->
+		    <!-- cyclic and dihedral shapes -->
+
+			<!-- rectangle -->
+			<div>
+				<h2>More shapes</h2>
+				<div class="half">
+					<p>Rectangle</p>
+			    	<div id="canvas-rectangle" class="canvas"></div>
+			    	<script>
+			    		"use-strict";
+
+					    let Rect = {
+					    	paper: new Raphael("canvas-rectangle", "100%", 400),
+					    	functionOptions: {
+					    		useDifferentSideStrokes: true,
+					    	},
+					    	options: {
+					    		margin: 12,
+					    		inscribed: true,
+					    	},
+					    };
+					    drawInCanvasCenter(Rect.paper, drawRectangle, Rect.functionOptions, Rect.options);
+
+
+			    	</script>
+			    </div>
+				<div class="half">
+					<!-- <p>D7</p> -->
+			    	<!-- <div id="canvas-D7" class="canvas"></div> -->
+			    	<script>
+			    		"use-strict";
+
+			    	</script>
+			    </div>
+		    </div>
+		    <!-- rectangles -->
+
+
 	   </div>
 	</div>
 	<!-- Pieces -->

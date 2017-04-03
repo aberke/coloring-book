@@ -115,6 +115,13 @@ function drawRegularPolygon(paper, centerPoint, size, options) {
     return pathSet;
 }
 
+function drawRectangle(paper, centerPoint, size, options) {
+	let rectangle = new Rectangle(paper, centerPoint, size, options);
+	let pathSet = rectangle.pathSet;
+    styleShapePath(pathSet);
+    return pathSet;
+}
+
 
 function drawInscribingCircle(paper, centerPoint, size) {
     let path = paper.circle(centerPoint.X, centerPoint.Y, size/2);
@@ -122,16 +129,6 @@ function drawInscribingCircle(paper, centerPoint, size) {
         'stroke': COLORS.LIGHT_GRAY,
         'stroke-width': 1,
     });
-    return path;
-}
-
-
-function drawRectangle(paper, centerPoint, size, options) {
-    // TODO: use options to check if should draw sides different strokes
-    let width = size;
-    let height = size/2;
-    let path = paper.rect(origin.X - width/2, origin.Y - height/2, width, height);
-    styleShapePath(path);
     return path;
 }
 
