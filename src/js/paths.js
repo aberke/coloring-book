@@ -55,9 +55,16 @@ function getFundamentalDomainLineSlices(origin, width, height, slicesCount, with
         // Don't allow case of ending up with all pathsNumbers being 0
         if (zeroPathsNumbers >= slicesCount)
             pathsNumber = Math.round(Math.random()*(s + 2));
+        // continue if there are no slice paths to draw for this slice
+        if (pathsNumber === 0)
+            continue;
 
+        // space the slice paths out in terms of width
+        let wChange = w/pathsNumber;
+        let sliceWidth = Math.min(Math.max(wChange, 5), width);
         for (let i=0; i < pathsNumber; i++) {
-            pathList += getFundamentalDomainLineSlicePath(sliceStartPoint, w, sliceHeight, withReflection);
+            pathList += getFundamentalDomainLineSlicePath(sliceStartPoint, sliceWidth, sliceHeight, withReflection);
+            sliceWidth += wChange;
         }
     }
     return pathList;
@@ -87,24 +94,22 @@ function getFundamentalDomainLineSlicePath(startPoint, width, height, withReflec
     if (Math.random() > 0.5) {
         // generate line path
 
-        // add two sides
-        // generate deltas for side 1
-        let deltaX1 = Math.random()*width;
-        let deltaY1 = Math.random()*height;
+        // Add two sides:
 
-        // get deltas for side  2 -- same as side 1 if with reflection
-        let deltaX2 = withReflection ? deltaX1 : Math.random()*width;
+        // generate random delta for side 1
+        let deltaY1 = Math.random()*height;
+        // get delta for side  2 -- same as side 1 if with reflection
         let deltaY2 = withReflection ? deltaY1 : Math.random()*height;
 
         // add sides to the pathList
         pathList += [
             // add side 1
             startPointPathPart,
-            ["L", startPoint.X + deltaX1, startPoint.Y + deltaY1],
+            ["L", startPoint.X + width, startPoint.Y + deltaY1],
             ["L", endPoint.X, endPoint.Y],
             // add side 2
             startPointPathPart,
-            ["L", startPoint.X - deltaX2, startPoint.Y + deltaY2],
+            ["L", startPoint.X - width, startPoint.Y + deltaY2],
             ["L", endPoint.X, endPoint.Y],
         ];
     } else {
@@ -114,12 +119,12 @@ function getFundamentalDomainLineSlicePath(startPoint, width, height, withReflec
             Y: startPoint.Y + height/2
         }
         // get path for side 1
-        let multiplier1 = Math.random();
-        let curvedPath1 = getCatmullRomPath(startPoint, endPoint, centerPoint, multiplier1, multiplier1);
+        let multiplierY1 = Math.random();
+        let curvedPath1 = getCatmullRomPath(startPoint, endPoint, centerPoint, 1, multiplierY1);
 
         // get path for side 2
-        let multiplier2 = withReflection ? multiplier1 : Math.random();
-        let curvedPath2 = getCatmullRomPath(startPoint, endPoint, centerPoint, (-1)*multiplier2, multiplier2);
+        let multiplierY2 = withReflection ? multiplierY1 : Math.random();
+        let curvedPath2 = getCatmullRomPath(startPoint, endPoint, centerPoint, -1, multiplierY2);
 
         // add sides to the pathList
         pathList += [
