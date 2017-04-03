@@ -161,6 +161,19 @@ Structure
 	display: inline-block;
 }
 
+.text-content-graphic .canvas.extra-small {
+	width: 40px;
+	height: 40px;
+}
+.fake-canvas {
+	vertical-align: top;
+}
+.fake-canvas p {
+	text-align: center;
+	display: block;
+	font-weight: bold;
+}
+
 
 /* Pieces */
 

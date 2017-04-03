@@ -18,8 +18,7 @@ Optionally draws text below.  Uses passed in function to draw the shape.
 
 @returns {pathSet: object, origin: {X: number, Y: number}}
 */
-function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
-    options = options || {};
+function drawInCanvasCenter(paper, drawFunction, functionOptions, options = {}) {
 
     let width = paper.getSize().width;
     let height = paper.getSize().height;
@@ -53,6 +52,10 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
     if (options.text)
         paper.text(origin.X, origin.Y + size/2 + bottomMargin/2, options.text);
 
+    // Optionally have shape initially rotated
+    if (options.initialRotation && !isNaN(parseFloat(options.initialRotation)))
+        setInitialRotation(pathSet, origin, options.initialRotation);
+
     // Optionally rotate on interval
     if (options.autoRotateDegrees)
         setAutoRotate(pathSet, origin, options.autoRotateDegrees);
@@ -69,6 +72,14 @@ function getCanvasCenter(paper) {
         X: paper.getSize().width/2,
         Y: paper.getSize().height/2
     };  
+}
+
+function setInitialRotation(pathSet, origin, rotation) {
+    pathSet.transform([
+        "...R" + String(rotation),
+        String(origin.X),
+        String(origin.Y),
+    ].join(","));   
 }
 
 function setAutoRotate(pathSet, origin, autoRotateDegrees) {
@@ -92,6 +103,14 @@ Wrappers around draw functions
 These are called by the drawInCanvasCenter function
 They draw the desired shape around the origin/centerPoint
 */
+
+function drawCircularTessellation(paper, centerPoint, size, options) {
+    let circularTessellation = new CircularTessellation(paper, origin, size, options);
+    let pathSet = circularTessellation.pathSet;
+    styleShapePath(pathSet);
+    return pathSet;
+}
+
 
 function drawCyclicShape(paper, centerPoint, size, options) {
     let cyclicShape = new CyclicShape(paper, centerPoint, size, options);
@@ -124,12 +143,18 @@ function drawRectangle(paper, centerPoint, size, options) {
 
 
 function drawInscribingCircle(paper, centerPoint, size) {
-    let path = paper.circle(centerPoint.X, centerPoint.Y, size/2);
+    let path = drawCircle(paper, centerPoint, size);
     path.attr({
         'stroke': COLORS.LIGHT_GRAY,
         'stroke-width': 1,
     });
     return path;
+}
+
+function drawCircle(paper, centerPoint, size) {
+    let pathSet = paper.circle(centerPoint.X, centerPoint.Y, size/2);
+    styleShapePath(pathSet);
+    return pathSet;
 }
 
 

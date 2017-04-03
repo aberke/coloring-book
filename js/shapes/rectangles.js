@@ -6,8 +6,7 @@ Draws rectangle.
 */
 class Rectangle extends DihedralShape {
 
-	constructor(paper, origin, size, options) {
-		options = options || {};
+	constructor(paper, origin, size, options = {}) {
 		options.rotations = 2;
 		options.width = options.width || size;
 		options.height = options.height || size/2;
