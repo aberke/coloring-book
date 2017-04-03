@@ -25,6 +25,8 @@
     <script type="text/javascript" src="js/styling.js"></script>
 
     <script type="text/javascript" src="js/shapes/utility.js"></script>
+    <script type="text/javascript" src="js/shapes/cyclic-shapes.js"></script>
+    <script type="text/javascript" src="js/shapes/dihedral-shapes.js"></script>
     <script type="text/javascript" src="js/shapes/regular-polygons.js"></script>
 
     <script type="text/javascript" src="js/paths.js"></script>
@@ -138,12 +140,27 @@
                     let squareVsRectangle_coloring = {
                         a: {
                             paper: new Raphael("square-vs-rectangle-rectangle-coloring-content-a"),
+                            options: {
+                                levels: 2,
+                                withReflection: true,
+                                rotations: 2,
+                            },
                         },
                         b: {
                             paper: new Raphael("square-vs-rectangle-rectangle-coloring-content-b"),
+                            options: {
+                                levels: 2,
+                                withReflection: true,
+                                rotations: 4,
+                            },
                         },
                         c: {
                             paper: new Raphael("square-vs-rectangle-rectangle-coloring-content-c"),
+                            options: {
+                                levels: 2,
+                                withReflection: true,
+                                rotations: 2,
+                            },
                         },
                     };
 
@@ -152,20 +169,11 @@
                     squareVsRectangle_coloring.origin = getCanvasCenter(squareVsRectangle_coloring.a.paper);
 
                     squareVsRectangle_coloring.diameter = Math.min(squareVsRectangle_coloring.a.paper.getSize().width, squareVsRectangle_coloring.a.paper.getSize().height);
-                    squareVsRectangle_coloring.slicesCount = 4;
-                    squareVsRectangle_coloring.options = {
-                        levels: 2,
-                        withReflection: true,
-                    };
-
-                    // generate circular tessellation 'a' and use its slices to generate the others
-                    squareVsRectangle_coloring.a.rotations = 2;
-                    squareVsRectangle_coloring.b.rotations = 4;
-                    squareVsRectangle_coloring.c.rotations = 2;
 
                     // wrap the drawing in a function that can be called onclick to redraw
                     // since this function generates the paths randomly, each redraw creates new drawings
                     squareVsRectangle_coloring.redraw = function() {
+                        // generate circular tessellation 'a' and use its slices to generate the others
 
                         // clear the papers of their previous drawings
                         squareVsRectangle_coloring.a.paper.clear();
@@ -173,20 +181,21 @@
                         squareVsRectangle_coloring.c.paper.clear();
 
                         // clear out the old slices pathList if this is a redraw
-                        squareVsRectangle_coloring.options.slicesPathList = null;
+                        squareVsRectangle_coloring.a.options.slicesPathList = null;
 
                         // generate circular tessellation a and at the same time
                         // get the slices pathList from it to reuse for the other tessellations
-                        squareVsRectangle_coloring.a.circularTessellation = new CircularTessellation(squareVsRectangle_coloring.a.paper, squareVsRectangle_coloring.origin, squareVsRectangle_coloring.diameter, squareVsRectangle_coloring.a.rotations, squareVsRectangle_coloring.options);
+                        squareVsRectangle_coloring.a.circularTessellation = new CircularTessellation(squareVsRectangle_coloring.a.paper, squareVsRectangle_coloring.origin, squareVsRectangle_coloring.diameter, squareVsRectangle_coloring.a.options);
 
                         // get the slices pathList from a and add them to the options
                         // so that they can be used to generate the other circular tessellations
-                        squareVsRectangle_coloring.options.slicesPathList = squareVsRectangle_coloring.a.circularTessellation.slicesPathList;
+                        squareVsRectangle_coloring.b.options.slicesPathList = squareVsRectangle_coloring.a.circularTessellation.slicesPathList;
+                        squareVsRectangle_coloring.c.options.slicesPathList = squareVsRectangle_coloring.a.circularTessellation.slicesPathList;
 
                         // generate circular tessellation b
-                        new CircularTessellation(squareVsRectangle_coloring.b.paper, squareVsRectangle_coloring.origin, squareVsRectangle_coloring.diameter, squareVsRectangle_coloring.b.rotations, squareVsRectangle_coloring.options);
+                        new CircularTessellation(squareVsRectangle_coloring.b.paper, squareVsRectangle_coloring.origin, squareVsRectangle_coloring.diameter, squareVsRectangle_coloring.b.options);
                         // generate c
-                        new CircularTessellation(squareVsRectangle_coloring.c.paper, squareVsRectangle_coloring.origin, squareVsRectangle_coloring.diameter, squareVsRectangle_coloring.c.rotations, squareVsRectangle_coloring.options);
+                        new CircularTessellation(squareVsRectangle_coloring.c.paper, squareVsRectangle_coloring.origin, squareVsRectangle_coloring.diameter, squareVsRectangle_coloring.c.options);
                     };
                     // draw for the first time
                     squareVsRectangle_coloring.redraw();
@@ -216,7 +225,7 @@
                             let cn1Triangle = {};
 
                             cn1Triangle.paper = new Raphael("cn-1-triangle");
-                            cn1Triangle.centeredDrawing = drawInCanvasCenter(cn1Triangle.paper, drawInscribedRegularNGon, {N: 3}, {autoRotateDegrees: 120});
+                            cn1Triangle.centeredDrawing = drawInCanvasCenter(cn1Triangle.paper, drawRegularPolygon, {N: 3}, {autoRotateDegrees: 120, inscribed: true});;
                         </script>
                     </div>
 
@@ -242,14 +251,14 @@
                             cn1Triangles1_180.paper = new Raphael("cn-1-triangles-1-180deg");
                             cn1Triangles1_270.paper = new Raphael("cn-1-triangles-1-270deg");
                 
-                            cn1Triangles1_90.centeredDrawing = drawInCanvasCenter(cn1Triangles1_90.paper, drawInscribedRegularNGon, {N: 3}, {text: '1/4 turn'});
+                            cn1Triangles1_90.centeredDrawing = drawInCanvasCenter(cn1Triangles1_90.paper, drawRegularPolygon, {N: 3}, {text: '1/4 turn', inscribed: true});
                             cn1Triangles1_90.centeredDrawing.pathSet.rotate(90, cn1Triangles1_90.centeredDrawing.origin.X, cn1Triangles1_90.centeredDrawing.origin.Y);
 
 
-                            cn1Triangles1_180.centeredDrawing = drawInCanvasCenter(cn1Triangles1_180.paper, drawInscribedRegularNGon, {N: 3}, {text: '2/4 turn'});
+                            cn1Triangles1_180.centeredDrawing = drawInCanvasCenter(cn1Triangles1_180.paper, drawRegularPolygon, {N: 3}, {text: '2/4 turn', inscribed: true});
                             cn1Triangles1_180.centeredDrawing.pathSet.rotate(180, cn1Triangles1_180.centeredDrawing.origin.X, cn1Triangles1_180.centeredDrawing.origin.Y);
 
-                            cn1Triangles1_270.centeredDrawing = drawInCanvasCenter(cn1Triangles1_270.paper, drawInscribedRegularNGon, {N: 3}, {text: '3/4 turn'});
+                            cn1Triangles1_270.centeredDrawing = drawInCanvasCenter(cn1Triangles1_270.paper, drawRegularPolygon, {N: 3}, {text: '3/4 turn', inscribed: true});
                             cn1Triangles1_270.centeredDrawing.pathSet.rotate(270, cn1Triangles1_270.centeredDrawing.origin.X, cn1Triangles1_270.centeredDrawing.origin.Y);
 
                         </script>
@@ -305,6 +314,7 @@
             </div>
 
             <div class="text-coloring-content-container">
+
                 <div class="text-content">
                     <p>We can still rotate that triangle by more than &frac13; of the way around a circle without changing it.  It can be rotated by twice that much - &frac23; of the way around the circle - or by 3 times that much, which is all the way around the circle.</p>
                     <div class="text-content-graphic line">
@@ -318,11 +328,11 @@
                             // line of 3 triangles inscribed within circles -- each side has different stroke type,
                             // rotated 0deg; 120deg; 240deg;  on hovering over section, all rotate 120deg;
                 
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-1-0deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 0}, {text: '0 turn / full turn', autoRotateDegrees: 120});
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-1-0deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 0}, {text: '0 turn / full turn', autoRotateDegrees: 120, inscribed: true});
 
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-1-120deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 1}, {text: '1/3 turn', autoRotateDegrees: 120});
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-1-120deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 1}, {text: '1/3 turn', autoRotateDegrees: 120, inscribed: true});
 
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-1-240deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 2}, {text: '2/3 turn', autoRotateDegrees: 120});
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-1-240deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 2}, {text: '2/3 turn', autoRotateDegrees: 120, inscribed: true});
                         </script>
                     </div>
 
@@ -339,12 +349,12 @@
                         <script>
                             "use-strict";
                 
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-0deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 0}, {text: '0 turn', autoRotateDegrees: 120});
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-120deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 1}, {text: '1/3 turn', autoRotateDegrees: 120});
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-240deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 2}, {text: '2/3 turn', autoRotateDegrees: 120});
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-360deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 0}, {text: '3/3 turn', autoRotateDegrees: 120});
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-480deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 1}, {text: '4/3', autoRotateDegrees: 120});
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-600deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 2}, {text: '5/3', autoRotateDegrees: 120});
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-0deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 0}, {text: '0 turn', autoRotateDegrees: 120, inscribed: true});
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-120deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 1}, {text: '1/3 turn', autoRotateDegrees: 120, inscribed: true});
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-240deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 2}, {text: '2/3 turn', autoRotateDegrees: 120, inscribed: true});
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-360deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 0}, {text: '3/3 turn', autoRotateDegrees: 120, inscribed: true});
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-480deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 1}, {text: '4/3', autoRotateDegrees: 120, inscribed: true});
+                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-600deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 2}, {text: '5/3', autoRotateDegrees: 120, inscribed: true});
                         </script>
                     </div>
 
@@ -352,7 +362,7 @@
                 </div>
                 <div class="coloring-content">
                     <!-- This one is by itself -->
-                    <!-- <div class="clickable canvas" id="triangles-0-coloring-content"></div> -->
+                    <div class="clickable canvas" id="triangles-0-coloring-content"></div>
 
                     <!-- TODO -->
                     <!-- Circular tessellations of rotational symmetry=3 inscribed within triangles -->
@@ -368,35 +378,34 @@
 
                     // TODO: make this work
                     // handle the lone drawing
-                    // let triangles0_coloring = { // this one is by itself, so it has more space
-                    //     paper: new Raphael("triangles-0-coloring-content"),
-                    //     options: {
-                    //         slicesCount: 5,
-                    //         levels: 2,
-                    //         rotations: 3,
-                    //     }
-                    // };
+                    let triangles0_coloring = { // this one is by itself, so it has more space
+                        paper: new Raphael("triangles-0-coloring-content"),
+                        options: {
+                            rotations: 3,
+                            slicesCount: 5,
+                            levels: 2,
+                        }
+                    };
 
-                    // triangles0_coloring.origin = getCanvasCenter(triangles0_coloring.paper);
-                    // console.log('triangles0_coloring', triangles0_coloring)
-                    // triangles0_coloring.paper.circle(triangles0_coloring.origin.X, triangles0_coloring.origin.Y, 10)
+                    // draw with a margin
+                    triangles0_coloring.margin = 10;
+                    triangles0_coloring.diameter = Math.min(triangles0_coloring.paper.getSize().width, triangles0_coloring.paper.getSize().height) - triangles0_coloring.margin;
 
+                    triangles0_coloring.origin = getCanvasCenter(triangles0_coloring.paper);
 
-                    // triangles0_coloring.diameter = Math.min(triangles0_coloring.paper.getSize().width, triangles0_coloring.paper.getSize().height);
+                    // wrap the drawing in a function that can be called onclick to redraw
+                    // since this function generates the paths randomly, each redraw creates new drawings
+                    triangles0_coloring.redraw = function() {
+                        // clear the paper of their previous drawing
+                        triangles0_coloring.paper.clear();
 
-                    // // wrap the drawing in a function that can be called onclick to redraw
-                    // // since this function generates the paths randomly, each redraw creates new drawings
-                    // triangles0_coloring.redraw = function() {
-                    //     // clear the paper of their previous drawing
-                    //     triangles0_coloring.paper.clear();
-
-                    //     // generate circular tessellation
-                    //     triangles0_coloring.circularTessellation = new CircularTessellation(triangles0_coloring.paper, triangles0_coloring.origin, triangles0_coloring.diameter, triangles0_coloring.rotations, triangles0_coloring.options);
-                    // };
-                    // // draw for the first time
-                    // triangles0_coloring.redraw();
-                    // // add mouse-up handler to the canvas to cause redraw
-                    // triangles0_coloring.paper.canvas.addEventListener('mouseup', triangles0_coloring.redraw);
+                        // generate circular tessellation
+                        triangles0_coloring.circularTessellation = new CircularTessellation(triangles0_coloring.paper, triangles0_coloring.origin, triangles0_coloring.diameter, triangles0_coloring.options);
+                    };
+                    // draw for the first time
+                    triangles0_coloring.redraw();
+                    // add mouse-up handler to the canvas to cause redraw
+                    triangles0_coloring.paper.canvas.addEventListener('mouseup', triangles0_coloring.redraw);
 
 
                     // handle the others:
@@ -405,6 +414,7 @@
                         a: {
                             paper: new Raphael("triangles-1-coloring-content-a"),
                             options: {
+                                rotations: 3,
                                 slicesCount: 2,
                                 levels: 2,
                             }
@@ -412,6 +422,7 @@
                         b: {
                             paper: new Raphael("triangles-1-coloring-content-b"),
                             options: {
+                                rotations: 3,
                                 slicesCount: 5,
                                 levels: 1,
                             }
@@ -419,6 +430,7 @@
                         c: {
                             paper: new Raphael("triangles-1-coloring-content-c"),
                             options: {
+                                rotations: 3,
                                 slicesCount: 2,
                                 levels: 2,
                             }
@@ -428,11 +440,7 @@
                     // ASSUMPTION: all the canvases have the same size, and therefore the same origin
                     triangles1_coloring.origin = getCanvasCenter(triangles1_coloring.a.paper);
 
-                    triangles1_coloring.diameter = Math.min(triangles1_coloring.a.paper.getSize().width, triangles1_coloring.a.paper.getSize().height);
-
-                    triangles1_coloring.a.rotations = 3;
-                    triangles1_coloring.b.rotations = 3;
-                    triangles1_coloring.c.rotations = 3;
+                    triangles1_coloring.diameter = Math.min(triangles1_coloring.a.paper.getSize().width, triangles1_coloring.a.paper.getSize().height) - 20; // subtract buffer
 
                     // wrap the drawing in a function that can be called onclick to redraw
                     // since this function generates the paths randomly, each redraw creates new drawings
@@ -444,12 +452,12 @@
                         triangles1_coloring.c.paper.clear();
 
                         // generate circular tessellation atessellations
-                        triangles1_coloring.a.circularTessellation = new CircularTessellation(triangles1_coloring.a.paper, triangles1_coloring.origin, triangles1_coloring.diameter, triangles1_coloring.a.rotations, triangles1_coloring.a.options);
+                        triangles1_coloring.a.circularTessellation = new CircularTessellation(triangles1_coloring.a.paper, triangles1_coloring.origin, triangles1_coloring.diameter, triangles1_coloring.a.options);
 
                         // generate circular tessellation b
-                        new CircularTessellation(triangles1_coloring.b.paper, triangles1_coloring.origin, triangles1_coloring.diameter, triangles1_coloring.b.rotations, triangles1_coloring.b.options);
+                        new CircularTessellation(triangles1_coloring.b.paper, triangles1_coloring.origin, triangles1_coloring.diameter, triangles1_coloring.b.options);
                         // generate c
-                        new CircularTessellation(triangles1_coloring.c.paper, triangles1_coloring.origin, triangles1_coloring.diameter, triangles1_coloring.c.rotations, triangles1_coloring.c.options);
+                        new CircularTessellation(triangles1_coloring.c.paper, triangles1_coloring.origin, triangles1_coloring.diameter, triangles1_coloring.c.options);
                     };
                     // draw for the first time
                     triangles1_coloring.redraw();
@@ -479,10 +487,14 @@
                     <script>
                         "use-strict";
 
-                        drawInCanvasCenter(new Raphael("cn-1-non-triangles-1-0deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 0, concave: true}, {text: '0 turn / full turn', autoRotateDegrees: 120});
-                        drawInCanvasCenter(new Raphael("cn-1-non-triangles-1-120deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 1, concave: true}, {text: '1/3', autoRotateDegrees: 120});
-                        drawInCanvasCenter(new Raphael("cn-1-non-triangles-1-240deg"), drawInscribedRegularNGon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 2, concave: true}, {text: '2/3', autoRotateDegrees: 120});
+                        drawInCanvasCenter(new Raphael("cn-1-non-triangles-1-0deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 0, concave: true}, {text: '0 turn / full turn', autoRotateDegrees: 120, inscribed: true});
+                        drawInCanvasCenter(new Raphael("cn-1-non-triangles-1-120deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 1, concave: true}, {text: '1/3', autoRotateDegrees: 120, inscribed: true});
+                        drawInCanvasCenter(new Raphael("cn-1-non-triangles-1-240deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 2, concave: true}, {text: '2/3', autoRotateDegrees: 120, inscribed: true});
 
+
+                        drawInCanvasCenter(new Raphael("cn-1-non-triangles-2-0deg"), drawCyclicShape, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 0, concave: true}, {text: '0 turn / full turn', autoRotateDegrees: 120, inscribed: true});
+                        drawInCanvasCenter(new Raphael("cn-1-non-triangles-2-120deg"), drawCyclicShape, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 1, concave: true}, {text: '1/3', autoRotateDegrees: 120, inscribed: true});
+                        drawInCanvasCenter(new Raphael("cn-1-non-triangles-2-240deg"), drawCyclicShape, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 2, concave: true}, {text: '2/3', autoRotateDegrees: 120, inscribed: true});
 
                     </script>
                 </div>

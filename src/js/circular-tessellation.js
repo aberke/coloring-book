@@ -27,12 +27,13 @@ class CircularTessellation {
 	@param {X: number, Y: number} origin point
 	@param {number} diameter
 	@param {Object} options:
-		levels: {number} levels.  Ie, number of time slices repeat along the line
-		withReclection: {boolean} withReflection -- set true for symmetric line
-		slicesCount: {number} number of slices per level
-		slicesPathList: {array} pathList of slices to use
+		{number} rotations as rotational order of shape
+		{number} levels.  Ie, number of time slices repeat along the line
+		{boolean} withReflection -- set true for symmetric line
+		{number} slicesCount number of slices per level
+		{array} slicesPathList: pathList of slices to use
 	*/
-	constructor(paper, origin, diameter, rotations, options) {
+	constructor(paper, origin, diameter, options) {
 		this.paper = paper;
 		this.pathSet = this.paper.set();
 
@@ -40,14 +41,6 @@ class CircularTessellation {
 		
 		this.diameter = diameter;
 		this.radius = this.diameter/2;
-
-		this.rotations = rotations;
-		// set up rotation transform string
-		this.rotationDegrees = 360/rotations;
-		this.rotationTransformString = getRotationTransformString(this.origin, this.rotations);
-		// keep track of whether currently rotating to avoid setting
-		// off rotation twice at the same time
-		this.isRotating = false;
 
 		// handle options
 		this.options = options || {};
@@ -59,6 +52,14 @@ class CircularTessellation {
 		this.slicesCount = this.options.slicesCount || 3;
 		// slices pathList could have optionally be passed
 		this.slicesPathList = this.options.slicesPathList || null;
+
+		this.rotations = options.rotations || 1;
+		// set up rotation transform string
+		this.rotationDegrees = 360/this.rotations;
+		this.rotationTransformString = getRotationTransformString(this.origin, this.rotations);
+		// keep track of whether currently rotating to avoid setting
+		// off rotation twice at the same time
+		this.isRotating = false;
 
 		// set the starting height and width of a slice.  Hooray whipping out the binary tree math
 		this.height = this.radius/(this.scaleFactor**this.levels - 1);

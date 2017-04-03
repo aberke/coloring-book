@@ -54,7 +54,7 @@ function getFundamentalDomainLineSlices(origin, width, height, slicesCount, with
             zeroPathsNumbers += 1;
         // Don't allow case of ending up with all pathsNumbers being 0
         if (zeroPathsNumbers >= slicesCount)
-            pathsNumber = Math.round(Math.random()*(s + 2));
+            pathsNumber += 1;
         // continue if there are no slice paths to draw for this slice
         if (pathsNumber === 0)
             continue;
@@ -117,7 +117,7 @@ function getFundamentalDomainLineSlicePath(startPoint, width, height, withReflec
         let centerPoint = {
             X: startPoint.X + width,
             Y: startPoint.Y + height/2
-        }
+        };
         // get path for side 1
         let multiplierY1 = Math.random();
         let curvedPath1 = getCatmullRomPath(startPoint, endPoint, centerPoint, 1, multiplierY1);

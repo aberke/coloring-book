@@ -14,6 +14,7 @@ Optionally draws text below.  Uses passed in function to draw the shape.
                 {string} text to draw below shape
                 {number} autoRotateDegrees - defaults to none.
                         When set, shape automatically rotates every so often by this amount in animation
+                {number} margin to keep within sides of canvas and shape
 
 @returns {pathSet: object, origin: {X: number, Y: number}}
 */
@@ -23,18 +24,30 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
     let width = paper.getSize().width;
     let height = paper.getSize().height;
 
+    let margin = options.margin || 0;
+
     // if want to draw text below, leave margin below the shape for it
     let bottomMargin = options.text ? 15 : 0;
 
     // total desired size := minumum boundary minus bottom margin
-    let size = Math.min(width, height - bottomMargin);
+    let size = Math.min(width, height - Math.max(bottomMargin, margin));
     let origin = getCanvasCenter(paper);
     // shift origin to accommodate bottom margin
     origin.Y = origin.Y - (bottomMargin/2);
 
+    // initialize the pathSet that will be returned
+    let pathSet = paper.set();
+    if (options.inscribed) {
+        // Inscribe shape within circle.
+        // Inscribing circle drawn first so that shape sits on top.
+        let circlePath = drawInscribingCircle(paper, origin, size);
+        pathSet.push(circlePath);
+    }
+
     // Draw the main shape
     // The returned pathSet is either a path or a set of paths
-    let pathSet = drawFunction(paper, origin, size, functionOptions);
+    pathSet.push(drawFunction(paper, origin, size, functionOptions));
+
 
     // if there is text to draw, draw it underneath
     if (options.text)
@@ -80,24 +93,23 @@ These are called by the drawInCanvasCenter function
 They draw the desired shape around the origin/centerPoint
 */
 
-
-function drawInscribedRegularNGon(paper, centerPoint, size, options) {
-    
-    let pathSet = paper.set();
-    
-    // draw inscribing circle first so that polygon path sits on top
-    let circlePath = drawInscribingCircle(paper, centerPoint, size);
-    pathSet.push(circlePath);
-
-    let nGonPathSet = drawRegularNGon(paper, centerPoint, size, options)
-    pathSet.push(nGonPathSet);
-
+function drawCyclicShape(paper, centerPoint, size, options) {
+    let cyclicShape = new CyclicShape(paper, centerPoint, size, options);
+    let pathSet = cyclicShape.pathSet;
+    styleShapePath(pathSet);
     return pathSet;
 }
 
-function drawRegularNGon(paper, centerPoint, size, options) {
-    let N = options.N;
-    let regularNGon = new RegularNGon(paper, centerPoint, size, N, options);
+function drawDihedralShape(paper, centerPoint, size, options) {
+    let dihedralShape = new DihedralShape(paper, centerPoint, size, options);
+    let pathSet = dihedralShape.pathSet;
+    styleShapePath(pathSet);
+    return pathSet;
+}
+
+
+function drawRegularPolygon(paper, centerPoint, size, options) {
+    let regularNGon = new RegularPolygon(paper, centerPoint, size, options);
     let pathSet = regularNGon.pathSet;
     styleShapePath(pathSet);
     return pathSet;

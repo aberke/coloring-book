@@ -120,11 +120,11 @@ Structure
 	vertical-align: middle;
 }
 .text-content {
-	border-right: 1px solid gray;
 	width: 40%;
 }
 .coloring-content {
 	width: 55%;
+	border-left: 1px solid gray;
 }
 
 

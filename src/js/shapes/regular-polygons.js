@@ -1,42 +1,19 @@
 "use strict";
 
-/**
-Dependencies
-- Uses styling in styles.js
-*/
 
 /**
 Draws regular polygon with N sides/rotations
 where the polygon sits with the bottom side horizontally
 aligned along the x-axis.
 */
-class RegularNGon {
+class RegularPolygon extends DihedralShape {
 
-	constructor(paper, origin, size, N, options) {
-		this.paper = paper;
-		this.origin = origin;
-		this.size = size;
-		this.N = N;
-
-        this.options = options || {};
-
-        // can optionally make this a concave (star) polygon
-        this.concave = this.options.concave || false;
-
-        // can optionally draw each side of polygon with a different stroke type
-        this.useDifferentSideStrokes = this.options.useDifferentSideStrokes || false;
-        this.sideStrokeOffset = this.options.sideStrokeOffset || 0;
-
-		this.rotationTransformString = getRotationTransformString(this.origin, this.N);
-
-		this.pathSet;
-		this.draw();
+	constructor(paper, origin, size, options) {
+        super(paper, origin, size, options);
 	}
 
-
-	draw() {
-		let pathSet = this.paper.set(); // what will be returned
-
+	// generates the path set to be used as the 'fundamental' domain of the polygon
+	getLinePathList() {
 		// draw the bottom side of the polygon, oriented to lie horizontally flat
 		let rotationRadians = 2*Math.PI/this.N;
 		let halfRotationRadians = rotationRadians/2;
@@ -50,7 +27,7 @@ class RegularNGon {
 			["M", this.origin.X - deltaX, this.origin.Y + deltaY]
 		];
 		// if shape is concave, then there is an extra point in the bottom of the line
-		if (this.concave) {
+		if (this.options.concave) {
 			linePathList += [
 				["L", this.origin.X, this.origin.Y + (1/2)*deltaY],
 			];
@@ -59,42 +36,13 @@ class RegularNGon {
 			["L", this.origin.X + deltaX, this.origin.Y + deltaY]
 		];
 
-		// draw the linePathList as a path on the paper
-		let linePath = this.paper.path(linePathList);
-		this.styleSide(linePath, 0);
-		pathSet.push(linePath);
-
-		// draw the other sides by cloning bottom side and rotating
-		for (let n = 1; n < this.N; n++) {
-			let newLinePath = linePath.clone();
-			this.styleSide(newLinePath, n);
-
-			let degreesToRotate = n*(360/this.N);
-			let transformString = [
-				"...R" + String(degreesToRotate),
-				String(this.origin.X),
-				String(this.origin.Y),
-			].join(",");
-			newLinePath.transform(transformString);
-			pathSet.push(newLinePath);
-		}
-		this.pathSet = pathSet;
-	}
-
-	// n is which side it is, where 0 is the bottom side
-	styleSide(path, n) {
-		if (this.useDifferentSideStrokes && this.N < STROKE_DASH_ARRAY.length) {
-            let strokeDashArray = STROKE_DASH_ARRAY[(this.sideStrokeOffset + n) % this.N];
-            path.attr({
-                'stroke-dasharray': strokeDashArray
-            });
-        }
+		return linePathList;
 	}
 }
 
 
 /**
-Lighter weight:
+Lighter weight NGon creator:
 Returns pathList for a regular N-sided polygon
 Borrowed from https://www.safaribooksonline.com/library/view/raphaeljs/9781449365356/ch04.html
 
