@@ -108,8 +108,14 @@
                 <div class="text-content">
                     <p>We have intuitive ideas of symmetry. Some shapes look "more symmetric" than others.  For example, a square is "more symmetric" than a rectangle.</p>
                     <div class="text-content-graphic line">
-                        <div class="canvas" canvas-centered-drawing draw-function='drawSquare'></div>
-                        <div class="canvas" canvas-centered-drawing draw-function='drawRectangle'></div>
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawSquare'
+                        ></div>
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRectangle'
+                        ></div>
                     </div>
                     <p>But what does that mean?  We can be more precise.  We can even count how much symmetry a shape has.</p>
                 </div>
@@ -252,49 +258,21 @@
 
                 <!-- coloring-content -->
                 <div class="coloring-content">
-
-                    <div class="third canvas" id="sierpinski-triangle-coloring-content-a"></div>
-                    <div class="third canvas" id="sierpinski-triangle-coloring-content-b"></div>
-                    <div class="third canvas" id="sierpinski-triangle-coloring-content-c"></div>
-
-                    <script>
-                    "use strict";
-
-                    // TODO: Line with [Sierpinski triangle flower]
-                    let sierpinskiTriangles_coloring = {
-                        a: {
-                            paper: new Raphael("sierpinski-triangle-coloring-content-a"),
-                            options: {
-                                level: 3,
-                                orientation: -1,
-                            }
-                        },
-                        b: {
-                            paper: new Raphael("sierpinski-triangle-coloring-content-b"),
-                            options: {
-                                level: 5,
-                                orientation: 1,
-                            }
-                        },
-                        c: {
-                            paper: new Raphael("sierpinski-triangle-coloring-content-c"),
-                            options: {
-                                level: 3,
-                                orientation: -1,
-                            }
-                        },
-                    };
-                    let drawSierpinskiTriangle = function(paper, centerPoint, size, options) {
-
-                        let sierpinskiTrianglePath = getSierpinskiTriangle(centerPoint, size, options);
-                        paper.path(sierpinskiTrianglePath);
-                    }
-                    drawInCanvasCenter(sierpinskiTriangles_coloring.a.paper, drawSierpinskiTriangle, sierpinskiTriangles_coloring.a.options);
-                    drawInCanvasCenter(sierpinskiTriangles_coloring.b.paper, drawSierpinskiTriangle, sierpinskiTriangles_coloring.b.options);
-                    drawInCanvasCenter(sierpinskiTriangles_coloring.c.paper, drawSierpinskiTriangle, sierpinskiTriangles_coloring.c.options);
-
-                </script>
-                    
+                    <div class='canvas third'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 3, "orientation": -1}'>
+                    </div>
+                    <div class='canvas third'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 5, "orientation": 1}'>
+                    </div>
+                    <div class='canvas third'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 3, "orientation": -1}'>
+                    </div>
                 </div>
             </div>
 
@@ -303,22 +281,26 @@
                 <div class="text-content">
                     <p>We can still rotate that triangle by more than &frac13; of the way around a circle without changing it.  It can be rotated by twice that much - &frac23; of the way around the circle - or by 3 times that much, which is all the way around the circle.</p>
                     <div class="text-content-graphic line">
-                        <div class="canvas" id="cn-1-triangles-1-0deg"></div>
-                        <div class="canvas" id="cn-1-triangles-1-120deg"></div>
-                        <div class="canvas" id="cn-1-triangles-1-240deg"></div>
-
-                        <script>
-                            "use-strict";
-
-                            // line of 3 triangles inscribed within circles -- each side has different stroke type,
-                            // rotated 0deg; 120deg; 240deg;  on hovering over section, all rotate 120deg;
-                
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-1-0deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true}, {text: '0 turn / full turn', autoRotateDegrees: 120, inscribed: true});
-
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-1-120deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true}, {text: '1/3 turn', autoRotateDegrees: 120, inscribed: true, initialRotation: 120});
-
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-1-240deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true}, {text: '2/3 turn', autoRotateDegrees: 120, inscribed: true, initialRotation: 240});
-                        </script>
+                        <!-- line of 3 triangles inscribed within circles - each side has different stroke type,
+                        rotated 0deg; 120deg; 240deg;  on hovering over section, all rotate 120deg; -->
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":3,"useDifferentSideStrokes":true}'
+                            options='{"text":"0 turn / full turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":0}'
+                        ></div>
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":3,"useDifferentSideStrokes":true}'
+                            options='{"text":"1/3 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":120}'
+                        ></div>
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":3,"useDifferentSideStrokes":true}'
+                            options='{"text":"2/3 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":240}'
+                        ></div>
                     </div>
 
                     <p>We can keep rotating - by 4 times that much, 5 times that much, 6 times that much... and keep going towards infinity.  The triangle seems to have an infinite number of rotations, but after rotating 3 times and reaching a full turn the rotations become repetitive.</p>
@@ -326,21 +308,40 @@
                     [line of 6 triangles - each side diff stroke, rotated at intervals of 120deg; - index @ zero]
                     -->
                     <div class="text-content-graphic line">
-                        <div class="canvas" id="cn-1-triangles-2-0deg"></div><div class="canvas" id="cn-1-triangles-2-120deg"></div><div class="canvas" id="cn-1-triangles-2-240deg"></div>
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":3,"useDifferentSideStrokes":true}'
+                            options='{"text":"0 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":0}'
+                        ></div><div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":3,"useDifferentSideStrokes":true}'
+                            options='{"text":"1/3 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":120}'
+                        ></div><div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":3,"useDifferentSideStrokes":true}'
+                            options='{"text":"2/3 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":240}'
+                        ></div>
                     </div>
                     <div class="text-content-graphic line">
-                        <div class="canvas" id="cn-1-triangles-2-360deg"></div><div class="canvas" id="cn-1-triangles-2-480deg"></div><div class="canvas" id="cn-1-triangles-2-600deg"></div>
-
-                        <script>
-                            "use-strict";
-                
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-0deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true}, {text: '0 turn', autoRotateDegrees: 120, inscribed: true});
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-120deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true}, {text: '1/3 turn', autoRotateDegrees: 120, inscribed: true, initialRotation: 120});
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-240deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true}, {text: '2/3 turn', autoRotateDegrees: 120, inscribed: true, initialRotation: 240});
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-360deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true}, {text: '3/3 turn', autoRotateDegrees: 120, inscribed: true, initialRotation: 360});
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-480deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true}, {text: '4/3 turn', autoRotateDegrees: 120, inscribed: true, initialRotation: 480});
-                            drawInCanvasCenter(new Raphael("cn-1-triangles-2-600deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true}, {text: '5/3 turn', autoRotateDegrees: 120, inscribed: true, initialRotation: 600});
-                        </script>
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":3,"useDifferentSideStrokes":true}'
+                            options='{"text":"3/3 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":0}'
+                        ></div><div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":3,"useDifferentSideStrokes":true}'
+                            options='{"text":"4/3 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":120}'
+                        ></div><div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":3,"useDifferentSideStrokes":true}'
+                            options='{"text":"5/3 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":240}'
+                        ></div>
                     </div>
 
                     <p>There are only 3 unique rotations for a triangle.  We'll talk about them by referring to the rotations that are less than a full turn.</p>
@@ -348,12 +349,44 @@
                 <div class="coloring-content">
 
                     <!-- This one is by itself -->
-                    <div class="canvas" with-redraw circular-tessellation rotations=3 slices-count=5 levels=2 margin=10></div>
+                    <div
+                        class="canvas" 
+                        with-redraw 
+                        circular-tessellation 
+                        rotations=3 
+                        slices-count=5 
+                        levels=2 
+                        margin=10>
+                    </div>
                     <!-- Circular tessellations of rotational symmetry=3 inscribed within triangles -->
 
-                    <div class="canvas third" with-redraw circular-tessellation rotations=3 slices-count=2 levels=2 margin=20></div>
-                    <div class="canvas third" with-redraw circular-tessellation rotations=3 slices-count=5 levels=1 margin=20></div>
-                    <div class="canvas third" with-redraw circular-tessellation rotations=3 slices-count=2 levels=2 margin=20></div>
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        margin=20>
+                    </div>
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=5
+                        levels=2
+                        margin=20>
+                    </div>
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        margin=20>
+                    </div>
                 </div>
 
             </div>
@@ -364,29 +397,42 @@
                     <!-- [Line of SIMPLE shape of C3 at 0deg; 120deg; 240deg; - sides different strokes ]
                     [2nd line of SIMPLE shape of C3 at 0deg; 120deg; 240deg; - sides different strokes ] -->
                     <div class="text-content-graphic line">
-                        <div class="canvas" id="cn-1-non-triangles-1-0deg"></div>
-                        <div class="canvas" id="cn-1-non-triangles-1-120deg"></div>
-                        <div class="canvas" id="cn-1-non-triangles-1-240deg"></div>
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":3,"useDifferentSideStrokes":true, "concave": true}'
+                            options='{"text":"0 turn / full turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":0}'
+                        ></div><div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":3,"useDifferentSideStrokes":true, "concave": true}'
+                            options='{"text":"1/3 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":120}'
+                        ></div><div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":3,"useDifferentSideStrokes":true, "concave": true}'
+                            options='{"text":"2/3 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":240}'
+                        ></div>
                     </div>
                     <div class="text-content-graphic line">
-                        <div class="canvas" id="cn-1-non-triangles-2-0deg"></div>
-                        <div class="canvas" id="cn-1-non-triangles-2-120deg"></div>
-                        <div class="canvas" id="cn-1-non-triangles-2-240deg"></div>
+
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawCyclicShape'
+                            function-options='{"N":3,"useDifferentSideStrokes":true, "concave": true}'
+                            options='{"text":"0 turn / full turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":0}'
+                        ></div><div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawCyclicShape'
+                            function-options='{"N":3,"useDifferentSideStrokes":true, "concave": true}'
+                            options='{"text":"1/3 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":120}'
+                        ></div><div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawCyclicShape'
+                            function-options='{"N":3,"useDifferentSideStrokes":true, "concave": true}'
+                            options='{"text":"2/3 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":240}'
+                        ></div>
                     </div>
-
-                    <script>
-                        "use-strict";
-
-                        drawInCanvasCenter(new Raphael("cn-1-non-triangles-1-0deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, concave: true}, {text: '0 turn / full turn', autoRotateDegrees: 120, inscribed: true, initialRotation: 0});
-                        drawInCanvasCenter(new Raphael("cn-1-non-triangles-1-120deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, concave: true}, {text: '1/3 turn', autoRotateDegrees: 120, inscribed: true, initialRotation: 120});
-                        drawInCanvasCenter(new Raphael("cn-1-non-triangles-1-240deg"), drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, concave: true}, {text: '2/3 turn', autoRotateDegrees: 120, inscribed: true, initialRotation: 240});
-
-
-                        drawInCanvasCenter(new Raphael("cn-1-non-triangles-2-0deg"), drawCyclicShape, {N: 3, useDifferentSideStrokes: true, concave: true}, {text: '0 turn / full turn', autoRotateDegrees: 120, inscribed: true, initialRotation: 0});
-                        drawInCanvasCenter(new Raphael("cn-1-non-triangles-2-120deg"), drawCyclicShape, {N: 3, useDifferentSideStrokes: true, concave: true}, {text: '1/3 turn', autoRotateDegrees: 120, inscribed: true, initialRotation: 120});
-                        drawInCanvasCenter(new Raphael("cn-1-non-triangles-2-240deg"), drawCyclicShape, {N: 3, useDifferentSideStrokes: true, concave: true}, {text: '2/3 turn', autoRotateDegrees: 120, inscribed: true, initialRotation: 240});
-
-                    </script>
                 </div>
                 <div class="coloring-content">
                     [Line of shapes of rotational order 3]
@@ -397,53 +443,78 @@
                 <div class="text-content">
                     <p>Now that we can count rotations, we can be more precise when we say a square has more symmetry than a rectangle.</p>
 
-<!--                     [line of 2 rectangles, adjacent sides share border pattern, rotate 180deg; on hover]
-[line of 4 triangles, all unique borders, rotate 90deg; on hover over set] -->
+                    <!-- [line of 2 rectangles, adjacent sides share border pattern, rotate 180deg; on hover]
+                    [line of 4 triangles, all unique borders, rotate 90deg; on hover over set] -->
                     <div class="text-content-graphic line">
-                        <div class="canvas" id="square-vs-rectangle-rectangle-0"></div>
-                        <div class="canvas" id="square-vs-rectangle-rectangle-180"></div>
+                        <!-- line of rectangles -->
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRectangle'
+                            function-options='{"useDifferentSideStrokes":true}'
+                            options='{"text":"0 turn","autoRotateDegrees":180,"initialRotation":0}'
+                        ></div>
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRectangle'
+                            function-options='{"useDifferentSideStrokes":true}'
+                            options='{"text":"1/2 turn","autoRotateDegrees":180,"initialRotation":180}'
+                        ></div>
                     </div>
                     <div class="text-content-graphic line">
-                        <div class="canvas" id="square-vs-rectangle-square-0"></div>
-                        <div class="canvas" id="square-vs-rectangle-square-90"></div>
-                        <div class="canvas" id="square-vs-rectangle-square-180"></div>
-                        <div class="canvas" id="square-vs-rectangle-square-270"></div>
+                        <!-- line of squares -->
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":4, "useDifferentSideStrokes":true}'
+                            options='{"text":"0 turn","autoRotateDegrees":90,"initialRotation":0}'
+                        ></div>
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":4, "useDifferentSideStrokes":true}'
+                            options='{"text":"1/4 turn","autoRotateDegrees":90,"initialRotation":90}'
+                        ></div>
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":4, "useDifferentSideStrokes":true}'
+                            options='{"text":"2/4 turn","autoRotateDegrees":90,"initialRotation":180}'
+                        ></div>
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":4, "useDifferentSideStrokes":true}'
+                            options='{"text":"3/4 turn","autoRotateDegrees":90,"initialRotation":270}'
+                        ></div>
                     </div>
-                    <script>
-                        "use-strict";
-
-                        // draw rectangle line
-                        drawInCanvasCenter(new Raphael("square-vs-rectangle-rectangle-0"), drawRectangle, {useDifferentSideStrokes: true}, {text: '0 turn', autoRotateDegrees: 180,});
-                        drawInCanvasCenter(new Raphael("square-vs-rectangle-rectangle-180"), drawRectangle, {useDifferentSideStrokes: true}, {text: '1/2 turn', autoRotateDegrees: 180, initialRotation: 180});
-            
-                        // draw line of squares
-                        drawInCanvasCenter(new Raphael("square-vs-rectangle-square-0"), drawRegularPolygon, {useDifferentSideStrokes: true, N: 4}, {text: '0 turn', autoRotateDegrees: 90, initialRotation: 0});
-                        drawInCanvasCenter(new Raphael("square-vs-rectangle-square-90"), drawRegularPolygon, {useDifferentSideStrokes: true, N: 4}, {text: '1/4 turn', autoRotateDegrees: 90, initialRotation: 90});
-                        drawInCanvasCenter(new Raphael("square-vs-rectangle-square-180"), drawRegularPolygon, {useDifferentSideStrokes: true, N: 4}, {text: '2/4 turn', autoRotateDegrees: 90, initialRotation: 180});
-                        drawInCanvasCenter(new Raphael("square-vs-rectangle-square-270"), drawRegularPolygon, {useDifferentSideStrokes: true, N: 4}, {text: '3/4 turn', autoRotateDegrees: 90, initialRotation: 270});
-
-                    </script>
-
+                    
                     <p>
                     We can also see that a square has more rotational symmetry than a triangle, which in turn has more symmetry than a rectangle: A square has 4 unique rotations, while a triangle has 3, and a rectangle has only 2.
                     </p>
 
                     <!-- [Line of regular convex polygons of order 2, 3, 4] -->
                     <div class="text-content-graphic line">
-                        <div class="canvas" id="square-vs-rectangle-vs-triangle-rectangle"></div>
-                        <div class="canvas" id="square-vs-rectangle-vs-triangle-triangle"></div>
-                        <div class="canvas" id="square-vs-rectangle-vs-triangle-square"></div>
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRectangle'
+                            function-options='{"N":2}'
+                            options='{"autoRotateDegrees":180, "margin": 10}'
+                        ></div>
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":3}'
+                            options='{"autoRotateDegrees":120}'
+                        ></div>
+                        <div class='canvas'
+                            canvas-centered-drawing
+                            draw-function='drawRegularPolygon'
+                            function-options='{"N":4}'
+                            options='{"autoRotateDegrees":90}'
+                        ></div>
                     </div>
-                    <script>
-                        "use-strict";
-
-                        drawInCanvasCenter(new Raphael("square-vs-rectangle-vs-triangle-rectangle"), drawRectangle, {}, {autoRotateDegrees: 180});
-                        drawInCanvasCenter(new Raphael("square-vs-rectangle-vs-triangle-triangle"), drawRegularPolygon, {N: 3}, {autoRotateDegrees: 120});
-                        drawInCanvasCenter(new Raphael("square-vs-rectangle-vs-triangle-square"), drawRegularPolygon, {N: 4}, {autoRotateDegrees: 90});
-
-                    </script>
-
                 </div>
+
                 <div class="coloring-content">
                 Line of circular tessellations of 2 rotations
                 Line of circular tessellations of 3 rotations

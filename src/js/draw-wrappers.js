@@ -104,6 +104,14 @@ These are called by the drawInCanvasCenter function
 They draw the desired shape around the origin/centerPoint
 */
 
+
+function drawSierpinskiTriangle(paper, centerPoint, size, options) {
+    let pathSet = getSierpinskiTriangle(centerPoint, size, options);
+    paper.path(pathSet);
+    return pathSet;
+}
+
+
 function drawCircularTessellation(paper, centerPoint, size, options) {
     let circularTessellation = new CircularTessellation(paper, origin, size, options);
     let pathSet = circularTessellation.pathSet;
