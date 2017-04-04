@@ -1,0 +1,35 @@
+{
+  "name": "coloring-book",
+  "version": "0.0.1",
+  "description": "Coloring Book of Group Theory.  You might know of coloring books as a childhood amusement or as a means to adult relaxation. How about as a medium to teach the mathematics of group theory? Come color on the walls, interact with mathematical animations, and learn more about the beauty of math.",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "2.4.1",
+    "express": "4.13.3"
+  },
+  "devDependencies": {},
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aberke/coloring-book.git"
+  },
+  "keywords": [
+    "group",
+    "theory",
+    "math",
+    "coloring",
+    "book",
+    "tessellation",
+    "wallpaper"
+  ],
+  "author": "Alex Berke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aberke/coloring-book/issues"
+  },
+  "homepage": "https://github.com/aberke/coloring-book#readme"
+}
