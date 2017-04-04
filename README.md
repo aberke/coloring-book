@@ -10,7 +10,7 @@ Open source, online coloring book through which one can explore the mathematics 
 Fractals Submodule:
 This repo uses a submodule, which is the `fractals` directory.  This will initally be empty.
 - Fill the fractals directory: run `git submodule update --init --recursive`
-- To pull in changes from the `fractals` repo, run `$ git submodule update`
+- To pull in changes from the `fractals` submodule, run `$ git submodule update --recursive --remote`
 
 
 ### Pieces
