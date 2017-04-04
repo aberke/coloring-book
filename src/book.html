@@ -348,44 +348,29 @@
                 </div>
                 <div class="coloring-content">
 
-                    <!-- This one is by itself -->
-                    <div
-                        class="canvas" 
-                        with-redraw 
-                        circular-tessellation 
-                        rotations=3 
-                        slices-count=5 
-                        levels=2 
-                        margin=10>
+                    <!-- 1 Sierpinski Triangle 'flower' -->
+                    <div>
+                        <div class="canvas two-thirds"
+                            canvas-centered-drawing
+                            draw-function='drawSierpinskiTriangleFlower'
+                            function-options=5
+                        ></div>
                     </div>
-                    <!-- Circular tessellations of rotational symmetry=3 inscribed within triangles -->
-
-                    <div
-                        class="canvas third"
-                        circular-tessellation
-                        with-redraw
-                        rotations=3
-                        slices-count=2
-                        levels=2
-                        margin=20>
+                    <!-- 3 Sierpinski triangles in a row -->
+                    <div class='canvas third'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 3, "orientation": 1}'>
                     </div>
-                    <div
-                        class="canvas third"
-                        circular-tessellation
-                        with-redraw
-                        rotations=3
-                        slices-count=5
-                        levels=2
-                        margin=20>
+                    <div class='canvas third'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 5, "orientation": -1}'>
                     </div>
-                    <div
-                        class="canvas third"
-                        circular-tessellation
-                        with-redraw
-                        rotations=3
-                        slices-count=2
-                        levels=2
-                        margin=20>
+                    <div class='canvas third'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 3, "orientation": 1}'>
                     </div>
                 </div>
 
@@ -435,7 +420,16 @@
                     </div>
                 </div>
                 <div class="coloring-content">
-                    [Line of shapes of rotational order 3]
+                    <!-- 1 order=3 circular-tessellation -->
+                    <div
+                        class="canvas two-thirds" 
+                        with-redraw 
+                        circular-tessellation
+                        rotations=3 
+                        slices-count=5
+                        levels=1
+                        margin=80>
+                    </div>
                 </div>
             </div>
 
@@ -516,9 +510,89 @@
                 </div>
 
                 <div class="coloring-content">
-                Line of circular tessellations of 2 rotations
-                Line of circular tessellations of 3 rotations
-                Line of circular tessellations of 4 rotations
+                    <!-- Line of circular tessellations of 2 rotations -->
+                    <div class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=2
+                        slices-count=2
+                        levels=2
+                        margin=20>
+                    </div>
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=2
+                        slices-count=5
+                        levels=2
+                        margin=20>
+                    </div>
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=2
+                        slices-count=2
+                        levels=2
+                        margin=20>
+                    </div>
+
+                    <!-- Line of Circular tessellations of rotational symmetry=3 -->
+                    <div class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        margin=20>
+                    </div>
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=5
+                        levels=2
+                        margin=20>
+                    </div>
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        margin=20>
+                    </div>
+
+                    <!-- Line of circular tessellations of 4 rotations -->
+                    <div class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=2
+                        margin=20>
+                    </div>
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=4
+                        slices-count=5
+                        levels=2
+                        margin=20>
+                    </div>
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=2
+                        margin=20>
+                    </div>
                 </div>
             </div>
 
@@ -550,8 +624,62 @@
                 </div>
 
                 <div class="coloring-content">
-                Line of circular tessellations of 5 rotations
-                Line of circular tessellations of 6 rotations
+
+                    <!-- Line of circular tessellations of 5 rotations -->
+                    <div class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=5
+                        slices-count=2
+                        levels=2
+                        margin=5>
+                    </div>
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=5
+                        slices-count=4
+                        levels=1
+                        margin=5>
+                    </div>
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=5
+                        slices-count=3
+                        levels=2
+                        margin=5>
+                    </div>
+
+                    <!-- Line of circular tessellations of 6 rotations -->
+                    <div class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=6
+                        slices-count=2
+                        levels=2
+                        margin=5>
+                    </div>
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=6
+                        slices-count=4
+                        levels=1
+                        margin=5>
+                    </div>
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=6
+                        slices-count=3
+                        levels=2
+                        margin=5>
+                    </div>
 
                 </div>
             </div>
@@ -692,7 +820,34 @@
                 </div>
 
                 <div class="coloring-content">
-                []
+                    <!-- Circular tessellations of rotational symmetry=3 inscribed within triangles -->
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        margin=20>
+                    </div>
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=5
+                        levels=2
+                        margin=20>
+                    </div>
+                    <div
+                        class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        margin=20>
+                    </div>
                 </div>
             </div>
 

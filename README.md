@@ -30,16 +30,9 @@ Files are served by node http-server
 Starting to generate & put together the pieces.  They are shown in pieces.html.
 
 
-## TODO
+# TODO:
 
-Easy:
-
-- add fractals as submodule
-
-
-- break out fundamentalLineSlices in the circular-tesselation into its own class
-- use to generate more interesting frieze groups
-- put in Pieces
+For circular tessellation: more intelligently calculate width
 
 
 ### Notes:

@@ -20,7 +20,6 @@ function testDirective() {
 	}	
 }
 
-
 // circular-tessellation directive
 function circularTessellationDirective() {
 	return {
@@ -28,8 +27,10 @@ function circularTessellationDirective() {
 		link: function ($scope, element, attrs) {
 			//DOM manipulation
 
-			// create the canvas paper
+			// get the element to draw canvas paper on and make it sq
 			let elt = element[0];
+			elt.style.height = (String(elt.clientWidth) + "px");
+			// create the canvas paper
 			let paper = new Raphael(elt);
 			// add the canvas class in case not already there
 			elt.className += " canvas";
@@ -45,7 +46,7 @@ function circularTessellationDirective() {
 				rotations: attrs.rotations ? eval(attrs.rotations) : null,
 				levels: attrs.levels ? eval(attrs.levels) : null,
 				withReflection: attrs.withReflection ? eval(attrs.withReflection) : null,
-				slicesCount: attrs.slicesCount ? Number(attrs.slices) : null,
+				slicesCount: attrs.slicesCount ? Number(attrs.slicesCount) : null,
 				slicesPathList: attrs.slicesPathList ? eval(attrs.slicesPathList) : null,
 			};
 
@@ -72,22 +73,24 @@ function canvasCenteredDrawingDirective() {
 		link: function ($scope, element, attrs) {
 			//DOM manipulation
 
-			// create the canvas paper
+			// get the element to draw canvas paper on and make it sq
 			let elt = element[0];
+			elt.style.height = (String(elt.clientWidth) + "px");
 			let paper = new Raphael(elt);
 			// add the canvas class in case not already there
 			elt.className += " canvas";
 
 			// get the drawFunction
 			let drawFunction = attrs.drawFunction ? attrs.drawFunction : drawCircle;
+
 			drawFunction = eval('(' + attrs.drawFunction + ')');
 
 			// safely get the options -- yeah not that safe
 			let functionOptions = {};
 			let options = {};
 			try {
-				functionOptions = JSON.parse(attrs.functionOptions);
-				options = JSON.parse(attrs.options)
+				functionOptions = JSON.parse(attrs.functionOptions || "{}");
+				options = JSON.parse(attrs.options || "{}");
 			} catch(e) {};
 
 			drawInCanvasCenter(paper, drawFunction, functionOptions, options);

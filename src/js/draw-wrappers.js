@@ -18,7 +18,8 @@ Optionally draws text below.  Uses passed in function to draw the shape.
 
 @returns {pathSet: object, origin: {X: number, Y: number}}
 */
-function drawInCanvasCenter(paper, drawFunction, functionOptions, options = {}) {
+function drawInCanvasCenter(paper, drawFunction, functionOptions = {}, options = {}) {
+    // console.log('drawFunction', drawFunction)
 
     let width = paper.getSize().width;
     let height = paper.getSize().height;
