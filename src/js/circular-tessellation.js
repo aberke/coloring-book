@@ -63,7 +63,7 @@ class CircularTessellation {
 
 		// set the starting height and width of a slice.  Hooray whipping out the binary tree math
 		this.height = this.radius/(this.scaleFactor**this.levels - 1);
-		this.width = this.height/5;
+		this.width = this.height/Math.max(4, this.rotations);
 
 		this.draw();
 	}

@@ -35,9 +35,6 @@ function getFundamentalDomainLineSlices(origin, width, height, slicesCount, with
 
     for (var s=0; s<slicesCount; s++) {
 
-        // scale the width of the slices as they get further from the ORIGIN
-        let w = (s + 1)*width;
-
         let sliceStartPoint = {
             X: origin.X,
             Y: origin.Y + s*sliceHeight,
@@ -50,6 +47,7 @@ function getFundamentalDomainLineSlices(origin, width, height, slicesCount, with
         // At the same time, want to avoid situation where pathsNumber is 0 for each slice
         // and the result is a an empty pathList
         let pathsNumber = Math.round(Math.random()*(s + 1));
+
         if (pathsNumber === 0) // another set of no paths -- record it
             zeroPathsNumbers += 1;
         // Don't allow case of ending up with all pathsNumbers being 0
@@ -59,12 +57,15 @@ function getFundamentalDomainLineSlices(origin, width, height, slicesCount, with
         if (pathsNumber === 0)
             continue;
 
-        // space the slice paths out in terms of width
-        let wChange = w/pathsNumber;
-        let sliceWidth = Math.min(Math.max(wChange, 5), width);
+        // scale the width of the slices as they get further from the origin
+        // start with the widest path, and then get smaller
+        let sliceWidth = (s + 1)*width;
+        let wChange = sliceWidth/pathsNumber;
         for (let i=0; i < pathsNumber; i++) {
             pathList += getFundamentalDomainLineSlicePath(sliceStartPoint, sliceWidth, sliceHeight, withReflection);
-            sliceWidth += wChange;
+            // decrement the sliceWidth in preparation for the next path creation
+            // do not let it get smaller than 5
+            sliceWidth = Math.max(5, sliceWidth - wChange);
         }
     }
     return pathList;

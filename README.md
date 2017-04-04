@@ -32,7 +32,6 @@ Starting to generate & put together the pieces.  They are shown in pieces.html.
 
 # TODO:
 
-For circular tessellation: more intelligently calculate width
 
 
 ### Notes:
