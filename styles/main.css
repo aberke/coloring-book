@@ -194,12 +194,12 @@ Structure
 	Structure
 	*/
 	.text-content {
-		border-right: 1px solid gray;
+		border-right: none;
 		width: 100%;
 	}
 	.coloring-content {
-		border: 1px solid red;
 		width: 100%;
+		border-left: none;
 	}
 
 
