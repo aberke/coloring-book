@@ -32,6 +32,7 @@ Starting to generate & put together the pieces.  They are shown in pieces.html.
 
 # TODO:
 
+- add favicon to frieze groups
 
 
 ### Notes:
