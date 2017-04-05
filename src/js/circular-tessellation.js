@@ -62,7 +62,7 @@ class CircularTessellation {
 		this.isRotating = false;
 
 		// set the starting height and width of a slice.  Hooray whipping out the binary tree math
-		this.height = this.radius/(this.scaleFactor**this.levels - 1);
+		this.height = this.radius/(Math.pow(this.scaleFactor, this.levels) - 1);
 		this.width = this.height/Math.max(4, this.rotations);
 
 		this.draw();
@@ -131,7 +131,7 @@ class CircularTessellation {
 		    let transformList = [
 		        ["T", 0, this.height],
 		        // USE LOWER CASE s
-		        ["s", this.scaleFactor**l, this.scaleFactor**l, this.origin.X, this.origin.Y],
+		        ["s", Math.pow(this.scaleFactor, l), Math.pow(this.scaleFactor, l), this.origin.X, this.origin.Y],
 		    ];
 		    // add scaling portion to transform string
 		    nextSlicesPath.transform(transformList);

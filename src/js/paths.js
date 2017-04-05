@@ -238,7 +238,7 @@ var triangles = function(n, startX, startY, width, height) {
 
     for (var i=1; i<=n; i++) {
         pathString += startingSpotString;
-        var widthDivisor = 2**i;
+        var widthDivisor = Math.pow(2, i);
         pathString += ("v-" + String(height) + "h" + String(width/widthDivisor) + "Z");
     }
     return pathString;
