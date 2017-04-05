@@ -1,0 +1,115 @@
+<div class="book-page">
+
+    <div class="text-coloring-content-container">
+        <div class="text-content">
+            <p>Other shapes, not just equilateral triangles, have the same 3 rotations.  For this reason, we can say they're all in the same cyclic "group" (C3).</p>
+            <!-- [Line of SIMPLE shape of C3 at 0deg; 120deg; 240deg; - sides different strokes ]
+            [2nd line of SIMPLE shape of C3 at 0deg; 120deg; 240deg; - sides different strokes ] -->
+            <div class="text-content-graphic line">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":3,"useDifferentSideStrokes":true, "concave": true}'
+                    options='{"text":"0 turn / full turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":0}'
+                ></div><div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":3,"useDifferentSideStrokes":true, "concave": true}'
+                    options='{"text":"1/3 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":120}'
+                ></div><div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":3,"useDifferentSideStrokes":true, "concave": true}'
+                    options='{"text":"2/3 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":240}'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":3,"useDifferentSideStrokes":true, "concave": true}'
+                    options='{"text":"0 turn / full turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":0}'
+                ></div><div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":3,"useDifferentSideStrokes":true, "concave": true}'
+                    options='{"text":"1/3 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":120}'
+                ></div><div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":3,"useDifferentSideStrokes":true, "concave": true}'
+                    options='{"text":"2/3 turn","autoRotateDegrees":120,"inscribed":true,"initialRotation":240}'
+                ></div>
+            </div>
+        </div>
+        <div class="coloring-content">
+        <!-- Line of Circular tessellations of rotational symmetry=3 -->
+            <div class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=3
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=3
+                slices-count=3
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=3
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+
+            <!-- 1 order=3 circular-tessellation -->
+            <div
+                class="canvas two-thirds center-block" 
+                with-redraw 
+                circular-tessellation
+                rotations=3 
+                slices-count=5
+                levels=1
+                margin=100>
+            </div>
+
+	        <!-- Line of Circular tessellations of rotational symmetry=3 -->
+            <div class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=3
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=3
+                slices-count=3
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=3
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+        </div>
+    </div>
+</div>

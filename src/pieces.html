@@ -1,28 +1,57 @@
 <!doctype html>
 <html>
 <head>
-    <script type="text/javascript" src="js/raphael/raphael.js"></script>
 
-	<script type="text/javascript" src="js/constants.js"></script>
+    <meta charset='utf-8'>
 
-    <script type="text/javascript" src="js/circular-tessellation.js"></script>
-    <script type="text/javascript" src="js/shapes/regular-polygons.js"></script>
-    <script type="text/javascript" src="js/shapes/utility.js"></script>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>  
+    <meta name='description' content='Style guide + Javascript pieces for the coloring book.'>
+    <meta name='author' content='Alex Berke | aberke'>
+    
+    <link rel='shortcut icon' href='https://aberke.github.io/fractals/img/sierpinski-triangle.png' type='image/x-icon'>
 
-    <script type="text/javascript" src="js/paths.js"></script>
-    <script type="text/javascript" src="js/util.js"></script>
-    <script type="text/javascript" src="js/pattern.js"></script>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- TODO: scripts at the bottom -->
+    
+    <!-- vendor -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.min.js'></script>
+
+    <!-- From fractals -->
+    <script type="text/javascript" src="fractals/js/util.js"></script>
+    <script type="text/javascript" src="fractals/js/sierpinski-arrowhead-curve.js"></script>
+    <script type="text/javascript" src="fractals/js/sierpinski-triangle.js"></script>
+
+
+	<script type='text/javascript' src='js/constants.js'></script>
+    <script type='text/javascript' src='js/styling.js'></script>
+
+    <script type='text/javascript' src='js/circular-tessellation.js'></script>
+    <script type='text/javascript' src='js/shapes/cyclic-shapes.js'></script>
+    <script type='text/javascript' src='js/shapes/dihedral-shapes.js'></script>
+    <script type='text/javascript' src='js/shapes/regular-polygons.js'></script>
+    <script type='text/javascript' src='js/shapes/rectangles.js'></script>
+    <script type='text/javascript' src='js/shapes/utility.js'></script>
+
+    <script type='text/javascript' src='js/paths.js'></script>
+    <script type='text/javascript' src='js/util.js'></script>
+    <script type='text/javascript' src='js/draw-wrappers.js'></script>
+    <script type='text/javascript' src='js/pattern.js'></script>
+
+    <!-- directives -->
+    <script type='text/javascript' src='js/directives.js'></script>
+
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,400i,500,600,700,800' rel='stylesheet'>
 
     <!-- styles -->
-	<link rel="stylesheet" href="styles/frieze.css">
+    <link rel='stylesheet' href='styles/main.css'>
 
-    <title>Pieces</title>
+    <title>Coloring Book | Styles &amp; Pieces</title>
 
 </head>
-<body>
+<body ng-app='directivesModule'>
     <style>
 
 	    header {
@@ -36,14 +65,17 @@
 	    ul {
 	    	list-style-type: none;
 	    }
+	    body{ 
+	    	text-align: center;
+	    }
 
         .canvas {
             border: 1px dashed lightgray;
             margin: 10px;
+            min-height: 100px;
         }
-        .half {
-        	display: inline-block;
-        	width: 45%;
+        .canvas.medium {
+            height: 100px;
         }
         @media (max-width: 600px) {
         	.half {
@@ -53,7 +85,32 @@
 
     </style>
 
-    <div>
+
+
+	<!-- Style Guide -->
+	<div id='style-guide'>
+		<h1 id='book-title'>Styles</h1>
+
+		<div class='container'>
+			<div id='writing'>
+
+				<h1 id='book-title'>h1#book-title</h1>
+				<h2 class='book-section-title'>h2.book-section-title</h2>
+				<h3 class='book-section-subtitle'>h3.book-section-subtitle</h3>
+
+				<p>p paragraph content</p>
+
+			</div>
+			<!-- styles: writing -->
+
+
+		</div>
+	</div>
+	<!-- Style Guide -->
+
+	<hr/>
+
+
     	<header>
 		    <h2>Pieces</h2>
 		    <p>Putting together the pieces.  Here are some shapes.</p>
@@ -61,6 +118,18 @@
 
 		<!-- content -->
 		<div>
+
+			<div>
+				<h3>Test directive</h3>
+				<div test-directive></div>
+
+				<!-- all attributes will turn into camelCase in directive definition -->				
+                <div class='canvas third'
+                    canvas-centered-drawing
+                    draw-function='drawSierpinskiTriangle'
+                    function-options='{"level": 3, "orientation": -1}'>
+                </div>
+			</div>
 
 			<!-- circular tessellation -->
 			<div>
@@ -70,20 +139,20 @@
 				<ul>
 					<li>Number of rotations</li>
 					<li>Whether has mirror symmetry</li>
-					<li>Number of "levels" in lines</li>
-					<li>Number of "slices" per "level"</li>
+					<li>Number of 'levels' in lines</li>
+					<li>Number of 'slices' per 'level'</li>
 				</ul>
-				<div class="half">
-			    	<div id="canvas-circular-tessellation-1" class="canvas"></div>
+				<div class='half'>
+			    	<div id='canvas-circular-tessellation-1' class='canvas'></div>
 			    	<p></p>
 
 				    <script>
-				    "use strict";
+				    'use strict';
 
 				    // put the variables for circular-tessellation-1 in here
 				    let CT1 = {};
 
-				    CT1.paper = new Raphael("canvas-circular-tessellation-1", "100%", 400);
+				    CT1.paper = new Raphael('canvas-circular-tessellation-1', '100%', 400);
 					CT1.paperWidth = CT1.paper.getSize().width;
 					CT1.paperHeight = CT1.paper.getSize().height;
 				    CT1.origin = {
@@ -93,26 +162,26 @@
 				    // total desired diameter := minumum boundary minus some buffer (since goes outside bounds of circle)
 				    CT1.diameter = Math.min(CT1.paperWidth, CT1.paperHeight) - 50;
 
-				    CT1.rotations = 4;
 				    CT1.options = {
+				    	rotations: 4,
 				    	levels: 1,
 				    	slicesCount: 4,
 				        withReflection: false,
 				    }
-				    CT1.circularTessellationSet = new CircularTessellation(CT1.paper, CT1.origin, CT1.diameter, CT1.rotations, CT1.options);
+				    CT1.circularTessellationSet = new CircularTessellation(CT1.paper, CT1.origin, CT1.diameter, CT1.options);
 
 				    </script>
 				</div>
-				<div class="half">
-			    	<div id="canvas-circular-tessellation-2" class="canvas"></div>
+				<div class='half'>
+			    	<div id='canvas-circular-tessellation-2' class='canvas'></div>
 
 				    <script>
-				    "use strict";
+				    'use strict';
 
 				    // put the variables for circular-tessellation-2 in here
 				    let CT2 = {};
 
-				    CT2.paper = new Raphael("canvas-circular-tessellation-2", "100%", 400);
+				    CT2.paper = new Raphael('canvas-circular-tessellation-2', '100%', 400);
 					CT2.paperWidth = CT2.paper.getSize().width;
 					CT2.paperHeight = CT2.paper.getSize().height;
 				    CT2.origin = {
@@ -122,28 +191,89 @@
 				    // total desired diameter := minumum boundary minus some buffer (since goes outside bounds of circle)
 				    CT2.diameter = Math.min(CT2.paperWidth, CT2.paperHeight) - 40;
 
-				    CT2.rotations = 6;
 				    CT2.options = {
+				    	rotations: 6,
 				    	levels: 2,
 				        withReflection: true,
 				    }
-				    CT2.circularTessellationSet = new CircularTessellation(CT2.paper, CT2.origin, CT2.diameter, CT2.rotations, CT2.options);
+				    CT2.circularTessellationSet = new CircularTessellation(CT2.paper, CT2.origin, CT2.diameter, CT2.options);
 				    </script>
 				</div>
 			</div>
 		    <!-- circular tessellation -->
 
+
+			<!-- circular tessellations with same slices -->
+			<div>
+				<h3>Circular Tesselations using same slices</h3>
+				<div>
+			    	<div class='third' id='canvas-circular-tessellation-3a' class='canvas'></div>
+			    	<div class='third' id='canvas-circular-tessellation-3b' class='canvas'></div>
+			    	<div class='third' id='canvas-circular-tessellation-3c' class='canvas'></div>
+			    	<p>These are generated using the same slices.</p>
+
+				    <script>
+				    'use strict';
+
+				    // put the variables for circular-tessellation-1 in here
+				    let CT3 = {
+				    	a:{},
+				    	b:{},
+				    	c:{},
+				    };
+
+				    CT3.a.paper = new Raphael('canvas-circular-tessellation-3a', '100%', 400);
+				    CT3.b.paper = new Raphael('canvas-circular-tessellation-3b', '100%', 400);
+				    CT3.c.paper = new Raphael('canvas-circular-tessellation-3c', '100%', 400);
+
+				    // get the slices to use
+				    // ASSUMPTION: all the canvases have the same size, and therefore the same origin
+				    CT3.origin = getCanvasCenter(CT3.a.paper);
+
+				    CT3.diameter = Math.min(CT3.a.paper.getSize().width, CT3.a.paper.getSize().height);
+				    CT3.options = {
+				    	levels: 2,
+				    	withReflection: true,
+				    	rotations: 2,
+				    };
+				    CT3.a.options = JSON.parse(JSON.stringify(CT3.options));
+				    CT3.b.options = JSON.parse(JSON.stringify(CT3.options));
+				    CT3.c.options = JSON.parse(JSON.stringify(CT3.options));
+				    // a and c have 2 roations, b has 4
+				    CT3.b.options.rotations = 4;
+
+				    // generate circular tessellation 'a' and use its slices to generate the others
+				    CT3.a.circularTessellation = new CircularTessellation(CT3.a.paper, CT3.origin, CT3.diameter, CT3.options);
+
+				    // get the slices pathList from a and add them to the options
+				    // so that they can be used to generate the other circular tessellations
+				    CT3.slicesPathList = CT3.a.circularTessellation.slicesPathList;
+				    CT3.b.options.slicesPathList = CT3.slicesPathList;
+				    CT3.c.options.slicesPathList = CT3.slicesPathList;
+
+				    // generate circular tessellation b
+				    CT3.b.circularTessellation = new CircularTessellation(CT3.b.paper, CT3.origin, CT3.diameter, CT3.b.options);
+				    // generate c
+				    CT3.c.circularTessellation = new CircularTessellation(CT3.c.paper, CT3.origin, CT3.diameter, CT3.c.options);
+
+				    </script>
+				</div>
+				
+			</div>
+		    <!-- circular tessellations with same slices -->
+
+
 		    <!-- n-gons -->
 			<div>
 				<h2>N Gons</h2>
-				<div class="half">
+				<div class='half'>
 					<p>5-gon</p>
-			    	<div id="canvas-ngon-5" class="canvas"></div>
+			    	<div id='canvas-ngon-5' class='canvas'></div>
 			    	<script>
-			    		"use-strict";
+			    		'use-strict';
 
 					    let NGON5 = {};
-				    	NGON5.paper = new Raphael("canvas-ngon-5", "100%", 400);
+				    	NGON5.paper = new Raphael('canvas-ngon-5', '100%', 400);
 				    	NGON5.buffer = 10;
 						NGON5.paperWidth = NGON5.paper.getSize().width;
 						NGON5.paperHeight = NGON5.paper.getSize().height;
@@ -153,18 +283,18 @@
 					   	};
 						NGON5.size = Math.min(NGON5.paperWidth, NGON5.paperHeight) - NGON5.buffer;
 
-						NGON5.NGon = new RegularNGon(NGON5.paper, NGON5.origin, NGON5.size, 5);
+						NGON5.NGon = new RegularPolygon(NGON5.paper, NGON5.origin, NGON5.size, {N: 5});
 
 			    	</script>
 			    </div>
-				<div class="half">
+				<div class='half'>
 					<p>8-gon</p>
-			    	<div id="canvas-ngon-8" class="canvas"></div>
+			    	<div id='canvas-ngon-8' class='canvas'></div>
 			    	<script>
-			    		"use-strict";
+			    		'use-strict';
 
 					    let NGON8 = {};
-				    	NGON8.paper = new Raphael("canvas-ngon-8", "100%", 400);
+				    	NGON8.paper = new Raphael('canvas-ngon-8', '100%', 400);
 				    	NGON8.buffer = 10;
 						NGON8.paperWidth = CT2.paper.getSize().width;
 						NGON8.paperHeight = CT2.paper.getSize().height;
@@ -174,14 +304,118 @@
 					   	};
 						NGON8.size = Math.min(NGON8.paperWidth, NGON8.paperHeight) - NGON8.buffer;
 
-						NGON8.NGon = new RegularNGon(NGON8.paper, NGON8.origin, NGON8.size, 8);
+						NGON8.NGon = new RegularPolygon(NGON8.paper, NGON8.origin, NGON8.size, {N: 8});
 
 			    	</script>
 			    </div>
 		    </div>
 		    <!-- n-gons -->
 		   </div>
+
+		    <!-- star n-gons -->
+			<div>
+				<h2>Star N Gons</h2>
+				<div class='half'>
+					<p>3-star</p>
+			    	<div id='canvas-star-3' class='canvas'></div>
+			    	<script>
+			    		'use-strict';
+
+					    let STAR3 = {};
+				    	STAR3.paper = new Raphael('canvas-star-3', '100%', 400);
+				    	
+                        STAR3.drawing = drawInCanvasCenter(STAR3.paper, drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 1, concave: true}, {autoRotateDegrees: 120, inscribed: true, initialRotation: 120});
+
+			    	</script>
+			    </div>
+				<div class='half'>
+					<p>6-star</p>
+			    	<div id='canvas-star-6' class='canvas'></div>
+			    	<script>
+			    		'use-strict';
+
+					    let STAR6 = {};
+				    	STAR6.paper = new Raphael('canvas-star-6', '100%', 400);
+				    	
+                        STAR6.drawing = drawInCanvasCenter(STAR6.paper, drawRegularPolygon, {N: 6, useDifferentSideStrokes: true, sideStrokeOffset: 1, concave: true}, {autoRotateDegrees: 120, inscribed: true});
+
+			    	</script>
+			    </div>
+		    </div>
+		    <!-- star n-gons -->
+
+			<!-- shapes -->
+			<div>
+				<h2>Shapes</h2>
+				<div class='half'>
+					<p>C6 Shape</p>
+			    	<div id='canvas-C6' class='canvas'></div>
+			    	<script>
+			    		'use-strict';
+
+					    let C6 = {
+					    	paper: new Raphael('canvas-C6', '100%', 400),
+					    	functionOptions: {
+					    		N: 6,
+					    	},
+					    	options: {
+					    		margin: 12,
+					    		inscribed: true,
+					    	},
+					    };
+					    drawInCanvasCenter(C6.paper, drawCyclicShape, C6.functionOptions, C6.options);
+
+
+			    	</script>
+			    </div>
+				<div class='half'>
+					<p>D7</p>
+			    	<div id='canvas-D7' class='canvas'></div>
+			    	<script>
+			    		'use-strict';
+
+					    let D7 = {
+					    	paper: new Raphael('canvas-D7', '100%', 400),
+					    	functionOptions: {
+					    		useDifferentSideStrokes: true,
+					    		N: 7,
+					    	},
+					    	options: {
+					    		margin: 12,
+					    		inscribed: true,
+					    	},
+					    };
+					    drawInCanvasCenter(D7.paper, drawDihedralShape, D7.functionOptions, D7.options);
+
+			    	</script>
+			    </div>
+		    </div>
+		    <!-- cyclic and dihedral shapes -->
+
+			<!-- rectangle -->
+			<div>
+				<h2>More shapes</h2>
+				<div class='half'>
+					<p>Rectangle</p>
+					
+			    	<div canvas-centered-drawing class='canvas' draw-function='drawRectangle' function-options='{"useDifferentSideStrokes": true}' options='{"margin": 12, "inscribed": true}'></div>
+
+			    </div>
+				<div class='half'>
+					<!-- <p>D7</p> -->
+			    	<!-- <div id='canvas-D7' class='canvas'></div> -->
+			    	<script>
+			    		'use-strict';
+
+			    	</script>
+			    </div>
+		    </div>
+		    <!-- rectangles -->
+
+
+	   </div>
 	</div>
+	<!-- Pieces -->
 
 </body>
 </html>

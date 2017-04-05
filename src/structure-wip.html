@@ -1,0 +1,91 @@
+<html ng-app="frieze" ng-controller="PageController">
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="description" content="TODO">
+    <meta name="author" content="Alex Berke | aberke">
+
+    <link rel="shortcut icon" href="https://aberke.github.io/fractals/img/sierpinski-triangle.png" type="image/x-icon">
+    <meta property="og:image" content="https://aberke.github.io/fractals/img/pythagoras-tree-1.gif" />
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.min.js"></script>
+
+    <script type="text/javascript" src="js/constants.js"></script>
+    <script type="text/javascript" src="js/frieze-app.js"></script>
+    <script type="text/javascript" src="js/controllers/page-controller.js"></script>
+    <script type="text/javascript" src="js/controllers/frieze-controller.js"></script>
+
+    <script type="text/javascript" src="js/paths.js"></script>
+    <script type="text/javascript" src="js/util.js"></script>
+    <script type="text/javascript" src="js/pattern.js"></script>
+
+    <!-- Google Fonts: TODO: Clean this up -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,600,700,800" rel="stylesheet">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/frieze.css">
+
+    <title>Coloring Book | {{ pageTitle }}</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <!-- TODO: Should display at top on Home Page -->
+    <nav>
+        <ul>
+            <li>
+                <a href="#TODO">The Book</a>
+                <ul>
+                    <li><a href="#TODO">Cover</a></li>
+                    <li><a href="#TODO">Shapes &amp; Symmetries</a></li>
+                    <li><a href="#TODO">Frieze Groups</a></li>
+                    <li><a href="#TODO">Wallpaper Groups</a></li>
+                </ul>
+            </li>
+            <li><a href="#TODO">About</a></li>
+                <ul>
+                    <li><a href="#TODO">What</a></li>
+                    <li><a href="#TODO">Why</a></li>
+                    <li><a href="#TODO">How</a></li>
+                    <li><a href="#TODO">Contact</a></li>
+                    <li><a href="#TODO">Contribute</a></li>
+                </ul>
+            <li><a href="#TODO">Get Updates // Get Invites</a></li>
+            <li>
+                <a href="#TODO">Color on Paper // Get the Book (*free)</a>
+                <ul>
+                    <li><a href="#TODO">Buy the Book</a></li>
+                    <li><a href="#TODO">Print For Free</a></li>
+                </ul>
+            </li>
+            <li><a href="#TODO">Wallpaper your home / work / space</a></li>
+            <li><a href="#TODO"">License</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sections -->
+    <!-- Default section is the cover page -->
+    <!-- TODO: Use angular to make this modular -->
+    <section ng-view></section>
+
+
+
+
+    <footer>
+        <!-- TOD0 -->
+        <p>Made with &#9825; in NYC by <a href="http://aberke.com" target="_blank">Alex Berke</a></p>
+    </footer>
+
+
+<script>
+    // TODO: Google analytics here
+</script>
+
+</body>
+</html>

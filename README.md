@@ -16,7 +16,7 @@ Files are served by node http-server
 
 - Install node modules `$ npm install`
 - Run server `$ npm start`
-- Visit http://localhost:8000/
+- Visit http://127.0.0.1/:8000/
 
 
 ## Deployment
@@ -25,23 +25,41 @@ Files are served by node http-server
 	- Uses node server to serve assets.  This allows AngularJS includes.
 
 
+## Structure
+
+src/
+	fractals/
+	img/
+	styles/
+	lib/
+		raphael
+	index.html
+	app/
+		common/
+			app.ngLoadScript.js // so that scripts can be executed within partials
+
+		book/
+			book.js -- defines angular.module('app.book', ['ngRoute'])
+			book.html
+			pages/
+				book-page-cover.html
+				book-page-intro.html // with frieze groups and wallpaper groups
+				book-page-coloring-guide.html // table of contents
+				book-page-shapes-intro.html
+				book-page-shapes-cn-1.html
+				book-page-shapes-cn-2.html
+
+
+
 ### Pieces
 
 Starting to generate & put together the pieces.  They are shown in pieces.html.
 
 
-## TODO
+# TODO:
 
-Easy:
-
-- clean up circular tessellation -- remove console logs
-
-- change interface to conform to other shape creations
-
-
-- break out fundamentalLineSlices in the circular-tesselation into its own class
-- use to generate more interesting frieze groups
-- put in Pieces
+- add favicon to frieze groups
+- move scripts to the bottom
 
 
 ### Notes:

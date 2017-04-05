@@ -1,0 +1,109 @@
+<div class="book-page">
+
+    <div class="text-coloring-content-container">
+        <div class="text-content">
+            <p>We need a better way to talk about this.  We say a shape has rotational symmetry of <strong>order n</strong> if it has <strong>n</strong> unique rotations. This means the shape can be rotated 1/n of the way around the circle without changing its appearance.
+            </p>
+            <div class="text-content-graphic line">
+                <!-- [Line of regular polygons with order under them] -->
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":5}'
+                    options='{"text":"Order 5"}'
+                ></div>
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":6}'
+                    options='{"text":"Order 6"}'
+                ></div>
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":7}'
+                    options='{"text":"Order 7"}'
+                ></div>
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":8}'
+                    options='{"text":"Order 8"}'
+                ></div>
+                <!-- make some dots in an ugly css hack? -->
+                <div class="canvas extra-small fake-canvas"><p>...</p></div>
+                <!-- circle -->
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawCircle'
+                    function-options='{}'
+                    options='{"text":"Order ∞", "margin": 20}'
+                ></div>
+            </div>
+
+            <p>
+            For example, a triangle can be rotated by &frac13; of the way around the circle so a triangle has order 3.  A square can be rotated &frac14; of the way around the circle without changing, so it has order 4.</p>
+
+            <div class="text-content-graphic line">
+                <!-- [Line of regular polygons with order under them] -->
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRectangle'
+                    function-options='{}'
+                    options='{"text":"Order 2", "autoRotateDegrees": 180}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":3}'
+                    options='{"text":"Order 2", "autoRotateDegrees": 120}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4}'
+                    options='{"text":"Order 4", "autoRotateDegrees": 90}'
+                ></div>
+            </div>
+        </div>
+
+        <div class="coloring-content">
+        [Use same lines to create circular tessellation of increasing order]
+        </div>
+    </div>
+
+
+
+
+    <div class="text-coloring-content-container">
+        <div class="text-content">
+            <p>We can say the same for shapes that are not regular polygons.
+            </p>
+            <div class="text-content-graphic line">
+                <!-- [Line of regular polygons with order under them] -->
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCircularTessellation'
+                    function-options='{"rotations": 2, "levels": 1, "slicesCount": 1}'
+                    options='{"text":"Order 2", "autoRotateDegrees": 180}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCircularTessellation'
+                    function-options='{"rotations": 3, "levels": 1, "slicesCount": 1}'
+                    options='{"text":"Order 3", "autoRotateDegrees": 180}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCircularTessellation'
+                    function-options='{"rotations": 4, "levels": 1, "slicesCount": 1}'
+                    options='{"text":"Order 4", "autoRotateDegrees": 180}'
+                ></div>
+            </div>
+        </div>
+
+        <div class="coloring-content">
+        [TODO]
+        </div>
+    </div>
+</div>

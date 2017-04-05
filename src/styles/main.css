@@ -1,0 +1,225 @@
+/*
+Colors:
+	LIGHT_GRAY: #d3d3d3;
+	PURPLE: #670067;
+	AQUA: #3bcca6;
+
+*/
+
+/* ====== DEBUG ==== */
+
+/*.canvas {
+	border: 1px solid gray;
+}*/
+/*
+.text-coloring-content-container {
+	border: 1px solid green;
+}
+.text-content {
+	border-right: 1px solid gray;
+}
+.coloring-content {
+	border: 1px solid red;
+}
+.text-content-graphic {
+	border: 1px solid blue;
+}*/
+
+/* ====== DEBUG ==== */
+
+
+body {
+	font-family: 'Raleway', sans-serif;
+
+	padding: 0;
+	margin: 0;
+}
+
+/* ==============
+Writing 
+*/
+h1, h2, h3 {
+	text-align: center;
+}
+h1 {
+	font-size: 2.2em;
+	padding: 20px;
+	margin: 1px auto;
+	max-width: 800px;
+
+	border-top: 4px solid #3bcca6;
+	border-bottom: 4px solid #3bcca6;
+}
+#book-title-container {
+	border-top: 4px double #670067;
+	border-bottom: 4px double #670067;
+
+	max-width: 800px;
+	margin: 50px auto;
+}
+.book-section-title, .book-section-subtitle {
+	display: inline-block;
+	margin: 60px auto;
+	padding: 20px 30px;
+	min-width: 50%;
+}
+.book-section-title {
+	font-size: 1.9em;
+	border-bottom: 5px double #670067;
+
+}
+.book-section-subtitle {
+	font-size: 1.6em;
+	border-bottom: 2px dashed #670067;
+}
+
+p {
+	text-align: left;
+	line-height: 1.3;
+}
+/* Writing */
+
+
+
+/* ==================
+Structure
+*/
+.page {
+	padding: 10px;
+	margin: auto;
+	display: block;
+}
+
+#book-cover p {
+	padding: 20px;
+	max-width: 500px;
+	text-align: center;
+	margin: auto;
+	line-height: 1.4;
+}
+
+.book-section {
+	padding: 40px 10px;
+	border-bottom: 4px double gray;
+	text-align: center;
+}
+.book-section#book-cover {
+	margin: 20px;
+}
+
+#book-cover .canvas {
+	width: 120px;
+	height: 120px;
+}
+.clickable.canvas:hover {
+	cursor: pointer;
+}
+
+.text-coloring-content-container {
+}
+.text-content, .coloring-content {
+	display: inline-block;
+	padding: 5px;
+	vertical-align: middle;
+}
+.text-content {
+	width: 40%;
+}
+.coloring-content {
+	width: 55%;
+	border-left: 1px solid gray;
+}
+
+
+
+/* Structure */
+
+
+/* ===== Pieces ===========*/
+
+.half {
+	display: inline-block;
+	width: 45%;
+}
+.third {
+	display: inline-block;
+	width: 32%;
+}
+.two-thirds {
+	display: inline-block;
+	width: 66%;
+}
+.center-block {
+	display: block;
+	margin: auto;
+}
+.aqua {
+	color: #3bcca6;
+}
+.purple {
+	color: #670067;
+}
+
+.text-content-graphic {
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+
+.text-content-graphic .canvas {
+	width: 70px;
+	height: 70px;
+	display: inline-block;
+}
+
+.text-content-graphic .canvas.extra-small {
+	width: 40px;
+	height: 40px;
+}
+.fake-canvas {
+	vertical-align: top;
+}
+.fake-canvas p {
+	text-align: center;
+	display: block;
+	font-weight: bold;
+}
+
+
+/* Pieces */
+
+@media (max-width: 700px) {
+
+	p {
+		text-align: center;
+	}
+
+
+	/* ==================
+	Structure
+	*/
+	.text-content {
+		border-right: none;
+		width: 100%;
+	}
+	.coloring-content {
+		width: 100%;
+		border-left: none;
+	}
+
+
+
+	/* Structure */
+
+
+
+}
+
+
+
+
+
+
+
+
+
