@@ -2,16 +2,12 @@
   "name": "coloring-book",
   "version": "0.0.1",
   "description": "Coloring Book of Group Theory.  You might know of coloring books as a childhood amusement or as a means to adult relaxation. How about as a medium to teach the mathematics of group theory? Come color on the walls, interact with mathematical animations, and learn more about the beauty of math.",
-  "main": "index.js",
   "dependencies": {
-    "ejs": "2.4.1",
-    "express": "4.13.3"
+    "http-server": "^0.9.0"
   },
   "devDependencies": {},
-  "main": "main.js",
   "scripts": {
-    "start": "node main.js",
-    "test": "test"
+    "start": "http-server ./src/ -a localhost -p 8000 -c-1"
   },
   "repository": {
     "type": "git",

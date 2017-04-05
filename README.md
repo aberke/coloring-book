@@ -12,6 +12,18 @@ This repo uses a submodule, which is the `fractals` directory.  This will inital
 - Fill the fractals directory: run `git submodule update --init --recursive`
 - To pull in changes from the `fractals` submodule, run `$ git submodule update --recursive --remote`
 
+Files are served by node http-server
+
+- Install node modules `$ npm install`
+- Run server `$ npm start`
+- Visit http://localhost:8000/
+
+
+## Deployment
+
+- This is deployed on heroku at http://coloring-book.herokuapp.com
+	- Uses node server to serve assets.  This allows AngularJS includes.
+
 
 ### Pieces
 
