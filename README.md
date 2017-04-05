@@ -58,8 +58,8 @@ Starting to generate & put together the pieces.  They are shown in pieces.html.
 
 # TODO:
 
+- Google analytics
 - add favicon to frieze groups
-- move scripts to the bottom
 
 
 ### Notes:
