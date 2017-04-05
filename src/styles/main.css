@@ -100,7 +100,7 @@ Structure
 
 .book-section {
 	padding: 40px 10px;
-	border-bottom: 4px double gray;
+	/*border-bottom: 4px double gray;*/
 	text-align: center;
 }
 .book-section#book-cover {
@@ -130,7 +130,33 @@ Structure
 	border-left: 1px solid gray;
 }
 
+#get-updates-form-container {
+	text-align: center;
+	width: 90%;
+	margin: 20px auto;
+	border-top: 5px solid #3bcca6;
+	padding-top: 30px;
+}
+#get-updates-form-container iframe, #get-updates-form-container p {
+	width: 90%;
+	max-width: 550px;
+	margin: auto;
+	text-align: center;
+	padding-top: 20px;
+}
+#get-updates-form-container iframe {
+	min-height: 1100px;
+}
 
+
+footer {
+	border-top: 5px double #670067;
+	color: #670067;
+	padding: 30px;
+}
+footer p {
+	text-align: center;
+}
 
 /* Structure */
 
@@ -208,18 +234,6 @@ Structure
 	}
 
 
-
 	/* Structure */
 
-
-
 }
-
-
-
-
-
-
-
-
-
