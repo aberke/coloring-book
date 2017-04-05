@@ -1,0 +1,180 @@
+<div class="book-page">
+
+    <div class="text-coloring-content-container">
+        <div class="text-content">
+            <p>
+            When shapes have the same rotational order, they share a <strong>cyclic group</strong>.  We can use the name C3 to talk about the group of shapes that have 3 rotations.  We can also use the name C4 for the shapes that have 4 rotations, C5 for the shapes that have 5 rotations, and so on.
+            </p>
+
+            <div class="text-content-graphic line">
+                <!-- [C3: Line of shapes, starting with with regular 3-gon] -->
+
+                <div class="canvas fake-canvas">
+                    <p class="text">C3:</p>
+                </div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":3}'
+                    options='{"autoRotateDegrees":120}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCircularTessellation'
+                    function-options='{"rotations":3,"levels":1,"slicesCount":2}'
+                    options='{"autoRotateDegrees":120}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCircularTessellation'
+                    function-options='{"rotations":3,"levels":2,"slicesCount":2}'
+                    options='{"autoRotateDegrees":120}'
+                ></div>
+            </div>
+            <br/>
+
+            <!-- [C4: Line of shapes, starting with with regular 4-gon] -->
+            <div class="text-content-graphic line">
+                <div class="canvas fake-canvas">
+                    <p class="text">C4:</p>
+                </div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4}'
+                    options='{"autoRotateDegrees":90}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCircularTessellation'
+                    function-options='{"rotations":4,"levels":1,"slicesCount":2}'
+                    options='{"autoRotateDegrees":90}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCircularTessellation'
+                    function-options='{"rotations":4,"levels":2,"slicesCount":2}'
+                    options='{"autoRotateDegrees":90}'
+                ></div>
+            </div>
+
+            <!-- dots -->
+            <div class="canvas fake-canvas""><p class="text">...</p></div>
+
+            <!-- [C8: Line of shapes, starting with with regular 8-gon] -->
+            <div class="text-content-graphic line">
+                <div class="canvas fake-canvas">
+                    <p class="text">C8:</p>
+                </div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":8}'
+                    options='{"autoRotateDegrees":45}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCircularTessellation'
+                    function-options='{"rotations":8,"levels":1,"slicesCount":2}'
+                    options='{"autoRotateDegrees":45}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCircularTessellation'
+                    function-options='{"rotations":8,"levels":2,"slicesCount":2}'
+                    options='{"autoRotateDegrees":45}'
+                ></div>
+            </div>
+
+        </div>
+
+        <div class="coloring-content">
+            <!-- Circular tessellations of rotational symmetry=3 -->
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=3
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=3
+                slices-count=5
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=3
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+            <!-- Circular tessellations of rotational symmetry=4 -->
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=4
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=4
+                slices-count=3
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=4
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+            <!-- Circular tessellations of rotational symmetry=8 -->
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=8
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=8
+                slices-count=3
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=8
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+        </div>
+    </div>
+
+
+</div>

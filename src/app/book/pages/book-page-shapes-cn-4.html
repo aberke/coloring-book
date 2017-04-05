@@ -1,0 +1,165 @@
+<div class="book-page">
+    <div class="text-coloring-content-container">
+        <div class="text-content">
+            <p>Now that we can count rotations, we can be more precise when we say a square has more symmetry than a rectangle.</p>
+
+            <!-- [line of 2 rectangles, adjacent sides share border pattern, rotate 180deg; on hover]
+            [line of 4 triangles, all unique borders, rotate 90deg; on hover over set] -->
+            <div class="text-content-graphic line">
+                <!-- line of rectangles -->
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRectangle'
+                    function-options='{"useDifferentSideStrokes":true}'
+                    options='{"text":"0 turn","autoRotateDegrees":180,"initialRotation":0}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRectangle'
+                    function-options='{"useDifferentSideStrokes":true}'
+                    options='{"text":"1/2 turn","autoRotateDegrees":180,"initialRotation":180}'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <!-- line of squares -->
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "useDifferentSideStrokes":true}'
+                    options='{"text":"0 turn","autoRotateDegrees":90,"initialRotation":0}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "useDifferentSideStrokes":true}'
+                    options='{"text":"1/4 turn","autoRotateDegrees":90,"initialRotation":90}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "useDifferentSideStrokes":true}'
+                    options='{"text":"2/4 turn","autoRotateDegrees":90,"initialRotation":180}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "useDifferentSideStrokes":true}'
+                    options='{"text":"3/4 turn","autoRotateDegrees":90,"initialRotation":270}'
+                ></div>
+            </div>
+            
+            <p>
+            We can also see that a square has more rotational symmetry than a triangle, which in turn has more symmetry than a rectangle: A square has 4 unique rotations, while a triangle has 3, and a rectangle has only 2.
+            </p>
+
+            <!-- [Line of regular convex polygons of order 2, 3, 4] -->
+            <div class="text-content-graphic line">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRectangle'
+                    function-options='{"N":2}'
+                    options='{"autoRotateDegrees":180, "margin": 10}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":3}'
+                    options='{"autoRotateDegrees":120}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4}'
+                    options='{"autoRotateDegrees":90}'
+                ></div>
+            </div>
+        </div>
+
+        <div class="coloring-content">
+            <!-- Line of circular tessellations of 2 rotations -->
+            <div class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=2
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=2
+                slices-count=3
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=2
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+
+            <!-- Line of Circular tessellations of rotational symmetry=3 -->
+            <div class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=3
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=3
+                slices-count=3
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=3
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+
+            <!-- Line of circular tessellations of 4 rotations -->
+            <div class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=4
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=4
+                slices-count=3
+                levels=2
+                margin=20>
+            </div>
+            <div
+                class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=4
+                slices-count=2
+                levels=2
+                margin=20>
+            </div>
+        </div>
+    </div>
+
+</div>

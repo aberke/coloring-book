@@ -1,0 +1,107 @@
+<div class="book-page">
+
+    <h2 class="book-section-title">Shapes &amp; Symmetries</h2>
+
+    <div class="text-coloring-content-container">
+        <div class="text-content">
+            <p>We have intuitive ideas of symmetry. Some shapes look "more symmetric" than others.  For example, a square is "more symmetric" than a rectangle.</p>
+            <div class="text-content-graphic line">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawSquare'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRectangle'
+                ></div>
+            </div>
+            <p>But what does that mean?  We can be more precise.  We can even count how much symmetry a shape has.</p>
+        </div>
+        <!-- text-content -->
+        <!-- coloring-content -->
+        <div class="coloring-content">
+
+            <div class="third clickable canvas" id="square-vs-rectangle-rectangle-coloring-content-a"></div>
+            <div class="third clickable canvas" id="square-vs-rectangle-rectangle-coloring-content-b"></div>
+            <div class="third clickable canvas" id="square-vs-rectangle-rectangle-coloring-content-c"></div>
+
+            <script type="text/javascript-lazy">
+            "use strict";
+
+            // use the same slices to generate circular tesselations with rotations
+            // these tessellations sit next to each other on separate canvases/papers
+
+            // put the variables for circular-tessellations in here
+            let squareVsRectangle_coloring = {
+                a: {
+                    paper: new Raphael("square-vs-rectangle-rectangle-coloring-content-a"),
+                    options: {
+                        levels: 2,
+                        withReflection: true,
+                        rotations: 2,
+                    },
+                },
+                b: {
+                    paper: new Raphael("square-vs-rectangle-rectangle-coloring-content-b"),
+                    options: {
+                        levels: 2,
+                        withReflection: true,
+                        rotations: 4,
+                    },
+                },
+                c: {
+                    paper: new Raphael("square-vs-rectangle-rectangle-coloring-content-c"),
+                    options: {
+                        levels: 2,
+                        withReflection: true,
+                        rotations: 2,
+                    },
+                },
+            };
+
+            // get the slices to use
+            // ASSUMPTION: all the canvases have the same size, and therefore the same origin
+            squareVsRectangle_coloring.origin = getCanvasCenter(squareVsRectangle_coloring.a.paper);
+
+            squareVsRectangle_coloring.diameter = Math.min(squareVsRectangle_coloring.a.paper.getSize().width, squareVsRectangle_coloring.a.paper.getSize().height);
+
+            // wrap the drawing in a function that can be called onclick to redraw
+            // since this function generates the paths randomly, each redraw creates new drawings
+            squareVsRectangle_coloring.redraw = function() {
+                // generate circular tessellation 'a' and use its slices to generate the others
+
+                // clear the papers of their previous drawings
+                squareVsRectangle_coloring.a.paper.clear();
+                squareVsRectangle_coloring.b.paper.clear();
+                squareVsRectangle_coloring.c.paper.clear();
+
+                // clear out the old slices pathList if this is a redraw
+                squareVsRectangle_coloring.a.options.slicesPathList = null;
+
+                // generate circular tessellation a and at the same time
+                // get the slices pathList from it to reuse for the other tessellations
+                squareVsRectangle_coloring.a.circularTessellation = new CircularTessellation(squareVsRectangle_coloring.a.paper, squareVsRectangle_coloring.origin, squareVsRectangle_coloring.diameter, squareVsRectangle_coloring.a.options);
+
+                // get the slices pathList from a and add them to the options
+                // so that they can be used to generate the other circular tessellations
+                squareVsRectangle_coloring.b.options.slicesPathList = squareVsRectangle_coloring.a.circularTessellation.slicesPathList;
+                squareVsRectangle_coloring.c.options.slicesPathList = squareVsRectangle_coloring.a.circularTessellation.slicesPathList;
+
+                // generate circular tessellation b
+                new CircularTessellation(squareVsRectangle_coloring.b.paper, squareVsRectangle_coloring.origin, squareVsRectangle_coloring.diameter, squareVsRectangle_coloring.b.options);
+                // generate c
+                new CircularTessellation(squareVsRectangle_coloring.c.paper, squareVsRectangle_coloring.origin, squareVsRectangle_coloring.diameter, squareVsRectangle_coloring.c.options);
+            };
+            // draw for the first time
+            squareVsRectangle_coloring.redraw();
+                // add mouse-up handlers to the canvases to cause redraw
+            squareVsRectangle_coloring.a.paper.canvas.addEventListener('mouseup', squareVsRectangle_coloring.redraw);
+            squareVsRectangle_coloring.b.paper.canvas.addEventListener('mouseup', squareVsRectangle_coloring.redraw);
+            squareVsRectangle_coloring.c.paper.canvas.addEventListener('mouseup', squareVsRectangle_coloring.redraw);
+
+
+            </script>
+        </div>
+    </div>
+
+</div>

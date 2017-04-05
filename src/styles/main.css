@@ -61,6 +61,7 @@ h1 {
 	display: inline-block;
 	margin: 60px auto;
 	padding: 20px 30px;
+	min-width: 50%;
 }
 .book-section-title {
 	font-size: 1.9em;
@@ -147,6 +148,10 @@ Structure
 .two-thirds {
 	display: inline-block;
 	width: 66%;
+}
+.center-block {
+	display: block;
+	margin: auto;
 }
 .aqua {
 	color: #3bcca6;

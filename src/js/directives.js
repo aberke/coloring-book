@@ -100,7 +100,7 @@ function canvasCenteredDrawingDirective() {
 
 
 // bootstrap the directives
-var directivesModule = angular.module('directivesModule', [])
+angular.module('directivesModule', [])
 .directive('testDirective', testDirective)
 .directive('canvasCenteredDrawing', canvasCenteredDrawingDirective)
 .directive('circularTessellation', circularTessellationDirective)
