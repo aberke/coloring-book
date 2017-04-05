@@ -2,6 +2,8 @@
 
 Open source, online coloring book through which one can explore the mathematics of symmetry and group theory.
 
+http://coloring-book.co
+
 
 ## Development
 
@@ -58,7 +60,6 @@ Starting to generate & put together the pieces.  They are shown in pieces.html.
 
 # TODO:
 
-- Google analytics
 - add favicon to frieze groups
 
 
