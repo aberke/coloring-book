@@ -5,6 +5,13 @@ Open source, online coloring book through which one can explore the mathematics 
 http://coloring-book.co
 
 
+## Export to Print/Save
+
+- Works best with Firefox browser
+- Select to show no headers and only center page number as footer
+- "Preview as PDF"
+
+
 ## Development
 
 - Clone the repo `$ git clone git@github.com:aberke/coloring-book.git`

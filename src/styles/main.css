@@ -123,12 +123,45 @@ Structure
 	vertical-align: middle;
 }
 .text-content {
+	max-width: 600px;
 	width: 40%;
+	min-height: 200px;
+	vertical-align: middle;
 }
 .coloring-content {
 	width: 55%;
 	border-left: 1px solid gray;
 }
+
+/*
+Style differently for printing on paper -- similar to mobile
+Note: So far this seems to work best with Firefox -- Preview as PDF
+*/
+.page-print-break-after {
+	page-break-after: always;
+}
+.page-print-break-before {
+	page-break-before: always;
+}
+.book-page {
+	page-break-after: always;
+}
+@media print {
+	.text-content, .coloring-content {
+		width: 100%;
+		border: none;
+	}
+	nav {
+		display: none;
+	}
+	#get-updates-form-container {
+		display: none;
+	}
+	footer {
+		display: none;
+	}
+}
+
 
 #get-updates-form-container {
 	text-align: center;

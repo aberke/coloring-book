@@ -23,7 +23,7 @@ Path is randomly generated.
 */
 function getFundamentalDomainLineSlices(origin, width, height, slicesCount, withReflection) {
     slicesCount = slicesCount || 3;
-    withReflection = withReflection || true;
+    withReflection = withReflection || false;
 
     let pathList = [];
 
