@@ -65,18 +65,7 @@
                     options='{"text":"Order 4", "autoRotateDegrees": 90}'
                 ></div>
             </div>
-        </div>
 
-        <div class="coloring-content">
-        [Use same lines to create circular tessellation of increasing order]
-        </div>
-    </div>
-
-
-
-
-    <div class="text-coloring-content-container">
-        <div class="text-content">
             <p>We can say the same for shapes that are not regular polygons.
             </p>
             <div class="text-content-graphic line">
@@ -101,9 +90,18 @@
                 ></div>
             </div>
         </div>
-
-        <div class="coloring-content">
-        [TODO]
+        
+        <!-- Page break for print -->
+        <div class="coloring-content page-print-break-before">
+            <div
+                class="canvas" 
+                with-redraw 
+                circular-tessellation
+                rotations=8
+                slices-count=4
+                levels=2
+                margin=20>
+            </div>
         </div>
     </div>
 </div>
