@@ -7,9 +7,22 @@ http://coloring-book.co
 
 ## Export to Print/Save
 
+In order to export the book to printable version, or save it as printable PDF:
+
 - Works best with Firefox browser
 - Select to show no headers and only center page number as footer
 - "Preview as PDF"
+
+
+## Prints
+
+Full printable designs available at
+
+- /prints/triangles.html
+- /prints/cn-1.html
+- /prints/cn-2-4.html
+- /prints/cn-5-7.html
+
 
 
 ## Development
