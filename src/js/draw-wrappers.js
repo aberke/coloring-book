@@ -1,4 +1,4 @@
-"use-strict";
+"use strict";
 
 
 /**
@@ -69,7 +69,7 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions = {}, options =
 
 
 function getCanvasCenter(paper) {
-    return origin = {
+    return {
         X: paper.getSize().width/2,
         Y: paper.getSize().height/2
     };  
@@ -114,7 +114,7 @@ function drawSierpinskiTriangle(paper, centerPoint, size, options) {
 
 
 function drawCircularTessellation(paper, centerPoint, size, options) {
-    let circularTessellation = new CircularTessellation(paper, origin, size, options);
+    let circularTessellation = new CircularTessellation(paper, centerPoint, size, options);
     let pathSet = circularTessellation.pathSet;
     styleShapePath(pathSet);
     return pathSet;
@@ -168,7 +168,7 @@ function drawCircle(paper, centerPoint, size) {
 
 
 function drawSquare(paper, centerPoint, size) {
-    let path = paper.rect(origin.X - size/2, origin.Y - size/2, size, size);
+    let path = paper.rect(centerPoint.X - size/2, centerPoint.Y - size/2, size, size);
     styleShapePath(path);
     return path;
 }

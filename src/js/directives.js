@@ -1,4 +1,4 @@
-"use-strict";
+"use strict";
 
 // TODO: refactor this
 // Including bootstrapping all directives onload within anonymous function ?

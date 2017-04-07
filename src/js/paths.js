@@ -1,4 +1,4 @@
-"use-strict";
+"use strict";
 
 /*
 	Collection of SVG Path generating functions
