@@ -1,0 +1,86 @@
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+    <!-- TODO: all the good metadata -->
+    <meta name="description" content=""> <!-- todo -->
+    <meta name="author" content="Alex Berke | aberke">
+    <link rel="shortcut icon" href="https://aberke.github.io/fractals/img/sierpinski-triangle.png" type="image/x-icon">
+    <meta property="og:image" content="https://aberke.github.io/fractals/img/pythagoras-tree-1.gif" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,600,700,800" rel="stylesheet">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="/styles/main.css">
+
+    <title>Coloring Book</title>
+</head>
+<body>
+
+<div class="print-page">
+
+    <!-- coloring-content -->
+    <div class="coloring-content">
+        <div
+            class="canvas" 
+            with-redraw 
+            circular-tessellation
+            rotations=6
+            slices-count=5
+            levels=2
+            margin=100>
+        </div>
+    </div>
+</div>
+
+
+<!-- Scripts -->
+
+<!-- From fractals -->
+<script type="text/javascript" src="/fractals/js/util.js"></script>
+<script type="text/javascript" src="/fractals/js/sierpinski-arrowhead-curve.js"></script>
+<script type="text/javascript" src="/fractals/js/sierpinski-triangle.js"></script>
+
+<!-- vendor assets -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.min.js"></script>
+
+<script type="text/javascript" src="/js/circular-tessellation.js"></script>
+<script type="text/javascript" src="/js/constants.js"></script>
+<script type="text/javascript" src="/js/styling.js"></script>
+
+<script type="text/javascript" src="/js/shapes/utility.js"></script>
+<script type="text/javascript" src="/js/shapes/cyclic-shapes.js"></script>
+<script type="text/javascript" src="/js/shapes/dihedral-shapes.js"></script>
+<script type="text/javascript" src="/js/shapes/regular-polygons.js"></script>
+<script type="text/javascript" src="/js/shapes/rectangles.js"></script>
+
+<script type="text/javascript" src="/js/paths.js"></script>
+<script type="text/javascript" src="/js/util.js"></script>
+<script type="text/javascript" src="/js/draw-wrappers.js"></script>
+<script type="text/javascript" src="/js/pattern.js"></script>
+
+<!-- Angular things -->
+<script type="text/javascript" src="/app/common/app.ngLoadScript.js"></script>
+<script type="text/javascript" src="/app/book/book.js"></script>
+<script type="text/javascript" src="/js/directives.js"></script>
+<script type="text/javascript" src="/app/app.js"></script>
+
+
+<!-- Google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43101146-6', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</body>
+</html>

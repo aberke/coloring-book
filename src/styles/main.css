@@ -128,9 +128,15 @@ Structure
 	min-height: 200px;
 	vertical-align: middle;
 }
-.coloring-content {
+.book-page .coloring-content {
 	width: 55%;
 	border-left: 1px solid gray;
+}
+
+.print-page .coloring-content {
+	width: 100%;
+	border: none;
+	text-align: center;
 }
 
 /*
