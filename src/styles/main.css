@@ -263,11 +263,11 @@ footer p {
 	/* ==================
 	Structure
 	*/
-	.text-content {
+	.book-page .text-content {
 		border-right: none;
 		width: 100%;
 	}
-	.coloring-content {
+	.book-page .coloring-content {
 		width: 100%;
 		border-left: none;
 	}
