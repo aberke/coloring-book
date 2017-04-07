@@ -1,5 +1,3 @@
-"use strict";
-
 // TODO: refactor this
 // Including bootstrapping all directives onload within anonymous function ?
 //	- See bottom of this post: https://weblogs.asp.net/dwahlin/creating-custom-angularjs-directives-part-i-the-fundamentals
@@ -28,21 +26,21 @@ function circularTessellationDirective() {
 			//DOM manipulation
 
 			// get the element to draw canvas paper on and make it sq
-			let elt = element[0];
+			var elt = element[0];
 			elt.style.height = (String(elt.clientWidth) + "px");
 			// create the canvas paper
-			let paper = new Raphael(elt);
+			var paper = new Raphael(elt);
 			// add the canvas class in case not already there
 			elt.className += " canvas";
 
-			let origin = getCanvasCenter(paper);
+			var origin = getCanvasCenter(paper);
 
-			let margin = Number(attrs.margin || 0);
-			let diameter = Math.min(paper.getSize().width, paper.getSize().height) - margin;
+			var margin = Number(attrs.margin || 0);
+			var diameter = Math.min(paper.getSize().width, paper.getSize().height) - margin;
 
 			// safely get the options -- yeah not that safe
-			let functionOptions = {};
-			let options = {
+			var functionOptions = {};
+			var options = {
 				rotations: attrs.rotations ? eval(attrs.rotations) : null,
 				levels: attrs.levels ? eval(attrs.levels) : null,
 				withReflection: attrs.withReflection ? eval(attrs.withReflection) : null,
@@ -74,20 +72,20 @@ function canvasCenteredDrawingDirective() {
 			//DOM manipulation
 
 			// get the element to draw canvas paper on and make it sq
-			let elt = element[0];
+			var elt = element[0];
 			elt.style.height = (String(elt.clientWidth) + "px");
-			let paper = new Raphael(elt);
+			var paper = new Raphael(elt);
 			// add the canvas class in case not already there
 			elt.className += " canvas";
 
 			// get the drawFunction
-			let drawFunction = attrs.drawFunction ? attrs.drawFunction : drawCircle;
+			var drawFunction = attrs.drawFunction ? attrs.drawFunction : drawCircle;
 
 			drawFunction = eval('(' + attrs.drawFunction + ')');
 
 			// safely get the options -- yeah not that safe
-			let functionOptions = {};
-			let options = {};
+			var functionOptions = {};
+			var options = {};
 			try {
 				functionOptions = JSON.parse(attrs.functionOptions || "{}");
 				options = JSON.parse(attrs.options || "{}");

@@ -1,5 +1,3 @@
-"use strict";
-
 /*
 Logic:
 - For a given line, say the <0, 10> vector:
@@ -75,7 +73,7 @@ class CircularTessellation {
 
 		this.isRotating = true;
 
-		let self = this;
+		var self = this;
 		this.pathSet.animate({transform: this.rotationTransformString}, 1000, function() {
 			self.isRotating = false;
 		});
@@ -84,15 +82,15 @@ class CircularTessellation {
 
 	draw() {
 		// get a line to rotate
-		let lineSet = this.getFundamentalDomainLine();
+		var lineSet = this.getFundamentalDomainLine();
 		this.pathSet.push(lineSet); // add it to the paperSet
 
 		// reuse that line -- clone it and rotate it, and add that clone to paperSet
-		for (let r = 1; r < this.rotations; r++) {
-	        let newLine = lineSet.clone();
+		for (var r = 1; r < this.rotations; r++) {
+	        var newLine = lineSet.clone();
 
-	        let degreesToRotate = r*this.rotationDegrees;
-	        let transformString = [
+	        var degreesToRotate = r*this.rotationDegrees;
+	        var transformString = [
 	        	"...R" + String(degreesToRotate),
 	        	String(this.origin.X),
 	        	String(this.origin.Y),
@@ -117,19 +115,19 @@ class CircularTessellation {
 	getFundamentalDomainLine() {
 
 		// initialize the final set of paths that will be returned
-	    let lineSet = this.paper.set();
+	    var lineSet = this.paper.set();
 
 		// generate base slices if do not already have them
 		if (!this.slicesPathList)
 			this.slicesPathList = getFundamentalDomainLineSlices(this.origin, this.width, this.height, this.slicesCount, this.withReflection);
 		
-		let slicesPath = this.paper.path(this.slicesPathList);
+		var slicesPath = this.paper.path(this.slicesPathList);
 		// for each level, add the base slices, scaled and translated appropriately
 		lineSet.push(slicesPath);
-		for (let l=1; l<this.levels; l++) {
+		for (var l=1; l<this.levels; l++) {
 		    // clone it + scale it up + translate
-		    let nextSlicesPath = slicesPath.clone();
-		    let transformList = [
+		    var nextSlicesPath = slicesPath.clone();
+		    var transformList = [
 		        ["T", 0, this.height],
 		        // USE LOWER CASE s
 		        ["s", Math.pow(this.scaleFactor, l), Math.pow(this.scaleFactor, l), this.origin.X, this.origin.Y],

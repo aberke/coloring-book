@@ -1,4 +1,3 @@
-"use strict";
 
 
 class DihedralShape extends CyclicShape {
@@ -11,9 +10,9 @@ class DihedralShape extends CyclicShape {
 
 
 	getLinePathList() {
-        let startPointPathPart = ["M", this.origin.X, this.origin.Y];
+        var startPointPathPart = ["M", this.origin.X, this.origin.Y];
         
-		let linePathList = [
+		var linePathList = [
 			// add side one of path
 			startPointPathPart,
 			["L", this.origin.X - this.size/(2*this.N), this.origin.Y + this.size/4],

@@ -1,6 +1,3 @@
-"use strict";
-
-
 /**
 Draws shape in the center of the canvas.
 Optionally draws text below.  Uses passed in function to draw the shape.
@@ -18,29 +15,30 @@ Optionally draws text below.  Uses passed in function to draw the shape.
 
 @returns {pathSet: object, origin: {X: number, Y: number}}
 */
-function drawInCanvasCenter(paper, drawFunction, functionOptions = {}, options = {}) {
-    // console.log('drawFunction', drawFunction)
+function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
+    functionOptions = functionOptions || {};
+    options = options || {};
 
-    let width = paper.getSize().width;
-    let height = paper.getSize().height;
+    var width = paper.getSize().width;
+    var height = paper.getSize().height;
 
-    let margin = options.margin || 0;
+    var margin = options.margin || 0;
 
     // if want to draw text below, leave margin below the shape for it
-    let bottomMargin = options.text ? 15 : 0;
+    var bottomMargin = options.text ? 15 : 0;
 
     // total desired size := minumum boundary minus bottom margin
-    let size = Math.min(width, height - Math.max(bottomMargin, margin));
-    let origin = getCanvasCenter(paper);
+    var size = Math.min(width, height - Math.max(bottomMargin, margin));
+    var origin = getCanvasCenter(paper);
     // shift origin to accommodate bottom margin
     origin.Y = origin.Y - (bottomMargin/2);
 
     // initialize the pathSet that will be returned
-    let pathSet = paper.set();
+    var pathSet = paper.set();
     if (options.inscribed) {
         // Inscribe shape within circle.
         // Inscribing circle drawn first so that shape sits on top.
-        let circlePath = drawInscribingCircle(paper, origin, size);
+        var circlePath = drawInscribingCircle(paper, origin, size);
         pathSet.push(circlePath);
     }
 
@@ -84,9 +82,9 @@ function setInitialRotation(pathSet, origin, rotation) {
 }
 
 function setAutoRotate(pathSet, origin, autoRotateDegrees) {
-    let interval = 12000;
-    let animationLength = 2000;
-    let transformString = [
+    var interval = 12000;
+    var animationLength = 2000;
+    var transformString = [
         "...R" + String(autoRotateDegrees),
         origin.X,
         origin.Y,
@@ -95,7 +93,6 @@ function setAutoRotate(pathSet, origin, autoRotateDegrees) {
     setInterval(function(){
         pathSet.animate({transform: transformString}, animationLength);
     }, interval);
-
 }
 
 
@@ -107,52 +104,52 @@ They draw the desired shape around the origin/centerPoint
 
 
 function drawSierpinskiTriangle(paper, centerPoint, size, options) {
-    let pathSet = getSierpinskiTriangle(centerPoint, size, options);
+    var pathSet = getSierpinskiTriangle(centerPoint, size, options);
     paper.path(pathSet);
     return pathSet;
 }
 
 
 function drawCircularTessellation(paper, centerPoint, size, options) {
-    let circularTessellation = new CircularTessellation(paper, centerPoint, size, options);
-    let pathSet = circularTessellation.pathSet;
+    var circularTessellation = new CircularTessellation(paper, centerPoint, size, options);
+    var pathSet = circularTessellation.pathSet;
     styleShapePath(pathSet);
     return pathSet;
 }
 
 
 function drawCyclicShape(paper, centerPoint, size, options) {
-    let cyclicShape = new CyclicShape(paper, centerPoint, size, options);
-    let pathSet = cyclicShape.pathSet;
+    var cyclicShape = new CyclicShape(paper, centerPoint, size, options);
+    var pathSet = cyclicShape.pathSet;
     styleShapePath(pathSet);
     return pathSet;
 }
 
 function drawDihedralShape(paper, centerPoint, size, options) {
-    let dihedralShape = new DihedralShape(paper, centerPoint, size, options);
-    let pathSet = dihedralShape.pathSet;
+    var dihedralShape = new DihedralShape(paper, centerPoint, size, options);
+    var pathSet = dihedralShape.pathSet;
     styleShapePath(pathSet);
     return pathSet;
 }
 
 
 function drawRegularPolygon(paper, centerPoint, size, options) {
-    let regularNGon = new RegularPolygon(paper, centerPoint, size, options);
-    let pathSet = regularNGon.pathSet;
+    var regularNGon = new RegularPolygon(paper, centerPoint, size, options);
+    var pathSet = regularNGon.pathSet;
     styleShapePath(pathSet);
     return pathSet;
 }
 
 function drawRectangle(paper, centerPoint, size, options) {
-	let rectangle = new Rectangle(paper, centerPoint, size, options);
-	let pathSet = rectangle.pathSet;
+	var rectangle = new Rectangle(paper, centerPoint, size, options);
+	var pathSet = rectangle.pathSet;
     styleShapePath(pathSet);
     return pathSet;
 }
 
 
 function drawInscribingCircle(paper, centerPoint, size) {
-    let path = drawCircle(paper, centerPoint, size);
+    var path = drawCircle(paper, centerPoint, size);
     path.attr({
         'stroke': COLORS.LIGHT_GRAY,
         'stroke-width': 1,
@@ -161,14 +158,14 @@ function drawInscribingCircle(paper, centerPoint, size) {
 }
 
 function drawCircle(paper, centerPoint, size) {
-    let pathSet = paper.circle(centerPoint.X, centerPoint.Y, size/2);
+    var pathSet = paper.circle(centerPoint.X, centerPoint.Y, size/2);
     styleShapePath(pathSet);
     return pathSet;
 }
 
 
 function drawSquare(paper, centerPoint, size) {
-    let path = paper.rect(centerPoint.X - size/2, centerPoint.Y - size/2, size, size);
+    var path = paper.rect(centerPoint.X - size/2, centerPoint.Y - size/2, size, size);
     styleShapePath(path);
     return path;
 }

@@ -1,5 +1,3 @@
-"use strict";
-
 /*
 	Collection of helper functions
 
@@ -87,7 +85,7 @@ function drawXAxesSet(paper, startY, gap, count) {
     return set;
 }
 
-function drawXaxis(paper, xAxisCoord, color=undefined) {
+function drawXaxis(paper, xAxisCoord, color) {
     var paperWidth = paper.canvas.clientWidth;
     var xAxisPathString = "M0," + String(xAxisCoord) + " l" + String(paperWidth) + ",0";
     var xAxisPath = paper.path(xAxisPathString)

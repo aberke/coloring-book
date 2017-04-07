@@ -5,7 +5,6 @@ Plan:
 Pattern(paper, path, [generatorFunction, generatorFunction,...], {options})
 
 */
-'use strict';
 
 var DEFAULT_STROKE_COLOR = 'black';
 var DEFAULT_STROKE_WIDTH = 2;
@@ -152,7 +151,7 @@ class P1 extends FriezePattern {
 
 
 	constructor(paper, fundamentalDomainPath) {
-		let generatorFunctions = [Translation];
+		var generatorFunctions = [Translation];
 		super(paper, fundamentalDomainPath, generatorFunctions);
 
 		this.name = 'P1';

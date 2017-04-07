@@ -1,4 +1,3 @@
-"use strict";
 
 /* 
 Define the color pallette

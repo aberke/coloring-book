@@ -1,6 +1,3 @@
-"use strict";
-
-
 /**
 Creates transform string for rotating shape.
 
