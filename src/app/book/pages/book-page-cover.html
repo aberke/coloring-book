@@ -10,25 +10,24 @@
     <div class="text-content-graphic">
         <div id="book-cover-graphic" class="canvas clickable"></div>
         <script type="text/javascript-lazy">
-            "use-strict";
 
             // draw the arrow head curve with a 'redraw' onclick
-            let sierpinskiArrowheadCurvePaper = new Raphael("book-cover-graphic");
+            var sierpinskiArrowheadCurvePaper = new Raphael("book-cover-graphic");
 
             // TODO? break this out and put into the fractals repo?
-            let drawSierpinskiArrowheadCurveWithBase = function(paper, centerPoint, size, options) {
+            var drawSierpinskiArrowheadCurveWithBase = function(paper, centerPoint, size, options) {
                 options = options || {};
                 options.level = options.level || 4;
-                let sierpinskiTrianglePath = getSierpinskiTriangle(centerPoint, size, options);
-                let sierpinskiArrowheadCurvePath = getSierpinskiArrowheadCurve(centerPoint, size, options);
+                var sierpinskiTrianglePath = getSierpinskiTriangle(centerPoint, size, options);
+                var sierpinskiArrowheadCurvePath = getSierpinskiArrowheadCurve(centerPoint, size, options);
                 // draw sierpinskiTrianglePath as base
-                let pathBelow = paper.path(sierpinskiTrianglePath);
+                var pathBelow = paper.path(sierpinskiTrianglePath);
                 pathBelow.attr({'stroke': LIGHT_GRAY});
                 // draw with animation on top of base in darker stroke color
                 draw(paper, sierpinskiArrowheadCurvePath);
             }
 
-            let redrawSierpinskiArrowheadCurveWithBase = function() {
+            var redrawSierpinskiArrowheadCurveWithBase = function() {
                 sierpinskiArrowheadCurvePaper.clear();
                 drawInCanvasCenter(sierpinskiArrowheadCurvePaper, drawSierpinskiArrowheadCurveWithBase);
             }

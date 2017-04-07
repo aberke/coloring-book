@@ -150,7 +150,7 @@
 				    'use strict';
 
 				    // put the variables for circular-tessellation-1 in here
-				    let CT1 = {};
+				    var CT1 = {};
 
 				    CT1.paper = new Raphael('canvas-circular-tessellation-1', '100%', 400);
 					CT1.paperWidth = CT1.paper.getSize().width;
@@ -179,7 +179,7 @@
 				    'use strict';
 
 				    // put the variables for circular-tessellation-2 in here
-				    let CT2 = {};
+				    var CT2 = {};
 
 				    CT2.paper = new Raphael('canvas-circular-tessellation-2', '100%', 400);
 					CT2.paperWidth = CT2.paper.getSize().width;
@@ -216,7 +216,7 @@
 				    'use strict';
 
 				    // put the variables for circular-tessellation-1 in here
-				    let CT3 = {
+				    var CT3 = {
 				    	a:{},
 				    	b:{},
 				    	c:{},
@@ -270,9 +270,9 @@
 					<p>5-gon</p>
 			    	<div id='canvas-ngon-5' class='canvas'></div>
 			    	<script>
-			    		'use-strict';
+			    		'use strict';
 
-					    let NGON5 = {};
+					    var NGON5 = {};
 				    	NGON5.paper = new Raphael('canvas-ngon-5', '100%', 400);
 				    	NGON5.buffer = 10;
 						NGON5.paperWidth = NGON5.paper.getSize().width;
@@ -291,9 +291,9 @@
 					<p>8-gon</p>
 			    	<div id='canvas-ngon-8' class='canvas'></div>
 			    	<script>
-			    		'use-strict';
+			    		'use strict';
 
-					    let NGON8 = {};
+					    var NGON8 = {};
 				    	NGON8.paper = new Raphael('canvas-ngon-8', '100%', 400);
 				    	NGON8.buffer = 10;
 						NGON8.paperWidth = CT2.paper.getSize().width;
@@ -319,9 +319,9 @@
 					<p>3-star</p>
 			    	<div id='canvas-star-3' class='canvas'></div>
 			    	<script>
-			    		'use-strict';
+			    		'use strict';
 
-					    let STAR3 = {};
+					    var STAR3 = {};
 				    	STAR3.paper = new Raphael('canvas-star-3', '100%', 400);
 				    	
                         STAR3.drawing = drawInCanvasCenter(STAR3.paper, drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 1, concave: true}, {autoRotateDegrees: 120, inscribed: true, initialRotation: 120});
@@ -332,9 +332,9 @@
 					<p>6-star</p>
 			    	<div id='canvas-star-6' class='canvas'></div>
 			    	<script>
-			    		'use-strict';
+			    		'use strict';
 
-					    let STAR6 = {};
+					    var STAR6 = {};
 				    	STAR6.paper = new Raphael('canvas-star-6', '100%', 400);
 				    	
                         STAR6.drawing = drawInCanvasCenter(STAR6.paper, drawRegularPolygon, {N: 6, useDifferentSideStrokes: true, sideStrokeOffset: 1, concave: true}, {autoRotateDegrees: 120, inscribed: true});
@@ -351,9 +351,9 @@
 					<p>C6 Shape</p>
 			    	<div id='canvas-C6' class='canvas'></div>
 			    	<script>
-			    		'use-strict';
+			    		'use strict';
 
-					    let C6 = {
+					    var C6 = {
 					    	paper: new Raphael('canvas-C6', '100%', 400),
 					    	functionOptions: {
 					    		N: 6,
@@ -372,9 +372,9 @@
 					<p>D7</p>
 			    	<div id='canvas-D7' class='canvas'></div>
 			    	<script>
-			    		'use-strict';
+			    		'use strict';
 
-					    let D7 = {
+					    var D7 = {
 					    	paper: new Raphael('canvas-D7', '100%', 400),
 					    	functionOptions: {
 					    		useDifferentSideStrokes: true,
@@ -405,7 +405,7 @@
 					<!-- <p>D7</p> -->
 			    	<!-- <div id='canvas-D7' class='canvas'></div> -->
 			    	<script>
-			    		'use-strict';
+			    		'use strict';
 
 			    	</script>
 			    </div>

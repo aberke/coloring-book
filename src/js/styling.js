@@ -1,10 +1,9 @@
-"use-strict";
 
 /* 
 Define the color pallette
 */
 
-const COLORS = {
+var COLORS = {
 	LIGHT_GRAY: '#d3d3d3',
 	PURPLE: '#670067',
 }
@@ -13,4 +12,4 @@ const COLORS = {
 
 // Ways to style the sides of a shape
 // with path.attr({'stroke-dasharray': string})
-const STROKE_DASH_ARRAY = ["", "-", ".", "-.", "--..", "-..", ". ", "- ", "--", "- .", "--."];
+var STROKE_DASH_ARRAY = ["", "-", ".", "-.", "--..", "-..", ". ", "- ", "--", "- .", "--."];

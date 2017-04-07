@@ -1,6 +1,3 @@
-"use strict";
-
-
 /**
 Draws regular polygon with N sides/rotations
 where the polygon sits with the bottom side horizontally
@@ -15,15 +12,15 @@ class RegularPolygon extends DihedralShape {
 	// generates the path set to be used as the 'fundamental' domain of the polygon
 	getLinePathList() {
 		// draw the bottom side of the polygon, oriented to lie horizontally flat
-		let rotationRadians = 2*Math.PI/this.N;
-		let halfRotationRadians = rotationRadians/2;
+		var rotationRadians = 2*Math.PI/this.N;
+		var halfRotationRadians = rotationRadians/2;
 		
-		let deltaX = (1/2)*this.size*Math.sin(halfRotationRadians);
-		let deltaY = (1/2)*this.size*Math.cos(halfRotationRadians);
+		var deltaX = (1/2)*this.size*Math.sin(halfRotationRadians);
+		var deltaY = (1/2)*this.size*Math.cos(halfRotationRadians);
 
 		// initialize the start point and draw bottom differently
 		// depending on whether this n-gon is convex or concave
-		let linePathList = [
+		var linePathList = [
 			["M", this.origin.X - deltaX, this.origin.Y + deltaY]
 		];
 		// if shape is concave, then there is an extra point in the bottom of the line
@@ -52,11 +49,11 @@ Borrowed from https://www.safaribooksonline.com/library/view/raphaeljs/978144936
 @returns {array} PathList
 */
 function getRegularNGonPath(origin, size, N) {
-	let pathList = []; // what will be returned
+	var pathList = []; // what will be returned
 
-	let x = origin.X;
-	let y = origin.Y;
-	let temp_x, temp_y, angle, n;
+	var x = origin.X;
+	var y = origin.Y;
+	var temp_x, temp_y, angle, n;
 
     for (n = 0; n <= N; n += 1) {
         // the angle (in radians) as an nth fraction of the whole circle

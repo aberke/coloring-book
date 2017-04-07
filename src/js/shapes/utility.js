@@ -1,6 +1,3 @@
-"use-strict";
-
-
 /**
 Creates transform string for rotating shape.
 
@@ -10,11 +7,9 @@ Creates transform string for rotating shape.
 @returns {String} transform string
 */
 function getRotationTransformString(origin, rotationalOrder) {
-	rotationDegrees = 360/rotationalOrder;
-	return rotationTransformString = [
-		"...R" + String(rotationDegrees),
+	return [
+		"...R" + String(360/rotationalOrder),
 		String(origin.X),
 		String(origin.Y),
 	].join(",");
-}
-
+};
