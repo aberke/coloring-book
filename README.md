@@ -16,13 +16,7 @@ In order to export the book to printable version, or save it as printable PDF:
 
 ## Prints
 
-Full printable designs available at
-
-- /prints/triangles.html
-- /prints/cn-1.html
-- /prints/cn-2-4.html
-- /prints/cn-5-7.html
-
+Full printable designs available at `/prints/`
 
 
 ## Development
