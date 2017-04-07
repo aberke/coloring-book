@@ -134,9 +134,15 @@ Structure
 }
 
 .print-page .coloring-content {
-	width: 100%;
+	width: 97%;
 	border: none;
 	text-align: center;
+	margin: auto;
+}
+.print-page .third {
+	/*things get mushed together otherwise*/
+	width: 28%;
+	margin: 2%;
 }
 
 /*
