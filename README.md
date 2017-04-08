@@ -74,7 +74,10 @@ Starting to generate & put together the pieces.  They are shown in pieces.html.
 
 # TODO:
 
-- add favicon to frieze groups
+- add favicon to frieze groups?
+- use ng-view to show pieces
+- use ng-view to show prints
+	- make prints module
 
 
 ### Notes:

@@ -30,6 +30,7 @@ class CircularTessellation {
 		{boolean} withReflection -- set true for symmetric line
 		{number} slicesCount number of slices per level
 		{array} slicesPathList: pathList of slices to use
+		{number} drawAnimationInterval: animation interval for the rotate transformation of the draw routine
 	*/
 	constructor(paper, origin, diameter, options) {
 		this.paper = paper;
@@ -52,6 +53,11 @@ class CircularTessellation {
 		// slices pathList could have optionally be passed
 		this.slicesPathList = this.options.slicesPathList || null;
 
+		// If the rotation of the draw routine should be animated
+		// the animation interval will be passed in
+		// where the animation interval is time between spokes of the wheel being drawn
+		this.drawAnimationInterval = this.options.drawAnimationInterval || 0;
+
 		this.rotations = options.rotations || 1;
 		// set up rotation transform string
 		this.rotationDegrees = 360/this.rotations;
@@ -69,7 +75,8 @@ class CircularTessellation {
 
 
 	rotate() {
-		if (this.isRotating) return;
+		// do not rotate if already rotating or currently drawing -- will put shape in bad position
+		if (this.isRotating || this.drawing) return;
 
 		this.isRotating = true;
 
@@ -81,12 +88,25 @@ class CircularTessellation {
 
 
 	draw() {
+		if (this.drawing)
+			return;
+		// set a flag that this shape is currently drawing
+		this.drawing = true;
+
 		// get a line to rotate
 		var lineSet = this.getFundamentalDomainLine();
 		this.pathSet.push(lineSet); // add it to the paperSet
 
-		// reuse that line -- clone it and rotate it, and add that clone to paperSet
-		for (var r = 1; r < this.rotations; r++) {
+		// use recursive routine to draw each rotated line of the circular tessellation
+		var self = this;
+		var drawNextRotation = function(r) {
+			if (r >= this.rotations) {
+				// no more rotations to draw
+				this.drawing = false;
+				return;
+			}
+
+			// reuse the lineSet -- clone it and rotate it, and add that clone to paperSet
 	        var newLine = lineSet.clone();
 
 	        var degreesToRotate = r*this.rotationDegrees;
@@ -95,9 +115,25 @@ class CircularTessellation {
 	        	String(this.origin.X),
 	        	String(this.origin.Y),
 	        ].join(",");
-	        newLine.transform(transformString);
-	        this.pathSet.push(newLine);
-	    }
+
+	        // maybe animate rotating the newLine
+	        // avoid using .animate for this.drawAnimationInterval=0 because there will still be a small delay
+	        var transformCallback = function() {
+		        self.pathSet.push(newLine);
+		        // recursively call routing again for next rotation, r
+		        drawNextRotation(r + 1);	
+	        }
+	        if (this.drawAnimationInterval) {
+		       	newLine.animate({transform: transformString}, this.drawAnimationInterval, transformCallback); 	
+	        } else {
+	        	newLine.transform(transformString);
+	        	transformCallback();
+	        }
+
+	    }.bind(this);
+	    // start the drawNextRotation routine.  First rotation has already been drawn
+	    drawNextRotation(1);
+
 		this.pathSet.attr({'cursor': 'pointer'});
 		this.pathSet.mouseup(this.rotate.bind(this));
 		this.pathSet.mouseover(this.rotate.bind(this));
@@ -129,7 +165,7 @@ class CircularTessellation {
 		    var nextSlicesPath = slicesPath.clone();
 		    var transformList = [
 		        ["T", 0, this.height],
-		        // USE LOWER CASE s
+		        // USE lower case 's'
 		        ["s", Math.pow(this.scaleFactor, l), Math.pow(this.scaleFactor, l), this.origin.X, this.origin.Y],
 		    ];
 		    // add scaling portion to transform string
