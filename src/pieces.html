@@ -143,61 +143,27 @@
 					<li>Number of 'slices' per 'level'</li>
 				</ul>
 				<div class='half'>
-			    	<div id='canvas-circular-tessellation-1' class='canvas'></div>
-			    	<p></p>
-
-				    <script>
-				    'use strict';
-
-				    // put the variables for circular-tessellation-1 in here
-				    var CT1 = {};
-
-				    CT1.paper = new Raphael('canvas-circular-tessellation-1', '100%', 400);
-					CT1.paperWidth = CT1.paper.getSize().width;
-					CT1.paperHeight = CT1.paper.getSize().height;
-				    CT1.origin = {
-				    	X: CT1.paperWidth/2,
-				    	Y: CT1.paperHeight/2
-				   	};
-				    // total desired diameter := minumum boundary minus some buffer (since goes outside bounds of circle)
-				    CT1.diameter = Math.min(CT1.paperWidth, CT1.paperHeight) - 50;
-
-				    CT1.options = {
-				    	rotations: 4,
-				    	levels: 1,
-				    	slicesCount: 4,
-				        withReflection: false,
-				    }
-				    CT1.circularTessellationSet = new CircularTessellation(CT1.paper, CT1.origin, CT1.diameter, CT1.options);
-
-				    </script>
+		            <div
+		                class="canvas" 
+		                with-redraw 
+		                circular-tessellation
+		                rotations=4
+		                slices-count=4
+		                levels=2
+		                margin=25
+	                ></div>
 				</div>
 				<div class='half'>
-			    	<div id='canvas-circular-tessellation-2' class='canvas'></div>
-
-				    <script>
-				    'use strict';
-
-				    // put the variables for circular-tessellation-2 in here
-				    var CT2 = {};
-
-				    CT2.paper = new Raphael('canvas-circular-tessellation-2', '100%', 400);
-					CT2.paperWidth = CT2.paper.getSize().width;
-					CT2.paperHeight = CT2.paper.getSize().height;
-				    CT2.origin = {
-				    	X: CT2.paperWidth/2,
-				    	Y: CT2.paperHeight/2
-				   	};
-				    // total desired diameter := minumum boundary minus some buffer (since goes outside bounds of circle)
-				    CT2.diameter = Math.min(CT2.paperWidth, CT2.paperHeight) - 40;
-
-				    CT2.options = {
-				    	rotations: 6,
-				    	levels: 2,
-				        withReflection: true,
-				    }
-				    CT2.circularTessellationSet = new CircularTessellation(CT2.paper, CT2.origin, CT2.diameter, CT2.options);
-				    </script>
+		            <div
+		                class="canvas" 
+		                with-redraw 
+		                circular-tessellation
+		                rotations=6
+		                slices-count=4
+		                levels=2
+		                with-reflection=true
+		                margin=25
+	                ></div>
 				</div>
 			</div>
 		    <!-- circular tessellation -->
@@ -296,8 +262,8 @@
 					    var NGON8 = {};
 				    	NGON8.paper = new Raphael('canvas-ngon-8', '100%', 400);
 				    	NGON8.buffer = 10;
-						NGON8.paperWidth = CT2.paper.getSize().width;
-						NGON8.paperHeight = CT2.paper.getSize().height;
+						NGON8.paperWidth = NGON8.paper.getSize().width;
+						NGON8.paperHeight = NGON8.paper.getSize().height;
 					    NGON8.origin = {
 					    	X: NGON8.paperWidth/2,
 					    	Y: NGON8.paperHeight/2

@@ -43,13 +43,15 @@ function circularTessellationDirective() {
 			var options = {
 				rotations: attrs.rotations ? eval(attrs.rotations) : null,
 				levels: attrs.levels ? eval(attrs.levels) : null,
-				withReflection: attrs.withReflection ? eval(attrs.withReflection) : null,
+				withReflection: attrs.withReflection ? true : null,
 				slicesCount: attrs.slicesCount ? Number(attrs.slicesCount) : null,
 				slicesPathList: attrs.slicesPathList ? eval(attrs.slicesPathList) : null,
 			};
 
 			function redraw() {
 				paper.clear();
+				// when redrawing, animate the drawing of rotations
+				options.drawAnimationInterval = 1000;
 				new CircularTessellation(paper, origin, diameter, options);
 			}
 
@@ -59,7 +61,7 @@ function circularTessellationDirective() {
 				paper.canvas.addEventListener('mouseup', redraw);
 			}
 
-			redraw();
+			new CircularTessellation(paper, origin, diameter, options);
 		}
 	}	
 }
