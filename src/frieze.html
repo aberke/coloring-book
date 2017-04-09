@@ -1,44 +1,106 @@
 <!doctype html>
-<html ng-app="frieze" ng-controller="PageController">
+<html ng-app="app" ng-controller="friezePageCntl">
 <head>
-    <!-- TODO: all that metadata -->
+    <meta charset="utf-8">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+    <!-- TODO: all the good metadata -->
+    <meta name="description" content="Animated Frieze Groups, with symmetry lines and interactions to expose the group transformations.">
+    <meta name="author" content="Alex Berke | aberke">
+    <link rel="shortcut icon" href="https://aberke.github.io/fractals/img/sierpinski-triangle.png" type="image/x-icon">
+    <meta property="og:image" content="/img/frieze.p1a1.mov.gif" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,600,700,800" rel="stylesheet">
 
     <!-- styles -->
+    <link rel="stylesheet" href="styles/main.css">
 	<link rel="stylesheet" href="styles/frieze.css">
 
-    <title>Frieze | {{ patternName }}</title>
-</head>
-<body>
-    <header>
-        <div id='nav'>
-            <h1><a ng-href="#!/">Frieze Groups</a></h1>
-            <ul>
-                <li ng-repeat="(patternName, pattern) in patternsData">
-                    <a ng-href="{{pattern.ngHref}}">{{patternName}}</a>
-                </li>
-            </ul>
-        </div>
-    </header>
-    <div ng-view></div>
-
-
-    <!-- scripts at the bottom -->
+    <!-- Scripts - not at bottom so that don't see '{{}}' at first on page load -->
 
     <!-- vendor assets -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.min.js"></script>
 
-    <script type="text/javascript" src="js/constants.js"></script>
-    <script type="text/javascript" src="js/frieze-app.js"></script>
-    <script type="text/javascript" src="js/controllers/page-controller.js"></script>
-    <script type="text/javascript" src="js/controllers/frieze-controller.js"></script>
+    <script type="text/javascript" src="/js/circular-tessellation.js"></script>
+    <script type="text/javascript" src="/js/styling.js"></script>
 
-    <script type="text/javascript" src="js/paths.js"></script>
-    <script type="text/javascript" src="js/util.js"></script>
-    <script type="text/javascript" src="js/pattern.js"></script>
+    <script type="text/javascript" src="/js/shapes/utility.js"></script>
+    <script type="text/javascript" src="/js/shapes/cyclic-shapes.js"></script>
+    <script type="text/javascript" src="/js/shapes/dihedral-shapes.js"></script>
+    <script type="text/javascript" src="/js/shapes/regular-polygons.js"></script>
+    <script type="text/javascript" src="/js/shapes/rectangles.js"></script>
+
+    <script type="text/javascript" src="/js/paths.js"></script>
+    <script type="text/javascript" src="/js/util.js"></script>
+    <script type="text/javascript" src="/js/draw-wrappers.js"></script>
+    <script type="text/javascript" src="/js/pattern.js"></script>
+
+    <!-- Angular things -->
+    <script type="text/javascript" src="/app/common/app.ngLoadScript.js"></script>
+    <script type="text/javascript" src="/app/book/book.js"></script>
+
+    <script type="text/javascript" src="/app/frieze/constants.js"></script>
+    <script type="text/javascript" src="/app/frieze/frieze.directives.js"></script>
+    <script type="text/javascript" src="/app/frieze/frieze.controllers.js"></script>
+    <script type="text/javascript" src="/app/frieze/frieze.js"></script>
+
+    <script type="text/javascript" src="/js/directives.js"></script>
+    <script type="text/javascript" src="/app/app.js"></script>
+
+
+    <title> Frieze {{ !!selectedGroupName ? ('| ' + selectedGroupName) : ''}}</title>
+</head>
+
+<body>
+
+<header>
+    <div id='frieze-nav'>
+        <h1>Frieze Groups</h1>
+        <ul>
+            <li ng-repeat="(groupName, groupData) in friezeGroupsData" ng-click="$parent.selectGroup(groupName)">
+                <span ng-class="{active:$parent.selectedGroupName==groupName}" class="clickable">{{groupName}}</span>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<div ng-repeat="(groupName, groupData) in friezeGroupsData" class="frieze-pattern-container">
+    <div ng-if="selectedGroupName===groupName">
+
+        <div class='title' ng-click="showGroupDetails()">
+            <h1>{{ groupName }}</h1>
+            <span ng-show="showGroupDescription">: {{ groupData.description }}</span>
+        </div>
+
+        <!-- <div ng-repeat="patternFunction in ['petalEllipse']" > -->
+        <div ng-repeat="patternFunction in ['petalEllipse', 'quarterEllipse', 'curves4', 'triangles3', 'curves3', 'triangles2']" >
+
+            <div class='frieze-pattern'
+            pattern-function={{patternFunction}}
+            group-name='{{groupName}}'
+            fundamental-domain-width=100
+            fundamental-domain-height=80
+            margin=15
+            show-symmetry-sets={{showSymmetrySets}}
+            ></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Google analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43101146-6', 'auto');
+  ga('send', 'pageview');
+</script>
 </body>
 </html>

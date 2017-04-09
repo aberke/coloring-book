@@ -1,9 +1,7 @@
 
 /*
-Templates
-Currently not in an html template file because that would require running a server
+Define how symmetry set lines should be show with RaphaelJS attributes.
 */
-
 var SYMMETRY_SET_STYLES = {
 	'h1': {'stroke': 'red', 'stroke-width': 4},
 	'v1': {'stroke': 'mediumpurple', 'stroke-width': 4},
@@ -15,27 +13,10 @@ var SYMMETRY_SET_STYLES = {
     },
 }
 
-var getFriezeTemplate = function() {
-  return `
-    <div id='frieze-page'>
-        <h1>FRIEZE</h1>
-        <p>Groups</p>
-    </div>
-  `;	
-}
 
-var getPatternTemplate = function() {
-  var html = `
-    <div id='title'>
-        <h1>{{ patternName }}</h1>
-        <span id='hover-description'>: {{ patternDescription }}</span>
-    </div>
-    <div id='canvas' class='canvas'></div>
-  `;
-  return html;
-}
-
-var patternsData = {
+// TODO: move this data to a service,
+// and inject that service in the FriezePageCntl and directive
+var friezeGroupsData = {
 	'p1': {
 		description: 'Translation only',
 	},

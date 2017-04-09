@@ -84,7 +84,6 @@ class FriezePattern {
 
 	// draws itself starting at offsetX (default=0)
 	draw(offsetX) {
-		var self = this;
 		offsetX = offsetX || 0;
 		
 		// draw the pattern starting at offsetX:
@@ -99,8 +98,8 @@ class FriezePattern {
 
 		// apply styling attributes
 		basePath.attr({
-			'stroke': self.stroke,
-			'stroke-width': self.strokeWidth,
+			'stroke': this.stroke,
+			'stroke-width': this.strokeWidth,
 		});
 
 		// copy the path
@@ -109,10 +108,10 @@ class FriezePattern {
 		// Translate until at end of page
 		var _drawCallback = function(paperSet) {
 			paperSet.forEach(function(elt, index) {
-				self.paperSet.push(elt);
-			});
-			self.addPaperSetHandlers();
-		}
+				this.paperSet.push(elt);
+			}.bind(this));
+			this.addPaperSetHandlers();
+		}.bind(this);
 		this.applyGenerators(basePath, {
 			animate: true,
 			callback: _drawCallback,
@@ -144,19 +143,3 @@ class FriezePattern {
         transformNext(0);
 	}
 }
-
-
-class P1 extends FriezePattern {
-	// TODO
-
-
-	constructor(paper, fundamentalDomainPath) {
-		var generatorFunctions = [Translation];
-		super(paper, fundamentalDomainPath, generatorFunctions);
-
-		this.name = 'P1';
-	}
-
-}
-
-

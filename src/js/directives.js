@@ -3,21 +3,6 @@
 //	- See bottom of this post: https://weblogs.asp.net/dwahlin/creating-custom-angularjs-directives-part-i-the-fundamentals
 
 
-
-// Define test directive
-function testDirective() {
-	return {
-		restrict: 'EAC', //E = element, A = attribute, C = class, M = comment         
-		scope: {},
-		template: '<div>{{ title }}</div>',
-		link: function ($scope, element, attrs) {
-			//DOM manipulation
-			$scope.title = "Test Directive";
-			element[0].className += " test-class";
-		} 
-	}	
-}
-
 // circular-tessellation directive
 function circularTessellationDirective() {
 	return {
@@ -101,8 +86,5 @@ function canvasCenteredDrawingDirective() {
 
 // bootstrap the directives
 angular.module('directivesModule', [])
-.directive('testDirective', testDirective)
 .directive('canvasCenteredDrawing', canvasCenteredDrawingDirective)
-.directive('circularTessellation', circularTessellationDirective)
-
-
+.directive('circularTessellation', circularTessellationDirective);

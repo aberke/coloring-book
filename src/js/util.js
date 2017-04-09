@@ -68,10 +68,11 @@ function drawYAxesSet(paper, startX, gap) {
  * @param {Paper} paper to draw on
  * @param {number} starting Y coordinate
  * @param {number} gap between axes
- * @param {number} count: number of axes to draw
+ * @param {number} count: number of axes to draw -- defaults to 1
  * @returns {paper.Set} set of paths
 **/
 function drawXAxesSet(paper, startY, gap, count) {
+    count = count || 1;
     var canvasWidth = paper.canvas.clientWidth;
     var set = paper.set();
     var Y = startY;
@@ -192,12 +193,13 @@ function recursiveTranslateH(paper, translateObject, options) {
     var animateMs = !!options.animate ? 500 : 0;
     var gap = options.gap || 0;
     var callback = options.callback || function() {};
-    var paperWidth = paper.canvas.clientWidth;
+    var width = paper.canvas.clientWidth;
+
     var translateSet = paper.set().push(translateObject);
     var transformString = "..." + getTranslationH(translateObject, gap);
 
     function drawNext(translateSet) {
-        if (translateSet.getBBox().x2 > paperWidth) {
+        if (translateSet.getBBox().x2 > width) {
             return callback(translateSet);
         }
 
