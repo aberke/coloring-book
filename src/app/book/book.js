@@ -4,5 +4,4 @@
 angular.module('app.book', [
 	'ngRoute',
 	'ngLoadScript',
-	'directivesModule',
 ]);
