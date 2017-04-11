@@ -6,5 +6,7 @@ angular.module('app', [
 	'app.book',
 	'app.frieze',
 	'ngLoadScript',
-	'directivesModule',
-]);
+])
+// bootstrap the directives
+.directive('canvasCenteredDrawing', canvasCenteredDrawingDirective)
+.directive('circularTessellation', circularTessellationDirective);

@@ -1,7 +1,3 @@
-// TODO: refactor this
-// Including bootstrapping all directives onload within anonymous function ?
-//	- See bottom of this post: https://weblogs.asp.net/dwahlin/creating-custom-angularjs-directives-part-i-the-fundamentals
-
 
 // circular-tessellation directive
 function circularTessellationDirective() {
@@ -82,9 +78,3 @@ function canvasCenteredDrawingDirective() {
 		}	
 	}
 }
-
-
-// bootstrap the directives
-angular.module('directivesModule', [])
-.directive('canvasCenteredDrawing', canvasCenteredDrawingDirective)
-.directive('circularTessellation', circularTessellationDirective);
