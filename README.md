@@ -82,6 +82,10 @@ Starting to generate & put together the pieces.  They are shown in pieces.html.
 
 ### Notes:
 
+#### RaphaelJS
+
+- paper.clear() removes the SVG path
+
 #### Frieze Groups
 
 - See pages 70-76 for good examples from anthropological studies around the world

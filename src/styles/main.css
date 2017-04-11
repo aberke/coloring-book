@@ -98,6 +98,47 @@ Structure
 	line-height: 1.4;
 }
 
+#coloring-guide h2 {
+    font-size: 2.1em;
+    border-bottom-color: #3bcca6;
+}
+
+.coloring-guide-shapes-and-symmetries-title .canvas {
+    width: 50px;
+    height: 50px;
+}
+.coloring-guide-shapes-and-symmetries-subtitle .canvas {
+    width: 30px;
+    height: 30px;
+}
+
+#coloring-guide h3 {
+    font-size: 1.7em;
+    margin: 0.5em 0em;
+}
+
+#coloring-guide h3,
+#coloring-guide h4 {
+    display: inline-block;
+    vertical-align: top;
+    font-weight: 300;
+}
+#coloring-guide .title-container .canvas,
+#coloring-guide .subtitle-container .canvas {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 150px;
+}
+
+#coloring-guide .subtitle-container h4 {
+    margin: 10px 2px;
+}
+
+#coloring-guide .title-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
 .book-section {
 	padding: 40px 10px;
 	/*border-bottom: 4px double gray;*/
@@ -111,8 +152,13 @@ Structure
 	width: 120px;
 	height: 120px;
 }
-.clickable.canvas:hover {
+.clickable {
+	color: #d3d3d3;
+	text-decoration: underline;
 	cursor: pointer;
+}
+.clickable.active, .clickable:hover {
+	color: #670067;
 }
 
 .text-coloring-content-container {
@@ -203,6 +249,9 @@ footer p {
 	text-align: center;
 }
 
+/* Frieze section */
+
+
 /* Structure */
 
 
@@ -278,6 +327,9 @@ footer p {
 		border-left: none;
 	}
 
+	#coloring-guide h3 {
+	    display: block;
+	}
 
 	/* Structure */
 

@@ -1,56 +1,26 @@
-body {
-	/*clear*/
-	padding: 0;
-	margin: 0;
 
-	/*words*/
-	font-family: 'Montserrat', sans-serif;
-	color: darkslategrey;
-}
-
-a {
-	color: darkslategray;
-}
-
-header #nav {
+#frieze-nav {
 	padding: 1em;
-	border-bottom: 2px solid black;
 }
-header #nav h1, header #nav ul, header #nav li {
+#frieze-nav h1 {
+	color: gray;
+}
+#frieze-nav h1, header #frieze-nav ul, header #frieze-nav li {
 	display: inline;
 	margin-right: 10px;
+	border: none;
 }
 
-h1 a {
-	text-decoration: none;
-}
-
-#nav li {
+#frieze-nav li {
 	font-size: 1.2em;
 }
 
-#title {
-	padding: 10px;
-	border-top: 6px solid paleturquoise;
-	display: block;
-}
-#title h1{
+.frieze-pattern-container .title h1{
 	display: inline-block;
-}
-#title #hover-description {
-	opacity: 0;
-	cursor: pointer;
-}
-#title #hover-description:hover {
-	opacity: 1;
+	width: 100px;
+	color: gray;
 }
 
-
-.canvas {
+.frieze-pattern-container .canvas {
 	display: block;
 }
-
-#canvas {
-
-}
-
