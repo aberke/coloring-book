@@ -80,6 +80,12 @@ Starting to generate & put together the pieces.  They are shown in pieces.html.
 	- make prints module
 
 
+#### Screencast to GIFs Workflow
+
+- Use Quicktime player to take screencast
+- Use Drop to GIF to convert .mov file to gif
+
+
 ### Notes:
 
 #### RaphaelJS
