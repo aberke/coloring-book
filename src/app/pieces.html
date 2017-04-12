@@ -1,101 +1,39 @@
-<!doctype html>
-<html>
-<head>
 
-	<meta charset='utf-8'>
+<style>
 
-	<meta name='viewport' content='width=device-width, initial-scale=1.0'>  
-	<meta name='description' content='Style guide + Javascript pieces for the coloring book.'>
-	<meta name='author' content='Alex Berke | aberke'>
+    header {
+    	text-align: center;
+    	margin: 2em;
+    	border-bottom: 5px double purple;
+    }
+    p, h2, h3, ul {
+    	text-align: center;
+    }
+    ul {
+    	list-style-type: none;
+    }
+    body{ 
+    	text-align: center;
+    }
 
-	<link rel='shortcut icon' href='https://aberke.github.io/fractals/img/sierpinski-triangle.png' type='image/x-icon'>
+    .canvas {
+        border: 1px dashed lightgray;
+        margin: 10px;
+        min-height: 100px;
+    }
+    .canvas.medium {
+        height: 100px;
+    }
+    @media (max-width: 600px) {
+    	.half {
+    		width: 100%;
+    	}
+    }
 
-
-	<!-- TODO: scripts at the bottom -->
-
-	<!-- vendor -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
-	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js'></script>
-	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.min.js'></script>
-
-	<!-- From fractals -->
-	<script type="text/javascript" src="fractals/js/util.js"></script>
-	<script type="text/javascript" src="fractals/js/sierpinski-arrowhead-curve.js"></script>
-	<script type="text/javascript" src="fractals/js/sierpinski-triangle.js"></script>
-
-
-	<script type='text/javascript' src='js/styling.js'></script>
-
-	<script type='text/javascript' src='js/circular-tessellation.js'></script>
-	<script type='text/javascript' src='js/shapes/cyclic-shapes.js'></script>
-	<script type='text/javascript' src='js/shapes/dihedral-shapes.js'></script>
-	<script type='text/javascript' src='js/shapes/regular-polygons.js'></script>
-	<script type='text/javascript' src='js/shapes/rectangles.js'></script>
-	<script type='text/javascript' src='js/shapes/utility.js'></script>
-
-	<script type='text/javascript' src='js/paths.js'></script>
-	<script type='text/javascript' src='js/util.js'></script>
-	<script type='text/javascript' src='js/draw-wrappers.js'></script>
-	<script type='text/javascript' src='js/pattern.js'></script>
-
-	<!-- Angular things -->
-	<script type="text/javascript" src="/app/common/app.ngLoadScript.js"></script>
-	<script type="text/javascript" src="/app/book/book.js"></script>
+</style>
 
 
-	<script type="text/javascript" src="/app/frieze/constants.js"></script>
-	<script type="text/javascript" src="/app/frieze/frieze.directives.js"></script>
-	<script type="text/javascript" src="/app/frieze/frieze.controllers.js"></script>
-	<script type="text/javascript" src="/app/frieze/frieze.js"></script>
-
-	<script type="text/javascript" src="/app/directives.js"></script>
-	<script type="text/javascript" src="/app/app.js"></script>
-
-	<!-- Google fonts -->
-	<link href='https://fonts.googleapis.com/css?family=Raleway:400,400i,500,600,700,800' rel='stylesheet'>
-
-	<!-- styles -->
-	<link rel='stylesheet' href='styles/main.css'>
-
-	<title>Coloring Book | Styles &amp; Pieces</title>
-
-</head>
-<body ng-app='app'>
-    <style>
-
-	    header {
-	    	text-align: center;
-	    	margin: 2em;
-	    	border-bottom: 5px double purple;
-	    }
-	    p, h2, h3, ul {
-	    	text-align: center;
-	    }
-	    ul {
-	    	list-style-type: none;
-	    }
-	    body{ 
-	    	text-align: center;
-	    }
-
-        .canvas {
-            border: 1px dashed lightgray;
-            margin: 10px;
-            min-height: 100px;
-        }
-        .canvas.medium {
-            height: 100px;
-        }
-        @media (max-width: 600px) {
-        	.half {
-        		width: 100%;
-        	}
-        }
-
-    </style>
-
-
-
+<div>
 	<!-- Style Guide -->
 	<div id='style-guide'>
 		<h1 id='book-title'>Styles</h1>
@@ -244,7 +182,7 @@
 				<div class='half'>
 					<p>5-gon</p>
 			    	<div id='canvas-ngon-5' class='canvas'></div>
-			    	<script>
+			    	<script type="text/javascript-lazy">
 			    		'use strict';
 
 					    var NGON5 = {};
@@ -265,7 +203,7 @@
 				<div class='half'>
 					<p>8-gon</p>
 			    	<div id='canvas-ngon-8' class='canvas'></div>
-			    	<script>
+			    	<script type="text/javascript-lazy">
 			    		'use strict';
 
 					    var NGON8 = {};
@@ -293,7 +231,7 @@
 				<div class='half'>
 					<p>3-star</p>
 			    	<div id='canvas-star-3' class='canvas'></div>
-			    	<script>
+			    	<script type="text/javascript-lazy">
 			    		'use strict';
 
 					    var STAR3 = {};
@@ -306,7 +244,7 @@
 				<div class='half'>
 					<p>6-star</p>
 			    	<div id='canvas-star-6' class='canvas'></div>
-			    	<script>
+			    	<script type="text/javascript-lazy">
 			    		'use strict';
 
 					    var STAR6 = {};
@@ -325,7 +263,7 @@
 				<div class='half'>
 					<p>C6 Shape</p>
 			    	<div id='canvas-C6' class='canvas'></div>
-			    	<script>
+			    	<script type="text/javascript-lazy">
 			    		'use strict';
 
 					    var C6 = {
@@ -346,7 +284,7 @@
 				<div class='half'>
 					<p>D7</p>
 			    	<div id='canvas-D7' class='canvas'></div>
-			    	<script>
+			    	<script type="text/javascript-lazy">
 			    		'use strict';
 
 					    var D7 = {
@@ -423,6 +361,4 @@
 	   	
 	</div>
 	<!-- Pieces -->
-
-</body>
-</html>
+</div>

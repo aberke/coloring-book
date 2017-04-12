@@ -1,0 +1,34 @@
+<div ng-controller="friezePageCntl">
+
+    <nav id='frieze-nav'>
+        <h1>Frieze Groups!</h1>
+        <ul>
+            <li ng-repeat="(groupName, groupData) in friezeGroupsData" ng-click="$parent.selectGroup(groupName)">
+                <span ng-class="{active:$parent.selectedGroupName==groupName}" class="clickable">{{groupName}}</span>
+            </li>
+        </ul>
+    </nav>
+
+    <div ng-repeat="(groupName, groupData) in friezeGroupsData" class="frieze-pattern-container">
+        <div ng-if="selectedGroupName===groupName">
+
+            <div class='title' ng-click="showGroupDetails()">
+                <h1>{{ groupName }}</h1>
+                <span ng-show="showGroupDescription">: {{ groupData.description }}</span>
+            </div>
+
+            <!-- <div ng-repeat="patternFunction in ['petalEllipse']" > -->
+            <div ng-repeat="patternFunction in ['petalEllipse', 'quarterEllipse', 'curves4', 'triangles3', 'curves3', 'triangles2']" >
+
+                <div class='frieze-pattern'
+                pattern-function={{patternFunction}}
+                group-name='{{groupName}}'
+                fundamental-domain-width=100
+                fundamental-domain-height=80
+                margin=15
+                show-symmetry-sets={{showSymmetrySets}}
+                ></div>
+            </div>
+        </div>
+    </div>
+</div>

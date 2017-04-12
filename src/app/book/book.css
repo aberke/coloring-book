@@ -1,0 +1,81 @@
+/*
+Styles for book
+
+*/
+
+.book-page {
+	text-align: center;
+	width: 100%;
+}
+
+/*
+move from one book-page to the next with animation:
+*/
+.page-switch-container {
+    position: absolute;
+    width: 100%;
+}
+.page-switch-container > * {
+    display:block;
+    width:100%;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+.animate-next-page .book-page.ng-animate,
+.animate-previous-page .book-page.ng-animate {
+    width: 100%;
+
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+}
+.animate-next-page .book-page.ng-leave,
+.animate-next-page .book-page.ng-enter.ng-enter-active {
+    position: relative;
+    width: 100%;
+    top: 0;
+}
+.animate-next-page .book-page.ng-leave.ng-leave-active {
+    width: 100%;
+    position: absolute;
+    top: -1200px;
+}
+.animate-next-page .book-page.ng-enter {
+    width: 100%;
+    position: absolute;
+    top: 1200px;
+}
+
+
+.animate-previous-page .book-page.ng-leave,
+.animate-previous-page .book-page.ng-enter.ng-enter-active {
+    position: relative;
+    width: 100%;
+    top: 0;
+}
+.animate-previous-page .book-page.ng-leave.ng-leave-active {
+    width: 100%;
+    position: absolute;
+    top: 1200px;
+}
+.animate-previous-page .book-page.ng-enter {
+    width: 100%;
+    position: absolute;
+    top: -1200px;
+}
+
+
+.page-change-btn {
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    color: rgb(59,204,166);
+    padding: 15px;
+    margin: 20px 0;
+}
+.page-change-btn.page-next-btn {
+    margin-bottom: 35px;
+}

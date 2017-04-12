@@ -14,9 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,600,700,800" rel="stylesheet">
 
     <!-- styles -->
-    <link rel="stylesheet" href="styles/main.css">
-<!--     <link rel="stylesheet" href="styles/frieze.css">
- -->
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/app/book/book.css">
+    <link rel="stylesheet" href="/app/frieze/frieze.css">
+
     <title>Coloring Book</title>
 </head>
 <body>
@@ -57,24 +58,8 @@
     <!-- Sections -->
     <!-- Default section is the cover page -->
     <!-- TODO: Use angular to make this modular -->
-    <!-- <section ng-view></section> -->
-    <ng-include autoscroll src="'/app/book/book.html'"></ng-include>
-
-
-    <!-- Google form -->
-    <div id="get-updates-form-container">
-
-        <p> &#x25B5; &#x25B5; This is a work in progress &#x25B5; &#x25B5;</p>
-        <p>If you want to know when it's complete, want to color more, or just have something to say, I want to hear from you.</p>
-
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHWQDnA1ycEoDlJQXIz48sPoac-q5QlRo2Dyznu5E2ixYeGg/viewform?embedded=true"
-        frameborder="0" marginheight="0" marginwidth="0">&#x25B5; &#x25B5; ..Loading.. &#x25B5; &#x25B5;</iframe>
-    </div>
-
-    <footer>
-        <!-- TOD0 -->
-        <p>Made with &#9825; in NYC by <a href="http://aberke.com" target="_blank">Alex Berke</a></p>
-    </footer>
+    <ng-view autoscroll></ng-view>
+    <!-- <ng-include autoscroll src="'/app/book/book.html'"></ng-include> -->
 
 
 <!-- Scripts -->
@@ -86,8 +71,9 @@
 
 <!-- vendor assets -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
 
 <script type="text/javascript" src="/js/circular-tessellation.js"></script>
 <script type="text/javascript" src="/js/styling.js"></script>
@@ -105,6 +91,7 @@
 
 <!-- Angular things -->
 <script type="text/javascript" src="/app/common/app.ngLoadScript.js"></script>
+<script type="text/javascript" src="/app/book/book.controllers.js"></script>
 <script type="text/javascript" src="/app/book/book.js"></script>
 
 <script type="text/javascript" src="/app/frieze/constants.js"></script>
