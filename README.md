@@ -41,43 +41,21 @@ Files are served by node http-server
 	- Uses node server to serve assets.  This allows AngularJS includes.
 
 
-## Structure
-
-src/
-	fractals/
-	img/
-	styles/
-	lib/
-		raphael
-	index.html
-	app/
-		common/
-			app.ngLoadScript.js // so that scripts can be executed within partials
-
-		book/
-			book.js -- defines angular.module('app.book', ['ngRoute'])
-			book.html
-			pages/
-				book-page-cover.html
-				book-page-intro.html // with frieze groups and wallpaper groups
-				book-page-coloring-guide.html // table of contents
-				book-page-shapes-intro.html
-				book-page-shapes-cn-1.html
-				book-page-shapes-cn-2.html
-
-
-
 ### Pieces
 
-Starting to generate & put together the pieces.  They are shown in pieces.html.
+Starting to generate & put together the pieces.  They are shown at /pieces
 
 
 # TODO:
 
-- add favicon to frieze groups?
-- use ng-view to show pieces
-- use ng-view to show prints
-	- make prints module
+- make /printable for where all pages are displayed together
+
+- standardize size for pages
+	- they should all be the same height -- easier printing too
+
+- fix google analytics
+	- it would be nice to track what page people get to
+
 
 
 #### Screencast to GIFs Workflow

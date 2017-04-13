@@ -5,7 +5,7 @@
 #frieze-nav h1 {
 	color: gray;
 }
-#frieze-nav h1, header #frieze-nav ul, header #frieze-nav li {
+#frieze-nav h1, #frieze-nav ul, #frieze-nav li {
 	display: inline;
 	margin-right: 10px;
 	border: none;

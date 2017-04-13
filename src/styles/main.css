@@ -3,6 +3,7 @@ Colors:
 	LIGHT_GRAY: #d3d3d3;
 	PURPLE: #670067;
 	AQUA: #3bcca6;
+		rgb(59,204,166)
 
 */
 
@@ -51,11 +52,16 @@ h1 {
 	border-bottom: 4px solid #3bcca6;
 }
 #book-title-container {
-	border-top: 4px double #670067;
-	border-bottom: 4px double #670067;
+	border-top: 6px double #670067;
+	border-bottom: 6px double #670067;
 
 	max-width: 800px;
 	margin: 50px auto;
+}
+#book-title-container h1 {
+	font-weight: 300;
+	font-size: 2.4em;
+	border-width: 6px;
 }
 .book-section-title, .book-section-subtitle {
 	display: inline-block;
@@ -112,6 +118,11 @@ Structure
     height: 30px;
 }
 
+#coloring-guide {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
 #coloring-guide h3 {
     font-size: 1.7em;
     margin: 0.5em 0em;
@@ -139,12 +150,7 @@ Structure
     margin-top: 30px;
 }
 
-.book-section {
-	padding: 40px 10px;
-	/*border-bottom: 4px double gray;*/
-	text-align: center;
-}
-.book-section#book-cover {
+#book-cover {
 	margin: 20px;
 }
 
@@ -225,7 +231,6 @@ Note: So far this seems to work best with Firefox -- Preview as PDF
 	text-align: center;
 	width: 90%;
 	margin: 20px auto;
-	border-top: 5px solid #3bcca6;
 	padding-top: 30px;
 }
 #get-updates-form-container iframe, #get-updates-form-container p {
