@@ -65,7 +65,7 @@ h1 {
 }
 .book-section-title, .book-section-subtitle {
 	display: inline-block;
-	margin: 60px auto;
+	margin: 40px auto;
 	padding: 20px 30px;
 	min-width: 50%;
 }
@@ -148,10 +148,6 @@ Structure
 #coloring-guide .title-container {
     text-align: center;
     margin-top: 30px;
-}
-
-#book-cover {
-	margin: 20px;
 }
 
 #book-cover .canvas {

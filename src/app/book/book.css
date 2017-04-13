@@ -12,7 +12,6 @@ Styles for book
 move from one book-page to the next with animation:
 */
 .page-switch-container {
-    position: absolute;
     width: 100%;
 }
 .page-switch-container > * {
@@ -66,7 +65,6 @@ move from one book-page to the next with animation:
     position: absolute;
     top: -1200px;
 }
-
 
 .page-change-btn {
     cursor: pointer;
