@@ -24,7 +24,7 @@
                 var pathBelow = paper.path(sierpinskiTrianglePath);
                 pathBelow.attr({'stroke': LIGHT_GRAY});
                 // draw with animation on top of base in darker stroke color
-                draw(paper, sierpinskiArrowheadCurvePath);
+                drawPathByPath(paper, sierpinskiArrowheadCurvePath);
             }
 
             var redrawSierpinskiArrowheadCurveWithBase = function() {
