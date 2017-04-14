@@ -62,7 +62,7 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
     if (options.autoRotateDegrees)
         setAutoRotate(pathSet, origin, options.autoRotateDegrees);
 
-    // optionally redraw on click/mouseup/tap
+    // optionally redraw or rotate on click/mouseup/tap
     if (options.tapRedraw) {
         paper.canvas.addEventListener('mouseup', function() {
             paper.clear();
