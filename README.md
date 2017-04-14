@@ -97,6 +97,8 @@ Starting to generate & put together the pieces.  They are shown at /pieces
 
 # TODO:
 
+- Fix the sometimes missing arrowhead from drawArrow
+
 - Build/Gulp specific
 	- concat + uglify JS
 	- Do more linting
@@ -108,18 +110,19 @@ Starting to generate & put together the pieces.  They are shown at /pieces
 	- ? in frieze directive, adjust fundamental domain pattern height when shape has reflection so that frieze pattern takes up same height as other frieze patterns ?
 	- better for standardizing around page size and printing
 
+
 - make /printable for where all pages are displayed together
 
 - standardize size for pages
 	- they should all be the same height -- easier printing too
 
-- fix google analytics
-	- it would be nice to track what page people get to
-
 - sprinkle in some flowers -- see the circular flowers in the pieces
 
 - enable printable param ?print
 	- use a larger page controller to check for param and add an extra class to the <body>
+
+- fix google analytics
+	- it would be nice to track what page people get to
 
 
 #### Screencast to GIFs Workflow

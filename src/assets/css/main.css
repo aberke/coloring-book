@@ -163,8 +163,6 @@ Structure
 	color: #670067;
 }
 
-.text-coloring-content-container {
-}
 .text-content, .coloring-content {
 	display: inline-block;
 	padding: 5px;
@@ -267,6 +265,18 @@ footer p {
 
 /* ===== Pieces ===========*/
 
+/*challenges are small and italic and sit on the bottom of the page*/
+.challenge {
+	font-style: italic;
+	font-size: small;
+	vertical-align: bottom;
+}
+
+.theory-reference-term {
+	color: black;
+	text-decoration: underline;
+}
+
 .half {
 	display: inline-block;
 	width: 45%;
@@ -295,11 +305,23 @@ footer p {
 	margin: auto;
 	text-align: center;
 }
+.text-content-graphic p {
+	font-family: sans-serif;
+	font-weight: 700;
+	text-align: center;
+	display: inline-block;
+}
+/*take up the entire vertical space with the text*/
+.text-content-graphic p.text.big {
+	font-size: x-large;
+	line-height: 2;
+}
 
 .text-content-graphic .canvas {
 	width: 70px;
 	height: 70px;
 	display: inline-block;
+	vertical-align: middle;
 }
 
 .text-content-graphic .canvas.extra-small {

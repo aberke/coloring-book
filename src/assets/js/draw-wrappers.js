@@ -25,7 +25,7 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
     var width = paper.getSize().width;
     var height = paper.getSize().height;
 
-    var margin = options.margin || 0;
+    var margin = options.margin || 10;
 
     // if want to draw text below, leave margin below the shape for it
     var bottomMargin = options.text ? 15 : 0;
@@ -132,6 +132,29 @@ They draw the desired shape around the origin/centerPoint
 */
 
 
+/*
+Draws a horizontal arrow that is vertically aligned in the middle of the canvas,
+from one side of the canvas to the other.
+Can optionally pass in options.textAbove to write above arrow.
+*/
+function drawArrow(paper, centerPoint, size, options) {
+    let pathSet = paper.set();
+
+    if (options.textAbove)
+        pathSet.push(paper.text(centerPoint.X, centerPoint.Y - 15, options.textAbove));
+
+    let arrowPath = paper.path([
+        ["M", centerPoint.X - (1/2)*size, centerPoint.Y],
+        ["H", size]
+    ]).attr({
+        "arrow-end": "block-medium-short",
+        "stroke-width": 4,
+    });
+    pathSet.push(arrowPath);
+    return pathSet;
+}
+
+
 function drawSierpinskiTriangleFlower(paper, centerPoint, size, options) {
     return sierpinskiTriangle.drawSierpinskiTriangleFlower(paper, centerPoint, size, options.level);
 }
@@ -213,9 +236,3 @@ function styleShapePath(pathSet) {
         'stroke-width': 2,
     });
 }
-
-
-
-
-
-

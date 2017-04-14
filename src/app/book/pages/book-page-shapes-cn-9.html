@@ -2,13 +2,120 @@
 
     <div class="text-coloring-content-container">
         <div class="text-content">
-            <p></p>
+            <p>Another way to think about rotating a C4 shape by a <fraction numerator="3" denominator="4"></fraction> turn is to rotate it by a <fraction numerator="1" denominator="4"></fraction> turn and then rotate it again by a <fraction numerator="2" denominator="4"></fraction> turn.</p>
 
             <div class="text-content-graphic line">
+                <p>C4:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <p><fraction numerator="1" denominator="4"></fraction> turn <span class="operator">&#x2737;</span> <fraction numerator="2" denominator="4"></fraction> turn &#x279E;  <fraction numerator="3" denominator="4"></fraction> turn</p>
+            </div>
+            <br/>
+
+            <div class="text-content-graphic line">
+                <!-- [(sq with diff side strokes) (-> w/ ¼ written) (rotated square) (-> w/ 2/4 written)( ¾ rotated Square)] -->
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "alternateSideStrokes":true}'
+                    options='{"text": "0 turn", "autoRotateDegrees":90,"initialRotation":0}'
+                ></div>
+                <div class="canvas"
+                    canvas-centered-drawing
+                    draw-function='drawArrow'
+                    function-options='{"textAbove":"1/4"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "alternateSideStrokes":true}'
+                    options='{"text": "1/4 turn", "autoRotateDegrees":90,"initialRotation":90}'
+                ></div>
+                <div class="canvas"
+                    canvas-centered-drawing
+                    draw-function='drawArrow'
+                    function-options='{"textAbove":"2/4"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "alternateSideStrokes":true}'
+                    options='{"text": "3/4 turn", "autoRotateDegrees":90,"initialRotation":270}'
+                ></div>
+            </div>
+
+            <p>Notice that the order in which these rotations are applied does not matter.  The Cn groups are <a class="theory-reference-term">commutative</a>.</p>
+
+            <div class="text-content-graphic line">
+			<!-- C4: [2/4 turn STAR ¼ turn = ¼ turn STAR 2/4 turn] -->
+                <p>C4: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fraction numerator="1" denominator="4"></fraction> turn <span class="operator">&#x2737;</span> <fraction numerator="2" denominator="4"></fraction> turn  =  <fraction numerator="2" denominator="4"></fraction> turn <span class="operator">&#x2737;</span> <fraction numerator="1" denominator="4"></fraction> turn</p>
+            </div>
+            <br/>
+            <!-- graphics to show commutativity -->
+            <div class="text-content-graphic line">
+                <!-- [(sq with diff side strokes) (-> w/ ¼ written) (rotated square) (-> w/ 2/4 written)( ¾ rotated Square)] -->
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "alternateSideStrokes":true}'
+                    options='{"text": "0 turn", "autoRotateDegrees":90,"initialRotation":0}'
+                ></div>
+                <div class="canvas"
+                    canvas-centered-drawing
+                    draw-function='drawArrow'
+                    function-options='{"textAbove":"1/4"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "alternateSideStrokes":true}'
+                    options='{"text": "1/4 turn", "autoRotateDegrees":90,"initialRotation":90}'
+                ></div>
+                <div class="canvas"
+                    canvas-centered-drawing
+                    draw-function='drawArrow'
+                    function-options='{"textAbove":"2/4"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "alternateSideStrokes":true}'
+                    options='{"text": "3/4 turn", "autoRotateDegrees":90,"initialRotation":270}'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <!-- [(sq with diff side strokes) (-> w/ 2/4 written) (rotated square) (-> w/ 1/4 written)( ¾ rotated Square)] -->
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "alternateSideStrokes":true}'
+                    options='{"text": "0 turn", "autoRotateDegrees":90,"initialRotation":0}'
+                ></div>
+                <div class="canvas"
+                    canvas-centered-drawing
+                    draw-function='drawArrow'
+                    function-options='{"textAbove":"2/4"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "alternateSideStrokes":true}'
+                    options='{"text": "2/4 turn", "autoRotateDegrees":90,"initialRotation":90}'
+                ></div>
+                <div class="canvas"
+                    canvas-centered-drawing
+                    draw-function='drawArrow'
+                    function-options='{"textAbove":"1/4"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "alternateSideStrokes":true}'
+                    options='{"text": "3/4 turn", "autoRotateDegrees":90,"initialRotation":270}'
+                ></div>
             </div>
         </div>
 
         <div class="coloring-content">
+        	TODO
         </div>
     </div>
 
