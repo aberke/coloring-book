@@ -5,13 +5,16 @@ Optionally draws text below.  Uses passed in function to draw the shape.
 @param {Object} paper to draw on
 @param {function} function to draw with
         function should have interface:
-            paper, origin, size, options
+            paper, origin, size, options, isRedraw
 
 @param {object} options
                 {string} text to draw below shape
                 {number} autoRotateDegrees - defaults to none.
                         When set, shape automatically rotates every so often by this amount in animation
                 {number} margin to keep within sides of canvas and shape
+                {boolean} tapRedraw -- whether to redraw upon click-like event.
+                {number} tapRotate as number of degrees to rotate upon tap.  Must be between 0 and 360.
+                        Only one of tapRedraw and tapRotate can be used.
 
 @returns {pathSet: object, origin: {X: number, Y: number}}
 */
@@ -44,7 +47,7 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
 
     // Draw the main shape
     // The returned pathSet is either a path or a set of paths
-    pathSet.push(drawFunction(paper, origin, size, functionOptions));
+    pathSet.push(drawFunction(paper, origin, size, functionOptions, false));
 
 
     // if there is text to draw, draw it underneath
@@ -59,10 +62,21 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
     if (options.autoRotateDegrees)
         setAutoRotate(pathSet, origin, options.autoRotateDegrees);
 
+    // optionally redraw on click/mouseup/tap
+    if (options.tapRedraw) {
+        paper.canvas.addEventListener('mouseup', function() {
+            paper.clear();
+            drawFunction(paper, origin, size, functionOptions, true);
+        });
+    } else if (options.tapRotate) {
+        console.log('options.tapRotate', options.tapRotate)
+        setTapRotate(paper, pathSet, origin, options.tapRotate);
+    }
+
     return {
         pathSet: pathSet,
         origin: origin,
-    }
+    };
 }
 
 
@@ -81,14 +95,30 @@ function setInitialRotation(pathSet, origin, rotation) {
     ].join(","));   
 }
 
+function setTapRotate(paper, pathSet, origin, rotateDegrees) {
+    if (!isValidRotateDeegrees(rotateDegrees))
+        return;
+
+    var animationLength = 2000;
+    var transformString = getRotateDegreesTransformString(origin, rotateDegrees);
+    paper.canvas.addEventListener('mouseup', function() {
+        if (pathSet.isRotating)
+            return; // avoid rotating if already rotating
+
+        pathSet.isRotating = true;
+        pathSet.animate({transform: transformString}, animationLength, function() {
+            pathSet.isRotating = false;
+        });
+    });
+}
+
 function setAutoRotate(pathSet, origin, autoRotateDegrees) {
+    if (!isValidRotateDeegrees(autoRotateDegrees))
+        return;
+
     var interval = 12000;
     var animationLength = 2000;
-    var transformString = [
-        "...R" + String(autoRotateDegrees),
-        origin.X,
-        origin.Y,
-    ].join(",");
+    var transformString = getRotateDegreesTransformString(origin, autoRotateDegrees);
 
     setInterval(function(){
         pathSet.animate({transform: transformString}, animationLength);
@@ -103,9 +133,13 @@ They draw the desired shape around the origin/centerPoint
 */
 
 
-function drawSierpinskiTriangle(paper, centerPoint, size, options) {
+function drawSierpinskiTriangle(paper, centerPoint, size, options, isRedraw) {
     var pathSet = getSierpinskiTriangle(centerPoint, size, options);
-    paper.path(pathSet);
+    // for redrawing, draw path by path, otherwise put directly on paper
+    if (isRedraw)
+        drawPathByPath(paper, pathSet, {stroke: 'black', 'stroke-width': 1});
+    else
+        paper.path(pathSet);
     return pathSet;
 }
 

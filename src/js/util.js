@@ -2,10 +2,29 @@
 	Collection of helper functions
 
 
-
 */
 
 var SYMMETRY_STROKE_WIDTH = 5;
+
+
+/*
+Checks if passed in rotational degrees are valid
+
+@param {string | number} degrees
+@returns {boolean}
+**/
+function isValidRotateDeegrees(rotateDegrees) {
+    return (0 <= Number(rotateDegrees) && Number(rotateDegrees));
+}
+
+
+function getRotateDegreesTransformString(origin, rotateDegrees) {
+    return [
+        "...R" + String(rotateDegrees),
+        origin.X,
+        origin.Y,
+    ].join(",");
+}
 
 
 function getPatternId(name, index) {
