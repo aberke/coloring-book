@@ -19,6 +19,16 @@ In order to export the book to printable version, or save it as printable PDF:
 Full printable designs available at `/prints/`
 
 
+#### Frieze Prints
+
+(TODO)
+- most complex at the top
+- end with simple triangle used in the text content explanations
+	- ie, trianglePath function
+
+
+
+
 ## Development
 
 - Clone the repo `$ git clone git@github.com:aberke/coloring-book.git`
@@ -56,6 +66,7 @@ Starting to generate & put together the pieces.  They are shown at /pieces
 - fix google analytics
 	- it would be nice to track what page people get to
 
+- sprinkle in some flowers -- see the circular flowers in the pieces
 
 
 #### Screencast to GIFs Workflow

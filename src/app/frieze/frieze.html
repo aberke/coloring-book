@@ -1,7 +1,7 @@
 <div ng-controller="friezePageCntl">
 
     <nav id='frieze-nav'>
-        <h1>Frieze Groups!</h1>
+        <h1>Frieze Groups</h1>
         <ul>
             <li ng-repeat="(groupName, groupData) in friezeGroupsData" ng-click="$parent.selectGroup(groupName)">
                 <span ng-class="{active:$parent.selectedGroupName==groupName}" class="clickable">{{groupName}}</span>
@@ -17,8 +17,7 @@
                 <span ng-show="showGroupDescription">: {{ groupData.description }}</span>
             </div>
 
-            <!-- <div ng-repeat="patternFunction in ['petalEllipse']" > -->
-            <div ng-repeat="patternFunction in ['petalEllipse', 'quarterEllipse', 'curves4', 'triangles3', 'curves3', 'triangles2']" >
+            <div ng-repeat="patternFunction in ['petalEllipse', 'quarterEllipse', 'curves4', 'trianglesPath3', 'curves3', 'trianglesPath2', 'trianglePath']" >
 
                 <div class='frieze-pattern'
                 pattern-function={{patternFunction}}

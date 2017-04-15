@@ -89,9 +89,8 @@ class FriezePattern {
 		// draw the pattern starting at offsetX:
 		// copy the fundamentalDomain
 		// transform it to live at spot
-		var basePathString = this.fundamentalDomainStringFactory(0);
+		var basePath = this.paper.path(this.fundamentalDomainStringFactory());
 
-		var basePath = this.paper.path(basePathString);
 		// translate it to the xOffset (so that shape doesn't get mangled)
 		var transformString = "T" + String(offsetX) + ",0";
 		basePath.transform(transformString);
@@ -125,7 +124,6 @@ class FriezePattern {
         var animateMs = (!!options.animate) ? 1000 : 0;
         var callback = options.callback || function() {};
         var workingSet = this.paper.set().push(basePath);
-
 
         function transformNext(i) {
             if (i >= self.generatorGetters.length) {
