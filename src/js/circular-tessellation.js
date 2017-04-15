@@ -16,6 +16,7 @@ Dependencies:
 
 */
 
+
 class CircularTessellation {
 
 	/**
@@ -39,7 +40,6 @@ class CircularTessellation {
 		this.origin = origin;
 		
 		this.diameter = diameter;
-		this.radius = this.diameter/2;
 
 		// handle options
 		this.options = options || {};
@@ -47,6 +47,13 @@ class CircularTessellation {
 		this.scaleFactor = 2;
 		this.withReflection = this.options.withReflection ? Boolean(this.options.withReflection) : false;
 		
+		// maybe this isn't a true circular tessellation and is a flower instead!
+		if (this.options.asFlower) {
+			this.levels = 2;
+			this.options.deltaYMultiplier = -1;
+			this.diameter = (1.5)*diameter;
+		}
+
 		// slicesCount is the number of items in a line segment to be repeated
 		// make this number larger for more complicated patterns
 		this.slicesCount = this.options.slicesCount || 3;
@@ -66,9 +73,10 @@ class CircularTessellation {
 		// off rotation twice at the same time
 		this.isRotating = false;
 
+		this.radius = this.diameter/2;
 		// set the starting height and width of a slice.  Hooray whipping out the binary tree math
 		this.height = this.radius/(Math.pow(this.scaleFactor, this.levels) - 1);
-		this.width = this.height/Math.max(4, this.rotations);
+		this.width = this.height*Math.PI/this.rotations;
 
 		this.draw();
 	}
@@ -154,8 +162,9 @@ class CircularTessellation {
 	    var lineSet = this.paper.set();
 
 		// generate base slices if do not already have them
-		if (!this.slicesPathList)
-			this.slicesPathList = getFundamentalDomainLineSlices(this.origin, this.width, this.height, this.slicesCount, this.withReflection);
+		if (!this.slicesPathList) {
+			this.slicesPathList = getFundamentalDomainLineSlices(this.origin, this.width, this.height, this.options);
+		}
 		
 		var slicesPath = this.paper.path(this.slicesPathList);
 		// for each level, add the base slices, scaled and translated appropriately

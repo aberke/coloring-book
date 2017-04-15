@@ -26,16 +26,12 @@ function getRotateDegreesTransformString(origin, rotateDegrees) {
     ].join(",");
 }
 
-
-function getPatternId(name, index) {
-    return (name + '-' + String(index));
-} 
-
-var getFundamentalDomainStringFactory = function(fundamentalDomainPattern, h1X, fundamentalDomainWidth, fundamentalDomainHeight) {
-    return function(offsetX) {
-        return fundamentalDomainPattern(offsetX, h1X, fundamentalDomainWidth, fundamentalDomainHeight);
+function getFundamentalDomainPathFactory(patternFunction, origin, width, height) {
+    return function() {
+        return patternFunction(origin, width, height);
     }
 }
+
 
 /**
  * Shows the symmetrySet upon hover with styles

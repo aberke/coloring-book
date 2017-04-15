@@ -80,11 +80,12 @@ function friezePatternDirective() {
 		drawPattern = function(options) {
 			options = options || {};
 
-		    var X = scope.fundamentalDomainHeight + (1/2)*scope.margin;
-		    options['id'] = getPatternId(scope.patternFunctiongroupName);
-
-		    var fundamentalDomainStringFactory = getFundamentalDomainStringFactory(scope.patternFunction, X, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight);
-		    scope.friezePattern = new FriezePattern(scope.paper, fundamentalDomainStringFactory, scope.generatorGetters, options);
+		    var origin = {
+		    	X: 0,
+		    	Y: scope.fundamentalDomainHeight + (1/2)*scope.margin,
+		    };
+		    var fundamentalDomainPathFactory = getFundamentalDomainPathFactory(scope.patternFunction, origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight);
+		    scope.friezePattern = new FriezePattern(scope.paper, fundamentalDomainPathFactory, scope.generatorGetters, options);
 		}
 
 

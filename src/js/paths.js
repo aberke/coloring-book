@@ -5,6 +5,44 @@
 */
 
 
+/*
+Work in progress
+*/
+function slantedSlicesPath(origin, width, height, options) {
+    options = options || {};
+
+    var pathList = [
+        ["M", origin.X, origin.Y],
+        ["L", origin.X + width, origin.Y - height]
+    ];
+
+    pathList += curves3(origin, width, height);
+
+    var fullSlantedDiamondPathList = slantedDiamond(origin, width, height);
+    pathList += fullSlantedDiamondPathList;
+
+    return pathList;
+}
+
+function slantedDiamond(origin, width, height) {
+
+    var startPointPathPart = ["M", origin.X, origin.Y];
+
+    return [
+        // add the left/top side
+        startPointPathPart,
+        ["L", origin.X + (1/4)*width, origin.Y - (1/2)*height],
+        ["L", origin.X + width, origin.Y - height],
+        
+        // add the right/bottom side
+        startPointPathPart,
+        ["L", origin.X + (3/4)*width, origin.Y - (1/2)*height],
+        ["L", origin.X + width, origin.Y - height],
+    ];
+}
+
+
+
 /**
 Creates path of slices along a line, contained within
 (width, height) and oriented with line on the right.
@@ -19,9 +57,12 @@ Path is randomly generated.
 
 @returns {array} pathList
 */
-function getFundamentalDomainLineSlices(origin, width, height, slicesCount, withReflection) {
-    slicesCount = slicesCount || 3;
-    withReflection = withReflection || false;
+function getFundamentalDomainLineSlices(origin, width, height, options) {
+    options = options || {};
+
+    var slicesCount = options.slicesCount || 3;
+    var withReflection = options.withReflection || false;
+    var deltaYMultiplier = options.deltaYMultiplier || 1;
 
     var pathList = [];
 
@@ -35,7 +76,7 @@ function getFundamentalDomainLineSlices(origin, width, height, slicesCount, with
 
         var sliceStartPoint = {
             X: origin.X,
-            Y: origin.Y + s*sliceHeight,
+            Y: origin.Y + deltaYMultiplier*s*sliceHeight,
         };
         
         // How many lines for this given slice? randomly choose from pathNumbers
@@ -57,10 +98,10 @@ function getFundamentalDomainLineSlices(origin, width, height, slicesCount, with
 
         // scale the width of the slices as they get further from the origin
         // start with the widest path, and then get smaller
-        var sliceWidth = (s + 1)*width;
+        var sliceWidth = Math.max(5, (s + 1)*width/slicesCount);
         var wChange = sliceWidth/pathsNumber;
         for (var i=0; i < pathsNumber; i++) {
-            pathList += getFundamentalDomainLineSlicePath(sliceStartPoint, sliceWidth, sliceHeight, withReflection);
+            pathList += getFundamentalDomainLineSlicePath(sliceStartPoint, sliceWidth, sliceHeight, withReflection, deltaYMultiplier);
             // decrement the sliceWidth in preparation for the next path creation
             // do not var it get smaller than 5
             sliceWidth = Math.max(5, sliceWidth - wChange);
@@ -81,7 +122,9 @@ the fundamental domain line slice.  Path is randomly generated.
 
 @returns {array} pathList used to draw Path
 */
-function getFundamentalDomainLineSlicePath(startPoint, width, height, withReflection) {
+function getFundamentalDomainLineSlicePath(startPoint, width, height, withReflection, deltaYMultiplier) {
+    deltaYMultiplier = deltaYMultiplier || 1;
+
     var pathList = [];  // initialize pathList
     var startPointPathPart = ["M", startPoint.X, startPoint.Y];
     var endPoint = {
@@ -104,18 +147,18 @@ function getFundamentalDomainLineSlicePath(startPoint, width, height, withReflec
         pathList += [
             // add side 1
             startPointPathPart,
-            ["L", startPoint.X + width, startPoint.Y + deltaY1],
+            ["L", startPoint.X + width, startPoint.Y + deltaYMultiplier*deltaY1],
             ["L", endPoint.X, endPoint.Y],
             // add side 2
             startPointPathPart,
-            ["L", startPoint.X - width, startPoint.Y + deltaY2],
+            ["L", startPoint.X - width, startPoint.Y + deltaYMultiplier*deltaY2],
             ["L", endPoint.X, endPoint.Y],
         ];
     } else {
         // generate curved path
         var centerPoint = {
             X: startPoint.X + width,
-            Y: startPoint.Y + height/2
+            Y: startPoint.Y + deltaYMultiplier*(height/2)
         };
         // get path for side 1
         var multiplierY1 = Math.random();
@@ -146,10 +189,11 @@ function getCatmullRomPath(fromPoint, toPoint, centerPoint, multiplierX, multipl
 }
 
 
-var curves = function(n, startX, startY, width, height) {
-    // draw the path with start at MstartX,startY
-    var pathString = ""
-    var startingSpotString = "M" + String(startX) + "," + String(startY);
+var curves = function(n, origin, width, height) {
+    // draw the path with start at origin
+    var pathList = [];
+    var startPointPathPart = ["M", origin.X, origin.Y];
+
     // add the curve a few times, always starting and ending in the same place
     var endX = width;
     var endY = -1*(height/2);
@@ -157,13 +201,13 @@ var curves = function(n, startX, startY, width, height) {
     var controlY = (-1)*(2*height);
     var i = 0;
     var heightChange = height/n;
-    while (i < n && endY < startY) {
+    while (i < n && endY < origin.Y) {
         i += 1;
-        pathString += (startingSpotString + " ");
+        pathList.push(startPointPathPart);
         controlY += heightChange;
-        pathString = pathString + "q" + String(controlX) + "," + String(controlY) + " " + String(endX) + "," + String(endY) + " ";
+        pathList.push(["q", controlX, controlY, endX, endY]);
     }
-    return pathString;
+    return pathList;
 }
 var curves2 = curves.bind(this, 2);
 var curves3 = curves.bind(this, 3);
@@ -171,38 +215,13 @@ var curves4 = curves.bind(this, 4);
 var curves5 = curves.bind(this, 5);
 
 
-
-var curvedPathNoSymmetry = function(startX, startY, width, height) {
-    // draw the path with start at MstartX,startY
-    var pathString = ""
-    var startingSpotString = "M" + String(startX) + "," + String(startY);
-    // add the curve a few times, always starting and ending in the same place
-    var aX = width/2;
-    var aY = height;
-    var angle = 0;
-    var i = 0;
-    var maxLoops = 4;
-    var heightChange = height/maxLoops;
-    while (i < maxLoops && height > 0) {
-        i += 1;
-        heightChange = (i < maxLoops) ? (heightChange) : 0;
-        pathString += (startingSpotString + " ");
-        pathString = pathString + "c" + String(aX) + "," + String(aY) + " " + String(angle) + " 1,1 " + String(width) + ",-" + String(height) + " l0," + String(heightChange) + " ";
-
-        aY -= heightChange;
-        angle += 10;
-        height = height - heightChange;
-    }
-    return pathString;
-}
-
-var quarterEllipse = function(startX, startY, width, height) {
+var quarterEllipse = function(origin, width, height) {
 	/*
 	Draw series of connected curves of diminishing height where axis length = offset
 	*/
-    // draw the path with start at MstartX,startY
+    // draw the path with start at origin
     var pathString = ""
-    var startingSpotString = "M" + String(startX) + "," + String(startY);
+    var startingSpotString = "M" + String(origin.X) + "," + String(origin.Y);
     // add the curve a few times, always starting and ending in the same place
     var aX = width;
     var aY = height;
@@ -229,31 +248,34 @@ var quarterEllipse = function(startX, startY, width, height) {
  * Generates path string for the triangle path: n triangles placed within eachother
  * @return {string} for a path for n triangles, placed within eachother
 **/
-var triangles = function(n, startX, startY, width, height) {
+var trianglesPath = function(n, origin, width, height) {
     n = n || 1;
-    var pathString = ""
-    var startingSpotString = "M" + String(startX) + "," + String(startY);
+    var pathList = [];
+    var startPointPathPart = ["M", origin.X, origin.Y];
 
     for (var i=1; i<=n; i++) {
-        pathString += startingSpotString;
+        pathList.push(startPointPathPart);
         var widthDivisor = Math.pow(2, i);
-        pathString += ("v-" + String(height) + "h" + String(width/widthDivisor) + "Z");
+        pathList.push(["h", width/widthDivisor]);
+        pathList.push(["v", (-1)*height]);
+        pathList.push(["Z"]);
     }
-    return pathString;
+    return pathList;
 }
-var triangles2 = triangles.bind(this, 2);
-var triangles3 = triangles.bind(this, 3);
+var trianglePath = trianglesPath.bind(this, 1);
+var trianglesPath2 = trianglesPath.bind(this, 2);
+var trianglesPath3 = trianglesPath.bind(this, 3);
 
 /**
  * Draw series of connected curves of diminishing height where axis length = offset
 **/
-var petalEllipse = function(startX, startY, width, height) {
+var petalEllipse = function(origin, width, height) {
 
-    // draw the path with start at MstartX,startY
+    // draw the path with start at origin
     var pathString = ""
-    var startingSpotString = "M" + String(startX) + "," + String(startY);
+    var startingSpotString = "M" + String(origin.X) + "," + String(origin.Y);
     // add the curve a few times, always starting and ending in the same place
-    var aX = startX + width;
+    var aX = origin.X + width;
     var aY = height;
     var endOffsetY = height;
 

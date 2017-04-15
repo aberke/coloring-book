@@ -27,6 +27,7 @@ function circularTessellationDirective() {
 				withReflection: attrs.withReflection ? true : null,
 				slicesCount: attrs.slicesCount ? Number(attrs.slicesCount) : null,
 				slicesPathList: attrs.slicesPathList ? eval(attrs.slicesPathList) : null,
+				asFlower: attrs.asFlower ? eval(attrs.asFlower) : false,
 			};
 
 			function redraw() {
