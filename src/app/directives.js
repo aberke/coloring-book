@@ -19,8 +19,6 @@ function circularTessellationDirective() {
 			var margin = Number(attrs.margin || 0);
 			var diameter = Math.min(paper.getSize().width, paper.getSize().height) - margin;
 
-			// safely get the options -- yeah not that safe
-			var functionOptions = {};
 			var options = {
 				rotations: attrs.rotations ? eval(attrs.rotations) : null,
 				levels: attrs.levels ? eval(attrs.levels) : null,

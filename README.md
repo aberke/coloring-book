@@ -58,6 +58,10 @@ Starting to generate & put together the pieces.  They are shown at /pieces
 
 # TODO:
 
+- Frieze:
+	- ? in frieze directive, adjust fundamental domain pattern height when shape has reflection so that frieze pattern takes up same height as other frieze patterns ?
+	- better for standardizing around page size and printing
+
 - make /printable for where all pages are displayed together
 
 - standardize size for pages
