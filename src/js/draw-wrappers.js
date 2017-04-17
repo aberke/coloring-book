@@ -69,7 +69,6 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
             drawFunction(paper, origin, size, functionOptions, true);
         });
     } else if (options.tapRotate) {
-        console.log('options.tapRotate', options.tapRotate)
         setTapRotate(paper, pathSet, origin, options.tapRotate);
     }
 
