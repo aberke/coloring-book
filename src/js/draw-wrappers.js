@@ -134,7 +134,7 @@ They draw the desired shape around the origin/centerPoint
 
 
 function drawSierpinskiTriangle(paper, centerPoint, size, options, isRedraw) {
-    var pathSet = getSierpinskiTriangle(centerPoint, size, options);
+    var pathSet = sierpinskiTriangle.getSierpinskiTriangle(centerPoint, size, options);
     // for redrawing, draw path by path, otherwise put directly on paper
     if (isRedraw)
         drawPathByPath(paper, pathSet, {stroke: 'black', 'stroke-width': 1});

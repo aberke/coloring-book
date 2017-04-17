@@ -18,13 +18,13 @@
             var drawSierpinskiArrowheadCurveWithBase = function(paper, centerPoint, size, options) {
                 options = options || {};
                 options.level = options.level || 4;
-                var sierpinskiTrianglePath = getSierpinskiTriangle(centerPoint, size, options);
-                var sierpinskiArrowheadCurvePath = getSierpinskiArrowheadCurve(centerPoint, size, options);
+                var sierpinskiTrianglePath = sierpinskiTriangle.getSierpinskiTriangle(centerPoint, size, options);
+                var sierpinskiArrowheadCurvePath = sierpinskiArrowheadCurve.getSierpinskiArrowheadCurve(centerPoint, size, options);
                 // draw sierpinskiTrianglePath as base
                 var pathBelow = paper.path(sierpinskiTrianglePath);
-                pathBelow.attr({'stroke': LIGHT_GRAY});
+                pathBelow.attr({'stroke': fractalsUtil.LIGHT_GRAY});
                 // draw with animation on top of base in darker stroke color
-                drawPathByPath(paper, sierpinskiArrowheadCurvePath);
+                fractalsUtil.drawPathByPath(paper, sierpinskiArrowheadCurvePath);
             }
 
             var redrawSierpinskiArrowheadCurveWithBase = function() {
