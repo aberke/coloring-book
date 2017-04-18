@@ -1,6 +1,6 @@
-<div ng-controller="friezePageCntl">
+<div id="frieze-page" ng-controller="friezePageCntl">
 
-    <nav id='frieze-nav'>
+    <nav id='frieze-nav' class='app-only'>
         <h1>Frieze Groups</h1>
         <ul>
             <li ng-repeat="(groupName, groupData) in friezeGroupsData" ng-click="$parent.selectGroup(groupName)">
@@ -12,8 +12,8 @@
     <div ng-repeat="(groupName, groupData) in friezeGroupsData" class="frieze-pattern-container">
         <div ng-if="selectedGroupName===groupName">
 
-            <div class='title' ng-click="showGroupDetails()">
-                <h1>{{ groupName }}</h1>
+            <div class='title-container' ng-click="showGroupDetails()">
+                <h1 class='frieze-pattern-title'>{{ groupName }}</h1>
                 <span ng-show="showGroupDescription">: {{ groupData.description }}</span>
             </div>
 
