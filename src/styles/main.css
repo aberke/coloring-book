@@ -206,7 +206,16 @@ Note: So far this seems to work best with Firefox -- Preview as PDF
 .book-page {
 	page-break-after: always;
 }
+.print-only {
+	display: none;
+}
 @media print {
+	.print-only {
+		display: block;
+	}
+	.app-only {
+		display: none;
+	}
 	.text-content, .coloring-content {
 		width: 100%;
 		border: none;

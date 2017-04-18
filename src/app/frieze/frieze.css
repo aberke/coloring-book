@@ -1,9 +1,10 @@
+#frieze-page, #frieze-page h1, #frieze-page h2{
+	font-weight: 300;
+	color: black;
+}
 
 #frieze-nav {
 	padding: 1em;
-}
-#frieze-nav h1 {
-	color: gray;
 }
 #frieze-nav h1, #frieze-nav ul, #frieze-nav li {
 	display: inline;
@@ -15,10 +16,17 @@
 	font-size: 1.2em;
 }
 
-.frieze-pattern-container .title h1{
+.frieze-pattern-container .frieze-pattern-title {
 	display: inline-block;
 	width: 100px;
-	color: gray;
+}
+.print-only .frieze-pattern-title {
+	border: none;
+}
+@media print {
+	.title-container h1 {
+		border: none;
+	}
 }
 
 .frieze-pattern-container .canvas {
