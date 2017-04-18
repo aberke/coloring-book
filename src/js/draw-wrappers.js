@@ -136,7 +136,7 @@ function drawSierpinskiTriangle(paper, centerPoint, size, options, isRedraw) {
     var pathSet = sierpinskiTriangle.getSierpinskiTriangle(centerPoint, size, options);
     // for redrawing, draw path by path, otherwise put directly on paper
     if (isRedraw)
-        drawPathByPath(paper, pathSet, {stroke: 'black', 'stroke-width': 1});
+        fractalsUtil.drawPathByPath(paper, pathSet, {stroke: 'black', 'stroke-width': 1});
     else
         paper.path(pathSet);
     return pathSet;
