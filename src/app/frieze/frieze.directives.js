@@ -4,6 +4,7 @@ Use
 ------------------------------
 <div class='frieze-pattern'
     pattern-function={function} // function with which to draw fundamental domain
+    pattern-dunction-options={object} // options that will be passed to the pattern-function
     group-name={'p1' | 'p1a1' | ... one of the 7 frieze groups to draw}
     fundamental-domain-width={number}
     fundamental-domain-height={number}
@@ -20,10 +21,16 @@ function friezePatternDirective() {
 
 		scope.groupName = attrs.groupName || 'p1';
 		scope.patternFunction = eval(attrs.patternFunction);
+		scope.patternFunctionOptions = JSON.parse(attrs.patternFunctionOptions || "{}");
+
 		scope.patternData = friezeGroupsData[scope.groupName];
 		scope.patternDescription = scope.patternData.description || '';
 
+		// margin is the margin to leave above and below the drawn pattern
+		// useful for patterns that have rotations that otherwise send their patterns outside
+		// the canvas
 		scope.margin = eval(attrs.margin || 1);
+		
 		scope.fundamentalDomainWidth = eval(attrs.fundamentalDomainWidth || '100');
 		scope.fundamentalDomainHeight = eval(attrs.fundamentalDomainHeight || '80');
 
@@ -82,10 +89,12 @@ function friezePatternDirective() {
 
 		    var origin = {
 		    	X: 0,
-		    	Y: scope.fundamentalDomainHeight + (1/2)*scope.margin,
+		    	Y: scope.fundamentalDomainHeight + scope.margin,
 		    };
-		    var fundamentalDomainPathFactory = getFundamentalDomainPathFactory(scope.patternFunction, origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight);
-		    scope.friezePattern = new FriezePattern(scope.paper, fundamentalDomainPathFactory, scope.generatorGetters, options);
+		    // generate the fundamental domain path once so that it can use random variables
+		    // and yet still look the same when it's redrawn by the FriezePattern
+		    var fundamentalDomainPath = scope.patternFunction(origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
+		    scope.friezePattern = new FriezePattern(scope.paper, fundamentalDomainPath, scope.generatorGetters, options);
 		}
 
 
@@ -108,7 +117,7 @@ function friezePatternDirective() {
 		    drawPattern();
 
 		    // Draw symmetry sets
-		    var h1StartY = scope.fundamentalDomainHeight;
+		    var h1StartY = scope.fundamentalDomainHeight + scope.margin;
 		    var hGap = scope.patternSpaceHeight;
 		    setupH1SymmetrySet(h1StartY, hGap);
 
@@ -229,7 +238,7 @@ function friezePatternDirective() {
 			drawPattern();
 
 			// Draw symmetry sets
-			var h1StartY = scope.fundamentalDomainHeight;
+			var h1StartY = scope.fundamentalDomainHeight + scope.margin;
 			var hGap = scope.patternSpaceHeight;
 			setupH1SymmetrySet(h1StartY, hGap);
 

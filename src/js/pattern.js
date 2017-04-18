@@ -1,20 +1,23 @@
 /*
 
-
-Plan:
-Pattern(paper, path, [generatorFunction, generatorFunction,...], {options})
-
 */
 
 var DEFAULT_STROKE_COLOR = 'black';
 var DEFAULT_STROKE_WIDTH = 2;
 
+
 class FriezePattern {
 
-	constructor(paper, fundamentalDomainStringFactory, generatorGetters, options) {
+	/**
+	@param {object} paper on which to draw
+	@param {array|string} fundamentalDomainPath
+	@param {array} generatorGetters: List of functions that transform the fundamental domain
+	@param {object} options
+	*/
+	constructor(paper, fundamentalDomainPath, generatorGetters, options) {
 		this.paper = paper;
 		this.paperSet = this.paper.set();
-		this.fundamentalDomainStringFactory = fundamentalDomainStringFactory;
+		this.fundamentalDomainPath = fundamentalDomainPath;
 		this.generatorGetters = generatorGetters;
 
 		// handle options
@@ -89,10 +92,10 @@ class FriezePattern {
 		// draw the pattern starting at offsetX:
 		// copy the fundamentalDomain
 		// transform it to live at spot
-		var basePath = this.paper.path(this.fundamentalDomainStringFactory());
+		var basePath = this.paper.path(this.fundamentalDomainPath);
 
 		// translate it to the xOffset (so that shape doesn't get mangled)
-		var transformString = "T" + String(offsetX) + ",0";
+		var transformString = "...T" + String(offsetX) + ",0";
 		basePath.transform(transformString);
 
 		// apply styling attributes
