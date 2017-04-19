@@ -1,6 +1,10 @@
 # coloring-book
 
-Open source, online coloring book through which one can explore the mathematics of symmetry and group theory.
+<img width=100 align="right" src="https://aberke.github.io/fractals/img/sierpinski-triangle.png">
+
+You might know of coloring books as a childhood amusement or as a means to adult relaxation. How about as a medium to teach the mathematics of group theory? Come color on the walls, interact with mathematical animations, and learn more about the beauty of math.
+
+This is an open source, online coloring book through which one can explore the mathematics of symmetry and group theory.  Start coloring.
 
 http://coloring-book.co
 
