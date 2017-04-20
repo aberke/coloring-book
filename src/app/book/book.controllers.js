@@ -28,7 +28,7 @@ function BookCntl($route, $routeParams, $location, $anchorScroll) {
 	vm.pageSrcBase = '/app/book/pages';
 	vm.bookPageUrl = function(p) {
 		return vm.pageSrcBase + '/' + p;
-	}
+	};
 
 	vm.pages = [
 		{
@@ -81,7 +81,7 @@ function BookCntl($route, $routeParams, $location, $anchorScroll) {
 
 		// scroll to the top of the new book-page that is shown
 		$anchorScroll();	
-	}
+	};
 
 
 	vm.changePage = function(pageIndex) {
@@ -91,21 +91,21 @@ function BookCntl($route, $routeParams, $location, $anchorScroll) {
 		vm.pageIndex = pageIndex;
 		vm.setPageNumber(pageIndex);
 		vm.setupPage();
-	}
+	};
 
 	// change to the previous page
 	vm.previousPage = function() {
 		vm.animateNextPage = false;
 		vm.animatePreviousPage = true;
 		vm.changePage(vm.pageIndex - 1);
-	}
+	};
 
 	// change to the next page
 	vm.nextPage = function() {
 		vm.animateNextPage = true;
 		vm.animatePreviousPage = false;
 		vm.changePage(vm.pageIndex + 1);
-	}
+	};
 
 
 	vm.getPageNumber = function() {
@@ -117,18 +117,18 @@ function BookCntl($route, $routeParams, $location, $anchorScroll) {
 			return pageNumberParam;
 		
 		return 0;	
-	}
+	};
 
 	vm.setPageNumber = function(pageNumber) {
 		$location.search('pageNumber', pageNumber);
-	}
+	};
 
 
 	vm.init = function() {
 		// get the page from the url
 		vm.pageIndex = vm.getPageNumber();
 		vm.setupPage();
-	}
+	};
 
 	vm.init();
 }

@@ -33,7 +33,7 @@ class CircularTessellation {
 		{array} slicesPathList: pathList of slices to use
 		{number} drawAnimationInterval: animation interval for the rotate transformation of the draw routine
 	*/
-	constructor(paper, origin, diameter, options) {
+	constructor(paper, origin, diameter, options = {}) {
 		this.paper = paper;
 		this.pathSet = this.paper.set();
 
@@ -42,7 +42,7 @@ class CircularTessellation {
 		this.diameter = diameter;
 
 		// handle options
-		this.options = options || {};
+		this.options = options;
 		this.levels = Number(this.options.levels) || 1;
 		this.scaleFactor = 2;
 		this.withReflection = this.options.withReflection ? Boolean(this.options.withReflection) : false;
@@ -88,7 +88,7 @@ class CircularTessellation {
 
 		this.isRotating = true;
 
-		var self = this;
+		const self = this;
 		this.pathSet.animate({transform: this.rotationTransformString}, 1000, function() {
 			self.isRotating = false;
 		});
@@ -102,12 +102,12 @@ class CircularTessellation {
 		this.drawing = true;
 
 		// get a line to rotate
-		var lineSet = this.getFundamentalDomainLine();
+		let lineSet = this.getFundamentalDomainLine();
 		this.pathSet.push(lineSet); // add it to the paperSet
 
 		// use recursive routine to draw each rotated line of the circular tessellation
-		var self = this;
-		var drawNextRotation = function(r) {
+		const self = this;
+		let drawNextRotation = function(r) {
 			if (r >= this.rotations) {
 				// no more rotations to draw
 				this.drawing = false;

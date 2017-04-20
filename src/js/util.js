@@ -116,8 +116,8 @@ Returns (String) transformation
 */
 function getGlideH(pathSet, options) {
     options = options || {};
-    mirrorOffset = options.mirrorOffset || 0;
-    gap = options.gap || 0;
+    const mirrorOffset = options.mirrorOffset || 0;
+    const gap = options.gap || 0;
     var bbox = pathSet.getBBox();
     var mirrorX = bbox.x;  // could be either x or x2
     var mirrorY = bbox.y2;

@@ -12,4 +12,4 @@ function getRotationTransformString(origin, rotationalOrder) {
 		String(origin.X),
 		String(origin.Y),
 	].join(",");
-};
+}

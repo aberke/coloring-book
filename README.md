@@ -26,11 +26,6 @@ Full printable designs available at `/prints/`
 #### Frieze Prints
 
 (TODO)
-- most complex at the top
-- end with simple triangle used in the text content explanations
-	- ie, trianglePath function
-
-
 
 
 ## Development
@@ -42,17 +37,57 @@ This repo uses a submodule, which is the `fractals` directory.  This will inital
 - Fill the fractals directory: run `git submodule update --init --recursive`
 - To pull in changes from the `fractals` submodule, run `$ git submodule update --recursive --remote`
 
-Files are served by node http-server
+Files are transpiled and built to `/dist` by gulp and are served by a node http-server.
 
 - Install node modules `$ npm install`
-- Run server `$ npm start`
-- Visit http://127.0.0.1/:8000/
+- Build with gulp `$ gulp`
+	- There should then be a `/dist/` directory of the compiled `src` files
+- Run `$ gulp serve`
+	- This uses `gulp watch` to recompile `src` files as they're updated
+	- Or run the server in production mode with `$ npm start`
+- Visit http://127.0.0.1/:5000
+
+
+#### Linting
+
+Please rememember to lint: `$ gulp lint`
+
+- Uses jshint to lint Javascript via gulp via `$ gulp lint` command
+- jshint settings are in `.jshintrc` and ignore paths are in `.jshintignore`
 
 
 ## Deployment
 
-- This is deployed on heroku at http://coloring-book.herokuapp.com
-	- Uses node server to serve assets.  This allows AngularJS includes.
+- Production is deployed on heroku at http://coloring-book.herokuapp.com
+	- Uses http server to serve assets.  Reason: this allows AngularJS includes.
+- Staging is deployed at https://coloring-book-staging.herokuapp.com
+
+ALWAYS push to Staging before production.
+
+Git Config looks something like:
+```
+...
+[remote "origin"]
+        url = git@github.com:aberke/coloring-book.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
+[submodule "fractals"]
+        url = https://github.com/aberke/fractals
+[remote "production"]
+        url = https://git.heroku.com/coloring-book.git
+        fetch = +refs/heads/*:refs/remotes/heroku/*
+[remote "staging"]
+        url = https://git.heroku.com/coloring-book-staging.git
+        fetch = +refs/heads/*:refs/remotes/staging/*
+```
+Workflow:
+
+- Feature done, looks good, push to staging
+	- `$ git push staging <branch-name>`
+- Staging looks good, push to production
+	- `$ git push production `
 
 
 ### Pieces
@@ -61,6 +96,13 @@ Starting to generate & put together the pieces.  They are shown at /pieces
 
 
 # TODO:
+
+- Build/Gulp specific
+	- concat + uglify JS
+	- Do more linting
+	- Build issues
+		- at concat
+		- needed to take out Raphael
 
 - Frieze:
 	- ? in frieze directive, adjust fundamental domain pattern height when shape has reflection so that frieze pattern takes up same height as other frieze patterns ?
@@ -75,6 +117,7 @@ Starting to generate & put together the pieces.  They are shown at /pieces
 	- it would be nice to track what page people get to
 
 - sprinkle in some flowers -- see the circular flowers in the pieces
+
 
 
 #### Screencast to GIFs Workflow

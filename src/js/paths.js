@@ -29,9 +29,9 @@ function slantedSlices(origin, width, height, options) {
 
     var pathsPerLevel = options.pathsPerLevel || 2;
 
-    var allowCurved = eval(options.allowCurved) || false;
+    var allowCurved = (!!options.allowCurved && options.allowCurved !== "false");
     // function to randomly decide if a path is curved or not
-    var chooseIsCurved = function() {
+    function chooseIsCurved() {
         return (allowCurved && Math.random() > 0.4) ? true : false;
     }
 
@@ -126,8 +126,6 @@ Box:
 (X1, Y1)----(X2, Y1)
 **/
 function slantedClosedPathWithinBox(fromPoint, toPoint, containingBox, isCurved) {
-    var pathList = [];
-
     var boxX1 = containingBox.X1;
     var boxX2 = containingBox.X2;
     var boxY1 = containingBox.Y1;
@@ -197,8 +195,7 @@ function petalsEllipseWithDiamondPath(origin, width, height) {
 /**
  * Draw series of connected curves of diminishing height where axis length = offset
 **/
-var petalEllipse = function(origin, width, height, options) {
-    options = options || {};
+function petalEllipse(origin, width, height, options = {}) {
 
     // draw the path with start at origin
     var pathList = [];
@@ -207,7 +204,6 @@ var petalEllipse = function(origin, width, height, options) {
     // add the curve a few times, always starting and ending in the same place
     var aX = origin.X + width;
     var aY = height;
-    var endOffsetY = height;
 
     var i = 0;
     var maxLoops = options.maxLoops || 3;
@@ -240,7 +236,7 @@ function slantedDiamond(origin, width, height) {
     var toPoint = {
         X: origin.X + width,
         Y: origin.Y - height,
-    }
+    };
     var containingBox = {
         X1: origin.X,
         X2: toPoint.X,
@@ -284,9 +280,7 @@ Path is randomly generated.
 
 @returns {array} pathList
 */
-function getFundamentalDomainLineSlices(origin, width, height, options) {
-    options = options || {};
-
+function getFundamentalDomainLineSlices(origin, width, height, options = {}) {
     var slicesCount = options.slicesCount || 3;
     var withReflection = options.withReflection || false;
     var deltaYMultiplier = options.deltaYMultiplier || 1;
@@ -357,7 +351,7 @@ function getFundamentalDomainLineSlicePath(startPoint, width, height, withReflec
     var endPoint = {
         X: startPoint.X,
         Y: startPoint.Y + height
-    }
+    };
 
     // randomly generate either a linear path or a curved path
     if (Math.random() > 0.5) {
@@ -413,37 +407,6 @@ function getCatmullRomPath(fromPoint, toPoint, centerPoint, multiplierX, multipl
     var differenceX = (centerPoint.X - fromPoint.X);
     var differenceY = (centerPoint.Y - fromPoint.Y);
     return ["R", fromPoint.X + multiplierX*differenceX, fromPoint.Y + multiplierY*differenceY, toPoint.X, toPoint.Y];
-}
-
-
-/*
-Returns a random pathList representing a closed set of
-curves around a 45 degree diagonal line / .
-The curves should fit within the width and height boundaries.
-**/
-function getRandomPetal(origin, width, height) {
-    // draw the path with start at origin
-    var pathList = [];
-    var startPointPathPart = ["M", origin.X, origin.Y];
-
-    var endPoint = {
-        X: origin.X + width,
-        Y: origin.Y - height,
-    };
-
-    // add the left side
-    var controlX1 = origin.X;
-    var controlY1 = origin.Y - Math.random()*height;
-    pathList.push(startPointPathPart);
-    pathList.push(["Q", controlX1, controlY1, endPoint.X, endPoint.Y]);
-
-    // add the right
-    var controlX2 = origin.X + 2*width;
-    var controlY2 = origin.Y - Math.random()*height;
-    pathList.push(startPointPathPart);
-    pathList.push(["Q", controlX2, controlY2, endPoint.X, endPoint.Y]);
-
-    return pathList;
 }
 
 

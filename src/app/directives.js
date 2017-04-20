@@ -20,12 +20,12 @@ function circularTessellationDirective() {
 			var diameter = Math.min(paper.getSize().width, paper.getSize().height) - margin;
 
 			var options = {
-				rotations: attrs.rotations ? eval(attrs.rotations) : null,
-				levels: attrs.levels ? eval(attrs.levels) : null,
+				rotations: (!!attrs.rotations) ? Number(attrs.rotations) : null,
+				levels: (!!attrs.levels) ? Number(attrs.levels) : null,
 				withReflection: attrs.withReflection ? true : null,
 				slicesCount: attrs.slicesCount ? Number(attrs.slicesCount) : null,
-				slicesPathList: attrs.slicesPathList ? eval(attrs.slicesPathList) : null,
-				asFlower: attrs.asFlower ? eval(attrs.asFlower) : false,
+				slicesPathList: (!!attrs.slicesPathList) ? JSON.parse(attrs.slicesPathList) : null,
+				asFlower: ("asFlower" in attrs && attrs.asFlower !== "false") ? true : false,
 			};
 
 			function redraw() {
@@ -36,18 +36,18 @@ function circularTessellationDirective() {
 			}
 
 			// attach redraw handler if with-redraw flag was present
-			if (('withRedraw' in attrs) && (attrs.withRedraw != "false")) {
+			if (("withRedraw" in attrs) && (attrs.withRedraw != "false")) {
 				elt.className += " clickable";
-				paper.canvas.addEventListener('mouseup', redraw);
+				paper.canvas.addEventListener("mouseup", redraw);
 			}
 
 			new CircularTessellation(paper, origin, diameter, options);
 		}
-	}	
+	};
 }
 
 // Generic canvas drawing directive
-function canvasCenteredDrawingDirective() {
+function canvasCenteredDrawingDirective($window) {
 	return {
 		restrict: 'EAC', //E = element, A = attribute, C = class, M = comment
 		link: function ($scope, element, attrs) {
@@ -61,9 +61,7 @@ function canvasCenteredDrawingDirective() {
 			elt.className += " canvas";
 
 			// get the drawFunction
-			var drawFunction = attrs.drawFunction ? attrs.drawFunction : drawCircle;
-
-			drawFunction = eval('(' + attrs.drawFunction + ')');
+			var drawFunction = attrs.drawFunction ? $window[attrs.drawFunction] : 'drawCircle';
 
 			// safely get the options -- yeah not that safe
 			var functionOptions = {};
@@ -71,9 +69,9 @@ function canvasCenteredDrawingDirective() {
 			try {
 				functionOptions = JSON.parse(attrs.functionOptions || "{}");
 				options = JSON.parse(attrs.options || "{}");
-			} catch(e) {};
+			} catch(e) {}
 
 			drawInCanvasCenter(paper, drawFunction, functionOptions, options);
 		}	
-	}
+	};
 }

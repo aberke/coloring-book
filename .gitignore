@@ -3,3 +3,6 @@
 npm-debug.log
 .DS_Store
 /*.env
+
+# This is where build files go
+/dist

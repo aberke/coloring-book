@@ -132,6 +132,10 @@ They draw the desired shape around the origin/centerPoint
 */
 
 
+function drawSierpinskiTriangleFlower(paper, centerPoint, size, options) {
+    return sierpinskiTriangle.drawSierpinskiTriangleFlower(paper, centerPoint, size, options.level);
+}
+
 function drawSierpinskiTriangle(paper, centerPoint, size, options, isRedraw) {
     var pathSet = sierpinskiTriangle.getSierpinskiTriangle(centerPoint, size, options);
     // for redrawing, draw path by path, otherwise put directly on paper
