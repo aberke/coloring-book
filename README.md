@@ -124,6 +124,7 @@ Starting to generate & put together the pieces.  They are shown at /pieces
 
 - Use Quicktime player to take screencast
 - Use Drop to GIF to convert .mov file to gif
+- Use ?animate URL param to auto animate things on the page upon page load
 
 
 ### Notes:
