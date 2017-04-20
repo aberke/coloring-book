@@ -2,18 +2,16 @@
   "name": "coloring-book",
   "version": "0.0.1",
   "description": "Coloring Book of Group Theory.  You might know of coloring books as a childhood amusement or as a means to adult relaxation. How about as a medium to teach the mathematics of group theory? Come color on the walls, interact with mathematical animations, and learn more about the beauty of math.",
-  "dependencies": {
-    "gulp": "^3.9.1",
-    "http-server": "^0.9.0"
-  },
   "engines": {
     "node": "6.9.5"
   },
-  "devDependencies": {
+  "dependencies": {
     "gulp": "^3.9.1",
-    "babel-preset-env": "^1.4.0",
-    "ecstatic": "^2.1.0",
+    "http-server": "^0.9.0",
     "gulp-babel": "^6.1.2",
+    "babel-preset-env": "^1.4.0",
+    "pump": "^1.0.2",
+    "ecstatic": "^2.1.0",
     "gulp-batch": "^1.0.5",
     "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.0.4",
@@ -21,9 +19,9 @@
     "gulp-uglify": "^2.1.2",
     "gulp-watch": "^4.3.11",
     "http": "0.0.0",
-    "jshint": "^2.9.4",
-    "pump": "^1.0.2"
+    "jshint": "^2.9.4"
   },
+  "devDependencies": {},
   "scripts": {
     "postinstall": "gulp build",
     "start": "http-server ./dist/ -p ${PORT:=5000} -c-1"
