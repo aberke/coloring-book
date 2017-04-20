@@ -1,20 +1,20 @@
-<div id="frieze-page" ng-controller="friezePageCntl">
+<div id="frieze-page" ng-controller="FriezePageCntl as friezePage">
 
     <nav id='frieze-nav' class='app-only'>
         <h1>Frieze Groups</h1>
         <ul>
-            <li ng-repeat="(groupName, groupData) in friezeGroupsData" ng-click="$parent.selectGroup(groupName)">
-                <span ng-class="{active:$parent.selectedGroupName==groupName}" class="clickable">{{groupName}}</span>
+            <li ng-repeat="(groupName, groupData) in friezePage.friezeGroupsData" ng-click="friezePage.selectGroup(groupName)">
+                <span ng-class="{active:friezePage.selectedGroupName==groupName}" class="clickable">{{groupName}}</span>
             </li>
         </ul>
     </nav>
 
-    <div ng-repeat="(groupName, groupData) in friezeGroupsData" class="frieze-pattern-container">
-        <div ng-if="selectedGroupName===groupName">
+    <div ng-repeat="(groupName, groupData) in friezePage.friezeGroupsData" class="frieze-pattern-container">
+        <div ng-if="friezePage.selectedGroupName===groupName">
 
-            <div class='title-container' ng-click="showGroupDetails()">
+            <div class='title-container' ng-click="friezePage.showGroupDetails()">
                 <h1 class='frieze-pattern-title'>{{ groupName }}</h1>
-                <span ng-show="showGroupDescription">: {{ groupData.description }}</span>
+                <span ng-show="friezePage.showGroupDescription">: {{ groupData.description }}</span>
             </div>
 
             <div class='frieze-pattern'
@@ -23,7 +23,7 @@
                 fundamental-domain-width=100
                 fundamental-domain-height=80
                 margin=25
-                show-symmetry-sets={{showSymmetrySets}}
+                show-symmetry-sets={{friezePage.showSymmetrySets}}
                 pattern-function-options='{"levels": 3, "pathsPerLevel": 2, "allowCurved": true}'
             ></div>
 
@@ -33,7 +33,7 @@
                 fundamental-domain-width=100
                 fundamental-domain-height=80
                 margin=25
-                show-symmetry-sets={{showSymmetrySets}}
+                show-symmetry-sets={{friezePage.showSymmetrySets}}
                 pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": true}'
             ></div>
             <div class='frieze-pattern'
@@ -42,7 +42,7 @@
                 fundamental-domain-width=100
                 fundamental-domain-height=80
                 margin=25
-                show-symmetry-sets={{showSymmetrySets}}
+                show-symmetry-sets={{friezePage.showSymmetrySets}}
                 pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": false}'
             ></div>
 
@@ -52,7 +52,7 @@
                 fundamental-domain-width=100
                 fundamental-domain-height=80
                 margin=25
-                show-symmetry-sets={{showSymmetrySets}}
+                show-symmetry-sets={{friezePage.showSymmetrySets}}
                 pattern-function-options='{"levels": 3, "pathsPerLevel": 1, "allowCurved": true}'
             ></div>
             <div class='frieze-pattern'
@@ -61,7 +61,7 @@
                 fundamental-domain-width=100
                 fundamental-domain-height=80
                 margin=25
-                show-symmetry-sets={{showSymmetrySets}}
+                show-symmetry-sets={{friezePage.showSymmetrySets}}
                 pattern-function-options='{"levels": 3, "pathsPerLevel": 1, "allowCurved": false}'
             ></div>
             
@@ -71,7 +71,7 @@
                 fundamental-domain-width=100
                 fundamental-domain-height=80
                 margin=25
-                show-symmetry-sets={{showSymmetrySets}}
+                show-symmetry-sets={{friezePage.showSymmetrySets}}
                 pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": true}'
             ></div>
             
@@ -81,7 +81,7 @@
                 fundamental-domain-width=100
                 fundamental-domain-height=80
                 margin=25
-                show-symmetry-sets={{showSymmetrySets}}
+                show-symmetry-sets={{friezePage.showSymmetrySets}}
             ></div>
             
             <div class='frieze-pattern'
@@ -90,7 +90,7 @@
                 fundamental-domain-width=100
                 fundamental-domain-height=80
                 margin=25
-                show-symmetry-sets={{showSymmetrySets}}
+                show-symmetry-sets={{friezePage.showSymmetrySets}}
             ></div>
 
             <div class='frieze-pattern'
@@ -99,7 +99,7 @@
                 fundamental-domain-width=100
                 fundamental-domain-height=80
                 margin=25
-                show-symmetry-sets={{showSymmetrySets}}
+                show-symmetry-sets={{friezePage.showSymmetrySets}}
                 pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": false}'
             ></div>
 
@@ -109,7 +109,7 @@
                 fundamental-domain-width=100
                 fundamental-domain-height=80
                 margin=25
-                show-symmetry-sets={{showSymmetrySets}}
+                show-symmetry-sets={{friezePage.showSymmetrySets}}
                 pattern-function-options='{"levels": 1, "pathsPerLevel": 1, "allowCurved": true}'
             ></div>
 
@@ -119,7 +119,7 @@
                 fundamental-domain-width=100
                 fundamental-domain-height=80
                 margin=25
-                show-symmetry-sets={{showSymmetrySets}}
+                show-symmetry-sets={{friezePage.showSymmetrySets}}
             ></div>
 
         </div>
