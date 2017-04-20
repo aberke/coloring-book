@@ -1,6 +1,6 @@
 
 // circular-tessellation directive
-function circularTessellationDirective() {
+function circularTessellationDirective($location) {
 	return {
 		restrict: 'EAC', //E = element, A = attribute, C = class, M = comment
 		link: function ($scope, element, attrs) {
@@ -27,6 +27,9 @@ function circularTessellationDirective() {
 				slicesPathList: (!!attrs.slicesPathList) ? JSON.parse(attrs.slicesPathList) : null,
 				asFlower: ("asFlower" in attrs && attrs.asFlower !== "false") ? true : false,
 			};
+			// allow option to go to pass ?animate option in URL bar
+			if ($location.search().animate)
+				options.drawAnimationInterval = 1000;
 
 			function redraw() {
 				paper.clear();

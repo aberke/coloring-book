@@ -25,7 +25,7 @@ const gulp = require("gulp"),
 const srcFiles = {
   js: ["src/**/*.js"],
   css: ["src/**/*.css"],
-  img: ["src/**/img/*"],
+  img: ["src/**/img/**"],
   html: ["src/**/*.html"]
 };
 const destination = "./dist";
