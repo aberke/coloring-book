@@ -261,12 +261,14 @@ function friezePatternDirective($window) {
 		    'p2mg': scope.p2mgHandler,
 		    'p2mm': scope.p2mmHandler,
 		};
-		if (handlers[scope.groupName]) {
-		    handlers[scope.groupName]();
-		}
 
-		if (eval(attrs.showSymmetrySets))
-			scope.showSymmetrySets();
-		}
-	}
+		scope.init = function() {
+			if (handlers[scope.groupName])
+				handlers[scope.groupName]();
+
+			if (attrs.showSymmetrySets && attrs.showSymmetrySets !== 'false')
+				scope.showSymmetrySets();
+		};
+		scope.init();
+	}}
 }
