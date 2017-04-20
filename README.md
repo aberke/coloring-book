@@ -129,6 +129,11 @@ Starting to generate & put together the pieces.  They are shown at /pieces
 
 ### Notes:
 
+#### Sharing
+
+Share with http://www.coloring-book.co not http://coloring-book.co to avoid redirect
+
+
 #### RaphaelJS
 
 - paper.clear() removes the SVG path
