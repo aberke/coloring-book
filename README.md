@@ -40,7 +40,7 @@ This repo uses a submodule, which is the `fractals` directory.  This will inital
 Files are transpiled and built to `/dist` by gulp and are served by a node http-server.
 
 - Install node modules `$ npm install`
-- Build with gulp `$ gulp`
+- Build with gulp `$ gulp build`
 	- There should then be a `/dist/` directory of the compiled `src` files
 - Run `$ gulp serve`
 	- This uses `gulp watch` to recompile `src` files as they're updated
