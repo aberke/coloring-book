@@ -1,5 +1,5 @@
 'use strict';
 
 angular.module('app.frieze', [])
-.controller('friezePageCntl', friezePageCntl)
+.controller('FriezePageCntl', FriezePageCntl)
 .directive('friezePattern', friezePatternDirective);

@@ -2,22 +2,26 @@
 /*
 Controller for the frieze page
 */
-function friezePageCntl($scope) {
+function FriezePageCntl($location) {
 
-	$scope.friezeGroupsData = friezeGroupsData;
-	$scope.selectedGroupName = "p1";
+	// view model is this FriezePageCntl
+	var vm = this;
 
-	$scope.showGroupDescription = false;
-	$scope.showSymmetrySets = false;
+	vm.friezeGroupsData = friezeGroupsData;
+	vm.selectedGroupName = $location.search().group || "p1";
 
-	$scope.selectGroup = function(groupName) {
-		$scope.selectedGroupName = groupName;
+	vm.showGroupDescription = false;
+	vm.showSymmetrySets = false;
+
+	vm.selectGroup = function(groupName) {
+		vm.selectedGroupName = groupName;
+		$location.search('group', groupName);
 	}
 
-	$scope.showGroupDetails = function() {
+	vm.showGroupDetails = function() {
 		// toggle showing the group description
-		$scope.showGroupDescription = !$scope.showGroupDescription;
+		vm.showGroupDescription = !vm.showGroupDescription;
 		// toggle showing the symmetry sets
-		$scope.showSymmetrySets = !$scope.showSymmetrySets;
+		vm.showSymmetrySets = !vm.showSymmetrySets;
 	}
 }

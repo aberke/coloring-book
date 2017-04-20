@@ -21,7 +21,7 @@ not rendered in the DOM when the book-page is not the current page
 be removed from the page -- together they're too heavy for browsers
 
 */
-function BookCntl($route, $routeParams, $location, $anchorScroll) {
+function BookCntl($location, $anchorScroll) {
 	// view model is this BookCntl
 	var vm = this;
 
