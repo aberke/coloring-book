@@ -6,38 +6,39 @@ const gulp = require("gulp"),
   babel = require("gulp-babel"),
 
   // for javascript linting
-  jshint = require('gulp-jshint'),
+  jshint = require("gulp-jshint"),
 
   // For watching and rebuilding files
-  watch = require('gulp-watch'),
+  watch = require("gulp-watch"),
 
   // Replaces pipe method and removes standard onerror handler on error event, which unpipes streams on error by default.
   // https://github.com/floatdrop/gulp-plumber
-  plumber = require('gulp-plumber'),
+  plumber = require("gulp-plumber"),
 
   // For serving from gulp
-  http = require('http'),
-  ecstatic = require('ecstatic');
+  http = require("http"),
+  ecstatic = require("ecstatic");
 
-  // concat = require('gulp-concat'); 
-  // uglify = require('gulp-uglify');
+  // concat = require("gulp-concat"); 
+  // uglify = require("gulp-uglify");
 
-
-const jsFiles = ['src/**/*.js'];
-const cssFiles = ['src/**/*.css'];
-const htmlFiles = ['src/**/*.html'];
-const imageFiles = ['src/**/img/*'];
-const destination = './dist';
+const srcFiles = {
+  js: ["src/**/*.js"],
+  css: ["src/**/*.css"],
+  img: ["src/**/img/*"],
+  html: ["src/**/*.html"]
+};
+const destination = "./dist";
 
 
 /** Lint Tasks **/
 
-gulp.task('lint', ['jslint']);
+gulp.task("lint", ["jslint"]);
 
-gulp.task('jslint', function() {
-  return gulp.src(jsFiles)
+gulp.task("jslint", function() {
+  return gulp.src(srcFiles.js)
     .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+    .pipe(jshint.reporter("default"));
 });
 
 /** Lint Tasks **/
@@ -45,28 +46,28 @@ gulp.task('jslint', function() {
 
 /** Build Tasks **/
 
-gulp.task('img', function() {
-  gulp.src(imageFiles)
+gulp.task("img", function() {
+  gulp.src(srcFiles.img)
     .pipe(gulp.dest(destination));
 });
 
-gulp.task('css', function() {
-	gulp.src(cssFiles)
+gulp.task("css", function() {
+	gulp.src(srcFiles.css)
 		.pipe(gulp.dest(destination));
 });
 
-gulp.task('html', function() {
-	gulp.src(htmlFiles)
+gulp.task("html", function() {
+	gulp.src(srcFiles.html)
 		.pipe(gulp.dest(destination));
 });
 
-gulp.task('js', function (cb) {
+gulp.task("js", function (cb) {
   pump([
-      gulp.src(jsFiles),
+      gulp.src(srcFiles.js),
       babel(),
       // TODO: after linting is all set up
       // use this blogpost: http://codehangar.io/concatenate-and-minify-javascript-with-gulp/
-      // concat('scripts.js'),
+      // concat("scripts.js"),
       // uglify(),
       gulp.dest(destination)
     ],
@@ -76,23 +77,23 @@ gulp.task('js', function (cb) {
 /** Build Tasks **/
 
 
-gulp.task('watch', function () {
-  gulp.watch(jsFiles, ['js']);
-  gulp.watch(cssFiles, ['css']);
-  gulp.watch(htmlFiles, ['html']);
-  gulp.watch(imageFiles, ['img']);
+gulp.task("watch", function () {
+  gulp.watch(srcFiles.js, ["js"]);
+  gulp.watch(srcFiles.css, ["css"]);
+  gulp.watch(srcFiles.img, ["img"]);
+  gulp.watch(srcFiles.html, ["html"]);
 });
 
 
-gulp.task('serve', ['watch'], function() {
+gulp.task("serve", ["watch"], function() {
   const port = process.env.PORT || 5000
   http.createServer(
-    ecstatic({ root: __dirname + '/dist' })
+    ecstatic({ root: __dirname + "/dist" })
   ).listen(port);
-  console.log('Listening on port ', port);
+  console.log("Listening on port ", port);
 });
 
 
-gulp.task('build', ['img', 'css', 'html', 'js']);
+gulp.task("build", ["img", "css", "html", "js"]);
 
-gulp.task('default', ['build', 'lint']);
+gulp.task("default", ["build", "lint"]);
