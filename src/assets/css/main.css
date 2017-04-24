@@ -267,26 +267,6 @@ footer p {
 
 /* ===== Pieces ===========*/
 
-/* For representing fractions in HTML */
-.fraction {
-	display: inline-block;
-	font-size: 60%;
-	font-weight: 700;
-	text-align: center;
-}
-.fraction > sup {
-	display: block;
-	border-bottom: 1px solid;
-	font: inherit;
-}
-.fraction > span {
-	display: none;
-}
-.fraction > sub {
-	display: block;
-	font: inherit;
-}
-
 .half {
 	display: inline-block;
 	width: 45%;
