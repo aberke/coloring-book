@@ -1,8 +1,26 @@
+/**
+Directive to format fractions.
+
+Use:
+------
+<fraction numerator={number} denominator={number}></fraction>
+***/
+function fractionDirective() {
+	return {
+		restrict: "EA",
+		scope: {
+			numerator: "@",
+			denominator: "@",
+		},
+		template: "<span class='fraction'><sup>{{numerator}}</sup><span>&frasl;</span><sub>{{denominator}}</sub></span>"
+	}
+}
+
 
 // circular-tessellation directive
 function circularTessellationDirective($location) {
 	return {
-		restrict: 'EAC', //E = element, A = attribute, C = class, M = comment
+		restrict: "EAC", //E = element, A = attribute, C = class, M = comment
 		link: function ($scope, element, attrs) {
 			//DOM manipulation
 

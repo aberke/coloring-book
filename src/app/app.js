@@ -33,5 +33,6 @@ angular.module('app', [
     $locationProvider.hashPrefix('!');
 }])
 // bootstrap the directives
+.directive('fraction', fractionDirective)
 .directive('canvasCenteredDrawing', canvasCenteredDrawingDirective)
 .directive('circularTessellation', circularTessellationDirective);
