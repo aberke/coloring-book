@@ -13,9 +13,10 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,600,700,800" rel="stylesheet">
 
     <!-- styles -->
-    <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/app/book/book.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/app/frieze/frieze.css">
+    <link rel="stylesheet" href="/app/common/directives/fraction.css">
 
     <title>Coloring Book</title>
 </head>
@@ -54,11 +55,8 @@
         </ul>
     </nav>
 
-    <!-- Sections -->
-    <!-- Default section is the cover page -->
-    <!-- TODO: Use angular to make this modular -->
+    <!-- Default section is the book cover page -->
     <ng-view autoscroll></ng-view>
-    <!-- <ng-include autoscroll src="'/app/book/book.html'"></ng-include> -->
 
 
 <!-- Scripts -->
@@ -74,22 +72,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
 
-<script type="text/javascript" src="/js/circular-tessellation.js"></script>
-<script type="text/javascript" src="/js/styling.js"></script>
+<script type="text/javascript" src="/assets/js/circular-tessellation.js"></script>
+<script type="text/javascript" src="/assets/js/styling.js"></script>
 
-<script type="text/javascript" src="/js/shapes/utility.js"></script>
-<script type="text/javascript" src="/js/shapes/cyclic-shapes.js"></script>
-<script type="text/javascript" src="/js/shapes/dihedral-shapes.js"></script>
-<script type="text/javascript" src="/js/shapes/regular-polygons.js"></script>
-<script type="text/javascript" src="/js/shapes/rectangles.js"></script>
+<script type="text/javascript" src="/assets/js/shapes/utility.js"></script>
+<script type="text/javascript" src="/assets/js/shapes/cyclic-shapes.js"></script>
+<script type="text/javascript" src="/assets/js/shapes/dihedral-shapes.js"></script>
+<script type="text/javascript" src="/assets/js/shapes/regular-polygons.js"></script>
+<script type="text/javascript" src="/assets/js/shapes/rectangles.js"></script>
 
-<script type="text/javascript" src="/js/paths.js"></script>
-<script type="text/javascript" src="/js/util.js"></script>
-<script type="text/javascript" src="/js/draw-wrappers.js"></script>
-<script type="text/javascript" src="/js/pattern.js"></script>
+<script type="text/javascript" src="/assets/js/paths.js"></script>
+<script type="text/javascript" src="/assets/js/util.js"></script>
+<script type="text/javascript" src="/assets/js/draw-wrappers.js"></script>
+<script type="text/javascript" src="/assets/js/pattern.js"></script>
 
 <!-- Angular things -->
-<script type="text/javascript" src="/app/common/app.ngLoadScript.js"></script>
 <script type="text/javascript" src="/app/book/book.controllers.js"></script>
 <script type="text/javascript" src="/app/book/book.js"></script>
 
@@ -98,7 +95,11 @@
 <script type="text/javascript" src="/app/frieze/frieze.controllers.js"></script>
 <script type="text/javascript" src="/app/frieze/frieze.js"></script>
     
-<script type="text/javascript" src="/app/directives.js"></script>
+<script type="text/javascript" src="/app/common/app.ngLoadScript.js"></script>
+<script type="text/javascript" src="/app/common/directives/fraction.js"></script>
+<script type="text/javascript" src="/app/common/directives/circular-tessellation.js"></script>
+<script type="text/javascript" src="/app/common/directives/canvas-centered-drawing.js"></script>
+
 <script type="text/javascript" src="/app/app.js"></script>
 
 
