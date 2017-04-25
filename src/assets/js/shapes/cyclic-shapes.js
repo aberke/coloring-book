@@ -12,12 +12,15 @@ class CyclicShape {
 		this.size = size;
 
         this.options = options || {};
+
         this.N = this.options.rotations || this.options.N;
         this.withReflection = this.options.withReflection || false;
         
         // can optionally draw each side of polygon with a different stroke type
         this.useDifferentSideStrokes = this.options.useDifferentSideStrokes || false;
-        this.sideStrokeOffset = this.options.sideStrokeOffset || 0;
+        // can optionally dictate which side strokes are used for which sides
+        // of the shape by passing in an array of integers, where there is one int per side
+        this.sideStrokes = this.options.sideStrokes || null;
 
 		this.rotationTransformString = getRotationTransformString(this.origin, this.N);
 
@@ -79,11 +82,16 @@ class CyclicShape {
 
 	// n is which side it is, where 0 is the bottom side
 	styleSide(path, n) {
-		if (this.useDifferentSideStrokes && this.N < STROKE_DASH_ARRAY.length) {
-            var strokeDashArray = STROKE_DASH_ARRAY[(this.sideStrokeOffset + n) % this.N];
-            path.attr({
-                'stroke-dasharray': strokeDashArray
+		// can optionally dictate how to style each side by number
+		if (this.sideStrokes && this.sideStrokes.length > n && this.sideStrokes[n] < STROKE_DASH_ARRAY.length)
+			path.attr({
+                'stroke-dasharray': STROKE_DASH_ARRAY[this.sideStrokes[n]]
             });
-        }
+
+		// or can say just say make all of the sides a different stroke -- will alternate
+		if (this.useDifferentSideStrokes && n < STROKE_DASH_ARRAY.length)
+            path.attr({
+                'stroke-dasharray': STROKE_DASH_ARRAY[n % this.N]
+            });
 	}	
 }

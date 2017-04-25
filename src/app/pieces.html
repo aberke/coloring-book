@@ -226,7 +226,7 @@
 				<h2>N Gons</h2>
 				<div class='half'>
 					<p>5-gon</p>
-			    	<div id='canvas-ngon-5' class='canvas'></div>
+			    	<div id='canvas-ngon-5' class='canvas third'></div>
 			    	<script type="text/javascript-lazy">
 			    		'use strict';
 
@@ -247,7 +247,7 @@
 			    </div>
 				<div class='half'>
 					<p>8-gon</p>
-			    	<div id='canvas-ngon-8' class='canvas'></div>
+			    	<div id='canvas-ngon-8' class='canvas third'></div>
 			    	<script type="text/javascript-lazy">
 			    		'use strict';
 
@@ -275,29 +275,21 @@
 				<h2>Star N Gons</h2>
 				<div class='half'>
 					<p>3-star</p>
-			    	<div id='canvas-star-3' class='canvas'></div>
-			    	<script type="text/javascript-lazy">
-			    		'use strict';
-
-					    var STAR3 = {};
-				    	STAR3.paper = new Raphael('canvas-star-3', '100%', 400);
-				    	
-                        STAR3.drawing = drawInCanvasCenter(STAR3.paper, drawRegularPolygon, {N: 3, useDifferentSideStrokes: true, sideStrokeOffset: 1, concave: true}, {autoRotateDegrees: 120, inscribed: true, initialRotation: 120});
-
-			    	</script>
+				    <div class='canvas third'
+	                    canvas-centered-drawing
+	                    draw-function='drawRegularPolygon'
+	                    function-options='{"N": 3, "useDifferentSideStrokes": true, "concave": true}'
+	                    options='{"autoRotateDegrees":120,"inscribed":true,"initialRotation":120}'
+	                ></div>
 			    </div>
 				<div class='half'>
 					<p>6-star</p>
-			    	<div id='canvas-star-6' class='canvas'></div>
-			    	<script type="text/javascript-lazy">
-			    		'use strict';
-
-					    var STAR6 = {};
-				    	STAR6.paper = new Raphael('canvas-star-6', '100%', 400);
-				    	
-                        STAR6.drawing = drawInCanvasCenter(STAR6.paper, drawRegularPolygon, {N: 6, useDifferentSideStrokes: true, sideStrokeOffset: 1, concave: true}, {autoRotateDegrees: 120, inscribed: true});
-
-			    	</script>
+				    <div class='canvas third'
+	                    canvas-centered-drawing
+	                    draw-function='drawRegularPolygon'
+	                    function-options='{"N": 6, "useDifferentSideStrokes": true, "concave": true}'
+	                    options='{"autoRotateDegrees":60,"inscribed":true,"initialRotation":120}'
+	                ></div>
 			    </div>
 		    </div>
 		    <!-- star n-gons -->
@@ -356,20 +348,26 @@
 				<div class='half'>
 					<p>Rectangle</p>
 					
-			    	<div canvas-centered-drawing class='canvas' draw-function='drawRectangle' function-options='{"useDifferentSideStrokes": true}' options='{"margin": 12, "inscribed": true}'></div>
-
+			    	<div class='canvas third'
+				    	canvas-centered-drawing 
+				    	draw-function='drawRectangle'
+				    	function-options='{"useDifferentSideStrokes": true}'
+				    	options='{"margin": 12, "inscribed": true}'
+				    ></div>
 			    </div>
 				<div class='half'>
-					<!-- <p>D7</p> -->
-			    	<!-- <div id='canvas-D7' class='canvas'></div> -->
-			    	<script>
-			    		'use strict';
+					<p>C5 with alternating side strokes</p>
 
-			    	</script>
+			    	<div class='canvas third'
+				    	canvas-centered-drawing 
+				    	draw-function='drawCyclicShape'
+				    	function-options='{"N": 5, "sideStrokes": [1, 1, 2, 2, 3]}'
+				    	options='{"margin": 12, "inscribed": true}'
+				    ></div>
+
 			    </div>
 		    </div>
 		    <!-- rectangles -->
-
 
 	   </div>
 
