@@ -118,6 +118,8 @@ Starting to generate & put together the pieces.  They are shown at /pieces
 
 - sprinkle in some flowers -- see the circular flowers in the pieces
 
+- enable printable param ?print
+	- use a larger page controller to check for param and add an extra class to the <body>
 
 
 #### Screencast to GIFs Workflow
