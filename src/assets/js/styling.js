@@ -3,13 +3,27 @@
 Define the color pallette
 */
 
-var COLORS = {
-	LIGHT_GRAY: '#d3d3d3',
-	PURPLE: '#670067',
-}
+const COLORS = {
+	LIGHT_GRAY: "#d3d3d3",
+	PURPLE: "#670067",
+	AQUA: "#3bcca6",
+	YELLOW: "yellow",
+};
 
 
 
 // Ways to style the sides of a shape
 // with path.attr({'stroke-dasharray': string})
-var STROKE_DASH_ARRAY = ["", "-", ".", "-.", "--..", "-..", ". ", "- ", "--", "- .", "--."];
+const STROKE_DASH_ARRAY = ["", "-", ".", "-.", "--..", "-..", ". ", "- ", "--", "- .", "--."];
+
+// Ways to fill a shape as a "coloring"
+// Using patterns so that on black and white paper the coloring is still clear
+const COLORING_FILL_ARRAY = [
+	"", // first fill is the empty fill
+	COLORS.YELLOW, // 1 solid fill
+	// pattern SVGs
+	"url(/assets/img/coloring-fills/coloring-fill-aqua.svg)",
+	"url(/assets/img/coloring-fills/coloring-fill-purple.svg)",
+	"url(/assets/img/coloring-fills/coloring-fill-black.svg)",
+	"url(/assets/img/coloring-fills/coloring-fill-gray.svg)",
+];

@@ -10,7 +10,7 @@ class RegularPolygon extends DihedralShape {
 	}
 
 	// generates the path set to be used as the 'fundamental' domain of the polygon
-	getLinePathList() {
+	getSidePathList() {
 		// draw the bottom side of the polygon, oriented to lie horizontally flat
 		var rotationRadians = 2*Math.PI/this.N;
 		var halfRotationRadians = rotationRadians/2;
