@@ -9,7 +9,7 @@ class DihedralShape extends CyclicShape {
     }
 
 
-	getLinePathList() {
+	getSidePathList() {
         var startPointPathPart = ["M", this.origin.X, this.origin.Y];
         
 		var linePathList = [

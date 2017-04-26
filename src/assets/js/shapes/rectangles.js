@@ -13,7 +13,7 @@ class Rectangle extends DihedralShape {
 	}
 
 	// generates the path set to be used as the 'fundamental' domain of the polygon
-	getLinePathList() {
+	getSidePathList() {
 		// draw the bottom + right sides of the polygon, oriented to lie horizontally flat
 		var linePathList = [
 			["M", this.origin.X - this.options.width/2, this.origin.Y + this.options.height/2],

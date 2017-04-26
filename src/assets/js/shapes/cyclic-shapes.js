@@ -17,18 +17,22 @@ class CyclicShape {
         this.withReflection = this.options.withReflection || false;
         
         // can optionally draw each side of polygon with a different stroke type
-        this.useDifferentSideStrokes = this.options.useDifferentSideStrokes || false;
+        this.alternateSideStrokes = this.options.alternateSideStrokes || false;
         // can optionally dictate which side strokes are used for which sides
         // of the shape by passing in an array of integers, where there is one int per side
-        this.sideStrokes = this.options.sideStrokes || null;
+        this.sideStrokes = this.options.sideStrokes || [];
 
-		this.rotationTransformString = getRotationTransformString(this.origin, this.N);
+        // can optionally dictate how to fill sections of the shape with color
+        // by passing in array 'options.coloring' that choose colors from the COLORING_FILL_ARRAY
+        // eg, options.coloring
+        // defaults to shapes not being filled with color
+        this.coloring = this.options.coloring || [];
 
 		this.pathSet;
 		this.draw();
 	}
 
-	getLinePathList() {
+	getSidePathList() {
 		var startPointPathPart = ["M", this.origin.X, this.origin.Y];
 		var endPoint = {
 			X: this.origin.X,
@@ -52,33 +56,38 @@ class CyclicShape {
 
 
 	draw() {
-		var pathSet = this.paper.set(); // what will be returned
+		let pathSet = this.paper.set(); // what will be returned
 
-		// get the line path for the first side of the polygon
-		// generate the rest of the sides by copying and rotating that first side
-		var linePathList = this.getLinePathList();
+		// draw each side and then rotate it accordingly
+		for (var n = 0; n < this.N; n++) {
+			let sidePathList = this.getSidePathList();
+			let sidePath = this.paper.path(sidePathList);
 
-		// draw the linePathList as a path on the paper
-		var linePath = this.paper.path(linePathList);
-		this.styleSide(linePath, 0);
-		pathSet.push(linePath);
-
-		// draw the other sides by cloning bottom side and rotating
-		for (var n = 1; n < this.N; n++) {
-			var newLinePath = linePath.clone();
-			this.styleSide(newLinePath, n);
-
-			var degreesToRotate = n*(360/this.N);
-			var transformString = [
+			let degreesToRotate = n*(360/this.N);
+			let transformString = [
 				"...R" + String(degreesToRotate),
 				String(this.origin.X),
 				String(this.origin.Y),
 			].join(",");
-			newLinePath.transform(transformString);
-			pathSet.push(newLinePath);
+			sidePath.transform(transformString);
+			pathSet.push(sidePath);
 		}
+		// style sides or fill path section according to options passed in
+		pathSet.items.forEach(this.styleSide.bind(this));
+		pathSet.items.forEach(this.colorPathSection.bind(this));
+
 		this.pathSet = pathSet;
 	}
+
+
+	// can optionally pass in options.coloring as an array dictating how to fill each section of the shape
+	// eg, options.coloring = [0,0,1,1,2,2] will use fills from the list COLORING_FILL_ARRAY
+	// by default shapes are not filled with color
+	colorPathSection(path, n) {
+		if (this.coloring && this.coloring.length > n && n < COLORING_FILL_ARRAY.length)
+			path.attr("fill", COLORING_FILL_ARRAY[this.coloring[n]]);
+	}
+
 
 	// n is which side it is, where 0 is the bottom side
 	styleSide(path, n) {
@@ -89,7 +98,7 @@ class CyclicShape {
             });
 
 		// or can say just say make all of the sides a different stroke -- will alternate
-		if (this.useDifferentSideStrokes && n < STROKE_DASH_ARRAY.length)
+		if (this.alternateSideStrokes && n < STROKE_DASH_ARRAY.length)
             path.attr({
                 'stroke-dasharray': STROKE_DASH_ARRAY[n % this.N]
             });

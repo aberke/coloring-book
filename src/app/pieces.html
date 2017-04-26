@@ -278,7 +278,7 @@
 				    <div class='canvas third'
 	                    canvas-centered-drawing
 	                    draw-function='drawRegularPolygon'
-	                    function-options='{"N": 3, "useDifferentSideStrokes": true, "concave": true}'
+	                    function-options='{"N": 3, "alternateSideStrokes": true, "concave": true}'
 	                    options='{"autoRotateDegrees":120,"inscribed":true,"initialRotation":120}'
 	                ></div>
 			    </div>
@@ -287,7 +287,7 @@
 				    <div class='canvas third'
 	                    canvas-centered-drawing
 	                    draw-function='drawRegularPolygon'
-	                    function-options='{"N": 6, "useDifferentSideStrokes": true, "concave": true}'
+	                    function-options='{"N": 6, "alternateSideStrokes": true, "concave": true}'
 	                    options='{"autoRotateDegrees":60,"inscribed":true,"initialRotation":120}'
 	                ></div>
 			    </div>
@@ -327,7 +327,7 @@
 					    var D7 = {
 					    	paper: new Raphael('canvas-D7', '100%', 400),
 					    	functionOptions: {
-					    		useDifferentSideStrokes: true,
+					    		alternateSideStrokes: true,
 					    		N: 7,
 					    	},
 					    	options: {
@@ -342,7 +342,7 @@
 		    </div>
 		    <!-- cyclic and dihedral shapes -->
 
-			<!-- rectangle -->
+			<!-- More shapes -->
 			<div>
 				<h2>More shapes</h2>
 				<div class='half'>
@@ -351,7 +351,7 @@
 			    	<div class='canvas third'
 				    	canvas-centered-drawing 
 				    	draw-function='drawRectangle'
-				    	function-options='{"useDifferentSideStrokes": true}'
+				    	function-options='{"alternateSideStrokes": true}'
 				    	options='{"margin": 12, "inscribed": true}'
 				    ></div>
 			    </div>
@@ -361,13 +361,38 @@
 			    	<div class='canvas third'
 				    	canvas-centered-drawing 
 				    	draw-function='drawCyclicShape'
-				    	function-options='{"N": 5, "sideStrokes": [1, 1, 2, 2, 3]}'
+				    	function-options='{"N": 5, "sideStrokes": [1, 1, 2, 2, 0]}'
 				    	options='{"margin": 12, "inscribed": true}'
 				    ></div>
 
 			    </div>
 		    </div>
-		    <!-- rectangles -->
+		    <!-- More shapes -->
+
+			<!-- Colored shapes -->
+			<div>
+				<h2>Colored shapes</h2>
+				<div class='half'>
+					<p>Rectangle with alternating color fills</p>
+					
+			    	<div class='canvas third'
+				    	canvas-centered-drawing 
+				    	draw-function='drawRectangle'
+				    	function-options='{"coloring": [0, 1]}'
+				    ></div>
+			    </div>
+				<div class='half'>
+					<p>C5 with alternating side strokes</p>
+
+			    	<div class='canvas third'
+				    	canvas-centered-drawing 
+				    	draw-function='drawCyclicShape'
+				    	function-options='{"N": 5, "coloring": [5, 1, 2, 3, 4]}'
+				    ></div>
+
+			    </div>
+		    </div>
+		    <!-- Colored shapes -->
 
 	   </div>
 
