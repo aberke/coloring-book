@@ -2,8 +2,8 @@
 
 */
 
-var DEFAULT_STROKE_COLOR = 'black';
-var DEFAULT_STROKE_WIDTH = 2;
+const DEFAULT_STROKE_COLOR = 'black';
+const DEFAULT_STROKE_WIDTH = 2;
 
 
 class FriezePattern {

@@ -4,6 +4,7 @@ Colors:
 	PURPLE: #670067;
 	AQUA: #3bcca6;
 		rgb(59,204,166)
+	YELLOW: #ffe100;
 
 */
 
@@ -52,16 +53,18 @@ h1 {
 	border-bottom: 4px solid #3bcca6;
 }
 #book-title-container {
-	border-top: 6px double #670067;
-	border-bottom: 6px double #670067;
+	border-top: 4px double #670067;
+	border-bottom: 4px double #670067;
 
 	max-width: 800px;
 	margin: 50px auto;
 }
 #book-title-container h1 {
-	font-weight: 300;
-	font-size: 2.4em;
-	border-width: 6px;
+	font-weight: 400;
+	font-size: 2.6em;
+	color: purple;
+	border-width: 1px;
+	border-color: #ffe100;
 }
 .book-section-title, .book-section-subtitle {
 	display: inline-block;
