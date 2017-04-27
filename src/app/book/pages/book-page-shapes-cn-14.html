@@ -1,0 +1,101 @@
+<div class="book-page" ng-if="book.page.name == p.name">
+
+    <div class="text-coloring-content-container">
+        <div class="text-content">
+            <p>We can transform a C4 shape into a C2 shape by coloring it.</p>
+
+			<!-- [C4 shape with C4 written below] → [Same C4 shape, colored to make it C2, with C2 written below] -->
+
+            <div class="text-content-graphic line">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4}'
+                    options='{"text":"C4", "autoRotateDegrees":90}'
+                ></div>
+                
+                <!-- arrow -->
+                <p class="text big"><span class="operator">&#x279E;</span></p>
+
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4, "coloring": [0, 1, 0, 1]}'
+                    options='{"text":"C2", "autoRotateDegrees":180}'
+                ></div>
+            </div>
+
+            <p>The only rotations that leave this colored shape unchanged are those of C2.</p>
+
+			<!-- [2 rotated versions of C4 shape, colored in same way to make it C2, with rotations written below] -->
+            <div class="text-content-graphic line">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4, "coloring": [0, 1, 0, 1]}'
+                    options='{"text":"0 turn", "autoRotateDegrees":90}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4, "coloring": [0, 1, 0, 1]}'
+                    options='{"text":"1/4 turn", "autoRotateDegrees":90,"initialRotation":90}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4, "coloring": [0, 1, 0, 1]}'
+                    options='{"text":"2/4 turn", "autoRotateDegrees":90,"initialRotation":180}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4, "coloring": [0, 1, 0, 1]}'
+                    options='{"text":"3/4 turn", "autoRotateDegrees":90,"initialRotation":270}'
+                ></div>
+            </div>
+
+			<p>Not all colorings of our C4 shapes will transform them into C2 shapes.</p>
+
+			<!-- [Line of C4 shape colorings that turn them into C1 shapes] -->
+            <div class="text-content-graphic line">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4}'
+                    options='{"text":"C4", "autoRotateDegrees":90}'
+                ></div>
+                
+                <!-- arrow -->
+                <p class="text big"><span class="operator">&#x279E;</span></p>
+
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4, "coloring": [1, 1, 0, 0]}'
+                    options='{"text":"C1", "autoRotateDegrees":180}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4, "coloring": [2, 2, 2, 0]}'
+                    options='{"text":"C1", "autoRotateDegrees":180}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4, "coloring": [2, 0, 3, 1]}'
+                    options='{"text":"C1", "autoRotateDegrees":180}'
+                ></div>
+            </div>
+
+			<p class="challenge">Try coloring the C4 shapes on the on the right to reduce them to C2 shapes.</p>
+
+        </div>
+
+        <div class="coloring-content">
+        	TODO: many C4 shapes
+        </div>
+    </div>
+
+</div>

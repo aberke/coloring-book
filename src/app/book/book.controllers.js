@@ -62,6 +62,27 @@ function BookCntl($location, $anchorScroll) {
 			name: 'cn-7',
 			url: vm.bookPageUrl('book-page-shapes-cn-7.html'),
 		}, {
+			name: 'cn-8',
+			url: vm.bookPageUrl('book-page-shapes-cn-8.html'),
+		}, {
+			name: 'cn-9',
+			url: vm.bookPageUrl('book-page-shapes-cn-9.html'),
+		}, {
+			name: 'cn-10',
+			url: vm.bookPageUrl('book-page-shapes-cn-10.html'),
+		}, {
+			name: 'cn-11',
+			url: vm.bookPageUrl('book-page-shapes-cn-11.html'),
+		}, {
+			name: 'cn-12',
+			url: vm.bookPageUrl('book-page-shapes-cn-12.html'),
+		}, {
+			name: 'cn-13',
+			url: vm.bookPageUrl('book-page-shapes-cn-13.html'),
+		}, {
+			name: 'cn-14',
+			url: vm.bookPageUrl('book-page-shapes-cn-14.html'),
+		}, {
 			name: 'get-updates',
 			url: vm.bookPageUrl('book-page-last.html'),
 		}

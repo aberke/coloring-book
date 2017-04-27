@@ -52,13 +52,13 @@
             We can also see that a square has more rotational symmetry than a triangle, which in turn has more symmetry than a rectangle: A square has 4 unique rotations, while a triangle has 3, and a rectangle has only 2.
             </p>
 
-            <!-- [Line of regular convex polygons of order 2, 3, 4] -->
+            <!-- [Line of regular convex polygons of order 4, 3, 2] -->
             <div class="text-content-graphic line">
                 <div class='canvas'
                     canvas-centered-drawing
-                    draw-function='drawRectangle'
-                    function-options='{"N":2}'
-                    options='{"autoRotateDegrees":180, "margin": 10}'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4}'
+                    options='{"autoRotateDegrees":90}'
                 ></div>
                 <div class='canvas'
                     canvas-centered-drawing
@@ -68,9 +68,9 @@
                 ></div>
                 <div class='canvas'
                     canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":4}'
-                    options='{"autoRotateDegrees":90}'
+                    draw-function='drawRectangle'
+                    function-options='{"N":2}'
+                    options='{"autoRotateDegrees":180, "margin": 10}'
                 ></div>
             </div>
         </div>
