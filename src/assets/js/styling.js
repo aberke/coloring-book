@@ -7,7 +7,7 @@ const COLORS = {
 	LIGHT_GRAY: "#d3d3d3",
 	PURPLE: "#670067",
 	AQUA: "#3bcca6",
-	YELLOW: "yellow",
+	YELLOW: "#ffe100",
 };
 
 

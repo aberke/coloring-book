@@ -4,7 +4,8 @@ Use
 ------------------------------
 <div class='frieze-pattern'
     pattern-function={function} // function with which to draw fundamental domain
-    pattern-dunction-options={object} // options that will be passed to the pattern-function
+    pattern-function-options={object} // options that will be passed to the pattern-function
+    draw-options={} // options that will be passed to the FriezePattern constructor
     group-name={'p1' | 'p1a1' | ... one of the 7 frieze groups to draw}
     fundamental-domain-width={number}
     fundamental-domain-height={number}
@@ -22,6 +23,9 @@ function friezePatternDirective($window) {
 		scope.groupName = attrs.groupName || 'p1';
 		scope.patternFunction = $window[attrs.patternFunction];
 		scope.patternFunctionOptions = JSON.parse(attrs.patternFunctionOptions || "{}");
+
+		// initialize the drawOptions
+		scope.drawOptions = JSON.parse(attrs.drawOptions || "{}");
 
 		scope.patternData = friezeGroupsData[scope.groupName];
 		scope.patternDescription = scope.patternData.description || '';
@@ -83,9 +87,7 @@ function friezePatternDirective($window) {
 		    scope.symmetrySets.h1 = h1Set;
 		};
 
-		scope.drawPattern = function(options) {
-			options = options || {};
-
+		scope.drawPattern = function() {
 		    var origin = {
 		    	X: 0,
 		    	Y: scope.fundamentalDomainHeight + scope.margin,
@@ -93,7 +95,7 @@ function friezePatternDirective($window) {
 		    // generate the fundamental domain path once so that it can use random variables
 		    // and yet still look the same when it's redrawn by the FriezePattern
 		    var fundamentalDomainPath = scope.patternFunction(origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
-		    scope.friezePattern = new FriezePattern(scope.paper, fundamentalDomainPath, scope.generatorGetters, options);
+		    scope.friezePattern = new FriezePattern(scope.paper, fundamentalDomainPath, scope.generatorGetters, scope.drawOptions);
 		};
 
 
@@ -155,12 +157,10 @@ function friezePatternDirective($window) {
 
 			scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin)*(1 - mirrorHOffsetFraction);
 
-			var drawOptions = {
-				mirrorOffset: mirrorHOffset,
-				gap: 0,
-			};
+			scope.drawOptions.mirrorOffset = mirrorHOffset;
+			scope.drawOptions.gap = 0;
 			scope.setupPaper();
-			scope.drawPattern(drawOptions);
+			scope.drawPattern();
 
 			// draw the symmetry set
 			var glideStartY = (1 - mirrorHOffsetFraction)*(scope.fundamentalDomainHeight);
@@ -182,10 +182,8 @@ function friezePatternDirective($window) {
 			scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin - rotationOffset);
 			scope.setupPaper();
 
-			var drawOptions = {
-				rotationOffset: rotationOffset
-			};
-			scope.drawPattern(drawOptions);
+			scope.drawOptions.rotationOffset = rotationOffset;
+			scope.drawPattern();
 		};
 
 		scope.p2mgHandler = function() {
@@ -202,11 +200,9 @@ function friezePatternDirective($window) {
 			scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin)*(1 - mirrorHOffsetFraction);
 			scope.setupPaper();
 
-			var drawOptions = {
-				mirrorOffset: mirrorHOffset,
-				gap: gap,
-			};
-			scope.drawPattern(drawOptions);
+			scope.drawOptions.mirrorOffset = mirrorHOffset;
+			scope.drawOptions.gap = gap;
+			scope.drawPattern();
 
 			// draw the symmetry sets
 			var glideStartY = (1 - mirrorHOffsetFraction)*(scope.fundamentalDomainHeight);
