@@ -71,15 +71,9 @@ h1 {
 	margin: 40px auto;
 	padding: 20px 30px;
 	min-width: 50%;
-}
-.book-section-title {
-	font-size: 1.9em;
+	font-weight: 500;
+	font-size: 2em;
 	border-bottom: 5px double #670067;
-
-}
-.book-section-subtitle {
-	font-size: 1.6em;
-	border-bottom: 2px dashed #670067;
 }
 
 p {
