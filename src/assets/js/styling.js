@@ -11,7 +11,6 @@ const COLORS = {
 };
 
 
-
 // Ways to style the sides of a shape
 // with path.attr({'stroke-dasharray': string})
 const STROKE_DASH_ARRAY = ["", "-", ".", "-.", "--..", "-..", ". ", "- ", "--", "- .", "--."];
@@ -20,10 +19,10 @@ const STROKE_DASH_ARRAY = ["", "-", ".", "-.", "--..", "-..", ". ", "- ", "--", 
 // Using patterns so that on black and white paper the coloring is still clear
 const COLORING_FILL_ARRAY = [
 	"", // first fill is the empty fill
-	COLORS.YELLOW, // 1 solid fill
+	COLORS.AQUA, // 1 solid fill
 	// pattern SVGs
-	"url(/assets/img/coloring-fills/coloring-fill-aqua.svg)",
 	"url(/assets/img/coloring-fills/coloring-fill-purple.svg)",
+	"url(/assets/img/coloring-fills/coloring-fill-yellow.svg)",
 	"url(/assets/img/coloring-fills/coloring-fill-black.svg)",
 	"url(/assets/img/coloring-fills/coloring-fill-gray.svg)",
 ];
