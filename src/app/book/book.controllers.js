@@ -21,9 +21,9 @@ not rendered in the DOM when the book-page is not the current page
 be removed from the page -- together they're too heavy for browsers
 
 */
-function BookCntl($location, $anchorScroll) {
+function BookCntl($location, $anchorScroll, $timeout) {
 	// view model is this BookCntl
-	var vm = this;
+	let vm = this;
 
 	vm.pageSrcBase = '/app/book/pages';
 	vm.bookPageUrl = function(p) {
@@ -105,17 +105,38 @@ function BookCntl($location, $anchorScroll) {
 	};
 
 
-	vm.changePage = function(pageIndex) {
-		if (pageIndex < 0 || pageIndex > vm.pages.length)
+	// Since page changes are triggered on mouse-over action,
+	// only allow page changes from hover to happen in intervals
+	vm.pageChangeReady = true;
+
+	vm.triggerChangePageStart = function() {
+		if (vm.changePageTimeout)
+			$timeout.cancel(vm.changePageTimeout);
+
+		vm.pageChangeReady = false;
+		vm.changePageTimeout = $timeout(function() {
+			vm.pageChangeReady = true;
+		}, 3000);
+	};
+
+	vm.onHoverPreviousPage = function() {
+		if (!vm.pageChangeReady)
 			return;
 
-		vm.pageIndex = pageIndex;
-		vm.setPageNumber(pageIndex);
-		vm.setupPage();
+		vm.previousPage();
+	};
+
+	vm.onHoverNextPage = function() {
+		if (!vm.pageChangeReady)
+			return;
+
+		vm.nextPage();
 	};
 
 	// change to the previous page
 	vm.previousPage = function() {
+		vm.triggerChangePageStart();
+
 		vm.animateNextPage = false;
 		vm.animatePreviousPage = true;
 		vm.changePage(vm.pageIndex - 1);
@@ -123,9 +144,20 @@ function BookCntl($location, $anchorScroll) {
 
 	// change to the next page
 	vm.nextPage = function() {
+		vm.triggerChangePageStart();
+
 		vm.animateNextPage = true;
 		vm.animatePreviousPage = false;
 		vm.changePage(vm.pageIndex + 1);
+	};
+
+	vm.changePage = function(pageIndex) {
+		if (pageIndex < 0 || pageIndex > vm.pages.length)
+			return;
+
+		vm.pageIndex = pageIndex;
+		vm.setPageNumber(pageIndex);
+		vm.setupPage();
 	};
 
 
