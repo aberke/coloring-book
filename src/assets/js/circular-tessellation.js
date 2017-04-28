@@ -142,7 +142,11 @@ class CircularTessellation {
 	    // start the drawNextRotation routine.  First rotation has already been drawn
 	    drawNextRotation(1);
 
-		this.pathSet.attr({'cursor': 'pointer'});
+		this.pathSet.attr({
+			'cursor': 'pointer',
+			// using fill so that handlers are not just on the lines, but also the filled space
+			'fill': 'white',
+		});
 		this.pathSet.mouseup(this.rotate.bind(this));
 		this.pathSet.mouseover(this.rotate.bind(this));
 	    return this.pathSet;
