@@ -49,7 +49,6 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
     // The returned pathSet is either a path or a set of paths
     pathSet.push(drawFunction(paper, origin, size, functionOptions, false));
 
-
     // if there is text to draw, draw it underneath
     if (options.text)
         paper.text(origin.X, origin.Y + size/2 + bottomMargin/2, options.text);
@@ -160,12 +159,30 @@ function drawSierpinskiTriangleFlower(paper, centerPoint, size, options) {
 }
 
 function drawSierpinskiTriangle(paper, centerPoint, size, options, isRedraw) {
-    var pathSet = sierpinskiTriangle.getSierpinskiTriangle(centerPoint, size, options);
+    let pathList = sierpinskiTriangle.getSierpinskiTriangle(centerPoint, size, options);
+    let pathSet = paper.set();
+
     // for redrawing, draw path by path, otherwise put directly on paper
-    if (isRedraw)
-        fractalsUtil.drawPathByPath(paper, pathSet, {stroke: 'black', 'stroke-width': 1});
+    if (isRedraw) 
+        pathSet.push(fractalsUtil.drawPathByPath(paper, pathList, {stroke: 'black', 'stroke-width': 1}));
     else
-        paper.path(pathSet);
+        pathSet.push(paper.path(pathList));
+
+    // rotate it 30 degrees around top left corner to 'faceRight'
+    if (options.faceRight)
+        pathSet.transform([
+            "R30",
+            String(centerPoint.X - (1/2)*size + 40),
+            String(centerPoint.Y - (1/2)*size + 15),
+        ].join(","));
+    // rotate it -30 degrees around top right corner to 'faceLeft'
+    else if (options.faceLeft)
+        pathSet.transform([
+            "R-30",
+            String(centerPoint.X + (1/2)*size - 40),
+            String(centerPoint.Y - (1/2)*size + 15),
+        ].join(","));
+
     return pathSet;
 }
 
