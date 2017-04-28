@@ -5,7 +5,7 @@ Controller for the frieze page
 function FriezePageCntl($location) {
 
 	// view model is this FriezePageCntl
-	var vm = this;
+	let vm = this;
 
 	vm.friezeGroupsData = friezeGroupsData;
 	vm.selectedGroupName = $location.search().group || "p1";
@@ -16,12 +16,12 @@ function FriezePageCntl($location) {
 	vm.selectGroup = function(groupName) {
 		vm.selectedGroupName = groupName;
 		$location.search('group', groupName);
-	}
+	};
 
 	vm.showGroupDetails = function() {
 		// toggle showing the group description
 		vm.showGroupDescription = !vm.showGroupDescription;
 		// toggle showing the symmetry sets
 		vm.showSymmetrySets = !vm.showSymmetrySets;
-	}
+	};
 }

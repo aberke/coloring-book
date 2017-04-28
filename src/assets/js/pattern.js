@@ -134,9 +134,9 @@ class FriezePattern {
         var workingSet = this.paper.set().push(basePath);
 
         function transformNext(i) {
-            if (i >= self.generatorGetters.length) {
+            if (i >= self.generatorGetters.length)
                 return recursiveTranslateH(self.paper, workingSet, options);
-            }
+
             var transformGetter = self.generatorGetters[i];
             var transformString = "..." + transformGetter(workingSet, self.options);
             var clonedSet = workingSet.clone();

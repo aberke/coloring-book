@@ -266,5 +266,6 @@ function friezePatternDirective($window) {
 				scope.showSymmetrySets();
 		};
 		scope.init();
-	}}
-}
+
+	}};
+};

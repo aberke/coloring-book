@@ -47,7 +47,7 @@ var addSymmetrySetProperties = function(set, styles) {
 Returns (Int) centered Y coordinate of paper.
 */
 function getCenteredXaxisCoord(paper) {
-    var paperHeight = paper.canvas.clientHeight;
+    var paperHeight = paper.getSize().height;
     return paperHeight/2;
 }
 
@@ -59,10 +59,10 @@ function getCenteredXaxisCoord(paper) {
  * @returns {paper.Set} set of paths
 **/
 function drawYAxesSet(paper, startX, gap) {
-    var canvasHeight = paper.canvas.clientHeight;
+    var canvasHeight = paper.getSize().height;;
     var set = paper.set();
     var X = startX;
-    while (X < paper.canvas.clientWidth) {
+    while (X < paper.getSize().width) {
         var pathString = 'M' + String(X) + ',0 v' + String(canvasHeight);
         var path = paper.path(pathString);
         set.push(path);
@@ -82,7 +82,7 @@ function drawYAxesSet(paper, startX, gap) {
 **/
 function drawXAxesSet(paper, startY, gap, count) {
     count = count || 1;
-    var canvasWidth = paper.canvas.clientWidth;
+    var canvasWidth = paper.getSize().width;
     var set = paper.set();
     var Y = startY;
 
@@ -96,7 +96,7 @@ function drawXAxesSet(paper, startY, gap, count) {
 }
 
 function drawXaxis(paper, xAxisCoord, color) {
-    var paperWidth = paper.canvas.clientWidth;
+    var paperWidth = paper.getSize().width;
     var xAxisPathString = "M0," + String(xAxisCoord) + " l" + String(paperWidth) + ",0";
     var xAxisPath = paper.path(xAxisPathString)
         .attr({
@@ -199,18 +199,17 @@ Translates fundamental domain across paper
 function recursiveTranslateH(paper, translateObject, options) {
     // always get the last item, clone it, and translate it
     // add translations to new set: translationSet =: [paperSet]
-    var animateMs = !!options.animate ? 500 : 0;
-    var gap = options.gap || 0;
-    var callback = options.callback || function() {};
-    var width = paper.canvas.clientWidth;
+    let animateMs = (!!options.animate) ? 500 : 0;
+    let gap = options.gap || 0;
+    let callback = options.callback || function() {};
+    let width = paper.getSize().width;
 
-    var translateSet = paper.set().push(translateObject);
-    var transformString = "..." + getTranslationH(translateObject, gap);
+    let translateSet = paper.set().push(translateObject);
+    let transformString = "..." + getTranslationH(translateObject, gap);
 
     function drawNext(translateSet) {
-        if (translateSet.getBBox().x2 > width) {
+        if (translateSet.getBBox().x2 > width)
             return callback(translateSet);
-        }
 
         var lastItem = translateSet[translateSet.length - 1];
         var nextItem = lastItem.clone();
