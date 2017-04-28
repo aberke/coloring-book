@@ -57,7 +57,12 @@ class FriezePattern {
 	*/
 	addPaperSetHandlers() {
 		var self = this;
-		self.paperSet.attr({ 'cursor': 'pointer'});
+		
+		self.paperSet.attr({
+			'cursor': 'pointer',
+			// using fill so that handlers are not just on the lines, but also the filled space
+			'fill': 'white',
+		});
         self.paperSet.forEach(function(elt, index) {
 			var mouseUpHandler = self.paperSetItemMouseUp.bind(self, index);
             elt.mouseover(self.paperSetItemMouseOver);
