@@ -2,7 +2,7 @@
 /*
 Define how symmetry set lines should be show with RaphaelJS attributes.
 */
-var SYMMETRY_SET_STYLES = {
+const SYMMETRY_SET_STYLES = {
 	'h1': {'stroke': 'red', 'stroke-width': 4},
 	'v1': {'stroke': 'mediumpurple', 'stroke-width': 4},
 	'v2': {'stroke': 'darkmagenta', 'stroke-width': 4},
@@ -11,12 +11,12 @@ var SYMMETRY_SET_STYLES = {
     	'stroke-dasharray': '-',
     	'stroke-width': 4,
     },
-}
+};
 
 
 // TODO: move this data to a service,
 // and inject that service in the FriezePageCntl and directive
-var friezeGroupsData = {
+const friezeGroupsData = {
 	'p1': {
 		description: 'Translation only',
 	},
