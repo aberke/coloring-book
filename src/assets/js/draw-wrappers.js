@@ -173,14 +173,14 @@ function drawSierpinskiTriangle(paper, centerPoint, size, options, isRedraw) {
         pathSet.transform([
             "R30",
             String(centerPoint.X - (1/2)*size + 40),
-            String(centerPoint.Y - (1/2)*size + 15),
+            String(centerPoint.Y - (1/2)*size),
         ].join(","));
     // rotate it -30 degrees around top right corner to 'faceLeft'
     else if (options.faceLeft)
         pathSet.transform([
             "R-30",
             String(centerPoint.X + (1/2)*size - 40),
-            String(centerPoint.Y - (1/2)*size + 15),
+            String(centerPoint.Y - (1/2)*size),
         ].join(","));
 
     return pathSet;
@@ -189,25 +189,26 @@ function drawSierpinskiTriangle(paper, centerPoint, size, options, isRedraw) {
 
 function drawCircularTessellation(paper, centerPoint, size, options) {
     let circularTessellation = new CircularTessellation(paper, centerPoint, size, options);
-    return styleShapePath(circularTessellation.pathSet);
+    return styleShapePath(circularTessellation.pathSet, options);
 }
 
 
 function drawCyclicShape(paper, centerPoint, size, options) {
     let cyclicShape = new CyclicShape(paper, centerPoint, size, options);
-    return styleShapePath(cyclicShape.pathSet);
+    return styleShapePath(cyclicShape.pathSet, options);
 }
 
 function drawDihedralShape(paper, centerPoint, size, options) {
     let dihedralShape = new DihedralShape(paper, centerPoint, size, options);
     let pathSet = dihedralShape.pathSet;
-    return styleShapePath(pathSet);
+    return styleShapePath(pathSet, options);
 }
 
 
 function drawRegularPolygon(paper, centerPoint, size, options) {
+    console.log('drawRegularPolygon options', options)
     let regularNGon = new RegularPolygon(paper, centerPoint, size, options);
-    return styleShapePath(regularNGon.pathSet);
+    return styleShapePath(regularNGon.pathSet, options);
 }
 
 /*
@@ -220,7 +221,7 @@ function drawSquare(paper, centerPoint, size, options = {}) {
     options.width = sideMultiplier*size;
     options.height = sideMultiplier*size;
     let square = new Rectangle(paper, centerPoint, size, options);
-    return styleShapePath(square.pathSet);
+    return styleShapePath(square.pathSet, options);
 }
 
 function drawRectangle(paper, centerPoint, size, options) {
@@ -243,9 +244,9 @@ function drawCircle(paper, centerPoint, size) {
 }
 
 
-function styleShapePath(pathSet) {
+function styleShapePath(pathSet, options = {}) {
     return pathSet.attr({
-        'stroke-width': 2,
+        'stroke-width': options['stroke-width'] || 2,
         // default linecap is 'butt' which doesn't look right with thick strokes
         // Docs: https://www.w3.org/TR/SVG/painting.html#StrokeLinecapProperty
         'stroke-linecap': 'square', // default is butt cap.

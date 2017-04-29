@@ -281,6 +281,14 @@ footer p {
 .third {
 	display: inline-block;
 	width: 32%;
+	height: 0;
+	padding-bottom: 32%;
+}
+.sixth {
+	display: inline-block;
+	width: 16%;
+	height: 0;
+	padding-bottom: 16%;
 }
 .two-thirds {
 	display: inline-block;
