@@ -1,39 +1,88 @@
+/*
+Use
+--------
+<div
+	circular-tessellation
+	class="canvas" 
+	with-redraw  // whether should be redrawn on click
+	rings=[{number between 0 and 1}]  // list for creating rings below tessellation, where each number marks fraction of tessellation's radius to draw at
+	rotations={number}
+	slices-count={number}
+	levels={number}
+	margin={number}
+></div>
+**/
 function circularTessellationDirective($location) {
 	return {
 		restrict: "EAC", //E = element, A = attribute, C = class, M = comment
-		link: function ($scope, element, attrs) {
+		scope: {},
+		link: function (scope, element, attrs) {
+
+			scope.circularTessellation;
+
 			//DOM manipulation
 
 			// get the element to draw canvas paper on and make it sq
-			var elt = element[0];
+			let elt = element[0];
 			elt.style.height = (String(elt.clientWidth) + "px");
 			// create the canvas paper
-			var paper = new Raphael(elt);
+			let paper = new Raphael(elt);
 			// add the canvas class in case not already there
 			elt.className += " canvas";
 
-			var origin = getCanvasCenter(paper);
+			let origin = getCanvasCenter(paper);
 
-			var margin = Number(attrs.margin || 0);
-			var diameter = Math.min(paper.getSize().width, paper.getSize().height) - margin;
+			let margin = Number(attrs.margin || 0);
+			let diameter = Math.min(paper.getSize().width, paper.getSize().height) - margin;
 
-			var options = {
+			let rings = JSON.parse(attrs.rings || "[]");
+
+			let asFlower = ("asFlower" in attrs && attrs.asFlower !== "false") ? true : false;
+
+
+			let options = {
 				rotations: (!!attrs.rotations) ? Number(attrs.rotations) : null,
 				levels: (!!attrs.levels) ? Number(attrs.levels) : null,
 				withReflection: attrs.withReflection ? true : null,
 				slicesCount: attrs.slicesCount ? Number(attrs.slicesCount) : null,
 				slicesPathList: (!!attrs.slicesPathList) ? JSON.parse(attrs.slicesPathList) : null,
-				asFlower: ("asFlower" in attrs && attrs.asFlower !== "false") ? true : false,
+				asFlower: asFlower,
 			};
 			// allow option to go to pass ?animate option in URL bar
 			if ($location.search().animate)
 				options.drawAnimationInterval = 1000;
 
+
+			// draw concentric rings below tessellation
+			// radius of ring is decided by the ringRadiusFraction
+			function drawRings() {
+				if (!rings || !rings.length)
+					return;
+
+				rings.forEach(function(ringRadiusFraction){
+					// ring radius fraction must be between 0 and 1
+					if (ringRadiusFraction <= 0 || ringRadiusFraction > 1)
+						return;
+
+					paper.circle(origin.X, origin.Y, (ringRadiusFraction/2)*diameter);
+				});
+			}
+
+			function draw() {
+				drawRings();
+
+				scope.circularTessellation = new CircularTessellation(paper, origin, diameter, options);
+				if (!asFlower && rings && rings.length) // fill the path so that it sits above the rings
+					scope.circularTessellation.pathSet.attr("fill", "white");
+			}
+
 			function redraw() {
 				paper.clear();
+
+				// redraw the tessellation
 				// when redrawing, animate the drawing of rotations
 				options.drawAnimationInterval = 1000;
-				new CircularTessellation(paper, origin, diameter, options);
+				draw();
 			}
 
 			// attach redraw handler if with-redraw flag was present
@@ -42,7 +91,7 @@ function circularTessellationDirective($location) {
 				paper.canvas.addEventListener("mouseup", redraw);
 			}
 
-			new CircularTessellation(paper, origin, diameter, options);
+			draw();
 		}
 	};
 }
