@@ -188,68 +188,66 @@ function drawSierpinskiTriangle(paper, centerPoint, size, options, isRedraw) {
 
 
 function drawCircularTessellation(paper, centerPoint, size, options) {
-    var circularTessellation = new CircularTessellation(paper, centerPoint, size, options);
-    var pathSet = circularTessellation.pathSet;
-    styleShapePath(pathSet);
-    return pathSet;
+    let circularTessellation = new CircularTessellation(paper, centerPoint, size, options);
+    return styleShapePath(circularTessellation.pathSet);
 }
 
 
 function drawCyclicShape(paper, centerPoint, size, options) {
-    var cyclicShape = new CyclicShape(paper, centerPoint, size, options);
-    var pathSet = cyclicShape.pathSet;
-    styleShapePath(pathSet);
-    return pathSet;
+    let cyclicShape = new CyclicShape(paper, centerPoint, size, options);
+    return styleShapePath(cyclicShape.pathSet);
 }
 
 function drawDihedralShape(paper, centerPoint, size, options) {
-    var dihedralShape = new DihedralShape(paper, centerPoint, size, options);
-    var pathSet = dihedralShape.pathSet;
-    styleShapePath(pathSet);
-    return pathSet;
+    let dihedralShape = new DihedralShape(paper, centerPoint, size, options);
+    let pathSet = dihedralShape.pathSet;
+    return styleShapePath(pathSet);
 }
 
 
 function drawRegularPolygon(paper, centerPoint, size, options) {
-    var regularNGon = new RegularPolygon(paper, centerPoint, size, options);
-    var pathSet = regularNGon.pathSet;
-    styleShapePath(pathSet);
-    return pathSet;
+    let regularNGon = new RegularPolygon(paper, centerPoint, size, options);
+    return styleShapePath(regularNGon.pathSet);
+}
+
+/*
+DrawSquare uses drawRectangle so that two sides can be drawn at once,
+and therefore path can be filled in.
+(Cannot use 'fill' when there is only one straight line)
+**/
+function drawSquare(paper, centerPoint, size, options = {}) {
+    let sideMultiplier = (3/4);
+    options.width = sideMultiplier*size;
+    options.height = sideMultiplier*size;
+    let square = new Rectangle(paper, centerPoint, size, options);
+    return styleShapePath(square.pathSet);
 }
 
 function drawRectangle(paper, centerPoint, size, options) {
-	var rectangle = new Rectangle(paper, centerPoint, size, options);
-	var pathSet = rectangle.pathSet;
-    styleShapePath(pathSet);
-    return pathSet;
+    let rectangle = new Rectangle(paper, centerPoint, size, options);
+    return styleShapePath(rectangle.pathSet);
 }
 
 
 function drawInscribingCircle(paper, centerPoint, size) {
-    var path = drawCircle(paper, centerPoint, size);
-    path.attr({
+    let path = drawCircle(paper, centerPoint, size);
+    return path.attr({
         'stroke': COLORS.LIGHT_GRAY,
         'stroke-width': 1,
     });
-    return path;
 }
 
 function drawCircle(paper, centerPoint, size) {
-    var pathSet = paper.circle(centerPoint.X, centerPoint.Y, size/2);
-    styleShapePath(pathSet);
-    return pathSet;
-}
-
-
-function drawSquare(paper, centerPoint, size) {
-    var path = paper.rect(centerPoint.X - size/2, centerPoint.Y - size/2, size, size);
-    styleShapePath(path);
-    return path;
+    let pathSet = paper.circle(centerPoint.X, centerPoint.Y, size/2);
+    return styleShapePath(pathSet);
 }
 
 
 function styleShapePath(pathSet) {
-    pathSet.attr({
+    return pathSet.attr({
         'stroke-width': 2,
+        // default linecap is 'butt' which doesn't look right with thick strokes
+        // Docs: https://www.w3.org/TR/SVG/painting.html#StrokeLinecapProperty
+        'stroke-linecap': 'square', // default is butt cap.
     });
 }
