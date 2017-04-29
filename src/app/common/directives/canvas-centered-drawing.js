@@ -7,6 +7,8 @@ function canvasCenteredDrawingDirective($window) {
 			// get the element to draw canvas paper on and make it sq
 			var elt = element[0];
 			elt.style.height = (String(elt.clientWidth) + "px");
+			elt.style.padding = 0; // remove padding used to make square with CSS
+
 			var paper = new Raphael(elt);
 			// add the canvas class in case not already there
 			elt.className += " canvas";
