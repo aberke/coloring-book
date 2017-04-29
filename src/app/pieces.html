@@ -99,21 +99,23 @@
 					<li>Number of 'slices' per 'level'</li>
 				</ul>
 				<div class='half'>
-		            <div
-		                class="canvas" 
-		                with-redraw 
-		                circular-tessellation
-		                rotations=4
-		                slices-count=4
-		                levels=2
-		                margin=25
-	                ></div>
+				<div
+					class="canvas" 
+					with-redraw 
+					circular-tessellation
+					rings="[0.1, 0.2, 0.5, 1]"
+					rotations=3
+					slices-count=4
+					levels=2
+					margin=25
+				></div>
 				</div>
 				<div class='half'>
 		            <div
 		                class="canvas" 
 		                with-redraw 
 		                circular-tessellation
+						rings="[0.5, 0.9]"
 		                rotations=6
 		                slices-count=4
 		                levels=2
