@@ -173,14 +173,14 @@ function drawSierpinskiTriangle(paper, centerPoint, size, options, isRedraw) {
         pathSet.transform([
             "R30",
             String(centerPoint.X - (1/2)*size + 40),
-            String(centerPoint.Y - (1/2)*size),
+            String(centerPoint.Y - (1/2)*size + 15),
         ].join(","));
     // rotate it -30 degrees around top right corner to 'faceLeft'
     else if (options.faceLeft)
         pathSet.transform([
             "R-30",
             String(centerPoint.X + (1/2)*size - 40),
-            String(centerPoint.Y - (1/2)*size),
+            String(centerPoint.Y - (1/2)*size + 15),
         ].join(","));
 
     return pathSet;
