@@ -1,5 +1,6 @@
 /*
 Colors:
+	EXTRA_LIGHT_GRAY: #f1f1f1;
 	LIGHT_GRAY: #d3d3d3;
 	PURPLE: #670067;
 	AQUA: #3bcca6;
@@ -329,11 +330,22 @@ footer p {
 	display: inline-block;
 	vertical-align: middle;
 }
+.text-content-graphic .vertical-line {
+	width: 1px;
+	height: 70px;
+	display: inline-block;
+	vertical-align: middle;
+	border-right: 1px solid #f1f1f1;
+}
 
 .text-content-graphic .canvas.extra-small {
 	width: 40px;
 	height: 40px;
 }
+.text-content-graphic .vertical-line.extra-small {
+	height: 40px;
+}
+
 .fake-canvas {
 	vertical-align: top;
 }
