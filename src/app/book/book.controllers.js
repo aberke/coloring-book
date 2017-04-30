@@ -120,14 +120,14 @@ function BookCntl($location, $anchorScroll, $timeout) {
 	};
 
 	vm.onHoverPreviousPage = function() {
-		if (!vm.pageChangeReady)
+		if (!vm.pageChangeReady || $location.search().develop)
 			return;
 
 		vm.previousPage();
 	};
 
 	vm.onHoverNextPage = function() {
-		if (!vm.pageChangeReady)
+		if (!vm.pageChangeReady || $location.search().develop)
 			return;
 
 		vm.nextPage();
