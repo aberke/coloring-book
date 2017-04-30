@@ -206,7 +206,6 @@ function drawDihedralShape(paper, centerPoint, size, options) {
 
 
 function drawRegularPolygon(paper, centerPoint, size, options) {
-    console.log('drawRegularPolygon options', options)
     let regularNGon = new RegularPolygon(paper, centerPoint, size, options);
     return styleShapePath(regularNGon.pathSet, options);
 }
