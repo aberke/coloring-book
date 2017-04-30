@@ -356,6 +356,11 @@ footer p {
 	/* ==================
 	Structure
 	*/
+
+	/*allow vertical space between text-content and coloring-content on mobile*/
+	.book-page .text-content {
+		margin-bottom: 50px;
+	}
 	.book-page .text-content, .book-page .coloring-content {
 		padding: 0 1.5%;
 		width: 97%; /* allow the padding */
