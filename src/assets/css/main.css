@@ -162,7 +162,7 @@ Structure
 
 .text-content, .coloring-content {
 	display: inline-block;
-	padding: 5px;
+	padding: 1%;
 	vertical-align: middle;
 }
 .text-content {
@@ -172,7 +172,7 @@ Structure
 	vertical-align: middle;
 }
 .book-page .coloring-content {
-	width: 55%;
+	width: 54%;
 	border-left: 1px solid gray;
 }
 
@@ -211,8 +211,9 @@ Note: So far this seems to work best with Firefox -- Preview as PDF
 	.app-only {
 		display: none;
 	}
-	.text-content, .coloring-content {
-		width: 100%;
+	.book-page .text-content, .book-page .coloring-content {
+		padding: 0 1.5%;
+		width: 97%; /* allow the padding */
 		border: none;
 	}
 	nav {
@@ -355,13 +356,10 @@ footer p {
 	/* ==================
 	Structure
 	*/
-	.book-page .text-content {
-		border-right: none;
-		width: 100%;
-	}
-	.book-page .coloring-content {
-		width: 100%;
-		border-left: none;
+	.book-page .text-content, .book-page .coloring-content {
+		padding: 0 1.5%;
+		width: 97%; /* allow the padding */
+		border: none;
 	}
 
 	#coloring-guide h3 {
