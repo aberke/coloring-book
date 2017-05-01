@@ -2,13 +2,343 @@
 
     <div class="text-coloring-content-container">
         <div class="text-content">
-            <p></p>
+            <p>Notice that a group has all of the rotations of its subgroups.</p>
 
+			<!-- C6: [Line of 6 copies of C6 shape]
+			C2: [Same C6 shape, colored to reduce it to C2] -->
             <div class="text-content-graphic line">
+            	<p>C6:</p>
+
+                <div style="display: inline-block;">
+                <!-- { -->
+                <p class="text big">&#123;</p>
+
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":6, "sideStrokes": [1, 0, 0, 0, 0, 0]}'
+                    options='{"text":"0 turn", "initialRotation": "0"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":6, "sideStrokes": [1, 0, 0, 0, 0, 0]}'
+                    options='{"text":"1/6 turn", "initialRotation": "60"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":6, "sideStrokes": [1, 0, 0, 0, 0, 0]}'
+                    options='{"text":"2/6 turn", "initialRotation": "120"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":6, "sideStrokes": [1, 0, 0, 0, 0, 0]}'
+                    options='{"text":"3/6 turn", "initialRotation": "180"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":6, "sideStrokes": [1, 0, 0, 0, 0, 0]}'
+                    options='{"text":"4/6 turn", "initialRotation": "240"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":6, "sideStrokes": [1, 0, 0, 0, 0, 0]}'
+                    options='{"text":"5/6 turn", "initialRotation": "300"}'
+                ></div>
+
+                <!-- }-->
+                <p class="text big">&#125;</p>
+                </div>
             </div>
+
+            <!-- C2: same C6 shapes transformed to C2 by color -->
+            <div class="text-content-graphic line">
+            	<p>C2:</p>
+                <!-- { -->
+                <p class="text big">&#123;</p>
+
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":6, "coloring":[0, 1, 1, 0, 1,1], "sideStrokes": [1, 0, 0, 0, 0, 0]}'
+                    options='{"text":"0 turn", "initialRotation": "0"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":6, "coloring":[0, 1, 1, 0, 1,1], "sideStrokes": [1, 0, 0, 0, 0, 0]}'
+                    options='{"text":"3/6 turn", "initialRotation": "180"}'
+                ></div>
+                
+                <!-- }-->
+                <p class="text big">&#125;</p>
+            </div>
+
+            <br/>
+            <br/>
+
+            <p>Try to color a C6 shape so that it has the rotations of C4.</p>
+
+			<!-- [blank C4 shape] -->
+            <div class="text-content-graphic line">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":6}'
+                ></div>
+            </div>
+
+			<p>It can't be done.  C4 is not a <a class="theory-reference-term">subgroup</a> of C6.</p>
+			<p>There is more to it than that.</p>
         </div>
 
+
         <div class="coloring-content">
+
+            <!-- 6 order-6 circular tessellations -->
+            <div class="canvas-row">
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.8,0.9]"
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5
+                ></div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.8,0.9]"
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+            </div>
+
+            <!-- 6 C6 shapes -->
+            <div class="canvas-row">
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.8,0.9, 1]"
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5
+                    inscribed="triangle"
+                ></div>
+                <div class='canvas sixth'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 6}'
+                ></div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.8,0.9]"
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.8,0.9]"
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div class='canvas sixth'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 6}'
+                ></div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.8,0.9, 1]"
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5
+                    inscribed="triangle"
+                ></div>
+            </div>
+
+            <!-- 3 circular tessellations -->
+            <div class="canvas-row">
+                <div class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.3,0.75,0.8,0.9]"
+                    rotations=6
+                    slices-count=2
+                    levels=3
+                    margin=5>
+                </div>
+                <div class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+            </div>
+
+            <!-- 6 C6 shapes -->
+            <div class="canvas-row">
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.8,0.9, 1]"
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5
+                    inscribed="triangle"
+                ></div>
+                <div class='canvas sixth'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 6}'
+                ></div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.8,0.9]"
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.8,0.9]"
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div class='canvas sixth'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 6}'
+                ></div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.8,0.9, 1]"
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5
+                    inscribed="triangle"
+                ></div>
+            </div>
+
+            <!-- 6 order-6 circular tessellations -->
+            <div class="canvas-row">
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.8,0.9]"
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.8,0.9]"
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -2,14 +2,381 @@
 
     <div class="text-coloring-content-container">
         <div class="text-content">
-            <p></p>
+            <p>When we use color to reduce our shapes to belong to smaller groups, we give them a new set of rotations.</p>
+
+            <!--
+            C4: [line of 4 rotated C4 shapes, all sides diff strokes, rotated by 90deg; intervals with turns written below]
+			C2: [line of 2 rotated C4 shapes transformed to C2 with color, adjacent sides same strokes, rotated by 180deg; turns written below]
+			-->
+            <div class="text-content-graphic line">
+
+            	<p>C4:</p>
+                <!-- { -->
+                <p class="text big">&#123;</p>
+
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4, "sideStrokes": [1, 0, 0, 0]}'
+                    options='{"text":"0 turn", "initialRotation": "0"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4, "sideStrokes": [1, 0, 0, 0], "initialRotation": "90"}'
+                    options='{"text":"1/4 turn", "initialRotation": "90"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4, "sideStrokes": [1, 0, 0, 0], "initialRotation": "180"}'
+                    options='{"text":"2/4 turn", "initialRotation": "180"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4, "sideStrokes": [1, 0, 0, 0], "initialRotation": "270"}'
+                    options='{"text":"3/4 turn", "initialRotation": "270"}'
+                ></div>
+
+                <!-- }-->
+                <p class="text big">&#125;</p>
+
+            </div>
 
             <div class="text-content-graphic line">
+
+                <p>C2:</p>
+                <!-- { -->
+                <p class="text big">&#123;</p>
+
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4, "coloring":[0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
+                    options='{"text":"0 turn", "initialRotation": "0"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4, "coloring":[0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
+                    options='{"text":"2/4 turn", "initialRotation": "180"}'
+                ></div>
+
+                <!-- }-->
+                <p class="text big">&#125;</p>
+
             </div>
+            
+            <p>Not all sets of rotations are groups, and therefore cannot be <a class="theory-reference-term">subgroups</a>.  Try to color a shape in a way so that it has <span style="font-style:italic;">only</span> a 0 turn and a <fraction numerator="1" denominator="4"></fraction> turn.</p>
+
+            <div class="text-content-graphic line">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4}'
+                ></div>
+            </div>
+
+            <p>It's impossible without also giving the shape a <fraction numerator="2" denominator="4"></fraction> turn and a <fraction numerator="3" denominator="4"></fraction> turn: <span class="bold-math">&#123;0 turn, <fraction numerator="1" denominator="4"></fraction> turn &#125;</span> is not a group, but <span class="bold-math">&#123;0 turn, <fraction numerator="1" denominator="4"></fraction> turn, <fraction numerator="2" denominator="4"></fraction> turn, <fraction numerator="3" denominator="4"></fraction> turn &#125;</span> is.</p> 
+
+            <br/>
+
+			<p>Why? This brings us back to combining rotations.</p>
+
         </div>
 
         <div class="coloring-content">
-        </div>
+            <!-- 6 circular-tessellations with order-2, inscribed in squares -->
+            <div class="canvas-row">
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=2
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=2
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=2
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=2
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=2
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=2
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+            </div>
+
+
+            <!-- row of 6 C4 shapes inscribed in squares -->
+            <div class="canvas-row">
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=4
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=4
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=4
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=4
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=4
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=4
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+            </div>
+
+            <!-- line of 3 C8 shapes, inscribed in squares -->
+            <div class="canvas-row">
+                <div
+                    circular-tessellation
+                    class="canvas third clickable" 
+                    with-redraw
+                    rotations=8
+                    slices-count=3
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas third clickable" 
+                    with-redraw
+                    rotations=8
+                    slices-count=3
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas third clickable" 
+                    with-redraw
+                    rotations=8
+                    slices-count=3
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+            </div>
+
+            <!-- row of 6 C4 shapes inscribed in squares -->
+            <div class="canvas-row">
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=4
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=4
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=4
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=4
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=4
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=4
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+            </div>
+
+            <!-- 6 circular-tessellations with order-2, inscribed in squares -->
+            <div class="canvas-row">
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=2
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=2
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=2
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=2
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=2
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas sixth clickable" 
+                    with-redraw
+                    rotations=2
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+            </div>
     </div>
 
 </div>

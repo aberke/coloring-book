@@ -2,13 +2,362 @@
 
     <div class="text-coloring-content-container">
         <div class="text-content">
-            <p></p>
+            <p>In order for a set of rotations to be a group, any combination of rotations in the set must also be in the set.  This rule is called <a class="theory-reference-term">group closure</a>, and you can see it.</p>
 
+            <p>Take the set <span class="bold-math">{0 turn, <fraction numerator="1" denominator="3"></fraction> turn}</span>.</p>
+
+            <!-- { [C6 with diff side strokes w/ “0 turn” below, ⅓ rotated C6 with diff side strokes, rotation written below]} -->
             <div class="text-content-graphic line">
+                <!-- { -->
+                <p class="text big">&#123;</p>
+
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":6, "sideStrokes": [1, 0, 0, 0,0,0]}'
+                    options='{"text":"0 turn"}'
+                ></div>
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":6, "sideStrokes": [1, 0, 0,0,0,0]}'
+                    options='{"text":"1/3 turn", "initialRotation": "120"}'
+                ></div>
+
+                <!-- }-->
+                <p class="text big">&#125;</p>
             </div>
+
+            <p>This is not a group because it's missing the <fraction numerator="2" denominator="3"></fraction> turn, which is created by combining a <fraction numerator="1" denominator="3"></fraction> with another <fraction numerator="1" denominator="3"></fraction> turn.</p>
+
+            <!-- ⅓ turn STAR ⅓ turn → (shape with diff side strokes rotated ⅔ with “⅔ turn” written below) -->
+            <div class="text-content-graphic line">
+                <p class="text">
+                    <fraction numerator="1" denominator="3"></fraction> turn
+                    <span class="operator">&#x2737;</span>
+                    <fraction numerator="1" denominator="3"></fraction> turn
+                </p>
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawArrow'
+                ></div>
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":6, "sideStrokes":[1, 0, 0, 0, 0, 0]}'
+                    options='{"text": "2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
+                ></div>
+            </div>
+
+
+            <p>Try to color a shape to have the <span class="bold-math">{0 turn, <fraction numerator="1" denominator="3"></fraction> turn}</span> rotations but not a <strong><fraction numerator="2" denominator="3"></fraction> turn</strong>.</p>
+            <!-- [blank C6 shape] -->
+            <div class="text-content-graphic line">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":6}'
+                ></div>
+            </div>
+
+            <p>It cannot be done.</p>
+            <p>Adding the <strong><fraction numerator="2" denominator="3"></fraction> turn</strong> to the set gives us our C3 group again.</p>
+            
+            <div class="text-content-graphic line">
+                <!-- { -->
+                <p class="text big">&#123;</p>
+
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":6, "sideStrokes": [1, 0, 0, 0,0,0]}'
+                    options='{"text":"0 turn"}'
+                ></div>
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":6, "sideStrokes": [1, 0, 0,0,0,0]}'
+                    options='{"text":"1/3 turn", "initialRotation": "120"}'
+                ></div>
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":6, "sideStrokes": [1, 0, 0,0,0,0]}'
+                    options='{"text":"2/3 turn", "initialRotation": "240"}'
+                ></div>
+
+                <!-- }-->
+                <p class="text big">&#125;</p>
+            </div>
+
         </div>
 
         <div class="coloring-content">
+
+            <!-- row of 6 C3 shapes -->
+            <div class="canvas-row">
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.75, 0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.9]"
+                    rotations=3
+                    as-flower
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.75, 0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.75, 0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.9]"
+                    rotations=3
+                    as-flower
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.75, 0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+            </div>
+
+            <!-- row of 6 C3 shapes -->
+            <div class="canvas-row">
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.75, 0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rotations=3
+                    as-flower
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rotations=3
+                    as-flower
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.75, 0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+            </div>
+
+            <!-- row of 3 C6 shapes -->
+            <div class="canvas-row">
+                <div class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.6, 0.65]"
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                ></div>
+                <div class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.9, 1]"
+                    as-flower
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                ></div>
+                <div class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.6, 0.65]"
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                ></div>
+            </div>
+
+            <!-- row of 6 C3 shapes -->
+            <div class="canvas-row">
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.75, 0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rotations=3
+                    as-flower
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rotations=3
+                    as-flower
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.75, 0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+            </div>
+
+            <!-- row of 6 C3 shapes -->
+            <div class="canvas-row">
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.75, 0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.9]"
+                    rotations=3
+                    as-flower
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.75, 0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.75, 0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.9]"
+                    rotations=3
+                    as-flower
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.75, 0.9]"
+                    rotations=3
+                    slices-count=2
+                    levels=1
+                    margin=10>
+                </div>
+            </div>
         </div>
     </div>
 

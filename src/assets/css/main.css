@@ -264,6 +264,12 @@ footer p {
 
 /* ===== Pieces ===========*/
 
+/* Bold math terms are for things like sets: {1/4 turn} etc */
+.bold-math {
+	font-weight: 700;
+	display: inline-block;
+}
+
 /*challenges are small and italic and sit on the bottom of the page*/
 .challenge {
 	font-style: italic;
@@ -317,6 +323,7 @@ footer p {
 	font-weight: 700;
 	text-align: center;
 	display: inline-block;
+	margin: 0;
 }
 /*take up the entire vertical space with the text*/
 .text-content-graphic p.text.big {
@@ -358,7 +365,7 @@ footer p {
 
 /* Pieces */
 
-@media (max-width: 700px) {
+@media (max-width: 875px) {
 
 	p {
 		text-align: center;
