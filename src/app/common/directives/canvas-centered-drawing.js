@@ -24,7 +24,20 @@ function canvasCenteredDrawingDirective($window) {
 				options = JSON.parse(attrs.options || "{}");
 			} catch(e) {}
 
-			drawInCanvasCenter(paper, drawFunction, functionOptions, options);
+			let drawing = drawInCanvasCenter(paper, drawFunction, functionOptions, options);
+			
+			// if this is a part of a text-content-graphic, style for it
+			let eltParent = element.parent();
+			let eltGrandparent = element.parent().parent();
+			if (eltParent.hasClass("text-content-graphic") || eltGrandparent.hasClass("text-content-graphic")) {
+
+				drawing.pathSet.attr({
+				    'stroke-width': options['stroke-width'] || 2,
+				    // default linecap is 'butt' which doesn't look right with thick strokes
+				    // Docs: https://www.w3.org/TR/SVG/painting.html#StrokeLinecapProperty
+				    'stroke-linecap': 'square', // default is butt cap.
+				});
+			}
 		}	
 	};
 }

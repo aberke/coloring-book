@@ -10,6 +10,7 @@ Use
 	slices-count={number}
 	levels={number}
 	margin={number}
+	inscribed={"circle"|"square"|...}
 ></div>
 **/
 function circularTessellationDirective($location) {
@@ -38,6 +39,9 @@ function circularTessellationDirective($location) {
 			let diameter = Math.min(paper.getSize().width, paper.getSize().height) - margin;
 
 			let rings = JSON.parse(attrs.rings || "[]");
+
+			// can inscribe within a shape
+			let inscribed = attrs.inscribed;
 
 			let asFlower = ("asFlower" in attrs && attrs.asFlower !== "false") ? true : false;
 
@@ -71,6 +75,9 @@ function circularTessellationDirective($location) {
 			}
 
 			function draw() {
+				if (inscribed)
+					drawInscribingShape(paper, origin, diameter, inscribed);
+
 				drawRings();
 
 				scope.circularTessellation = new CircularTessellation(paper, origin, diameter, options);
