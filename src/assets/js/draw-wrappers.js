@@ -155,7 +155,6 @@ function drawArrow(paper, centerPoint, size, options) {
     return pathSet;
 }
 
-
 function drawSierpinskiTriangleFlower(paper, centerPoint, size, options) {
     return sierpinskiTriangle.drawSierpinskiTriangleFlower(paper, centerPoint, size, options.level);
 }
@@ -197,6 +196,8 @@ function drawInscribingShape(paper, centerPoint, size, shapeName) {
         return drawCircle(paper, centerPoint, size);
     else if (shapeName == "square")
         return drawSquare(paper, centerPoint, size);
+    else if (shapeName === "triangle")
+        return drawTriangle(paper, centerPoint, size);
     else // shapeName not recognized, return an empty path
         return paper.set();
 }
@@ -218,6 +219,10 @@ function drawDihedralShape(paper, centerPoint, size, options) {
 
 function drawRegularPolygon(paper, centerPoint, size, options) {
     return new RegularPolygon(paper, centerPoint, size, options).pathSet;
+}
+
+function drawTriangle(paper, centerPoint, size, options) {
+    return drawRegularPolygon(paper, centerPoint, size, {"N": 3});
 }
 
 /*
