@@ -39,15 +39,17 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
     // initialize the pathSet that will be returned
     var pathSet = paper.set();
     if (options.inscribed) {
-        // Inscribe shape within circle.
-        // Inscribing circle drawn first so that shape sits on top.
-        var circlePath = drawInscribingCircle(paper, origin, size);
-        pathSet.push(circlePath);
+        // Inscribe shape within another shape.
+        // Inscribing shape drawn first so that shape sits on top.
+        let inscribingShapePath = drawInscribingShape(paper, origin, size, options.inscribed);
+        pathSet.push(styleInscribingShape(inscribingShapePath));
     }
 
     // Draw the main shape
     // The returned pathSet is either a path or a set of paths
-    pathSet.push(drawFunction(paper, origin, size, functionOptions, false));
+    let mainPath = drawFunction(paper, origin, size, functionOptions, false);
+    //styleShapePath(drawFunction(paper, origin, size, functionOptions, false));
+    pathSet.push(mainPath);
 
     // if there is text to draw, draw it underneath
     if (options.text)
@@ -187,27 +189,35 @@ function drawSierpinskiTriangle(paper, centerPoint, size, options, isRedraw) {
 }
 
 
+/*
+Returns the path set of the inscribing shape.
+**/
+function drawInscribingShape(paper, centerPoint, size, shapeName) {
+    if (shapeName === "circle")
+        return drawCircle(paper, centerPoint, size);
+    else if (shapeName == "square")
+        return drawSquare(paper, centerPoint, size);
+    else // shapeName not recognized, return an empty path
+        return paper.set();
+}
+
 function drawCircularTessellation(paper, centerPoint, size, options) {
-    let circularTessellation = new CircularTessellation(paper, centerPoint, size, options);
-    return styleShapePath(circularTessellation.pathSet, options);
+    return new CircularTessellation(paper, centerPoint, size, options).pathSet;
 }
 
 
 function drawCyclicShape(paper, centerPoint, size, options) {
-    let cyclicShape = new CyclicShape(paper, centerPoint, size, options);
-    return styleShapePath(cyclicShape.pathSet, options);
+    return new CyclicShape(paper, centerPoint, size, options).pathSet;
 }
 
 function drawDihedralShape(paper, centerPoint, size, options) {
     let dihedralShape = new DihedralShape(paper, centerPoint, size, options);
-    let pathSet = dihedralShape.pathSet;
-    return styleShapePath(pathSet, options);
+    return dihedralShape.pathSet;
 }
 
 
 function drawRegularPolygon(paper, centerPoint, size, options) {
-    let regularNGon = new RegularPolygon(paper, centerPoint, size, options);
-    return styleShapePath(regularNGon.pathSet, options);
+    return new RegularPolygon(paper, centerPoint, size, options).pathSet;
 }
 
 /*
@@ -219,35 +229,21 @@ function drawSquare(paper, centerPoint, size, options = {}) {
     let sideMultiplier = (3/4);
     options.width = sideMultiplier*size;
     options.height = sideMultiplier*size;
-    let square = new Rectangle(paper, centerPoint, size, options);
-    return styleShapePath(square.pathSet, options);
+    return new Rectangle(paper, centerPoint, size, options).pathSet;
 }
 
-function drawRectangle(paper, centerPoint, size, options) {
-    let rectangle = new Rectangle(paper, centerPoint, size, options);
-    return styleShapePath(rectangle.pathSet);
-}
-
-
-function drawInscribingCircle(paper, centerPoint, size) {
-    let path = drawCircle(paper, centerPoint, size);
-    return path.attr({
-        'stroke': COLORS.LIGHT_GRAY,
-        'stroke-width': 1,
-    });
+function drawRectangle(paper, centerPoint, size, options = {}) {
+    return new Rectangle(paper, centerPoint, size, options).pathSet;
 }
 
 function drawCircle(paper, centerPoint, size) {
-    let pathSet = paper.circle(centerPoint.X, centerPoint.Y, size/2);
-    return styleShapePath(pathSet);
+    return paper.circle(centerPoint.X, centerPoint.Y, size/2);
 }
 
 
-function styleShapePath(pathSet, options = {}) {
-    return pathSet.attr({
-        'stroke-width': options['stroke-width'] || 2,
-        // default linecap is 'butt' which doesn't look right with thick strokes
-        // Docs: https://www.w3.org/TR/SVG/painting.html#StrokeLinecapProperty
-        'stroke-linecap': 'square', // default is butt cap.
+function styleInscribingShape(pathSet, options = {}) {
+   return pathSet.attr({
+        'stroke': COLORS.LIGHT_GRAY,
+        'stroke-width': 1,
     });
 }
