@@ -45,7 +45,6 @@ function circularTessellationDirective($location) {
 
 			let asFlower = ("asFlower" in attrs && attrs.asFlower !== "false") ? true : false;
 
-
 			let options = {
 				rotations: (!!attrs.rotations) ? Number(attrs.rotations) : null,
 				levels: (!!attrs.levels) ? Number(attrs.levels) : null,

@@ -10,8 +10,8 @@
                 <div class='canvas'
                     canvas-centered-drawing
                     draw-function='drawCyclicShape'
-                    function-options='{"N":4}'
-                    options='{"text":"C4", "autoRotateDegrees":90}'
+                    function-options='{"N":4, "sideStrokes": [1, 0, 0, 0]}'
+                    options='{"text":"C4"}'
                 ></div>
                 
                 <!-- arrow -->
@@ -20,8 +20,8 @@
                 <div class='canvas'
                     canvas-centered-drawing
                     draw-function='drawCyclicShape'
-                    function-options='{"N":4, "coloring": [0, 1, 0, 1]}'
-                    options='{"text":"C2", "autoRotateDegrees":180}'
+                    function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
+                    options='{"text":"C2"}'
                 ></div>
             </div>
 
@@ -32,26 +32,26 @@
                 <div class='canvas'
                     canvas-centered-drawing
                     draw-function='drawCyclicShape'
-                    function-options='{"N":4, "coloring": [0, 1, 0, 1]}'
-                    options='{"text":"0 turn", "autoRotateDegrees":90}'
+                    function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
+                    options='{"text":"0 turn"}'
                 ></div>
                 <div class='canvas'
                     canvas-centered-drawing
                     draw-function='drawCyclicShape'
-                    function-options='{"N":4, "coloring": [0, 1, 0, 1]}'
-                    options='{"text":"1/4 turn", "autoRotateDegrees":90,"initialRotation":90}'
+                    function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
+                    options='{"text":"1/4 turn", "initialRotation":90}'
                 ></div>
                 <div class='canvas'
                     canvas-centered-drawing
                     draw-function='drawCyclicShape'
-                    function-options='{"N":4, "coloring": [0, 1, 0, 1]}'
-                    options='{"text":"2/4 turn", "autoRotateDegrees":90,"initialRotation":180}'
+                    function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
+                    options='{"text":"2/4 turn", "initialRotation":180}'
                 ></div>
                 <div class='canvas'
                     canvas-centered-drawing
                     draw-function='drawCyclicShape'
-                    function-options='{"N":4, "coloring": [0, 1, 0, 1]}'
-                    options='{"text":"3/4 turn", "autoRotateDegrees":90,"initialRotation":270}'
+                    function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
+                    options='{"text":"3/4 turn","initialRotation":270}'
                 ></div>
             </div>
 
@@ -62,8 +62,8 @@
                 <div class='canvas'
                     canvas-centered-drawing
                     draw-function='drawCyclicShape'
-                    function-options='{"N":4}'
-                    options='{"text":"C4", "autoRotateDegrees":90}'
+                    function-options='{"N":4, "sideStrokes": [1, 0, 0, 0]}'
+                    options='{"text":"C4"}'
                 ></div>
                 
                 <!-- arrow -->
@@ -72,20 +72,20 @@
                 <div class='canvas'
                     canvas-centered-drawing
                     draw-function='drawCyclicShape'
-                    function-options='{"N":4, "coloring": [1, 1, 0, 0]}'
-                    options='{"text":"C1", "autoRotateDegrees":180}'
+                    function-options='{"N":4, "coloring": [0, 1, 1, 0], "sideStrokes": [1, 0, 0, 0]}'
+                    options='{"text":"C1"}'
                 ></div>
                 <div class='canvas'
                     canvas-centered-drawing
                     draw-function='drawCyclicShape'
-                    function-options='{"N":4, "coloring": [2, 2, 2, 0]}'
-                    options='{"text":"C1", "autoRotateDegrees":180}'
+                    function-options='{"N":4, "coloring": [0, 2, 2, 2], "sideStrokes": [1, 0, 0, 0]}'
+                    options='{"text":"C1"}'
                 ></div>
                 <div class='canvas'
                     canvas-centered-drawing
                     draw-function='drawCyclicShape'
-                    function-options='{"N":4, "coloring": [2, 0, 3, 1]}'
-                    options='{"text":"C1", "autoRotateDegrees":180}'
+                    function-options='{"N":4, "coloring": [0, 2, 3, 1], "sideStrokes": [1, 0, 0, 0]}'
+                    options='{"text":"C1"}'
                 ></div>
             </div>
 
@@ -103,8 +103,18 @@
                 rotations=4
                 as-flower
                 slices-count=2
-                levels=2
-                margin=20>
+                levels=1
+                margin=15
+                inscribed="square"
+            ></div>
+            <div class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=4
+                as-flower
+                slices-count=2
+                levels=1
+                margin=15>
             </div>
             <div class="canvas third"
                 circular-tessellation
@@ -112,55 +122,59 @@
                 rotations=4
                 as-flower
                 slices-count=2
-                levels=2
-                margin=20>
-            </div>
-            <div class="canvas third"
-                circular-tessellation
-                with-redraw
-                rotations=4
-                as-flower
-                slices-count=2
-                levels=2
-                margin=20>
-            </div>
+                levels=1
+                margin=15
+                inscribed="square"
+            ></div>
 
             <div class="canvas third"
                 circular-tessellation
                 with-redraw
-                rings="[0.5]"
+                rings="[0.7,0.75]"
                 rotations=4
                 slices-count=2
+                levels=2
+                inscribed="square"
+                margin=20
+            ></div>
+            <div class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=4
+                slices-count=4
+                rings="[0.95, 1]"
                 levels=2
                 margin=20>
             </div>
             <div class="canvas third"
                 circular-tessellation
                 with-redraw
-                rotations=4
-                slices-count=5
-                levels=2
-                margin=20>
-            </div>
-            <div class="canvas third"
-                circular-tessellation
-                with-redraw
-                rings="[0.5]"
+                rings="[0.7,0.75]"
                 rotations=4
                 slices-count=2
                 levels=2
-                margin=20>
-            </div>
+                margin=20
+                inscribed="square"
+            ></div>
 
-
             <div class="canvas third"
                 circular-tessellation
                 with-redraw
                 rotations=4
                 as-flower
                 slices-count=2
-                levels=2
-                margin=20>
+                levels=1
+                margin=15
+                inscribed="square"
+            ></div>
+            <div class="canvas third"
+                circular-tessellation
+                with-redraw
+                rotations=4
+                as-flower
+                slices-count=2
+                levels=1
+                margin=15>
             </div>
             <div class="canvas third"
                 circular-tessellation
@@ -168,18 +182,10 @@
                 rotations=4
                 as-flower
                 slices-count=2
-                levels=2
-                margin=20>
-            </div>
-            <div class="canvas third"
-                circular-tessellation
-                with-redraw
-                rotations=4
-                as-flower
-                slices-count=2
-                levels=2
-                margin=20>
-            </div>
+                levels=1
+                margin=15
+                inscribed="square"
+            ></div>
         </div>
     </div>
 

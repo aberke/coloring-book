@@ -1,0 +1,189 @@
+<div class="book-page" ng-if="book.page.name == p.name">
+
+    <div class="text-coloring-content-container">
+        <div class="text-content">
+            <p>So far we’ve only been talking about groups of rotations.</p>
+            <p>These groups are <span class="theory-reference-term">cyclic</span>. They can be created by combining just one rotation - the <span class="theory-reference-term">generator</span> - multiple times with itself.</p>
+
+            <!-- ⅓ -> [Line of C3 shapes, with “i/3 turn” below] -->
+            <div class="text-content-graphic line">
+                <p class="text">C3:&nbsp;&nbsp;&nbsp;&nbsp;<fraction numerator="1" denominator="3"></fraction> turn <span class="operator">&#x279E;</span>&nbsp;&nbsp;</p>
+
+                <!-- opening bracket -->
+                <p class="text big">&#123;</p>
+
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                    options='{"text":"0 turn", "autoRotateDegrees":120,"initialRotation":0}'
+                ></div>
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                    options='{"text":"1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
+                ></div>
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                    options='{"text":"2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
+                ></div>
+
+                <!-- closing bracket -->
+                <p class="text big">&#125;</p>
+            </div>
+
+            <br/>
+            <br/>
+
+			<p>For our next groups, we have more <span class="theory-reference-term">generators</span>, such as reflections.</p>
+
+        </div>
+
+        <div class="coloring-content">
+
+        	<!-- line of 6 D3 shapes inscribed in triangles -->
+            <div class="canvas-row">
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    with-reflection=true
+                    rotations=3
+                    slices-count=2
+                    levels=2
+                    margin=15
+                    inscribed="triangle"
+                ></div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    with-reflection=true
+                    rotations=3
+                    slices-count=2
+                    levels=2
+                    margin=15
+                    inscribed="triangle"
+                ></div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    with-reflection=true
+                    rotations=3
+                    slices-count=2
+                    levels=2
+                    margin=15
+                    inscribed="triangle"
+                ></div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    with-reflection=true
+                    rotations=3
+                    slices-count=2
+                    levels=2
+                    margin=15
+                    inscribed="triangle"
+                ></div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    with-reflection=true
+                    rotations=3
+                    slices-count=2
+                    levels=2
+                    margin=15
+                    inscribed="triangle"
+                ></div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    with-reflection=true
+                    rotations=3
+                    slices-count=2
+                    levels=2
+                    margin=15
+                    inscribed="triangle"
+                ></div>
+            </div>
+
+
+            <div class="canvas two-thirds"
+                circular-tessellation
+                with-redraw
+                rings="[0.5, 0.95, 1]"
+                rotations=6
+                with-reflection=true
+                slices-count=5
+                levels=2
+               ></div>
+
+
+        	<!-- line of 6 D3 shapes inscribed in triangles -->
+            <div class="canvas-row">
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    with-reflection=true
+                    rotations=3
+                    slices-count=2
+                    levels=2
+                    margin=15
+                    inscribed="triangle"
+                ></div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    with-reflection=true
+                    rotations=3
+                    slices-count=2
+                    levels=2
+                    margin=15
+                    inscribed="triangle"
+                ></div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    with-reflection=true
+                    rotations=3
+                    slices-count=2
+                    levels=2
+                    margin=15
+                    inscribed="triangle"
+                ></div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    with-reflection=true
+                    rotations=3
+                    slices-count=2
+                    levels=2
+                    margin=15
+                    inscribed="triangle"
+                ></div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    with-reflection=true
+                    rotations=3
+                    slices-count=2
+                    levels=2
+                    margin=15
+                    inscribed="triangle"
+                ></div>
+                <div class="canvas sixth"
+                    circular-tessellation
+                    with-redraw
+                    with-reflection=true
+                    rotations=3
+                    slices-count=2
+                    levels=2
+                    margin=15
+                    inscribed="triangle"
+                ></div>
+            </div>
+        </div>
+    </div>
+
+</div>
