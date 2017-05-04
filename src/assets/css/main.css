@@ -251,9 +251,11 @@ footer {
 	border-top: 5px double #670067;
 	color: #670067;
 	padding: 30px;
+	margin-top: 60px;
 }
-footer p {
-	text-align: center;
+footer p, footer a {
+	text-align: center !important;
+	margin: 10px auto !important;
 }
 
 /* Frieze section */
@@ -267,6 +269,9 @@ footer p {
 /* Bold math terms are for things like sets: {1/4 turn} etc */
 .bold-math {
 	font-weight: 700;
+	display: inline-block;
+}
+.math-block {
 	display: inline-block;
 }
 
