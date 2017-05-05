@@ -246,6 +246,14 @@ Note: So far this seems to work best with Firefox -- Preview as PDF
 	min-height: 1100px;
 }
 
+#go-online-partial {
+	margin: 25px auto;
+}
+#go-online-partial p {
+	font-size: smaller;
+	text-align: center;
+}
+
 
 footer {
 	border-top: 5px double #670067;

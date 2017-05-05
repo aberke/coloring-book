@@ -1,0 +1,52 @@
+<style>
+
+/*override page break instructions from normal book*/
+#cards {
+	margin-top: 20px;
+}
+#cards h1 {
+	border-style: double;
+	border-left: none;
+	border-right: none;
+	color: purple;
+}
+#cards h1, #cards p {
+	text-align: center;
+}
+
+#cards .card-set {
+	margin: 40px auto;
+	border-bottom: 1px dashed purple;
+	page-break-inside: avoid;
+	max-width: 1000px;
+}
+#cards .row {
+	text-align: center;
+}
+#cards .row .canvas {
+	display: inline-block;
+	width: 19%;
+	margin: 2%;
+}
+
+</style>
+
+<div id="cards">
+	<h1>Pattern Cards</h1>
+	<p>Print and cut into cards with one pattern piece per card.  Try to arrange these cards to generate the Frieze Patterns.</p>
+
+	<div class="card-set" ng-repeat="drawFunction in ['drawQuarterEllipse', 'drawPetalEllipse', 'drawCurves', 'drawTriangles']">
+		<!-- 3x4: 3 rows of 4 items each -->
+		<div class="row" ng-repeat="rowIndex in [1, 2, 3]">
+			<div ng-repeat="colIndex in [1, 2, 3, 4]"
+				class='canvas'
+				canvas-centered-drawing
+				draw-function={{drawFunction}}
+				function-options='{"N": 3}'
+				options='{}'
+			></div>
+			</div>
+		</div>
+
+    <ng-include src="'/app/common/partials/go-online.html'"></ng-include>
+</div>

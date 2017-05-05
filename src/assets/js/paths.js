@@ -196,6 +196,8 @@ function petalsEllipseWithDiamondPath(origin, width, height) {
  * Draw series of connected curves of diminishing height where axis length = offset
 **/
 function petalEllipse(origin, width, height, options = {}) {
+    // height defaults to width
+    height = height || width;
 
     // draw the path with start at origin
     var pathList = [];
@@ -410,7 +412,10 @@ function getCatmullRomPath(fromPoint, toPoint, centerPoint, multiplierX, multipl
 }
 
 
-var curves = function(n, origin, width, height) {
+function curves(n, origin, width, height) {
+    // set default n
+    n = n || 4;
+
     // draw the path with start at origin
     var pathList = [];
     var startPointPathPart = ["M", origin.X, origin.Y];
@@ -441,7 +446,7 @@ function quarterEllipse(origin, width, height) {
 	Draw series of connected curves of diminishing height where axis length = offset
 	*/
     // draw the path with start at origin
-    var pathString = ""
+    var pathString = "";
     var startingSpotString = "M" + String(origin.X) + "," + String(origin.Y);
     // add the curve a few times, always starting and ending in the same place
     var aX = width;
@@ -471,12 +476,16 @@ Generates path for triangles: n triangles placed within eachother
 **/
 var trianglesPath = function(n, origin, width, height) {
     n = n || 1;
-    var pathList = [];
-    var startPointPathPart = ["M", origin.X, origin.Y];
+    // default height is same as width
+    height = height || width;
 
-    for (var i=1; i<=n; i++) {
+    let pathList = [];
+    let startPointPathPart = ["M", origin.X, origin.Y];
+
+    let i, widthDivisor;
+    for (i=1; i<=n; i++) {
         pathList.push(startPointPathPart);
-        var widthDivisor = Math.pow(2, i);
+        widthDivisor = Math.pow(2, i);
         pathList.push(["h", width/widthDivisor]);
         pathList.push(["v", (-1)*height]);
         pathList.push(["Z"]);

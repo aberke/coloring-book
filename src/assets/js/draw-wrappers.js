@@ -133,6 +133,65 @@ They draw the desired shape around the origin/centerPoint
 */
 
 
+
+/*
+Handle drawing path from the arbitrary pathList functions in the paths.js file.
+
+These functions start drawing from the bottom left of the origin,
+so need to provide that point, and take a width and height.
+**/
+function drawQuarterEllipse(paper, centerPoint, size) {
+    // function uses origin at bottom left
+    let origin = {
+        X: centerPoint.X - (1/2)*size,
+        Y: centerPoint.Y + (1/2)*size,
+    };
+
+    let pathList = quarterEllipse(origin, size, size);
+    let path = paper.path(pathList);
+    return paper.set().push(path);
+}
+
+function drawCurves(paper, centerPoint, size, options) {
+    // triangles function uses origin at bottom left
+    let origin = {
+        X: centerPoint.X - (1/2)*size,
+        Y: centerPoint.Y + (1/2)*size,
+    };
+
+    let pathList = curves(options.n, origin, size, size);
+    let path = paper.path(pathList);
+    return paper.set().push(path);
+}
+
+function drawTriangles(paper, centerPoint, size, options) {
+    let n = options.N || 3;
+
+    // triangles function uses origin at bottom left
+    let origin = {
+        X: centerPoint.X - (1/2)*size,
+        Y: centerPoint.Y + (1/2)*size,
+    };
+
+    let pathList = trianglesPath(n, origin, size, size);
+    let path = paper.path(pathList);
+    return paper.set().push(path);
+}
+
+
+function drawPetalEllipse(paper, centerPoint, size, options) {
+    // uses origin at bottom left
+    let origin = {
+        X: centerPoint.X - (1/2)*size,
+        Y: centerPoint.Y + (1/2)*size,
+    };
+
+    let pathList = petalEllipse(origin, size, size);
+    let path = paper.path(pathList);
+    return paper.set().push(path);
+}
+
+
 /*
 Draws a horizontal arrow that is vertically aligned in the middle of the canvas,
 from one side of the canvas to the other.

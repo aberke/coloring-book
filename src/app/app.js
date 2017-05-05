@@ -35,6 +35,12 @@ angular.module('app', [
         .when('/pieces', {
             templateUrl: '/app/pieces.html',
         })
+        .when('/worksheet', {
+            templateUrl: '/app/worksheet.html',
+        })
+        .when('/cards', {
+            templateUrl: '/app/cards.html',
+        })
         .when('/frieze', {
             templateUrl: '/app/frieze/frieze.html',
         })
