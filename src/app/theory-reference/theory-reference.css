@@ -1,0 +1,61 @@
+
+#theory-reference-page {
+	text-align: center;
+}
+
+#theory-reference-page #theory-reference-intro, #theory-reference-page #definitions-container {
+	max-width: 700px;
+	margin: auto;
+	padding: 0 10px 30px;
+}
+#theory-reference-page h1, #theory-reference-page h2 {
+	width: 100%;
+}
+
+#theory-reference-page #theory-reference-intro {
+	padding: 30px 10px;
+	border-bottom: 5px solid purple;
+}
+
+#theory-reference-page p, #theory-reference-page a.theory-reference-term-name, .theory-reference-term-note, #theory-reference-page li {
+	max-width: 700px;
+	text-align: left;
+	margin: auto;
+	display: block;
+	color: black;
+}
+
+#theory-reference-page ul li {
+	margin: 5px auto;
+}
+
+#theory-reference-page .theory-reference-term-name, #theory-reference-page a.theory-reference-term-name {
+	font-weight: 600;
+	text-decoration: underline;
+	margin: 10px auto;
+	margin-top: 40px;
+	font-size: larger;
+}
+#theory-reference-page .theory-reference-term-definition {
+	font-size: large;	
+}
+
+/*
+.theory-reference-term-definition: Formal definition 
+- Eg, identity element
+*/
+#theory-reference-page .theory-reference-term-name{
+
+}
+/*
+.theory-reference-term-example: How it relates to one of our example groups 
+- Eg, our identity element is the action that leaves the image unchanged - ie, rotating by 360 degrees (maybe have gif here that rotates by 360 degrees, then has long pause)
+*/
+#theory-reference-page .theory-reference-term-example{
+	margin: 10px auto;
+}
+
+#theory-reference-page .theory-reference-term-note {
+	font-style: italic;
+	font-size: smaller;
+}
