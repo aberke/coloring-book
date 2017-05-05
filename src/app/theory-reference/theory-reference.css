@@ -32,7 +32,7 @@
 #theory-reference-page .theory-reference-term-name, #theory-reference-page a.theory-reference-term-name {
 	font-weight: 600;
 	text-decoration: underline;
-	margin: 10px auto;
+	margin: 20px auto;
 	margin-top: 40px;
 	font-size: larger;
 }
@@ -52,7 +52,7 @@
 - Eg, our identity element is the action that leaves the image unchanged - ie, rotating by 360 degrees (maybe have gif here that rotates by 360 degrees, then has long pause)
 */
 #theory-reference-page .theory-reference-term-example{
-	margin: 10px auto;
+	margin: 15px auto;
 }
 
 #theory-reference-page .theory-reference-term-note {
