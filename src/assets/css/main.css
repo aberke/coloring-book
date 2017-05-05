@@ -177,13 +177,13 @@ Structure
 	border-left: 1px solid gray;
 }
 
-.print-page .coloring-content {
+.poster-page .coloring-content {
 	width: 97%;
 	border: none;
 	text-align: center;
 	margin: auto;
 }
-.print-page .third {
+.poster-page .third {
 	/*things get mushed together otherwise*/
 	width: 28%;
 	margin: 2%;
@@ -205,27 +205,27 @@ Note: So far this seems to work best with Firefox -- Preview as PDF
 .print-only {
 	display: none;
 }
-@media print {
-	.print-only {
-		display: block;
-	}
-	.app-only {
-		display: none;
-	}
-	.book-page .text-content, .book-page .coloring-content {
-		padding: 0 1.5%;
-		width: 97%; /* allow the padding */
-		border: none;
-	}
-	nav {
-		display: none;
-	}
-	#get-updates-form-container {
-		display: none;
-	}
-	footer {
-		display: none;
-	}
+
+/* Styles meant for printing -- applied when param ?print present */
+.print .print-only {
+	display: block;
+}
+.print .app-only {
+	display: none;
+}
+.print .book-page .text-content, .print .book-page .coloring-content {
+	padding: 0 1.5%;
+	width: 97%; /* allow the padding - works best with firefox printing */
+	border: none;
+}
+.print nav {
+	display: none;
+}
+.print #get-updates-form-container {
+	display: none;
+}
+.print footer {
+	display: none;
 }
 
 

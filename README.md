@@ -11,6 +11,10 @@ http://coloring-book.co
 
 ## Export to Print/Save
 
+Full printable book available at `/print-book`
+
+Use the `?print` URL param to test printer friendly styling of the page
+
 In order to export the book to printable version, or save it as printable PDF:
 
 - Works best with Firefox browser
@@ -18,12 +22,12 @@ In order to export the book to printable version, or save it as printable PDF:
 - "Preview as PDF"
 
 
-## Prints
+## Posters
 
-Full printable designs available at `/prints/`
+Full printable poster designs available at `/posters/`
 
 
-#### Frieze Prints
+#### Frieze Posters
 
 (TODO)
 
@@ -119,11 +123,6 @@ Starting to generate & put together the pieces.  They are shown at /pieces
 
 - standardize size for pages
 	- they should all be the same height -- easier printing too
-
-- sprinkle in some flowers -- see the circular flowers in the pieces
-
-- enable printable param ?print
-	- use a larger page controller to check for param and add an extra class to the <body>
 
 - fix google analytics
 	- it would be nice to track what page people get to
