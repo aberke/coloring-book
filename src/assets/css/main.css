@@ -257,6 +257,9 @@ footer p, footer a {
 	text-align: center !important;
 	margin: 10px auto !important;
 }
+footer a {
+	color: #670067;
+}
 
 /* Frieze section */
 
