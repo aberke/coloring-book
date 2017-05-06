@@ -1,0 +1,25 @@
+<style>
+
+/*override page break instructions from normal book*/
+#intro-worksheet {
+	page-break-inside: avoid;
+}
+#intro-worksheet .book-page {
+	page-break-after: avoid;
+}
+
+@page {
+    size: landscape;
+    margin: 0;
+}
+
+</style>
+
+<div id="intro-worksheet">
+
+    <ng-include id="test" src="'/app/book/pages/book-page-shapes-intro.html'"></ng-include>
+
+    <br/>
+
+    <ng-include src="'/app/common/partials/go-online.html'"></ng-include>
+</div>
