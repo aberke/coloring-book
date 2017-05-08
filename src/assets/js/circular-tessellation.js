@@ -115,10 +115,10 @@ class CircularTessellation {
 			}
 
 			// reuse the lineSet -- clone it and rotate it, and add that clone to paperSet
-	        var newLine = lineSet.clone();
+	        let newLine = this.getFundamentalDomainLine();
 
-	        var degreesToRotate = r*this.rotationDegrees;
-	        var transformString = [
+	        let degreesToRotate = r*this.rotationDegrees;
+	        let transformString = [
 	        	"...R" + String(degreesToRotate),
 	        	String(this.origin.X),
 	        	String(this.origin.Y),
@@ -126,7 +126,7 @@ class CircularTessellation {
 
 	        // maybe animate rotating the newLine
 	        // avoid using .animate for this.drawAnimationInterval=0 because there will still be a small delay
-	        var transformCallback = function() {
+	        function transformCallback() {
 		        self.pathSet.push(newLine);
 		        // recursively call routing again for next rotation, r
 		        drawNextRotation(r + 1);	
@@ -161,20 +161,20 @@ class CircularTessellation {
 	getFundamentalDomainLine() {
 
 		// initialize the final set of paths that will be returned
-	    var lineSet = this.paper.set();
+	    let lineSet = this.paper.set();
 
 		// generate base slices if do not already have them
 		if (!this.slicesPathList) {
 			this.slicesPathList = getFundamentalDomainLineSlices(this.origin, this.width, this.height, this.options);
 		}
 		
-		var slicesPath = this.paper.path(this.slicesPathList);
+		let slicesPath = this.paper.path(this.slicesPathList);
 		// for each level, add the base slices, scaled and translated appropriately
 		lineSet.push(slicesPath);
 		for (var l=1; l<this.levels; l++) {
 		    // clone it + scale it up + translate
-		    var nextSlicesPath = slicesPath.clone();
-		    var transformList = [
+		    let nextSlicesPath = slicesPath.clone();
+		    let transformList = [
 		        ["T", 0, this.height],
 		        // USE lower case 's'
 		        ["s", Math.pow(this.scaleFactor, l), Math.pow(this.scaleFactor, l), this.origin.X, this.origin.Y],
