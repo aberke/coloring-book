@@ -23,6 +23,10 @@
 .print-only .frieze-pattern-title {
 	border: none;
 }
+
+.print .title-container h1 {
+	border: none;
+}
 @media print {
 	.title-container h1 {
 		border: none;

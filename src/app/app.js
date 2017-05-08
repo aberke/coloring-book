@@ -60,7 +60,7 @@ angular.module('app', [
 
     // set the 'print' flag if the route is the PRINT_ROUTE or PRINT_PARAM is present
     vm.checkPrint = function() {
-        vm.print = (!!$location.search().PRINT_PARAM || $location.path() === PRINT_ROUTE);
+        vm.print = (!!$location.search()[PRINT_PARAM] || $location.path() === PRINT_ROUTE);
     }
 
     // initialize
