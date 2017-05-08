@@ -31,7 +31,7 @@ Full printable poster designs available at `/posters/`
 
 - Worksheet at `/worksheet`
 	- Print this worksheet -- meant for Second Sunday at Pioneer Works
-	- Designed to be printed in landscape mode on 13x19 paper
+	- Designed to be printed in landscape mode on 11x17 paper
 	
 - Frieze pattern cards at `/cards`
 	- Print and cut into cards with one pattern piece per card.
