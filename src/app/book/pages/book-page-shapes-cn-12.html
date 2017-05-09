@@ -1,192 +1,194 @@
-
 <div class="book-page" ng-if="book.page.name == p.name || main.print">
 
-    <div class="text-coloring-content-container">
-        <div class="text-content">
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
         
-			<div class="text-content-graphic line">
-                <p class="text"><fraction>2/3</fraction> turn</p>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                ></div>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text": "2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
-                ></div>
+    			<div class="text-content-graphic line">
+                    <p class="text"><fraction>2/3</fraction> turn</p>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
+                    ></div>
+                </div>
+    			<!-- 2/3 turn STAR 2/3 turn → (triangle with diff side strokes rotated 4/3 or 1/3 with turn written below) -->
+                <div class="text-content-graphic line">
+                    <p class="text">
+                    	<fraction>2/3</fraction> turn
+                    	<span class="operator">&#x2737;</span>
+                    	<fraction>2/3</fraction> turn
+                    </p>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "4/3 or 1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
+                    ></div>
+                </div>
+                <div class="text-content-graphic line">
+                    <p class="text">
+                    	<fraction>2/3</fraction> turn
+                    	<span class="operator">&#x2737;</span>
+                    	<fraction>2/3</fraction> turn
+                    	<span class="operator">&#x2737;</span>
+                    	<fraction>2/3</fraction> turn
+                    </p>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "6/3 or 0 turn", "autoRotateDegrees":120,"initialRotation":0}'
+                    ></div>
+                </div>
+
+            	<p>We could have just as easily used a <fraction>2/3</fraction> turn as our generator for C3 and ended up with the same result.</p>
+            	
+            	<div class="text-content-graphic line">
+                    <p class="text">C3:&nbsp;&nbsp;&nbsp;&nbsp;<fraction>2/3</fraction> turn <span class="operator">&#x279E;</span>&nbsp;&nbsp;</p>
+
+
+                    <!-- opening bracket -->
+                    <p class="text big">&#123;</p>
+
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text":"0 turn", "autoRotateDegrees":120,"initialRotation":0}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text":"1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text":"2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
+                    ></div>
+
+                    <!-- closing bracket -->
+                    <p class="text big">&#125;</p>
+                </div>
+
+                <p>However, not all rotations are generators.</p>
+
             </div>
-			<!-- 2/3 turn STAR 2/3 turn → (triangle with diff side strokes rotated 4/3 or 1/3 with turn written below) -->
-            <div class="text-content-graphic line">
-                <p class="text">
-                	<fraction>2/3</fraction> turn
-                	<span class="operator">&#x2737;</span>
-                	<fraction>2/3</fraction> turn
-                </p>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                ></div>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text": "4/3 or 1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
-                ></div>
-            </div>
-            <div class="text-content-graphic line">
-                <p class="text">
-                	<fraction>2/3</fraction> turn
-                	<span class="operator">&#x2737;</span>
-                	<fraction>2/3</fraction> turn
-                	<span class="operator">&#x2737;</span>
-                	<fraction>2/3</fraction> turn
-                </p>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                ></div>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text": "6/3 or 0 turn", "autoRotateDegrees":120,"initialRotation":0}'
-                ></div>
-            </div>
-
-        	<p>We could have just as easily used a <fraction>2/3</fraction> turn as our generator for C3 and ended up with the same result.</p>
-        	
-        	<div class="text-content-graphic line">
-                <p class="text">C3:&nbsp;&nbsp;&nbsp;&nbsp;<fraction>2/3</fraction> turn <span class="operator">&#x279E;</span>&nbsp;&nbsp;</p>
-
-
-                <!-- opening bracket -->
-                <p class="text big">&#123;</p>
-
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text":"0 turn", "autoRotateDegrees":120,"initialRotation":0}'
-                ></div>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text":"1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
-                ></div>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text":"2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
-                ></div>
-
-                <!-- closing bracket -->
-                <p class="text big">&#125;</p>
-            </div>
-
-            <p>However, not all rotations are generators.</p>
-
-        </div>
-
-        <div class="coloring-content">
-        
-            <!-- row of 6 sierpinkski triables -->
-            <div class="canvas-row">
-                <div class='canvas sixth clickable'
-                    canvas-centered-drawing
-                    draw-function='drawSierpinskiTriangle'
-                    function-options='{"level": 3, "orientation": 1}'
-                    options='{"tapRedraw": true}'
-                ></div>
-                <div class='canvas sixth clickable'
-                    canvas-centered-drawing
-                    draw-function='drawSierpinskiTriangle'
-                    function-options='{"level": 3, "orientation": 1}'
-                    options='{"tapRedraw": true}'
-                ></div>
-                <div class='canvas sixth clickable'
-                    canvas-centered-drawing
-                    draw-function='drawSierpinskiTriangle'
-                    function-options='{"level": 4, "orientation": -1}'
-                    options='{"tapRedraw": true}'
-                ></div>
-                <div class='canvas sixth clickable'
-                    canvas-centered-drawing
-                    draw-function='drawSierpinskiTriangle'
-                    function-options='{"level": 4, "orientation": -1}'
-                    options='{"tapRedraw": true}'
-                ></div>
-                <div class='canvas sixth clickable'
-                    canvas-centered-drawing
-                    draw-function='drawSierpinskiTriangle'
-                    function-options='{"level": 3, "orientation": 1}'
-                    options='{"tapRedraw": true}'
-                ></div>
-                <div class='canvas sixth clickable'
-                    canvas-centered-drawing
-                    draw-function='drawSierpinskiTriangle'
-                    function-options='{"level": 3, "orientation": 1}'
-                    options='{"tapRedraw": true}'
-                ></div>
-            </div>
-
-            <div class="canvas two-thirds"
-                circular-tessellation
-                with-redraw
-                rings="[0.4, 0.9, 1]"
-                as-flower
-                rotations=3
-                slices-count=3
-                levels=1
-                margin=25
-                inscribed="triangle"
-            ></div>
-
-            <!-- row of 6 sierpinkski triables -->
-            <div class="canvas-row">
-                <div class='canvas sixth clickable'
-                    canvas-centered-drawing
-                    draw-function='drawSierpinskiTriangle'
-                    function-options='{"level": 3, "orientation": -1}'
-                    options='{"tapRedraw": true}'
-                ></div>
-                <div class='canvas sixth clickable'
-                    canvas-centered-drawing
-                    draw-function='drawSierpinskiTriangle'
-                    function-options='{"level": 3, "orientation": -1}'
-                    options='{"tapRedraw": true}'
-                ></div>
-                <div class='canvas sixth clickable'
-                    canvas-centered-drawing
-                    draw-function='drawSierpinskiTriangle'
-                    function-options='{"level": 4, "orientation": 1}'
-                    options='{"tapRedraw": true}'
-                ></div>
-                <div class='canvas sixth clickable'
-                    canvas-centered-drawing
-                    draw-function='drawSierpinskiTriangle'
-                    function-options='{"level": 4, "orientation": 1}'
-                    options='{"tapRedraw": true}'
-                ></div>
-                <div class='canvas sixth clickable'
-                    canvas-centered-drawing
-                    draw-function='drawSierpinskiTriangle'
-                    function-options='{"level": 3, "orientation": -1}'
-                    options='{"tapRedraw": true}'
-                ></div>
-                <div class='canvas sixth clickable'
-                    canvas-centered-drawing
-                    draw-function='drawSierpinskiTriangle'
-                    function-options='{"level": 3, "orientation": -1}'
-                    options='{"tapRedraw": true}'
-                ></div>
-            </div>
-
-
         </div>
     </div>
 
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+        
+                <!-- row of 6 sierpinkski triables -->
+                <div class="canvas-row">
+                    <div class='canvas sixth clickable'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 3, "orientation": 1}'
+                        options='{"tapRedraw": true}'
+                    ></div>
+                    <div class='canvas sixth clickable'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 3, "orientation": 1}'
+                        options='{"tapRedraw": true}'
+                    ></div>
+                    <div class='canvas sixth clickable'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 4, "orientation": -1}'
+                        options='{"tapRedraw": true}'
+                    ></div>
+                    <div class='canvas sixth clickable'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 4, "orientation": -1}'
+                        options='{"tapRedraw": true}'
+                    ></div>
+                    <div class='canvas sixth clickable'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 3, "orientation": 1}'
+                        options='{"tapRedraw": true}'
+                    ></div>
+                    <div class='canvas sixth clickable'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 3, "orientation": 1}'
+                        options='{"tapRedraw": true}'
+                    ></div>
+                </div>
+
+                <div class="canvas two-thirds"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.4, 0.9, 1]"
+                    as-flower
+                    rotations=3
+                    slices-count=3
+                    levels=1
+                    margin=25
+                    inscribed="triangle"
+                ></div>
+
+                <!-- row of 6 sierpinkski triables -->
+                <div class="canvas-row">
+                    <div class='canvas sixth clickable'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 3, "orientation": -1}'
+                        options='{"tapRedraw": true}'
+                    ></div>
+                    <div class='canvas sixth clickable'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 3, "orientation": -1}'
+                        options='{"tapRedraw": true}'
+                    ></div>
+                    <div class='canvas sixth clickable'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 4, "orientation": 1}'
+                        options='{"tapRedraw": true}'
+                    ></div>
+                    <div class='canvas sixth clickable'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 4, "orientation": 1}'
+                        options='{"tapRedraw": true}'
+                    ></div>
+                    <div class='canvas sixth clickable'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 3, "orientation": -1}'
+                        options='{"tapRedraw": true}'
+                    ></div>
+                    <div class='canvas sixth clickable'
+                        canvas-centered-drawing
+                        draw-function='drawSierpinskiTriangle'
+                        function-options='{"level": 3, "orientation": -1}'
+                        options='{"tapRedraw": true}'
+                    ></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

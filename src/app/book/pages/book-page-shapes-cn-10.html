@@ -1,376 +1,379 @@
-
 <div class="book-page" ng-if="book.page.name == p.name || main.print">
 
-    <div class="text-coloring-content-container">
-        <div class="text-content">
-            <p>Similarly, for our C3 group, a <fraction>2/3</fraction> turn is the same as combining a <fraction>1/3</fraction> turn with another <fraction>1/3</fraction> turn.</p>
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
 
-            <!-- C3: [⅓ turn STAR ⅓ turn → ⅔ turn] -->
-            <div class="text-content-graphic line">
-                <p>C3: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fraction>1/3</fraction> turn <span class="operator">&#x2737;</span> <fraction>1/3</fraction> turn &#x279E; <fraction>2/3</fraction> turn</p>
-            </div>
-            <br/>
-			<!-- [(triangle with diff side strokes) (-> w/ ⅓ turn) (⅓ rotated Triangle) (-> w/ ⅓ turn)( ⅔ rotated Triangle)] -->
-            <div class="text-content-graphic line">
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text": "0 turn", "autoRotateDegrees":120,"initialRotation":0}'
-                ></div>
-                <div class="canvas extra-small"
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                    function-options='{"textAbove":"1/3"}'
-                ></div>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text": "1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
-                ></div>
-                <div class="canvas extra-small"
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                    function-options='{"textAbove":"1/3"}'
-                ></div>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text": "2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
-                ></div>
-            </div>
+                <p>Similarly, for our C3 group, a <fraction>2/3</fraction> turn is the same as combining a <fraction>1/3</fraction> turn with another <fraction>1/3</fraction> turn.</p>
 
-
-            <p>Rotating again by <fraction>1/3</fraction> brings the shape back to its starting position - the 0 turn.</p>
-
-
-            <!-- C3: [⅓ turn STAR ⅓ turn STAR ⅓ turn → 0 turn] -->
-            <div class="text-content-graphic line">
-                <p>C3: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fraction>1/3</fraction> turn <span class="operator">&#x2737;</span> <fraction>1/3</fraction> turn <span class="operator">&#x2737;</span> <fraction>1/3</fraction> turn &#x279E;  0 turn</p>
-            </div>
-            <br/>
-
-            <!-- [(triangle with diff side strokes) (-> w/ ⅓ turn written below) (⅓ rotated Triangle) (-> w/ ⅓ turn written below)( ⅔ rotated Triangle) (-> w/ ⅓ turn written below)(0 rotated Triangle)] -->
-            <div class="text-content-graphic line">
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text": "0 turn", "autoRotateDegrees":120,"initialRotation":0}'
-                ></div>
-                <div class="canvas extra-small"
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                    function-options='{"textAbove":"1/3"}'
-                ></div>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text": "1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
-                ></div>
-                <div class="canvas extra-small"
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                    function-options='{"textAbove":"1/3"}'
-                ></div>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text": "2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
-                ></div>
-                <div class="canvas extra-small"
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                    function-options='{"textAbove":"1/3"}'
-                ></div>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text": "0 turn", "autoRotateDegrees":120,"initialRotation":0}'
-                ></div>
-            </div>
-
-            <p>See, the <fraction>1/3</fraction> turn can generate all of the rotations of C3 - it is a <a target="_blank" href="/#!/theory-reference#generator" class="theory-reference-term">generator</a> for our C3 group.</p>
-
-			<!-- graphics: -->
-
-			<!-- ⅓ turn → (triangle with diff side strokes rotated ⅓ with "⅓ turn" written below) -->
-            <div class="text-content-graphic line">
-                <p class="text"><fraction>1/3</fraction> turn</p>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                ></div>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text": "1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
-                ></div>
-            </div>
-			<!-- ⅓ turn STAR ⅓ turn → (triangle with diff side strokes rotated ⅔ with “⅔ turn” written below) -->
-            <div class="text-content-graphic line">
-                <p class="text">
-                	<fraction>1/3</fraction> turn
-                	<span class="operator">&#x2737;</span>
-                	<fraction>1/3</fraction> turn
-                </p>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                ></div>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text": "2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
-                ></div>
-            </div>
-			<!-- ⅓ turn STAR ⅓ turn STAR ⅓ turn → (triangle w/ diff side strokes rotated 0 with “0 turn” written below) -->
-						<!-- ⅓ turn STAR ⅓ turn → (triangle with diff side strokes rotated ⅔ with “⅔ turn” written below) -->
-            <div class="text-content-graphic line">
-                <p class="text">
-                	<fraction>1/3</fraction> turn
-                	<span class="operator">&#x2737;</span>
-                	<fraction>1/3</fraction> turn
-                	<span class="operator">&#x2737;</span>
-                	<fraction>1/3</fraction> turn
-                </p>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                ></div>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
-                    options='{"text": "0 turn", "autoRotateDegrees":120,"initialRotation":0}'
-                ></div>
-            </div>
-
-        </div>
-
-        <div class="coloring-content">
-
-            <div class="canvas-row">
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=3
-                    slices-count=2
-                    as-flower
-                    levels=1
-                    margin=10>
+                <!-- C3: [⅓ turn STAR ⅓ turn → ⅔ turn] -->
+                <div class="text-content-graphic line">
+                    <p>C3: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fraction>1/3</fraction> turn <span class="operator">&#x2737;</span> <fraction>1/3</fraction> turn &#x279E; <fraction>2/3</fraction> turn</p>
                 </div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=3
-                    slices-count=2
-                    levels=2
-                    margin=10>
+                <br/>
+    			<!-- [(triangle with diff side strokes) (-> w/ ⅓ turn) (⅓ rotated Triangle) (-> w/ ⅓ turn)( ⅔ rotated Triangle)] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "0 turn", "autoRotateDegrees":120,"initialRotation":0}'
+                    ></div>
+                    <div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"1/3"}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
+                    ></div>
+                    <div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"1/3"}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
+                    ></div>
                 </div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=3
-                    slices-count=2
-                    as-flower
-                    levels=1
-                    margin=10>
+
+
+                <p>Rotating again by <fraction>1/3</fraction> brings the shape back to its starting position - the 0 turn.</p>
+
+
+                <!-- C3: [⅓ turn STAR ⅓ turn STAR ⅓ turn → 0 turn] -->
+                <div class="text-content-graphic line">
+                    <p>C3: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fraction>1/3</fraction> turn <span class="operator">&#x2737;</span> <fraction>1/3</fraction> turn <span class="operator">&#x2737;</span> <fraction>1/3</fraction> turn &#x279E;  0 turn</p>
                 </div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=3
-                    slices-count=2
-                    levels=2
-                    margin=10>
+                <br/>
+
+                <!-- [(triangle with diff side strokes) (-> w/ ⅓ turn written below) (⅓ rotated Triangle) (-> w/ ⅓ turn written below)( ⅔ rotated Triangle) (-> w/ ⅓ turn written below)(0 rotated Triangle)] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "0 turn", "autoRotateDegrees":120,"initialRotation":0}'
+                    ></div>
+                    <div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"1/3"}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
+                    ></div>
+                    <div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"1/3"}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
+                    ></div>
+                    <div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"1/3"}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "0 turn", "autoRotateDegrees":120,"initialRotation":0}'
+                    ></div>
                 </div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=3
-                    slices-count=2
-                    as-flower
-                    levels=1
-                    margin=10>
+
+                <p>See, the <fraction>1/3</fraction> turn can generate all of the rotations of C3 - it is a <a target="_blank" href="/#!/theory-reference#generator" class="theory-reference-term">generator</a> for our C3 group.</p>
+
+    			<!-- graphics: -->
+
+    			<!-- ⅓ turn → (triangle with diff side strokes rotated ⅓ with "⅓ turn" written below) -->
+                <div class="text-content-graphic line">
+                    <p class="text"><fraction>1/3</fraction> turn</p>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
+                    ></div>
                 </div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=3
-                    slices-count=2
-                    levels=2
-                    margin=10>
+    			<!-- ⅓ turn STAR ⅓ turn → (triangle with diff side strokes rotated ⅔ with “⅔ turn” written below) -->
+                <div class="text-content-graphic line">
+                    <p class="text">
+                    	<fraction>1/3</fraction> turn
+                    	<span class="operator">&#x2737;</span>
+                    	<fraction>1/3</fraction> turn
+                    </p>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
+                    ></div>
+                </div>
+    			<!-- ⅓ turn STAR ⅓ turn STAR ⅓ turn → (triangle w/ diff side strokes rotated 0 with “0 turn” written below) -->
+    						<!-- ⅓ turn STAR ⅓ turn → (triangle with diff side strokes rotated ⅔ with “⅔ turn” written below) -->
+                <div class="text-content-graphic line">
+                    <p class="text">
+                    	<fraction>1/3</fraction> turn
+                    	<span class="operator">&#x2737;</span>
+                    	<fraction>1/3</fraction> turn
+                    	<span class="operator">&#x2737;</span>
+                    	<fraction>1/3</fraction> turn
+                    </p>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "0 turn", "autoRotateDegrees":120,"initialRotation":0}'
+                    ></div>
                 </div>
             </div>
-
-            <div class="canvas-row">
-                <div class='canvas sixth'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3}'
-                    options='{"tapRotateDegress": 120}'
-                ></div>
-                <div class='canvas sixth'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3}'
-                    options='{"tapRotateDegress": 120, "initialRotation": 180}'
-                ></div>
-                <div class='canvas sixth'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3}'
-                    options='{"tapRotateDegress": 120}'
-                ></div>
-                <div class='canvas sixth'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3}'
-                    options='{"tapRotateDegress": 120, "initialRotation": 180}'
-                ></div>
-                <div class='canvas sixth'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3}'
-                    options='{"tapRotateDegress": 120}'
-                ></div>
-                <div class='canvas sixth'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3}'
-                    options='{"tapRotateDegress": 120, "initialRotation": 180}'
-                ></div>
-            </div>
-
-
-            <div class="canvas-row">
-                <div class="canvas third"
-                    circular-tessellation
-                    with-redraw
-                    rotations=3
-                    slices-count=2
-                    as-flower
-                    levels=2
-                    margin=15>
-                </div>
-                <div class="canvas third"
-                    circular-tessellation
-                    with-redraw
-                    rotations=6
-                    slices-count=3
-                    levels=3>
-                </div>
-                <div class="canvas third"
-                    circular-tessellation
-                    with-redraw
-                    rotations=3
-                    slices-count=2
-                    as-flower
-                    levels=2
-                    margin=15>
-                </div>
-            </div>
-
-
-            <div class="canvas-row">
-                <div class='canvas sixth'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3}'
-                ></div>
-                <div class='canvas sixth'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3}'
-                    options='{"initialRotation":180}'
-                ></div>
-                <div class='canvas sixth'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3}'
-                ></div>
-                <div class='canvas sixth'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3}'
-                    options='{"initialRotation":180}'
-                ></div>
-                <div class='canvas sixth'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3}'
-                ></div>
-                <div class='canvas sixth'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":3}'
-                    options='{"initialRotation":180}'
-                ></div>
-            </div>
-
-            <div class="canvas-row">
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=3
-                    slices-count=2
-                    levels=2
-                    margin=10>
-                </div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=3
-                    slices-count=2
-                    as-flower
-                    levels=1
-                    margin=10>
-                </div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=3
-                    slices-count=2
-                    levels=2
-                    margin=10>
-                </div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=3
-                    slices-count=2
-                    as-flower
-                    levels=1
-                    margin=10>
-                </div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=3
-                    slices-count=2
-                    levels=2
-                    margin=10>
-                </div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=3
-                    slices-count=2
-                    as-flower
-                    levels=1
-                    margin=10>
-                </div>
-            </div>
-
         </div>
     </div>
 
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <div class="canvas-row">
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        as-flower
+                        levels=1
+                        margin=10>
+                    </div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        margin=10>
+                    </div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        as-flower
+                        levels=1
+                        margin=10>
+                    </div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        margin=10>
+                    </div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        as-flower
+                        levels=1
+                        margin=10>
+                    </div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        margin=10>
+                    </div>
+                </div>
+
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"tapRotateDegress": 120}'
+                    ></div>
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"tapRotateDegress": 120, "initialRotation": 180}'
+                    ></div>
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"tapRotateDegress": 120}'
+                    ></div>
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"tapRotateDegress": 120, "initialRotation": 180}'
+                    ></div>
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"tapRotateDegress": 120}'
+                    ></div>
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"tapRotateDegress": 120, "initialRotation": 180}'
+                    ></div>
+                </div>
+
+
+                <div class="canvas-row">
+                    <div class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        as-flower
+                        levels=2
+                        margin=15>
+                    </div>
+                    <div class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=6
+                        slices-count=3
+                        levels=3>
+                    </div>
+                    <div class="canvas third"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        as-flower
+                        levels=2
+                        margin=15>
+                    </div>
+                </div>
+
+
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                    ></div>
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"initialRotation":180}'
+                    ></div>
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                    ></div>
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"initialRotation":180}'
+                    ></div>
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                    ></div>
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"initialRotation":180}'
+                    ></div>
+                </div>
+
+                <div class="canvas-row">
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        margin=10>
+                    </div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        as-flower
+                        levels=1
+                        margin=10>
+                    </div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        margin=10>
+                    </div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        as-flower
+                        levels=1
+                        margin=10>
+                    </div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        margin=10>
+                    </div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        as-flower
+                        levels=1
+                        margin=10>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,7 +1,9 @@
 <div class="book-page" ng-if="book.page.name == p.name || main.print">
 
-    <div class="text-coloring-content-container">
         <div class="text-content">
+            <div class="content-container-wrapper">
+                <div class="content-container">
+
             <p>
             When shapes have the same rotational order, they share a <a target="_blank" href="/#!/theory-reference#cyclic-group" class="theory-reference-term">cyclic group</a>.  We can use the name C3 to talk about the group of shapes that have 3 rotations.  We can also use the name C4 for the shapes that have 4 rotations, C5 for the shapes that have 5 rotations, and so on.
             </p>
@@ -86,9 +88,12 @@
                 ></div>
             </div>
         </div>
+        </div>
+        </div>
 
-        <!-- Page break for print -->
-        <div class="coloring-content page-print-break-before">
+        <div class="coloring-content">
+            <div class="content-container-wrapper">
+                <div class="content-container">
             <!-- Circular tessellations of rotational symmetry=3 -->
             <div
                 class="canvas third"
@@ -174,7 +179,8 @@
                 margin=20>
             </div>
         </div>
+        </div>
+        </div>
     </div>
-
 
 </div>

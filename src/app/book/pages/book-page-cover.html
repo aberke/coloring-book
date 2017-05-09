@@ -1,65 +1,70 @@
 <div class="book-section book-page" id="book-cover" ng-if="book.page.name == p.name || main.print">
 
-    <!-- TODO: Replace with better name -->
-    <div id="book-title-container">
-        <div class='frieze-pattern'
-            pattern-function=slantedSlices
-            draw-options='{"strokeWidth": 1, "stroke": "#3bcca6"}'
-            group-name='p1'
-            fundamental-domain-width=50
-            fundamental-domain-height=20
-            margin=5
-            show-symmetry-sets=false
-            pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": true}'
-        ></div>
+    <div class="content-container-wrapper">
+        <div class="content-container">
+    
+            <div id="book-title-container">
+                <div class='frieze-pattern'
+                    pattern-function=slantedSlices
+                    draw-options='{"strokeWidth": 1, "stroke": "#3bcca6"}'
+                    group-name='p1'
+                    fundamental-domain-width=50
+                    fundamental-domain-height=20
+                    margin=5
+                    show-symmetry-sets=false
+                    pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": true}'
+                ></div>
 
-        <h1 id="book-title">Color by Group Theory</h1>
-        <div class='frieze-pattern'
-            pattern-function=slantedSlices
-            draw-options='{"strokeWidth": 1, "stroke": "#3bcca6"}'
-            group-name='p1'
-            fundamental-domain-width=50
-            fundamental-domain-height=20
-            margin=5
-            show-symmetry-sets=false
-            pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": true}'
-        ></div>
+                <h1 id="book-title">Color by Group Theory</h1>
+                <div class='frieze-pattern'
+                    pattern-function=slantedSlices
+                    draw-options='{"strokeWidth": 1, "stroke": "#3bcca6"}'
+                    group-name='p1'
+                    fundamental-domain-width=50
+                    fundamental-domain-height=20
+                    margin=5
+                    show-symmetry-sets=false
+                    pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": true}'
+                ></div>
+            </div>
+
+            <p>Math is about more than just numbers. In this "book" the story of math is visual, told in shapes and patterns.</p>
+
+            <div class="text-content-graphic">
+                <div id="book-cover-graphic" class="canvas clickable"></div>
+                <script type="text/javascript-lazy">
+
+                    // draw the arrow head curve with a 'redraw' onclick
+                    var sierpinskiArrowheadCurvePaper = new Raphael("book-cover-graphic");
+
+                    // TODO? break this out and put into the fractals repo?
+                    var drawSierpinskiArrowheadCurveWithBase = function(paper, centerPoint, size, options) {
+                        options = options || {};
+                        options.level = options.level || 4;
+                        var sierpinskiTrianglePath = sierpinskiTriangle.getSierpinskiTriangle(centerPoint, size, options);
+                        var sierpinskiArrowheadCurvePath = sierpinskiArrowheadCurve.getSierpinskiArrowheadCurve(centerPoint, size, options);
+                        // draw sierpinskiTrianglePath as base
+                        var pathBelow = paper.path(sierpinskiTrianglePath);
+                        pathBelow.attr({'stroke': fractalsUtil.LIGHT_GRAY});
+                        // draw with animation on top of base in darker stroke color
+                        fractalsUtil.drawPathByPath(paper, sierpinskiArrowheadCurvePath);
+                    }
+
+                    var redrawSierpinskiArrowheadCurveWithBase = function() {
+                        sierpinskiArrowheadCurvePaper.clear();
+                        drawInCanvasCenter(sierpinskiArrowheadCurvePaper, drawSierpinskiArrowheadCurveWithBase);
+                    }
+                    // add mouse-up handler to the canvas to cause redraw
+                    sierpinskiArrowheadCurvePaper.canvas.addEventListener('mouseup', redrawSierpinskiArrowheadCurveWithBase);
+                    redrawSierpinskiArrowheadCurveWithBase();
+
+                </script>
+            </div>
+
+            <p>Group theory is a mathematical study with which we can explore symmetry.</p>
+
+            <p>This is a coloring book.</p>
+        </div>
     </div>
-
-    <p>Math is about more than just numbers. In this "book" the story of math is visual, told in shapes and patterns.</p>
-
-    <div class="text-content-graphic">
-        <div id="book-cover-graphic" class="canvas clickable"></div>
-        <script type="text/javascript-lazy">
-
-            // draw the arrow head curve with a 'redraw' onclick
-            var sierpinskiArrowheadCurvePaper = new Raphael("book-cover-graphic");
-
-            // TODO? break this out and put into the fractals repo?
-            var drawSierpinskiArrowheadCurveWithBase = function(paper, centerPoint, size, options) {
-                options = options || {};
-                options.level = options.level || 4;
-                var sierpinskiTrianglePath = sierpinskiTriangle.getSierpinskiTriangle(centerPoint, size, options);
-                var sierpinskiArrowheadCurvePath = sierpinskiArrowheadCurve.getSierpinskiArrowheadCurve(centerPoint, size, options);
-                // draw sierpinskiTrianglePath as base
-                var pathBelow = paper.path(sierpinskiTrianglePath);
-                pathBelow.attr({'stroke': fractalsUtil.LIGHT_GRAY});
-                // draw with animation on top of base in darker stroke color
-                fractalsUtil.drawPathByPath(paper, sierpinskiArrowheadCurvePath);
-            }
-
-            var redrawSierpinskiArrowheadCurveWithBase = function() {
-                sierpinskiArrowheadCurvePaper.clear();
-                drawInCanvasCenter(sierpinskiArrowheadCurvePaper, drawSierpinskiArrowheadCurveWithBase);
-            }
-            // add mouse-up handler to the canvas to cause redraw
-            sierpinskiArrowheadCurvePaper.canvas.addEventListener('mouseup', redrawSierpinskiArrowheadCurveWithBase);
-            redrawSierpinskiArrowheadCurveWithBase();
-
-        </script>
-    </div>
-
-    <p>Group theory is a mathematical study with which we can explore symmetry.</p>
-
-    <p>This is a coloring book.</p>
 </div>
+    

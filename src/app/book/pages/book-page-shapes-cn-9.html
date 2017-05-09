@@ -1,243 +1,249 @@
 <div class="book-page" ng-if="book.page.name == p.name || main.print">
 
-    <div class="text-coloring-content-container">
-        <div class="text-content">
-            <p>Another way to think about rotating a C4 shape by a <fraction>1/4</fraction> turn is to rotate it by a <fraction>1/4</fraction> turn and then rotate it again by a <fraction>2/4</fraction> turn.</p>
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
 
-            <div class="text-content-graphic line">
-                <p>C4:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                <p><fraction>1/4</fraction> turn <span class="operator">&#x2737;</span> <fraction>2/4</fraction> turn &#x279E; <fraction>3/4</fraction> turn</p>
-            </div>
-            <br/>
+                <p>Another way to think about rotating a C4 shape by a <fraction>1/4</fraction> turn is to rotate it by a <fraction>1/4</fraction> turn and then rotate it again by a <fraction>2/4</fraction> turn.</p>
 
-            <div class="text-content-graphic line">
-                <!-- [(sq with diff side strokes) (-> w/ ¼ written) (rotated square) (-> w/ 2/4 written)( ¾ rotated Square)] -->
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
-                    options='{"text": "0 turn", "autoRotateDegrees":90,"initialRotation":0}'
-                ></div>
-                <div class="canvas extra-small"
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                    function-options='{"textAbove":"1/4"}'
-                ></div>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
-                    options='{"text": "1/4 turn", "autoRotateDegrees":90,"initialRotation":90}'
-                ></div>
-                <div class="canvas extra-small"
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                    function-options='{"textAbove":"2/4"}'
-                ></div>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
-                    options='{"text": "3/4 turn", "autoRotateDegrees":90,"initialRotation":270}'
-                ></div>
-            </div>
-
-            <p>Notice that the order in which these rotations are applied does not matter.  The Cn groups are <a target="_blank" href="/#!/theory-reference#commutativity" class="theory-reference-term">commutative</a>.</p>
-
-            <div class="text-content-graphic line">
-			<!-- C4: [2/4 turn STAR ¼ turn = ¼ turn STAR 2/4 turn] -->
-                <p>C4: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fraction>1/4</fraction> turn <span class="operator">&#x2737;</span> <fraction>2/4</fraction> turn  =  <fraction>2/4</fraction> turn <span class="operator">&#x2737;</span> <fraction>1/4</fraction> turn</p>
-            </div>
-            <br/>
-            <!-- graphics to show commutativity -->
-            <div class="text-content-graphic line">
-                <!-- [(sq with diff side strokes) (-> w/ ¼ written) (rotated square) (-> w/ 2/4 written)( ¾ rotated Square)] -->
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
-                    options='{"text": "0 turn", "autoRotateDegrees":90,"initialRotation":0}'
-                ></div>
-                <div class="canvas extra-small"
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                    function-options='{"textAbove":"1/4"}'
-                ></div>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
-                    options='{"text": "1/4 turn", "autoRotateDegrees":90,"initialRotation":90}'
-                ></div>
-                <div class="canvas extra-small"
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                    function-options='{"textAbove":"2/4"}'
-                ></div>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
-                    options='{"text": "3/4 turn", "autoRotateDegrees":90,"initialRotation":270}'
-                ></div>
-            </div>
-            <div class="text-content-graphic line">
-                <!-- [(sq with diff side strokes) (-> w/ 2/4 written) (rotated square) (-> w/ 1/4 written)( ¾ rotated Square)] -->
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
-                    options='{"text": "0 turn", "autoRotateDegrees":90,"initialRotation":0}'
-                ></div>
-                <div class="canvas extra-small"
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                    function-options='{"textAbove":"2/4"}'
-                ></div>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
-                    options='{"text": "2/4 turn", "autoRotateDegrees":90,"initialRotation":180}'
-                ></div>
-                <div class="canvas extra-small"
-                    canvas-centered-drawing
-                    draw-function='drawArrow'
-                    function-options='{"textAbove":"1/4"}'
-                ></div>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
-                    options='{"text": "3/4 turn", "autoRotateDegrees":90,"initialRotation":270}'
-                ></div>
-            </div>
-        </div>
-
-        <div class="coloring-content">
-        	
-            <div class="canvas-row">
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=4
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=20>
+                <div class="text-content-graphic line">
+                    <p>C4:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <p><fraction>1/4</fraction> turn <span class="operator">&#x2737;</span> <fraction>2/4</fraction> turn &#x279E; <fraction>3/4</fraction> turn</p>
                 </div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=8
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=8
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=10>
-                </div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=4
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-            </div>
+                <br/>
 
-
-            <div class="canvas two-thirds"
-                circular-tessellation
-                with-redraw
-                rings="[0.5, 0.6, 1]"
-                rotations=4
-                slices-count=4
-                levels=2
-                margin=20>
-            </div>
-
-            
-            <div class="canvas-row">
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=4
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=20>
+                <div class="text-content-graphic line">
+                    <!-- [(sq with diff side strokes) (-> w/ ¼ written) (rotated square) (-> w/ 2/4 written)( ¾ rotated Square)] -->
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text": "0 turn", "autoRotateDegrees":90,"initialRotation":0}'
+                    ></div>
+                    <div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"1/4"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text": "1/4 turn", "autoRotateDegrees":90,"initialRotation":90}'
+                    ></div>
+                    <div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"2/4"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text": "3/4 turn", "autoRotateDegrees":90,"initialRotation":270}'
+                    ></div>
                 </div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=8
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=8
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=10>
+
+                <p>Notice that the order in which these rotations are applied does not matter.  The Cn groups are <a target="_blank" href="/#!/theory-reference#commutativity" class="theory-reference-term">commutative</a>.</p>
+
+                <div class="text-content-graphic line">
+    			<!-- C4: [2/4 turn STAR ¼ turn = ¼ turn STAR 2/4 turn] -->
+                    <p>C4: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fraction>1/4</fraction> turn <span class="operator">&#x2737;</span> <fraction>2/4</fraction> turn  =  <fraction>2/4</fraction> turn <span class="operator">&#x2737;</span> <fraction>1/4</fraction> turn</p>
                 </div>
-                <div class="canvas sixth"
-                    circular-tessellation
-                    with-redraw
-                    rotations=4
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
+                <br/>
+                <!-- graphics to show commutativity -->
+                <div class="text-content-graphic line">
+                    <!-- [(sq with diff side strokes) (-> w/ ¼ written) (rotated square) (-> w/ 2/4 written)( ¾ rotated Square)] -->
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text": "0 turn", "autoRotateDegrees":90,"initialRotation":0}'
+                    ></div>
+                    <div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"1/4"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text": "1/4 turn", "autoRotateDegrees":90,"initialRotation":90}'
+                    ></div>
+                    <div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"2/4"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text": "3/4 turn", "autoRotateDegrees":90,"initialRotation":270}'
+                    ></div>
+                </div>
+                <div class="text-content-graphic line">
+                    <!-- [(sq with diff side strokes) (-> w/ 2/4 written) (rotated square) (-> w/ 1/4 written)( ¾ rotated Square)] -->
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text": "0 turn", "autoRotateDegrees":90,"initialRotation":0}'
+                    ></div>
+                    <div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"2/4"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text": "2/4 turn", "autoRotateDegrees":90,"initialRotation":180}'
+                    ></div>
+                    <div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"1/4"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text": "3/4 turn", "autoRotateDegrees":90,"initialRotation":270}'
+                    ></div>
+                </div>
             </div>
         </div>
     </div>
 
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+        	
+                <div class="canvas-row">
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=20>
+                    </div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=8
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=8
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=10>
+                    </div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                </div>
+
+
+                <div class="canvas two-thirds"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.5, 0.6, 1]"
+                    rotations=4
+                    slices-count=4
+                    levels=2
+                    margin=20>
+                </div>
+
+                
+                <div class="canvas-row">
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=20>
+                    </div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=8
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=8
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=10>
+                    </div>
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

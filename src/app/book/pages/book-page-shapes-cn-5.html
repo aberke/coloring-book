@@ -1,131 +1,136 @@
-
 <div class="book-page" ng-if="book.page.name == p.name || main.print">
-    <div class="text-coloring-content-container">
-        <div class="text-content">
-            <p>We don't need to stop at 4 rotations.  We can find shapes with 5 rotations, 6 rotations, 7, 8, ... and keep going towards infinity.</p>
 
-            <div class="text-content-graphic line">
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":5}'
-                    options='{"margin": 10}'
-                ></div>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":6}'
-                    options='{"margin": 10}'
-                ></div>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":7}'
-                    options='{"margin": 10}'
-                ></div>
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":8}'
-                    options='{"margin": 10}'
-                ></div>
-                <!-- make some dots in an ugly css hack? -->
-                <div class="canvas extra-small fake-canvas"><p>...</p></div>
-                <!-- circle -->
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawCircle'
-                    function-options='{}'
-                    options='{"margin": 10}'
-                ></div>
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+                <p>We don't need to stop at 4 rotations.  We can find shapes with 5 rotations, 6 rotations, 7, 8, ... and keep going towards infinity.</p>
+
+                <div class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5}'
+                        options='{"margin": 10}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":6}'
+                        options='{"margin": 10}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":7}'
+                        options='{"margin": 10}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":8}'
+                        options='{"margin": 10}'
+                    ></div>
+                    <!-- make some dots in an ugly css hack? -->
+                    <div class="canvas extra-small fake-canvas"><p>...</p></div>
+                    <!-- circle -->
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawCircle'
+                        function-options='{}'
+                        options='{"margin": 10}'
+                    ></div>
+                </div>
             </div>
         </div>
+    </div>
 
-        <!-- Page break for print -->
-        <div class="coloring-content page-print-break-before">
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
 
-            <!-- Line of circular tessellations of 5 rotations -->
-            <div class="canvas third"
-                circular-tessellation
-                with-redraw
-                rotations=5
-                slices-count=2
-                levels=2
-                margin=5>
-            </div>
-            <div
-                class="canvas third"
-                circular-tessellation
-                with-redraw
-                rotations=5
-                slices-count=3
-                levels=1
-                margin=5>
-            </div>
-            <div
-                class="canvas third"
-                circular-tessellation
-                with-redraw
-                rotations=5
-                slices-count=3
-                levels=2
-                margin=5>
-            </div>
+                <!-- Line of circular tessellations of 5 rotations -->
+                <div class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rotations=5
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div
+                    class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rotations=5
+                    slices-count=3
+                    levels=1
+                    margin=5>
+                </div>
+                <div
+                    class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rotations=5
+                    slices-count=3
+                    levels=2
+                    margin=5>
+                </div>
 
-            <!-- Line of circular tessellations of 6 rotations -->
-            <div class="canvas third"
-                circular-tessellation
-                with-redraw
-                rotations=6
-                slices-count=2
-                levels=2
-                margin=5>
-            </div>
-            <div
-                class="canvas third"
-                circular-tessellation
-                with-redraw
-                rotations=6
-                slices-count=4
-                levels=1
-                margin=5>
-            </div>
-            <div
-                class="canvas third"
-                circular-tessellation
-                with-redraw
-                rotations=6
-                slices-count=3
-                levels=2
-                margin=5>
-            </div>
+                <!-- Line of circular tessellations of 6 rotations -->
+                <div class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rotations=6
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div
+                    class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rotations=6
+                    slices-count=4
+                    levels=1
+                    margin=5>
+                </div>
+                <div
+                    class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rotations=6
+                    slices-count=3
+                    levels=2
+                    margin=5>
+                </div>
 
-            <!-- Line of circular tessellations of 7 rotations -->
-            <div class="canvas third"
-                circular-tessellation
-                with-redraw
-                rotations=7
-                slices-count=2
-                levels=2
-                margin=5>
-            </div>
-            <div
-                class="canvas third"
-                circular-tessellation
-                with-redraw
-                rotations=7
-                slices-count=4
-                levels=1
-                margin=5>
-            </div>
-            <div
-                class="canvas third"
-                circular-tessellation
-                with-redraw
-                rotations=7
-                slices-count=3
-                levels=2
-                margin=5>
+                <!-- Line of circular tessellations of 7 rotations -->
+                <div class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rotations=7
+                    slices-count=2
+                    levels=2
+                    margin=5>
+                </div>
+                <div
+                    class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rotations=7
+                    slices-count=4
+                    levels=1
+                    margin=5>
+                </div>
+                <div
+                    class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rotations=7
+                    slices-count=3
+                    levels=2
+                    margin=5>
+                </div>
             </div>
         </div>
     </div>
