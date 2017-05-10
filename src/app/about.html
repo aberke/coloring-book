@@ -5,6 +5,9 @@
 	margin: auto;
 	text-align: center;
 	padding: 20px;
+	
+    /*create blank page: print it on the right side, side left page blank*/
+    page-break-before: right;
 }
 #about p {
 	text-align: center;
@@ -92,9 +95,9 @@
 	<br/>
 	<br/>
 
-	<p><strong>Get notified when the book is complete:</strong> <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeHWQDnA1ycEoDlJQXIz48sPoac-q5QlRo2Dyznu5E2ixYeGg/viewform">coloring-book.co/form</a>
+	<p><strong>Get notified when the book is complete or give feedback:</strong> <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeHWQDnA1ycEoDlJQXIz48sPoac-q5QlRo2Dyznu5E2ixYeGg/viewform">coloring-book.co/form</a>
 	<p><strong>Print your own copy:</strong> <a target="_blank" href="http://www.coloring-book.co/#!/print-book">coloring-book.co/#!/print-book</a>
 
 </div>
 
-<ng-include src="'/app/common/partials/footer.html'"></ng-include>
+<ng-include ng-if="!main.print" src="'/app/common/partials/footer.html'"></ng-include>

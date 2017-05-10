@@ -225,6 +225,12 @@ Note: So far this seems to work best with Firefox -- Preview as PDF
 	text-align: center;
 }
 
+.coming-soon, #book-page-last.book-page .coming-soon {
+	font-style: italic;
+	text-align: center;
+	margin-top: 70px;
+}
+
 
 footer {
 	border-top: 10px solid #670067;
