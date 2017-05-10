@@ -9,6 +9,13 @@ This is an open source, online coloring book through which one can explore the m
 http://coloring-book.co
 
 
+##### Give Feedback and Get Updates
+
+- [Form here](https://docs.google.com/forms/d/e/1FAIpQLSeHWQDnA1ycEoDlJQXIz48sPoac-q5QlRo2Dyznu5E2ixYeGg/viewform)
+- There's also a redirect link: http://coloring-book.co/form
+
+
+
 ## Export to Print/Save
 
 Full printable book available at `/print-book`
