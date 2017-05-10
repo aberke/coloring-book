@@ -8,6 +8,59 @@ Styles for book
 	width: 100%;
 }
 
+
+
+/*Printing:*/
+/*Intended to be printed on 8.5x11*/
+@page {
+    size: 8.5in 11in;
+    margin: 0.5in;
+}
+
+body.print p {
+    text-align: left;
+}
+
+.book-page .text-content, .book-page .coloring-content,
+#book-cover, #coloring-guide
+{
+    page-break-after: always;
+}
+#coloring-guide {
+    /*create blank page: print it on the right side, side left page blank*/
+    page-break-before: right;
+}
+
+.print .book-page .text-content, .print .book-page .coloring-content,
+.print #book-cover, 
+.print #coloring-guide {
+    padding: 0 1.5%;
+    width: 97%; /* allow the padding - works best with firefox printing */
+    border: none;
+    
+    width: 8in;
+    height: 10in;
+
+    position: relative;
+}
+
+.print #book-cover,
+.print #coloring-guide {
+    margin: auto;
+}
+
+.print .book-page .text-content .content-container-wrapper,
+.print #book-cover .content-container-wrapper,
+.print #coloring-guide .content-container-wrapper,
+.print .book-page .coloring-content .content-container-wrapper
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
 /*
 move from one book-page to the next with animation:
 */

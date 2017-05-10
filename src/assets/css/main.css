@@ -9,28 +9,6 @@ Colors:
 
 */
 
-/* ====== DEBUG ==== */
-
-/*.canvas {
-	border: 1px solid gray;
-}*/
-/*
-.text-coloring-content-container {
-	border: 1px solid green;
-}
-.text-content {
-	border-right: 1px solid gray;
-}
-.coloring-content {
-	border: 1px solid red;
-}
-.text-content-graphic {
-	border: 1px solid blue;
-}*/
-
-/* ====== DEBUG ==== */
-
-
 body {
 	font-family: 'Raleway', sans-serif;
 
@@ -100,6 +78,9 @@ Structure
 	text-align: center;
 	margin: auto;
 	line-height: 1.4;
+}
+#book-cover .content-container {
+	vertical-align: middle;
 }
 
 #coloring-guide h2 {
@@ -193,13 +174,8 @@ Structure
 Style differently for printing on paper -- similar to mobile
 Note: So far this seems to work best with Firefox -- Preview as PDF
 */
+
 .page-print-break-after {
-	page-break-after: always;
-}
-.page-print-break-before {
-	page-break-before: always;
-}
-.book-page {
 	page-break-after: always;
 }
 .print-only {
@@ -212,11 +188,6 @@ Note: So far this seems to work best with Firefox -- Preview as PDF
 }
 .print .app-only {
 	display: none;
-}
-.print .book-page .text-content, .print .book-page .coloring-content {
-	padding: 0 1.5%;
-	width: 97%; /* allow the padding - works best with firefox printing */
-	border: none;
 }
 .print nav {
 	display: none;

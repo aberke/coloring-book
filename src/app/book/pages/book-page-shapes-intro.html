@@ -1,395 +1,402 @@
 <div class="book-page" ng-if="book.page.name == p.name || main.print">
 
-    <h2 class="book-section-title">Shapes &amp; Symmetries</h2>
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
 
-    <div class="text-coloring-content-container">
-        <div class="text-content">
-            <p>We have intuitive ideas of symmetry. Some shapes look "more symmetric" than others.  For example, a square is "more symmetric" than a rectangle,</p>
-            
-            <div class="text-content-graphic line">
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N": 4}'
-                ></div>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRectangle'
-                ></div>
-            </div>
+                <h2 class="book-section-title">Shapes &amp; Symmetries</h2>
 
-            <p>but this can change once color is added.</p>
-            
-            <div class="text-content-graphic line">
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawSquare'
-                    function-options='{"N": 4, "coloring": [0, 1]}'
-                ></div>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRectangle'
-                ></div>
-            </div>
-
-            <p>We can be more precise as to what this means.  We can even count how much symmetry a shape has.</p>
-
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-
-            <p class="challenge">Challenge: Can you color the shapes to give them the same "amount of symmetry"?</p>
-        </div>
-        <!-- text-content -->
         
-        <!-- coloring-content -->
-        <div class="coloring-content">
+                <p>We have intuitive ideas of symmetry. Some shapes look "more symmetric" than others.  For example, a square is "more symmetric" than a rectangle,</p>
+                
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRectangle'
+                    ></div>
+                </div>
 
-            <!-- 6 circular-tessellations with order-2, inscribed in squares -->
-            <div class="canvas-row">
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
+                <p>but this can change once color is added.</p>
+                
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawSquare'
+                        function-options='{"N": 4, "coloring": [0, 1]}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRectangle'
+                    ></div>
+                </div>
+
+                <p>We can be more precise as to what this means.  We can even count how much symmetry a shape has.</p>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: Can you color the shapes to give them the same "amount of symmetry"?</p>
             </div>
-
-
-            <!-- row of 6 C8 shapes inscribed in squares -->
-            <div class="canvas-row">
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=8
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=8
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=8
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=8
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=8
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=8
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-            </div>
-
-
-            <div class="canvas-row">
-                <div class="third clickable canvas" id="square-vs-rectangle-rectangle-coloring-content-0"></div>
-                <div class="third clickable canvas" id="square-vs-rectangle-rectangle-coloring-content-1"></div>
-                <div class="third clickable canvas" id="square-vs-rectangle-rectangle-coloring-content-2"></div>
-            </div>
-
-            <!-- row of 6 C8 shapes inscribed in squares -->
-            <div class="canvas-row">
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=8
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=8
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=8
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=8
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=8
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=8
-                    slices-count=2
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-            </div>
-            
-
-            <!-- 6 circular-tessellations with order-2, inscribed in squares -->
-            <div class="canvas-row">
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-                <div
-                    circular-tessellation
-                    class="canvas sixth clickable" 
-                    with-redraw
-                    rotations=2
-                    slices-count=3
-                    levels=2
-                    margin=10
-                    inscribed="square"
-                ></div>
-            </div>
-
-            <script type="text/javascript-lazy">
-            "use strict";
-
-            // use the same slices to generate circular tesselations with rotations
-            // these tessellations sit next to each other on separate canvases/papers
-
-            // put the variables for circular-tessellations in here
-            var squareVsRectangle_coloring = {
-                canvasList: [
-                {
-                    paper: new Raphael("square-vs-rectangle-rectangle-coloring-content-0"),
-                    options: {
-                        levels: 2,
-                        withReflection: true,
-                        rotations: 2,
-                    },
-                }, {
-                    paper: new Raphael("square-vs-rectangle-rectangle-coloring-content-1"),
-                    options: {
-                        levels: 2,
-                        withReflection: true,
-                        rotations: 4,
-                    },
-                }, {
-                    paper: new Raphael("square-vs-rectangle-rectangle-coloring-content-2"),
-                    options: {
-                        levels: 2,
-                        withReflection: true,
-                        rotations: 2,
-                    },
-                }]
-            };
-
-            // get the slices to use
-            // ASSUMPTION: all the canvases have the same size, and therefore the same origin
-            squareVsRectangle_coloring.origin = getCanvasCenter(squareVsRectangle_coloring.canvasList[0].paper);
-
-            squareVsRectangle_coloring.diameter = Math.min(squareVsRectangle_coloring.canvasList[0].paper.getSize().width, squareVsRectangle_coloring.canvasList[0].paper.getSize().height) - 25;
-
-            // wraps the drawing in a function that can be called onclick to redraw
-            // since this function generates the paths randomly, each redraw creates new drawings
-            squareVsRectangle_coloring.redraw = function() {
-                // generate first circular tessellation and use its slices to generate the others
-
-                // clear out the old slices pathList if this is a redraw
-                squareVsRectangle_coloring.slicesPathList = null;
-
-                squareVsRectangle_coloring.canvasList.forEach(function(canvas, index) {
-
-                    canvas.paper.clear();
-
-                    if (!squareVsRectangle_coloring.slicesPathList) {
-                        // generate circular tessellation and at the same time
-                        // get the slices pathList from it to reuse for the other tessellations
-                        canvas.options.slicesPathList = null;
-                        canvas.circularTessellation = new CircularTessellation(canvas.paper, squareVsRectangle_coloring.origin, squareVsRectangle_coloring.diameter, canvas.options);
-
-
-                        // get the slices pathList
-                        // so that they can be used to generate the other circular tessellations
-                        squareVsRectangle_coloring.slicesPathList = canvas.circularTessellation.slicesPathList;
-                    } else {
-                        canvas.options.slicesPathList = squareVsRectangle_coloring.slicesPathList;
-                        canvas.circularTessellation = new CircularTessellation(canvas.paper, squareVsRectangle_coloring.origin, squareVsRectangle_coloring.diameter, canvas.options);
-                    }
-                });
-            };
-            // add event listener to redraw upon click
-            squareVsRectangle_coloring.canvasList.forEach(function(canvas, index) {
-                    canvas.paper.canvas.addEventListener('mouseup', squareVsRectangle_coloring.redraw);
-                });
-
-            // draw for the first time
-            squareVsRectangle_coloring.redraw();
-
-            </script>
         </div>
     </div>
+    <!-- text-content -->
+        
+    <!-- coloring-content -->
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
 
+                <!-- 6 circular-tessellations with order-2, inscribed in squares -->
+                <div class="canvas-row">
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                </div>
+
+
+                <!-- row of 6 C8 shapes inscribed in squares -->
+                <div class="canvas-row">
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=8
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=8
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=8
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=8
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=8
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=8
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                </div>
+
+
+                <div class="canvas-row">
+                    <div class="third clickable canvas" id="square-vs-rectangle-rectangle-coloring-content-0"></div>
+                    <div class="third clickable canvas" id="square-vs-rectangle-rectangle-coloring-content-1"></div>
+                    <div class="third clickable canvas" id="square-vs-rectangle-rectangle-coloring-content-2"></div>
+                </div>
+
+                <!-- row of 6 C8 shapes inscribed in squares -->
+                <div class="canvas-row">
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=8
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=8
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=8
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=8
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=8
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=8
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                </div>
+                
+
+                <!-- 6 circular-tessellations with order-2, inscribed in squares -->
+                <div class="canvas-row">
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                    <div
+                        circular-tessellation
+                        class="canvas sixth clickable" 
+                        with-redraw
+                        rotations=2
+                        slices-count=3
+                        levels=2
+                        margin=10
+                        inscribed="square"
+                    ></div>
+                </div>
+
+                <script type="text/javascript-lazy">
+                "use strict";
+
+                // use the same slices to generate circular tesselations with rotations
+                // these tessellations sit next to each other on separate canvases/papers
+
+                // put the variables for circular-tessellations in here
+                var squareVsRectangle_coloring = {
+                    canvasList: [
+                    {
+                        paper: new Raphael("square-vs-rectangle-rectangle-coloring-content-0"),
+                        options: {
+                            levels: 2,
+                            withReflection: true,
+                            rotations: 2,
+                        },
+                    }, {
+                        paper: new Raphael("square-vs-rectangle-rectangle-coloring-content-1"),
+                        options: {
+                            levels: 2,
+                            withReflection: true,
+                            rotations: 4,
+                        },
+                    }, {
+                        paper: new Raphael("square-vs-rectangle-rectangle-coloring-content-2"),
+                        options: {
+                            levels: 2,
+                            withReflection: true,
+                            rotations: 2,
+                        },
+                    }]
+                };
+
+                // get the slices to use
+                // ASSUMPTION: all the canvases have the same size, and therefore the same origin
+                squareVsRectangle_coloring.origin = getCanvasCenter(squareVsRectangle_coloring.canvasList[0].paper);
+
+                squareVsRectangle_coloring.diameter = Math.min(squareVsRectangle_coloring.canvasList[0].paper.getSize().width, squareVsRectangle_coloring.canvasList[0].paper.getSize().height) - 25;
+
+                // wraps the drawing in a function that can be called onclick to redraw
+                // since this function generates the paths randomly, each redraw creates new drawings
+                squareVsRectangle_coloring.redraw = function() {
+                    // generate first circular tessellation and use its slices to generate the others
+
+                    // clear out the old slices pathList if this is a redraw
+                    squareVsRectangle_coloring.slicesPathList = null;
+
+                    squareVsRectangle_coloring.canvasList.forEach(function(canvas, index) {
+
+                        canvas.paper.clear();
+
+                        if (!squareVsRectangle_coloring.slicesPathList) {
+                            // generate circular tessellation and at the same time
+                            // get the slices pathList from it to reuse for the other tessellations
+                            canvas.options.slicesPathList = null;
+                            canvas.circularTessellation = new CircularTessellation(canvas.paper, squareVsRectangle_coloring.origin, squareVsRectangle_coloring.diameter, canvas.options);
+
+
+                            // get the slices pathList
+                            // so that they can be used to generate the other circular tessellations
+                            squareVsRectangle_coloring.slicesPathList = canvas.circularTessellation.slicesPathList;
+                        } else {
+                            canvas.options.slicesPathList = squareVsRectangle_coloring.slicesPathList;
+                            canvas.circularTessellation = new CircularTessellation(canvas.paper, squareVsRectangle_coloring.origin, squareVsRectangle_coloring.diameter, canvas.options);
+                        }
+                    });
+                };
+                // add event listener to redraw upon click
+                squareVsRectangle_coloring.canvasList.forEach(function(canvas, index) {
+                        canvas.paper.canvas.addEventListener('mouseup', squareVsRectangle_coloring.redraw);
+                    });
+
+                // draw for the first time
+                squareVsRectangle_coloring.redraw();
+
+                </script>
+            </div>
+        </div>
+    </div>
 </div>

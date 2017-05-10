@@ -1,85 +1,90 @@
 <div class="book-section book-page" id="coloring-guide" ng-if="book.page.name == p.name || main.print">
 
-    <h2 class="book-section-title">Coloring Guide</h2>
+    <div class="content-container-wrapper">
+        <div class="content-container">
 
-    <div class="title-container coloring-guide-shapes-and-symmetries-title">
-        <div class='canvas'
-            canvas-centered-drawing
-            draw-function='drawCyclicShape'
-            function-options='{"N":5}'
-            options='{"autoRotateDegrees":72}'
-        ></div>
-        <h3>Shapes &amp; Symmetries</h3>
-        <div class='canvas'
-            canvas-centered-drawing
-            draw-function='drawDihedralShape'
-            function-options='{"N":5}'
-            options='{"autoRotateDegrees":72}'
-        ></div>
-    </div>
-    <div class="subtitle-container coloring-guide-shapes-and-symmetries-subtitle">
-        <div class='canvas'
-            canvas-centered-drawing
-            draw-function='drawCyclicShape'
-            function-options='{"N":4}'
-            options='{"autoRotateDegrees":90}'
-        ></div>
-        <h4>Rotations // Cyclic Groups</h4>
-        <div class='canvas'
-            canvas-centered-drawing
-            draw-function='drawCyclicShape'
-            function-options='{"N":4}'
-            options='{"autoRotateDegrees":90}'
-        ></div>
-    </div>
-    <div class="subtitle-container coloring-guide-shapes-and-symmetries-subtitle">
-        <div class='canvas'
-            canvas-centered-drawing
-            draw-function='drawDihedralShape'
-            function-options='{"N":4}'
-            options='{"autoRotateDegrees":90}'
-        ></div>
-        <h4>Reflections // Dihedral Groups</h4>
-        <div class='canvas'
-            canvas-centered-drawing
-            draw-function='drawDihedralShape'
-            function-options='{"N":4}'
-            options='{"autoRotateDegrees":90}'
-        ></div>
-    </div>
+            <h2 class="book-section-title">Coloring Guide</h2>
 
-    <div class="title-container pattern-title">
-        <div class='frieze-pattern canvas'
-            pattern-function=petalEllipse
-            group-name='p1a1'
-            fundamental-domain-width=35
-            fundamental-domain-height=28
-            margin=10
-        ></div>
-        <h3>Frieze Groups</h3>
-        <div class='frieze-pattern canvas'
-            pattern-function=petalEllipse
-            group-name='p1a1'
-            fundamental-domain-width=35
-            fundamental-domain-height=28
-            margin=10
-        ></div>
-    </div>
+            <div class="title-container coloring-guide-shapes-and-symmetries-title">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":5}'
+                    options='{"autoRotateDegrees":72}'
+                ></div>
+                <h3>Shapes &amp; Symmetries</h3>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawDihedralShape'
+                    function-options='{"N":5}'
+                    options='{"autoRotateDegrees":72}'
+                ></div>
+            </div>
+            <div class="subtitle-container coloring-guide-shapes-and-symmetries-subtitle">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4}'
+                    options='{"autoRotateDegrees":90}'
+                ></div>
+                <h4>Rotations // Cyclic Groups</h4>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawCyclicShape'
+                    function-options='{"N":4}'
+                    options='{"autoRotateDegrees":90}'
+                ></div>
+            </div>
+            <div class="subtitle-container coloring-guide-shapes-and-symmetries-subtitle">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawDihedralShape'
+                    function-options='{"N":4}'
+                    options='{"autoRotateDegrees":90}'
+                ></div>
+                <h4>Reflections // Dihedral Groups</h4>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawDihedralShape'
+                    function-options='{"N":4}'
+                    options='{"autoRotateDegrees":90}'
+                ></div>
+            </div>
 
-    <div class="title-container pattern-title">
-        <div class='frieze-pattern canvas'
-            pattern-function=trianglesPath2
-            group-name='p2mm'
-            fundamental-domain-width=40
-            fundamental-domain-height=25
-        ></div>
-        <h3>Wallpaper Groups</h3>
-        <div class='frieze-pattern canvas'
-            pattern-function=trianglesPath2
-            group-name='p2mm'
-            fundamental-domain-width=40
-            fundamental-domain-height=25
-        ></div>
+            <div class="title-container pattern-title">
+                <div class='frieze-pattern canvas'
+                    pattern-function=petalEllipse
+                    group-name='p1a1'
+                    fundamental-domain-width=35
+                    fundamental-domain-height=28
+                    margin=10
+                ></div>
+                <h3>Frieze Groups</h3>
+                <div class='frieze-pattern canvas'
+                    pattern-function=petalEllipse
+                    group-name='p1a1'
+                    fundamental-domain-width=35
+                    fundamental-domain-height=28
+                    margin=10
+                ></div>
+            </div>
+
+            <div class="title-container pattern-title">
+                <div class='frieze-pattern canvas'
+                    pattern-function=trianglesPath2
+                    group-name='p2mm'
+                    fundamental-domain-width=40
+                    fundamental-domain-height=25
+                ></div>
+                <h3>Wallpaper Groups</h3>
+                <div class='frieze-pattern canvas'
+                    pattern-function=trianglesPath2
+                    group-name='p2mm'
+                    fundamental-domain-width=40
+                    fundamental-domain-height=25
+                ></div>
+            </div>
+        </div>
     </div>
 
 </div>

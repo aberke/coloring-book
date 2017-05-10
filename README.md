@@ -18,6 +18,7 @@ Use the `?print` URL param to test printer friendly styling of the page
 In order to export the book to printable version, or save it as printable PDF:
 
 - Works best with Firefox browser
+- Choose "letter" or 8.5x11 paper size in print dialog
 - Select to show no headers and only center page number as footer
 - "Preview as PDF"
 
