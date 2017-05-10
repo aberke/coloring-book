@@ -151,26 +151,36 @@ function getOrder2RotationH(pathSet, options) {
 
 
 /*
-Constructor for horizontal mirror transformation string
+Constructor for horizontal mirror transformation string.
+By default the mirror is on the bottom of the shape,
+not through the center.  
+
 @pathSet: (Paper.path | Paper.set) to construct transformation from
 Returns (String) transformation
 */
-function getMirrorH(pathSet) {
-    var bbox = pathSet.getBBox();
-    var mirrorX = bbox.x;  // could be either x or x2
-    var mirrorY = bbox.y2;
+function getMirrorH(pathSet, centered = false) {
+    let bbox = pathSet.getBBox();
+
+    let mirrorX = bbox.x;  // could be either x or x2
+    let mirrorY = (!!centered) ? (bbox.y1 + (1/2)*bbox.height) : bbox.y2;
+
     return "S1,-1," + String(mirrorX) + "," + String(mirrorY);
 }
 
 /*
-Constructor for vertical mirror transform string
+Constructor for vertical mirror transform string.
+By default the mirror is on the side of the shape,
+not through the center. 
+
 @pathSet: (Paper.path | Paper.set) to construct transformation from
 Returns (String) transform
 */
-function getMirrorV(pathSet) {
-    var bbox = pathSet.getBBox();
-    var mirrorX = bbox.x2;
-    var mirrorY = bbox.y; // same as either y or y2
+function getMirrorV(pathSet, centered = false) {
+    let bbox = pathSet.getBBox();
+
+    let mirrorY = bbox.y; // same as either y or y2
+    let mirrorX = (!!centered) ? (bbox.x1 + (1/2)*bbox.width) : bbox.x2;
+
     return "S-1,1," + String(mirrorX) + "," + String(mirrorY);
 }
 
