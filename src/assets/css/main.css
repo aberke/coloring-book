@@ -236,8 +236,9 @@ footer p {
 	text-align: center;
 	margin: 10px auto;
 }
-footer a {
+a {
 	color: #670067;
+	display: inline-block;
 }
 footer #footer-title {
 	font-size: large;
