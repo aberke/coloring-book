@@ -227,17 +227,22 @@ Note: So far this seems to work best with Firefox -- Preview as PDF
 
 
 footer {
-	border-top: 5px double #670067;
+	border-top: 10px solid #670067;
 	color: #670067;
 	padding: 30px;
 	margin-top: 60px;
 }
-footer p, footer a {
-	text-align: center !important;
-	margin: 10px auto !important;
+footer p {
+	text-align: center;
+	margin: 10px auto;
 }
 footer a {
 	color: #670067;
+}
+footer #footer-title {
+	font-size: large;
+	font-weight: 600;
+	text-align: center;
 }
 
 /* Frieze section */
