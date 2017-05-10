@@ -114,15 +114,15 @@ Constructor for glide reflection transformation string
     @gap: (Number) distance to translate past the width of the pathSet
 Returns (String) transformation
 */
-function getGlideH(pathSet, options) {
-    options = options || {};
+function getGlideH(pathSet, options = {}) {
     const mirrorOffset = options.mirrorOffset || 0;
     const gap = options.gap || 0;
-    var bbox = pathSet.getBBox();
-    var mirrorX = bbox.x;  // could be either x or x2
-    var mirrorY = bbox.y2;
 
-    var transformString = "";
+    let bbox = pathSet.getBBox();
+    let mirrorX = bbox.x;  // could be either x or x2
+    let mirrorY = bbox.y2;
+
+    let transformString = "";
     // add mirror portion
     transformString += ("S1,-1," + String(mirrorX) + "," + String(mirrorY - mirrorOffset));
     // add translation
@@ -156,13 +156,17 @@ By default the mirror is on the bottom of the shape,
 not through the center.  
 
 @pathSet: (Paper.path | Paper.set) to construct transformation from
+@options:
+    {boolean} centeredMirror - defaults to false.
 Returns (String) transformation
 */
-function getMirrorH(pathSet, centered = false) {
+function getMirrorH(pathSet, options = {}) {
+    let centered = !!options.centeredMirror;
+
     let bbox = pathSet.getBBox();
 
     let mirrorX = bbox.x;  // could be either x or x2
-    let mirrorY = (!!centered) ? (bbox.y1 + (1/2)*bbox.height) : bbox.y2;
+    let mirrorY = centered ? (bbox.y1 + (1/2)*bbox.height) : bbox.y2;
 
     return "S1,-1," + String(mirrorX) + "," + String(mirrorY);
 }
@@ -173,13 +177,16 @@ By default the mirror is on the side of the shape,
 not through the center. 
 
 @pathSet: (Paper.path | Paper.set) to construct transformation from
+@options:
+    {boolean} centeredMirror - defaults to false.
 Returns (String) transform
 */
-function getMirrorV(pathSet, centered = false) {
+function getMirrorV(pathSet, options = {}) {
+    let centered = !!options.centeredMirror;
     let bbox = pathSet.getBBox();
 
     let mirrorY = bbox.y; // same as either y or y2
-    let mirrorX = (!!centered) ? (bbox.x1 + (1/2)*bbox.width) : bbox.x2;
+    let mirrorX = centered ? (bbox.x1 + (1/2)*bbox.width) : bbox.x2;
 
     return "S-1,1," + String(mirrorX) + "," + String(mirrorY);
 }
