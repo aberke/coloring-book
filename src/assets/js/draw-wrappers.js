@@ -15,6 +15,7 @@ Optionally draws text below.  Uses passed in function to draw the shape.
                 {boolean} tapRedraw -- whether to redraw upon click-like event.
                 {number} tapRotate as number of degrees to rotate upon tap.  Must be between 0 and 360.
                         Only one of tapRedraw and tapRotate can be used.
+                {string ("V"|"H")} option to reflect vertically or horizontally across center of canvas.
 
 @returns {pathSet: object, origin: {X: number, Y: number}}
 */
@@ -73,6 +74,9 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
         setTapRotate(paper, pathSet, origin, options.tapRotate);
     }
 
+    if (options.reflect)
+        setReflection(pathSet, origin, options.reflect);
+
     return {
         pathSet: pathSet,
         origin: origin,
@@ -85,6 +89,21 @@ function getCanvasCenter(paper) {
         X: paper.getSize().width/2,
         Y: paper.getSize().height/2
     };  
+}
+
+/**
+Reflect the pathSet across the center on either a vertical or horizontal mirror.
+**/
+function setReflection(pathSet, origin, reflection) {
+    let transformString;
+    if (reflection === "V")
+        transformString = ("..." + getMirrorV(pathSet, true));
+    else if (reflection === "H")
+        transformString = ("..." + getMirrorH(pathSet, true));
+    else
+        return;
+
+    pathSet.transform(transformString)
 }
 
 function setInitialRotation(pathSet, origin, rotation) {
