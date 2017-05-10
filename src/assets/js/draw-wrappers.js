@@ -8,14 +8,14 @@ Optionally draws text below.  Uses passed in function to draw the shape.
             paper, origin, size, options, isRedraw
 
 @param {object} options
-                {string} text to draw below shape
-                {number} autoRotateDegrees - defaults to none.
+                {string} text: text to draw below shape
+                {number} autoRotateDegrees: defaults to none.
                         When set, shape automatically rotates every so often by this amount in animation
-                {number} margin to keep within sides of canvas and shape
-                {boolean} tapRedraw -- whether to redraw upon click-like event.
-                {number} tapRotate as number of degrees to rotate upon tap.  Must be between 0 and 360.
+                {number} margin: margin to keep within sides of canvas and shape
+                {boolean} tapRedraw: whether to redraw upon click-like event.
+                {number} tapRotate: number of degrees to rotate upon tap.  Must be between 0 and 360.
                         Only one of tapRedraw and tapRotate can be used.
-                {string ("V"|"H")} option to reflect vertically or horizontally across center of canvas.
+                {string ("V"|"H")} mirror: option to reflect vertically or horizontally across center of canvas.
 
 @returns {pathSet: object, origin: {X: number, Y: number}}
 */
@@ -74,8 +74,8 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
         setTapRotate(paper, pathSet, origin, options.tapRotate);
     }
 
-    if (options.reflect)
-        setReflection(pathSet, origin, options.reflect);
+    if (options.mirror)
+        setMirror(pathSet, origin, options.mirror);
 
     return {
         pathSet: pathSet,
@@ -94,12 +94,14 @@ function getCanvasCenter(paper) {
 /**
 Reflect the pathSet across the center on either a vertical or horizontal mirror.
 **/
-function setReflection(pathSet, origin, reflection) {
+function setMirror(pathSet, origin, mirror) {
+    let mirrorOptions = {centeredMirror: true};
     let transformString;
-    if (reflection === "V")
-        transformString = ("..." + getMirrorV(pathSet, true));
-    else if (reflection === "H")
-        transformString = ("..." + getMirrorH(pathSet, true));
+
+    if (mirror === "V")
+        transformString = ("..." + getMirrorV(pathSet, mirrorOptions));
+    else if (mirror === "H")
+        transformString = ("..." + getMirrorH(pathSet, mirrorOptions));
     else
         return;
 
