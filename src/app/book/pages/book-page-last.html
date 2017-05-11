@@ -1,4 +1,17 @@
-<div class="book-page" id="book-page-last" ng-if="book.page.name == p.name">
-	<ng-include src="'/app/common/partials/get-updates.html'"></ng-include>
-	<ng-include src="'/app/common/partials/footer.html'"></ng-include>
+<div class="book-page" id="book-page-last" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+			    <p class="coming-soon">More is coming soon.</p>
+
+				<div ng-if="!main.print">
+					<ng-include src="'/app/common/partials/get-updates.html'"></ng-include>
+					<ng-include src="'/app/common/partials/footer.html'"></ng-include>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
 </div>
