@@ -12,6 +12,7 @@ angular.module('app', [
 
     'app.book',
     'app.frieze',
+    'app.posters',
 ])
 .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
@@ -46,6 +47,9 @@ angular.module('app', [
         })
         .when('/frieze', {
             templateUrl: '/app/frieze/frieze.html',
+        })
+        .when('/posters/:posterName', {
+            templateUrl: '/app/posters/posters-index.html',
         })
         .otherwise({ redirectTo: '/' });
 

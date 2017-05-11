@@ -1,0 +1,39 @@
+<style>
+
+#posters h1 {
+	margin: 40px auto;
+	color: purple;
+}
+
+#posters-index {
+	text-align: center;
+}
+
+#posters-index ul {
+	display: inline-block;
+	list-style: none;
+	padding: 0;
+}
+#posters-index ul li {
+	font-size: 1.5em;
+	padding: 5px;
+}
+
+</style>
+
+<div id="posters" class="view" ng-controller="PostersCntl as posters">
+
+	<!-- If poster page is selected, then include it -->
+	<ng-include ng-if="posters.posterPageSrc" src="posters.posterPageSrc"></ng-include>
+
+	<!-- Otherwise show the list of pages -->
+	<div id="posters-index" ng-if="!posters.posterPageSrc">
+		<h1>POSTERS</h1>
+
+		<ul>
+			<li ng-repeat="p in posters.posterNames"><a ng-href="/#!/posters/{{p}}">{{p}}</a></li>
+		</ul>
+
+	</div>
+
+</div>

@@ -1,0 +1,73 @@
+<style>
+#poster-page-you-may-know {
+	max-width: 900px;
+	margin: 50px auto;
+	padding: 2%;
+	text-align: auto;
+}
+#poster-page-you-may-know .canvas {
+	display: inline-block;
+}
+#poster-page-you-may-know .content-container
+{
+	text-align: center;
+	border-top: 15px solid #3bcca6;
+	border-bottom: 15px solid #3bcca6;
+}
+#poster-page-you-may-know .content-container p {
+	text-align: center;
+	padding: 10px 30px;
+	font-size: 1.4em;
+}
+#poster-page-you-may-know .say-coloring-book {
+	color: purple;
+	font-weight: 500;
+}
+
+</style>
+
+<div id="poster-page-you-may-know" class="poster-page">
+
+	<div class='frieze-pattern'
+		pattern-function=slantedSlices
+		draw-options='{"strokeWidth": 2, "stroke": "#3bcca6"}'
+		group-name='p1'
+		fundamental-domain-width=60
+		fundamental-domain-height=70
+		margin=5
+		show-symmetry-sets=false
+		pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": true}'
+	></div>
+
+	<div class="content-container">
+		<p>You may know of coloring books as a childhood amusement or as a means to adult relaxation. How about as a medium to explore the mathematics of symmetry?</p>
+
+		<div
+			circular-tessellation
+			class="canvas sixth" 
+			with-redraw 
+			rotations=6
+			rings="[0.7, 0.75]"
+			slices-count=3
+			levels=2
+			with-reflection=true
+			margin=15
+		></div>
+
+		<p>This is a <span class="say-coloring-book">Coloring Book</span> about Group Theory.</p>
+
+	</div>
+
+
+	<div class='frieze-pattern'
+		pattern-function=slantedSlices
+		draw-options='{"strokeWidth": 2, "stroke": "#3bcca6"}'
+		group-name='p1'
+		fundamental-domain-width=60
+		fundamental-domain-height=70
+		margin=5
+		show-symmetry-sets=false
+		pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": true}'
+	></div>
+
+</div>

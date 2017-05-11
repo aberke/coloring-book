@@ -32,7 +32,7 @@ In order to export the book to printable version, or save it as printable PDF:
 
 ## Posters
 
-Full printable poster designs available at `/posters/`
+Printable posters available at `/posters/`
 
 
 ## Worksheets
@@ -136,12 +136,6 @@ Starting to generate & put together the pieces.  They are shown at /pieces
 - Frieze:
 	- ? in frieze directive, adjust fundamental domain pattern height when shape has reflection so that frieze pattern takes up same height as other frieze patterns ?
 	- better for standardizing around page size and printing
-
-
-- make /printable for where all pages are displayed together
-
-- standardize size for pages
-	- they should all be the same height -- easier printing too
 
 - fix google analytics
 	- it would be nice to track what page people get to
