@@ -33,7 +33,7 @@
 </style>
 
 
-<div>
+<div id="pieces">
 	<!-- Style Guide -->
 	<div id='style-guide'>
 		<h1 id='book-title'>Styles</h1>
@@ -90,6 +90,7 @@
                 </div>
 			</div>
 
+
 			<!-- circular tessellation -->
 			<div>
 				<h3>Circular Tesselation</h3>
@@ -128,66 +129,6 @@
 				</div>
 			</div>
 		    <!-- circular tessellation -->
-
-
-			<!-- circular tessellations with same slices -->
-			<div>
-				<h3>Circular Tesselations using same slices</h3>
-				<div>
-			    	<div class='third' id='canvas-circular-tessellation-3a' class='canvas'></div>
-			    	<div class='third' id='canvas-circular-tessellation-3b' class='canvas'></div>
-			    	<div class='third' id='canvas-circular-tessellation-3c' class='canvas'></div>
-			    	<p>These are generated using the same slices.</p>
-
-				    <script>
-				    'use strict';
-
-				    // put the variables for circular-tessellation-1 in here
-				    var CT3 = {
-				    	a:{},
-				    	b:{},
-				    	c:{},
-				    };
-
-				    CT3.a.paper = new Raphael('canvas-circular-tessellation-3a', '100%', 400);
-				    CT3.b.paper = new Raphael('canvas-circular-tessellation-3b', '100%', 400);
-				    CT3.c.paper = new Raphael('canvas-circular-tessellation-3c', '100%', 400);
-
-				    // get the slices to use
-				    // ASSUMPTION: all the canvases have the same size, and therefore the same origin
-				    CT3.origin = getCanvasCenter(CT3.a.paper);
-
-				    CT3.diameter = Math.min(CT3.a.paper.getSize().width, CT3.a.paper.getSize().height);
-				    CT3.options = {
-				    	levels: 2,
-				    	withReflection: true,
-				    	rotations: 2,
-				    };
-				    CT3.a.options = JSON.parse(JSON.stringify(CT3.options));
-				    CT3.b.options = JSON.parse(JSON.stringify(CT3.options));
-				    CT3.c.options = JSON.parse(JSON.stringify(CT3.options));
-				    // a and c have 2 roations, b has 4
-				    CT3.b.options.rotations = 4;
-
-				    // generate circular tessellation 'a' and use its slices to generate the others
-				    CT3.a.circularTessellation = new CircularTessellation(CT3.a.paper, CT3.origin, CT3.diameter, CT3.options);
-
-				    // get the slices pathList from a and add them to the options
-				    // so that they can be used to generate the other circular tessellations
-				    CT3.slicesPathList = CT3.a.circularTessellation.slicesPathList;
-				    CT3.b.options.slicesPathList = CT3.slicesPathList;
-				    CT3.c.options.slicesPathList = CT3.slicesPathList;
-
-				    // generate circular tessellation b
-				    CT3.b.circularTessellation = new CircularTessellation(CT3.b.paper, CT3.origin, CT3.diameter, CT3.b.options);
-				    // generate c
-				    CT3.c.circularTessellation = new CircularTessellation(CT3.c.paper, CT3.origin, CT3.diameter, CT3.c.options);
-
-				    </script>
-				</div>
-				
-			</div>
-		    <!-- circular tessellations with same slices -->
 
 			<!-- circular flower -->
 			<div>
@@ -233,45 +174,23 @@
 				<h2>N Gons</h2>
 				<div class='half'>
 					<p>5-gon</p>
-			    	<div id='canvas-ngon-5' class='canvas third'></div>
-			    	<script type="text/javascript-lazy">
-			    		'use strict';
 
-					    var NGON5 = {};
-				    	NGON5.paper = new Raphael('canvas-ngon-5', '100%', 400);
-				    	NGON5.buffer = 10;
-						NGON5.paperWidth = NGON5.paper.getSize().width;
-						NGON5.paperHeight = NGON5.paper.getSize().height;
-					    NGON5.origin = {
-					    	X: NGON5.paperWidth/2,
-					    	Y: NGON5.paperHeight/2
-					   	};
-						NGON5.size = Math.min(NGON5.paperWidth, NGON5.paperHeight) - NGON5.buffer;
-
-						NGON5.NGon = new RegularPolygon(NGON5.paper, NGON5.origin, NGON5.size, {N: 5});
-
-			    	</script>
+				    <div class='canvas third'
+	                    canvas-centered-drawing
+	                    draw-function='drawRegularPolygon'
+	                    function-options='{"N": 5}'
+	                    options='{}'
+	                ></div>
 			    </div>
 				<div class='half'>
 					<p>8-gon</p>
-			    	<div id='canvas-ngon-8' class='canvas third'></div>
-			    	<script type="text/javascript-lazy">
-			    		'use strict';
 
-					    var NGON8 = {};
-				    	NGON8.paper = new Raphael('canvas-ngon-8', '100%', 400);
-				    	NGON8.buffer = 10;
-						NGON8.paperWidth = NGON8.paper.getSize().width;
-						NGON8.paperHeight = NGON8.paper.getSize().height;
-					    NGON8.origin = {
-					    	X: NGON8.paperWidth/2,
-					    	Y: NGON8.paperHeight/2
-					   	};
-						NGON8.size = Math.min(NGON8.paperWidth, NGON8.paperHeight) - NGON8.buffer;
-
-						NGON8.NGon = new RegularPolygon(NGON8.paper, NGON8.origin, NGON8.size, {N: 8});
-
-			    	</script>
+				    <div class='canvas third'
+	                    canvas-centered-drawing
+	                    draw-function='drawRegularPolygon'
+	                    function-options='{"N": 8}'
+	                    options='{}'
+	                ></div>
 			    </div>
 		    </div>
 		    <!-- n-gons -->
@@ -306,45 +225,24 @@
 				<h2>Shapes</h2>
 				<div class='half'>
 					<p>C6 Shape</p>
-			    	<div id='canvas-C6' class='canvas'></div>
-			    	<script type="text/javascript-lazy">
-			    		'use strict';
 
-					    var C6 = {
-					    	paper: new Raphael('canvas-C6', '100%', 400),
-					    	functionOptions: {
-					    		N: 6,
-					    	},
-					    	options: {
-					    		margin: 12,
-					    		inscribed: true,
-					    	},
-					    };
-					    drawInCanvasCenter(C6.paper, drawCyclicShape, C6.functionOptions, C6.options);
+			    	<div class='canvas third'
+				    	canvas-centered-drawing 
+				    	draw-function='drawCyclicShape'
+				    	function-options='{"N": 6}'
+				    	options='{"margin": 12, "inscribed":"circle"}'
+				    ></div>
 
-
-			    	</script>
 			    </div>
 				<div class='half'>
 					<p>D7</p>
-			    	<div id='canvas-D7' class='canvas'></div>
-			    	<script type="text/javascript-lazy">
-			    		'use strict';
 
-					    var D7 = {
-					    	paper: new Raphael('canvas-D7', '100%', 400),
-					    	functionOptions: {
-					    		alternateSideStrokes: true,
-					    		N: 7,
-					    	},
-					    	options: {
-					    		margin: 12,
-					    		inscribed: true,
-					    	},
-					    };
-					    drawInCanvasCenter(D7.paper, drawDihedralShape, D7.functionOptions, D7.options);
-
-			    	</script>
+			    	<div class='canvas third'
+				    	canvas-centered-drawing 
+				    	draw-function='drawDihedralShape'
+				    	function-options='{"N": 7, "alternateSideStrokes": true}'
+				    	options='{"margin": 12, "inscribed": true}'
+				    ></div>
 			    </div>
 		    </div>
 		    <!-- cyclic and dihedral shapes -->
@@ -431,8 +329,6 @@
 
 		</div>
 		<!-- frieze -->
-
-		<div id='test-canvas'></div>
 	   	
 	</div>
 	<!-- Pieces -->
