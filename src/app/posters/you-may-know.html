@@ -1,10 +1,20 @@
 <style>
+
+@page {
+	size: landscape;
+	margin: 0;
+}
+
 #poster-page-you-may-know {
 	max-width: 900px;
+	text-align: center;
+	margin: auto;
+}
+#poster-page-you-may-know .poster-container {
 	margin: 50px auto;
 	padding: 2%;
-	text-align: auto;
 }
+
 #poster-page-you-may-know .canvas {
 	display: inline-block;
 }
@@ -24,50 +34,60 @@
 	font-weight: 500;
 }
 
+#poster-page-you-may-know .start-coloring {
+	text-align: center;
+	margin-top: 70px;
+}
+
 </style>
 
 <div id="poster-page-you-may-know" class="poster-page">
+	<div class="poster-container">
 
-	<div class='frieze-pattern'
-		pattern-function=slantedSlices
-		draw-options='{"strokeWidth": 2, "stroke": "#3bcca6"}'
-		group-name='p1'
-		fundamental-domain-width=60
-		fundamental-domain-height=70
-		margin=5
-		show-symmetry-sets=false
-		pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": true}'
-	></div>
-
-	<div class="content-container">
-		<p>You may know of coloring books as a childhood amusement or as a means to adult relaxation. How about as a medium to explore the mathematics of symmetry?</p>
-
-		<div
-			circular-tessellation
-			class="canvas sixth" 
-			with-redraw 
-			rotations=6
-			rings="[0.7, 0.75]"
-			slices-count=3
-			levels=2
-			with-reflection=true
-			margin=15
+		<div class='frieze-pattern'
+			pattern-function=slantedSlices
+			draw-options='{"strokeWidth": 2, "stroke": "#3bcca6"}'
+			group-name='p1'
+			fundamental-domain-width=60
+			fundamental-domain-height=70
+			margin=5
+			show-symmetry-sets=false
+			pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": true}'
 		></div>
 
-		<p>This is a <span class="say-coloring-book">Coloring Book</span> about Group Theory.</p>
+		<div class="content-container">
+			<p>You may know of coloring books as a childhood amusement or as a means to adult relaxation. How about as a medium to explore the mathematics of symmetry?</p>
+
+			<div
+				circular-tessellation
+				class="canvas sixth" 
+				with-redraw 
+				rotations=6
+				rings="[0.7, 0.75]"
+				slices-count=3
+				levels=2
+				with-reflection=true
+				margin=15
+			></div>
+
+			<p>This is a <span class="say-coloring-book">Coloring Book</span> about Group Theory.</p>
+
+		</div>
+
+
+		<div class='frieze-pattern'
+			pattern-function=slantedSlices
+			draw-options='{"strokeWidth": 2, "stroke": "#3bcca6"}'
+			group-name='p1'
+			fundamental-domain-width=60
+			fundamental-domain-height=70
+			margin=5
+			show-symmetry-sets=false
+			pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": true}'
+		></div>
 
 	</div>
 
-
-	<div class='frieze-pattern'
-		pattern-function=slantedSlices
-		draw-options='{"strokeWidth": 2, "stroke": "#3bcca6"}'
-		group-name='p1'
-		fundamental-domain-width=60
-		fundamental-domain-height=70
-		margin=5
-		show-symmetry-sets=false
-		pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": true}'
-	></div>
+	<p class="start-coloring">Start coloring: <a href="http://coloring-book.co">http://coloring-book.co</a></p>
 
 </div>
