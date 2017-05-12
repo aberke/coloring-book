@@ -1,0 +1,55 @@
+
+<div id="menu" ng-controller="MenuCntl as menu">
+
+    <nav id="menu-nav" ng-class="{'opened': menu.opened}">
+      <a href="javascript:void(0)" class="menu-close-btn" ng-mouseup="menu.close()">&times;</a>
+      <a ng-mouseup="menu.close()" href="/">Start</a>
+      <a ng-mouseup="menu.close()" href="/#!/about">About</a>
+      <a ng-mouseup="menu.close()" href="http://coloring-book.co/#!/print-book">Print It</a>
+      <a ng-mouseup="menu.close()" href="/form">Give Feedback</a>
+      <a ng-mouseup="menu.close()" href="/form">Get Updates</a>
+      <a ng-mouseup="menu.close()" href="/#!/frieze">Frieze Groups</a>
+      <a ng-mouseup="menu.close()" href="https://aberke.github.io/fractals/">Fractals</a>
+      <a ng-mouseup="menu.close()" href="mailto:colorbymath@gmail.com?subject=Coloring%20Book">Contact</a>
+    </nav>
+
+    <!-- Use any element to open the sidenav -->
+    <span class="menu-open-btn" ng-mouseup="menu.open()">
+        <div class="hamburger-btn-line"></div>
+        <div class="hamburger-btn-line"></div>
+        <div class="hamburger-btn-line"></div>
+    </span>
+
+</div>
+
+
+<!-- TODO
+<ul>
+    <li>
+        <a href="#TODO">The Book</a>
+        <ul>
+            <li><a href="#TODO">Cover</a></li>
+            <li><a href="#TODO">Shapes &amp; Symmetries</a></li>
+            <li><a href="#TODO">Frieze Groups</a></li>
+            <li><a href="#TODO">Wallpaper Groups</a></li>
+        </ul>
+    </li>
+    <li><a href="#TODO">About</a></li>
+        <ul>
+            <li><a href="#TODO">What</a></li>
+            <li><a href="#TODO">Why</a></li>
+            <li><a href="#TODO">How</a></li>
+            <li><a href="#TODO">Contact</a></li>
+            <li><a href="#TODO">Contribute</a></li>
+        </ul>
+    <li><a href="#TODO">Get Updates // Get Invites</a></li>
+    <li>
+        <a href="#TODO">Color on Paper // Get the Book (*free)</a>
+        <ul>
+            <li><a href="#TODO">Buy the Book</a></li>
+            <li><a href="#TODO">Print For Free</a></li>
+        </ul>
+    </li>
+    <li><a href="#TODO">Wallpaper your home / work / space</a></li>
+    <li><a href="#TODO"">License</a></li>
+</ul> -->

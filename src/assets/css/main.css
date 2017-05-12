@@ -1,4 +1,4 @@
-/*
+/**
 Colors:
 	EXTRA_LIGHT_GRAY: #f1f1f1;
 	LIGHT_GRAY: #d3d3d3;
@@ -7,7 +7,7 @@ Colors:
 		rgb(59,204,166)
 	YELLOW: #ffe100;
 
-*/
+**/
 
 body {
 	font-family: 'Raleway', sans-serif;
@@ -34,6 +34,12 @@ h1 {
 #book-title-container {
 	max-width: 800px;
 	margin: 50px auto;
+	/*make space for the menu*/
+	margin-top: 80px;
+}
+/*remove the space for the menu*/
+.print #book-title-container {
+	margin-top: 50px;
 }
 #book-title-container h1 {
 	font-weight: 400;

@@ -101,7 +101,6 @@ move from one book-page to the next with animation:
     top: 1200px;
 }
 
-
 .animate-previous-page .book-page.ng-leave,
 .animate-previous-page .book-page.ng-enter.ng-enter-active {
     position: relative;
@@ -125,7 +124,10 @@ move from one book-page to the next with animation:
     text-align: center;
     color: rgb(59,204,166);
     padding: 15px;
-    margin: 20px 0;
+    margin: 15px 0;
+}
+.page-change-btn.page-previous-btn {
+    margin-top: 12px;
 }
 .page-change-btn.page-next-btn {
     margin-bottom: 35px;
