@@ -4,15 +4,27 @@
 }
 
 #frieze-nav {
-	padding: 1em;
+	margin: 25px 50px;
 }
-#frieze-nav h1, #frieze-nav ul, #frieze-nav li {
-	display: inline;
-	margin-right: 10px;
+#frieze-nav h1, 
+#frieze-nav ul {
 	border: none;
+	padding: 0;
 }
 
+#frieze-nav h1 {
+	display: block;
+	padding-left: 15px;
+	text-align: center;
+	text-transform: uppercase;
+}
+#frieze-nav ul {
+	display: block;
+	text-align: center;
+}
 #frieze-nav li {
+	display: inline;
+	padding: 10px;
 	font-size: 1.2em;
 }
 

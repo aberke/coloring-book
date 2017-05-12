@@ -10,6 +10,7 @@ angular.module('app', [
 
     'ngLoadScript',
 
+    'app.menu',
     'app.book',
     'app.frieze',
     'app.posters',
