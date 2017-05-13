@@ -95,9 +95,15 @@ function drawXAxesSet(paper, startY, gap, count) {
     return set;
 }
 
-function drawXaxis(paper, xAxisCoord, color) {
+/**
+ * Draws X-axis
+ * @param {Paper} paper to draw on
+ * @param {number} starting Y coordinate
+ * @returns {paper.Path}
+**/
+function drawXaxis(paper, y, color) {
     var paperWidth = paper.getSize().width;
-    var xAxisPathString = "M0," + String(xAxisCoord) + " l" + String(paperWidth) + ",0";
+    var xAxisPathString = "M0," + String(y) + " l" + String(paperWidth) + ",0";
     var xAxisPath = paper.path(xAxisPathString)
         .attr({
             "stroke-width": 2,
