@@ -35,6 +35,12 @@
 .print-only .frieze-pattern-title {
 	border: none;
 }
+.title-container ul {
+	max-width: 45%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
 
 .print .title-container h1 {
 	border: none;

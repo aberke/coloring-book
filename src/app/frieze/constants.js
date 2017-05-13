@@ -18,24 +18,46 @@ const SYMMETRY_SET_STYLES = {
 // and inject that service in the FriezePageCntl and directive
 const friezeGroupsData = {
 	'p1': {
-		description: 'Translation only',
+		generators: ['Translation'],
 	},
 	'p11m': {
-		description: 'Horizontal reflection',
+		generators: [
+			'Translation',
+			'Horizontal reflection'
+		],
 	},
 	'p1m1': {
-		description: 'Vertical Reflection',
+		generators: [
+			'Translation',
+			'Vertical reflection'
+		],
 	},
 	'p1a1': {
-		description: 'Glide Reflection',
+		generators: [
+			'Translation',
+			'Glide reflection'
+		],
 	},
 	'p2': {
-		description: 'Order-2 Rotations',
+		generators: [
+			'Translation',
+			'Order-2 Rotations'
+		],
 	},
 	'p2mg': {
-		description: 'Vertical Reflection + Glide Reflection + Order-2 Rotations',
+		generators: [
+			'Translation',
+			'Vertical reflection',
+			'Glide reflection',
+			'Order-2 Rotations',
+		],
 	},
 	'p2mm': {
-		description: 'Horizontal Reflection + Vertical Reflections + Order-2 Rotations + Translation',
+		generators: [
+			'Translation',
+			'Horizontal reflection',
+			'Vertical reflection',
+			'Order-2 Rotations',
+		],
 	},
 };

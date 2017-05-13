@@ -28,7 +28,6 @@ function friezePatternDirective($window) {
 		scope.drawOptions = JSON.parse(attrs.drawOptions || "{}");
 
 		scope.patternData = friezeGroupsData[scope.groupName];
-		scope.patternDescription = scope.patternData.description || '';
 
 		// margin is the margin to leave above and below the drawn pattern
 		// useful for patterns that have rotations that otherwise send their patterns outside
@@ -82,7 +81,7 @@ function friezePatternDirective($window) {
 
 		// draws h1's
 		scope.setupH1SymmetrySet = function(h1StartY, hGap) {
-		    var h1Set = drawXAxesSet(scope.paper, h1StartY, hGap);
+		    var h1Set = drawXaxis(scope.paper, h1StartY, hGap);
 		    addSymmetrySetProperties(h1Set, SYMMETRY_SET_STYLES.h1);
 		    scope.symmetrySets.h1 = h1Set;
 		};
@@ -163,9 +162,8 @@ function friezePatternDirective($window) {
 			scope.drawPattern();
 
 			// draw the symmetry set
-			var glideStartY = (1 - mirrorHOffsetFraction)*(scope.fundamentalDomainHeight);
-			var glideSet = drawXAxesSet(scope.paper, glideStartY, scope.patternSpaceHeight);
-
+			let glideStartY = scope.fundamentalDomainHeight + scope.margin - mirrorHOffset;
+			let glideSet = drawXaxis(scope.paper, glideStartY)
 			addSymmetrySetProperties(glideSet, SYMMETRY_SET_STYLES.g);
 			scope.symmetrySets.g = glideSet;
 		};
@@ -205,8 +203,8 @@ function friezePatternDirective($window) {
 			scope.drawPattern();
 
 			// draw the symmetry sets
-			var glideStartY = (1 - mirrorHOffsetFraction)*(scope.fundamentalDomainHeight);
-			var glideSet = drawXAxesSet(scope.paper, glideStartY, scope.patternSpaceHeight);
+			let glideStartY = scope.fundamentalDomainHeight + scope.margin - mirrorHOffset;
+			let glideSet = drawXaxis(scope.paper, glideStartY);
 
 			addSymmetrySetProperties(glideSet, SYMMETRY_SET_STYLES.g);
 			scope.symmetrySets.g = glideSet;

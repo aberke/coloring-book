@@ -11,10 +11,12 @@
 
     <div ng-repeat="(groupName, groupData) in friezePage.friezeGroupsData" class="frieze-pattern-container">
         <div ng-if="friezePage.selectedGroupName===groupName">
-
+            
             <div class='title-container' ng-click="friezePage.showGroupDetails()">
                 <h1 class='frieze-pattern-title'>{{ groupName }}</h1>
-                <span ng-show="friezePage.showGroupDescription">: {{ groupData.description }}</span>
+                <ul ng-show="friezePage.showGroupDescription". class='pattern-generators-list'>
+                    <li ng-repeat="generator in groupData.generators">{{generator}}</li>
+                </ul>
             </div>
 
             <div class='frieze-pattern'
