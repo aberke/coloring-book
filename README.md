@@ -2,17 +2,22 @@
 
 <img width=100 align="right" src="https://aberke.github.io/fractals/img/sierpinski-triangle.png">
 
-You might know of coloring books as a childhood amusement or as a means to adult relaxation. How about as a medium to teach the mathematics of group theory? Come color on the walls, interact with mathematical animations, and learn more about the beauty of math.
+You may know of coloring books as a childhood amusement or as a means to adult relaxation. How about as a medium to explore the mathematics of symmetry?
 
-This is an open source, online coloring book through which one can explore the mathematics of symmetry and group theory.  Start coloring.
+This is a Coloring Book about Group Theory.  It is both digital and on paper.
+
+By coloring on paper, readers can explore symmetry and the beauty of math.  
+Following along on the digital copy to brings the concepts and illustrations to life in interactive animations.
 
 http://coloring-book.co
 
 
-##### Give Feedback and Get Updates
+The illustrations in this book are designed by algorithms that follow the symmetry rules of the groups that the illustrations belong to. These algorithms also use generative art techniques to add components of randomness - notice the illustrations never repeat.
 
-- [Form here](https://docs.google.com/forms/d/e/1FAIpQLSeHWQDnA1ycEoDlJQXIz48sPoac-q5QlRo2Dyznu5E2ixYeGg/viewform)
-- There's also a redirect link: http://coloring-book.co/form
+
+##### Give Feedback // Get Updates
+
+- http://coloring-book.co/form
 
 
 
@@ -165,13 +170,9 @@ Share with http://www.coloring-book.co not http://coloring-book.co to avoid redi
 
 
 
-#### RaphaelJS
+#### Frieze Groups Notes
 
-- paper.clear() removes the SVG path
-
-#### Frieze Groups
-
-- See pages 70-76 for good examples from anthropological studies around the world
+- See pages 70-76 of Isometrica for good examples from anthropological studies around the world
 
 
 - p1111 (aka p1): (T): Translation only
