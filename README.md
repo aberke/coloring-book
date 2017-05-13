@@ -16,32 +16,18 @@ http://coloring-book.co
 
 
 
-## Export to Print/Save
-
-Full printable book available at `/print-book`
-
-Use the `?print` URL param to test printer friendly styling of the page
-
-In order to export the book to printable version, or save it as printable PDF:
-
-- Works best with Firefox browser
-- Choose "letter" or 8.5x11 paper size in print dialog
-- Select to show no headers and only center page number as footer
-- "Preview as PDF"
-
-
 ## Posters
 
-Printable posters available at `/posters/`
+Printable posters available at `/#!/posters/`
 
 
 ## Worksheets
 
-- Worksheet at `/worksheet`
+- Worksheet at `/#!/worksheet`
 	- Print this worksheet -- meant for Second Sunday at Pioneer Works
 	- Designed to be printed in landscape mode on 11x17 paper
 	
-- Frieze pattern cards at `/cards`
+- Frieze pattern cards at `/#!/cards`
 	- Print and cut into cards with one pattern piece per card.
 	- Try to arrange these cards to generate the Frieze Patterns.
 
@@ -117,12 +103,49 @@ Workflow:
 	- `$ git push production `
 
 
+
+## Printable Copy
+
+Full PDF of book available at http://coloring-book.co/coloring-book.pdf
+
+PDF/printable ready HTML book available at `/#!/print-book`
+
+
+##### Notes:
+
+Use the `?print` URL param to test printer friendly styling of the page
+
+For regenerating the PDF at /coloring-book.pdf:
+- Go to /#!/print-book
+- Use Firefox browser (best obeys @page CSS specs)
+- Make sure the illustrations look good (or click to recreate them)
+- File -> print (Open the browser’s print dialog)
+- Choose to have no headers & footers
+- Choose portrait view & 8.5x11 (aka "letter") paper
+- "Open PDF in Preview"
+- Save as PDF at `/coloring-book.pdf`
+
+
 ### Pieces
 
-Starting to generate & put together the pieces.  They are shown at /pieces
+Starting to generate & put together the pieces.  They are shown at /#!/pieces
 
 
-# TODO:
+#### Screencast to GIFs Workflow
+
+- Use Quicktime player to take screencast
+- Use https://giphy.com/create/gifmaker to convert .mov file to gif
+- Use ?animate URL param to auto animate things on the page upon page load
+
+
+### Notes:
+
+#### Sharing
+
+Share with http://www.coloring-book.co not http://coloring-book.co to avoid redirect
+
+
+#### TODO:
 
 - Fix the sometimes missing arrowhead from drawArrow
 
@@ -140,19 +163,6 @@ Starting to generate & put together the pieces.  They are shown at /pieces
 - fix google analytics
 	- it would be nice to track what page people get to
 
-
-#### Screencast to GIFs Workflow
-
-- Use Quicktime player to take screencast
-- Use https://giphy.com/create/gifmaker to convert .mov file to gif
-- Use ?animate URL param to auto animate things on the page upon page load
-
-
-### Notes:
-
-#### Sharing
-
-Share with http://www.coloring-book.co not http://coloring-book.co to avoid redirect
 
 
 #### RaphaelJS
