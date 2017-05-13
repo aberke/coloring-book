@@ -26,7 +26,9 @@ const srcFiles = {
   js: ["src/**/*.js"],
   css: ["src/**/*.css"],
   img: ["src/**/img/**"],
-  html: ["src/**/*.html"]
+  html: ["src/**/*.html"],
+
+  bookPDF: ["src/*.pdf"]
 };
 const destination = "./dist";
 
@@ -61,6 +63,11 @@ gulp.task("html", function() {
 		.pipe(gulp.dest(destination));
 });
 
+gulp.task("bookPDF", function() {
+  gulp.src(srcFiles.bookPDF)
+    .pipe(gulp.dest(destination));
+});
+
 gulp.task("js", function (cb) {
   pump([
       gulp.src(srcFiles.js),
@@ -82,6 +89,7 @@ gulp.task("watch", function () {
   gulp.watch(srcFiles.css, ["css"]);
   gulp.watch(srcFiles.img, ["img"]);
   gulp.watch(srcFiles.html, ["html"]);
+  gulp.watch(srcFiles.bookPDF, ["bookPDF"]);
 });
 
 
@@ -94,6 +102,6 @@ gulp.task("serve", ["watch"], function() {
 });
 
 
-gulp.task("build", ["img", "css", "html", "js"]);
+gulp.task("build", ["img", "css", "html", "js", "bookPDF"]);
 
 gulp.task("default", ["build", "lint"]);

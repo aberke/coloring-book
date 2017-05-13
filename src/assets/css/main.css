@@ -102,7 +102,7 @@ Structure
 	width: 50px;
 	display: none;
 }
-@media (max-width: 875px) {
+@media (max-width: 600px) {
 	#coloring-guide .book-section-title .canvas {
 		display: block;
 		margin: auto;
