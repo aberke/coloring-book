@@ -136,6 +136,10 @@ For regenerating the PDF at /coloring-book.pdf:
 Starting to generate & put together the pieces.  They are shown at /#!/pieces
 
 
+### Making GIFs
+
+Can upload images to combine into GIFs here: http://gifmaker.me/
+
 #### Screencast to GIFs Workflow
 
 - Use Quicktime player to take screencast
