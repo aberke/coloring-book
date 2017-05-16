@@ -174,13 +174,13 @@
 			<div>
 				<h2>N Gons</h2>
 				<div class='half'>
-					<p>5-gon</p>
+					<p>5-gon.</p>
 
 				    <div class='canvas third'
 	                    canvas-centered-drawing
 	                    draw-function='drawRegularPolygon'
 	                    function-options='{"N": 5}'
-	                    options='{}'
+				    	options='{"autoReflect":"H"}'
 	                ></div>
 			    </div>
 				<div class='half'>
@@ -313,11 +313,12 @@
 			    	></div>
 			    </div>
 				<div class='half'>
-					<p></p>
+					<p> Can auto reflect either vertically or horizontally with option autoReflect="H"|"V"</p>
 			    	<div class='canvas third'
 				    	canvas-centered-drawing 
 				    	draw-function='drawRegularPolygon'
 				    	function-options='{"N": 5, "concave":true, "withMirrorSections": true, "coloring": [1, 0, 2]}'
+				    	options='{"autoReflect":"V"}'
 			    	></div>
 
 			    </div>
