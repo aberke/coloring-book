@@ -22,18 +22,24 @@
             </h2>
 
             <div class="title-container coloring-guide-shapes-and-symmetries-title">
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawCyclicShape'
-                    function-options='{"N":5}'
-                    options='{"autoRotateDegrees":72}'
+                <div
+                    class="canvas" 
+                    with-redraw 
+                    circular-tessellation
+                    rotations=7
+                    slices-count=2
+                    levels=1
+                    margin=10
                 ></div>
                 <h3>Shapes &amp; Symmetries</h3>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawDihedralShape'
-                    function-options='{"N":5}'
-                    options='{"autoRotateDegrees":72}'
+                <div
+                    class="canvas" 
+                    with-redraw 
+                    circular-tessellation
+                    rotations=7
+                    slices-count=2
+                    levels=1
+                    margin=10
                 ></div>
             </div>
             <div class="subtitle-container coloring-guide-shapes-and-symmetries-subtitle">
@@ -54,16 +60,16 @@
             <div class="subtitle-container coloring-guide-shapes-and-symmetries-subtitle">
                 <div class='canvas'
                     canvas-centered-drawing
-                    draw-function='drawDihedralShape'
-                    function-options='{"N":4}'
-                    options='{"autoRotateDegrees":90}'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":7, "concave": true}'
+                    options='{"autoReflect": "V"}'
                 ></div>
                 <h4>Reflections // Dihedral Groups</h4>
                 <div class='canvas'
                     canvas-centered-drawing
-                    draw-function='drawDihedralShape'
-                    function-options='{"N":4}'
-                    options='{"autoRotateDegrees":90}'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":7, "concave": true}'
+                    options='{"autoReflect": "V"}'
                 ></div>
             </div>
 
