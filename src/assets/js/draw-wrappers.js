@@ -1,3 +1,11 @@
+
+// animation length must 
+const ANIMATION_LENGTH = 2000;
+// interval length must be a multiple of animation length
+// (shape will get stuck in animation otherwise)
+const INTERVAL_LENGTH = 6*ANIMATION_LENGTH;
+const MAX_INTERVAL_COUNT = 5;
+
 /**
 Draws shape in the center of the canvas.
 Optionally draws text below.  Uses passed in function to draw the shape.
@@ -15,6 +23,7 @@ Optionally draws text below.  Uses passed in function to draw the shape.
                 {boolean} tapRedraw: whether to redraw upon click-like event.
                 {number} tapRotate: number of degrees to rotate upon tap.  Must be between 0 and 360.
                         Only one of tapRedraw and tapRotate can be used.
+                {string ("V"|"H")} autoReflect: option to on interval across either vertical (V) or horizontal (H) mirror
                 {string ("V"|"H")} mirror: option to reflect vertically or horizontally across center of canvas.
 
 @returns {pathSet: object, origin: {X: number, Y: number}}
@@ -74,8 +83,11 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
         setTapRotate(paper, pathSet, origin, options.tapRotate);
     }
 
+    if (options.autoReflect)
+        setMirror(pathSet, origin, options.autoReflect, true);
+
     if (options.mirror)
-        setMirror(pathSet, origin, options.mirror);
+        setMirror(pathSet, origin, options.mirror, false);
 
     return {
         pathSet: pathSet,
@@ -92,20 +104,47 @@ function getCanvasCenter(paper) {
 }
 
 /**
+Wrap setting an interval so that all intervals are set in the same way.
+Runs onIntervalFunction up to MAX_INTERVAL times and then clears interval.
+*Important* to clear interval for memory/performance reasons
+(Otherwise onIntervalFunction continues running on interval even after changing page)
+
+@param {function} onIntervalFunction: function to be run on interval
+**/
+function setIntervalWrapper(onIntervalFunction) {
+    let intervalCount = 0;
+
+    let interval = setInterval(function(){
+        intervalCount += 1;
+        // run the function
+        onIntervalFunction();
+        // clear the interval if it has been run enough times
+        if (intervalCount >= MAX_INTERVAL_COUNT)
+            clearInterval(interval);
+
+    }, INTERVAL_LENGTH);
+}
+
+/**
 Reflect the pathSet across the center on either a vertical or horizontal mirror.
 **/
-function setMirror(pathSet, origin, mirror) {
+function setMirror(pathSet, origin, mirror, onInterval=false) {
     let mirrorOptions = {centeredMirror: true};
     let transformString;
 
     if (mirror === "V")
-        transformString = ("..." + getMirrorV(pathSet, mirrorOptions));
+        transformString = "...S-1,1," + String(origin.X) + "," + String(origin.Y);
     else if (mirror === "H")
-        transformString = ("..." + getMirrorH(pathSet, mirrorOptions));
+        transformString = "...S1,-1," + String(origin.X) + "," + String(origin.Y);
     else
         return;
 
-    pathSet.transform(transformString)
+    if (!!onInterval)
+        setIntervalWrapper(function(){
+            pathSet.animate({transform: transformString}, ANIMATION_LENGTH);
+        });
+    else
+        pathSet.transform(transformString);
 }
 
 function setInitialRotation(pathSet, origin, rotation) {
@@ -120,14 +159,13 @@ function setTapRotate(paper, pathSet, origin, rotateDegrees) {
     if (!isValidRotateDeegrees(rotateDegrees))
         return;
 
-    var animationLength = 2000;
     var transformString = getRotateDegreesTransformString(origin, rotateDegrees);
     paper.canvas.addEventListener('mouseup', function() {
         if (pathSet.isRotating)
             return; // avoid rotating if already rotating
 
         pathSet.isRotating = true;
-        pathSet.animate({transform: transformString}, animationLength, function() {
+        pathSet.animate({transform: transformString}, ANIMATION_LENGTH, function() {
             pathSet.isRotating = false;
         });
     });
@@ -137,13 +175,11 @@ function setAutoRotate(pathSet, origin, autoRotateDegrees) {
     if (!isValidRotateDeegrees(autoRotateDegrees))
         return;
 
-    var interval = 12000;
-    var animationLength = 2000;
-    var transformString = getRotateDegreesTransformString(origin, autoRotateDegrees);
-
-    setInterval(function(){
-        pathSet.animate({transform: transformString}, animationLength);
-    }, interval);
+    let transformString = getRotateDegreesTransformString(origin, autoRotateDegrees);
+    let onIntervalFunction = function() {
+        pathSet.animate({transform: transformString}, ANIMATION_LENGTH);
+    };
+    setIntervalWrapper(onIntervalFunction);
 }
 
 
