@@ -1,8 +1,39 @@
 /*
-	Collection of SVG Path generating functions
-
-	Each returns a path as either an array or a string.
+Collection of SVG Path generating functions
 */
+
+
+/**
+Draws the mirrors for a D2N shape.
+
+@returns pathSet
+**/
+function drawMirrorLines(paper, centerPoint, size, N, color) {
+    // Implementation detail:
+    // - Draw mirros as sples from the center of length size/2
+    // - That means drawing 2N lines
+    let halfRotationRadians = Math.PI/N;
+    let halfSize = (1/2)*size;
+
+    let pathList = [];
+    let r, p;
+    for (r=0; r<2*N; r ++) {
+        p = {
+            X: centerPoint.X + (halfSize*Math.sin(r*halfRotationRadians)),
+            Y: centerPoint.Y + (halfSize*Math.cos(r*halfRotationRadians))
+        };
+        pathList += [
+            // center point
+            ["M", centerPoint.X, centerPoint.Y],
+            ["L", p.X, p.Y]
+        ];
+    }
+    let path = paper.path(pathList).attr({
+        "stroke": color,
+        "stroke-width": 1
+    });
+    return paper.set().push(path);
+}
 
 
 /**

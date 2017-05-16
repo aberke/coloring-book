@@ -60,6 +60,9 @@ class CyclicShape {
 		// style sides or fill path section according to options passed in
 		this.pathSet.items.forEach(this.styleSide.bind(this));
 		this.pathSet.items.forEach(this.colorPathSection.bind(this));
+
+		if (this.options.mirrorLines)
+			drawMirrorLines(this.paper, this.origin, this.size, this.N, this.options.mirrorLines);
 	}
 
 

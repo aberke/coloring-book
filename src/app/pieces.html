@@ -325,6 +325,39 @@
 		    </div>
 		    <!-- Mirrors -->
 
+			<!-- Mirrors -->
+			<div>
+				<h2>Mirror Lines</h2>
+				<p>mirrorLines="COLOR"</p>
+				<p>Convention: Use gray for text content, black for coloring content.</p>
+				<div class='half'>
+				<p>Can use as function option for any cyclic shapes</p>
+					
+				    <div class='canvas third'
+	                    canvas-centered-drawing
+	                    draw-function='drawRegularPolygon'
+	                    function-options='{"N": 6, "alternateSideStrokes": true, "concave": true, "mirrorLines": "gray"}'
+	                    options='{"autoReflect":"V"}'
+	                ></div>
+			    </div>
+				<div class='half'>
+					<p>Can use as attribute for circular-tessellation directive. mirror-lines="COLOR"</p>
+					<div
+						class="canvas third" 
+						with-redraw 
+						circular-tessellation
+						mirror-lines="black"
+						rings="[0.1, 0.2, 0.5, 1]"
+						rotations=3
+						slices-count=4
+						levels=2
+						margin=25
+					></div>
+
+			    </div>
+		    </div>
+		    <!-- Mirrors -->
+
 	   </div>
 
 		<!-- frieze -->
