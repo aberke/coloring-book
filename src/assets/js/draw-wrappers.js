@@ -129,9 +129,7 @@ function setIntervalWrapper(onIntervalFunction) {
 Reflect the pathSet across the center on either a vertical or horizontal mirror.
 **/
 function setMirror(pathSet, origin, mirror, onInterval=false) {
-    let mirrorOptions = {centeredMirror: true};
     let transformString;
-
     if (mirror === "V")
         transformString = "...S-1,1," + String(origin.X) + "," + String(origin.Y);
     else if (mirror === "H")
