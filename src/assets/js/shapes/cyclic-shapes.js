@@ -56,6 +56,14 @@ class CyclicShape {
 
 
 	draw() {
+		this.drawPathSet();
+		// style sides or fill path section according to options passed in
+		this.pathSet.items.forEach(this.styleSide.bind(this));
+		this.pathSet.items.forEach(this.colorPathSection.bind(this));
+	}
+
+
+	drawPathSet() {
 		let pathSet = this.paper.set(); // what will be returned
 
 		// draw each side and then rotate it accordingly
@@ -72,11 +80,7 @@ class CyclicShape {
 			sidePath.transform(transformString);
 			pathSet.push(sidePath);
 		}
-		// style sides or fill path section according to options passed in
-		pathSet.items.forEach(this.styleSide.bind(this));
-		pathSet.items.forEach(this.colorPathSection.bind(this));
-
-		this.pathSet = pathSet;
+		this.pathSet = pathSet;	
 	}
 
 
