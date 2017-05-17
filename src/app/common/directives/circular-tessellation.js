@@ -11,6 +11,7 @@ Use
 	levels={number}
 	margin={number}
 	inscribed={"circle"|"square"|...}
+	mirror-lines="COLOR" // if set, draws mirror lines through the shape
 ></div>
 **/
 function circularTessellationDirective($location) {
@@ -36,17 +37,23 @@ function circularTessellationDirective($location) {
 			let origin = getCanvasCenter(paper);
 
 			let margin = Number(attrs.margin || 0);
-			let diameter = Math.min(paper.getSize().width, paper.getSize().height) - margin;
+			let size = Math.min(paper.getSize().width, paper.getSize().height);
+			let diameter = size - margin;
 
 			let rings = JSON.parse(attrs.rings || "[]");
 
 			// can inscribe within a shape
 			let inscribed = attrs.inscribed;
 
+			// can draw mirror lines
+			let mirrorLines = attrs.mirrorLines;
+
 			let asFlower = ("asFlower" in attrs && attrs.asFlower !== "false") ? true : false;
 
+
+			let rotations = (!!attrs.rotations) ? Number(attrs.rotations) : null;
 			let options = {
-				rotations: (!!attrs.rotations) ? Number(attrs.rotations) : null,
+				rotations: rotations,
 				levels: (!!attrs.levels) ? Number(attrs.levels) : null,
 				withReflection: attrs.withReflection ? true : null,
 				slicesCount: attrs.slicesCount ? Number(attrs.slicesCount) : null,
@@ -82,6 +89,10 @@ function circularTessellationDirective($location) {
 				scope.circularTessellation = new CircularTessellation(paper, origin, diameter, options);
 				if (!asFlower && rings && rings.length) // fill the path so that it sits above the rings
 					scope.circularTessellation.pathSet.attr("fill", "white");
+
+				// draw mirror lines last so that they sit on top
+				if (mirrorLines)
+					drawMirrorLines(paper, origin, diameter, rotations, mirrorLines);
 			}
 
 			function redraw() {
