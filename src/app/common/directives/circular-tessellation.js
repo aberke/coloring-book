@@ -26,7 +26,10 @@ function circularTessellationDirective($location) {
 
 			// get the element to draw canvas paper on and make it sq
 			let elt = element[0];
-			elt.style.height = (String(elt.clientWidth) + "px");
+			let size = elt.clientWidth;
+			if (size <= 0) // applicable for when CSS says display=none
+				return;
+			elt.style.height = String(size) + "px";
 			elt.style.padding = 0; // remove padding used to make square with CSS
 
 			// create the canvas paper
@@ -37,7 +40,6 @@ function circularTessellationDirective($location) {
 			let origin = getCanvasCenter(paper);
 
 			let margin = Number(attrs.margin || 0);
-			let size = Math.min(paper.getSize().width, paper.getSize().height);
 			let diameter = size - margin;
 
 			let rings = JSON.parse(attrs.rings || "[]");
