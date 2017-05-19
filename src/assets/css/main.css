@@ -369,6 +369,16 @@ footer #footer-title {
 	border-right: 1px solid #f1f1f1;
 }
 
+.canvas.small,
+.text-content-graphic .canvas.small {
+	width: 50px;
+	height: 50px;
+}
+.text-content-graphic .vertical-line.small {
+	height: 50px;
+}
+
+.canvas.extra-small,
 .text-content-graphic .canvas.extra-small {
 	width: 40px;
 	height: 40px;
