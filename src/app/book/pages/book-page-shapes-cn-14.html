@@ -34,27 +34,51 @@
                         canvas-centered-drawing
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
-                        options='{"text":"0 turn"}'
+                        options='{"text":"0 turn", "autoRotateDegrees":90}'
                     ></div>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
-                        options='{"text":"1/4 turn", "initialRotation":90}'
+                        options='{"text":"1/4 turn",  "autoRotateDegrees":90,"initialRotation":90}'
                     ></div>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
-                        options='{"text":"2/4 turn", "initialRotation":180}'
+                        options='{"text":"2/4 turn",  "autoRotateDegrees":90,"initialRotation":180}'
                     ></div>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
-                        options='{"text":"3/4 turn","initialRotation":270}'
+                        options='{"text":"3/4 turn", "autoRotateDegrees":90,"initialRotation":270}'
                     ></div>
                 </div>
+
+                <div class="text-content-graphic line">
+
+                    <p>C2:</p>
+                    <!-- { -->
+                    <p class="text big">&#123;</p>
+
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
+                        options='{"text":"0 turn", "autoRotateDegrees":180, "initialRotation": "0"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0], "initialRotation": "180"}'
+                        options='{"text":"2/4 = 1/2 turn", "autoRotateDegrees":180, "initialRotation": "180"}'
+                    ></div>
+                    <!-- }-->
+                    <p class="text big">&#125;</p>
+
+                </div>
+
 
     			<p>Not all colorings of our C4 shapes will transform them into C2 shapes.</p>
 
@@ -92,7 +116,7 @@
 
                 <br/>
 
-    			<p class="challenge">Try coloring the C4 shapes to reduce them to C2 shapes.</p>
+    			<p class="challenge">Challenge: Color the C4 shapes to reduce them to C2 shapes.</p>
 
             </div>
         </div>
