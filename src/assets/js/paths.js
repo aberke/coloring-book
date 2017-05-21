@@ -8,10 +8,15 @@ Draws the mirrors for a D2N shape.
 
 @returns pathSet
 **/
-function drawMirrorLines(paper, centerPoint, size, N, color) {
+function drawMirrorLines(paper, centerPoint, N, size) {
     // Implementation detail:
-    // - Draw mirros as sples from the center of length size/2
+    // - Draw mirrors as spokes from the center of length size/2
     // - That means drawing 2N lines
+    size = size || Math.min(paper.getSize().width, paper.getSize().height);
+
+    if (!N || N <= 0 || !size || size <= 0)
+        return;
+
     let halfRotationRadians = Math.PI/N;
     let halfSize = (1/2)*size;
 
@@ -29,8 +34,9 @@ function drawMirrorLines(paper, centerPoint, size, N, color) {
         ];
     }
     let path = paper.path(pathList).attr({
-        "stroke": color,
-        "stroke-width": 1
+        "stroke-width": 1,
+        // 'stroke' styled based on .mirror-line class in CSS
+        "class": "mirror-line"
     });
     return paper.set().push(path);
 }

@@ -1,0 +1,195 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+	            <p>With just a rotation and a mirror as <a target="_blank" href="/#!/theory-reference#generator" class="theory-reference-term">generators</a>, we generated a new, larger group of symmetries for a regular triangle.</p>
+
+                <!-- [Line of 3 triangles: 0 turn, ⅓ turn, ⅔ turn, 2 diff side strokes shown] -->
+                <!-- [Line of 3 triangles: m, ⅓ turn*m, ⅓ turn*⅓ turn*m, mirrors shown] -->
+	            <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3,"sideStrokes":[1, 0, 0]}'
+                        options='{"initialRotation":0}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3,"sideStrokes":[1, 0, 0]}'
+                        options='{"initialRotation":120}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3,"sideStrokes":[1, 0, 0]}'
+                        options='{"initialRotation":240}'
+                    ></div>
+	            </div>
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"mirrorLines": 1, "initialRotation":0}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"mirrorLines": 1, "initialRotation":120}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"mirrorLines": 1, "initialRotation":240}'
+                    ></div>
+                </div>
+
+                <p>We can do the same for other shapes.</p>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <div class="canvas-row">
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rings="[0.9, 1]"
+                        rotations=3
+                        slices-count=3
+                        levels=2
+                        margin=3
+                        with-reflection=true
+                        mirror-lines=3
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rings="[0.9, 1]"
+                        rotations=3
+                        slices-count=3
+                        levels=2
+                        margin=3
+                        with-reflection=true
+                        inscribed="triangle"
+                        mirror-lines=3
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rings="[0.9, 1]"
+                        rotations=3
+                        slices-count=3
+                        levels=2
+                        margin=0
+                        with-reflection=true
+                        mirror-lines=3
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rings="[0.9, 1]"
+                        rotations=3
+                        slices-count=3
+                        levels=2
+                        margin=3
+                        with-reflection=true
+                        inscribed="triangle"
+                        mirror-lines=3
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rings="[0.9, 1]"
+                        rotations=3
+                        slices-count=3
+                        levels=2
+                        margin=3
+                        with-reflection=true
+                        mirror-lines=3
+                    ></div>
+                </div>
+
+                <div class="canvas-row">
+                    <div class="canvas two-thirds"
+                        circular-tessellation
+                        with-redraw
+                        rings="[0.5,0.85,0.9,1]"
+                        rotations=9
+                        slices-count=4
+                        levels=2
+                        margin=0
+                        with-reflection=true
+                        inscribed="triangle"
+                        mirror-lines=3
+                    ></div>
+                </div>
+
+
+                <div class="canvas-row">
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rings="[0.9, 1]"
+                        rotations=3
+                        slices-count=3
+                        levels=2
+                        margin=3
+                        with-reflection=true
+                        mirror-lines=3
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rings="[0.9, 1]"
+                        rotations=3
+                        slices-count=3
+                        levels=2
+                        margin=3
+                        with-reflection=true
+                        inscribed="triangle"
+                        mirror-lines=3
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rings="[0.9, 1]"
+                        rotations=3
+                        slices-count=3
+                        levels=2
+                        margin=0
+                        with-reflection=true
+                        mirror-lines=3
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rings="[0.9, 1]"
+                        rotations=3
+                        slices-count=3
+                        levels=2
+                        margin=3
+                        with-reflection=true
+                        inscribed="triangle"
+                        mirror-lines=3
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rings="[0.9, 1]"
+                        rotations=3
+                        slices-count=3
+                        levels=2
+                        margin=3
+                        with-reflection=true
+                        mirror-lines=3
+                    ></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

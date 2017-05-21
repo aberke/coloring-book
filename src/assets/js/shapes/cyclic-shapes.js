@@ -60,9 +60,6 @@ class CyclicShape {
 		// style sides or fill path section according to options passed in
 		this.pathSet.items.forEach(this.styleSide.bind(this));
 		this.pathSet.items.forEach(this.colorPathSection.bind(this));
-
-		if (this.options.mirrorLines)
-			drawMirrorLines(this.paper, this.origin, this.size, this.N, this.options.mirrorLines);
 	}
 
 
@@ -91,7 +88,7 @@ class CyclicShape {
 	// eg, options.coloring = [0,0,1,1,2,2] will use fills from the list COLORING_FILL_ARRAY
 	// by default shapes are not filled with color
 	colorPathSection(path, n) {
-		if (this.coloring && this.coloring.length > n && n < COLORING_FILL_ARRAY.length)
+		if (this.coloring && this.coloring.length > n && this.coloring[n] < COLORING_FILL_ARRAY.length)
 			path.attr("fill", COLORING_FILL_ARRAY[this.coloring[n]]);
 	}
 

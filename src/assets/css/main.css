@@ -355,11 +355,21 @@ footer #footer-title {
 	line-height: 2;
 }
 
+/* The mobile-small class makes a canvas the normal size for larger views
+But shrinks the canvas for smaller, mobile views */
+.canvas.mobile-small,
 .text-content-graphic .canvas {
 	width: 70px;
 	height: 70px;
 	display: inline-block;
 	vertical-align: middle;
+}
+.text-content-graphic .canvas .mirror-line {
+	stroke: slategray;
+	stroke-width: 1;
+}
+.text-content-graphic .canvas.black .mirror-line {
+	stroke: black;
 }
 .text-content-graphic .vertical-line {
 	width: 1px;
@@ -403,6 +413,16 @@ footer #footer-title {
 
 	p {
 		text-align: center;
+	}
+
+	.mobile-block {
+		display: block;
+	}
+
+	.canvas.mobile-small,
+	.text-content-graphic .canvas.mobile-small {
+		width: 50px;
+		height: 50px;
 	}
 
 

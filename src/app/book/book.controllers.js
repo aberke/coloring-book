@@ -98,6 +98,39 @@ function BookCntl($location, $anchorScroll, $timeout) {
 			name: 'cn-19',
 			url: vm.bookPageUrl('book-page-shapes-cn-19.html'),
 		}, {
+			name: 'dn-1',
+			url: vm.bookPageUrl('book-page-shapes-dn-1.html'),
+		}, {
+			name: 'dn-2',
+			url: vm.bookPageUrl('book-page-shapes-dn-2.html'),
+		}, {
+			name: 'dn-3',
+			url: vm.bookPageUrl('book-page-shapes-dn-3.html'),
+		}, {
+			name: 'dn-4',
+			url: vm.bookPageUrl('book-page-shapes-dn-4.html'),
+		}, {
+			name: 'dn-5',
+			url: vm.bookPageUrl('book-page-shapes-dn-5.html'),
+		}, {
+			name: 'dn-6',
+			url: vm.bookPageUrl('book-page-shapes-dn-6.html'),
+		}, {
+			name: 'dn-7',
+			url: vm.bookPageUrl('book-page-shapes-dn-7.html'),
+		}, {
+			name: 'dn-8',
+			url: vm.bookPageUrl('book-page-shapes-dn-8.html'),
+		}, {
+			name: 'dn-9',
+			url: vm.bookPageUrl('book-page-shapes-dn-9.html'),
+		}, {
+			name: 'dn-10',
+			url: vm.bookPageUrl('book-page-shapes-dn-10.html'),
+		}, {
+			name: 'dn-11',
+			url: vm.bookPageUrl('book-page-shapes-dn-11.html'),
+		}, {
 			name: 'get-updates',
 			url: vm.bookPageUrl('book-page-last.html'),
 		}
