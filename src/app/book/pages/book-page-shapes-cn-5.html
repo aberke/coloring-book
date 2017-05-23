@@ -48,88 +48,251 @@
         <div class="content-container-wrapper">
             <div class="content-container">
 
-                <!-- Line of circular tessellations of 5 rotations -->
-                <div class="canvas third"
-                    circular-tessellation
-                    with-redraw
-                    rotations=5
-                    slices-count=2
-                    levels=2
-                    margin=5>
-                </div>
-                <div
-                    class="canvas third"
-                    circular-tessellation
-                    with-redraw
-                    rotations=5
-                    slices-count=3
-                    levels=1
-                    margin=5>
-                </div>
-                <div
-                    class="canvas third"
-                    circular-tessellation
-                    with-redraw
-                    rotations=5
-                    slices-count=3
-                    levels=2
-                    margin=5>
-                </div>
-
-                <!-- Line of circular tessellations of 6 rotations -->
-                <div class="canvas third"
-                    circular-tessellation
-                    with-redraw
-                    rotations=6
-                    slices-count=2
-                    levels=2
-                    margin=5>
-                </div>
-                <div
-                    class="canvas third"
-                    circular-tessellation
-                    with-redraw
-                    rotations=6
-                    slices-count=4
-                    levels=1
-                    margin=5>
-                </div>
-                <div
-                    class="canvas third"
-                    circular-tessellation
-                    with-redraw
-                    rotations=6
-                    slices-count=3
-                    levels=2
-                    margin=5>
+                <!-- Line of order-5 polygons -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div>
                 </div>
 
-                <!-- Line of circular tessellations of 7 rotations -->
-                <div class="canvas third"
-                    circular-tessellation
-                    with-redraw
-                    rotations=7
-                    slices-count=2
-                    levels=2
-                    margin=5>
+                <!-- Line of order-5 circular tessellations of 5 rotations -->
+                <div class="canvas-row">
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=5
+                        slices-count=2
+                        levels=2
+                        margin=5
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=5
+                        slices-count=2
+                        levels=2
+                        margin=5
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=5
+                        slices-count=2
+                        levels=2
+                        margin=5
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=5
+                        slices-count=2
+                        levels=2
+                        margin=5
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=5
+                        slices-count=2
+                        levels=2
+                        margin=5
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=5
+                        slices-count=2
+                        levels=2
+                        margin=5
+                    ></div>
                 </div>
-                <div
-                    class="canvas third"
-                    circular-tessellation
-                    with-redraw
-                    rotations=7
-                    slices-count=4
-                    levels=1
-                    margin=5>
+
+                <!-- Line of order-6 polygons -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div>
                 </div>
-                <div
-                    class="canvas third"
-                    circular-tessellation
-                    with-redraw
-                    rotations=7
-                    slices-count=3
-                    levels=2
-                    margin=5>
+
+                <!-- Line of order-6 circular tessellations of 5 rotations -->
+                <div class="canvas-row">
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=6
+                        slices-count=2
+                        levels=2
+                        margin=5
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=6
+                        slices-count=2
+                        levels=2
+                        margin=5
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=6
+                        slices-count=2
+                        levels=2
+                        margin=5
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=6
+                        slices-count=2
+                        levels=2
+                        margin=5
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=6
+                        slices-count=2
+                        levels=2
+                        margin=5
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=6
+                        slices-count=2
+                        levels=2
+                        margin=5
+                    ></div>
+                </div>
+
+
+                <!-- Line of order-7 polygons -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":7, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":7, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":7, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":7, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":7, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":7, "concave":true, "withMirrorSections":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0}'
+                    ></div>
+                </div>
+
+                <!-- Line of order-7 circular tessellations of 5 rotations -->
+                <div class="canvas-row">
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=7
+                        slices-count=2
+                        levels=1
+                        margin=5
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=7
+                        slices-count=2
+                        levels=1
+                        margin=5
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=7
+                        slices-count=2
+                        levels=1
+                        margin=5
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=7
+                        slices-count=2
+                        levels=1
+                        margin=5
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=7
+                        slices-count=2
+                        levels=1
+                        margin=5
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=7
+                        slices-count=2
+                        levels=1
+                        margin=5
+                    ></div>
                 </div>
             </div>
         </div>

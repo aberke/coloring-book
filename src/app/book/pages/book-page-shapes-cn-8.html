@@ -105,97 +105,16 @@
     <div class="coloring-content">
         <div class="content-container-wrapper">
             <div class="content-container">
-    
-                <!-- row of 3-gons -->
-                <div class="canvas-row">
-                    <div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3}'
-                        options='{"tapRotateDegrees":120,"initialRotation":180}'
-                    ></div>
-                    <div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": 1}'
-                        options='{"tapRedraw": true}'
-                    ></div>
-                    <div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3}'
-                        options='{"tapRotateDegrees":120,"initialRotation":180}'
-                    ></div>
-                    <div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": 1}'
-                        options='{"tapRedraw": true}'
-                    ></div>
-                    <div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3}'
-                        options='{"tapRotateDegrees":120,"initialRotation":180}'
-                    ></div>
-                    <div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": 1}'
-                        options='{"tapRedraw": true}'
-                    ></div>
-                </div>
 
-                <div class="canvas two-thirds"
+                <div class="canvas"
                     circular-tessellation
                     with-redraw
-                    rings="[0.75, 0.9]"
-                    rotations=6
+                    rings="[0.8,0.85, 1]"
+                    rotations=9
                     slices-count=4
                     levels=2
-                    margin=20>
-                </div>
-
-
-                <!-- row of 3-gons -->
-                <div class="canvas-row">
-                    <div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": 1}'
-                        options='{"tapRedraw": true}'
-                    ></div>
-                    <div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3}'
-                        options='{"tapRotateDegrees":120,"initialRotation":180}'
-                    ></div>
-                    <div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": 1}'
-                        options='{"tapRedraw": true}'
-                    ></div>
-                    <div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3}'
-                        options='{"tapRotateDegrees":120,"initialRotation":180}'
-                    ></div>
-                    <div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": 1}'
-                        options='{"tapRedraw": true}'
-                    ></div>
-                    <div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3}'
-                        options='{"tapRotateDegrees":120,"initialRotation":180}'
-                    ></div>
-                </div>
+                    mirror-lines=9
+                ></div>
             </div>
         </div>
     </div>
