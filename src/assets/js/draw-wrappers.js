@@ -49,12 +49,10 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
 
     // initialize the pathSet that will be returned
     var pathSet = paper.set();
-    if (options.inscribed) {
+    if (options.inscribed)
         // Inscribe shape within another shape.
         // Inscribing shape drawn first so that shape sits on top.
-        let inscribingShapePath = drawInscribingShape(paper, origin, size, options.inscribed);
-        pathSet.push(styleInscribingShape(inscribingShapePath));
-    }
+        pathSet.push(drawInscribingShape(paper, origin, size, options.inscribed));
 
     if (options.mirrorLines) {
         let mirrorLinesPaths = drawMirrorLines(paper, origin, options.mirrorLines, size + (1/2)*margin);
@@ -338,14 +336,20 @@ function drawSierpinskiTriangle(paper, centerPoint, size, options, isRedraw) {
 Returns the path set of the inscribing shape.
 **/
 function drawInscribingShape(paper, centerPoint, size, shapeName) {
+    let pathSet = paper.set();
+
     if (shapeName === "circle")
-        return drawCircle(paper, centerPoint, size);
+        pathSet = drawCircle(paper, centerPoint, size);
     else if (shapeName == "square")
-        return drawSquare(paper, centerPoint, size);
+        pathSet = drawSquare(paper, centerPoint, size);
     else if (shapeName === "triangle")
-        return drawTriangle(paper, centerPoint, size);
-    else // shapeName not recognized, return an empty path
-        return paper.set();
+        pathSet = drawTriangle(paper, centerPoint, size);
+    // else shapeName not recognized, return an empty path
+
+    // add class to inscribed shape so that it can be styled with CSS
+    pathSet.attr("class", "inscribed");
+
+    return pathSet;
 }
 
 function drawCircularTessellation(paper, centerPoint, size, options) {
@@ -389,12 +393,4 @@ function drawRectangle(paper, centerPoint, size, options = {}) {
 
 function drawCircle(paper, centerPoint, size) {
     return paper.circle(centerPoint.X, centerPoint.Y, size/2);
-}
-
-
-function styleInscribingShape(pathSet, options = {}) {
-   return pathSet.attr({
-        'stroke': COLORS.LIGHT_GRAY,
-        'stroke-width': 1,
-    });
 }
