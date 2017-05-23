@@ -368,8 +368,14 @@ But shrinks the canvas for smaller, mobile views */
 	stroke: slategray;
 	stroke-width: 1;
 }
+.text-content-graphic .canvas .inscribed {
+	stroke: #d3d3d3;
+	stroke-width: 1;
+}
+.text-content-graphic .canvas.black,
+.text-content-graphic .canvas.black .inscribed,
 .text-content-graphic .canvas.black .mirror-line {
-	stroke: black;
+	stroke: black !important;
 }
 .text-content-graphic .vertical-line {
 	width: 1px;
