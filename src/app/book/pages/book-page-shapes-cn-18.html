@@ -98,267 +98,86 @@
 
                 <!-- row of 6 C3 shapes -->
                 <div class="canvas-row">
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.75, 0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.9]"
-                        rotations=3
-                        as-flower
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.75, 0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.75, 0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.9]"
-                        rotations=3
-                        as-flower
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.75, 0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90, "inscribed":"square"}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90, "inscribed":"square"}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90, "inscribed":"square"}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270, "inscribed":"square"}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270, "inscribed":"square"}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270, "inscribed":"square"}'
+                    ></div>
                 </div>
 
-                <!-- row of 6 C3 shapes -->
-                <div class="canvas-row">
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.75, 0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rotations=3
-                        as-flower
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rotations=3
-                        as-flower
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.75, 0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                </div>
 
                 <!-- row of 3 C6 shapes -->
                 <div class="canvas-row">
-                    <div class="canvas third"
+                    <div class="canvas two-thirds"
                         circular-tessellation
                         with-redraw
-                        rings="[0.6, 0.65]"
-                        rotations=6
-                        slices-count=2
+                        rings="[0.95, 1]"
+                        rotations=12
+                        slices-count=3
                         levels=2
-                    ></div>
-                    <div class="canvas third"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.9, 1]"
-                        as-flower
-                        rotations=6
-                        slices-count=2
-                        levels=2
-                    ></div>
-                    <div class="canvas third"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.6, 0.65]"
-                        rotations=6
-                        slices-count=2
-                        levels=2
+                        mirror-lines=2
                     ></div>
                 </div>
 
                 <!-- row of 6 C3 shapes -->
                 <div class="canvas-row">
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.75, 0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rotations=3
-                        as-flower
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rotations=3
-                        as-flower
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.75, 0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                </div>
-
-                <!-- row of 6 C3 shapes -->
-                <div class="canvas-row">
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.75, 0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.9]"
-                        rotations=3
-                        as-flower
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.75, 0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.75, 0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.9]"
-                        rotations=3
-                        as-flower
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        rings="[0.75, 0.9]"
-                        rotations=3
-                        slices-count=2
-                        levels=1
-                        margin=15>
-                    </div>
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90, "inscribed":"square"}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90, "inscribed":"square"}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90, "inscribed":"square"}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270, "inscribed":"square"}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270, "inscribed":"square"}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270, "inscribed":"square"}'
+                    ></div>
                 </div>
             </div>
         </div>
