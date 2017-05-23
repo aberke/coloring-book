@@ -75,16 +75,89 @@
     <div class="coloring-content">
         <div class="content-container-wrapper">
             <div class="content-container">
-                <div
-                    class="canvas" 
+
+
+                <!-- line of order-3 cyclic shapes -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90}'
+                    ></div>
+                </div>
+
+                <div class="canvas two-thirds" 
                     with-redraw 
                     circular-tessellation
-                    rings="[0.1, 0.2, 0.9, 0.98, 1]"
+                    rings="[0.1, 0.2, 0.9, 0.95]"
                     rotations=6
-                    slices-count=3
-                    levels=3
-                    inscribed="triangle"
+                    slices-count=4
+                    levels=2
+                    inscribed=triangle
+                    margin=30
+                    mirror-lines=6
                 ></div>
+
+                <!-- line of order-3 cyclic shapes -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270}'
+                    ></div>
+                </div>
             </div>
         </div>
     </div>
