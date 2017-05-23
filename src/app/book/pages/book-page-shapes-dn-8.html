@@ -1,0 +1,190 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+	            <p>By looking for rotations and reflections, we can see when shapes share a symmetry group.</p>
+
+                <!-- [D4, square, D8 with color, all with D4 written below] -->
+	            <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N": 4, "withMirrorSections":true}'
+                        options='{"text": "D4"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections":true}'
+                        options='{"text": "D4"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 8, "withMirrorSections":true, "coloring":[1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0]}'
+                        options='{"text": "D4"}'
+                    ></div>
+	            </div>
+
+                <p>And when they do not.</p>
+                <!-- [Same D4 shape - “D4” written below, Square with color added - “D2”, D8 shape with color changed] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N": 4, "withMirrorSections":true}'
+                        options='{"text": "D4"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections":true, "coloring": [1,1,0,0,1,1,0,0]}'
+                        options='{"text": "D2"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 8, "withMirrorSections":true, "coloring":[1,2,0,0,1,2,0,0,1,2,0,0,1,2,0,0]}'
+                        options='{"text": "C4"}'
+                    ></div>
+                </div>
+
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: Can you color the shapes so that none of them share a symmetry group?</p>
+                <!-- [Line of C4 shapes] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections":true}'
+                        options='{}'
+                    ></div>
+
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections":true}'
+                        options='{}'
+                    ></div>
+
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections":true}'
+                        options='{}'
+                    ></div>
+                    
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections":true}'
+                        options='{}'
+                    ></div>
+                </div>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+                
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":180}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":0}'
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rings="[0.9,1]"
+                        rotations=6
+                        slices-count=3
+                        levels=2
+                        margin=0
+                        with-reflection=true
+                        mirror-lines=1
+                        inscribed="square"
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":180}'
+                    ></div>
+                </div>
+                
+                <div class="canvas-row">
+                    <div class="canvas two-thirds"
+                        circular-tessellation
+                        with-redraw
+                        rings="[0.9,0.96]"
+                        rotations=8
+                        slices-count=5
+                        levels=2
+                        margin=5
+                        with-reflection=true
+                        mirror-lines=1
+                    ></div>
+                </div>
+                
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":180}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":0}'
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rings="[0.9,1]"
+                        rotations=6
+                        slices-count=3
+                        levels=2
+                        margin=0
+                        with-reflection=true
+                        mirror-lines=1
+                        inscribed="square"
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":180}'
+                    ></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

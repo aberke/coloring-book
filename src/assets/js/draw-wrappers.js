@@ -35,7 +35,8 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
     var width = paper.getSize().width;
     var height = paper.getSize().height;
 
-    var margin = options.margin || 10;
+    // allow margin to be any number, including 0.  Defaults to 10.
+    let margin = (options.margin >= 0) ? options.margin : 10;
 
     // if want to draw text below, leave margin below the shape for it
     var bottomMargin = options.text ? 15 : 0;
@@ -55,6 +56,11 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
         pathSet.push(styleInscribingShape(inscribingShapePath));
     }
 
+    if (options.mirrorLines) {
+        let mirrorLinesPaths = drawMirrorLines(paper, origin, options.mirrorLines, size + (1/2)*margin);
+        pathSet.push(mirrorLinesPaths);
+    }
+
     // Draw the main shape
     // The returned pathSet is either a path or a set of paths
     let mainPath = drawFunction(paper, origin, size, functionOptions, false);
@@ -62,8 +68,11 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
     pathSet.push(mainPath);
 
     // if there is text to draw, draw it underneath
-    if (options.text)
-        paper.text(origin.X, origin.Y + size/2 + bottomMargin/2, options.text);
+    if (options.text) {
+        // when there are mirror lines, move the text further down to be below them.
+        let bottomMarginDistanceMult = options.mirrorLines ? (3/4) : (1/2);
+        paper.text(origin.X, origin.Y + size/2 + bottomMarginDistanceMult*bottomMargin, options.text);
+    }
 
     // Optionally have shape initially rotated
     if (options.initialRotation && !isNaN(parseFloat(options.initialRotation)))
@@ -79,9 +88,10 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
             paper.clear();
             drawFunction(paper, origin, size, functionOptions, true);
         });
-    } else if (options.tapRotate) {
+    } else if (options.tapRotate)
         setTapRotate(paper, pathSet, origin, options.tapRotate);
-    }
+    else if (options.tapReflect)
+        setTapReflect(paper, pathSet, origin, options.tapReflect);
 
     if (options.autoReflect)
         setMirror(pathSet, origin, options.autoReflect, true);
@@ -145,6 +155,27 @@ function setMirror(pathSet, origin, mirror, onInterval=false) {
         pathSet.transform(transformString);
 }
 
+function setTapReflect(paper, pathSet, origin, mirror) {
+    let transformString;
+    if (mirror === "V")
+        transformString = "...S-1,1," + String(origin.X) + "," + String(origin.Y);
+    else if (mirror === "H")
+        transformString = "...S1,-1," + String(origin.X) + "," + String(origin.Y);
+    else
+        return;
+
+    paper.canvas.addEventListener("mouseup", function() {
+        if (pathSet.isReflecting)
+            return; // avoid reflecting if already reflecting
+
+        pathSet.isReflecting = true;
+        pathSet.animate({transform: transformString}, ANIMATION_LENGTH, function() {
+            pathSet.isReflecting = false;
+        });
+    });
+    pathSet.attr({"class": "clickable"});
+}
+
 function setInitialRotation(pathSet, origin, rotation) {
     pathSet.transform([
         "...R" + String(rotation),
@@ -157,8 +188,8 @@ function setTapRotate(paper, pathSet, origin, rotateDegrees) {
     if (!isValidRotateDeegrees(rotateDegrees))
         return;
 
-    var transformString = getRotateDegreesTransformString(origin, rotateDegrees);
-    paper.canvas.addEventListener('mouseup', function() {
+    let transformString = getRotateDegreesTransformString(origin, rotateDegrees);
+    paper.canvas.addEventListener("mouseup", function() {
         if (pathSet.isRotating)
             return; // avoid rotating if already rotating
 
@@ -167,6 +198,7 @@ function setTapRotate(paper, pathSet, origin, rotateDegrees) {
             pathSet.isRotating = false;
         });
     });
+    pathSet.attr({"class": "clickable"});
 }
 
 function setAutoRotate(pathSet, origin, autoRotateDegrees) {

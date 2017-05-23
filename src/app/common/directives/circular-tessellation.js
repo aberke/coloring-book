@@ -11,7 +11,7 @@ Use
 	levels={number}
 	margin={number}
 	inscribed={"circle"|"square"|...}
-	mirror-lines="COLOR" // if set, draws mirror lines through the shape
+	mirror-lines={number} // if set, draws mirror lines through the shape
 ></div>
 **/
 function circularTessellationDirective($location) {
@@ -94,7 +94,7 @@ function circularTessellationDirective($location) {
 
 				// draw mirror lines last so that they sit on top
 				if (mirrorLines)
-					drawMirrorLines(paper, origin, diameter, rotations, mirrorLines);
+					drawMirrorLines(paper, origin, mirrorLines);
 			}
 
 			function redraw() {

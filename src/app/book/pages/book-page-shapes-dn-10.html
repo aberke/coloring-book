@@ -1,0 +1,278 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+	            <p>What happens when color is added to remove only mirrors and not rotations?</p>
+                <!-- [square, mirrors drawn, D4 written below] → [square, colored as C4, C4 written below] -->
+	            <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections": true}'
+                        options='{"autoRotateDegrees": 90, "text": "D4", "mirrorLines": 4, "margin": 25}'
+                    ></div>
+                    <!-- arrow -->
+                    <p class="text big"><span class="operator">&#x279E;</span></p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,0,1,0,1,0,1]}'
+                        options='{"autoRotateDegrees": 90, "text": "C4","margin": 25}'
+                    ></div>
+	            </div>
+
+                <p>The dihedral groups have mirror reflections, while the cyclic groups do not.  When these mirrors are removed, we can see the cyclic groups are subgroups of the dihedral groups.</p>
+                <!-- [Triangle, mirrors drawn, D3 written below] → [Triangle, no mirrors, C3 written below]
+                [square, mirrors drawn, D4 written below] → [square, no mirrors, C4 written below]
+                [pentagon, mirrors drawn, D5 written below] → [square, no mirrors, C5 written below] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "withMirrorSections": true}'
+                        options='{"autoRotateDegrees": 120, "text": "D3", "mirrorLines": 3, "margin": 25}'
+                    ></div>
+                    <!-- arrow -->
+                    <p class="text big"><span class="operator">&#x279E;</span></p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "withMirrorSections": true, "coloring": [0,1,0,1,0,1]}'
+                        options='{"autoRotateDegrees": 120, "text": "C3","margin": 25}'
+                    ></div>
+                </div>
+
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections": true}'
+                        options='{"autoRotateDegrees": 90, "text": "D4", "mirrorLines": 4, "margin": 25}'
+                    ></div>
+                    <!-- arrow -->
+                    <p class="text big"><span class="operator">&#x279E;</span></p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,0,1,0,1,0,1]}'
+                        options='{"autoRotateDegrees": 90, "text": "C4","margin": 25}'
+                    ></div>
+                </div>
+
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 5, "withMirrorSections": true}'
+                        options='{"autoRotateDegrees": 72, "text": "D5", "mirrorLines": 5, "margin": 25}'
+                    ></div>
+                    <!-- arrow -->
+                    <p class="text big"><span class="operator">&#x279E;</span></p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 5, "withMirrorSections": true, "coloring": [0,1,0,1,0,1,0,1,0,1]}'
+                        options='{"autoRotateDegrees": 72, "text": "C5","margin": 25}'
+                    ></div>
+                </div>
+
+                <br/>
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: Color the D6 shapes to transform them into C6 shapes.</p>
+                <!-- [D6 shapes] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 6, "withMirrorSections": true}'
+                        options='{}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 6, "withMirrorSections": true, "concave": true}'
+                        options='{}'
+                    ></div>
+                    <div class='canvas black'
+                        circular-tessellation
+                        mirror-lines=6
+                        rotations=6
+                        with-reflection=true
+                        levels=1
+                        slices-count=1
+                    ></div>
+                </div>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=10
+                        slices-count=2
+                        levels=2
+                        with-reflection=true
+                        rings="[0.5,0.6]"
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=10
+                        slices-count=2
+                        levels=2
+                        with-reflection=true
+                        rings="[0.5,0.6]"
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+                    ></div>
+                </div>
+
+                <div class="canvas-row">
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=10
+                        slices-count=2
+                        levels=2
+                        with-reflection=true
+                        rings="[0.5,0.6]"
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=10
+                        slices-count=2
+                        levels=2
+                        with-reflection=true
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=10
+                        slices-count=2
+                        levels=2
+                        with-reflection=true
+                        rings="[0.5,0.6]"
+                    ></div>
+                </div>
+
+                <div class="canvas third"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.9,0.95]"
+                    rotations=10
+                    slices-count=3
+                    levels=2
+                    with-reflection=true
+                ></div>
+                
+                <div class="canvas-row">
+                    <div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=10
+                        slices-count=2
+                        levels=2
+                        with-reflection=true
+                        rings="[0.5,0.6]"
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=10
+                        slices-count=2
+                        levels=2
+                        with-reflection=true
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=10
+                        slices-count=2
+                        levels=2
+                        with-reflection=true
+                        rings="[0.5,0.6]"
+                    ></div>
+                </div>
+
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=10
+                        slices-count=2
+                        levels=2
+                        with-reflection=true
+                        rings="[0.5,0.6]"
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+                    ></div><div class="canvas sixth"
+                        circular-tessellation
+                        with-redraw
+                        rotations=10
+                        slices-count=2
+                        levels=2
+                        with-reflection=true
+                        rings="[0.5,0.6]"
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+                        options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+                    ></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>
