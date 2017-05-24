@@ -32,10 +32,11 @@ function circularTessellationDirective($location) {
 			elt.style.height = String(size) + "px";
 			elt.style.padding = 0; // remove padding used to make square with CSS
 
-			// create the canvas paper
-			let paper = new Raphael(elt);
 			// add the canvas class in case not already there
 			elt.className += " canvas";
+			
+			// create the canvas paper
+			let paper = new Raphael(elt);
 
 			let origin = getCanvasCenter(paper);
 
