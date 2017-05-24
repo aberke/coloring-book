@@ -377,7 +377,6 @@ But shrinks the canvas for smaller, mobile views */
 .text-content-graphic .canvas.black .mirror-line {
 	stroke: black !important;
 }
-
 .text-content-graphic .vertical-line {
 	width: 1px;
 	height: 70px;

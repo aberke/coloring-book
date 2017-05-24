@@ -28,38 +28,41 @@ Optionally draws text below.  Uses passed in function to draw the shape.
 
 @returns {pathSet: object, origin: {X: number, Y: number}}
 */
-function drawInCanvasCenter(paper, drawFunction, functionOptions = {}, options = {}) {
-    let width = paper.getSize().width;
-    let height = paper.getSize().height;
+function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
+    functionOptions = functionOptions || {};
+    options = options || {};
+
+    var width = paper.getSize().width;
+    var height = paper.getSize().height;
 
     // allow margin to be any number, including 0.  Defaults to 10.
     let margin = (options.margin >= 0) ? options.margin : 10;
 
     // if want to draw text below, leave margin below the shape for it
-    let bottomMargin = options.text ? 15 : 0;
+    var bottomMargin = options.text ? 15 : 0;
 
     // total desired size := minumum boundary minus bottom margin
-    let size = Math.min(width, height - Math.max(bottomMargin, margin));
-    let origin = getCanvasCenter(paper);
+    var size = Math.min(width, height - Math.max(bottomMargin, margin));
+    var origin = getCanvasCenter(paper);
     // shift origin to accommodate bottom margin
     origin.Y = origin.Y - (bottomMargin/2);
 
     // initialize the pathSet that will be returned
-    let pathSet = paper.set();
-
-    // draw inscribing shape, if specified
+    var pathSet = paper.set();
     if (options.inscribed)
         // Inscribe shape within another shape.
         // Inscribing shape drawn first so that shape sits on top.
         pathSet.push(drawInscribingShape(paper, origin, size, options.inscribed));
 
-    // draw mirror lines if specified
-    if (options.mirrorLines)
-        pathSet.push(drawMirrorLines(paper, origin, options.mirrorLines, size + (1/2)*margin));
+    if (options.mirrorLines) {
+        let mirrorLinesPaths = drawMirrorLines(paper, origin, options.mirrorLines, size + (1/2)*margin);
+        pathSet.push(mirrorLinesPaths);
+    }
 
     // Draw the main shape
     // The returned pathSet is either a path or a set of paths
     let mainPath = drawFunction(paper, origin, size, functionOptions, false);
+    //styleShapePath(drawFunction(paper, origin, size, functionOptions, false));
     pathSet.push(mainPath);
 
     // if there is text to draw, draw it underneath
@@ -289,10 +292,8 @@ function drawArrow(paper, centerPoint, size, options) {
         ["M", centerPoint.X - (1/2)*size, centerPoint.Y],
         ["H", size]
     ]).attr({
-        "class": "arrow",
-        "stroke-width": 3,
-        // this can't be styled with CSS
         "arrow-end": "block-medium-short",
+        "stroke-width": 4,
     });
     pathSet.push(arrowPath);
     return pathSet;
