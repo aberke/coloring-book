@@ -34,8 +34,7 @@ function drawMirrorLines(paper, centerPoint, N, size) {
         ];
     }
     let path = paper.path(pathList).attr({
-        "stroke-width": 1,
-        // 'stroke' styled based on .mirror-line class in CSS
+        // adding class allows styling with CSS
         "class": "mirror-line"
     });
     return paper.set().push(path);
