@@ -415,7 +415,21 @@ But shrinks the canvas for smaller, mobile views */
 
 /* Pieces */
 
+.mobile-only {
+	display: none;
+}
+.desktop-only {
+	display: block;
+}
+
 @media (max-width: 875px) {
+
+	.mobile-only {
+		display: block;
+	}
+	.desktop-only {
+		display: none;
+	}
 
 	p {
 		text-align: center;

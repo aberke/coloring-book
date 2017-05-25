@@ -21,7 +21,7 @@ not rendered in the DOM when the book-page is not the current page
 be removed from the page -- together they're too heavy for browsers
 
 */
-function BookCntl($location, $anchorScroll, $timeout) {
+function BookCntl($scope, $location, $anchorScroll, $timeout) {
 	// view model is this BookCntl
 	let vm = this;
 
@@ -35,7 +35,7 @@ function BookCntl($location, $anchorScroll, $timeout) {
 			name: 'cover',
 			url: vm.bookPageUrl('book-page-cover.html'),
 		}, {
-			name: 'guide',
+			name: 'table-of-contents',
 			url: vm.bookPageUrl('book-page-coloring-guide.html'),
 		}, {
 			name: 'shapes-intro',
@@ -138,15 +138,15 @@ function BookCntl($location, $anchorScroll, $timeout) {
 
 
 	vm.setupPage = function() {
-		vm.page = vm.pages[vm.pageIndex];
+		vm.page = vm.pages[vm.pageNumber];
 		vm.pageName = vm.page.name;
 
 		// view should only show button to return to previous page
 		// if there is a previous page
-		vm.showPreviousPageBtn = (vm.pageIndex > 0) ? true : false;
+		vm.showPreviousPageBtn = (vm.pageNumber > 0) ? true : false;
 		// view should only show button to return to next page
 		// if there is a next page
-		vm.showNextPageBtn = (vm.pageIndex < (vm.pages.length - 1)) ? true : false;	
+		vm.showNextPageBtn = (vm.pageNumber < (vm.pages.length - 1)) ? true : false;	
 
 		// scroll to the top of the new book-page that is shown
 		$anchorScroll();	
@@ -187,7 +187,7 @@ function BookCntl($location, $anchorScroll, $timeout) {
 
 		vm.animateNextPage = false;
 		vm.animatePreviousPage = true;
-		vm.changePage(vm.pageIndex - 1);
+		vm.changePage(vm.pageNumber - 1);
 	};
 
 	// change to the next page
@@ -196,23 +196,47 @@ function BookCntl($location, $anchorScroll, $timeout) {
 
 		vm.animateNextPage = true;
 		vm.animatePreviousPage = false;
-		vm.changePage(vm.pageIndex + 1);
+		vm.changePage(vm.pageNumber + 1);
 	};
 
 	vm.changePage = function(pageIndex) {
 		if (pageIndex < 0 || pageIndex > vm.pages.length)
 			return;
 
-		vm.pageIndex = pageIndex;
-		vm.setPageNumber(pageIndex);
+		vm.setPageByNumber(pageIndex);
 		vm.setupPage();
 	};
 
 
+	// Meant for easier redirects to page
+	// Tries to pull the pageName from the URL params
+	// and returns pageNumber corresponding to that page name
+	vm.getPageNumberByPageName = function() {
+		let pageName = $location.search().pageName;
+		let pageNumber;
+
+		if (!!pageName) {
+			let findSomePageNumber = function(page, index) {
+				pageNumber = index;
+				return page.name === pageName; // 'some' function will shortcircuit here if true
+			};
+
+			if (vm.pages.some(findSomePageNumber))
+				return pageNumber;
+		}
+	}
+
 	vm.getPageNumber = function() {
-		// get the pageIndex from the search parameters if present
+		// get the pageIndex from the search parameters if present:
+		// first try to get the page by pageName
+		// otherwise try to get the pageNumber
 		// otherwise return the 0th page
-		var pageNumberParam = Number($location.search().pageNumber);
+		let pageNumber = vm.getPageNumberByPageName();
+
+		if (!!pageNumber)
+			return pageNumber;
+
+		let pageNumberParam = Number($location.search().pageNumber);
 		// NaN will always be less than 0
 		if (pageNumberParam >= 0 && pageNumberParam < vm.pages.length)
 			return pageNumberParam;
@@ -220,16 +244,27 @@ function BookCntl($location, $anchorScroll, $timeout) {
 		return 0;	
 	};
 
-	vm.setPageNumber = function(pageNumber) {
-		$location.search('pageNumber', pageNumber);
+	vm.setPageByNumber = function(pageIndex) {
+		vm.pageNumber = pageIndex;
+		vm.pageName = vm.pages[pageIndex].name;
+		$location.search('pageNumber', pageIndex);
+		$location.search('pageName', vm.pageName);
 	};
 
 
 	vm.init = function() {
 		// get the page from the url
-		vm.pageIndex = vm.getPageNumber();
+		vm.pageNumber = vm.getPageNumber();
+		vm.setPageByNumber(vm.pageNumber);
 		vm.setupPage();
 	};
+
+	// watch for when the route is updated by something other than this controller
+	// if it is, then reinitialize the page again
+	$scope.$on('$routeUpdate', function(current){
+		if ($location.search().pageName !== vm.pageName || $location.search().pageNumber !== vm.pageNumber)
+			vm.init();
+	});
 
 	vm.init();
 }
