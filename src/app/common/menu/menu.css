@@ -57,7 +57,14 @@ Styles for the side navigation menu.
 {
     position: absolute;
     cursor: pointer;
+}
+
+#menu .menu-open-btn .mobile-only,
+#menu .menu-close-btn {
     font-size: 2em;
+}
+#menu .menu-open-btn .desktop-only {
+    font-size: 1em;
 }
 
 #menu .menu-open-btn {
