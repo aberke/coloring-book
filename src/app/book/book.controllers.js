@@ -36,7 +36,7 @@ function BookCntl($scope, $location, $anchorScroll, $timeout) {
 			url: vm.bookPageUrl('book-page-cover.html'),
 		}, {
 			name: 'table-of-contents',
-			url: vm.bookPageUrl('book-page-coloring-guide.html'),
+			url: vm.bookPageUrl('book-page-table-of-contents.html'),
 		}, {
 			name: 'shapes-intro',
 			url: vm.bookPageUrl('book-page-shapes-intro.html'),

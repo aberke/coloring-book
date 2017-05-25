@@ -94,24 +94,6 @@ Structure
     border-bottom: 7px solid #670067;
 }
 
-#coloring-guide .book-section-title .title-text-portion {
-	display: inline-block;
-}
-/*For small screens, show a shape, otherwise show //*/
-#coloring-guide .book-section-title .canvas {
-	width: 50px;
-	display: none;
-}
-@media (max-width: 600px) {
-	#coloring-guide .book-section-title .canvas {
-		display: block;
-		margin: auto;
-	}
-	#coloring-guide .book-section-title .slash {
-		display: none;
-	}
-}
-
 .coloring-guide-shapes-and-symmetries-title .canvas {
     width: 50px;
     height: 50px;
