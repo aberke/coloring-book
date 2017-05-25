@@ -1,0 +1,164 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+	            <p>All of the transformations in our cyclic and dihedral groups have <a href="/#!/theory-reference#inverse" target="_blank" class="theory-reference-term">inverses</a>.</p>
+
+                <br/>
+
+                <p>Even when a shape undergoes a combination of reflections and rotations,</p>
+                <!-- [square, colored] -¼ turn→ [square, colored] -reflect→ [square, colored] -2/4 turn→ [square, colored, underlined] -->
+	            <div class="text-content-graphic line">
+
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "coloring":[1, 2], "withMirrorSections":true}'
+                        options='{"text":"0 turn"}'
+                    ></div><div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"1/4 turn"}'
+                    ></div><div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "coloring":[1, 2], "withMirrorSections":true}'
+                        options='{"initialRotation":90}'
+                    ></div><div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"reflect"}'
+                    ></div><div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "coloring":[0,0,2,1], "withMirrorSections":true}'
+                        options='{}'
+                    ></div><div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"2/4 turn"}'
+                    ></div>
+                    <div style="border-bottom: 1px solid black; display: inline-block;">
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "coloring":[0,0,2,1], "withMirrorSections":true}'
+                        options='{"initialRotation":180}'
+                    ></div>
+                    </div>
+	            </div>
+
+                <p>The transformations can be reversed and the shape can end back in the position it started.</p>
+                <!-- [square, colored, underlined] -2/4 turn→ [square, colored] -reflect→ [square, colored, underlined] -¾ turn→ [square, colored] -->
+                <div class="text-content-graphic line">
+                    <div style="border-bottom: 1px solid black; display: inline-block;">
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "coloring":[0,0,2,1], "withMirrorSections":true}'
+                        options='{"initialRotation":180}'
+                    ></div>
+                    </div>
+                    <div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"2/4 turn"}'
+                    ></div>
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "coloring":[0,0,2,1], "withMirrorSections":true}'
+                        options='{"initialRotation":0}'
+                    ></div><div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"reflect"}'
+                    ></div><div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "coloring":[1, 2], "withMirrorSections":true}'
+                        options='{"initialRotation":90}'
+                    ></div><div class="canvas extra-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"3/4 turn"}'
+                    ></div><div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "coloring":[1, 2], "withMirrorSections":true}'
+                        options='{"text":"0 turn"}'
+                    ></div>
+                </div>
+
+                <br/>
+                <br/>
+                <br/>
+
+                <p>This is a rule in <a href="/#!/theory-reference" target="_blank" class="theory-reference-term">group theory</a>: Any member of a group has an <a href="/#!/theory-reference#inverse" target="_blank" class="theory-reference-term">inverse</a> that is also in the group.  And remember, the members of our groups are the reflections and rotations that transform our shapes.</p>
+
+                <br/>
+                <br/>
+                <br/>
+
+                <p class="challenge">Coloring Challenge: Color the squares to show the result of rotating by a <fraction>3/4</fraction> turn and then reflecting across a vertical mirror.  Then find the combination of transformations that brings the square back to its starting position.</p>
+                <!-- [Line of 5 squares, with mirror sections] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{}'
+                    ></div>
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{}'
+                    ></div>
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{}'
+                    ></div>
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{}'
+                    ></div>
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{}'
+                    ></div>
+                </div>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <div class="canvas"
+                    circular-tessellation
+                    with-redraw
+                    rings="[0.5, 0.6, 0.95,1]"
+                    rotations=12
+                    slices-count=4
+                    levels=2
+                    mirror-lines=12
+                    with-reflection=true
+                ></div>
+
+            </div>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>
