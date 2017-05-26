@@ -89,49 +89,49 @@ Structure
 	vertical-align: middle;
 }
 
-#coloring-guide .book-section-title {
+#table-of-contents .book-section-title {
     font-size: 2.2em;
     border-bottom: 7px solid #670067;
 }
 
-.coloring-guide-shapes-and-symmetries-title .canvas {
+.table-of-contents-shapes-and-symmetries-title .canvas {
     width: 50px;
     height: 50px;
 }
-.coloring-guide-shapes-and-symmetries-subtitle .canvas {
+.table-of-contents-shapes-and-symmetries-subtitle .canvas {
     width: 30px;
     height: 30px;
 }
 
-#coloring-guide {
+#table-of-contents {
     padding-top: 30px;
     padding-bottom: 40px;
 }
 
-#coloring-guide h3 {
+#table-of-contents h3 {
     font-size: 1.7em;
     margin: 0.5em 0em;
     margin-top: 7px;
 }
 
-#coloring-guide h3,
-#coloring-guide h4 {
+#table-of-contents h3,
+#table-of-contents h4 {
     display: inline-block;
     vertical-align: top;
     font-weight: 300;
 }
-#coloring-guide .title-container .canvas,
-#coloring-guide .subtitle-container .canvas {
+#table-of-contents .title-container .canvas,
+#table-of-contents .subtitle-container .canvas {
     display: inline-block;
     vertical-align: middle;
     max-width: 150px;
 }
 
-#coloring-guide .subtitle-container h4 {
+#table-of-contents .subtitle-container h4 {
     margin-top: 7px;
 }
 
-#coloring-guide .title-container {
+#table-of-contents .title-container {
     text-align: center;
     margin-top: 30px;
 }
@@ -442,7 +442,7 @@ But shrinks the canvas for smaller, mobile views */
 		border: none;
 	}
 
-	#coloring-guide h3 {
+	#table-of-contents h3 {
 	    display: block;
 	}
 

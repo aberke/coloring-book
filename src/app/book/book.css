@@ -22,18 +22,18 @@ body.print p {
 }
 
 .book-page .text-content, .book-page .coloring-content,
-#book-cover, #coloring-guide
+#book-cover, #table-of-contents
 {
     page-break-after: always;
 }
-#coloring-guide {
+#table-of-contents {
     /*create blank page: print it on the right side, side left page blank*/
     page-break-before: right;
 }
 
 .print .book-page .text-content, .print .book-page .coloring-content,
 .print #book-cover, 
-.print #coloring-guide {
+.print #table-of-contents {
     padding: 0 1.5%;
     width: 97%; /* allow the padding - works best with firefox printing */
     border: none;
@@ -45,13 +45,13 @@ body.print p {
 }
 
 .print #book-cover,
-.print #coloring-guide {
+.print #table-of-contents {
     margin: auto;
 }
 
 .print .book-page .text-content .content-container-wrapper,
 .print #book-cover .content-container-wrapper,
-.print #coloring-guide .content-container-wrapper,
+.print #table-of-contents .content-container-wrapper,
 .print .book-page .coloring-content .content-container-wrapper
 {
     position: relative;
