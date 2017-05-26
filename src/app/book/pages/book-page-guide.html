@@ -1,0 +1,109 @@
+<div id="guide" class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+    	<!-- Uses the Frieze Page Cntl -->
+    	<!-- TODO: After finish wallpaper patterns, shift this -->
+        <div class="content-container-wrapper" ng-controller="FriezePageCntl as friezePage">
+           
+            <p>The <strong>frieize patterns</strong> start with a single shape that transforms and then repeats forever in opposite directions.</p>
+
+            <div>
+
+	            <div class='frieze-pattern'
+	                pattern-function=slantedSlices
+	                group-name='p2'
+	                fundamental-domain-width=50
+	                fundamental-domain-height=35
+	                margin=10
+	                show-symmetry-sets={{friezePage.showSymmetrySets}}
+	                pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": false}'
+	            ></div>
+	            <div class='frieze-pattern'
+	                pattern-function=slantedSlices
+	                group-name='p2'
+	                fundamental-domain-width=50
+	                fundamental-domain-height=35
+	                margin=10
+	                show-symmetry-sets={{friezePage.showSymmetrySets}}
+	                pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": true}'
+	            ></div>
+	            <div class='frieze-pattern'
+	                pattern-function=slantedSlices
+	                group-name='p2'
+	                fundamental-domain-width=50
+	                fundamental-domain-height=35
+	                margin=10
+	                show-symmetry-sets={{friezePage.showSymmetrySets}}
+	                pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": false}'
+	            ></div>
+            </div>
+
+            <br/>
+
+            <p>The <strong>wallpaper patterns</strong> repeat infinitely in even more directions.</p>
+
+			<div>
+				<div class='frieze-pattern'
+					pattern-function='trianglesPath2'
+					group-name='p2'
+	                fundamental-domain-width=65
+	                fundamental-domain-height=45
+					margin=0
+					show-symmetry-sets={{friezePage.showSymmetrySets}}
+				></div>
+				<div class='frieze-pattern'
+					pattern-function='trianglesPath2'
+					group-name='p2'
+	                fundamental-domain-width=65
+	                fundamental-domain-height=45
+					margin=0
+					show-symmetry-sets={{friezePage.showSymmetrySets}}
+				></div>
+			</div>
+
+            <br/>
+
+            <p>We'll color through these concepts, but first start with the basics of <strong>shapes and symmetries</strong>.</p>
+
+            <div class="text-content-graphic line">
+                <div class='canvas black'
+                    canvas-centered-drawing
+                    draw-function='drawSierpinskiTriangle'
+                    function-options='{"level": 2, "orientation": 1}'
+                    options='{"tapRedraw": true}'
+                ></div>
+                <div
+                    circular-tessellation
+                    class="canvas black clickable" 
+                    with-redraw
+                    rotations=8
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    inscribed="square"
+                ></div>
+
+                <div class='canvas black'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":6, "withMirrorSections":true, "coloring":[1,2,0,0,1,2,0,0,1,2,0,0], "concave":true}'
+                    options='{"tapRotate": 120}'
+                ></div>
+
+                <div
+                    circular-tessellation
+                    class="canvas black" 
+                    with-redraw
+                    rotations=8
+                    slices-count=2
+                    levels=2
+                    margin=10
+                    mirror-lines=8
+                ></div>
+
+            </div>
+             
+        </div>
+    </div>
+
+</div>

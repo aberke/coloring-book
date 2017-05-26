@@ -31,8 +31,10 @@ body.print p {
     page-break-before: right;
 }
 
-.print .book-page .text-content, .print .book-page .coloring-content,
-.print #book-cover, 
+.print .book-page .text-content,
+.print .book-page .coloring-content,
+.print #book-cover,
+.print #guide, 
 .print #table-of-contents {
     padding: 0 1.5%;
     width: 97%; /* allow the padding - works best with firefox printing */
@@ -45,12 +47,14 @@ body.print p {
 }
 
 .print #book-cover,
-.print #table-of-contents {
+.print #table-of-contents,
+.print #guide {
     margin: auto;
 }
 
 .print .book-page .text-content .content-container-wrapper,
 .print #book-cover .content-container-wrapper,
+.print #guide .content-container-wrapper,
 .print #table-of-contents .content-container-wrapper,
 .print .book-page .coloring-content .content-container-wrapper
 {
