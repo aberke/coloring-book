@@ -4,7 +4,9 @@
         <div class="content-container-wrapper">
             <div class="content-container">
 
-                <p>When shapes have the same rotational order, they share a <a target="_blank" href="/#!/theory-reference#cyclic-group" class="theory-reference-term">cyclic group</a>.  We can use the name C3 to talk about the group of shapes that have 3 rotations.  We can also use the name C4 for the shapes that have 4 rotations, C5 for the shapes that have 5 rotations, and so on.
+                <p>When shapes have the same number of rotations, they share a <a target="_blank" href="/#!/theory-reference#cyclic-group" class="theory-reference-term">cyclic group</a>.</p>
+
+                <p>We can use the name C3 to talk about the group of shapes that have 3 rotations.  We can also use the name C4 for the shapes that have 4 rotations, C5 for the shapes that have 5 rotations, and so on.
                 </p>
 
                 <!-- [C3: Line of shapes, starting with with regular 3-gon] -->
@@ -85,6 +87,13 @@
                         options='{"autoRotateDegrees":45}'
                     ></div>
                 </div>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: Can you find the C5 and C6 shapes?</p>
             </div>
         </div>
     </div>
@@ -195,6 +204,45 @@
                     ></div>
                 </div>
 
+                <!-- line of 6 order-6 shapes -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":6, "withMirrorSections":true}'
+                        options='{"tapRotate":60}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":6}'
+                        options='{"tapRotate":60, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":6, "concave": true, "withMirrorSections":true}'
+                        options='{"tapRotate":60}'
+                    ></div><div class='canvas sixth'
+                        circular-tessellation
+                        with-redraw
+                        rotations=6
+                        slices-count=1
+                        levels=1
+                        margin=5
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":6}'
+                        options='{"tapRotate":60, "mirrorLines":6, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        circular-tessellation
+                        with-redraw
+                        rotations=6
+                        slices-count=2
+                        levels=2
+                        margin=5
+                    ></div>
+                </div>
+
                 <!-- line of 6 order-7 shapes -->
                 <div class="canvas-row">
                     <div class='canvas sixth'
@@ -228,45 +276,6 @@
                         circular-tessellation
                         with-redraw
                         rotations=7
-                        slices-count=2
-                        levels=2
-                        margin=5
-                    ></div>
-                </div>
-
-                <!-- line of 6 order-8 shapes -->
-                <div class="canvas-row">
-                    <div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":8, "withMirrorSections":true}'
-                        options='{"tapRotate":45}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawCyclicShape'
-                        function-options='{"N":8}'
-                        options='{"tapRotate":45, "margin":0}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":8, "concave": true, "withMirrorSections":true}'
-                        options='{"tapRotate":45}'
-                    ></div><div class='canvas sixth'
-                        circular-tessellation
-                        with-redraw
-                        rotations=8
-                        slices-count=1
-                        levels=1
-                        margin=5
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawDihedralShape'
-                        function-options='{"N":8}'
-                        options='{"tapRotate":45, "mirrorLines":8, "margin":0}'
-                    ></div><div class='canvas sixth'
-                        circular-tessellation
-                        with-redraw
-                        rotations=8
                         slices-count=2
                         levels=2
                         margin=5

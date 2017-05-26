@@ -388,11 +388,6 @@ But shrinks the canvas for smaller, mobile views */
 .fake-canvas {
 	vertical-align: top;
 }
-.fake-canvas p {
-	text-align: center;
-	display: block;
-	font-weight: bold;
-}
 
 
 /* Pieces */
