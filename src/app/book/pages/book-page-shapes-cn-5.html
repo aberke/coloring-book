@@ -4,41 +4,110 @@
         <div class="content-container-wrapper">
             <div class="content-container">
                 <p>We don't need to stop at 4 rotations.  We can find shapes with 5 rotations, 6 rotations, 7, 8, ... and keep going towards infinity.</p>
-
+                <!-- [Line of regular polygons of rotational order 5, 6, 7, 8 {dot} {dot} {circle}, order written underneath] -->
                 <div class="text-content-graphic line">
-                    <div class='canvas extra-small'
+                    <div class='canvas small'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N":5}'
-                        options='{"margin": 10}'
+                        options='{"text":"5", "margin":20}'
                     ></div>
-                    <div class='canvas extra-small'
+                    <div class='canvas small'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N":6}'
-                        options='{"margin": 10}'
+                        options='{"text":"6", "margin":20}'
                     ></div>
-                    <div class='canvas extra-small'
+                    <div class='canvas small'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N":7}'
-                        options='{"margin": 10}'
+                        options='{"text":"7", "margin":20}'
                     ></div>
-                    <div class='canvas extra-small'
+                    <div class='canvas small'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N":8}'
-                        options='{"margin": 10}'
+                        options='{"text":"8", "margin":20}'
                     ></div>
-                    <!-- make some dots in an ugly css hack? -->
-                    <div class="canvas extra-small fake-canvas"><p>...</p></div>
+                    <!-- dots -->
+                    <p class="text">...</p>
                     <!-- circle -->
-                    <div class='canvas extra-small'
+                    <div class='canvas small'
                         canvas-centered-drawing
                         draw-function='drawCircle'
                         function-options='{}'
-                        options='{"margin": 10}'
+                        options='{"text":"∞", "margin":20}'
                     ></div>
+                </div>
+
+                <br/>
+                <br/>
+                <br/>
+
+                <p>These shapes don't even need to be regular polygons.</p>
+                <!-- [Line of C3 shapes of rotational order 5, 6, 7, 8 {dot} {dot}, order written underneath] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5,"withMirrorSections": true, "concave":true}'
+                        options='{"text":"5"}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":6,"withMirrorSections": true, "concave":true}'
+                        options='{"text":"6"}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":7,"withMirrorSections": true, "concave":true}'
+                        options='{"text":"7"}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":8,"withMirrorSections": true, "concave":true}'
+                        options='{"text":"8"}'
+                    ></div>
+                    <!-- dots -->
+                    <p class="text">...</p>
+                    <!-- circle -->
+                    <div class='canvas small fake-canvas'></div>
+                </div>
+
+                <!-- [Line of cyclic shapes of rotational order 5, 6, 7, 8 {dot} {dot}, order written underneath] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":5}'
+                        options='{"text":"5"}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":6}'
+                        options='{"text":"6"}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":7}'
+                        options='{"text":"7"}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":8}'
+                        options='{"text":"8"}'
+                    ></div>
+                    
+                    <p class="text">...</p>
+
+                    <div class="canvas fake-canvas small"></div>
                 </div>
             </div>
         </div>

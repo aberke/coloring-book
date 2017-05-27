@@ -44,6 +44,9 @@ function BookCntl($scope, $location, $anchorScroll, $timeout) {
 			name: 'shapes-intro',
 			url: vm.bookPageUrl('book-page-shapes-intro.html'),
 		}, {
+			name: 'cn-0',
+			url: vm.bookPageUrl('book-page-shapes-cn-0.html'),
+		}, {
 			name: 'cn-1',
 			url: vm.bookPageUrl('book-page-shapes-cn-1.html'),
 		}, {
@@ -59,9 +62,9 @@ function BookCntl($scope, $location, $anchorScroll, $timeout) {
 			name: 'cn-5',
 			url: vm.bookPageUrl('book-page-shapes-cn-5.html'),
 		}, {
-			name: 'cn-6',
-			url: vm.bookPageUrl('book-page-shapes-cn-6.html'),
-		}, {
+		// 	name: 'cn-6',
+		// 	url: vm.bookPageUrl('book-page-shapes-cn-6.html'),
+		// }, {
 			name: 'cn-7',
 			url: vm.bookPageUrl('book-page-shapes-cn-7.html'),
 		}, {
