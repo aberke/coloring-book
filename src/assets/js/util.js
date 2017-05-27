@@ -106,7 +106,7 @@ function drawXaxis(paper, y, color) {
     var xAxisPathString = "M0," + String(y) + " l" + String(paperWidth) + ",0";
     var xAxisPath = paper.path(xAxisPathString)
         .attr({
-            "stroke-width": 2,
+            "stroke-width": SYMMETRY_STROKE_WIDTH,
             "stroke": color || "lightgray"
         });
     return xAxisPath;
