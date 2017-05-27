@@ -38,8 +38,8 @@ function BookCntl($scope, $location, $anchorScroll, $timeout) {
 			name: 'about',
 			url: vm.bookPageUrl('book-page-about.html'),
 		}, {
-			name: 'guide',
-			url: vm.bookPageUrl('book-page-guide.html'),
+			name: 'road-map',
+			url: vm.bookPageUrl('book-page-road-map.html'),
 		}, {
 			name: 'table-of-contents',
 			url: vm.bookPageUrl('book-page-table-of-contents.html'),
