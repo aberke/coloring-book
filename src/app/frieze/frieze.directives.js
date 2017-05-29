@@ -51,9 +51,9 @@ function friezePatternDirective($window) {
 		Shows the lines that illustrate the group's symmetry elements
 		*/
 		scope.showSymmetrySets = function() {
-			for (var symmetrySetName in scope.symmetrySets) {
-				var symmetrySet = scope.symmetrySets[symmetrySetName];
-				symmetrySet.attr({opacity: 0.6});
+			for (let symmetrySetName in scope.symmetrySets) {
+				let symmetrySet = scope.symmetrySets[symmetrySetName];
+				symmetrySet.toFront().attr({opacity: 1});
 			}
 		};
 		/*
@@ -172,15 +172,32 @@ function friezePatternDirective($window) {
 			// 'Order-2 Rotations'
 			scope.generatorGetters = [getOrder2RotationH];
 
-			// rotationOffsetFraction=0 will mean normal rotation in middle of fundamental domain
-			var rotationOffsetFraction = (1/4);
-			var rotationOffset = (rotationOffsetFraction)*(scope.fundamentalDomainHeight);
+			let rotationOffsetYFraction = (1/4);
+			let rotationOffsetY = (rotationOffsetYFraction)*(scope.fundamentalDomainHeight);
 
-			scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin - rotationOffset);
+			scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin - rotationOffsetY);
 			scope.setupPaper();
 
-			scope.drawOptions.rotationOffset = rotationOffset;
+			scope.drawOptions.rotationOffsetY = rotationOffsetY;
 			scope.drawPattern();
+
+			// Draw the rotation point sets
+			let rotationPointSet1Start = {
+				X: scope.fundamentalDomainWidth,
+				Y: scope.fundamentalDomainHeight + scope.margin - rotationOffsetY
+			};
+			let rotationPointSet2Start = {
+				X: 2*scope.fundamentalDomainWidth,
+				Y: scope.fundamentalDomainHeight + scope.margin - rotationOffsetY
+			};
+			let rotationPointSetGapX = 2*scope.fundamentalDomainWidth;
+
+			let rotationPointSet1 = drawOrder2RotationPointSet(scope.paper, rotationPointSet1Start, rotationPointSetGapX);
+			let rotationPointSet2 = drawOrder2RotationPointSet(scope.paper, rotationPointSet2Start, rotationPointSetGapX);
+			addSymmetrySetProperties(rotationPointSet1, SYMMETRY_SET_STYLES.r1);
+			addSymmetrySetProperties(rotationPointSet2, SYMMETRY_SET_STYLES.r2);
+			scope.symmetrySets.r1 = rotationPointSet1;
+			scope.symmetrySets.r2 = rotationPointSet2;
 		};
 
 		scope.p2mgHandler = function() {
@@ -212,10 +229,28 @@ function friezePatternDirective($window) {
 			var v1Set = drawYAxesSet(scope.paper, 3*(scope.fundamentalDomainWidth), vGap);
 			var v2Set = drawYAxesSet(scope.paper, scope.fundamentalDomainWidth, vGap);
 
-			addSymmetrySetProperties(v1Set, {'stroke': 'mediumpurple', 'stroke-width': 4});
-			addSymmetrySetProperties(v2Set, {'stroke': 'darkmagenta', 'stroke-width': 4});
+			addSymmetrySetProperties(v1Set, SYMMETRY_SET_STYLES.v1);
+			addSymmetrySetProperties(v2Set, SYMMETRY_SET_STYLES.v2);
 			scope.symmetrySets.v1 = v1Set;
 			scope.symmetrySets.v2 = v2Set;
+
+			// Draw the rotation point sets
+			let rotationPointSet1Start = {
+				X: 2*scope.fundamentalDomainWidth,
+				Y: scope.fundamentalDomainHeight + scope.margin - mirrorHOffset
+			};
+			let rotationPointSet2Start = {
+				X: 4*scope.fundamentalDomainWidth,
+				Y: scope.fundamentalDomainHeight + scope.margin - mirrorHOffset
+			};
+			let rotationPointSetGapX = 4*scope.fundamentalDomainWidth;
+
+			let rotationPointSet1 = drawOrder2RotationPointSet(scope.paper, rotationPointSet1Start, rotationPointSetGapX);
+			let rotationPointSet2 = drawOrder2RotationPointSet(scope.paper, rotationPointSet2Start, rotationPointSetGapX);
+			addSymmetrySetProperties(rotationPointSet1, SYMMETRY_SET_STYLES.r1);
+			addSymmetrySetProperties(rotationPointSet2, SYMMETRY_SET_STYLES.r2);
+			scope.symmetrySets.r1 = rotationPointSet1;
+			scope.symmetrySets.r2 = rotationPointSet2;
 		};
 
 		scope.p2mmHandler = function() {
@@ -237,8 +272,8 @@ function friezePatternDirective($window) {
 			var v1Set = drawYAxesSet(scope.paper, 0, vGap);
 			var v2Set = drawYAxesSet(scope.paper, scope.fundamentalDomainWidth, vGap);
 
-			addSymmetrySetProperties(v1Set, {'stroke': 'mediumpurple', 'stroke-width': 4});
-			addSymmetrySetProperties(v2Set, {'stroke': 'darkmagenta', 'stroke-width': 4});
+			addSymmetrySetProperties(v1Set, SYMMETRY_SET_STYLES.v1);
+			addSymmetrySetProperties(v2Set, SYMMETRY_SET_STYLES.v2);
 			scope.symmetrySets.v1 = v1Set;
 			scope.symmetrySets.v2 = v2Set;
 		};

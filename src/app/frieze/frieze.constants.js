@@ -3,14 +3,34 @@
 Define how symmetry set lines should be show with RaphaelJS attributes.
 */
 const SYMMETRY_SET_STYLES = {
-	'h1': {'stroke': 'red', 'stroke-width': 4},
-	'v1': {'stroke': 'mediumpurple', 'stroke-width': 4},
-	'v2': {'stroke': 'darkmagenta', 'stroke-width': 4},
-	'g': {
-    	'stroke': 'green',
-    	'stroke-dasharray': '-',
-    	'stroke-width': 4,
+	h1: {
+		'stroke': 'rgba(255, 0, 0, 0.6)',
+		'stroke-width': 4
+	},
+	v1: {
+		// mediumpurple
+		'stroke': 'rgba(147,112,219, 0.6)',
+		'stroke-width': 4
+	},
+	v2: {
+		// darkmagenta
+		'stroke': 'rgba(139,0,139,0.6)',
+		'stroke-width': 4
+	},
+	g: {
+		// green
+		'stroke': 'rgba(68, 182, 58, 0.7)',
+		'stroke-dasharray': '-',
+		'stroke-width': 4,
     },
+    r1: {
+		'stroke': 'coral',
+		'stroke-width': 4,
+    },
+    r2: {
+		'stroke': 'orange',
+		'stroke-width': 4,
+	}
 };
 
 

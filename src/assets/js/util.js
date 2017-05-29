@@ -43,13 +43,58 @@ var addSymmetrySetProperties = function(set, styles) {
     set.mouseout(function() { set.attr({opacity: 0}); });
 }
 
-/*
-Returns (Int) centered Y coordinate of paper.
-*/
-function getCenteredXaxisCoord(paper) {
-    var paperHeight = paper.getSize().height;
-    return paperHeight/2;
+/**
+Draws a diamond to represent the order-2 rotation point.
+
+@param {Paper} paper to draw on
+@param {X: Number, Y: Number} point to draw around
+@param {Number} size (width) of point to draw
+
+@returns {paper.path} path of drawn diamond.
+**/
+function drawOrder2RotationPoint(paper, point, size=1) {
+    let pathList = [
+        ["M", point.X - size, point.Y],
+        ["L", point.X, point.Y - 2*size],
+        ["L", point.X + size, point.Y],
+        ["L", point.X, point.Y + 2*size],
+        ["Z"]
+    ];
+    return paper.path(pathList);
 }
+
+
+/**
+Draws set of order-2 rotations.
+
+@param {Paper} paper to draw on
+@param {X: Number, Y: Number} startPoint to draw around
+@param {Number} gapX as horizontal distance between points drawn
+@param {Number} gapY as vertical distance between points drawn
+    - TODO: Use for wallpaper patterns
+
+@returns {paper.set()} set of drawn points.
+**/
+function drawOrder2RotationPointSet(paper, startPoint, gapX, gapY=0, maxIterationsX=null, maxIterationsY=null) {    
+    let set = paper.set();
+
+    let canvasSize = paper.getSize().height,
+        canvasHeight = canvasSize.height,
+        canvasWidth = paper.getSize().width;
+    let point = startPoint;
+    let i = 0;
+    while (point.X < canvasWidth) {
+        if (maxIterationsX && i >= maxIterationsX)
+            break;
+
+        set.push(drawOrder2RotationPoint(paper, point));
+        
+        point.X += gapX;
+        i += 1;
+    }
+    return set;
+}
+
 
 /**
  * Draws set of Y-Axes of the same type
@@ -112,6 +157,7 @@ function drawXaxis(paper, y, color) {
     return xAxisPath;
 }
 
+
 /*
 Constructor for glide reflection transformation string
 @pathSet: (Paper.path | Paper.set) to construct transformation from
@@ -147,10 +193,11 @@ Returns (String) transformation
 function getOrder2RotationH(pathSet, options) {
     options = options || {};
 
-    var bbox = pathSet.getBBox();
+    let bbox = pathSet.getBBox();
 
-    var rotationOffset = options.rotationOffset || (1/2)*bbox.height;
-    var transformString = "R180," + String(bbox.x2) + "," + String(bbox.y2 - rotationOffset);
+    let rotationOffsetX = options.rotationOffsetX || 0;
+    let rotationOffsetY = options.rotationOffsetY || 0;
+    let transformString = "R180," + String(bbox.x2 - rotationOffsetX) + "," + String(bbox.y2 - rotationOffsetY);
 
     return transformString;
 }
