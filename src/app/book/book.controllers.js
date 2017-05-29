@@ -143,6 +143,21 @@ function BookCntl($scope, $location, $anchorScroll, $timeout) {
 			name: 'dn-11',
 			url: vm.bookPageUrl('book-page-shapes-dn-11.html'),
 		}, {
+			name: 'dn-12',
+			url: vm.bookPageUrl('book-page-shapes-dn-12.html'),
+		}, {
+			name: 'dn-13',
+			url: vm.bookPageUrl('book-page-shapes-dn-13.html'),
+		}, {
+			name: 'dn-14',
+			url: vm.bookPageUrl('book-page-shapes-dn-14.html'),
+		}, {
+			name: 'dn-15',
+			url: vm.bookPageUrl('book-page-shapes-dn-15.html'),
+		}, {
+			name: 'dn-16',
+			url: vm.bookPageUrl('book-page-shapes-dn-16.html'),
+		}, {
 			name: 'get-updates',
 			url: vm.bookPageUrl('book-page-last.html'),
 		}

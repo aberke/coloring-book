@@ -1,0 +1,185 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+	            <p>You may have also noticed that our rotations can be reversed as well.</p>
+                <br/>
+                <p>When a square is rotated by a <fraction>1/4</fraction> turn, rotating again by a <fraction>3/4</fraction> turn brings it back to the position it started in.  The result is the same as a 0 turn.</p>
+
+                <!-- ¼ turn * ¾ turn = 0 turn -->
+                <p class="bold-math"><fraction>1/4</fraction> turn <span class="operator">&#x2737;</span> <fraction>3/4</fraction> turn <span class="operator">=</span> 0 turn</p>
+                <!-- [square colored] -¼ turn → [square turned by ¼ turn, colored], -¾ turn → [square in original position] -->
+	            <div class="text-content-graphic line">
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "coloring":[1, 2], "withMirrorSections":true}'
+                        options='{"text": "0 turn", "autoRotateDegrees":90,"initialRotation":0}'
+                    ></div>
+                    <div class="canvas mobile-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"1/4 turn"}'
+                    ></div>
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "coloring":[1, 2], "withMirrorSections":true}'
+                        options='{"text": "1/4 turn", "autoRotateDegrees":90,"initialRotation":90}'
+                    ></div>
+                    <div class="canvas mobile-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"3/4 turn"}'
+                    ></div>
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "coloring":[1, 2], "withMirrorSections":true}'
+                        options='{"text": "0 turn", "autoRotateDegrees":90,"initialRotation":0}'
+                    ></div>
+	            </div>
+
+                <p>The same can be said the other way around.</p>
+                <!--  ¾ turn * ¼ turn = 0 turn -->
+                <p class="bold-math"><fraction>3/4</fraction> turn <span class="operator">&#x2737;</span> <fraction>1/4</fraction> turn <span class="operator">=</span> 0 turn</p>
+                <!-- [square, colored] -¾ turn → [square turned by ¾ turn], -¼ turn → [square in original position] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "coloring":[1, 2], "withMirrorSections":true}'
+                        options='{"text": "0 turn", "autoRotateDegrees":90,"initialRotation":0}'
+                    ></div>
+                    <div class="canvas mobile-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"3/4 turn"}'
+                    ></div>
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "coloring":[1, 2], "withMirrorSections":true}'
+                        options='{"text": "3/4 turn", "autoRotateDegrees":90,"initialRotation":270}'
+                    ></div>
+                    <div class="canvas mobile-small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"1/4 turn"}'
+                    ></div>
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "coloring":[1, 2], "withMirrorSections":true}'
+                        options='{"text": "0 turn", "autoRotateDegrees":90,"initialRotation":0}'
+                    ></div>
+                </div>
+
+                <br/>
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: Which rotation in C4 is the reverse of the <fraction>2/4</fraction> turn?</p>
+                <!-- [2 square, with mirror sections] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{}'
+                    ></div>
+                    <div class='canvas mobile-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{}'
+                    ></div>
+                </div>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 6, "concave":true, "withMirrorSections":true}'
+                        options='{"margin":0, "initialRotation":90, "mirrorLines":1, "tapRotate":180, "inscribed":"square"}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "concave":true, "withMirrorSections":true}'
+                        options='{"margin":0, "initialRotation":270, "mirrorLines":1, "tapRotate":180}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 6, "concave":true, "withMirrorSections":true}'
+                        options='{"margin":0, "initialRotation":90, "mirrorLines":1, "tapRotate":180, "inscribed":"square"}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "concave":true, "withMirrorSections":true}'
+                        options='{"margin":0, "initialRotation":90, "mirrorLines":1, "tapRotate":180}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 6, "concave":true, "withMirrorSections":true}'
+                        options='{"margin":0, "initialRotation":90, "mirrorLines":1, "tapRotate":180, "inscribed":"square"}'
+                    ></div>
+                </div>
+
+
+                <div class="canvas-row">
+                    <div class="canvas two-thirds"
+                        circular-tessellation
+                        with-redraw
+                        rotations=8
+                        slices-count=3
+                        levels=2
+                        mirror-lines=8
+                        rings="[0.95,1]"
+                    ></div>
+                </div>
+
+                
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 6, "concave":true, "withMirrorSections":true}'
+                        options='{"margin":0, "initialRotation":90, "mirrorLines":1, "tapRotate":180, "inscribed":"square"}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "concave":true, "withMirrorSections":true}'
+                        options='{"margin":0, "initialRotation":270, "mirrorLines":1, "tapRotate":180}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 6, "concave":true, "withMirrorSections":true}'
+                        options='{"margin":0, "initialRotation":90, "mirrorLines":1, "tapRotate":180, "inscribed":"square"}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "concave":true, "withMirrorSections":true}'
+                        options='{"margin":0, "initialRotation":90, "mirrorLines":1, "tapRotate":180}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 6, "concave":true, "withMirrorSections":true}'
+                        options='{"margin":0, "initialRotation":90, "mirrorLines":1, "tapRotate":180, "inscribed":"square"}'
+                    ></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>
