@@ -157,7 +157,6 @@ function friezePatternDirective($window) {
 			scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin)*(1 - mirrorHOffsetFraction);
 
 			scope.drawOptions.mirrorOffset = mirrorHOffset;
-			scope.drawOptions.gap = 0;
 			scope.setupPaper();
 			scope.drawPattern();
 
@@ -188,7 +187,6 @@ function friezePatternDirective($window) {
 			// pqbdpqbdpqbdpqbdpqbd
 			// 'Vertical Reflection + (Glide Reflection || Order-2 Rotations)'
 			scope.generatorGetters = [getMirrorV, getGlideH];
-			var gap = 0;
 
 			// create H mirror within fundamental domain
 			// mirrorOffsetFraction=0 will mean normal mirror at bottom of fundamental domain
@@ -199,7 +197,6 @@ function friezePatternDirective($window) {
 			scope.setupPaper();
 
 			scope.drawOptions.mirrorOffset = mirrorHOffset;
-			scope.drawOptions.gap = gap;
 			scope.drawPattern();
 
 			// draw the symmetry sets
@@ -211,8 +208,8 @@ function friezePatternDirective($window) {
 
 			// draw v1's & v2's
 			// space v-lines by 2*width of fundamental domain
-			var vGap = 2*(scope.fundamentalDomainWidth + gap);
-			var v1Set = drawYAxesSet(scope.paper, 0 - gap, vGap);
+			var vGap = 4*(scope.fundamentalDomainWidth);
+			var v1Set = drawYAxesSet(scope.paper, 3*(scope.fundamentalDomainWidth), vGap);
 			var v2Set = drawYAxesSet(scope.paper, scope.fundamentalDomainWidth, vGap);
 
 			addSymmetrySetProperties(v1Set, {'stroke': 'mediumpurple', 'stroke-width': 4});
