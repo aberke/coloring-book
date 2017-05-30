@@ -87,13 +87,13 @@ function friezePatternDirective($window) {
 		};
 
 		scope.drawPattern = function() {
-		    var origin = {
+		    let origin = {
 		    	X: 0,
 		    	Y: scope.fundamentalDomainHeight + scope.margin,
 		    };
 		    // generate the fundamental domain path once so that it can use random variables
 		    // and yet still look the same when it's redrawn by the FriezePattern
-		    var fundamentalDomainPath = scope.patternFunction(origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
+		    let fundamentalDomainPath = scope.patternFunction(origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
 		    scope.friezePattern = new FriezePattern(scope.paper, fundamentalDomainPath, scope.generatorGetters, scope.drawOptions);
 		};
 
@@ -172,7 +172,7 @@ function friezePatternDirective($window) {
 			// 'Order-2 Rotations'
 			scope.generatorGetters = [getOrder2RotationH];
 
-			let rotationOffsetYFraction = (1/4);
+			let rotationOffsetYFraction = isNumeric(scope.drawOptions.rotationOffset) ? scope.drawOptions.rotationOffset : (1/4);
 			let rotationOffsetY = (rotationOffsetYFraction)*(scope.fundamentalDomainHeight);
 
 			scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin - rotationOffsetY);

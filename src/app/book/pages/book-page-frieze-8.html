@@ -1,0 +1,200 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+                <h3 class="frieze-pattern-name">p11g</h3>
+                <p class="frieze-pattern-description">Glide Reflection &amp; Translation</p>
+
+	            <p>There is another type of symmetry called <span class="bold-math">glide reflection</span>.</p>
+                <!-- [simple p11g pattern] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div>
+                    <div class='canvas fake-canvas extra-small'></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div>
+                    <div class='canvas fake-canvas extra-small'></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div>
+                    <div class='canvas fake-canvas extra-small'></div>
+                </div>
+                <div class="text-content-graphic line">
+                    <div class='canvas fake-canvas extra-small'></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H"}'
+                    ></div>
+                    <div class='canvas fake-canvas extra-small'></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H"}'
+                    ></div>
+                    <div class='canvas fake-canvas extra-small'></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H"}'
+                    ></div>
+                </div>
+
+                <br/>
+
+                <p>A <strong>glide reflection</strong> is a transformation that reflects across a mirror line at the same time as translating along it.</p>
+
+                <div style="display: inline-block; border-bottom: 2px solid gray;" class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div><div class='canvas fake-canvas extra-small'>
+                        <p class="text big">&rarr;</p>
+                    </div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div>
+                </div>
+                <div class="text-content-graphic line">
+                    <div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H", "stroke-dasharray":"-"}'
+                    ></div>
+                </div>
+
+                <br/>
+
+                <p>By continuing to translate, a pattern with <strong>glide reflection</strong> is generated.</p>
+
+                <div class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div>
+                </div>
+                <div class="text-content-graphic line">
+                    <div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H", "stroke-dasharray":"-"}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H", "stroke-dasharray":"-"}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H", "stroke-dasharray":"-"}'
+                    ></div>
+                </div>
+
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: Can you find the glide reflections in the following patterns?</p>
+                
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+                <div class='frieze-pattern'
+                    pattern-function=slantedSlices
+                    group-name='p11g'
+                    fundamental-domain-width=90
+                    fundamental-domain-height=75
+                    pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": false}'
+                ></div>
+
+                <div class='frieze-pattern'
+                    pattern-function=slantedSlices
+                    group-name='p11g'
+                    fundamental-domain-width=90
+                    fundamental-domain-height=75
+                    pattern-function-options='{"levels": 3, "pathsPerLevel": 1, "allowCurved": true}'
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function=slantedSlices
+                    group-name='p11g'
+                    fundamental-domain-width=90
+                    fundamental-domain-height=75
+                    pattern-function-options='{"levels": 3, "pathsPerLevel": 1, "allowCurved": false}'
+                ></div>
+                
+                <div class='frieze-pattern'
+                    pattern-function=slantedSlices
+                    group-name='p11g'
+                    fundamental-domain-width=90
+                    fundamental-domain-height=75
+                    pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": true}'
+                ></div>
+                
+                <div class='frieze-pattern'
+                    pattern-function='trianglesPath2'
+                    group-name='p11g'
+                    fundamental-domain-width=90
+                    fundamental-domain-height=75
+                ></div>
+                
+                <div class='frieze-pattern'
+                    pattern-function='petalsEllipseWithDiamondPath'
+                    group-name='p11g'
+                    fundamental-domain-width=90
+                    fundamental-domain-height=75
+                ></div>
+            </div>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>
