@@ -6,7 +6,7 @@ Use
     pattern-function={function} // function with which to draw fundamental domain
     pattern-function-options={object} // options that will be passed to the pattern-function
     draw-options={} // options that will be passed to the FriezePattern constructor
-    group-name={'p1' | 'p1a1' | ... one of the 7 frieze groups to draw}
+    group-name={'p1' | 'p11g' | ... one of the 7 frieze groups to draw}
     fundamental-domain-width={number}
     fundamental-domain-height={number}
     margin={Number} // margin of space to allow around fundamental domain
@@ -144,7 +144,7 @@ function friezePatternDirective($window) {
 		    scope.symmetrySets.v2 = v2Set;
 		};
 
-		scope.p1a1Handler = function() {
+		scope.p11gHandler = function() {
 			// pbpbpbpb
 			// 'Glide Reflection only'
 			scope.generatorGetters = [getGlideH];
@@ -282,7 +282,7 @@ function friezePatternDirective($window) {
 		    'p1': scope.p1Handler,
 		    'p11m': scope.p11mHandler,
 		    'p1m1': scope.p1m1Handler,
-		    'p1a1': scope.p1a1Handler,
+		    'p11g': scope.p11gHandler,
 		    'p2': scope.p2Handler,
 		    'p2mg': scope.p2mgHandler,
 		    'p2mm': scope.p2mmHandler,
