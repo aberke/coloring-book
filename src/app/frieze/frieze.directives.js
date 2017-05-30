@@ -80,8 +80,8 @@ function friezePatternDirective($window) {
 		};
 
 		// draws h1's
-		scope.setupH1SymmetrySet = function(h1StartY, hGap) {
-		    var h1Set = drawXaxis(scope.paper, h1StartY, hGap);
+		scope.setupH1SymmetrySet = function(h1Y, hGap) {
+		    var h1Set = drawXaxis(scope.paper, h1Y, hGap);
 		    addSymmetrySetProperties(h1Set, SYMMETRY_SET_STYLES.h1);
 		    scope.symmetrySets.h1 = h1Set;
 		};
@@ -262,9 +262,9 @@ function friezePatternDirective($window) {
 			scope.drawPattern();
 
 			// Draw symmetry sets
-			var h1StartY = scope.fundamentalDomainHeight + scope.margin;
+			var h1Y = scope.fundamentalDomainHeight + scope.margin;
 			var hGap = scope.patternSpaceHeight;
-			scope.setupH1SymmetrySet(h1StartY, hGap);
+			scope.setupH1SymmetrySet(h1Y, hGap);
 
 			// draw v1's & v2's
 			// space v-lines by 2*width of fundamental domain
@@ -276,6 +276,24 @@ function friezePatternDirective($window) {
 			addSymmetrySetProperties(v2Set, SYMMETRY_SET_STYLES.v2);
 			scope.symmetrySets.v1 = v1Set;
 			scope.symmetrySets.v2 = v2Set;
+
+			// Draw the rotation point sets
+			let rotationPointSet1Start = {
+				X: 0,
+				Y: scope.fundamentalDomainHeight + scope.margin
+			};
+			let rotationPointSet2Start = {
+				X: scope.fundamentalDomainWidth,
+				Y: scope.fundamentalDomainHeight + scope.margin
+			};
+			let rotationPointSetGapX = 2*scope.fundamentalDomainWidth;
+
+			let rotationPointSet1 = drawOrder2RotationPointSet(scope.paper, rotationPointSet1Start, rotationPointSetGapX);
+			let rotationPointSet2 = drawOrder2RotationPointSet(scope.paper, rotationPointSet2Start, rotationPointSetGapX);
+			addSymmetrySetProperties(rotationPointSet1, SYMMETRY_SET_STYLES.r1);
+			addSymmetrySetProperties(rotationPointSet2, SYMMETRY_SET_STYLES.r2);
+			scope.symmetrySets.r1 = rotationPointSet1;
+			scope.symmetrySets.r2 = rotationPointSet2;
 		};
 
 		var handlers = {
