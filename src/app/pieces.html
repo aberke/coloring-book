@@ -388,7 +388,7 @@
 		<div>
 			<h3>Frieze</h3>
 
-			<div ng-init="selectedGroupName='p1a1'; groupNames=['p1', 'p11m', 'p1m1', 'p1a1', 'p2', 'p2mg', 'p2mm'];">
+			<div ng-init="selectedGroupName='p11g'; groupNames=['p1', 'p11m', 'p1m1', 'p11g', 'p2', 'p2mg', 'p2mm'];">
 				<ul>
 					<!-- angular creates child scopes for each item in ng-repeat, so neex to update $parent scope -->
 					<li class="clickable" ng-class="{active: groupName==selectedGroupName}" ng-repeat="groupName in groupNames" ng-click="$parent.selectedGroupName=groupName">

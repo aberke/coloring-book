@@ -52,7 +52,7 @@ const friezeGroupsData = {
 			'Vertical reflection'
 		],
 	},
-	'p1a1': {
+	'p11g': {
 		generators: [
 			'Translation',
 			'Glide reflection'

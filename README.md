@@ -179,37 +179,37 @@ Share with http://www.coloring-book.co not http://coloring-book.co to avoid redi
 - See pages 70-76 of Isometrica for good examples from anthropological studies around the world
 
 
-- p1111 (aka p1): (T): Translation only
+- p1: (T): Translation only
 	- `ppppppp`
 
-- p1m1 (aka p11m ?): (TH): Horizontal reflection
+- p11m: (TH): Horizontal reflection
 	- `>>>>>>>` OR `DCDCDCD`
 	- mirror axis perpendicular to direction of repitition
 	- And can only be found at center (for frieze groups)
 
-- pm1 (aka p1m1?): (TV): Vertical reflection
+- p1m1: (TV): Vertical reflection
 	`pqpqpqpqp`
 	-  multiple mirrors (perpendicular to translation vector)
 	- 2 types, infinitely alternating, repeating
 		- 1 bisects fundamental region
 		- 1 separates 2 fundamental regions
 
-- p1a1 (aka p11g): (TG): Glide reflection
+- p11g: (TG): Glide reflection
 	- `pbpbpbpb ------G` 
 	- glide reflection axis parallel to repitition
 	- minimal glide relection vector length = half length of minimal translation vector
 		- because G^2 = T
 
-- p112 (aka p2): (TR): 2 180° Rotations
+- p2: (TR): 2 180° Rotations
 	- `pdpdpdpd` OR `ZZZZZZZ`
 	- distance between any 2 adjacent half-turn centers is half the minimal translation vector
 
-- pma2 (aka p2mg): (TVGR) 2 vertical mirrors, glide, rotation
+- p2mg: (TVGR) 2 vertical mirrors, glide, rotation
 	- `/|\/|\|/|\|/|\|/\------G` OR `pqbdpqbdpqbdpqbd------G`
 	- rotation halfway between every 2 mirrors
 	- 2 mirrors vertical to translation vector
 
-- pmm2 (aka p2mm): (THVRG): Horizontal and Vertical reflection lines, 180° Rotations
+- p2mm: (THVRG): Horizontal and Vertical reflection lines, 180° Rotations
 	- Vertical reflections + Half-turns => Glide
 	- `XXXXXXXXX---G` or `HHHHHHHHH`
 	- Requires 3 generators. One generating set: (THV)
@@ -217,17 +217,17 @@ Share with http://www.coloring-book.co not http://coloring-book.co to avoid redi
 
 #### Generators
 
-- pmm2 "richest" in symmetry
-	- can be reduced to p1m1 or pma2 by cutting off 2 pieces
+- p2mm "richest" in symmetry
+	- can be reduced to p1m1 or p2mg by cutting off 2 pieces
 
-- pmm2 -> p1m1: reduce (THVR) -> (TH)
+- p2mm -> p1m1: reduce (THVR) -> (TH)
 ```
 	|  ||  ||  ||	   |   |   |   |  
 	------------   --> --  --  --  --
 	|  ||  ||  ||
 ```
 
-- pmm2 -> pma2 : reduce (THVR) -> (TRV)
+- p2mm -> p2mg : reduce (THVR) -> (TRV)
 ```
 	|  ||  ||  ||	   |   ||    ||   
 	------------   --> -----------
@@ -249,20 +249,20 @@ Share with http://www.coloring-book.co not http://coloring-book.co to avoid redi
 
 ### Ideas
 
-Illustrate transformation from p111 to pm1
+Illustrate transformation from p1 to p1m1
 (reverse every other motif)
-p1111: 	p p p p p p (animate shifting shift translation to..)
+p1: 	p p p p p p (animate shifting shift translation to..)
 ..: 	p 	p	p   (duplicate and flip)
-pm1:	p q p q p q
+p1m1:	p q p q p q
 
 
-Illustrate p1111 -> p1m1
-p1111: 	b b b b b b
+Illustrate p1 -> p11m
+p1: 	b b b b b b
 (animate flipping horizontally)
-p1m1:   b b b b b b
+p11m:   b b b b b b
 		p p p p p p
 
-p1m1 -> p1a1
+p1m1 -> p11g
 p1m1:	\ \ \ \ \ \ \ 
 		/ / / / / / /
 disappear half the items
@@ -270,15 +270,15 @@ disappear half the items
 		  /   /   /
 
 
-Illustrate p1a1 -> pma2
-draw the curve of p1a1: \  \  \  \
+Illustrate p11g -> p2mg
+draw the curve of p11g: \  \  \  \
 						  /  /  /  /
 and then have it double back on itself
 \/\/\/\/\/
 /\/\/\/\/\
 
-Illustrate pma2 <--> p112
-pma2:
+Illustrate p2mg <--> p2
+p2mg:
 	\/\/\/\/\/\/
 	 /\/\/\/\/\/\
 remove every other column
@@ -287,9 +287,9 @@ remove every other column
 - All half turns preserved
 - Reflections gone
 
-pma2 -> pmm2
-- Flip pma2 or shrink glide reflection vector to 0 (so that it is just a horizontal mirror)
-pma2:
+p2mg -> p2mm
+- Flip p2mg or shrink glide reflection vector to 0 (so that it is just a horizontal mirror)
+p2mg:
 \  /\  /\  /\  /\
  \/  \/  \/  \/  \
 flip or shink glide reflection T vector	to get p2m2
@@ -297,14 +297,14 @@ flip or shink glide reflection T vector	to get p2m2
 /\/\/\/\/\/\/\/
 
 
-Illustrate the many diffrent ways to generate pmm2
+Illustrate the many diffrent ways to generate p2mm
 - requires 3 generators
 - one generating set: a H, V, T:
 	\ --H--> \ --V--> \/ --T--> \/\/\...
 		     /		  /\		/\/\/
 
-Illustrate pmm2 -> pma2
-- Shifts bottom row of pmm2 over one cell
+Illustrate p2mm -> p2mg
+- Shifts bottom row of p2mm over one cell
 \/\/\/\/\/\/ ---> \/\/\/\/\/\/
 /\/\/\/\/\/\      \/\/\/\/\/\/\
 
