@@ -23,7 +23,8 @@ The illustrations in this book are designed by algorithms that follow the symmet
 
 ## Posters
 
-Printable posters available at `/#!/posters/`
+Printable posters available at <a href="http://www.coloring-book.co/#!/posters/">/#!/posters/</a>
+- Includes printable frieze group posters
 
 
 ## Worksheets
@@ -36,10 +37,6 @@ Printable posters available at `/#!/posters/`
 	- Print and cut into cards with one pattern piece per card.
 	- Try to arrange these cards to generate the Frieze Patterns.
 
-
-#### Frieze Posters
-
-(TODO)
 
 
 ## Development

@@ -49,7 +49,12 @@ angular.module('app', [
         .when('/frieze', {
             templateUrl: '/app/frieze/frieze.html',
         })
+
+        // posters routes
         .when('/posters/:posterName', {
+            templateUrl: '/app/posters/posters-index.html',
+        })
+        .when('/posters', {
             templateUrl: '/app/posters/posters-index.html',
         })
         .otherwise({ redirectTo: '/' });
@@ -57,12 +62,14 @@ angular.module('app', [
 
     $locationProvider.hashPrefix('!');
 }])
+
 // bootstrap the directives
 .directive('fraction', fractionDirective)
 .directive('canvasCenteredDrawing', canvasCenteredDrawingDirective)
 .directive('circularTessellation', circularTessellationDirective)
 
-.controller('MainCntl', function($scope, $location) {
+// set up the main page controller
+.controller('MainCntl', function($rootScope, $location, $anchorScroll, $routeParams) {
     // view model
     let vm = this;
 
@@ -70,16 +77,14 @@ angular.module('app', [
     vm.checkPrint = function() {
         vm.print = (!!$location.search()[PRINT_PARAM] || $location.path() === PRINT_ROUTE);
     }
-
-    // initialize
-    vm.checkPrint();
-})
-
-.run(function($rootScope, $location, $anchorScroll, $routeParams) {
     
-    // handle anchor tags on route change
+    // handle anchor tags & routeparam changes
+    // this will be triggered on first page load, as well as all route changes
     $rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute) {
         $location.hash($routeParams.scrollTo);  
         $anchorScroll();
+
+        // this will also be triggered on first page load
+        vm.checkPrint();
     });
 });
