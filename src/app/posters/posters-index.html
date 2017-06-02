@@ -31,7 +31,14 @@
 		<h1>POSTERS</h1>
 
 		<ul>
-			<li ng-repeat="p in posters.posterNames"><a ng-href="/#!/posters/{{p}}">{{p}}</a></li>
+			<!-- Frieze posters -->
+			<li ng-repeat="(groupName, link) in posters.friezePosters">
+				<a href={{link}}>Frieze Patterns: {{groupName}}</a>
+			</li>
+			<!-- Other posters -->
+			<li ng-repeat="(pName, link) in posters.otherPosters">
+				<a ng-href={{link}}>{{pName}}</a>
+			</li>
 		</ul>
 
 	</div>
