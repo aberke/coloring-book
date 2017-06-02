@@ -4,12 +4,12 @@
     <div class="page-switch-container">
         <div ng-repeat="p in book.pages">
 
-            <span ng-if="book.page.name == p.name && !main.print" class="page-change-btn page-previous-btn" ng-show="book.showPreviousPageBtn" ng-mouseup="book.previousPage()" ng-mouseover="book.onHoverPreviousPage()"> &#x25B5; Previous Page &#x25B5;</span>
+            <span ng-if="book.page.name == p.name && !main.print" class="page-change-btn page-previous-btn" ng-show="book.showPreviousPageBtn" ng-mouseup="book.previousPage()"> &#x25B5; Previous Page &#x25B5;</span>
 
             <!-- animate page transition based on whether transitioning forward or back in pages -->
             <ng-include ng-class="{'animate-next-page': book.animateNextPage, 'animate-previous-page': book.animatePreviousPage}" src="p.url"></ng-include>
 
-            <span ng-if="book.page.name == p.name && !main.print" class="page-change-btn page-next-btn" ng-show="book.showNextPageBtn" ng-mouseup="book.nextPage()" ng-mouseover="book.onHoverNextPage()">&#x25BD; Next Page &#x25BD;</span>
+            <span ng-if="book.page.name == p.name && !main.print" class="page-change-btn page-next-btn" ng-show="book.showNextPageBtn" ng-mouseup="book.nextPage()">&#x25BD; Next Page &#x25BD;</span>
 
         </div>
     </div>

@@ -128,7 +128,8 @@ move from one book-page to the next with animation:
     text-align: center;
     color: rgb(59,204,166);
     padding: 15px;
-    margin: 15px 0;
+    margin: 15px auto;
+    max-width: 60%;
 }
 .page-change-btn.page-previous-btn {
     margin-top: 12px;

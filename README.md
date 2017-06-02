@@ -63,8 +63,6 @@ Files are transpiled and built to `/dist` by gulp and are served by a node http-
 
 Can add parameter to URL to avoid page switch on hover of 'Preview Page' or 'Next Page'
 
-- Add `?develop` as URL parameter
-
 
 #### Linting
 
