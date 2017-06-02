@@ -29,11 +29,11 @@ Printable posters available at <a href="http://www.coloring-book.co/#!/posters/"
 
 ## Worksheets
 
-- Worksheet at `/#!/worksheet`
+- Worksheet at <a href="http://www.coloring-book.co/#!/worksheet">/#!/worksheet</a>
 	- Print this worksheet -- meant for Second Sunday at Pioneer Works
 	- Designed to be printed in landscape mode on 11x17 paper
 	
-- Frieze pattern cards at `/#!/cards`
+- Frieze pattern cards at <a href="http://www.coloring-book.co/#!/cards/">/#!/cards</a>
 	- Print and cut into cards with one pattern piece per card.
 	- Try to arrange these cards to generate the Frieze Patterns.
 
@@ -56,7 +56,7 @@ Files are transpiled and built to `/dist` by gulp and are served by a node http-
 - Run `$ gulp serve`
 	- This uses `gulp watch` to recompile `src` files as they're updated
 	- Or run the server in production mode with `$ npm start`
-- Visit http://127.0.0.1/:5000
+- Visit http://127.0.0.1:5000
 
 Can add parameter to URL to avoid page switch on hover of 'Preview Page' or 'Next Page'
 
