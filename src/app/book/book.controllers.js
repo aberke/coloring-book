@@ -180,38 +180,8 @@ function BookCntl($scope, $location, $anchorScroll, $timeout) {
 	};
 
 
-	// Since page changes are triggered on mouse-over action,
-	// only allow page changes from hover to happen in intervals
-	vm.pageChangeReady = true;
-
-	vm.triggerChangePageStart = function() {
-		if (vm.changePageTimeout)
-			$timeout.cancel(vm.changePageTimeout);
-
-		vm.pageChangeReady = false;
-		vm.changePageTimeout = $timeout(function() {
-			vm.pageChangeReady = true;
-		}, 3000);
-	};
-
-	vm.onHoverPreviousPage = function() {
-		if (!vm.pageChangeReady || $location.search().develop)
-			return;
-
-		vm.previousPage();
-	};
-
-	vm.onHoverNextPage = function() {
-		if (!vm.pageChangeReady || $location.search().develop)
-			return;
-
-		vm.nextPage();
-	};
-
 	// change to the previous page
 	vm.previousPage = function() {
-		vm.triggerChangePageStart();
-
 		vm.animateNextPage = false;
 		vm.animatePreviousPage = true;
 		vm.changePage(vm.pageNumber - 1);
@@ -219,8 +189,6 @@ function BookCntl($scope, $location, $anchorScroll, $timeout) {
 
 	// change to the next page
 	vm.nextPage = function() {
-		vm.triggerChangePageStart();
-
 		vm.animateNextPage = true;
 		vm.animatePreviousPage = false;
 		vm.changePage(vm.pageNumber + 1);
