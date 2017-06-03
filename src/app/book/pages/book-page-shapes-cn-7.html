@@ -4,10 +4,33 @@
         <div class="content-container-wrapper">
             <div class="content-container">
 
-                <p>When shapes have the same number of rotations, they share a <a target="_blank" href="/#!/theory-reference#cyclic-group" class="theory-reference-term">cyclic group</a>.</p>
+                <p>When shapes have the same number of rotations, they share a symmetry <a target="_blank" href="/#!/theory-reference#group" class="theory-reference-term">group</a>.</p>
 
-                <p>We can use the name C3 to talk about the group of shapes that have 3 rotations.  We can also use the name C4 for the shapes that have 4 rotations, C5 for the shapes that have 5 rotations, and so on.
-                </p>
+                <p>We can call the group with 2 rotations C2, and call the the group with 3 rotations C3, call the group with 4 rotations C4, and so on...</p>
+
+                <!-- [C2: Line of shapes, starting with with regular 2-gon] -->
+                <div class="text-content-graphic line">
+                    <p class="text">C2:</p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRectangle'
+                        function-options='{}'
+                        options='{"autoRotateDegrees":180}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCircularTessellation'
+                        function-options='{"rotations":2,"levels":1,"slicesCount":1}'
+                        options='{"autoRotateDegrees":180, "margin": 30}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCircularTessellation'
+                        function-options='{"rotations":2,"levels":2,"slicesCount":2}'
+                        options='{"autoRotateDegrees":180, "margin": 15}'
+                    ></div>
+                </div>
+                <br/>
 
                 <!-- [C3: Line of shapes, starting with with regular 3-gon] -->
                 <div class="text-content-graphic line">
@@ -58,42 +81,44 @@
                 
                 <br/>
 
+                <!-- [C5: Line of shapes, starting with with regular 5-gon] -->
+                <div class="text-content-graphic line">
+                    <p class="text">C5:</p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5}'
+                        options='{"autoRotateDegrees":72}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCircularTessellation'
+                        function-options='{"rotations":5,"levels":1,"slicesCount":1}'
+                        options='{"autoRotateDegrees":72}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCircularTessellation'
+                        function-options='{"rotations":5,"levels":2,"slicesCount":1}'
+                        options='{"autoRotateDegrees":72}'
+                    ></div>
+                </div>
+
+                <br/>
+
                 <!-- dots -->
                 <div class="text-content-graphic line">
                     <p class="text">...</p>
                 </div>
-                
-                <br/>
-
-                <!-- [C8: Line of shapes, starting with with regular 8-gon] -->
-                <div class="text-content-graphic line">
-                    <p class="text">C8:</p>
-                    <div class='canvas'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":8}'
-                        options='{"autoRotateDegrees":45}'
-                    ></div>
-                    <div class='canvas'
-                        canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations":8,"levels":1,"slicesCount":1}'
-                        options='{"autoRotateDegrees":45}'
-                    ></div>
-                    <div class='canvas'
-                        canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations":8,"levels":2,"slicesCount":1}'
-                        options='{"autoRotateDegrees":45}'
-                    ></div>
-                </div>
 
                 <br/>
+
+                <p>These groups are called the <a target="_blank" href="/#!/theory-reference#cyclic-group" class="theory-reference-term">cyclic groups</a>.</p>
                 <br/>
                 <br/>
                 <br/>
 
-                <p class="challenge">Challenge: Can you find the C5 and C6 shapes?</p>
+                <p class="challenge">Challenge: Can you find all of the C5 and C6 shapes?</p>
             </div>
         </div>
     </div>
@@ -188,7 +213,7 @@
                         rotations=5
                         slices-count=1
                         levels=1
-                        margin=15
+                        margin=20
                     ></div><div class='canvas third'
                         canvas-centered-drawing
                         draw-function='drawDihedralShape'
