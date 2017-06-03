@@ -421,11 +421,15 @@ figcaption {
 
 /* Pieces */
 
-.mobile-only {
+.mobile-only,
+.text-content-graphic .canvas.mobile-only {
 	display: none;
 }
 .desktop-only {
 	display: block;
+}
+.text-content-graphic .canvas.desktop-only {
+	display: inline-block;
 }
 
 @media (max-width: 875px) {
@@ -433,7 +437,12 @@ figcaption {
 	.mobile-only {
 		display: block;
 	}
-	.desktop-only {
+	.text-content-graphic .canvas.mobile-only {
+		display: inline-block;
+	}
+
+	.desktop-only,
+	.text-content-graphic .canvas.desktop-only {
 		display: none;
 	}
 
@@ -441,7 +450,8 @@ figcaption {
 		text-align: center;
 	}
 
-	.mobile-block {
+	.mobile-block,
+	.text-content-graphic p.mobile-block {
 		display: block;
 	}
 
