@@ -3,7 +3,7 @@ Use
 --------
 <div
 	circular-tessellation
-	class="canvas" 
+	class="canvas"
 	with-redraw  // whether should be redrawn on click
 	rings=[{number between 0 and 1}]  // list for creating rings below tessellation, where each number marks fraction of tessellation's radius to draw at
 	rotations={number}
@@ -98,6 +98,7 @@ function circularTessellationDirective($location) {
 			}
 
 			function redraw() {
+				scope.circularTessellation.cancel();
 				paper.clear();
 
 				// redraw the tessellation
