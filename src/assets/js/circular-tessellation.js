@@ -77,16 +77,17 @@ class CircularTessellation {
 		// set the starting height and width of a slice.  Hooray whipping out the binary tree math
 		this.height = this.radius/(Math.pow(this.scaleFactor, this.levels) - 1);
 		this.width = this.height*Math.PI/this.rotations;
-
-        // once cancel()-ed, no more rotations will be added
-        this.cancelled = false;
+		
+		// once clear()-ed, no more rotations will be added
+		this.cleared = false;
 
 		this.draw();
 	}
 
 
-	cancel() {
-		this.cancelled = true;
+	clear() {
+		this.cleared = true;
+		this.paper.clear();
 	}
 
 
@@ -116,7 +117,7 @@ class CircularTessellation {
 		// use recursive routine to draw each rotated line of the circular tessellation
 		const self = this;
 		let drawNextRotation = function(r) {
-			if (r >= this.rotations || this.cancelled) {
+			if (r >= this.rotations || this.cleared) {
 				// no more rotations to draw
 				this.drawing = false;
 				return;

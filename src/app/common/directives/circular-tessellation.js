@@ -98,11 +98,11 @@ function circularTessellationDirective($location) {
 			}
 
 			function redraw() {
-				scope.circularTessellation.cancel();
-				paper.clear();
+				// clear the previous CircularTessellation instance
+				scope.circularTessellation.clear();
 
-				// redraw the tessellation
-				// when redrawing, animate the drawing of rotations
+				// & redraw new instance of the tessellation
+				// (when redrawing, animate the drawing of rotations)
 				options.drawAnimationInterval = 1000;
 				draw();
 			}
