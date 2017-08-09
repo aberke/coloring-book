@@ -38,7 +38,7 @@ class CircularTessellation {
 		this.pathSet = this.paper.set();
 
 		this.origin = origin;
-		
+
 		this.diameter = diameter;
 
 		// handle options
@@ -46,7 +46,7 @@ class CircularTessellation {
 		this.levels = Number(this.options.levels) || 1;
 		this.scaleFactor = 2;
 		this.withReflection = this.options.withReflection ? Boolean(this.options.withReflection) : false;
-		
+
 		// maybe this isn't a true circular tessellation and is a flower instead!
 		if (this.options.asFlower) {
 			this.levels = 2;
@@ -78,7 +78,15 @@ class CircularTessellation {
 		this.height = this.radius/(Math.pow(this.scaleFactor, this.levels) - 1);
 		this.width = this.height*Math.PI/this.rotations;
 
+        // once cancel()-ed, no more rotations will be added
+        this.cancelled = false;
+
 		this.draw();
+	}
+
+
+	cancel() {
+		this.cancelled = true;
 	}
 
 
@@ -108,7 +116,7 @@ class CircularTessellation {
 		// use recursive routine to draw each rotated line of the circular tessellation
 		const self = this;
 		let drawNextRotation = function(r) {
-			if (r >= this.rotations) {
+			if (r >= this.rotations || this.cancelled) {
 				// no more rotations to draw
 				this.drawing = false;
 				return;
@@ -129,10 +137,10 @@ class CircularTessellation {
 	        function transformCallback() {
 		        self.pathSet.push(newLine);
 		        // recursively call routing again for next rotation, r
-		        drawNextRotation(r + 1);	
+		        drawNextRotation(r + 1);
 	        }
 	        if (this.drawAnimationInterval) {
-		       	newLine.animate({transform: transformString}, this.drawAnimationInterval, transformCallback); 	
+		       	newLine.animate({transform: transformString}, this.drawAnimationInterval, transformCallback);
 	        } else {
 	        	newLine.transform(transformString);
 	        	transformCallback();
@@ -167,7 +175,7 @@ class CircularTessellation {
 		if (!this.slicesPathList) {
 			this.slicesPathList = getFundamentalDomainLineSlices(this.origin, this.width, this.height, this.options);
 		}
-		
+
 		let slicesPath = this.paper.path(this.slicesPathList);
 		// for each level, add the base slices, scaled and translated appropriately
 		lineSet.push(slicesPath);
