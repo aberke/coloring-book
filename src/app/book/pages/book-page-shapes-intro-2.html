@@ -3,93 +3,39 @@
     <div class="text-content">
         <div class="content-container-wrapper">
             <div class="content-container">
+	            <p>With our intuitive ideas of symmetry, we can see that a square is "more symmetric" than a rectangle because it can be flipped and turned in more ways.</p>
 
-                <p>In order for a set of rotations to be a group, any combination of rotations in the set must also be in the set.  This rule is called <a target="_blank" href="/#!/theory-reference#closure" class="theory-reference-term">group closure</a>, and you can see it.</p>
-
-                <p>Take the set <span class="bold-math">{0 turn, <fraction>1/3</fraction> turn}</span>.</p>
-
-                <!-- { [C6 with diff side strokes w/ “0 turn” below, ⅓ rotated C6 with diff side strokes, rotation written below]} -->
-                <div class="text-content-graphic line">
-                    <!-- { -->
-                    <p class="text big">&#123;</p>
-
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":6, "sideStrokes": [1, 0, 0, 0,0,0]}'
-                        options='{"text":"0 turn"}'
-                    ></div>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":6, "sideStrokes": [1, 0, 0,0,0,0]}'
-                        options='{"text":"1/3 turn", "initialRotation": "120"}'
-                    ></div>
-
-                    <!-- }-->
-                    <p class="text big">&#125;</p>
-                </div>
-
-                <p>This is not a group because it's missing the <fraction>2/3</fraction> turn, which is created by combining a <fraction>1/3</fraction> with another <fraction>1/3</fraction> turn.</p>
-
-                <!-- ⅓ turn STAR ⅓ turn → (shape with diff side strokes rotated ⅔ with “⅔ turn” written below) -->
-                <div class="text-content-graphic line">
-                    <p class="text">
-                        <fraction>1/3</fraction> turn
-                        <span class="operator">&#x2737;</span>
-                        <fraction>1/3</fraction> turn
-                        <span class="operator">&rarr;</span>
-                    </p>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":6, "sideStrokes":[1, 0, 0, 0, 0, 0]}'
-                        options='{"text": "2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
-                    ></div>
-                </div>
-
-
-                <p>Can you color a shape to have the <span class="bold-math">{0 turn, <fraction>1/3</fraction> turn}</span> rotations without a <strong><fraction>2/3</fraction> turn</strong>?</p>
-                <!-- [blank C6 shape] -->
+                <!-- [square, rectangle] -->
                 <div class="text-content-graphic line">
                     <div class='canvas'
                         canvas-centered-drawing
-                        draw-function='drawCyclicShape'
-                        function-options='{"N":6}'
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRectangle'
                     ></div>
                 </div>
 
-                <p>No, but adding the <strong><fraction>2/3</fraction> turn</strong> to the set gives us our C3 group again.</p>
-                
+                <p>But this can change once color is added...</p>
+
+                <!-- [square half colored, rectangle] -->
+
                 <div class="text-content-graphic line">
-                    <!-- { -->
-                    <p class="text big">&#123;</p>
-
-                    <div class='canvas extra-small'
+                    <div class='canvas'
                         canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":6, "sideStrokes": [1, 0, 0, 0,0,0]}'
-                        options='{"text":"0 turn"}'
+                        draw-function='drawSquare'
+                        function-options='{"N": 4, "coloring": [0, 1]}'
                     ></div>
-                    <div class='canvas extra-small'
+                    <div class='canvas'
                         canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":6, "sideStrokes": [1, 0, 0,0,0,0]}'
-                        options='{"text":"1/3 turn", "initialRotation": "120"}'
+                        draw-function='drawRectangle'
                     ></div>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":6, "sideStrokes": [1, 0, 0,0,0,0]}'
-                        options='{"text":"2/3 turn", "initialRotation": "240"}'
-                    ></div>
-
-                    <!-- }-->
-                    <p class="text big">&#125;</p>
                 </div>
 
-                <br/>
-                <br/>
+                <p>We'll see what this means, but it's just a small detail in the world of perfect lines and symmetry that we will explore with color.</p>
+
                 <br/>
                 <br/>
                 <br/>
@@ -97,12 +43,14 @@
                 <br/>
                 <br/>
 
-                <p class="challenge">Coloring Challenge: Color the shapes to make them all C2 shapes.</p>
-            </div>
-        </div>
+                <p class="challenge">Coloring Challenge: Can you color the shapes to make them "less symmetric"?</p>
+
+	        </div>
+	    </div>
     </div>
+    <!-- text-content -->
 
-    <div class="coloring-content">
+<div class="coloring-content">
         <div class="content-container-wrapper">
             <div class="content-container">
 
@@ -189,5 +137,10 @@
                 </div>
             </div>
         </div>
+
+        <!-- TODO: implement captions -->
+        <!-- <p class="caption">Shapes with <fraction>1/4</fraction> turns</p> -->
     </div>
+    <!-- coloring-content -->
+
 </div>

@@ -4,7 +4,7 @@
         <div class="content-container-wrapper">
             <div class="content-container">
         
-                <p>We have intuitive ideas of symmetry. A square looks "more symmetric" than a rectangle because it can be flipped and turned in more ways,</p>
+                <p>Some shapes have more symmetry than others.</p>
                 
                 <div class="text-content-graphic line">
                     <div class='canvas'
@@ -18,30 +18,82 @@
                     ></div>
                 </div>
 
-                <p>but this can change once color is added.</p>
-                
+                <p>If while you blinked, a square was flipped,</p>
+ 
+               <!-- [square with V mirror, 2 diff side strokes, autoreflect] -flip→ [square with V mirror, mirrored, autoreflect] -->
                 <div class="text-content-graphic line">
                     <div class='canvas'
                         canvas-centered-drawing
-                        draw-function='drawSquare'
-                        function-options='{"N": 4, "coloring": [0, 1]}'
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "sideStrokes":[0, 1, 0, 0]}'
+                        options='{"autoReflect":"V"}'
+                    ></div>
+                    <div class="canvas small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"flip"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "sideStrokes":[0, 1, 0, 0]}'
+                        options='{"mirror":"V", "autoReflect":"V"}'
+                    ></div>
+                </div>
+
+                <p>or turned a quarter of the way around,</p>
+
+                <!-- [square with 2 diff side strokes, autorotate] -½ turn→ [same square, rotated ½ turn, autorotate] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "sideStrokes":[0, 1, 0, 0]}'
+                        options='{"autoRotateDegrees":90}'
+                    ></div>
+                    <div class="canvas small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"1/4 turn"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "sideStrokes":[0, 1, 0, 0]}'
+                        options='{"autoRotateDegrees":90, "initialRotation":90}'
+                    ></div>
+                </div>
+
+                <p>you would then still see the same square and not know.</p>
+                
+                <br/>
+
+                <p>This is not the case for a rectangle...</p>
+                <!-- [rectangle, 2 diff side strokes, autorotate] -½ turn→ [rectangle, rotated by ½ turn] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRectangle'
+                        function-options='{}'
+                        options='{"autoRotateDegrees":90,"initialRotation":0}'
+                    ></div>
+                    <div class="canvas small"
+                        canvas-centered-drawing
+                        draw-function='drawArrow'
+                        function-options='{"textAbove":"1/4 turn"}'
                     ></div>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRectangle'
+                        function-options='{}'
+                        options='{"autoRotateDegrees":90,"initialRotation":90}'
                     ></div>
                 </div>
 
-                <p>What does this mean?  We can be more precise as we play with color to see the depths of symmetry.</p>
-
-                <br/>
-                <br/>
-                <br/>
-                <br/>
                 <br/>
                 <br/>
 
-                <p class="challenge">Coloring Challenge: Can you color the shapes to make them "less symmetric"?</p>
+                <p class="challenge">Challenge: Which of these shapes could be rotated by a <fraction>1/4</fraction> turn without changing in appearance?</p>
             </div>
         </div>
     </div>
