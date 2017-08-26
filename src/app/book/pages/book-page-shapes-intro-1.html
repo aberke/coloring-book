@@ -4,25 +4,32 @@
         <div class="content-container-wrapper">
             <div class="content-container">
         
-                <p>Some shapes have more symmetry than others.</p>
-                
                 <div class="text-content-graphic line">
-                    <div class='canvas'
+                    <div class='canvas small'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N": 4}'
                     ></div>
-                    <div class='canvas'
+                    <div class='canvas small'
                         canvas-centered-drawing
                         draw-function='drawRectangle'
                     ></div>
                 </div>
-
+                <p>Some shapes have more symmetry than others.</p>
+                
+                <div class="text-content-graphic line">
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4}'
+                        options='{"autoRotateDegrees":90}'
+                    ></div>
+                </div>
                 <p>If while you blinked, a square was flipped,</p>
  
                <!-- [square with V mirror, 2 diff side strokes, autoreflect] -flip→ [square with V mirror, mirrored, autoreflect] -->
                 <div class="text-content-graphic line">
-                    <div class='canvas'
+                    <div class='canvas small'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N": 4, "sideStrokes":[0, 1, 0, 0]}'
@@ -33,7 +40,7 @@
                         draw-function='drawArrow'
                         function-options='{"textAbove":"flip"}'
                     ></div>
-                    <div class='canvas'
+                    <div class='canvas small'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N": 4, "sideStrokes":[0, 1, 0, 0]}'
@@ -45,7 +52,7 @@
 
                 <!-- [square with 2 diff side strokes, autorotate] -½ turn→ [same square, rotated ½ turn, autorotate] -->
                 <div class="text-content-graphic line">
-                    <div class='canvas'
+                    <div class='canvas small'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N": 4, "sideStrokes":[0, 1, 0, 0]}'
@@ -56,7 +63,7 @@
                         draw-function='drawArrow'
                         function-options='{"textAbove":"1/4 turn"}'
                     ></div>
-                    <div class='canvas'
+                    <div class='canvas small'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N": 4, "sideStrokes":[0, 1, 0, 0]}'
@@ -65,13 +72,21 @@
                 </div>
 
                 <p>you would then still see the same square and not know.</p>
-                
+                <div class="text-content-graphic line">
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4}'
+                        options='{"autoRotateDegrees":90}'
+                    ></div>
+                </div>
+
                 <br/>
 
                 <p>This is not the case for a rectangle...</p>
                 <!-- [rectangle, 2 diff side strokes, autorotate] -½ turn→ [rectangle, rotated by ½ turn] -->
                 <div class="text-content-graphic line">
-                    <div class='canvas'
+                    <div class='canvas small'
                         canvas-centered-drawing
                         draw-function='drawRectangle'
                         function-options='{}'
@@ -82,7 +97,7 @@
                         draw-function='drawArrow'
                         function-options='{"textAbove":"1/4 turn"}'
                     ></div>
-                    <div class='canvas'
+                    <div class='canvas small'
                         canvas-centered-drawing
                         draw-function='drawRectangle'
                         function-options='{}'
@@ -91,9 +106,8 @@
                 </div>
 
                 <br/>
-                <br/>
 
-                <p class="challenge">Challenge: Which of these shapes could be rotated by a <fraction>1/4</fraction> turn without changing in appearance?</p>
+                <p class="challenge">Challenge: Which of these shapes can be rotated by a <fraction>1/4</fraction> turn without changing in appearance?</p>
             </div>
         </div>
     </div>

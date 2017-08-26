@@ -77,6 +77,7 @@ const friezeGroupsData = {
 			'Translation',
 			'Horizontal reflection',
 			'Vertical reflection',
+			'Glide reflection',
 			'Order-2 Rotations',
 		],
 	},
