@@ -43,7 +43,7 @@ angular.module('app.posters', [])
 
 	function setupFriezePosters() {
 		friezeGroupNames.forEach(function(fg) {
-			vm.friezePosters[fg] = friezePosterUrlBase + '&' + fg;
+			vm.friezePosters[fg] = friezePosterUrlBase.concat('&group=', fg);
 		});
 	}
 	function setupOtherPosters() {
@@ -59,7 +59,7 @@ angular.module('app.posters', [])
 
 		// get the page from the url
 		let posterName = $routeParams.posterName;
-		if (!posterName || vm.posterNames.indexOf(posterName) < 0)
+		if (!posterName || otherPosterNames.indexOf(posterName) < 0)
 			return;
 
 		vm.posterName = posterName;
