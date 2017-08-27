@@ -15,6 +15,7 @@ Dependencies:
 	- path.js
 
 */
+'use strict';
 
 
 class CircularTessellation {
@@ -194,4 +195,4 @@ class CircularTessellation {
 		}
 	    return lineSet;
 	}
-};
+}

@@ -2,6 +2,7 @@
 Dependencies
 - Uses styling in styles.js
 */
+'use strict';
 
 
 class CyclicShape {
@@ -33,17 +34,17 @@ class CyclicShape {
 	}
 
 	getSidePathList() {
-		var startPointPathPart = ["M", this.origin.X, this.origin.Y];
-		var endPoint = {
+		let startPointPathPart = ["M", this.origin.X, this.origin.Y];
+		let endPoint = {
 			X: this.origin.X,
 			Y: this.origin.Y + this.size/2,
 		};
-		var centerPoint = {
+		let centerPoint = {
             X: this.origin.X + this.size/4,
             Y: this.origin.Y + this.size/4
         };
         
-		var linePathList = [
+		let linePathList = [
 			// add side one of path as curved
 			startPointPathPart,
 			getCatmullRomPath(this.origin, endPoint, centerPoint, 1, 1),
@@ -67,7 +68,7 @@ class CyclicShape {
 		let pathSet = this.paper.set(); // what will be returned
 
 		// draw each side and then rotate it accordingly
-		for (var n = 0; n < this.N; n++) {
+		for (let n = 0; n < this.N; n++) {
 			let sidePathList = this.getSidePathList();
 			let sidePath = this.paper.path(sidePathList);
 

@@ -9,9 +9,9 @@ angular.module('app.menu', [])
 
 	vm.open = function() {
 		vm.opened = true;
-	}
+	};
 
 	vm.close = function() {
 		vm.opened = false;
-	}
+	};
 });

@@ -21,7 +21,7 @@ not rendered in the DOM when the book-page is not the current page
 be removed from the page -- together they're too heavy for browsers
 
 */
-function BookCntl($scope, $location, $anchorScroll, $timeout) {
+function BookCntl($scope, $location, $anchorScroll) {
 	// view model is this BookCntl
 	let vm = this;
 
@@ -222,7 +222,7 @@ function BookCntl($scope, $location, $anchorScroll, $timeout) {
 			if (vm.pages.some(findSomePageNumber))
 				return pageNumber;
 		}
-	}
+	};
 
 	vm.getPageNumber = function() {
 		// get the pageIndex from the search parameters if present:
@@ -259,8 +259,9 @@ function BookCntl($scope, $location, $anchorScroll, $timeout) {
 
 	// watch for when the route is updated by something other than this controller
 	// if it is, then reinitialize the page again
-	$scope.$on('$routeUpdate', function(current){
-		if ($location.search().pageName !== vm.pageName || $location.search().pageNumber !== vm.pageNumber)
+	$scope.$on('$routeUpdate', function(){
+		let location = $location.search();
+		if (location.pageName !== vm.pageName || location.pageNumber !== vm.pageNumber)
 			vm.init();
 	});
 

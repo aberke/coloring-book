@@ -488,7 +488,6 @@ function quarterEllipse(origin, width, height) {
     // add the curve a few times, always starting and ending in the same place
     var aX = width;
     var aY = height;
-    var endOffsetY = height;
 
     var i = 0;
     var maxLoops = 4;
@@ -528,11 +527,10 @@ var trianglesPath = function(n, origin, width, height) {
         pathList.push(["Z"]);
     }
     return pathList;
-}
+};
 var trianglePath = trianglesPath.bind(this, 1);
 var trianglesPath2 = trianglesPath.bind(this, 2);
 var trianglesPath3 = trianglesPath.bind(this, 3);
-
 
 
 /*** Utility functions ***/

@@ -17,18 +17,20 @@ const gulp = require("gulp"),
 
   // For serving from gulp
   http = require("http"),
-  ecstatic = require("ecstatic");
 
-  // concat = require("gulp-concat"); 
-  // uglify = require("gulp-uglify");
+  ecstatic = require("ecstatic"),
+
+  useref = require('gulp-useref'),
+  gulpif = require('gulp-if'),
+  uglify = require("gulp-uglify");
 
 const srcFiles = {
-  js: ["src/**/*.js"],
-  css: ["src/**/*.css"],
-  img: ["src/**/img/**"],
-  html: ["src/**/*.html"],
+  js: "src/**/*.js",
+  css: "src/**/*.css",
+  img: "src/**/img/**",
+  html: "src/**/*.html",
 
-  bookPDF: ["src/*.pdf"]
+  bookPDF: "src/*.pdf"
 };
 const destination = "./dist";
 
@@ -48,48 +50,38 @@ gulp.task("jslint", function() {
 
 /** Build Tasks **/
 
-gulp.task("img", function() {
-  gulp.src(srcFiles.img)
-    .pipe(gulp.dest(destination));
-});
-
-gulp.task("css", function() {
-	gulp.src(srcFiles.css)
-		.pipe(gulp.dest(destination));
-});
-
-gulp.task("html", function() {
-	gulp.src(srcFiles.html)
-		.pipe(gulp.dest(destination));
-});
-
-gulp.task("bookPDF", function() {
-  gulp.src(srcFiles.bookPDF)
-    .pipe(gulp.dest(destination));
-});
-
-gulp.task("js", function (cb) {
+// Handle building all files in one task
+gulp.task("all", function (cb) {
   pump([
-      gulp.src(srcFiles.js),
-      babel(),
-      // TODO: after linting is all set up
-      // use this blogpost: http://codehangar.io/concatenate-and-minify-javascript-with-gulp/
-      // concat("scripts.js"),
-      // uglify(),
+    gulp.src([
+        srcFiles.js,
+        srcFiles.css,
+        srcFiles.img,
+        srcFiles.html,
+        srcFiles.bookPDF,
+      ]),
+      // concatenate files in HTML
+      gulpif("*.html", useref()),
+       // transpile JS with babel
+      gulpif('*.js', babel()),
+      // minify JS
+      // gulpif('*.js', uglify()),
+      // .pipe(gulpif('*.css', minifyCss()))
       gulp.dest(destination)
     ],
     cb
-  );
-});
-/** Build Tasks **/
+  )
+ });
 
 
 gulp.task("watch", function () {
-  gulp.watch(srcFiles.js, ["js"]);
-  gulp.watch(srcFiles.css, ["css"]);
-  gulp.watch(srcFiles.img, ["img"]);
-  gulp.watch(srcFiles.html, ["html"]);
-  gulp.watch(srcFiles.bookPDF, ["bookPDF"]);
+  gulp.watch([
+    srcFiles.js,
+    srcFiles.css,
+    srcFiles.img,
+    srcFiles.html,
+    srcFiles.bookPDF
+  ], ["all"]);
 });
 
 
@@ -102,6 +94,6 @@ gulp.task("serve", ["watch"], function() {
 });
 
 
-gulp.task("build", ["img", "css", "html", "js", "bookPDF"]);
+gulp.task("build", ["all"]);
 
 gulp.task("default", ["build", "lint"]);

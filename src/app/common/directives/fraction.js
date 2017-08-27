@@ -14,7 +14,7 @@ function fractionDirective() {
 		// parse would be that template string.
 		// This is best, because sometimes fraction does not fully load otherwise when
 		// relying on angular to format it, or takes too long to show up.
-		link: function (scope, element, attrs) {
+		link: function (scope, element) {
 
 			let elt = element[0];
 			let splitFraction = elt.innerHTML.split("/");
@@ -26,5 +26,5 @@ function fractionDirective() {
 
 			elt.innerHTML = "<span class='fraction'><sup>" + String(scope.numerator) + "</sup><span>&frasl;</span><sub>" + String(scope.denominator) + "</sub></span>";
 		}
-	}
+	};
 }
