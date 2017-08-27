@@ -38,12 +38,12 @@ class FriezePattern {
 	paperSetItemMouseUp(index) {
 		// 'this' should be bound to FreizePattern object
         // remove element and all items after
-        var itemsAfter = this.paperSet.items.splice(index, this.paperSet.items.length);
+        let itemsAfter = this.paperSet.items.splice(index, this.paperSet.items.length);
         itemsAfter.forEach(function(itemAfter) {
             itemAfter.remove();
         });
         // create a *NEW* paper Set with the items left
-        var newPaperSet = this.paper.set();
+        let newPaperSet = this.paper.set();
         this.paperSet.items.forEach(function(item) {
         	newPaperSet.push(item);
         });
@@ -56,7 +56,7 @@ class FriezePattern {
 	Make paperSet 'clickable'
 	*/
 	addPaperSetHandlers() {
-		var self = this;
+		let self = this;
 		
 		self.paperSet.attr({
 			'cursor': 'pointer',
@@ -64,7 +64,7 @@ class FriezePattern {
 			'fill': 'white',
 		});
         self.paperSet.forEach(function(elt, index) {
-			var mouseUpHandler = self.paperSetItemMouseUp.bind(self, index);
+			let mouseUpHandler = self.paperSetItemMouseUp.bind(self, index);
             elt.mouseover(self.paperSetItemMouseOver);
             elt.mouseout(function() { elt.attr({opacity: 1}); });
             elt.mouseup(mouseUpHandler);
@@ -86,7 +86,7 @@ class FriezePattern {
 	redraw() {
     	// while redrawing, remove the opacity attribute and 'clickable-ness'
 		this.removePaperSetHandlers();
-		var offsetX = ((this.paperSet.getBBox().x2) > 0) ? this.paperSet.getBBox().x2 : 0;
+		let offsetX = ((this.paperSet.getBBox().x2) > 0) ? this.paperSet.getBBox().x2 : 0;
 		this.draw(offsetX);
 	}
 
@@ -97,10 +97,10 @@ class FriezePattern {
 		// draw the pattern starting at offsetX:
 		// copy the fundamentalDomain
 		// transform it to live at spot
-		var basePath = this.paper.path(this.fundamentalDomainPath);
+		let basePath = this.paper.path(this.fundamentalDomainPath);
 
 		// translate it to the xOffset (so that shape doesn't get mangled)
-		var transformString = "...T" + String(offsetX) + ",0";
+		let transformString = "...T" + String(offsetX) + ",0";
 		basePath.transform(transformString);
 
 		// apply styling attributes
@@ -113,7 +113,7 @@ class FriezePattern {
 		// transform it to be at offsetX
 		// apply generators to get the Set to translate
 		// Translate until at end of page
-		var _drawCallback = function(paperSet) {
+		let _drawCallback = function(paperSet) {
 			paperSet.forEach(function(elt, index) {
 				this.paperSet.push(elt);
 			}.bind(this));
@@ -128,22 +128,22 @@ class FriezePattern {
 	applyGenerators(basePath, options) {
 		// apply the generators and then translateH...
 		// TODO: shuffle the generatorGetters?
-		var self = this;
-        var animateMs = (!!options.animate) ? 1000 : 0;
-        var callback = options.callback || function() {};
-        var workingSet = this.paper.set().push(basePath);
+		let self = this;
+        let animateMs = (!!options.animate) ? 1000 : 0;
+        let callback = options.callback || function() {};
+        let workingSet = this.paper.set().push(basePath);
 
         function transformNext(i) {
             if (i >= self.generatorGetters.length)
                 return recursiveTranslateH(self.paper, workingSet, options);
 
-            var transformGetter = self.generatorGetters[i];
-            var transformString = "..." + transformGetter(workingSet, self.options);
-            var clonedSet = workingSet.clone();
-            var animateCallback = function() {
+            let transformGetter = self.generatorGetters[i];
+            let transformString = "..." + transformGetter(workingSet, self.options);
+            let clonedSet = workingSet.clone();
+            let animateCallback = function() {
                 workingSet = self.paper.set().push(workingSet).push(clonedSet);
                 transformNext(i + 1);
-            }
+            };
             clonedSet.animate({transform: transformString}, animateMs, "<", animateCallback);
         }
         transformNext(0);

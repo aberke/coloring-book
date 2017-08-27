@@ -1,3 +1,20 @@
+/*
+Main commands for development:
+$ gulp build
+$ gulp serve
+
+$ gulp lint
+
+About:
+  I use gulp to build and compile the src files and then put the compiled
+  files in the /dist directory.
+  src/ is there files are developed
+  dist/ is generated from builds and is where files are served from
+
+  I include the JS files in HTML and then use user-ref to concatenate them
+  JS files are also transpiled with babel + minified with uglify.
+
+*/
 
 const gulp = require("gulp"),
   // pump is a wrapper to help handle/propogate errors
@@ -11,24 +28,26 @@ const gulp = require("gulp"),
   // For watching and rebuilding files
   watch = require("gulp-watch"),
 
-  // Replaces pipe method and removes standard onerror handler on error event, which unpipes streams on error by default.
-  // https://github.com/floatdrop/gulp-plumber
-  plumber = require("gulp-plumber"),
-
   // For serving from gulp
   http = require("http"),
-  ecstatic = require("ecstatic");
 
-  // concat = require("gulp-concat"); 
-  // uglify = require("gulp-uglify");
+  ecstatic = require("ecstatic"),
+
+  // Makes angular code safe for minification by adding DI Annotation
+  // (Note: I could have just written better Angular JS code to not need this)
+  ngAnnotate = require("gulp-ng-annotate"),
+
+  useref = require("gulp-useref"),
+  gulpif = require("gulp-if"),
+  uglify = require("gulp-uglify");
 
 const srcFiles = {
-  js: ["src/**/*.js"],
-  css: ["src/**/*.css"],
-  img: ["src/**/img/**"],
-  html: ["src/**/*.html"],
+  js: "src/**/*.js",
+  css: "src/**/*.css",
+  img: "src/**/img/**",
+  html: "src/**/*.html",
 
-  bookPDF: ["src/*.pdf"]
+  bookPDF: "src/*.pdf"
 };
 const destination = "./dist";
 
@@ -48,48 +67,50 @@ gulp.task("jslint", function() {
 
 /** Build Tasks **/
 
-gulp.task("img", function() {
-  gulp.src(srcFiles.img)
-    .pipe(gulp.dest(destination));
-});
-
-gulp.task("css", function() {
-	gulp.src(srcFiles.css)
-		.pipe(gulp.dest(destination));
-});
-
-gulp.task("html", function() {
-	gulp.src(srcFiles.html)
-		.pipe(gulp.dest(destination));
-});
-
-gulp.task("bookPDF", function() {
-  gulp.src(srcFiles.bookPDF)
-    .pipe(gulp.dest(destination));
-});
-
-gulp.task("js", function (cb) {
+// Handle building all files in one task
+gulp.task("all", function (cb) {
   pump([
-      gulp.src(srcFiles.js),
-      babel(),
-      // TODO: after linting is all set up
-      // use this blogpost: http://codehangar.io/concatenate-and-minify-javascript-with-gulp/
-      // concat("scripts.js"),
-      // uglify(),
+    gulp.src([
+        srcFiles.js,
+        srcFiles.css,
+        srcFiles.img,
+        srcFiles.html,
+        srcFiles.bookPDF,
+      ]),
+      // concatenate files in HTML
+      gulpif("*.html", useref()),
+
+      // Dealing with JS:
+      // Transpile JS with babel:
+      gulpif("*.js", babel()),
+      // Angular DI annotation:
+      // Why?: This safeguards your code from any
+      // dependencies that may not be using minification-safe practices.
+      // (i.e. in order to overcome injection errors that were occurring after minification.)
+      // I had this problem:
+      // https://stackoverflow.com/questions/38768152/angularjs-minification-process
+      // Another reference:
+      // http://bguiz.github.io/js-standards/angularjs/minification-and-annotation/
+      gulpif("*.js", ngAnnotate()),
+      // minify JS:
+      gulpif("*.js", uglify()),
+      // gulpif('*.css', minifyCss()) // TODO in future?
       gulp.dest(destination)
     ],
     cb
-  );
-});
-/** Build Tasks **/
+  )
+ });
 
 
+// Watch for when file changes occur to these files, and then rebuild with 'all' task
 gulp.task("watch", function () {
-  gulp.watch(srcFiles.js, ["js"]);
-  gulp.watch(srcFiles.css, ["css"]);
-  gulp.watch(srcFiles.img, ["img"]);
-  gulp.watch(srcFiles.html, ["html"]);
-  gulp.watch(srcFiles.bookPDF, ["bookPDF"]);
+  gulp.watch([
+    srcFiles.js,
+    srcFiles.css,
+    srcFiles.img,
+    srcFiles.html,
+    srcFiles.bookPDF
+  ], ["all"]);
 });
 
 
@@ -102,6 +123,6 @@ gulp.task("serve", ["watch"], function() {
 });
 
 
-gulp.task("build", ["img", "css", "html", "js", "bookPDF"]);
+gulp.task("build", ["all"]);
 
 gulp.task("default", ["build", "lint"]);

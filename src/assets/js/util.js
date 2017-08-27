@@ -32,7 +32,7 @@ function getRotateDegreesTransformString(origin, rotateDegrees) {
  * @param {set} paper.Set to apply properties to
  * @param {styles} dictionary of styles to show upon hover
 **/
-var addSymmetrySetProperties = function(set, styles) {
+function addSymmetrySetProperties(set, styles) {
     styles = styles || {};
     styles['stroke-width'] = SYMMETRY_STROKE_WIDTH;
     set.attr(styles);
@@ -79,7 +79,6 @@ function drawOrder2RotationPointSet(paper, startPoint, gapX, gapY=0, maxIteratio
     let set = paper.set();
 
     let canvasSize = paper.getSize().height,
-        canvasHeight = canvasSize.height,
         canvasWidth = paper.getSize().width;
     let point = startPoint;
     let i = 0;
@@ -104,12 +103,12 @@ function drawOrder2RotationPointSet(paper, startPoint, gapX, gapY=0, maxIteratio
  * @returns {paper.Set} set of paths
 **/
 function drawYAxesSet(paper, startX, gap) {
-    var canvasHeight = paper.getSize().height;;
-    var set = paper.set();
-    var X = startX;
+    let canvasHeight = paper.getSize().height;
+    let set = paper.set();
+    let X = startX;
     while (X < paper.getSize().width) {
-        var pathString = 'M' + String(X) + ',0 v' + String(canvasHeight);
-        var path = paper.path(pathString);
+        let pathString = 'M' + String(X) + ',0 v' + String(canvasHeight);
+        let path = paper.path(pathString);
         set.push(path);
 
         X += gap;
@@ -127,13 +126,13 @@ function drawYAxesSet(paper, startX, gap) {
 **/
 function drawXAxesSet(paper, startY, gap, count) {
     count = count || 1;
-    var canvasWidth = paper.getSize().width;
-    var set = paper.set();
-    var Y = startY;
+    let canvasWidth = paper.getSize().width;
+    let set = paper.set();
+    let Y = startY;
 
-    for (var i=0; i<count; i++) {
-        var pathString = 'M0,' + String(Y) + ' h' + String(canvasWidth);
-        var path = paper.path(pathString);
+    for (let i=0; i<count; i++) {
+        let pathString = 'M0,' + String(Y) + ' h' + String(canvasWidth);
+        let path = paper.path(pathString);
         set.push(path);
         Y += gap;
     }
@@ -147,9 +146,9 @@ function drawXAxesSet(paper, startY, gap, count) {
  * @returns {paper.Path}
 **/
 function drawXaxis(paper, y, color) {
-    var paperWidth = paper.getSize().width;
-    var xAxisPathString = "M0," + String(y) + " l" + String(paperWidth) + ",0";
-    var xAxisPath = paper.path(xAxisPathString)
+    let paperWidth = paper.getSize().width;
+    let xAxisPathString = "M0," + String(y) + " l" + String(paperWidth) + ",0";
+    let xAxisPath = paper.path(xAxisPathString)
         .attr({
             "stroke-width": SYMMETRY_STROKE_WIDTH,
             "stroke": color || "lightgray"
@@ -252,8 +251,8 @@ Returns (String) transform
 */
 function getTranslationH(pathSet, gap) {
     // TODO: generalize for translations in arbitrary directions?
-    var bbox = pathSet.getBBox();
-    var transformX = bbox.width + (gap || 0);
+    let bbox = pathSet.getBBox();
+    let transformX = bbox.width + (gap || 0);
     return "T" + String(transformX) + ",0"; // must use uppercase T
 }
 

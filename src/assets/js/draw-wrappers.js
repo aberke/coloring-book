@@ -1,3 +1,4 @@
+'use strict';
 
 // animation length must 
 const ANIMATION_LENGTH = 2000;
@@ -32,23 +33,23 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
     functionOptions = functionOptions || {};
     options = options || {};
 
-    var width = paper.getSize().width;
-    var height = paper.getSize().height;
+    let width = paper.getSize().width;
+    let height = paper.getSize().height;
 
     // allow margin to be any number, including 0.  Defaults to 10.
     let margin = (options.margin >= 0) ? options.margin : 10;
 
     // if want to draw text below, leave margin below the shape for it
-    var bottomMargin = options.text ? 15 : 0;
+    let bottomMargin = options.text ? 15 : 0;
 
     // total desired size := minumum boundary minus bottom margin
-    var size = Math.min(width, height - Math.max(bottomMargin, margin));
-    var origin = getCanvasCenter(paper);
+    let size = Math.min(width, height - Math.max(bottomMargin, margin));
+    let origin = getCanvasCenter(paper);
     // shift origin to accommodate bottom margin
     origin.Y = origin.Y - (bottomMargin/2);
 
     // initialize the pathSet that will be returned
-    var pathSet = paper.set();
+    let pathSet = paper.set();
     if (options.inscribed)
         // Inscribe shape within another shape.
         // Inscribing shape drawn first so that shape sits on top.
@@ -264,7 +265,7 @@ function drawTriangles(paper, centerPoint, size, options) {
 }
 
 
-function drawPetalEllipse(paper, centerPoint, size, options) {
+function drawPetalEllipse(paper, centerPoint, size) {
     // uses origin at bottom left
     let origin = {
         X: centerPoint.X - (1/2)*size,
@@ -371,7 +372,7 @@ function drawRegularPolygon(paper, centerPoint, size, options) {
     return new RegularPolygon(paper, centerPoint, size, options).pathSet;
 }
 
-function drawTriangle(paper, centerPoint, size, options) {
+function drawTriangle(paper, centerPoint, size) {
     return drawRegularPolygon(paper, centerPoint, size, {"N": 3});
 }
 
