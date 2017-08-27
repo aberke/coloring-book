@@ -23,9 +23,11 @@ class FriezePattern {
 		// handle options
 		this.options = options || {};
 		this.id = options.id || 'anonymous';
+		this.maxIterationsH = this.options.maxIterationsH;
 		// add styling options
 		this.stroke = options.stroke || DEFAULT_STROKE_COLOR;
 		this.strokeWidth = options.strokeWidth || DEFAULT_STROKE_WIDTH;
+		this.fill = options.fill || 'white';
 
 		this.draw();
 	}
@@ -61,7 +63,7 @@ class FriezePattern {
 		self.paperSet.attr({
 			'cursor': 'pointer',
 			// using fill so that handlers are not just on the lines, but also the filled space
-			'fill': 'white',
+			'fill': self.fill,
 		});
         self.paperSet.forEach(function(elt, index) {
 			let mouseUpHandler = self.paperSetItemMouseUp.bind(self, index);

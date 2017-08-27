@@ -1,0 +1,209 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+                <div class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V"}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V"}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V"}'
+                    ></div>
+                </div>
+
+	            <p>All of these mirrors can be removed with color.</p>
+                <!-- [same p1m1 pattern with alternating aqua, purple colors to make it p1] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "fill":1}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V", "fill":2}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "fill":1}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V", "fill":2}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "fill":1}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V", "fill":2}'
+                    ></div>
+                </div>
+
+                <p>With color, we can reduce the patterns so that translation is their only symmetry.</p>
+
+                <div class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "fill":1}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V"}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "fill":1}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V"}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "fill":1}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V"}'
+                    ></div>
+                </div>
+
+                <br/>
+
+                <p>Why can we do this?</p>
+                <p>This brings us back to subgroups.</p>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <p class="challenge">Coloring Challenge: Color the patterns to remove any mirrors so that translation is their only symmetry.</p>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+
+            <div class="content-container">
+
+                <div class='frieze-pattern'
+                    pattern-function='trianglesPath2'
+                    group-name='p1m1'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function='trianglesPath3'
+                    group-name='p1m1'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function='trianglesPath4'
+                    group-name='p1m1'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function='trianglesPath3'
+                    group-name='p1m1'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function='trianglesPath2'
+                    group-name='p1m1'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function='trianglesPath3'
+                    group-name='p1m1'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function='trianglesPath4'
+                    group-name='p1m1'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function='trianglesPath3'
+                    group-name='p1m1'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function='trianglesPath2'
+                    group-name='p1m1'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                ></div>
+            </div>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

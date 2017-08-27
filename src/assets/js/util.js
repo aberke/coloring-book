@@ -26,6 +26,9 @@ function getRotateDegreesTransformString(origin, rotateDegrees) {
     ].join(",");
 }
 
+function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
 
 /**
  * Shows the symmetrySet upon hover with styles

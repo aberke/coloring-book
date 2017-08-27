@@ -281,6 +281,19 @@ footer #footer-title {
 
 /* Frieze section */
 
+.frieze-pattern-name {
+	font-weight: 600;
+	text-decoration: underline;
+	text-align: left;
+	margin: 5px 0px;
+	font-size: 1.7em;
+}
+.frieze-pattern-description {
+	font-weight: 600;
+	margin: 5px 0 50px 0;
+	text-align: left;
+}
+
 
 /* Structure */
 

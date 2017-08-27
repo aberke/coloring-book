@@ -161,6 +161,39 @@ function BookCntl($scope, $location, $anchorScroll) {
 			name: 'dn-16',
 			url: vm.bookPageUrl('book-page-shapes-dn-16.html'),
 		}, {
+			name: 'frieze-1',
+			url: vm.bookPageUrl('book-page-frieze-1.html'),
+		}, {
+			name: 'frieze-2',
+			url: vm.bookPageUrl('book-page-frieze-2.html'),
+		}, {
+			name: 'frieze-3',
+			url: vm.bookPageUrl('book-page-frieze-3.html'),
+		}, {
+			name: 'frieze-4',
+			url: vm.bookPageUrl('book-page-frieze-4.html'),
+		}, {
+			name: 'frieze-5',
+			url: vm.bookPageUrl('book-page-frieze-5.html'),
+		}, {
+			name: 'frieze-6',
+			url: vm.bookPageUrl('book-page-frieze-6.html'),
+		}, {
+			name: 'frieze-7',
+			url: vm.bookPageUrl('book-page-frieze-7.html'),
+		}, {
+			name: 'frieze-8',
+			url: vm.bookPageUrl('book-page-frieze-8.html'),
+		}, {
+			name: 'frieze-9',
+			url: vm.bookPageUrl('book-page-frieze-9.html'),
+		}, {
+			name: 'frieze-10',
+			url: vm.bookPageUrl('book-page-frieze-10.html'),
+		}, {
+			name: 'frieze-11',
+			url: vm.bookPageUrl('book-page-frieze-11.html'),
+		}, {
 			name: 'get-updates',
 			url: vm.bookPageUrl('book-page-last.html'),
 		}

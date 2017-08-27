@@ -519,19 +519,20 @@ var trianglesPath = function(n, origin, width, height) {
     let startPointPathPart = ["M", origin.X, origin.Y];
 
     let i, widthDivisor;
-    for (i=1; i<=n; i++) {
-        pathList.push(startPointPathPart);
-        widthDivisor = Math.pow(2, i);
-        pathList.push(["h", width/widthDivisor]);
-        pathList.push(["v", (-1)*height]);
-        pathList.push(["Z"]);
+    for (i=0; i<n; i++) {
+        pathList += [
+            [startPointPathPart],
+            ["h", width/Math.pow(2, i)],
+            ["v", (-1)*height],
+            ["Z"]
+        ];
     }
     return pathList;
 };
 var trianglePath = trianglesPath.bind(this, 1);
 var trianglesPath2 = trianglesPath.bind(this, 2);
 var trianglesPath3 = trianglesPath.bind(this, 3);
-
+var trianglesPath4 = trianglesPath.bind(this, 4);
 
 /*** Utility functions ***/
 
