@@ -1,3 +1,20 @@
+/*
+Main commands for development:
+$ gulp build
+$ gulp serve
+
+$ gulp lint
+
+About:
+  I use gulp to build and compile the src files and then put the compiled
+  files in the /dist directory.
+  src/ is there files are developed
+  dist/ is generated from builds and is where files are served from
+
+  I include the JS files in HTML and then use user-ref to concatenate them
+  JS files are also transpiled with babel + minified with uglify.
+
+*/
 
 const gulp = require("gulp"),
   // pump is a wrapper to help handle/propogate errors
@@ -11,17 +28,17 @@ const gulp = require("gulp"),
   // For watching and rebuilding files
   watch = require("gulp-watch"),
 
-  // Replaces pipe method and removes standard onerror handler on error event, which unpipes streams on error by default.
-  // https://github.com/floatdrop/gulp-plumber
-  plumber = require("gulp-plumber"),
-
   // For serving from gulp
   http = require("http"),
 
   ecstatic = require("ecstatic"),
 
-  useref = require('gulp-useref'),
-  gulpif = require('gulp-if'),
+  // Makes angular code safe for minification by adding DI Annotation
+  // (Note: I could have just written better Angular JS code to not need this)
+  ngAnnotate = require("gulp-ng-annotate"),
+
+  useref = require("gulp-useref"),
+  gulpif = require("gulp-if"),
   uglify = require("gulp-uglify");
 
 const srcFiles = {
@@ -62,11 +79,22 @@ gulp.task("all", function (cb) {
       ]),
       // concatenate files in HTML
       gulpif("*.html", useref()),
-       // transpile JS with babel
-      gulpif('*.js', babel()),
-      // minify JS
-      // gulpif('*.js', uglify()),
-      // .pipe(gulpif('*.css', minifyCss()))
+
+      // Dealing with JS:
+      // Transpile JS with babel:
+      gulpif("*.js", babel()),
+      // Angular DI annotation:
+      // Why?: This safeguards your code from any
+      // dependencies that may not be using minification-safe practices.
+      // (i.e. in order to overcome injection errors that were occurring after minification.)
+      // I had this problem:
+      // https://stackoverflow.com/questions/38768152/angularjs-minification-process
+      // Another reference:
+      // http://bguiz.github.io/js-standards/angularjs/minification-and-annotation/
+      gulpif("*.js", ngAnnotate()),
+      // minify JS:
+      gulpif("*.js", uglify()),
+      // gulpif('*.css', minifyCss()) // TODO in future?
       gulp.dest(destination)
     ],
     cb
@@ -74,6 +102,7 @@ gulp.task("all", function (cb) {
  });
 
 
+// Watch for when file changes occur to these files, and then rebuild with 'all' task
 gulp.task("watch", function () {
   gulp.watch([
     srcFiles.js,
