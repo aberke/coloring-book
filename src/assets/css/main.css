@@ -140,6 +140,11 @@ Structure
     vertical-align: top;
     font-weight: 300;
 }
+#table-of-contents h3 a,
+#table-of-contents h4 a {
+    text-decoration: none;
+    color: black;
+}
 #table-of-contents .title-container .canvas,
 #table-of-contents .subtitle-container .canvas {
     display: inline-block;

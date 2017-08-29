@@ -30,6 +30,16 @@ function BookCntl($scope, $location, $anchorScroll) {
 		return vm.pageSrcBase + '/' + p;
 	};
 
+	// Proxy for section page-names
+	// allows linking to section starts by pageName='PAGE' in table-of-contents
+	vm.sectionPages = {
+		'shapes-and-symmetries-section': 'nature-intro',
+		'rotations-section': 'cn-0',
+		'reflections-section': 'dn-1',
+		'frieze-section': 'frieze-1',
+		// 'wallpaper-section': TODO
+	};
+
 	vm.pages = [
 		{
 			name: 'cover',
@@ -249,7 +259,8 @@ function BookCntl($scope, $location, $anchorScroll) {
 		if (!!pageName) {
 			let findSomePageNumber = function(page, index) {
 				pageNumber = index;
-				return page.name === pageName; // 'some' function will shortcircuit here if true
+				// 'some' function will shortcircuit here if true
+				return (page.name === pageName || page.name == vm.sectionPages[pageName]); 
 			};
 
 			if (vm.pages.some(findSomePageNumber))
