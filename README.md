@@ -1,6 +1,6 @@
 # coloring-book
 
-<img width=100 align="right" src="https://aberke.github.io/fractals/img/sierpinski-triangle.png">
+<img width=100 align="right" src="http://www.coloring-book.co/assets/img/arrow-head-curve.mov.gif">
 
 You may know of coloring books as a childhood amusement or as a means to adult relaxation. How about as a medium to explore the mathematics of symmetry?
 
@@ -12,7 +12,7 @@ Following along on the digital copy to brings the concepts and illustrations to 
 http://coloring-book.co
 
 
-The illustrations in this book are designed by algorithms that follow the symmetry rules of the groups that the illustrations belong to. These algorithms also use generative art techniques to add components of randomness - notice the illustrations never repeat.
+The illustrations in this book are drawn in javascript by algorithms that follow the symmetry rules of the groups that the illustrations belong to. These algorithms also use generative art techniques to add components of randomness - notice the illustrations never repeat.
 
 
 ##### Give Feedback // Get Updates
@@ -57,8 +57,6 @@ Files are transpiled and built to `/dist` by gulp and are served by a node http-
 	- This uses `gulp watch` to recompile `src` files as they're updated
 	- Or run the server in production mode with `$ npm start`
 - Visit http://127.0.0.1:5000
-
-Can add parameter to URL to avoid page switch on hover of 'Preview Page' or 'Next Page'
 
 
 #### Linting
@@ -153,13 +151,6 @@ Share with http://www.coloring-book.co not http://coloring-book.co to avoid redi
 
 - Fix the sometimes missing arrowhead from drawArrow
 
-- Build/Gulp specific
-	- concat + uglify JS
-	- Do more linting
-	- Build issues
-		- at concat
-		- needed to take out Raphael
-
 - Frieze:
 	- ? in frieze directive, adjust fundamental domain pattern height when shape has reflection so that frieze pattern takes up same height as other frieze patterns ?
 	- better for standardizing around page size and printing
@@ -190,7 +181,7 @@ Share with http://www.coloring-book.co not http://coloring-book.co to avoid redi
 		- 1 separates 2 fundamental regions
 
 - p11g: (TG): Glide reflection
-	- `pbpbpbpb ------G` 
+	- `pbpbpbpb` 
 	- glide reflection axis parallel to repitition
 	- minimal glide relection vector length = half length of minimal translation vector
 		- because G^2 = T
@@ -200,13 +191,13 @@ Share with http://www.coloring-book.co not http://coloring-book.co to avoid redi
 	- distance between any 2 adjacent half-turn centers is half the minimal translation vector
 
 - p2mg: (TVGR) 2 vertical mirrors, glide, rotation
-	- `/|\/|\|/|\|/|\|/\------G` OR `pqbdpqbdpqbdpqbd------G`
+	- `/|\/|\|/|\|/|\|/\` OR `pqbdpqbdpqbdpqbd`
 	- rotation halfway between every 2 mirrors
 	- 2 mirrors vertical to translation vector
 
 - p2mm: (THVRG): Horizontal and Vertical reflection lines, 180° Rotations
 	- Vertical reflections + Half-turns => Glide
-	- `XXXXXXXXX---G` or `HHHHHHHHH`
+	- `XXXXXXXXX` or `HHHHHHHHH`
 	- Requires 3 generators. One generating set: (THV)
 
 
