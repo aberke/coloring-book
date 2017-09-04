@@ -2,6 +2,11 @@
 
 const PRINT_ROUTE = '/print-book';
 const PRINT_PARAM = 'print';
+// Parameter to be toggled
+// Purpose: There are browser performance boosts that can be made when
+// in print mode, such as avoiding setting up listeners & animations
+var IS_PRINT_MODE = false;
+
 
 
 angular.module('app', [
@@ -75,7 +80,10 @@ angular.module('app', [
 
     // set the 'print' flag if the route is the PRINT_ROUTE or PRINT_PARAM is present
     vm.checkPrint = function() {
-        vm.print = (!!$location.search()[PRINT_PARAM] || $location.path() === PRINT_ROUTE);
+        if (!!$location.search()[PRINT_PARAM] || $location.path() === PRINT_ROUTE) {
+            vm.print = true;
+            IS_PRINT_MODE = true;
+        }
     }
     
     // handle anchor tags & routeparam changes

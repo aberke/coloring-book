@@ -10,6 +10,8 @@ const MAX_INTERVAL_COUNT = 5;
 /**
 Draws shape in the center of the canvas.
 Optionally draws text below.  Uses passed in function to draw the shape.
+Turns on animations that were passed in options.  Animations should not be
+enabled when IS_PRINT_MODE.
 
 @param {Object} paper to draw on
 @param {function} function to draw with
@@ -83,6 +85,23 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
     if (options.initialRotation && !isNaN(parseFloat(options.initialRotation)))
         setInitialRotation(pathSet, origin, options.initialRotation);
 
+    if (options.mirror)
+        setMirror(pathSet, origin, options.mirror, false);
+
+    // Maybe turn on animations/interactions based on options:
+    // Disable animations when IS_PRINT_MODE (for better browser performance)
+    if (!IS_PRINT_MODE)
+        setupInteractions(paper, pathSet, origin, size, drawFunction, functionOptions, options);
+
+    return {
+        pathSet: pathSet,
+        origin: origin,
+    };
+}
+
+function setupInteractions(paper, pathSet, origin, size, drawFunction,
+                           functionOptions, options) {
+    
     // Optionally rotate on interval
     if (options.autoRotateDegrees)
         setAutoRotate(pathSet, origin, options.autoRotateDegrees);
@@ -99,15 +118,7 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
         setTapReflect(paper, pathSet, origin, options.tapReflect);
 
     if (options.autoReflect)
-        setMirror(pathSet, origin, options.autoReflect, true);
-
-    if (options.mirror)
-        setMirror(pathSet, origin, options.mirror, false);
-
-    return {
-        pathSet: pathSet,
-        origin: origin,
-    };
+        setMirror(pathSet, origin, options.autoReflect, true);   
 }
 
 
