@@ -116,14 +116,15 @@ class FriezePattern {
 		// apply generators to get the Set to translate
 		// Translate until at end of page
 		let _drawCallback = function(paperSet) {
+			// Set up handlers for interactions
 			paperSet.forEach(function(elt, index) {
 				this.paperSet.push(elt);
 			}.bind(this));
 			this.addPaperSetHandlers();
 		}.bind(this);
 		this.applyGenerators(basePath, {
-			animate: true,
-			callback: _drawCallback,
+			animate: (!IS_PRINT_MODE),
+			callback: (!IS_PRINT_MODE) ? _drawCallback : function() {},
 		});
 	}
 
@@ -132,7 +133,6 @@ class FriezePattern {
 		// TODO: shuffle the generatorGetters?
 		let self = this;
         let animateMs = (!!options.animate) ? 1000 : 0;
-        let callback = options.callback || function() {};
         let workingSet = this.paper.set().push(basePath);
 
         function transformNext(i) {

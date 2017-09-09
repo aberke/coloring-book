@@ -64,7 +64,7 @@ class CircularTessellation {
 		// If the rotation of the draw routine should be animated
 		// the animation interval will be passed in
 		// where the animation interval is time between spokes of the wheel being drawn
-		this.drawAnimationInterval = this.options.drawAnimationInterval || 0;
+		this.drawAnimationInterval = IS_PRINT_MODE ? 0 : (this.options.drawAnimationInterval || 0);
 
 		this.rotations = options.rotations || 1;
 		// set up rotation transform string
@@ -152,11 +152,12 @@ class CircularTessellation {
 	    // start the drawNextRotation routine.  First rotation has already been drawn
 	    drawNextRotation(1);
 
-		this.pathSet.attr({
-			'cursor': 'pointer',
-		});
-		this.pathSet.mouseup(this.rotate.bind(this));
-		this.pathSet.mouseover(this.rotate.bind(this));
+	    // set up interactions if !IS_PRINT_MODE
+        if (!IS_PRINT_MODE) {
+            this.pathSet.attr({ 'cursor': 'pointer', });
+            this.pathSet.mouseup(this.rotate.bind(this));
+            this.pathSet.mouseover(this.rotate.bind(this));	
+        }
 	    return this.pathSet;
 	}
 
