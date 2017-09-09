@@ -36,7 +36,7 @@ function BookCntl($scope, $location, $anchorScroll) {
 		'shapes-and-symmetries-section': 'nature-intro',
 		'rotations-section': 'cn-0',
 		'reflections-section': 'dn-1',
-		'frieze-section': 'frieze-1',
+		'frieze-section': 'frieze-0',
 		// 'wallpaper-section': TODO
 	};
 
