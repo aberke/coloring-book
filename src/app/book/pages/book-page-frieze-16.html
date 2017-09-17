@@ -1,0 +1,107 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+	            <p>The 7 Frieze Groups may yield an infinite number of patterns, but this infinity is small compared to the number of patterns of the Wallpaper Groups.</p>
+
+                <div class='frieze-pattern'
+                    pattern-function='trianglesPath2'
+                    group-name='p1'
+                    fundamental-domain-width=40
+                    fundamental-domain-height=45
+                    margin=10
+                ></div>
+
+                <br/>
+
+                <p>Frieze patterns are limited to repetition in one direction, but Wallpaper patterns do not have that limit.</p>
+
+                <br/>
+
+                <div class='frieze-pattern'
+                    pattern-function='trianglesPath2'
+                    group-name='p2mm'
+                    fundamental-domain-width=40
+                    fundamental-domain-height=45
+                    margin=0
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function='trianglesPath2'
+                    group-name='p2mm'
+                    fundamental-domain-width=40
+                    fundamental-domain-height=45
+                    margin=0
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function='trianglesPath2'
+                    group-name='p2mm'
+                    fundamental-domain-width=40
+                    fundamental-domain-height=45
+                    margin=0
+                ></div>
+
+                <br/>
+
+                <p>When that limit is removed for the Wallpaper Groups, the number of possible patterns and amount of symmetry within them grows beyond what we have colored.</p>
+
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: Can you find all of the directions in which the pattern repeats?</p>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <div class='frieze-pattern'
+                    pattern-function='petalEllipse'
+                    group-name='p2mm'
+                    fundamental-domain-width=75
+                    fundamental-domain-height=65
+                    pattern-function-options='{"maxLoops": 4}'
+                    margin=0
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function='petalEllipse'
+                    group-name='p2mm'
+                    fundamental-domain-width=75
+                    fundamental-domain-height=65
+                    pattern-function-options='{"maxLoops": 4}'
+                    margin=0
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function='petalEllipse'
+                    group-name='p2mm'
+                    fundamental-domain-width=75
+                    fundamental-domain-height=65
+                    pattern-function-options='{"maxLoops": 4}'
+                    margin=0
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function='petalEllipse'
+                    group-name='p2mm'
+                    fundamental-domain-width=75
+                    fundamental-domain-height=65
+                    pattern-function-options='{"maxLoops": 4}'
+                    margin=0
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function='petalEllipse'
+                    group-name='p2mm'
+                    fundamental-domain-width=75
+                    fundamental-domain-height=65
+                    pattern-function-options='{"maxLoops": 4}'
+                    margin=0
+                ></div>
+            </div>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

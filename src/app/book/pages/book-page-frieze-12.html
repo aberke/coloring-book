@@ -3,10 +3,46 @@
     <div class="text-content">
         <div class="content-container-wrapper">
             <div class="content-container">
-	            <p></p>
+	            <p>We have now colored all 7 Frieze Groups.  There are no other groups of patterns that repeat forever in one direction.</p>
 
-	            <div class="text-content-graphic line">
-	            </div>
+                <p>Surprised?  Then try to generate more by again starting with a single piece.</p>
+                <!-- [triangle piece] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                    ></div>
+                </div>
+
+                <p>Or use color to reduce a pattern to one with combinations of symmetries that we did not yet see, like <span class="bold-math">{horizontal reflection, vertical reflection, translation}</span>.</p>
+
+                <!-- [p2mm pattern, uncolored] -->
+                <div class='frieze-pattern'
+                    pattern-function='trianglePath'
+                    group-name='p2mm'
+                    fundamental-domain-width=35
+                    fundamental-domain-height=30
+                    margin=10
+                ></div>
+
+                <p>You will have to give up.</p>
+                <p>Combining <span class="bold-math">horizontal reflection</span> and <span class="bold-math">vertical reflection</span> brings about <span class="bold-math">glide reflection</span> and <span class="bold-math">rotation</span>.  This is just one example of how combining symmetries brings us back to patterns we already have.</p>
+
+                <!-- [same p2mm pattern, colored] -->
+                <div class='frieze-pattern'
+                    pattern-function='trianglePath'
+                    group-name='p2mm'
+                    fundamental-domain-width=35
+                    fundamental-domain-height=30
+                    margin=10
+                    draw-options='{"fill":"#3bcca6"}'
+                ></div>
+
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: What happens when you combine glide reflection with rotation?</p>
 
 	        </div>
 	    </div>
@@ -17,6 +53,55 @@
         <div class="content-container-wrapper">
             <div class="content-container">
 
+                <div class='frieze-pattern'
+                    pattern-function=slantedSlices
+                    group-name='p1'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                    pattern-function-options='{"levels": 7, "pathsPerLevel": 1}'
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function=slantedSlices
+                    group-name='p11m'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                    pattern-function-options='{"levels": 6, "pathsPerLevel": 1}'
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function=slantedSlices
+                    group-name='p1m1'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                    pattern-function-options='{"levels": 5, "pathsPerLevel": 1}'
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function=slantedSlices
+                    group-name='p2'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                    pattern-function-options='{"levels": 4, "pathsPerLevel": 1}'
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function=slantedSlices
+                    group-name='p1a1'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                    pattern-function-options='{"levels": 3, "pathsPerLevel": 1}'
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function=slantedSlices
+                    group-name='p2mg'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                    pattern-function-options='{"levels": 2, "pathsPerLevel": 1}'
+                ></div>
+                <div class='frieze-pattern'
+                    pattern-function=slantedSlices
+                    group-name='p2mm'
+                    fundamental-domain-width=80
+                    fundamental-domain-height=70
+                    pattern-function-options='{"levels": 1, "pathsPerLevel": 1}'
+                ></div>
             </div>
         </div>
     </div>

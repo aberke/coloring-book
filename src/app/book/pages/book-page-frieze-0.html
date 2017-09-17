@@ -10,8 +10,7 @@
                 <br/>
 
 	            <p>The <span class="bold-math">Frieze Groups</span> create patterns that repeat infinitely in opposite directions.</p>
-                <!-- [Simple triangles pattern] -->
-	            <div class="text-content-graphic line">
+                <div class="text-content-graphic line">
                     <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
                     <div class='canvas extra-small'
                         canvas-centered-drawing
@@ -88,48 +87,56 @@
         <div class="content-container-wrapper">
 
             <div class="content-container">
-
-                <div class='frieze-pattern'
-                    pattern-function='trianglesPath3'
+<div class='frieze-pattern'
+                    pattern-function=slantedSlices
+                    group-name='p1'
                     fundamental-domain-width=80
                     fundamental-domain-height=70
+                    pattern-function-options='{"levels": 7, "pathsPerLevel": 1, "allowCurved": true}'
                 ></div>
                 <div class='frieze-pattern'
-                    pattern-function='trianglesPath3'
+                    pattern-function=slantedSlices
                     group-name='p11m'
                     fundamental-domain-width=80
                     fundamental-domain-height=70
+                    pattern-function-options='{"levels": 6, "pathsPerLevel": 1, "allowCurved": true}'
                 ></div>
                 <div class='frieze-pattern'
-                    pattern-function='trianglesPath3'
+                    pattern-function=slantedSlices
                     group-name='p1m1'
                     fundamental-domain-width=80
                     fundamental-domain-height=70
+                    pattern-function-options='{"levels": 5, "pathsPerLevel": 1, "allowCurved": true}'
                 ></div>
                 <div class='frieze-pattern'
+                    pattern-function=slantedSlices
                     group-name='p2'
                     fundamental-domain-width=80
                     fundamental-domain-height=70
-                    pattern-function='trianglesPath3'
+                    pattern-function-options='{"levels": 4, "pathsPerLevel": 1, "allowCurved": true}'
                 ></div>
                 <div class='frieze-pattern'
+                    pattern-function=slantedSlices
                     group-name='p1a1'
                     fundamental-domain-width=80
                     fundamental-domain-height=70
-                    pattern-function='trianglesPath3'
+                    pattern-function-options='{"levels": 3, "pathsPerLevel": 1, "allowCurved": true}'
                 ></div>
                 <div class='frieze-pattern'
+                    pattern-function=slantedSlices
                     group-name='p2mg'
                     fundamental-domain-width=80
                     fundamental-domain-height=70
-                    pattern-function='trianglesPath3'
+                    pattern-function-options='{"levels": 2, "pathsPerLevel": 1, "allowCurved": true}'
                 ></div>
                 <div class='frieze-pattern'
+                    pattern-function=slantedSlices
                     group-name='p2mm'
                     fundamental-domain-width=80
                     fundamental-domain-height=70
-                    pattern-function='trianglesPath3'
+                    pattern-function-options='{"levels": 1, "pathsPerLevel": 1, "allowCurved": true}'
                 ></div>
+                
             </div>
         </div>
     </div>
