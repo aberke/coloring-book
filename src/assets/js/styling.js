@@ -8,6 +8,7 @@ const COLORS = {
 	PURPLE: "#670067",
 	AQUA: "#3bcca6",
 	YELLOW: "#ffe100",
+	CORAL: "#FF7F50",
 };
 
 

@@ -1,11 +1,13 @@
 'use strict';
 
-const PRINT_ROUTE = '/print-book';
-const PRINT_PARAM = 'print';
 // Parameter to be toggled
 // Purpose: There are browser performance boosts that can be made when
 // in print mode, such as avoiding setting up listeners & animations
-var IS_PRINT_MODE = false;
+var DISABLE_ANIMATIONS = false;
+// parameters and routes to be used to turn on 'print' or 'disable-animations' mode
+const DISABLE_ANIMATIONS_PARAM = 'disable-animations';
+const PRINT_ROUTE = '/print-book';
+const PRINT_PARAM = 'print';
 
 
 
@@ -79,11 +81,15 @@ angular.module('app', [
     let vm = this;
 
     // set the 'print' flag if the route is the PRINT_ROUTE or PRINT_PARAM is present
-    vm.checkPrint = function() {
+    // set 'disable-animations' flag if param is present or in printing
+    vm.checkMode = function() {
         if (!!$location.search()[PRINT_PARAM] || $location.path() === PRINT_ROUTE) {
             vm.print = true;
-            IS_PRINT_MODE = true;
+            DISABLE_ANIMATIONS = true;
+        } else if (!!$location.search()[DISABLE_ANIMATIONS_PARAM]) {
+            DISABLE_ANIMATIONS = true;
         }
+
     }
     
     // handle anchor tags & routeparam changes
@@ -92,7 +98,6 @@ angular.module('app', [
         $location.hash($routeParams.scrollTo);  
         $anchorScroll();
 
-        // this will also be triggered on first page load
-        vm.checkPrint();
+        vm.checkMode();
     });
 });
