@@ -111,8 +111,11 @@ PDF/printable ready HTML book available at `/#!/print-book`
 
 ##### Notes:
 
-Use the `?print` URL param to test printer friendly styling of the page
-- This will disable animations (for better browser performance)
+Helpful URL parameters:
+
+- `?disable-animations` to disable animations
+- `?print` to test printer friendly styling of the page
+	- This will also disable animations (for better browser performance)
 
 For regenerating the PDF at /coloring-book.pdf:
 - Go to /#!/print-book

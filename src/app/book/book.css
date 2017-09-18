@@ -51,6 +51,10 @@ body.print p {
 .print #road-map {
     margin: auto;
 }
+.print #book-cover,
+.print #table-of-contents {
+    padding: 0;
+}
 
 .print .book-page .text-content .content-container-wrapper,
 .print #book-cover .content-container-wrapper,
@@ -63,6 +67,61 @@ body.print p {
     flex-direction: column;
     justify-content: center;
     height: 100%;
+}
+
+#book-title-container {
+    max-width: 800px;
+    margin: 50px auto;
+    /*make space for the menu*/
+    margin-top: 80px;
+}
+/*remove the space for the menu*/
+.print #book-title-container {
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+#book-title-container h1 {
+    font-weight: 400;
+    color: purple;
+    border-color: purple;
+    border-width: 3px;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+}
+
+h1#book-title {
+    font-size: 3em;
+    width: 75%;
+}
+/*mobile*/
+@media (max-width: 875px) {
+    h1#book-title {
+        width: 100%;
+    }
+}
+
+h1#book-title .title-piece {
+    display: block;
+}
+h1#book-title .title-piece.smaller {
+    font-size: 0.70em;
+    font-weight: 300;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px;
+    border-top: 2px solid purple;
+} 
+
+.book-section-title, .book-section-subtitle {
+    display: inline-block;
+    margin: 40px auto;
+    padding: 15px 30px;
+    min-width: 50%;
+    font-weight: 400;
+    font-size: 2em;
+    border-bottom: 7px double #670067;
+    text-transform: uppercase;
 }
 
 /*

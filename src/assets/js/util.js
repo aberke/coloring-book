@@ -275,18 +275,22 @@ function recursiveTranslateH(paper, translateObject, options) {
     let gap = options.gap || 0;
     let callback = options.callback || function() {};
     let width = paper.getSize().width;
+    // allow there be an upper bound on the number of translations
+    let maxTranslations = options.maxTranslations || Number.MAX_SAFE_INTEGER;
 
     let translateSet = paper.set().push(translateObject);
     let transformString = "..." + getTranslationH(translateObject, gap);
 
-    function drawNext(translateSet) {
-        if (translateSet.getBBox().x2 > width)
+    function drawNext(i, translateSet) {
+        if (translateSet.getBBox().x2 > width || i >= maxTranslations)
             return callback(translateSet);
 
-        var lastItem = translateSet[translateSet.length - 1];
-        var nextItem = lastItem.clone();
+        let lastItem = translateSet[translateSet.length - 1];
+        let nextItem = lastItem.clone();
         nextItem.animate({transform: transformString}, animateMs);
-        setTimeout(function() { drawNext(translateSet.push(nextItem)); }, animateMs);
+        setTimeout(function() { 
+            drawNext(i + 1, translateSet.push(nextItem));
+        }, animateMs);
     }
-    drawNext(translateSet);
+    drawNext(0, translateSet);
 }

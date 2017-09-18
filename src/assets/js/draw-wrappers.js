@@ -11,7 +11,7 @@ const MAX_INTERVAL_COUNT = 5;
 Draws shape in the center of the canvas.
 Optionally draws text below.  Uses passed in function to draw the shape.
 Turns on animations that were passed in options.  Animations should not be
-enabled when IS_PRINT_MODE.
+enabled when DISABLE_ANIMATIONS.
 
 @param {Object} paper to draw on
 @param {function} function to draw with
@@ -89,8 +89,8 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
         setMirror(pathSet, origin, options.mirror, false);
 
     // Maybe turn on animations/interactions based on options:
-    // Disable animations when IS_PRINT_MODE (for better browser performance)
-    if (!IS_PRINT_MODE)
+    // Disable animations when DISABLE_ANIMATIONS (for better browser performance)
+    if (!DISABLE_ANIMATIONS)
         setupInteractions(paper, pathSet, origin, size, drawFunction, functionOptions, options);
 
     return {
