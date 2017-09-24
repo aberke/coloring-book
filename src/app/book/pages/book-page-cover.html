@@ -15,7 +15,6 @@
                     show-symmetry-sets=false
                     pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": true}'
                 ></div>
-
                 <div class='frieze-pattern'
                     pattern-function=petalsEllipseWithDiamondPath
                     draw-options='{"strokeWidth": 1, "maxTranslations": 10}'
@@ -26,7 +25,10 @@
                     show-symmetry-sets=false
                 ></div>
 
-                <div class='frieze-pattern'
+                <!-- desktop & print version has longer frieze patterns -->
+                <!-- desktop version: -->
+
+                <div class='frieze-pattern desktop-only'
                     pattern-function=slantedSlices
                     draw-options='{"strokeWidth": 1, "maxTranslations": 7}'
                     group-name='p1'
@@ -36,11 +38,32 @@
                     show-symmetry-sets=false
                     pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": false}'
                 ></div>
-
-
-                <div class='frieze-pattern'
+                <div class='frieze-pattern desktop-only'
                     pattern-function=slantedSlices
-                    draw-options='{"strokeWidth": 1, "maxTranslations": 5}'
+                    draw-options='{"strokeWidth": 1, "maxTranslations": 4}'
+                    group-name='p1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=40
+                    margin=5
+                    show-symmetry-sets=false
+                    pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": true}'
+                ></div>
+                <!-- desktop & print version has longer frieze patterns -->
+                <!-- mobile version: -->
+                <div class='frieze-pattern mobile-only'
+                    pattern-function=slantedSlices
+                    draw-options='{"strokeWidth": 1, "maxTranslations": 4}'
+                    group-name='p1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=40
+                    margin=5
+                    show-symmetry-sets=false
+                    pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": false}'
+                ></div>
+
+                <div class='frieze-pattern mobile-only'
+                    pattern-function=slantedSlices
+                    draw-options='{"strokeWidth": 1, "maxTranslations": 2}'
                     group-name='p1'
                     fundamental-domain-width=60
                     fundamental-domain-height=40
