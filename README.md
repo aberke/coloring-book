@@ -98,8 +98,7 @@ Workflow:
 - Feature done, looks good, push to staging
 	- `$ git push staging <branch-name>`
 - Staging looks good, push to production
-	- `$ git push production `
-
+	- `$ git push production`
 
 
 ## Printable Copy

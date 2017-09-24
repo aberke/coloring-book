@@ -439,6 +439,10 @@ figcaption {
         width: auto;
     }
 
+    h1#book-title {
+    	padding: 20px 0;
+    }
+
 	/* ==================
 	Structure
 	*/
