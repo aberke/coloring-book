@@ -5,14 +5,24 @@
         <div class="content-container-wrapper">
             <div class="content-container">
 
-                <p>We can even find ways to color the triangle so that a <fraction>1/3</fraction> turn still does not change it.</p>
+                <p>We can find ways to color the triangle so that a <fraction>1/3</fraction> turn still does not change it.</p>
 
+                <!-- [Triangle, colored to keep C3] -⅓ turn → [triangle, turned] -->
                 <div class="text-content-graphic line">
                     <div class='canvas third'
                         canvas-centered-drawing 
                         draw-function='drawRegularPolygon'
                         function-options='{"N": 3, "withMirrorSections": true, "coloring": [1,0,1,0,1,0]}'
-                        options='{"autoRotateDegrees":"120"}'
+                        options='{"autoRotateDegrees":"120", "text":" "}'
+                    ></div>
+
+                    <p class="text big">&rarr;</p>
+
+                    <div class='canvas third'
+                        canvas-centered-drawing 
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "withMirrorSections": true, "coloring": [1,0,1,0,1,0]}'
+                        options='{"autoRotateDegrees":"120", "initialRotation":120, "text":"1/3 turn"}'
                     ></div>
                 </div>
 
