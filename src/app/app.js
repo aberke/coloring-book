@@ -76,7 +76,7 @@ angular.module('app', [
 .directive('circularTessellation', circularTessellationDirective)
 
 // set up the main page controller
-.controller('MainCntl', function($rootScope, $location, $anchorScroll, $routeParams) {
+.controller('MainCntl', function($window, $rootScope, $location, $anchorScroll, $routeParams) {
     // view model
     let vm = this;
 
@@ -91,13 +91,21 @@ angular.module('app', [
         }
 
     }
+
+    vm.updateGoogleAnalytics = function() {
+        // Only if ga defined, which it presumably is iff production
+        // Send a pageview to ga
+        if ($window.ga) {
+            ga('send', 'pageview', location.hash);
+        }
+    }
     
     // handle anchor tags & routeparam changes
     // this will be triggered on first page load, as well as all route changes
     $rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute) {
         $location.hash($routeParams.scrollTo);  
         $anchorScroll();
-
         vm.checkMode();
+        vm.updateGoogleAnalytics();
     });
 });
