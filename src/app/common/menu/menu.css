@@ -30,7 +30,8 @@ Styles for the side navigation menu.
     left: 0;
     background-color: #111; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
+    overflow-y: scroll;
+    padding: 25px 0; /* Place content this much from the top & bottom */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 #menu nav.opened {
@@ -54,6 +55,7 @@ Styles for the side navigation menu.
 
 #menu #by-alex-berke {
     font-size: 1em;
+    padding-bottom: 30px;
 }
 
 #menu .menu-open-btn,
