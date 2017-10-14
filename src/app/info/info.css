@@ -1,0 +1,12 @@
+.info-view, .info-view p {
+	max-width: 800px;
+	margin: auto;
+	text-align: center;
+	padding: 20px;
+}
+.info-view p {
+	max-width: 600px;
+}
+.info-view p strong {
+	font-weight: 600;
+}
