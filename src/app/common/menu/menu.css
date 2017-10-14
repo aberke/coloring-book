@@ -52,6 +52,10 @@ Styles for the side navigation menu.
     color: #f1f1f1;
 }
 
+#menu #by-alex-berke {
+    font-size: 1em;
+}
+
 #menu .menu-open-btn,
 #menu .menu-close-btn
 {

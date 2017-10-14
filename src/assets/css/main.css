@@ -27,9 +27,6 @@ h1 {
 	padding: 20px;
 	margin: 1px auto;
 	max-width: 800px;
-
-	border-top: 4px solid #3bcca6;
-	border-bottom: 4px solid #3bcca6;
 }
 
 p {
@@ -185,7 +182,6 @@ Note: So far this seems to work best with Firefox -- Preview as PDF
 .print footer {
 	display: none;
 }
-
 
 #get-updates-form-container {
 	text-align: center;

@@ -17,6 +17,7 @@ angular.module('app', [
 
     'ngLoadScript',
 
+    'app.info',
     'app.menu',
     'app.book',
     'app.frieze',
@@ -50,8 +51,8 @@ angular.module('app', [
         .when('/cards', {
             templateUrl: '/app/cards.html',
         })
-        .when('/about', {
-            templateUrl: '/app/about.html',
+        .when('/info', {
+            templateUrl: '/app/info/info.html',
         })
         .when('/frieze', {
             templateUrl: '/app/frieze/frieze.html',

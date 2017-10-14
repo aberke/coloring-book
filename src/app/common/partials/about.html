@@ -1,27 +1,20 @@
 <style>
 
 #about {
-	max-width: 800px;
-	margin: auto;
-	text-align: center;
-	padding: 20px;
-	
-    /*create blank page: print it on the right side, side left page blank*/
+	/*create blank page: print it on the right side, side left page blank*/
     page-break-before: right;
-}
-#about p {
-	text-align: center;
-	max-width: 600px;
-	margin: auto;
 }
 
 #about .title {
 	color: purple;
 	font-weight: 500;
 	margin-top: 50px;
+	border-top: 3px solid #3bcca6;
+	border-bottom: 3px solid #3bcca6;
 }
 
 #about .frieze-pattern {
+	border-top: 2px solid black;
 	margin-bottom: 50px;
 }
 
@@ -44,18 +37,18 @@ p#about-illustrations {
 
 </style>
 
-<div id="about">
+<div class="info-view" id="about">
 
 	<h1 class="title">About</h1>
-	<div class='frieze-pattern'
+	<div id="about-title-underline" class='frieze-pattern'
 		pattern-function=slantedSlices
-		draw-options='{"strokeWidth": 1, "stroke": "#3bcca6"}'
+		draw-options='{"strokeWidth": 1}'
 		group-name='p1'
 		fundamental-domain-width=50
 		fundamental-domain-height=20
 		margin=5
 		show-symmetry-sets=false
-		pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": true}'
+		pattern-function-options='{"levels": 2, "pathsPerLevel": 1, "allowCurved": true}'
 	></div>
 
 	<p>This coloring book is both digital and on paper.</p>
@@ -90,16 +83,19 @@ p#about-illustrations {
 	<br/>
         <div style="max-width: 550px; display: inline-block;" class='frieze-pattern'
             pattern-function='petalsEllipseWithDiamondPath'
-			draw-options='{"strokeWidth": 2}'
+			draw-options='{"strokeWidth": 1}'
             group-name='p11g'
             fundamental-domain-width=50
-            fundamental-domain-height=15
-            margin=15
+            fundamental-domain-height=20
+            margin=10
         ></div>
 	<br/>
 
-	<p><strong>Print a copy:</strong> <a target="_blank" href="/book.pdf">coloring-book.co/book.pdf</a></p>
-	<p><strong>Digital copy:</strong> <a target="_blank" href="http://www.coloring-book.co">coloring-book.co</a></p>
+	<p>
+		<strong>Print a copy:</strong> <a target="_blank" href="/book.pdf">coloring-book.co/book.pdf</a>
+	<br/>
+		<strong>Digital copy:</strong> <a target="_blank" href="http://www.coloring-book.co">coloring-book.co</a>
+	</p>
 
 	<br/>
 	<br/>

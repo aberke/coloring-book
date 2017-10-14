@@ -1,0 +1,43 @@
+<div class="view" ng-controller="InfoCntl">
+
+    <ng-include src="'/app/common/partials/about.html'"></ng-include>
+
+
+    <div class="info-view" id="get-the-book">
+    	<h2 class="book-section-title">Get The Book</h2>
+
+    	<p>
+    		<strong>Print a copy:</strong> <a target="_blank" href="/book.pdf">coloring-book.co/book.pdf</a>
+    		<br/>
+    		It's free? Yes I want to share this with you.
+    	</p>
+
+		<p><strong>Buy a published copy:</strong> <i>Coming soon.</i><br/>This book is still a work in progress and I want it to be a good book for <i>you</i> before I publish and widely distribute the first version. Your feedback will guide this book to completion. <a href="/#!/info#contact">Contact</a></p>
+    </div>
+
+    <div class="info-view" id="share">
+    	<h2 class="book-section-title">Share</h2>
+
+    	<p>Share what you've colored in our Facebook Group <a href="https://www.facebook.com/colorByMath/" target="_blank">facebook.com/colorByMath</a>. <br/>Or post to Instagram and Twitter with the #colorByMath hashtag.</p>
+    </div>
+
+    <div class="info-view" id="contact">
+    	<h2 class="book-section-title">Contact</h2>
+
+    	<p>
+    		If you are an <strong>educator</strong> I want to hear from you.<br/><br/>
+			If you want to collaborate or host an event with this material, please reach out.<br/><br/>
+			If you just read/colored/played with the content in this book, I want to know what you think.<br/>
+		</p>
+
+		<p>
+			Contact me directly at <a href="mailto:colorbymath@gmail.com?subject=Coloring%20Book">colorbymath@gmail.com</a>.
+			<br>
+			Or submit feedback in this form: <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeHWQDnA1ycEoDlJQXIz48sPoac-q5QlRo2Dyznu5E2ixYeGg/viewform">coloring-book.co/form</a>
+		</p> 
+
+    </div>
+
+	<ng-include ng-if="!main.print" src="'/app/common/partials/footer.html'"></ng-include>
+
+</div>
