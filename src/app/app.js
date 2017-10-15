@@ -104,7 +104,7 @@ angular.module('app', [
     // handle anchor tags & routeparam changes
     // this will be triggered on first page load, as well as all route changes
     $rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute) {
-        $location.hash($routeParams.scrollTo);  
+        $location.hash($routeParams.scrollTo);
         $anchorScroll();
         vm.checkMode();
         vm.updateGoogleAnalytics();
