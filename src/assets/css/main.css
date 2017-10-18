@@ -58,6 +58,15 @@ Structure
 	vertical-align: middle;
 }
 
+#table-of-contents {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+#table-of-contents .content-container {
+	padding: 0 20px;
+}
+
 #table-of-contents .book-section-title {
     font-size: 2.2em;
     border-bottom: 7px double #670067;
@@ -74,14 +83,9 @@ Structure
     height: 30px;
 }
 
-#table-of-contents {
-    padding-top: 30px;
-    padding-bottom: 40px;
-}
-
 #table-of-contents h3 {
     font-size: 1.7em;
-    margin: 0.5em 0em;
+    margin: 0;
     margin-top: 7px;
     text-transform: uppercase;
 }
@@ -101,7 +105,11 @@ Structure
 #table-of-contents .subtitle-container .canvas {
     display: inline-block;
     vertical-align: middle;
-    max-width: 150px;
+    max-width: 380px;
+}
+#table-of-contents .frieze-pattern.canvas {
+	display: block;
+	margin: auto;
 }
 
 #table-of-contents .subtitle-container h4 {
