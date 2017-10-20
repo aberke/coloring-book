@@ -92,14 +92,6 @@ angular.module('app', [
         }
 
     }
-
-    vm.updateGoogleAnalytics = function() {
-        // Only if ga defined, which it presumably is iff production
-        // Send a pageview to ga
-        if ($window.ga) {
-            ga('send', 'pageview', location.hash);
-        }
-    }
     
     // handle anchor tags & routeparam changes
     // this will be triggered on first page load, as well as all route changes
@@ -107,6 +99,6 @@ angular.module('app', [
         $location.hash($routeParams.scrollTo);
         $anchorScroll();
         vm.checkMode();
-        vm.updateGoogleAnalytics();
+        trackPageView();
     });
 });

@@ -94,6 +94,7 @@ class FriezePattern {
         this.removePaperSetHandlers();
         let offsetX = ((this.paperSet.getBBox().x2) > 0) ? this.paperSet.getBBox().x2 : 0;
         this.draw(offsetX);
+        trackRedraw('FriezePattern');
     }
 
     // draws itself starting at offsetX (default=0)

@@ -105,6 +105,7 @@ function circularTessellationDirective($location) {
 				// (when redrawing, animate the drawing of rotations)
 				options.drawAnimationInterval = 1000;
 				draw();
+				trackRedraw("CircularTessellation");
 			}
 
 			// attach redraw handler if with-redraw flag was present

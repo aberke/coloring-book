@@ -330,9 +330,7 @@ function BookCntl($scope, $window, $location, $anchorScroll) {
             // Only if ga defined, which it presumably is iff production
             // Note: the MainController updates google analytics too and in
             // some edge cases there may be double counts
-            if ($window.ga) {
-                ga('send', 'pageview', location.hash);
-            }
+            trackPageView();
         }
     });
 
