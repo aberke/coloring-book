@@ -112,29 +112,33 @@
                 <div class="canvas-row">
                     <div class='canvas sixth'
                         canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"tapRotate": 120, "margin": 10, "inscribed":"triangle", "mirrorLines":3}'
-                    ></div><div class='canvas sixth'
+                        draw-function='drawTriangle'
+                        options='{"tapRotate": 120, "margin": 3}'
+                    ></div>
+                    <div class='canvas sixth'
                         canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"tapRotate": 120, "margin": 10, "inscribed":"triangle", "initialRotation":180}'
-                    ></div><div class='canvas sixth'
+                        draw-function='drawTriangle'
+                        options='{"tapRotate": 120, "margin": 3, "initialRotation": 180}'
+                    ></div>
+                    <div class="canvas sixth" 
+                        with-redraw 
+                        circular-tessellation
+                        inscribed="triangle"
+                        rotations=3
+                        slices-count=1
+                        levels=3
+                        margin=0
+                        mirror-lines=1
+                    ></div>
+                    <div class='canvas sixth'
                         canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"tapRotate": 120, "margin": 0, "inscribed":"triangle", "mirrorLines":1}'
-                    ></div><div class='canvas sixth'
+                        draw-function='drawTriangle'
+                        options='{"tapRotate": 120, "margin": 0, "initialRotation": 180}'
+                    ></div>
+                    <div class='canvas sixth'
                         canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"tapRotate": 120, "margin": 10, "inscribed":"triangle", "initialRotation":180}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"tapRotate": 120, "margin": 10, "inscribed":"triangle", "mirrorLines":3}'
+                        draw-function='drawTriangle'
+                        options='{"tapRotate": 120, "margin": 3}'
                     ></div>
                 </div>
 
@@ -152,39 +156,44 @@
                         mirror-lines=6
                     ></div>
                 </div>
-
                 
                 <!-- Line of Circular tessellations of order-3, inscribed in triangles -->
                 <div class="canvas-row">
                     <div class='canvas sixth'
                         canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"tapRotate": 120, "margin": 10, "inscribed":"triangle", "mirrorLines":3}'
-                    ></div><div class='canvas sixth'
+                        draw-function='drawTriangle'
+                        options='{"tapRotate": 120, "margin": 3}'
+                    ></div>
+                    <div class='canvas sixth'
                         canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"tapRotate": 120, "margin": 10, "inscribed":"triangle", "initialRotation":180}'
-                    ></div><div class='canvas sixth'
+                        draw-function='drawTriangle'
+                        options='{"tapRotate": 120, "margin": 3, "initialRotation": 180}'
+                    ></div>
+                    <div
+                        class="canvas sixth" 
+                        with-redraw 
+                        circular-tessellation
+                        inscribed="triangle"
+                        rotations=3
+                        slices-count=1
+                        levels=3
+                        margin=0
+                        mirror-lines=1
+                    ></div>
+                    <div class='canvas sixth'
                         canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"tapRotate": 120, "margin": 0, "inscribed":"triangle", "mirrorLines":1}'
-                    ></div><div class='canvas sixth'
+                        draw-function='drawTriangle'
+                        options='{"tapRotate": 120, "margin": 0, "initialRotation": 180}'
+                    ></div>
+                    <div class='canvas sixth'
                         canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"tapRotate": 120, "margin": 10, "inscribed":"triangle", "initialRotation":180}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"tapRotate": 120, "margin": 10, "inscribed":"triangle", "mirrorLines":3}'
+                        draw-function='drawTriangle'
+                        options='{"tapRotate": 120, "margin": 3}'
                     ></div>
                 </div>
 
             </div>
+            <p class="design-caption">shapes with 3 rotations, and a shape with 6 rotations</p>
         </div>
     </div>
 </div>

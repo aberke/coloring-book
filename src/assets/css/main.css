@@ -397,6 +397,11 @@ But shrinks the canvas for smaller, mobile views */
 figcaption, .design-caption {
     font-size: 12px;
     font-style: italic;
+    text-align: center;
+}
+.design-caption {
+    font-size: 13px;
+    text-align: center;
 }
 
 /* Pieces */

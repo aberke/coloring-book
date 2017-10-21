@@ -102,74 +102,19 @@
         <div class="content-container-wrapper">
             <div class="content-container">
 
-                <div class="canvas-row">
-                    <div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"margin": 10, "inscribed":"triangle", "mirrorLines":3}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"margin": 10, "inscribed":"triangle", "initialRotation":180}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"margin": 0, "inscribed":"triangle", "mirrorLines":1}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"margin": 10, "inscribed":"triangle", "initialRotation":180}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"margin": 10, "inscribed":"triangle", "mirrorLines":3}'
-                    ></div>
-                </div>
-
-                <div class="canvas two-thirds"
+                <div class="canvas" 
+                    with-redraw 
                     circular-tessellation
-                    with-redraw
-                    rotations=6
-                    as-flower=true
-                    slices-count=2
+                    rings="[0.45, 0.5, 0.8, 0.85]"
+                    rotations=9
+                    slices-count=4
                     levels=2
-                    mirror-lines=6
-                ></div>
-
-                <div class="canvas-row">
-                    <div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"margin": 10, "inscribed":"triangle", "initialRotation":180, "mirrorLines":3}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"margin": 10, "inscribed":"triangle"}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"margin": 0, "inscribed":"triangle", "initialRotation":180, "mirrorLines":1}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"margin": 10, "inscribed":"triangle"}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawCircularTessellation'
-                        function-options='{"rotations": 3, "levels": 2, "slicesCount": 2}'
-                        options='{"margin": 10, "inscribed":"triangle", "initialRotation":180, "mirrorLines":3}'
-                    ></div>
+                    mirror-lines=9
+                    margin=10>
                 </div>
+                
             </div>
+            <p class="design-caption">circular tessellation of order 9</p>
         </div>
     </div>
 </div>
