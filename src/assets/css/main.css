@@ -101,6 +101,9 @@ Structure
     text-decoration: none;
     color: black;
 }
+#table-of-contents p {
+	text-align: center;
+}
 #table-of-contents .title-container .canvas,
 #table-of-contents .subtitle-container .canvas {
     display: inline-block;
@@ -391,7 +394,7 @@ But shrinks the canvas for smaller, mobile views */
     padding: 0;
     margin: 0 10px;
 }
-figcaption {
+figcaption, .design-caption {
     font-size: 12px;
     font-style: italic;
 }
