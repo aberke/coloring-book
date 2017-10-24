@@ -27,6 +27,7 @@ class CircularTessellation {
 	@param {X: number, Y: number} origin point
 	@param {number} diameter
 	@param {Object} options:
+		{number} initialRotation as initial rotation in degrees.  e.g. 90
 		{number} rotations as rotational order of shape
 		{number} levels.  Ie, number of time slices repeat along the line
 		{boolean} withReflection -- set true for symmetric line
@@ -65,6 +66,8 @@ class CircularTessellation {
 		// the animation interval will be passed in
 		// where the animation interval is time between spokes of the wheel being drawn
 		this.drawAnimationInterval = DISABLE_ANIMATIONS ? 0 : (this.options.drawAnimationInterval || 0);
+
+		this.initialRotation = options.initialRotation || 0;
 
 		this.rotations = options.rotations || 1;
 		// set up rotation transform string
@@ -111,10 +114,6 @@ class CircularTessellation {
 		// set a flag that this shape is currently drawing
 		this.drawing = true;
 
-		// get a line to rotate
-		let lineSet = this.getFundamentalDomainLine();
-		this.pathSet.push(lineSet); // add it to the paperSet
-
 		// use recursive routine to draw each rotated line of the circular tessellation
 		const self = this;
 		let drawNextRotation = function(r) {
@@ -127,7 +126,7 @@ class CircularTessellation {
 			// reuse the lineSet -- clone it and rotate it, and add that clone to paperSet
 	        let newLine = this.getFundamentalDomainLine();
 
-	        let degreesToRotate = r*this.rotationDegrees;
+	        let degreesToRotate = r*this.rotationDegrees + this.initialRotation;
 	        let transformString = [
 	        	"...R" + String(degreesToRotate),
 	        	String(this.origin.X),
@@ -141,7 +140,7 @@ class CircularTessellation {
 		        // recursively call routing again for next rotation, r
 		        drawNextRotation(r + 1);
 	        }
-	        if (this.drawAnimationInterval) {
+	        if (this.drawAnimationInterval && r > 0) {
 		       	newLine.animate({transform: transformString}, this.drawAnimationInterval, transformCallback);
 	        } else {
 	        	newLine.transform(transformString);
@@ -149,8 +148,7 @@ class CircularTessellation {
 	        }
 
 	    }.bind(this);
-	    // start the drawNextRotation routine.  First rotation has already been drawn
-	    drawNextRotation(1);
+	    drawNextRotation(0);
 
 	    // set up interactions if !DISABLE_ANIMATIONS
         if (!DISABLE_ANIMATIONS) {

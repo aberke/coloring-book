@@ -194,6 +194,9 @@ function setTapReflect(paper, pathSet, origin, mirror) {
 }
 
 function setInitialRotation(pathSet, origin, rotation) {
+    if (rotation <= 0)
+        return;
+
     pathSet.transform([
         "...R" + String(rotation),
         String(origin.X),
@@ -354,7 +357,7 @@ function drawSierpinskiTriangle(paper, centerPoint, size, options, isRedraw) {
 /*
 Returns the path set of the inscribing shape.
 **/
-function drawInscribingShape(paper, centerPoint, size, shapeName) {
+function drawInscribingShape(paper, centerPoint, size, shapeName, initialRotation=0) {
     let pathSet = paper.set();
 
     if (shapeName === "circle")
@@ -363,8 +366,10 @@ function drawInscribingShape(paper, centerPoint, size, shapeName) {
         pathSet = drawSquare(paper, centerPoint, size);
     else if (shapeName === "triangle")
         pathSet = drawTriangle(paper, centerPoint, size);
-    // else shapeName not recognized, return an empty path
+    else // shapeName not recognized, return an empty path
+        return pathSet;
 
+    setInitialRotation(pathSet, centerPoint, initialRotation);
     // add class to inscribed shape so that it can be styled with CSS
     pathSet.attr("class", "inscribed");
 

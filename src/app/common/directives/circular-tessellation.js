@@ -7,6 +7,7 @@ Use
 	with-redraw  // whether should be redrawn on click
 	rings=[{number between 0 and 1}]  // list for creating rings below tessellation, where each number marks fraction of tessellation's radius to draw at
 	rotations={number}
+	initial-rotation={number}
 	slices-count={number}
 	levels={number}
 	margin={number}
@@ -52,9 +53,10 @@ function circularTessellationDirective($location) {
 
 			let asFlower = ("asFlower" in attrs && attrs.asFlower !== "false") ? true : false;
 
-
 			let rotations = (!!attrs.rotations) ? Number(attrs.rotations) : null;
+			let initialRotation = (!!attrs.initialRotation) ? Number(attrs.initialRotation) : null;
 			let options = {
+				initialRotation: initialRotation,
 				rotations: rotations,
 				levels: (!!attrs.levels) ? Number(attrs.levels) : null,
 				withReflection: attrs.withReflection ? true : null,
@@ -84,7 +86,7 @@ function circularTessellationDirective($location) {
 
 			function draw() {
 				if (inscribed)
-					drawInscribingShape(paper, origin, diameter, inscribed);
+					drawInscribingShape(paper, origin, diameter, inscribed, initialRotation || 0);
 
 				drawRings();
 

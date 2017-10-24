@@ -4,7 +4,7 @@
         <div class="content-container-wrapper">
             <div class="content-container">
 
-                <p>So far we’ve only been talking about groups of rotations.</p>
+                <p>So far we've only been talking about groups of rotations.</p>
                 <p>These groups are <a target="_blank" href="/#!/theory-reference#cyclic-group" class="theory-reference-term">cyclic</a>. They can be created by combining just one rotation - the <a target="_blank" href="/#!/theory-reference#generator" class="theory-reference-term">generator</a> - multiple times with itself.</p>
 
                 <!-- ⅓ -> [Line of C3 shapes, with “i/3 turn” below] -->
@@ -63,34 +63,23 @@
                         inscribed="triangle"
                     ></div>
                     <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        with-reflection=true
-                        rotations=3
-                        slices-count=2
-                        levels=2
-                        margin=15
-                        inscribed="triangle"
+                        canvas-centered-drawing 
+                        draw-function='drawTriangle'
                     ></div>
                     <div class="canvas sixth"
                         circular-tessellation
                         with-redraw
                         with-reflection=true
                         rotations=3
-                        slices-count=2
-                        levels=2
+                        slices-count=1
+                        levels=3
                         inscribed="triangle"
                         mirror-lines=1
+                        margin=0
                     ></div>
                     <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        with-reflection=true
-                        rotations=3
-                        slices-count=2
-                        levels=2
-                        margin=15
-                        inscribed="triangle"
+                        canvas-centered-drawing 
+                        draw-function='drawTriangle'
                     ></div>
                     <div class="canvas sixth"
                         circular-tessellation
@@ -103,7 +92,6 @@
                         inscribed="triangle"
                     ></div>
                 </div>
-
 
                 <div class="canvas two-thirds"
                     circular-tessellation
@@ -114,10 +102,10 @@
                     slices-count=5
                     levels=2
                     mirror-lines=1
+                    margin=0
                 ></div>
 
-
-            	<!-- line of 6 D3 shapes inscribed in triangles -->
+                <!-- line of 6 D3 shapes inscribed in triangles -->
                 <div class="canvas-row">
                     <div class="canvas sixth"
                         circular-tessellation
@@ -128,26 +116,29 @@
                         levels=2
                         margin=15
                         inscribed="triangle"
+                        initial-rotation=180
+                    ></div>
+                    <div class="canvas sixth"
+                        canvas-centered-drawing 
+                        draw-function='drawTriangle'
+                        options='{"initialRotation": 180}'
                     ></div>
                     <div class="canvas sixth"
                         circular-tessellation
                         with-redraw
                         with-reflection=true
                         rotations=3
-                        slices-count=2
-                        levels=2
-                        margin=15
+                        slices-count=1
+                        levels=3
                         inscribed="triangle"
-                    ></div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        with-reflection=true
-                        rotations=3
-                        slices-count=2
-                        levels=2
                         mirror-lines=1
-                        inscribed="triangle"
+                        initial-rotation=180
+                        margin=0
+                    ></div>
+                    <div class="canvas sixth"
+                        canvas-centered-drawing 
+                        draw-function='drawTriangle'
+                        options='{"initialRotation": 180}'
                     ></div>
                     <div class="canvas sixth"
                         circular-tessellation
@@ -157,20 +148,12 @@
                         slices-count=2
                         levels=2
                         margin=15
-                        inscribed="triangle"
-                    ></div>
-                    <div class="canvas sixth"
-                        circular-tessellation
-                        with-redraw
-                        with-reflection=true
-                        rotations=3
-                        slices-count=2
-                        levels=2
-                        margin=15
+                        initial-rotation="180"
                         inscribed="triangle"
                     ></div>
                 </div>
             </div>
+            <p class="design-caption">shapes with reflection</p>
         </div>
     </div>
 </div>
