@@ -428,6 +428,8 @@ figcaption, .design-caption {
 
 	p {
 		text-align: center;
+		padding-left: 5px;
+		padding-right: 5px;
 	}
 
 	.mobile-block,
