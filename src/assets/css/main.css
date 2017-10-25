@@ -436,6 +436,9 @@ figcaption, .design-caption {
 		padding-left: 5px;
 		padding-right: 5px;
 	}
+	.text-content-graphic p {
+		padding: 0;
+	}
 
 	.mobile-block,
 	.text-content-graphic p.mobile-block {
