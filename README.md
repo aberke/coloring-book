@@ -103,7 +103,7 @@ Workflow:
 
 ## Printable Copy
 
-Full PDF of book available at http://coloring-book.co/coloring-book.pdf
+Full PDF of book available at http://coloring-book.co/book.pdf
 
 PDF/printable ready HTML book available at `/#!/print-book`
 
