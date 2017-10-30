@@ -394,12 +394,12 @@ But shrinks the canvas for smaller, mobile views */
     padding: 0;
     margin: 0 10px;
 }
-figcaption, .design-caption {
+figcaption, .design-caption, .print .design-caption {
     font-size: 12px;
     font-style: italic;
     text-align: center;
 }
-.design-caption {
+.print .design-caption {
     font-size: 13px;
     text-align: center;
 }

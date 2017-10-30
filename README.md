@@ -124,7 +124,7 @@ For regenerating the PDF at /coloring-book.pdf:
 - Choose to have no headers & footers
 - Choose portrait view & 8.5x11 (aka "letter") paper
 - "Open PDF in Preview"
-- Save as PDF at `/coloring-book.pdf`
+- Save as PDF at `/book.pdf`
 
 
 ### Pieces

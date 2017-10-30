@@ -1,7 +1,7 @@
 .info-view, .info-view p {
 	max-width: 800px;
 	margin: auto;
-	text-align: center;
+	text-align: center !important;
 	padding: 20px;
 }
 .info-view p {
