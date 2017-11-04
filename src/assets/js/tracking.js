@@ -1,4 +1,5 @@
 'use strict';
+
 /*
 tracking.js
 
@@ -6,7 +7,6 @@ Google Analytics tracking for:
 pageviews
 events
  - redraws
- - TODO
 */
 
 // google analytics
@@ -15,8 +15,7 @@ var ga;
 
 
 function initTracking() {
-	let host = location.host;
-    if (host.indexOf('127.0.0.1') >= 0 || host.indexOf('localhost') >= 0 || host.indexOf('staging') >= 0) {
+    if (location.host.indexOf('coloring-book.co') < 0) {
       console.log('not logging to Google Analytics for non-production')
       return;
     }
@@ -30,7 +29,6 @@ function initTracking() {
 
 
 function trackPageView() {
-	let page = location.hash;
 	if (!ga)
 		return;
 
