@@ -307,8 +307,8 @@ function BookCntl($scope, $window, $location, $anchorScroll) {
     vm.setPageByNumber = function(pageIndex) {
         vm.pageNumber = pageIndex;
         vm.pageName = vm.pages[pageIndex].name;
-        $location.search('pageNumber', pageIndex);
         $location.search('pageName', vm.pageName);
+        $location.search('pageNumber', pageIndex);
     };
 
 
@@ -325,9 +325,8 @@ function BookCntl($scope, $window, $location, $anchorScroll) {
         let ls = $location.search();
         if (ls.pageName !== vm.pageName || ls.pageNumber !== vm.pageNumber) {
             vm.init();
-        } else {
-            // Otherwise update Google analytics
-            // Only if ga defined, which it presumably is iff production
+        } else if (vm.pageName != vm.previousPageName) {
+            vm.previousPageName = vm.pageName;
             // Note: the MainController updates google analytics too and in
             // some edge cases there may be double counts
             trackPageView();
