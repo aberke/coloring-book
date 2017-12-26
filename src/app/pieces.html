@@ -1,5 +1,13 @@
 <style>
 
+    body{ 
+    	text-align: center;
+    }
+
+	#pieces {
+		padding-bottom: 100px;
+	}
+
     header {
     	text-align: center;
     	margin: 2em;
@@ -10,9 +18,6 @@
     }
     ul {
     	list-style-type: none;
-    }
-    body{ 
-    	text-align: center;
     }
 
     .canvas {
@@ -33,327 +38,316 @@
 
 <div id="pieces">
 
-    	<header>
-		    <h1>Pieces</h1>
-		    <p>Putting together the pieces.  Here are some shapes.</p>
-		</header>
+	<header>
+	    <h1>Pieces</h1>
+	    <p>Putting together the pieces.  Here are some shapes.</p>
+	</header>
 
-		<!-- content -->
+	<!-- content -->
+	<div>
+		<!-- Fractions -->
 		<div>
+			<h3>Fractions</h3>
+			<p>Here's 1/4: <fraction>1/4</fraction> turn</p>
 
-			<!-- Fractions -->
-			<div>
-				<h3>Fractions</h3>
-				<p>Here's 1/4: <fraction>1/4</fraction> turn</p>
+		</div>
+		<!-- Fractions -->
 
-			</div>
-			<!-- Fractions -->
+		<div>
+			<h3>Canvas Sizes</h3>
 
-			<div>
-				<h3>Canvas Sizes</h3>
-
-				<div style="text-align: center;">
-	                <div style="display: inline-block;" class='canvas third'
-	                    canvas-centered-drawing
-	                    draw-function='drawSierpinskiTriangle'
-	                    function-options='{"level": 3, "orientation": -1}'
-	                    options='{"text": ".third"}'
-	                ></div>
-	                <div style="display: inline-block;" class='canvas sixth'
-	                    canvas-centered-drawing
-	                    draw-function='drawSierpinskiTriangle'
-	                    function-options='{"level": 3, "orientation": -1}'
-	                    options='{"text": ".sixth: Take up 1/6 of width"}'>
-	                </div>
-	                <div style="display: inline-block;" class='canvas mobile-small'
-	                    canvas-centered-drawing
-	                    draw-function='drawSierpinskiTriangle'
-	                    function-options='{"level": 3, "orientation": -1}'
-	                    options='{"text": ".mobile-small"}'>
-	                </div>
-	                <div style="display: inline-block;" class='canvas small'
-	                    canvas-centered-drawing
-	                    draw-function='drawSierpinskiTriangle'
-	                    function-options='{"level": 3, "orientation": -1}'
-	                    options='{"text": ".small"}'>
-	                </div>
-	                <div style="display: inline-block;" class='canvas extra-small'
-	                    canvas-centered-drawing
-	                    draw-function='drawSierpinskiTriangle'
-	                    function-options='{"level": 3, "orientation": -1}'
-	                    options='{"text": ".extra-small"}'>
-	                </div>
+			<div style="text-align: center;">
+	            <div style="display: inline-block;" class='canvas third'
+	                canvas-centered-drawing
+	                draw-function='drawSierpinskiTriangle'
+	                function-options='{"level": 3, "orientation": -1}'
+	                options='{"text": ".third"}'
+	            ></div>
+	            <div style="display: inline-block;" class='canvas sixth'
+	                canvas-centered-drawing
+	                draw-function='drawSierpinskiTriangle'
+	                function-options='{"level": 3, "orientation": -1}'
+	                options='{"text": ".sixth: Take up 1/6 of width"}'>
 	            </div>
+	            <div style="display: inline-block;" class='canvas mobile-small'
+	                canvas-centered-drawing
+	                draw-function='drawSierpinskiTriangle'
+	                function-options='{"level": 3, "orientation": -1}'
+	                options='{"text": ".mobile-small"}'>
+	            </div>
+	            <div style="display: inline-block;" class='canvas small'
+	                canvas-centered-drawing
+	                draw-function='drawSierpinskiTriangle'
+	                function-options='{"level": 3, "orientation": -1}'
+	                options='{"text": ".small"}'>
+	            </div>
+	            <div style="display: inline-block;" class='canvas extra-small'
+	                canvas-centered-drawing
+	                draw-function='drawSierpinskiTriangle'
+	                function-options='{"level": 3, "orientation": -1}'
+	                options='{"text": ".extra-small"}'>
+	            </div>
+	        </div>
+		</div>
+
+
+		<!-- circular tessellation -->
+		<div>
+			<h3>Circular Tesselation</h3>
+			<p>They rotate on hover.</p>
+			<p>Randomly generated.  Can configure for:</p>
+			<ul>
+				<li>Number of rotations</li>
+				<li>Whether has mirror symmetry</li>
+				<li>Number of 'levels' in lines</li>
+				<li>Number of 'slices' per 'level'</li>
+			</ul>
+			<div class='half'>
+				<circular-tessellation
+					with-redraw
+					rings="[0.1, 0.2, 0.5, 1]"
+					rotations=3
+					slices-count=4
+					levels=2
+				></circular-tessellation>
 			</div>
+			<div class='half'>
+	            <div
+	                with-redraw 
+	                circular-tessellation
+					rings="[0.5, 0.9]"
+	                rotations=6
+	                slices-count=4
+	                levels=2
+	                with-reflection=true
+	                margin=25
+	            ></div>
+			</div>
+		</div>
+	    <!-- circular tessellation -->
 
+		<!-- circular flower -->
+		<div>
+			<h3>Circular Flower</h3>
+			<p>They rotate on hover.</p>
+			<p>Randomly generated.  Can configure for:</p>
+			<ul>
+				<li>Number of rotations</li>
+				<li>Whether has mirror symmetry</li>
+				<li>Number of 'levels' in lines</li>
+				<li>Number of 'slices' per 'level'</li>
+			</ul>
+			<div class='half'>
+	            <circular-tessellation
+	                with-redraw
+	                rotations=4
+	                slices-count=3
+	                levels=2
+	                margin=25
+	                as-flower
+	            ></circular-tessellation>
+			</div>
+			<div class='half'>
+	            <div
+	                with-redraw 
+	                circular-tessellation
+	                rotations=6
+	                slices-count=3
+	                levels=2
+	                with-reflection=true
+	                margin=25
+	                as-flower
+	            ></div>
+			</div>
+		</div>
+	    <!-- circular flower -->
 
-			<!-- circular tessellation -->
-			<div>
-				<h3>Circular Tesselation</h3>
-				<p>They rotate on hover.</p>
-				<p>Randomly generated.  Can configure for:</p>
-				<ul>
-					<li>Number of rotations</li>
-					<li>Whether has mirror symmetry</li>
-					<li>Number of 'levels' in lines</li>
-					<li>Number of 'slices' per 'level'</li>
-				</ul>
-				<div class='half'>
+	    <!-- n-gons -->
+		<div>
+			<h2>N Gons</h2>
+			<div class='half'>
+				<p>5-gon.</p>
+
+			    <div class='canvas third'
+	                canvas-centered-drawing
+	                draw-function='drawRegularPolygon'
+	                function-options='{"N": 5}'
+			    	options='{"autoReflect":"H"}'
+	            ></div>
+		    </div>
+			<div class='half'>
+				<p>8-gon</p>
+
+			    <div class='canvas third'
+	                canvas-centered-drawing
+	                draw-function='drawRegularPolygon'
+	                function-options='{"N": 8}'
+	                options='{}'
+	            ></div>
+		    </div>
+	    </div>
+	    <!-- n-gons -->
+
+	    <!-- star n-gons -->
+		<div>
+			<h2>Star N Gons</h2>
+			<div class='half'>
+				<p>3-star</p>
+			    <div class='canvas third'
+	                canvas-centered-drawing
+	                draw-function='drawRegularPolygon'
+	                function-options='{"N": 3, "alternateSideStrokes": true, "concave": true}'
+	                options='{"autoRotateDegrees":120,"inscribed":"circle","initialRotation":120}'
+	            ></div>
+		    </div>
+			<div class='half'>
+				<p>6-star</p>
+			    <div class='canvas third'
+	                canvas-centered-drawing
+	                draw-function='drawRegularPolygon'
+	                function-options='{"N": 6, "alternateSideStrokes": true, "concave": true}'
+	                options='{"autoRotateDegrees":60,"inscribed":"circle","initialRotation":120}'
+	            ></div>
+		    </div>
+	    </div>
+	    <!-- star n-gons -->
+
+		<!-- shapes -->
+		<div>
+			<h2>Shapes</h2>
+			<div class='half'>
+				<p>C6 Shape</p>
+
+		    	<div class='canvas third'
+			    	canvas-centered-drawing 
+			    	draw-function='drawCyclicShape'
+			    	function-options='{"N": 6}'
+			    	options='{"margin": 12, "inscribed":"circle"}'
+			    ></div>
+
+		    </div>
+			<div class='half'>
+				<p>D7</p>
+
+		    	<div class='canvas third'
+			    	canvas-centered-drawing 
+			    	draw-function='drawDihedralShape'
+			    	function-options='{"N": 7, "alternateSideStrokes": true}'
+			    	options='{"margin": 12, "inscribed": true}'
+			    ></div>
+		    </div>
+	    </div>
+	    <!-- cyclic and dihedral shapes -->
+
+		<!-- More shapes -->
+		<div>
+			<h2>More shapes</h2>
+			<div class='half'>
+				<p>Rectangle</p>
+				
+		    	<div class='canvas third'
+			    	canvas-centered-drawing 
+			    	draw-function='drawRectangle'
+			    	function-options='{"alternateSideStrokes": true}'
+			    	options='{"margin": 12, "inscribed": true}'
+			    ></div>
+		    </div>
+			<div class='half'>
+				<p>C5 with alternating side strokes</p>
+
+		    	<div class='canvas third'
+			    	canvas-centered-drawing 
+			    	draw-function='drawCyclicShape'
+			    	function-options='{"N": 5, "sideStrokes": [1, 1, 2, 2, 0]}'
+			    	options='{"margin": 12, "inscribed": true}'
+			    ></div>
+
+		    </div>
+	    </div>
+	    <!-- More shapes -->
+
+		<!-- Colored shapes -->
+		<div>
+			<h2>Colored shapes</h2>
+			<div class='half'>
+				<p>Rectangle with alternating color fills</p>
+				
+		    	<div class='canvas third'
+			    	canvas-centered-drawing 
+			    	draw-function='drawRectangle'
+			    	function-options='{"coloring": [0, 1]}'
+			    ></div>
+		    </div>
+			<div class='half'>
+				<p>C5 with alternating side strokes</p>
+
+		    	<div class='canvas third'
+			    	canvas-centered-drawing 
+			    	draw-function='drawCyclicShape'
+			    	function-options='{"N": 5, "coloring": [1, 2, 3, 4, 5]}'
+			    ></div>
+
+		    </div>
+	    </div>
+	    <!-- Colored shapes -->
+
+		<!-- Mirrors -->
+		<div>
+			<h2>Shapes with Mirrors</h2>
+			<div class='half'>
+				<p>use in function options: withMirrorSections=true</p>
+				
+		    	<div class='canvas third'
+			    	canvas-centered-drawing 
+			    	draw-function='drawRegularPolygon'
+			    	function-options='{"N": 3, "withMirrorSections": true}'
+		    	></div>
+		    </div>
+			<div class='half'>
+				<p> Can auto reflect either vertically or horizontally with option autoReflect="H"|"V"</p>
+		    	<div class='canvas third'
+			    	canvas-centered-drawing 
+			    	draw-function='drawRegularPolygon'
+			    	function-options='{"N": 5, "concave":true, "withMirrorSections": true, "coloring": [1, 0, 2]}'
+			    	options='{"autoReflect":"V"}'
+		    	></div>
+
+		    </div>
+	    </div>
+	    <!-- Mirrors -->
+
+		<!-- Mirrors -->
+		<div>
+			<h2>Mirror Lines</h2>
+			<p>mirrorLines=N</p>
+			<p>Convention: Use gray for text content, black for coloring content.</p>
+			<div class='half'>
+			<p>Can use as function option for any cyclic shapes</p>
+				
+			    <div class='canvas third'
+	                canvas-centered-drawing
+	                draw-function='drawRegularPolygon'
+	                function-options='{"N": 6, "alternateSideStrokes": true, "concave": true}'
+	                options='{"autoReflect":"V", "mirrorLines": 2}'
+	            ></div>
+		    </div>
+			<div class='half'>
+				<p>Can use as attribute for circular-tessellation directive. mirror-lines=N</p>
 				<div
-					class="canvas" 
+					class="third" 
 					with-redraw 
 					circular-tessellation
+					mirror-lines=2
 					rings="[0.1, 0.2, 0.5, 1]"
 					rotations=3
 					slices-count=4
 					levels=2
 					margin=25
 				></div>
-				</div>
-				<div class='half'>
-		            <div
-		                class="canvas" 
-		                with-redraw 
-		                circular-tessellation
-						rings="[0.5, 0.9]"
-		                rotations=6
-		                slices-count=4
-		                levels=2
-		                with-reflection=true
-		                margin=25
-	                ></div>
-				</div>
-			</div>
-		    <!-- circular tessellation -->
 
-			<!-- circular flower -->
-			<div>
-				<h3>Circular Flower</h3>
-				<p>They rotate on hover.</p>
-				<p>Randomly generated.  Can configure for:</p>
-				<ul>
-					<li>Number of rotations</li>
-					<li>Whether has mirror symmetry</li>
-					<li>Number of 'levels' in lines</li>
-					<li>Number of 'slices' per 'level'</li>
-				</ul>
-				<div class='half'>
-		            <div
-		                class="canvas" 
-		                with-redraw 
-		                circular-tessellation
-		                rotations=4
-		                slices-count=3
-		                levels=2
-		                margin=25
-		                as-flower
-	                ></div>
-				</div>
-				<div class='half'>
-		            <div
-		                class="canvas" 
-		                with-redraw 
-		                circular-tessellation
-		                rotations=6
-		                slices-count=3
-		                levels=2
-		                with-reflection=true
-		                margin=25
-		                as-flower
-	                ></div>
-				</div>
-			</div>
-		    <!-- circular flower -->
-
-		    <!-- n-gons -->
-			<div>
-				<h2>N Gons</h2>
-				<div class='half'>
-					<p>5-gon.</p>
-
-				    <div class='canvas third'
-	                    canvas-centered-drawing
-	                    draw-function='drawRegularPolygon'
-	                    function-options='{"N": 5}'
-				    	options='{"autoReflect":"H"}'
-	                ></div>
-			    </div>
-				<div class='half'>
-					<p>8-gon</p>
-
-				    <div class='canvas third'
-	                    canvas-centered-drawing
-	                    draw-function='drawRegularPolygon'
-	                    function-options='{"N": 8}'
-	                    options='{}'
-	                ></div>
-			    </div>
 		    </div>
-		    <!-- n-gons -->
-		   </div>
-
-		    <!-- star n-gons -->
-			<div>
-				<h2>Star N Gons</h2>
-				<div class='half'>
-					<p>3-star</p>
-				    <div class='canvas third'
-	                    canvas-centered-drawing
-	                    draw-function='drawRegularPolygon'
-	                    function-options='{"N": 3, "alternateSideStrokes": true, "concave": true}'
-	                    options='{"autoRotateDegrees":120,"inscribed":"circle","initialRotation":120}'
-	                ></div>
-			    </div>
-				<div class='half'>
-					<p>6-star</p>
-				    <div class='canvas third'
-	                    canvas-centered-drawing
-	                    draw-function='drawRegularPolygon'
-	                    function-options='{"N": 6, "alternateSideStrokes": true, "concave": true}'
-	                    options='{"autoRotateDegrees":60,"inscribed":"circle","initialRotation":120}'
-	                ></div>
-			    </div>
-		    </div>
-		    <!-- star n-gons -->
-
-			<!-- shapes -->
-			<div>
-				<h2>Shapes</h2>
-				<div class='half'>
-					<p>C6 Shape</p>
-
-			    	<div class='canvas third'
-				    	canvas-centered-drawing 
-				    	draw-function='drawCyclicShape'
-				    	function-options='{"N": 6}'
-				    	options='{"margin": 12, "inscribed":"circle"}'
-				    ></div>
-
-			    </div>
-				<div class='half'>
-					<p>D7</p>
-
-			    	<div class='canvas third'
-				    	canvas-centered-drawing 
-				    	draw-function='drawDihedralShape'
-				    	function-options='{"N": 7, "alternateSideStrokes": true}'
-				    	options='{"margin": 12, "inscribed": true}'
-				    ></div>
-			    </div>
-		    </div>
-		    <!-- cyclic and dihedral shapes -->
-
-			<!-- More shapes -->
-			<div>
-				<h2>More shapes</h2>
-				<div class='half'>
-					<p>Rectangle</p>
-					
-			    	<div class='canvas third'
-				    	canvas-centered-drawing 
-				    	draw-function='drawRectangle'
-				    	function-options='{"alternateSideStrokes": true}'
-				    	options='{"margin": 12, "inscribed": true}'
-				    ></div>
-			    </div>
-				<div class='half'>
-					<p>C5 with alternating side strokes</p>
-
-			    	<div class='canvas third'
-				    	canvas-centered-drawing 
-				    	draw-function='drawCyclicShape'
-				    	function-options='{"N": 5, "sideStrokes": [1, 1, 2, 2, 0]}'
-				    	options='{"margin": 12, "inscribed": true}'
-				    ></div>
-
-			    </div>
-		    </div>
-		    <!-- More shapes -->
-
-			<!-- Colored shapes -->
-			<div>
-				<h2>Colored shapes</h2>
-				<div class='half'>
-					<p>Rectangle with alternating color fills</p>
-					
-			    	<div class='canvas third'
-				    	canvas-centered-drawing 
-				    	draw-function='drawRectangle'
-				    	function-options='{"coloring": [0, 1]}'
-				    ></div>
-			    </div>
-				<div class='half'>
-					<p>C5 with alternating side strokes</p>
-
-			    	<div class='canvas third'
-				    	canvas-centered-drawing 
-				    	draw-function='drawCyclicShape'
-				    	function-options='{"N": 5, "coloring": [1, 2, 3, 4, 5]}'
-				    ></div>
-
-			    </div>
-		    </div>
-		    <!-- Colored shapes -->
-
-			<!-- Mirrors -->
-			<div>
-				<h2>Shapes with Mirrors</h2>
-				<div class='half'>
-					<p>use in function options: withMirrorSections=true</p>
-					
-			    	<div class='canvas third'
-				    	canvas-centered-drawing 
-				    	draw-function='drawRegularPolygon'
-				    	function-options='{"N": 3, "withMirrorSections": true}'
-			    	></div>
-			    </div>
-				<div class='half'>
-					<p> Can auto reflect either vertically or horizontally with option autoReflect="H"|"V"</p>
-			    	<div class='canvas third'
-				    	canvas-centered-drawing 
-				    	draw-function='drawRegularPolygon'
-				    	function-options='{"N": 5, "concave":true, "withMirrorSections": true, "coloring": [1, 0, 2]}'
-				    	options='{"autoReflect":"V"}'
-			    	></div>
-
-			    </div>
-		    </div>
-		    <!-- Mirrors -->
-
-			<!-- Mirrors -->
-			<div>
-				<h2>Mirror Lines</h2>
-				<p>mirrorLines=N</p>
-				<p>Convention: Use gray for text content, black for coloring content.</p>
-				<div class='half'>
-				<p>Can use as function option for any cyclic shapes</p>
-					
-				    <div class='canvas third'
-	                    canvas-centered-drawing
-	                    draw-function='drawRegularPolygon'
-	                    function-options='{"N": 6, "alternateSideStrokes": true, "concave": true}'
-	                    options='{"autoReflect":"V", "mirrorLines": 2}'
-	                ></div>
-			    </div>
-				<div class='half'>
-					<p>Can use as attribute for circular-tessellation directive. mirror-lines=N</p>
-					<div
-						class="canvas third" 
-						with-redraw 
-						circular-tessellation
-						mirror-lines=2
-						rings="[0.1, 0.2, 0.5, 1]"
-						rotations=3
-						slices-count=4
-						levels=2
-						margin=25
-					></div>
-
-			    </div>
-		    </div>
-		    <!-- Mirrors -->
-
-	   </div>
+	    </div>
+	    <!-- Mirrors -->
 
 		<!-- frieze -->
 		<div>
@@ -383,7 +377,8 @@
 
 		</div>
 		<!-- frieze -->
-	   	
+		   	
 	</div>
-	<!-- Pieces -->
+	<!-- content -->
 </div>
+<!-- Pieces -->

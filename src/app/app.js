@@ -48,6 +48,9 @@ angular.module('app', [
         .when('/style-guide', {
             templateUrl: '/app/style-guide.html',
         })
+        .when('/circular-tessellation', {
+            templateUrl: '/app/circular-tessellation.html',
+        })
         .when('/worksheet', {
             templateUrl: '/app/worksheet.html',
         })
