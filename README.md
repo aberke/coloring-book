@@ -127,6 +127,11 @@ For regenerating the PDF at /coloring-book.pdf:
 - Save as PDF at `/book.pdf`
 
 
+### Style Guide
+
+Use the [/#!/style-guide](http://www.coloring-book.co/#!/style-guide)
+
+
 ### Pieces
 
 Starting to generate & put together the pieces.  They are shown at /#!/pieces
