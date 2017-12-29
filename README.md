@@ -149,6 +149,19 @@ Can upload images to combine into GIFs here: http://gifmaker.me/
 
 Share with http://www.coloring-book.co not http://coloring-book.co to avoid redirect
 
+------------------------------------------------
+------------------------------------------------
+
+
+
+
+### Rough Notes
+
+...I'm so messy
+Don't look at me...
+
+
+
 
 #### TODO:
 
@@ -157,9 +170,6 @@ Share with http://www.coloring-book.co not http://coloring-book.co to avoid redi
 - Frieze:
 	- ? in frieze directive, adjust fundamental domain pattern height when shape has reflection so that frieze pattern takes up same height as other frieze patterns ?
 	- better for standardizing around page size and printing
-
-- fix google analytics
-	- it would be nice to track what page people get to
 
 
 
