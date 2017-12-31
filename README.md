@@ -27,6 +27,13 @@ Printable posters available at <a href="http://www.coloring-book.co/#!/posters/"
 - Includes printable frieze group posters
 
 
+### Playful Pages
+
+- Create a circular tessellation: [/#!/circular-tessellation](http://www.coloring-book.co/#!/circular-tessellation)
+
+- Frieze Groups explorer: [/#!/frieze](http://www.coloring-book.co/#!/frieze)
+
+
 ## Worksheets
 
 - Worksheet at <a href="http://www.coloring-book.co/#!/worksheet">/#!/worksheet</a>
