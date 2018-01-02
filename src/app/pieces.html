@@ -91,7 +91,7 @@
 		</div>
 
 
-		<!-- circular tessellation -->
+		<!-- circular pattern -->
 		<div>
 			<h3>Circular Tesselation</h3>
 			<p>They rotate on hover.</p>
@@ -103,28 +103,27 @@
 				<li>Number of 'slices' per 'level'</li>
 			</ul>
 			<div class='half'>
-				<circular-tessellation
+				<circular-pattern
 					with-redraw
 					rings="[0.1, 0.2, 0.5, 1]"
 					rotations=3
 					slices-count=4
 					levels=2
-				></circular-tessellation>
+				></circular-pattern>
 			</div>
 			<div class='half'>
-	            <div
-	                with-redraw 
-	                circular-tessellation
+	            <circular-pattern
+	                with-redraw
 					rings="[0.5, 0.9]"
 	                rotations=6
 	                slices-count=4
 	                levels=2
 	                with-reflection=true
 	                margin=25
-	            ></div>
+	            ></circular-pattern>
 			</div>
 		</div>
-	    <!-- circular tessellation -->
+	    <!-- circular pattern -->
 
 		<!-- circular flower -->
 		<div>
@@ -138,19 +137,19 @@
 				<li>Number of 'slices' per 'level'</li>
 			</ul>
 			<div class='half'>
-	            <circular-tessellation
+	            <circular-pattern
 	                with-redraw
 	                rotations=4
 	                slices-count=3
 	                levels=2
 	                margin=25
 	                as-flower
-	            ></circular-tessellation>
+	            ></circular-pattern>
 			</div>
 			<div class='half'>
 	            <div
 	                with-redraw 
-	                circular-tessellation
+	                circular-pattern
 	                rotations=6
 	                slices-count=3
 	                levels=2
@@ -332,11 +331,11 @@
 	            ></div>
 		    </div>
 			<div class='half'>
-				<p>Can use as attribute for circular-tessellation directive. mirror-lines=N</p>
+				<p>Can use as attribute for circular-pattern directive. mirror-lines=N</p>
 				<div
 					class="third" 
 					with-redraw 
-					circular-tessellation
+					circular-pattern
 					mirror-lines=2
 					rings="[0.1, 0.2, 0.5, 1]"
 					rotations=3

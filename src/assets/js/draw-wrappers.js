@@ -376,8 +376,8 @@ function drawInscribingShape(paper, centerPoint, size, shapeName, initialRotatio
     return pathSet;
 }
 
-function drawCircularTessellation(paper, centerPoint, size, options) {
-    return new CircularTessellation(paper, centerPoint, size, options).pathSet;
+function drawCircularPattern(paper, centerPoint, size, options) {
+    return new CircularPattern(paper, centerPoint, size, options).pathSet;
 }
 
 
