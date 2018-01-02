@@ -1,16 +1,16 @@
 <style>
 
-#tessellation-page {
+#circular-pattern-page {
 	padding: 30px 15px;
 }
-#tessellation-page header,
-#tessellation-page header p {
+#circular-pattern-page header,
+#circular-pattern-page header p {
 	text-align: center;
 }
-#tessellation-page .title {
+#circular-pattern-page .title {
 	margin: 10px auto;
 }
-#tessellation-page a {
+#circular-pattern-page a {
 	cursor: pointer;
 }
 
@@ -45,7 +45,7 @@ section.controls .description {
 	text-align: center;
 }
 
-section.illustration circular-tessellation {
+section.illustration circular-pattern {
 	max-width: 600px;
 	margin: auto;
 }
@@ -68,24 +68,24 @@ section.illustration circular-tessellation {
 /*
 Hide everything except the illustration when print mode is activated
 */
-#tessellation-page.print header,
-#tessellation-page.print section.controls
+#circular-pattern-page.print header,
+#circular-pattern-page.print section.controls
  {
 	display: none;
 	padding: 0;
 	margin: 0 auto;
 	border: none;
 }
-#tessellation-page.print section.illustration {
+#circular-pattern-page.print section.illustration {
 	width: 100%;
 }
 
 </style>
 
-<div id="tessellation-page" ng-class="{'print': main.print}" ng-model="tessellation" ng-init="tessellation = {rotations: 4, levels: 2}">
+<div id="circular-pattern-page" ng-class="{'print': main.print}" ng-model="pattern" ng-init="pattern = {rotations: 4, levels: 2}">
 
 	<header>
-		<h1 class="book-section-title title">Circular Tessellation</h1>
+		<h1 class="book-section-title title">Circular Pattern</h1>
 		<p class="challenge">Create your own | <a ng-click="main.print = !main.print" href="">Printable Version &rarr;</a></p>
 	</header>
 
@@ -95,19 +95,19 @@ Hide everything except the illustration when print mode is activated
 
 			<div class="control-input">
 				<label for="rotations">Rotations:</label>
-				<input maxlength="2" name="rotations" ng-change="redraw(tessellation)" min=2 type="number" ng-model="tessellation.rotations" placeholder="enter an integer more than 1" />
+				<input maxlength="2" name="rotations" ng-change="redraw(pattern)" min=2 type="number" ng-model="pattern.rotations" placeholder="enter an integer more than 1" />
 				<p class="description">The number of rotations the shape should have <span style="display: inline-block;">(minimum is 2)</span></p>
 			</div>
 
 			<div class="control-input">
 				<label for="levels">Levels:</label>
-				<input name="levels" ng-change="redraw(tessellation)" min=1 type="number" ng-model="tessellation.levels" placeholder="enter an integer more 0" />
+				<input name="levels" ng-change="redraw(pattern)" min=1 type="number" ng-model="pattern.levels" placeholder="enter an integer more 0" />
 				<p class="description">The number of times the pattern on each spoke of the wheel repeats <span style="display: inline-block;">(minimum is 1)</span></p>
 			</div>
 
 			<div class="control-input">
 				<label for="reflection">With Reflection:</label>
-				<input name="reflection" ng-change="redraw(tessellation)" type="checkbox" ng-model="tessellation.withReflection" />
+				<input name="reflection" ng-change="redraw(pattern)" type="checkbox" ng-model="pattern.withReflection" />
 				<p class="description">Whether the shape has internal mirrors</p>
 			</div>
 
@@ -117,19 +117,19 @@ Hide everything except the illustration when print mode is activated
 		<!-- controls -->
 
 		<section class="illustration">
-			<circular-tessellation
-				rotations={{tessellation.rotations}}
-				with-reflection={{tessellation.withReflection}}
+			<circular-pattern
+				rotations={{pattern.rotations}}
+				with-reflection={{pattern.withReflection}}
 				slices-count=3
-				levels={{tessellation.levels}}
+				levels={{pattern.levels}}
 				margin=100
 				redraw-fn="redraw"
 				with-redraw
-			></circular-tessellation>
+			></circular-pattern>
 		</section>
 		<!-- illustration -->
 
 	</div>
 
 </div>
-<!-- tessellation-page -->
+<!-- circular-pattern-page -->

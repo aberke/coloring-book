@@ -309,7 +309,7 @@ function slantedLinePath(origin, width, height) {
 Creates path of slices along a line, contained within
 (width, height) and oriented with line on the right.
 Path is randomly generated.
-(Used by CircularTessellation)
+(Used by CircularPattern)
 
 @param {X: number, Y: number} origin to start drawing along line
 @param {number} width of the slice

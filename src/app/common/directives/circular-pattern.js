@@ -1,10 +1,10 @@
 /*
 Use
 --------
-<circular-tessellation
+<circular-pattern
 	with-redraw  // whether should be redrawn on click
 	as-flower
-	rings=[{number between 0 and 1}]  // list for creating rings below tessellation, where each number marks fraction of tessellation's radius to draw at
+	rings=[{number between 0 and 1}]  // list for creating rings below pattern, where each number marks fraction of pattern's radius to draw at
 	rotations={number}
 	initial-rotation={number}
 	with-reflection={true|false}
@@ -14,9 +14,9 @@ Use
 	inscribed={"circle"|"square"|...}
 	mirror-lines={number} // if set, draws mirror lines through the shape
 	redraw-fn={"nameOfFunctionToCallToRedraw"}
-></circular-tessellation>
+></circular-pattern>
 **/
-function circularTessellationDirective($location) {
+function circularPatternDirective($location) {
 	return {
 		restrict: "EAC", //E = element, A = attribute, C = class, M = comment
 		scope: {
@@ -38,7 +38,7 @@ function circularTessellationDirective($location) {
 		},
 		link: function (scope, element, attrs) {
 
-			scope.circularTessellation;
+			scope.circularPattern;
 
 			//DOM manipulation
 
@@ -77,7 +77,7 @@ function circularTessellationDirective($location) {
 				return options;
 			}
 
-			// draw concentric rings below tessellation
+			// draw concentric rings below pattern
 			// radius of ring is decided by the ringRadiusFraction
 			function drawRings(rings) {
 				if (!rings || !rings.length)
@@ -99,9 +99,9 @@ function circularTessellationDirective($location) {
 				let rings = JSON.parse(attrs.rings || "[]");
 				drawRings(rings);
 
-				scope.circularTessellation = new CircularTessellation(paper, origin, diameter, options);
+				scope.circularPattern = new CircularPattern(paper, origin, diameter, options);
 				if (!asFlower && rings && rings.length) // fill the path so that it sits above the rings
-					scope.circularTessellation.pathSet.attr("fill", "white");
+					scope.circularPattern.pathSet.attr("fill", "white");
 
 				// draw mirror lines last so that they sit on top
 				if (scope.mirrorLines)
@@ -109,17 +109,17 @@ function circularTessellationDirective($location) {
 			}
 
 			scope.redrawFn = function(opts = {}) {
-				// clear the previous CircularTessellation instance
-				scope.circularTessellation.clear();
+				// clear the previous CircularPattern instance
+				scope.circularPattern.clear();
 
-				// & redraw new instance of the tessellation
+				// & redraw new instance of the pattern
 				// (when redrawing, animate the drawing of rotations)
 				let options = collectDrawOptions();
 				options.drawAnimationInterval = 1000;
 				// An outside caller could have also passed options - include those too.
 				Object.assign(options, opts);
 				draw(options);
-				trackRedraw("CircularTessellation");
+				trackRedraw("CircularPattern");
 			}
 
 			// Attach redraw handler if with-redraw flag was present

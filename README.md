@@ -29,7 +29,7 @@ Printable posters available at <a href="http://www.coloring-book.co/#!/posters/"
 
 ### Playful Pages
 
-- Create a circular tessellation: [/#!/circular-tessellation](http://www.coloring-book.co/#!/circular-tessellation)
+- Create a circular pattern: [/#!/circular-pattern](http://www.coloring-book.co/#!/circular-pattern)
 
 - Frieze Groups explorer: [/#!/frieze](http://www.coloring-book.co/#!/frieze)
 

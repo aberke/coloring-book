@@ -48,8 +48,8 @@ angular.module('app', [
         .when('/style-guide', {
             templateUrl: '/app/style-guide.html',
         })
-        .when('/circular-tessellation', {
-            templateUrl: '/app/circular-tessellation.html',
+        .when('/circular-pattern', {
+            templateUrl: '/app/circular-pattern.html',
         })
         .when('/worksheet', {
             templateUrl: '/app/worksheet.html',
@@ -80,7 +80,7 @@ angular.module('app', [
 // bootstrap the directives
 .directive('fraction', fractionDirective)
 .directive('canvasCenteredDrawing', canvasCenteredDrawingDirective)
-.directive('circularTessellation', circularTessellationDirective)
+.directive('circularPattern', circularPatternDirective)
 
 // set up the main page controller
 .controller('MainCntl', function($window, $rootScope, $location, $anchorScroll, $routeParams) {

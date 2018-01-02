@@ -18,10 +18,10 @@ Dependencies:
 'use strict';
 
 
-class CircularTessellation {
+class CircularPattern {
 
 	/**
-	Draws circular tessellation.  It rotates when clicked or hovered over.
+	Draws circular pattern.  It rotates when clicked or hovered over.
 
 	@param {Object} paper on which to draw
 	@param {X: number, Y: number} origin point
@@ -49,7 +49,7 @@ class CircularTessellation {
 		this.scaleFactor = 2;
 		this.withReflection = this.options.withReflection ? Boolean(this.options.withReflection) : false;
 
-		// maybe this isn't a true circular tessellation and is a flower instead!
+		// maybe draw as a flower instead!
 		if (this.options.asFlower) {
 			this.levels = 2;
 			this.options.deltaYMultiplier = -1;
@@ -114,7 +114,7 @@ class CircularTessellation {
 		// set a flag that this shape is currently drawing
 		this.drawing = true;
 
-		// use recursive routine to draw each rotated line of the circular tessellation
+		// use recursive routine to draw each rotated line of the circular pattern
 		const self = this;
 		let drawNextRotation = function(r) {
 			if (r >= this.rotations || this.cleared) {
@@ -163,7 +163,7 @@ class CircularTessellation {
 	/**
 	Generate the set of paths that represent a "decorated line".
 	This line has repeating patterns, that are scaled in size as they repeat.
-	This line can then be rotated to create the circular tessellation.
+	This line can then be rotated to create the circular pattern.
 
 	@returns Paper.set() of paths of line
 	*/
