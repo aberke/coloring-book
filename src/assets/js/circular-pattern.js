@@ -39,6 +39,9 @@ class CircularPattern {
 		this.paper = paper;
 		this.pathSet = this.paper.set();
 
+		// Validate parameters, or throw error.
+		this.validate(origin, diameter, options);
+
 		this.origin = origin;
 
 		this.diameter = diameter;
@@ -69,7 +72,7 @@ class CircularPattern {
 
 		this.initialRotation = options.initialRotation || 0;
 
-		this.rotations = options.rotations || 1;
+		this.rotations = options.rotations || 2;
 		// set up rotation transform string
 		this.rotationDegrees = 360/this.rotations;
 		this.rotationTransformString = getRotationTransformString(this.origin, this.rotations);
@@ -86,6 +89,31 @@ class CircularPattern {
 		this.cleared = false;
 
 		this.draw();
+	}
+
+	/*
+	Validate the input parameters for the constructor.
+	Throw an error for invalid parameters.
+	*/
+	validate(origin, diameter, options) {
+		// validate origin.
+		if (origin.X < 0 || origin.Y < 0) {
+			throw Error("CircularPattern: invalid origin", origin);
+		}
+		// validate diameter
+		if (diameter <= 0) {
+			throw Error("CircularPattern: invalid diameter: " + options.diameter);
+		}
+		// Validate options
+		if (options.levels < 1) {
+			throw Error("CircularPattern: invalid levels: " + options.levels);
+		}
+		if (options.rotations < 2) {
+			throw Error("CircularPattern: invalid rotations: " + options.rotations);
+		}
+		if (options.slicesCount < 1) {
+			throw Error("CircularPattern: invalid slicesCount: " + options.slicesCount);
+		}
 	}
 
 

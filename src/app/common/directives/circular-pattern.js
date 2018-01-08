@@ -126,7 +126,7 @@ function circularPatternDirective($location) {
 			if (("withRedraw" in attrs) && (attrs.withRedraw != "false")) {
 				elt.className += " clickable";
 				paper.canvas.addEventListener("mouseup", scope.redrawFn);
-				element.on('$destroy', function() {
+				element.on("$destroy", function() {
 					paper.canvas.removeEventListener("mouseup", scope.redrawFn);
 				});
 			}
