@@ -12,6 +12,8 @@
 }
 #circular-pattern-page a {
 	cursor: pointer;
+	width: 100%;
+	text-align: center;
 }
 
 section.controls, section.illustration {
@@ -37,12 +39,22 @@ section.controls .control-input {
 section.controls .control-input input {
 	max-width: 40px;
 }
-section.controls .description {
+section.controls .control-input input.error {
+	border: 2px solid red;
+}
+
+section.controls .input-description {
 	font-style: italic;
 	font-size: small;
 	display: block;
 	margin: 5;
 	text-align: center;
+}
+.input-description-detail {
+	display: inline-block;
+}
+.input-description-detail.error {
+	color: red;
 }
 
 section.illustration circular-pattern {
@@ -92,27 +104,28 @@ Hide everything except the illustration when print mode is activated
 
 	<div>
 		<section class="controls">
+			<form name="patternForm">
 
-			<div class="control-input">
-				<label for="rotations">Rotations:</label>
-				<input maxlength="2" name="rotations" ng-change="redraw(pattern)" min=2 type="number" ng-model="pattern.rotations" placeholder="enter an integer more than 1" />
-				<p class="description">The number of rotations the shape should have <span style="display: inline-block;">(minimum is 2)</span></p>
-			</div>
+				<div class="control-input">
+					<label for="rotations">Rotations:</label>
+					<input ng-class="{error: !patternForm.rotations.$valid}" required maxlength="2" name="rotations" ng-change="redraw(pattern)" min=2 type="number" ng-model="pattern.rotations" />
+					<p class="input-description">The number of rotations the shape should have <span class="input-description-detail" ng-class="{error: !patternForm.rotations.$valid}">(minimum is 2)</span></p>
+				</div>
 
-			<div class="control-input">
-				<label for="levels">Levels:</label>
-				<input name="levels" ng-change="redraw(pattern)" min=1 type="number" ng-model="pattern.levels" placeholder="enter an integer more 0" />
-				<p class="description">The number of times the pattern on each spoke of the wheel repeats <span style="display: inline-block;">(minimum is 1)</span></p>
-			</div>
+				<div class="control-input">
+					<label for="levels">Levels:</label>
+					<input ng-class="{error: !patternForm.levels.$valid}" required name="levels" ng-change="redraw(pattern)" min=1 type="number" ng-model="pattern.levels" />
+					<p class="input-description">The number of times the pattern on each spoke of the wheel repeats <span class="input-description-detail" ng-class="{error: !patternForm.levels.$valid}">(minimum is 1)</span></p>
+				</div>
 
-			<div class="control-input">
-				<label for="reflection">With Reflection:</label>
-				<input name="reflection" ng-change="redraw(pattern)" type="checkbox" ng-model="pattern.withReflection" />
-				<p class="description">Whether the shape has internal mirrors</p>
-			</div>
+				<div class="control-input">
+					<label for="reflection">With Reflection:</label>
+					<input name="reflection" ng-change="redraw(pattern)" type="checkbox" ng-model="pattern.withReflection" />
+					<p class="input-description">Whether the shape has internal mirrors</p>
+				</div>
 
-			<a class="description" ng-click="redraw()">Tap the shape to redraw it.</a>
-		
+				<a class="description" ng-click="redraw()">Tap the shape to redraw it.</a>
+			</form>
 		</section>
 		<!-- controls -->
 
