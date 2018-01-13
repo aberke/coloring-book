@@ -12,8 +12,10 @@
 }
 #circular-pattern-page a {
 	cursor: pointer;
-	width: 100%;
 	text-align: center;
+}
+#circular-pattern-page section.controls a {
+	width: 100%;
 }
 
 section.controls, section.illustration {
@@ -124,7 +126,7 @@ Hide everything except the illustration when print mode is activated
 					<p class="input-description">Whether the shape has internal mirrors</p>
 				</div>
 
-				<a class="description" ng-click="redraw()">Tap the shape to redraw it.</a>
+				<a ng-click="redraw()">Tap the shape to redraw it.</a>
 			</form>
 		</section>
 		<!-- controls -->
