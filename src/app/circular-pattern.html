@@ -100,7 +100,7 @@ Hide everything except the illustration when print mode is activated
 
 	<header>
 		<h1 class="book-section-title title">Circular Pattern</h1>
-		<p class="challenge">Create your own | <a ng-click="main.print = !main.print" href="">Printable Version &rarr;</a></p>
+		<p class="challenge">Create your own | <a ng-click="main.print = true" href="">Printable Version &rarr;</a></p>
 	</header>
 
 
@@ -138,8 +138,8 @@ Hide everything except the illustration when print mode is activated
 				slices-count=3
 				levels={{pattern.levels}}
 				margin=100
-				redraw-fn="redraw"
 				with-redraw
+				redraw-fn="redraw"
 			></circular-pattern>
 		</section>
 		<!-- illustration -->

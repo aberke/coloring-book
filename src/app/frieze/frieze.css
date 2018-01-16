@@ -31,16 +31,23 @@
 .frieze-pattern-container .frieze-pattern-title {
 	display: inline-block;
 	width: 100px;
+	cursor: pointer;
 }
 .print-only .frieze-pattern-title {
 	border: none;
+}
+.title-container {
+	min-height: 140px;
 }
 .title-container ul {
 	max-width: 45%;
 	display: inline-block;
 	vertical-align: middle;
+	margin-top: 0;
 }
-
+.title-container h1 {
+	vertical-align: text-bottom;
+}
 
 .print .title-container h1 {
 	border: none;
