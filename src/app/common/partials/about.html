@@ -9,18 +9,25 @@
 	font-weight: 300;
 	text-transform: uppercase;
 	margin-top: 50px;
-	border-top: 3px double purple;
-	border-bottom: 3px double purple;
+	border-top: 5px double purple;
+	border-bottom: 5px double purple;
 }
 
 #about .frieze-pattern {
 	margin-bottom: 10px;
 }
+@media (min-width: 500px) {
+	#about .frieze-pattern { min-width: 400px; }
+}
 
 #about .canvas {
-	width: 130px;
 	text-align: center;
 	display: inline-block;
+}
+#about .canvas-row {
+	max-height: 90px;
+	max-width: 500px;
+	margin: auto;
 }
 #about .canvas.small {
 	width: 65px;
@@ -39,36 +46,43 @@ p#about-illustrations {
 <div class="info-view" id="about">
 
 	<h1 class="title">About</h1>
-	<div id="about-title-underline" class='frieze-pattern'
-		pattern-function=slantedSlices
-		draw-options='{"strokeWidth": 1}'
-		group-name='p1'
-		fundamental-domain-width=50
-		fundamental-domain-height=25
-		margin=5
-		pattern-function-options='{"levels": 2, "pathsPerLevel": 1, "allowCurved": true}'
-	></div>
 
 	<p>This coloring book is both digital and on paper.</p>
 
-    <div class="text-content-graphic line">
-        <div class='canvas small'
+    <div class="canvas-row">
+        <div class='canvas sixth'
             canvas-centered-drawing
             draw-function='drawRegularPolygon'
-            function-options='{"N": 6, "concave":true, "withMirrorSections": true, "coloring":[1,2,0,0,0,0,1,2,0,0,0,0]}'
-            options='{"tapRotate": 60, "stroke-width":1}'
-        ></div>
-        <div class='canvas small'
+            function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+            options='{"tapReflect": "H", "margin":0, "initialRotation":90, "mirrorLines":2}'
+        ></div><div class="canvas sixth"
+            circular-pattern
+            with-redraw
+            rotations=10
+            rings="[0.8,0.9]"
+            slices-count=2
+            levels=2
+            with-reflection=true
+            mirror-lines=2
+        ></div><div class='canvas sixth'
             canvas-centered-drawing
             draw-function='drawRegularPolygon'
-            function-options='{"N": 6, "concave":true, "withMirrorSections": true, "coloring":[1,2,0,0,0,0,1,2,0,0,0,0]}'
-            options='{"autoRotateDegrees":120, "initialRotation":120, "stroke-width":1}'
-        ></div>
-        <div class='canvas small'
+            function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+            options='{"tapReflect": "H", "margin":0, "initialRotation":90, "mirrorLines":2}'
+        ></div><div class="canvas sixth"
+            circular-pattern
+            with-redraw
+            rotations=10
+            rings="[0.8,0.9]"
+            slices-count=2
+            levels=2
+            with-reflection=true
+            mirror-lines=2
+        ></div><div class='canvas sixth'
             canvas-centered-drawing
             draw-function='drawRegularPolygon'
-            function-options='{"N": 6, "concave":true, "withMirrorSections": true, "coloring":[1,2,0,0,0,0,1,2,0,0,0,0]}'
-            options='{"tapRotate": 60, "initialRotation":240, "stroke-width":1}'
+            function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+            options='{"tapReflect": "H", "margin":0, "initialRotation":90, "mirrorLines":2}'
         ></div>
     </div>
 
@@ -76,43 +90,44 @@ p#about-illustrations {
 
 	<p>The digital copy brings the concepts and illustrations to life in interactive animations.</p>
 
-    <div style="max-width: 550px; display: inline-block;" class='frieze-pattern'
+    <div class="text-content-graphic line">
+        <div class='canvas third'
+        canvas-centered-drawing
+        draw-function='drawRegularPolygon'
+        function-options='{"N": 6, "concave":true, "withMirrorSections": true, "coloring":[0,0,0,1,0,0,0,0,0,1,0]}'
+        options='{"autoRotateDegrees":180, "stroke-width":1}'
+        ></div>
+    </div>
+
+    <p>
+        <strong>Print a copy:</strong> <a target="_blank" href="/book.pdf">coloring-book.co/book.pdf</a>
+        <br/>
+        <strong>Digital copy:</strong> <a target="_blank" href="http://www.coloring-book.co">coloring-book.co</a>
+    </p>
+    <br/>
+    <div style="max-width: 650px; display: inline-block;"
+    	class='frieze-pattern'
         pattern-function='petalsEllipseWithDiamondPath'
-		draw-options='{"strokeWidth": 1}'
+		draw-options='{"strokeWidth": 1, "contain": true}'
         group-name='p11g'
         fundamental-domain-width=50
         fundamental-domain-height=30
         margin=5
     ></div>
+    <br/>
 
-	<p>
-		<strong>Print a copy:</strong> <a target="_blank" href="/book.pdf">coloring-book.co/book.pdf</a>
-	<br/>
-		<strong>Digital copy:</strong> <a target="_blank" href="http://www.coloring-book.co">coloring-book.co</a>
-	</p>
+    <p id="about-illustrations">The illustrations in this book are drawn by algorithms that follow the symmetry rules of the groups each illustration represents. These algorithms use generative art techniques to add components of randomness - notice each illustration is unique.</p>
 
-	<circular-pattern
-		class="small" 
-		with-redraw
-		rotations=5
-		slices-count=2
-		as-flower=true
-		levels=1
-		margin=0
-	></circular-pattern>
+    <div class="canvas sixth"
+        circular-pattern
+        with-redraw
+        rotations=8
+        slices-count=2
+        levels=2
+        with-reflection=true
+        rings="[0.5,0.6]"
+    ></div>
 
-	<p id="about-illustrations">The illustrations in this book are drawn by algorithms that follow the symmetry rules of the groups each illustration belongs to. These algorithms use generative art techniques to add components of randomness - notice the illustrations never repeat.</p>
-
-	<circular-pattern 
-		with-redraw
-		rotations=6
-		rings=[0.7]
-		slices-count=3
-		levels=2
-		with-reflection=true
-		margin=5
-	></circular-pattern>
-
-	<p><strong>Give feedback // Get Updates:</strong> <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeHWQDnA1ycEoDlJQXIz48sPoac-q5QlRo2Dyznu5E2ixYeGg/viewform">coloring-book.co/form</a></p>
+    <p><strong>Give feedback // Get Updates:</strong> <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeHWQDnA1ycEoDlJQXIz48sPoac-q5QlRo2Dyznu5E2ixYeGg/viewform">coloring-book.co/form</a></p>
 
 </div>
