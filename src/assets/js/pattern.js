@@ -137,13 +137,13 @@ class FriezePattern {
         this.applyGenerators(basePath, {
             animate: (!DISABLE_ANIMATIONS),
             callback: _drawCallback,
-            maxTranslations: this.options.maxTranslations
+            maxTranslations: this.options.maxTranslations,
+            contain: this.options.contain
         });
     }
 
     applyGenerators(basePath, options) {
-        // apply the generators and then translateH...
-        // TODO: shuffle the generatorGetters?
+        // Apply the generators and then translateH...
         let self = this;
         let animateMs = (!!options.animate) ? 1000 : 0;
         let workingSet = this.paper.set().push(basePath);

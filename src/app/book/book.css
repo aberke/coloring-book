@@ -71,9 +71,9 @@ body.print p {
 
 #book-title-container {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 15px auto;
     /*make space for the menu*/
-    margin-top: 80px;
+    margin-top: 70px;
 }
 /*remove the space for the menu*/
 .print #book-title-container {

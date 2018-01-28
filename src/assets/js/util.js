@@ -4,7 +4,7 @@
 
 */
 
-var SYMMETRY_STROKE_WIDTH = 5;
+const SYMMETRY_STROKE_WIDTH = 5;
 
 
 /*
@@ -264,25 +264,33 @@ Translates fundamental domain across paper
 @paper: Raphael object to draw on
 @translateObject: fundamental domain to translate
 @options: Dict of optional items:
-    @gap: (Int) gap to leave between copies of translated fundamental regions
+    @gap: (Number) gap to leave between copies of translated fundamental regions
     @animate: (Boolean)
     @callback: (Function) called with final paperSet of translations when done translating
+    @contain: (Boolean) Whether to stop drawing pattern before boundary of container hit
+    @maxTranslations (Number) Upper bound on the number of translations
 */
 function recursiveTranslateH(paper, translateObject, options) {
-    // always get the last item, clone it, and translate it
-    // add translations to new set: translationSet =: [paperSet]
+    // Always get the last item, clone it, and translate it
+    // Add translations to new set: translationSet =: [paperSet]
     let animateMs = (!!options.animate) ? 500 : 0;
     let gap = options.gap || 0;
     let callback = options.callback || function() {};
-    let width = paper.getSize().width;
-    // allow there be an upper bound on the number of translations
-    let maxTranslations = options.maxTranslations || Number.MAX_SAFE_INTEGER;
 
     let translateSet = paper.set().push(translateObject);
     let transformString = "..." + getTranslationH(translateObject, gap);
 
+    let width = paper.getSize().width;
+    let objectWidth = translateObject.getBBox().width;
+    // Allow the option to avoid drawing past the boundary of the containing div:
+    // If contained is true, stop drawing before hit boundary of the containing div
+    let contain = options.contain || false;
+    let maxDrawWidth = contain ? (width - objectWidth) : width;
+    // Allow there be an upper bound on the number of translations
+    let maxTranslations = options.maxTranslations || Number.MAX_SAFE_INTEGER;
+
     function drawNext(i, translateSet) {
-        if (translateSet.getBBox().x2 > width || i >= maxTranslations)
+        if (translateSet.getBBox().x2 > maxDrawWidth || i >= maxTranslations)
             return callback(translateSet);
 
         let lastItem = translateSet[translateSet.length - 1];

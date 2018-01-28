@@ -59,7 +59,8 @@ function circularPatternDirective($location) {
 			let diameter = size - margin;
 
 			let asFlower = ("asFlower" in attrs && attrs.asFlower !== "false") ? true : false;
-
+			let withRedraw = (("withRedraw" in attrs) && (attrs.withRedraw != "false"));
+			
 			function collectDrawOptions() {
 				let options = {
 					initialRotation: (!!scope.initialRotation) ? Number(scope.initialRotation) : null,
@@ -123,7 +124,7 @@ function circularPatternDirective($location) {
 			}
 
 			// Attach redraw handler if with-redraw flag was present
-			if (("withRedraw" in attrs) && (attrs.withRedraw != "false")) {
+			if (withRedraw) {
 				elt.className += " clickable";
 				paper.canvas.addEventListener("mouseup", scope.redrawFn);
 				element.on("$destroy", function() {
