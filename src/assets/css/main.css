@@ -408,6 +408,11 @@ figcaption, .design-caption, .print .design-caption {
     text-align: center;
 }
 
+.share-btn {
+	display: inline-block;
+	vertical-align: bottom;
+}
+
 /* Pieces */
 
 .mobile-only,

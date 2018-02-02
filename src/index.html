@@ -79,6 +79,7 @@
 <script type="text/javascript" src="/assets/js/pattern.js"></script>
 <script type="text/javascript" src="/assets/js/tracking.js"></script>
 <!-- endbuild -->
+
 <!-- build:js scripts/app.minified.js -->
 <script type="text/javascript" src="/app/common/menu/menu.js"></script>
 <script type="text/javascript" src="/app/book/book.controllers.js"></script>
@@ -91,6 +92,7 @@
 <script type="text/javascript" src="/app/frieze/frieze.controllers.js"></script>
 <script type="text/javascript" src="/app/frieze/frieze.js"></script>
 <script type="text/javascript" src="/app/common/app.ngLoadScript.js"></script>
+<script type="text/javascript" src="/app/common/directives/tweet.js"></script>
 <script type="text/javascript" src="/app/common/directives/fraction.js"></script>
 <script type="text/javascript" src="/app/common/directives/circular-pattern.js"></script>
 <script type="text/javascript" src="/app/common/directives/canvas-centered-drawing.js"></script>
@@ -100,6 +102,29 @@
 <!-- Google analytics -->
 <script>
     initTracking();
+</script>
+
+
+<!-- Social sharing -->
+<!-- Load twitter JS -->
+<script src="https://platform.twitter.com/widgets.js"></script>
+<!-- Load Facebook SDK for JavaScript -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '335648576952578',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.12'
+    });
+  };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
 </script>
 
 </body>

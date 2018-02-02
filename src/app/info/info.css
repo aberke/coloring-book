@@ -2,6 +2,9 @@
 	max-width: 800px;
 	margin: auto;
 	text-align: center !important;
+	padding: 20px;
+}
+.info-view {
 	padding: 55px 20px;
 }
 .info-view p {
