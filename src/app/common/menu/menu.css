@@ -75,8 +75,10 @@ Styles for the side navigation menu.
 
 #menu .menu-open-btn {
     color: #3bcca6;
-    top: 20px;
-    left: 28px;
+    top: 10px;
+    left: 18px;
+    padding: 10px;
+    background-color: white;
 }
 
 .menu-open-btn .hamburger-btn-line {
