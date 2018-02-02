@@ -7,9 +7,38 @@
 .info-view {
 	padding: 55px 20px;
 }
+.info-view .book-section-title {
+	margin: 30px auto;
+}
 .info-view p {
 	max-width: 600px;
 }
 .info-view p strong {
 	font-weight: 600;
 }
+
+
+/* Info > Events */
+.info-view#events .book-section-title {
+	font-size: 1.5em;
+}
+.info-view .event {
+	margin: 20px auto;
+	margin-bottom: 50px;
+}
+.info-view .event-title {
+	margin: 10px;
+}
+.info-view .event-subtitle {
+	padding: 0;
+	font-style: italic;
+}
+.info-view .event-description {}
+.info-view .event-link {
+	display: block;
+}
+.info-view .event-imgs-container img {
+	height: 180px;
+	padding: 2px;
+}
+/* Info > Events */
