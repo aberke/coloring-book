@@ -186,6 +186,7 @@ function recursiveTransform(paper, transformGetter, transformObject, options) {
     let objectWidth = transformObject.getBBox().width;
     let height = paper.getSize().height;
     let objectHeight = transformObject.getBBox().height;
+    
     // Allow the option to avoid drawing past the boundary of the containing div:
     // If contained is true, stop drawing before hit boundary of the containing div
     let contain = options.contain || false;
@@ -193,7 +194,7 @@ function recursiveTransform(paper, transformGetter, transformObject, options) {
     // and without buffer pattern will stop prematurely.
     let containerBuffer = 5;
     let maxDrawWidth = containerBuffer + (contain ? (width - objectWidth) : width);
-    let maxDrawHeight = containerBuffer + (contain ? (height - objectHeight) : height);
+    let maxDrawHeight = containerBuffer + height;
 
     function drawNext(i, transformSet) {
         if (transformSet.getBBox().x2 > maxDrawWidth || transformSet.getBBox().y2 > maxDrawHeight)

@@ -1,3 +1,7 @@
+.frieze-pattern{
+	display: block;
+}
+
 #frieze-page, #frieze-page h1, #frieze-page h2{
 	font-weight: 300;
 	color: black;

@@ -78,6 +78,7 @@ function friezePatternDirective($window) {
 
 		scope.setupPaper = function() {
 			let elt = element[0];
+			elt.className += " frieze-pattern";
 			let height = (scope.patternSpaceHeight || scope.fundamentalDomainHeight);
 			elt.style.height = (String(height) + "px");
 			scope.paper = new Raphael(elt, "100%", height);
