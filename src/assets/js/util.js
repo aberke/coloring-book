@@ -5,6 +5,7 @@
 */
 
 const SYMMETRY_STROKE_WIDTH = 5;
+const DEFAULT_ANIMATE = 500; // Default animation interval in ms.
 
 
 /*
@@ -159,146 +160,54 @@ function drawXaxis(paper, y, color) {
     return xAxisPath;
 }
 
-
 /*
-Constructor for glide reflection transformation string
-@pathSet: (Paper.path | Paper.set) to construct transformation from
-@options: (Object) dictionary of arguments:
-    @mirrorOffset: (Number) distance from bottom of pathset to create H mirror
-    @gap: (Number) distance to translate past the width of the pathSet
-Returns (String) transformation
-*/
-function getGlideH(pathSet, options = {}) {
-    const mirrorOffset = options.mirrorOffset || 0;
-    const gap = options.gap || 0;
-
-    let bbox = pathSet.getBBox();
-    let mirrorX = bbox.x;  // could be either x or x2
-    let mirrorY = bbox.y2;
-
-    let transformString = "";
-    // add mirror portion
-    transformString += ("S1,-1," + String(mirrorX) + "," + String(mirrorY - mirrorOffset));
-    // add translation
-    transformString += getTranslationH(pathSet, gap);
-    return transformString;
-}
-
-/*
-Returns transformation string for order-2 rotation that extends pathSet
-in the horizontal direction.
-@pathSet: (Paper.path | Paper.set) to construct transformation from
-@options: Dict of optional items:
-
-Returns (String) transformation
-*/
-function getOrder2RotationH(pathSet, options) {
-    options = options || {};
-
-    let bbox = pathSet.getBBox();
-
-    let rotationOffsetX = options.rotationOffsetX || 0;
-    let rotationOffsetY = options.rotationOffsetY || 0;
-    let transformString = "R180," + String(bbox.x2 - rotationOffsetX) + "," + String(bbox.y2 - rotationOffsetY);
-
-    return transformString;
-}
-
-
-/*
-Constructor for horizontal mirror transformation string.
-By default the mirror is on the bottom of the shape,
-not through the center.  
-
-@pathSet: (Paper.path | Paper.set) to construct transformation from
-@options:
-    {boolean} centeredMirror - defaults to false.
-Returns (String) transformation
-*/
-function getMirrorH(pathSet, options = {}) {
-    let centered = !!options.centeredMirror;
-
-    let bbox = pathSet.getBBox();
-
-    let mirrorX = bbox.x;  // could be either x or x2
-    let mirrorY = centered ? (bbox.y1 + (1/2)*bbox.height) : bbox.y2;
-
-    return "S1,-1," + String(mirrorX) + "," + String(mirrorY);
-}
-
-/*
-Constructor for vertical mirror transform string.
-By default the mirror is on the side of the shape,
-not through the center. 
-
-@pathSet: (Paper.path | Paper.set) to construct transformation from
-@options:
-    {boolean} centeredMirror - defaults to false.
-Returns (String) transform
-*/
-function getMirrorV(pathSet, options = {}) {
-    let centered = !!options.centeredMirror;
-    let bbox = pathSet.getBBox();
-
-    let mirrorY = bbox.y; // same as either y or y2
-    let mirrorX = centered ? (bbox.x1 + (1/2)*bbox.width) : bbox.x2;
-
-    return "S-1,1," + String(mirrorX) + "," + String(mirrorY);
-}
-
-/*
-Constructor for horizontal translation transform string
-@pathSet: (Paper.path | Paper.set) to construct transformation from
-@gap: [optional] (Int) integer value to separate translated objects by
-Returns (String) transform
-*/
-function getTranslationH(pathSet, gap) {
-    // TODO: generalize for translations in arbitrary directions?
-    let bbox = pathSet.getBBox();
-    let transformX = bbox.width + (gap || 0);
-    return "T" + String(transformX) + ",0"; // must use uppercase T
-}
-
-/*
-Translates fundamental domain across paper
+Transforms fundamental domain across paper
 @paper: Raphael object to draw on
-@translateObject: fundamental domain to translate
+@transformGetter: function to get transformation for the transformObject
+@transormObject: fundamental domain to transform
 @options: Dict of optional items:
-    @gap: (Number) gap to leave between copies of translated fundamental regions
     @animate: (Boolean)
     @callback: (Function) called with final paperSet of translations when done translating
     @contain: (Boolean) Whether to stop drawing pattern before boundary of container hit
-    @maxTranslations (Number) Upper bound on the number of translations
+    ... and more to be carried to transformGetter
 */
-function recursiveTranslateH(paper, translateObject, options) {
+function recursiveTransform(paper, transformGetter, transformObject, options) {
     // Always get the last item, clone it, and translate it
     // Add translations to new set: translationSet =: [paperSet]
-    let animateMs = (!!options.animate) ? 500 : 0;
-    let gap = options.gap || 0;
+
+    // Note about animation: Where shapes land is more accurate
+    // without animation/when animateMs = 0;
+    let animateMs = (!!options.animate) ? DEFAULT_ANIMATE : 0;
     let callback = options.callback || function() {};
 
-    let translateSet = paper.set().push(translateObject);
-    let transformString = "..." + getTranslationH(translateObject, gap);
+    let transformSet = paper.set().push(transformObject);
 
     let width = paper.getSize().width;
-    let objectWidth = translateObject.getBBox().width;
+    let objectWidth = transformObject.getBBox().width;
+    let height = paper.getSize().height;
+    let objectHeight = transformObject.getBBox().height;
     // Allow the option to avoid drawing past the boundary of the containing div:
     // If contained is true, stop drawing before hit boundary of the containing div
     let contain = options.contain || false;
-    let maxDrawWidth = contain ? (width - objectWidth) : width;
-    // Allow there be an upper bound on the number of translations
-    let maxTranslations = options.maxTranslations || Number.MAX_SAFE_INTEGER;
+    // Need some buffer room in the containing bounds because these dimensions are not precise
+    // and without buffer pattern will stop prematurely.
+    let containerBuffer = 5;
+    let maxDrawWidth = containerBuffer + (contain ? (width - objectWidth) : width);
+    let maxDrawHeight = containerBuffer + (contain ? (height - objectHeight) : height);
 
-    function drawNext(i, translateSet) {
-        if (translateSet.getBBox().x2 > maxDrawWidth || i >= maxTranslations)
-            return callback(translateSet);
+    function drawNext(i, transformSet) {
+        if (transformSet.getBBox().x2 > maxDrawWidth || transformSet.getBBox().y2 > maxDrawHeight)
+            return callback(transformSet);
 
-        let lastItem = translateSet[translateSet.length - 1];
+        let lastItem = transformSet[transformSet.length - 1];
         let nextItem = lastItem.clone();
-        nextItem.animate({transform: transformString}, animateMs);
-        setTimeout(function() { 
-            drawNext(i + 1, translateSet.push(nextItem));
-        }, animateMs);
+
+        let transformString = "..." + transformGetter(nextItem, options);
+
+        let animateCallback = function() {
+            drawNext(i + 1, transformSet.push(nextItem));
+        };
+        nextItem.animate({transform: transformString}, animateMs, "<", animateCallback);
     }
-    drawNext(0, translateSet);
+    drawNext(0, transformSet);
 }

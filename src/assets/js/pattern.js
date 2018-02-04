@@ -97,16 +97,14 @@ class FriezePattern {
         trackRedraw('FriezePattern');
     }
 
-    // draws itself starting at offsetX (default=0)
-    draw(offsetX) {
-        offsetX = offsetX || 0;
-        
+    draw(offsetX=0) {
         // draw the pattern starting at offsetX:
         // copy the fundamentalDomain
         // transform it to live at spot
         let basePath = this.paper.path(this.fundamentalDomainPath);
 
-        // translate it to the xOffset (so that shape doesn't get mangled)
+        // translate it to the xOffset so that is where newly added fundamental domain begins.
+        // (relevent for redrawing)
         let transformString = "...T" + String(offsetX) + ",0";
         basePath.transform(transformString);
 
@@ -137,24 +135,30 @@ class FriezePattern {
         this.applyGenerators(basePath, {
             animate: (!DISABLE_ANIMATIONS),
             callback: _drawCallback,
-            maxTranslations: this.options.maxTranslations,
             contain: this.options.contain
         });
     }
 
     applyGenerators(basePath, options) {
-        // Apply the generators and then translateH...
+        // Apply the generators in order and recursively repeat the last one
+
         let self = this;
+        // The animation for the first transforms is intentionally slower than
+        // the recursive transforms in order to better illustrate what is happening.
         let animateMs = (!!options.animate) ? 1000 : 0;
         let workingSet = this.paper.set().push(basePath);
+        let transformGetters = self.generatorGetters;
+        let transformGetter, transformString, clonedSet;
 
         function transformNext(i) {
-            if (i >= self.generatorGetters.length)
-                return recursiveTranslateH(self.paper, workingSet, options);
+            transformGetter = transformGetters[i];
 
-            let transformGetter = self.generatorGetters[i];
-            let transformString = "..." + transformGetter(workingSet, self.options);
-            let clonedSet = workingSet.clone();
+            // Base case: applied all generators, repeat last one.
+            if (i >= self.generatorGetters.length - 1)
+                return recursiveTransform(self.paper, transformGetter, workingSet, options);
+            
+            transformString = "..." + transformGetter(workingSet, self.options);
+            clonedSet = workingSet.clone();
             let animateCallback = function() {
                 workingSet = self.paper.set().push(workingSet).push(clonedSet);
                 transformNext(i + 1);
