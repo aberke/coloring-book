@@ -15,7 +15,7 @@ function FriezePageCntl($location) {
 
 	vm.selectGroup = function(groupName) {
 		vm.selectedGroupName = groupName;
-		$location.search('group', groupName);
+		$location.search("group", groupName);
 	};
 
 	vm.showGroupDetails = function() {

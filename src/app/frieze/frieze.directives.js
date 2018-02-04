@@ -40,7 +40,11 @@ function friezePatternDirective($window) {
 		// initialize the variables that will be set later
 		scope.paper = null;
 		scope.friezePattern = null;
-		scope.generatorGetters = null;
+		// generatorGetters is a list of transformation functions (generators)
+		// where the last item is repeated forever with the fundamental domain created
+		// up to that point.
+		// (i.e. until the end of the page with the fundamental)
+		scope.generatorGetters = [];
 		scope.patternSpaceHeight = null;
 		// object mapping symmetryName -> Set of symmetries
 		// eg, {g: paper.Set([line1, line2]), h1: paper.Set([line1, line2]), v1: paper.Set([line1, line2]), }
@@ -99,7 +103,7 @@ function friezePatternDirective($window) {
 
 
 		scope.p1Handler = function() {
-		    scope.generatorGetters = [];
+		    scope.generatorGetters = [transforms.getTranslationH];
 		    scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
 
 		    scope.setupPaper();
@@ -108,7 +112,7 @@ function friezePatternDirective($window) {
 
 		scope.p11mHandler = function() {
 
-		    scope.generatorGetters = [getMirrorH];
+		    scope.generatorGetters = [transforms.getMirrorH, transforms.getTranslationH];
 
 		    // multiply by 2 because there is a horizontal reflection
 		    scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin);
@@ -124,7 +128,7 @@ function friezePatternDirective($window) {
 
 		scope.p1m1Handler = function() {
 		    // "Vertical Reflection only"
-		    scope.generatorGetters = [getMirrorV];
+		    scope.generatorGetters = [transforms.getMirrorV];
 
 		    scope.patternSpaceHeight = (scope.fundamentalDomainHeight + scope.margin);
 
@@ -147,7 +151,8 @@ function friezePatternDirective($window) {
 		scope.p11gHandler = function() {
 			// pbpbpbpb
 			// "Glide Reflection only"
-			scope.generatorGetters = [getGlideH];
+			// TODO: Fix up glide reflection tranform to handle recursion.
+			scope.generatorGetters = [transforms.getGlideH, transforms.getTranslationH];
 
 			// create H mirror within fundamental domain
 			// mirrorOffsetFraction=0 will mean normal mirror at bottom of fundamental domain
@@ -170,7 +175,10 @@ function friezePatternDirective($window) {
 		scope.p2Handler = function() {
 			// pdpdpdpd
 			// "Order-2 Rotations"
-			scope.generatorGetters = [getOrder2RotationH];
+			scope.generatorGetters = [
+				transforms.getOrder2RotationH,
+				transforms.getTranslationH
+			];
 
 			let rotationOffsetYFraction = isNumeric(scope.drawOptions.rotationOffset) ? scope.drawOptions.rotationOffset : (1/4);
 			let rotationOffsetY = (rotationOffsetYFraction)*(scope.fundamentalDomainHeight);
@@ -203,7 +211,11 @@ function friezePatternDirective($window) {
 		scope.p2mgHandler = function() {
 			// pqbdpqbdpqbdpqbdpqbd
 			// "Vertical Reflection + (Glide Reflection || Order-2 Rotations)"
-			scope.generatorGetters = [getMirrorV, getGlideH];
+			scope.generatorGetters = [
+				transforms.getMirrorV,
+				transforms.getGlideH,
+				transforms.getTranslationH // TODO: Fix up glide reflection tranform to handle recursion.
+			];
 
 			// create H mirror within fundamental domain
 			// mirrorOffsetFraction=0 will mean normal mirror at bottom of fundamental domain
@@ -255,7 +267,7 @@ function friezePatternDirective($window) {
 
 		scope.p2mmHandler = function() {
 			// patternDescription = "Horizontal Reflection + Vertical Reflections + Order-2 Rotations + Translation";
-			scope.generatorGetters = [getMirrorH, getMirrorV];
+			scope.generatorGetters = [transforms.getMirrorH, transforms.getMirrorV];
 			// multiply by 2 because there is a horizontal reflection
 			scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin);
 			scope.setupPaper();
