@@ -33,6 +33,19 @@ const transforms = (function() {
     }
 
     /*
+    Constructor for horizontal translation transform string
+    @pathSet: (Paper.path | Paper.set) to construct transformation from
+    @options:
+        @gap: (Number) distance to translate past the height of the pathSet
+    Returns (String) transform
+    */
+    function getTranslationV(pathSet, options={}) {
+        let bbox = pathSet.getBBox();
+        let transformY = bbox.height + (options.gap || 0);
+        return "T0," + String(transformY); // must use uppercase T
+    }
+
+    /*
     Constructor for glide reflection transformation string
     @pathSet: (Paper.path | Paper.set) to construct transformation from
     @options: (Object) dictionary of arguments:
@@ -110,6 +123,7 @@ const transforms = (function() {
         getMirrorH: getMirrorH,
         getMirrorV: getMirrorV,
         getTranslationH: getTranslationH,
+        getTranslationV: getTranslationV,
         getOrder2RotationH: getOrder2RotationH
     };
 }());

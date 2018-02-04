@@ -159,7 +159,6 @@ function friezePatternDirective($window) {
 		scope.p11gHandler = function() {
 			// pbpbpbpb
 			// "Glide Reflection only"
-			// TODO: Fix up glide reflection tranform to handle recursion.
 			scope.generatorGetters = [transforms.getGlideH, transforms.getTranslationH];
 
 			// create H mirror within fundamental domain
