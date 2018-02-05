@@ -329,7 +329,7 @@ function BookCntl($scope, $window, $location, $anchorScroll) {
             vm.previousPageName = vm.pageName;
             // Note: the MainController updates google analytics too and in
             // some edge cases there may be double counts
-            trackPageView();
+            analytics.trackPageView();
         }
     });
 

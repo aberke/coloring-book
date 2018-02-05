@@ -111,7 +111,7 @@ function setupInteractions(paper, pathSet, origin, size, drawFunction,
         paper.canvas.addEventListener('mouseup', function() {
             paper.clear();
             drawFunction(paper, origin, size, functionOptions, true);
-            trackRedraw(drawFunction.name);
+            analytics.trackRedraw(drawFunction.name);
         });
     } else if (options.tapRotate)
         setTapRotate(paper, pathSet, origin, options.tapRotate);

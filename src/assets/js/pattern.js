@@ -94,7 +94,7 @@ class FriezePattern {
         this.removePaperSetHandlers();
         let offsetX = ((this.paperSet.getBBox().x2) > 0) ? this.paperSet.getBBox().x2 : 0;
         this.draw(offsetX);
-        trackRedraw('FriezePattern');
+        analytics.trackRedraw('FriezePattern');
     }
 
     draw(offsetX=0) {
