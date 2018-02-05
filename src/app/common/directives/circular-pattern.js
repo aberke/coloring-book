@@ -120,7 +120,7 @@ function circularPatternDirective($location) {
 				// An outside caller could have also passed options - include those too.
 				Object.assign(options, opts);
 				draw(options);
-				trackRedraw("CircularPattern");
+				analytics.trackRedraw("CircularPattern");
 			}
 
 			// Attach redraw handler if with-redraw flag was present

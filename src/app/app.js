@@ -106,6 +106,6 @@ angular.module('app', [
         $location.hash($routeParams.scrollTo);
         $anchorScroll();
         vm.checkMode();
-        trackPageView();
+        analytics.trackPageView();
     });
 });
