@@ -129,7 +129,14 @@ function friezePatternDirective($window) {
 
 		scope.p1m1Handler = function() {
 		    // "Vertical Reflection only"
-		    scope.generatorGetters = [transforms.getMirrorV];
+		    scope.generatorGetters = [
+		    	// getMirrorV generator used twice because:
+		    	//  - there are two mirror lines
+		    	//  - double transformation should be considered single
+		    	//    unit for click -> regeneration target (bug otherwise)
+		    	transforms.getMirrorV,
+		    	transforms.getMirrorV
+		    ];
 
 		    scope.patternSpaceHeight = (scope.fundamentalDomainHeight + scope.margin);
 
@@ -268,7 +275,10 @@ function friezePatternDirective($window) {
 
 		scope.p2mmHandler = function() {
 			// patternDescription = "Horizontal Reflection + Vertical Reflections + Order-2 Rotations + Translation";
-			scope.generatorGetters = [transforms.getMirrorH, transforms.getMirrorV];
+			scope.generatorGetters = [
+				transforms.getMirrorH,
+				transforms.getMirrorV, transforms.getMirrorV
+			];
 			// multiply by 2 because there is a horizontal reflection
 			scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin);
 			scope.setupPaper();
