@@ -37,8 +37,12 @@ const gulp = require("gulp"),
   // (Note: I could have just written better Angular JS code to not need this)
   ngAnnotate = require("gulp-ng-annotate"),
 
+  util = require("gulp-util"),
   useref = require("gulp-useref"),
   gulpif = require("gulp-if"),
+
+  // For minification
+  cleanCSS = require("gulp-clean-css"),
   uglify = require("gulp-uglify");
 
 const srcFiles = {
@@ -50,6 +54,8 @@ const srcFiles = {
   bookPDF: "src/*.pdf"
 };
 const destination = "./dist";
+
+var production = !!util.env.production;
 
 
 /** Lint Tasks **/
@@ -67,7 +73,12 @@ gulp.task("jslint", function() {
 
 /** Build Tasks **/
 
-// Handle building all files in one task
+/*
+Handle building all files in one task.
+This allows contatenating files in HTML with userref via build blocks in HTML.
+  - Assets inside the build blocks concatenated and passed through in the
+    stream as well.
+*/
 gulp.task("all", function (cb) {
   pump([
     gulp.src([
@@ -77,12 +88,18 @@ gulp.task("all", function (cb) {
         srcFiles.html,
         srcFiles.bookPDF,
       ]),
-      // concatenate files in HTML
-      gulpif("*.html", useref()),
+
+      // For production only: Concatenate files in HTML build blocks.
+      // They then get piped downstream for further processing,
+      // as well as the files within the build blocks that were
+      // concatenated.
+      gulpif((production && "*.html"), useref()),
 
       // Dealing with JS:
-      // Transpile JS with babel:
+      // Transpile JS with babel
       gulpif("*.js", babel()),
+
+      // For production only: minify files.
       // Angular DI annotation:
       // Why?: This safeguards your code from any
       // dependencies that may not be using minification-safe practices.
@@ -91,10 +108,12 @@ gulp.task("all", function (cb) {
       // https://stackoverflow.com/questions/38768152/angularjs-minification-process
       // Another reference:
       // http://bguiz.github.io/js-standards/angularjs/minification-and-annotation/
-      gulpif("*.js", ngAnnotate()),
+      gulpif(production && "*.js", ngAnnotate()),
       // minify JS:
-      gulpif("*.js", uglify()),
-      // gulpif('*.css', minifyCss()) // TODO in future?
+      gulpif(production && "*.js", uglify()),
+      gulpif(production && "*.css", cleanCSS()),
+
+      // Always: send file to destination directory after processing.
       gulp.dest(destination)
     ],
     cb
@@ -102,7 +121,7 @@ gulp.task("all", function (cb) {
  });
 
 
-// Watch for when file changes occur to these files, and then rebuild with 'all' task
+// Watch for when file changes occur to these files, and then rebuild with 'all' task.
 gulp.task("watch", function () {
   gulp.watch([
     srcFiles.js,
