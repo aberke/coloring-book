@@ -59,11 +59,17 @@ Files are transpiled and built to `/dist` by gulp and are served by a node http-
 
 - Install node modules `$ npm install`
 - Build with gulp `$ gulp build`
-	- There should then be a `/dist/` directory of the compiled `src` files
+	- There should then be a `/dist/` directory of the processed `src` files
 - Run `$ gulp serve`
-	- This uses `gulp watch` to recompile `src` files as they're updated
+	- This uses `gulp watch` to reprocess `src` files as they're updated
 	- Or run the server in production mode with `$ npm start`
 - Visit http://127.0.0.1:5000
+
+Run/Build in production mode with `--production` flag.
+
+- This also concatenates + minifies the files.
+- `$ gulp build --production`
+- `$ gulp serve --production`
 
 
 #### Linting
