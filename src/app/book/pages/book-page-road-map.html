@@ -16,9 +16,7 @@
 
 <div id="road-map" class="book-page" ng-if="book.page.name == p.name || main.print">
 
-	<!-- Uses the Frieze Page Cntl -->
-	<!-- TODO: After finish wallpaper patterns, shift this -->
-    <div class="content-container-wrapper" ng-controller="FriezePageCntl as friezePage">
+    <div class="content-container-wrapper">
 
         <h2 class="book-section-title">Road Map</h2>
 
@@ -34,7 +32,6 @@
                 fundamental-domain-width=50
                 fundamental-domain-height=35
                 margin=10
-                show-symmetry-sets={{friezePage.showSymmetrySets}}
                 pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": false}'
             ></div>
             <div class='frieze-pattern'
@@ -43,7 +40,6 @@
                 fundamental-domain-width=50
                 fundamental-domain-height=35
                 margin=10
-                show-symmetry-sets={{friezePage.showSymmetrySets}}
                 pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": true}'
             ></div>
             <div class='frieze-pattern'
@@ -52,7 +48,6 @@
                 fundamental-domain-width=50
                 fundamental-domain-height=35
                 margin=10
-                show-symmetry-sets={{friezePage.showSymmetrySets}}
                 pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": false}'
             ></div>
         </div>
@@ -64,22 +59,15 @@
         <p><span class="road-map-section-name">Wallpaper Patterns</span> repeat infinitely in even more directions.</p>
 
 		<div>
-			<div class='frieze-pattern'
-				pattern-function='trianglesPath2'
-				group-name='p2'
-                fundamental-domain-width=65
-                fundamental-domain-height=45
-				margin=0
-				show-symmetry-sets={{friezePage.showSymmetrySets}}
-			></div>
-			<div class='frieze-pattern'
-				pattern-function='trianglesPath2'
-				group-name='p2'
-                fundamental-domain-width=65
-                fundamental-domain-height=45
-				margin=0
-				show-symmetry-sets={{friezePage.showSymmetrySets}}
-			></div>
+            <wallpaper-pattern
+                style="max-height: 180px;"
+                pattern-function=slantedSlices
+                pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": false}'
+                group-name='p2'
+                fundamental-domain-width=50
+                fundamental-domain-height=35
+                margin=0
+            ></wallpaper-pattern>
 		</div>
 
         <br/>
