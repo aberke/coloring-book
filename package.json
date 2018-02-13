@@ -21,12 +21,11 @@
     "jshint": "^2.9.4",
     "gulp-if": "^2.0.2",
     "gulp-ng-annotate": "^2.0.0",
-    "gulp-useref": "^3.1.2"
-  },
-  "devDependencies": {
+    "gulp-useref": "^3.1.2",
     "gulp-clean-css": "^3.9.2",
     "gulp-util": "^3.0.8"
   },
+  "devDependencies": {},
   "scripts": {
     "postinstall": "gulp build --production",
     "start": "http-server ./dist/ -p ${PORT:=5000} -c-1"
