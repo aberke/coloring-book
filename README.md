@@ -33,6 +33,9 @@ Printable posters available at <a href="http://www.coloring-book.co/#!/posters/"
 
 - Frieze Groups explorer: [/frieze](http://www.coloring-book.co/frieze)
 
+- Wallpaper Groups explorer: [/wallpaper](http://www.coloring-book.co/#!/wallpaper)
+  - (Work in progress)
+
 
 ## Worksheets
 
