@@ -22,6 +22,7 @@ angular.module('app', [
     'app.book',
     'app.frieze',
     'app.posters',
+    'app.wallpaper',
 ])
 .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
@@ -62,6 +63,9 @@ angular.module('app', [
         })
         .when('/frieze', {
             templateUrl: '/app/frieze/frieze.html',
+        })
+        .when('/wallpaper', {
+            templateUrl: '/app/wallpaper/wallpaper.html',
         })
 
         // posters routes
