@@ -40,7 +40,7 @@
 .print-only .frieze-pattern-title {
 	border: none;
 }
-.title-container {
+.frieze .title-container {
 	min-height: 140px;
 }
 .title-container ul {
