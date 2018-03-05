@@ -29,6 +29,11 @@
 .info-view .event-title {
 	margin: 10px;
 }
+.info-view .event-title a {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
 .info-view .event-subtitle {
 	padding: 0;
 	font-style: italic;
