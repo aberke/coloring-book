@@ -27,7 +27,10 @@
 	margin-bottom: 50px;
 }
 .info-view .event-title {
-	margin: 10px;
+    margin: 10px;
+    font-size: larger;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 .info-view .event-title a {
 	text-decoration: none;
@@ -46,4 +49,15 @@
 	height: 180px;
 	padding: 2px;
 }
+.info-view .event-imgs-container img.big {
+	width: 450px;
+	height: auto;
+}
+
+@media (max-width: 875px) {
+	.info-view .event-imgs-container img.big {
+		width: 95%;
+	}
+}
+
 /* Info > Events */
