@@ -18,7 +18,7 @@ function isValidRotateDeegrees(rotateDegrees) {
     return (0 <= Number(rotateDegrees) && Number(rotateDegrees));
 }
 
-
+// TODO: move this to transforms.js
 function getRotateDegreesTransformString(origin, rotateDegrees) {
     return [
         "...R" + String(rotateDegrees),

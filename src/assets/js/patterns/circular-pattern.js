@@ -36,8 +36,8 @@ class CircularPattern {
 		{number} drawAnimationInterval: animation interval for the rotate transformation of the draw routine
 	*/
 	constructor(paper, origin, diameter, options = {}) {
-		this.paper = paper;
-		this.pathSet = this.paper.set();
+		this.paper = paper; // What is drawn on.
+		this.pathSet = this.paper.set(); // The set of paths drawn.
 
 		// Validate parameters, or throw error.
 		this.validate(origin, diameter, options);
@@ -74,7 +74,6 @@ class CircularPattern {
 
 		this.rotations = options.rotations || 2;
 		// set up rotation transform string
-		this.rotationDegrees = 360/this.rotations;
 		this.rotationTransformString = getRotationTransformString(this.origin, this.rotations);
 		// keep track of whether currently rotating to avoid setting
 		// off rotation twice at the same time
@@ -141,6 +140,7 @@ class CircularPattern {
 			return;
 		// set a flag that this shape is currently drawing
 		this.drawing = true;
+		const rotationDegrees = 360/this.rotations;
 
 		// use recursive routine to draw each rotated line of the circular pattern
 		const self = this;
@@ -151,15 +151,9 @@ class CircularPattern {
 				return;
 			}
 
-			// reuse the lineSet -- clone it and rotate it, and add that clone to paperSet
-	        let newLine = this.getFundamentalDomainLine();
-
-	        let degreesToRotate = r*this.rotationDegrees + this.initialRotation;
-	        let transformString = [
-	        	"...R" + String(degreesToRotate),
-	        	String(this.origin.X),
-	        	String(this.origin.Y),
-	        ].join(",");
+			let newLine = this.getFundamentalDomainLine();
+            let degreesToRotate = r*rotationDegrees;
+            let transformString = getRotateDegreesTransformString(this.origin, degreesToRotate);
 
 	        // maybe animate rotating the newLine
 	        // avoid using .animate for this.drawAnimationInterval=0 because there will still be a small delay
@@ -189,37 +183,43 @@ class CircularPattern {
 
 
 	/**
-	Generate the set of paths that represent a "decorated line".
-	This line has repeating patterns, that are scaled in size as they repeat.
-	This line can then be rotated to create the circular pattern.
+    Generate or reuse the set of paths that are the fundamental domain.
+    The fundamental domain is line has repeating patterns, that are
+    scaled in in size as they repeat.
+    This line can then be rotated to create the circular pattern.
 
-	@returns Paper.set() of paths of line
-	*/
-	getFundamentalDomainLine() {
+    @returns Paper.set() of paths of line
+    */
+    getFundamentalDomainLine() {
 
-		// initialize the final set of paths that will be returned
-	    let lineSet = this.paper.set();
+        if (this.fundamentalDomain)
+            return this.fundamentalDomain.clone();
 
-		// generate base slices if do not already have them
-		if (!this.slicesPathList) {
-			this.slicesPathList = getFundamentalDomainLineSlices(this.origin, this.width, this.height, this.options);
-		}
+        // Generate fundamental domain for reuse later.
+        this.fundamentalDomain = this.paper.set();
 
-		let slicesPath = this.paper.path(this.slicesPathList);
-		// for each level, add the base slices, scaled and translated appropriately
-		lineSet.push(slicesPath);
-		for (var l=1; l<this.levels; l++) {
-		    // clone it + scale it up + translate
-		    let nextSlicesPath = slicesPath.clone();
-		    let transformList = [
-		        ["T", 0, this.height],
-		        // USE lower case 's'
-		        ["s", Math.pow(this.scaleFactor, l), Math.pow(this.scaleFactor, l), this.origin.X, this.origin.Y],
-		    ];
-		    // add scaling portion to transform string
-		    nextSlicesPath.transform(transformList);
-		    lineSet.push(nextSlicesPath);
-		}
-	    return lineSet;
-	}
+        // Generate base slices if do not already have them.
+        if (!this.slicesPathList)
+            this.slicesPathList = getFundamentalDomainLineSlices(this.origin, this.width, this.height, this.options);
+
+        let slicesPath = this.paper.path(this.slicesPathList);
+        // for each level, add the base slices, scaled and translated appropriately
+        this.fundamentalDomain.push(slicesPath);
+        for (var l=1; l<this.levels; l++) {
+            // clone it + scale it up + translate
+            let nextSlicesPath = slicesPath.clone();
+            let transformList = [
+                ["T", 0, this.height],
+                // USE lower case 's'
+                ["s", Math.pow(this.scaleFactor, l), Math.pow(this.scaleFactor, l), this.origin.X, this.origin.Y],
+            ];
+            nextSlicesPath.transform(transformList);
+            // rotate by initial rotation
+            if (this.initialRotation > 0)
+                nextSlicesPath.transform(getRotateDegreesTransformString(this.origin, this.initialRotation));
+            
+            this.fundamentalDomain.push(nextSlicesPath);
+        }
+        return this.fundamentalDomain;
+    }
 }
