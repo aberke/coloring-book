@@ -169,8 +169,10 @@ class CircularPattern {
 
             // maybe animate rotating the newLine
             // avoid using .animate for this.animateMs=0 because there will still be a small delay
-            if (this.animateMs > 0)
-                return newLine.animate({transform: transform}, this.animateMs/this.rotations, callback);
+            if (this.animateMs > 0) {
+            	let animateInterval = Math.max(this.animateMs/this.rotations, 350);
+                return newLine.animate({transform: transform}, animateInterval, callback);
+            }
 
             // Without animation simply apply transform
             newLine.transform(transform);
