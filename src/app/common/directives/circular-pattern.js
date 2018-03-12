@@ -60,6 +60,9 @@ function circularPatternDirective($location) {
 
 			let asFlower = ("asFlower" in attrs && attrs.asFlower !== "false") ? true : false;
 			let withRedraw = (("withRedraw" in attrs) && (attrs.withRedraw != "false"));
+
+			// Default animation time in ms
+			let animateMs = 3000;
 			
 			function collectDrawOptions() {
 				let options = {
@@ -73,7 +76,7 @@ function circularPatternDirective($location) {
 				};
 				// allow passing ?animate option in URL bar
 				if ($location.search().animate)
-					options.drawAnimationInterval = 1000;
+					options.animateMs = animateMs;
 
 				return options;
 			}
@@ -116,7 +119,7 @@ function circularPatternDirective($location) {
 				// & redraw new instance of the pattern
 				// (when redrawing, animate the drawing of rotations)
 				let options = collectDrawOptions();
-				options.drawAnimationInterval = 1000;
+				options.animateMs = animateMs;
 				// An outside caller could have also passed options - include those too.
 				Object.assign(options, opts);
 				draw(options);
