@@ -33,7 +33,7 @@ class CircularPattern {
 		{boolean} withReflection -- set true for symmetric line
 		{number} slicesCount number of slices per level
 		{array} slicesPathList: pathList of slices to use
-		{number} drawAnimationInterval: animation interval for the rotate transformation of the draw routine
+		{number} animateMs: animation time in ms for the drawing routine
 	*/
 	constructor(paper, origin, diameter, options = {}) {
 		this.paper = paper; // What is drawn on.
@@ -68,7 +68,7 @@ class CircularPattern {
 		// If the rotation of the draw routine should be animated
 		// the animation interval will be passed in
 		// where the animation interval is time between spokes of the wheel being drawn
-		this.drawAnimationInterval = DISABLE_ANIMATIONS ? 0 : (this.options.drawAnimationInterval || 0);
+		this.animateMs = DISABLE_ANIMATIONS ? 0 : (this.options.animateMs || 0);
 
 		this.initialRotation = options.initialRotation || 0;
 
@@ -151,25 +151,32 @@ class CircularPattern {
 				return;
 			}
 
-			let newLine = this.getFundamentalDomainLine();
-            let degreesToRotate = r*rotationDegrees;
-            let transformString = getRotateDegreesTransformString(this.origin, degreesToRotate);
+            // newLine will be the fundamental domain, maybe cloned and transformed
+            let newLine;
+            let callback = function() {
+                // Add the new line and recursively call again for next rotation, r
+                this.pathSet.push(newLine);
+                drawNextRotation(r + 1);
+            }.bind(this);
 
-	        // maybe animate rotating the newLine
-	        // avoid using .animate for this.drawAnimationInterval=0 because there will still be a small delay
-	        function transformCallback() {
-		        self.pathSet.push(newLine);
-		        // recursively call routing again for next rotation, r
-		        drawNextRotation(r + 1);
-	        }
-	        if (this.drawAnimationInterval && r > 0) {
-		       	newLine.animate({transform: transformString}, this.drawAnimationInterval, transformCallback);
-	        } else {
-	        	newLine.transform(transformString);
-	        	transformCallback();
-	        }
+            if (r == 0) {
+                newLine = this.getFundamentalDomainLine();
+                return callback();
+            }
 
-	    }.bind(this);
+            newLine = this.pathSet.items[r - 1].clone();
+            let transform = getRotateDegreesTransformString(this.origin, rotationDegrees);
+
+            // maybe animate rotating the newLine
+            // avoid using .animate for this.animateMs=0 because there will still be a small delay
+            if (this.animateMs > 0)
+                return newLine.animate({transform: transform}, this.animateMs/this.rotations, callback);
+
+            // Without animation simply apply transform
+            newLine.transform(transform);
+            return callback();
+        }.bind(this);
+
 	    drawNextRotation(0);
 
 	    // set up interactions if !DISABLE_ANIMATIONS
