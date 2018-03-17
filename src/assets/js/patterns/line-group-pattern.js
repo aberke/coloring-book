@@ -6,7 +6,6 @@ const DEFAULT_FILL = 'white';
 const DEFAULT_STROKE_COLOR = 'black';
 const DEFAULT_STROKE_WIDTH = 2;
 
-
 /*
 LineGroupPattern is an abstract class for FriezePattern and WallpaperPattern
 to inherit from and implement.
@@ -25,8 +24,16 @@ class LineGroupPattern {
         }
 
         this.paper = paper;
+        PAPER = paper;
         this.paperSet = this.paper.set();
         this.fundamentalDomainPath = fundamentalDomainPath;
+        // TODO: rename
+        // this.transforms = transforms
+        // {
+        //     FundamentalDomain: (optional) [list of (function) transforms]
+        //     X: (function) transform
+        //     Y: (optional) (function) transform
+        // }
         this.generatorGetters = generatorGetters;
 
         // handle options
@@ -142,6 +149,25 @@ class LineGroupPattern {
         return (transformSet.getBBox().y2 > maxDrawHeight);
     }
 
+    transformFundamentalDomain(workingSet, callback) {
+        let transforms = this.generatorGetters.FundamentalDomain || [];
+        let transformOptions = Object.assign({animateMs: this.beginAnimateMs}, this.options);
+        
+        let transformNext = function(i, pathSet) {
+            if (i == transforms.length)
+                return callback(pathSet);
+
+            let transform = transforms[i];
+            let transformCallback = (function(transformedPathSet) {
+                transformNext(i + 1, transformedPathSet);
+            }).bind(this);
+
+            transform(pathSet, transformCallback, transformOptions);
+
+        }.bind(this);
+        transformNext(0, workingSet);
+    }
+
     transformX(workingSet, callback) {
         let terminateCheck = this.stopTransformX.bind(this);
         return this.transformAlongAxis(0, workingSet, this.generatorGetters.X, terminateCheck, callback);
@@ -150,11 +176,12 @@ class LineGroupPattern {
         let terminateCheck = this.stopTransformY.bind(this);
         return this.transformAlongAxis(0, workingSet, this.generatorGetters.Y, terminateCheck, callback);
     }
+    // TODO: after have fundamentalDomainTransform, refactor this
     transformAlongAxis(i, workingSet, transformGetters, terminateCheck, terminateCallback) {
         let transformGetter = transformGetters[i];
-
+        
         // Base case: applied all generators, repeat last one.
-        if (i >= transformGetters.length - 1)
+        if (i >= transformGetters.length - 1) 
             return this.recursiveTransform(transformGetter, workingSet, terminateCheck, terminateCallback);
         
         let transformString = "..." + transformGetter(workingSet, this.options);
@@ -173,13 +200,16 @@ class LineGroupPattern {
     @terminateCheck: function that returns boolean indicating whether to terminate recursion
     @terminateCallback: function called with final paperSet of translations when done transforming - i.e. termination/base case met
     */
+    // TODO: refactor this.  Put in transforms.js?
     recursiveTransform(transformGetter, transformObject, terminateCheck, terminateCallback) {
         // Always get the last item, clone it, and translate it
         // Add translations to new set: translationSet =: [paperSet]
         let self = this;
         let transformSet = this.paper.set().push(transformObject);
+        // console.log('recursiveTransform')
 
         function drawNext(i, transformSet) {
+            // console.log('recursiveTransform drawNext', i, transformSet)
             if (terminateCheck(transformSet))
                 return terminateCallback(transformSet);
 
@@ -277,9 +307,10 @@ class WallpaperPattern extends LineGroupPattern {
         // copy the fundamentalDomain
         // transform it to live at spot
         let basePath = this.paper.path(this.fundamentalDomainPath);
+        BASEPATH = basePath;
         let maxWidth = this.maxTransformWidth(basePath);
         let transformString = [
-            "...T",
+            "T",
             String((offsetX > maxWidth) ? 0 : offsetX),
             ",",
             String(offsetY)
@@ -294,11 +325,19 @@ class WallpaperPattern extends LineGroupPattern {
 
         // Apply the generators in order and recursively repeat the last one
         let workingSet = this.paper.set().push(basePath);
+        WORKINGSET = workingSet;
+
         // TODO: use promise?
         let transformYCallback = this.drawCallback.bind(this);
         let transformXCallback = (function(workingSet) {
             this.transformY(workingSet, transformYCallback);
         }).bind(this);
-        this.transformX(workingSet, transformXCallback);
+
+        let transformFDCallback = (function(workingSet) {
+            this.transformX(workingSet, transformXCallback);
+        }).bind(this);
+        this.transformFundamentalDomain(workingSet, transformFDCallback);
+
+        // this.transformX(workingSet, transformXCallback);
     }
 }

@@ -143,7 +143,6 @@ class CircularPattern {
 		const rotationDegrees = 360/this.rotations;
 
 		// use recursive routine to draw each rotated line of the circular pattern
-		const self = this;
 		let drawNextRotation = function(r) {
 			if (r >= this.rotations || this.cleared) {
 				// no more rotations to draw
