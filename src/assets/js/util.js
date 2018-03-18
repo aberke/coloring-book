@@ -1,12 +1,30 @@
 /*
-	Collection of helper functions
+Collection of utility functions.
 
-
+TODO: wrap within a module
 */
 
 const SYMMETRY_STROKE_WIDTH = 5;
 const DEFAULT_ANIMATE = 500; // Default animation interval in ms.
 
+
+/*
+Returns a flattened list of elements.
+Items in toFlatten may be Paper.Set() objects.
+These objects have a forEach function but not a concat function - so only forEach is used.
+*/
+function flattenedList(toFlatten) {
+    if (!toFlatten)
+        return [];
+    if (!toFlatten.forEach)
+        return [toFlatten];
+    
+    let toReturn = [];
+    toFlatten.forEach((a) => {
+        flattenedList(a).forEach((b) => { toReturn.push(b); });
+    });
+    return toReturn;
+}
 
 /*
 Checks if passed in rotational degrees are valid

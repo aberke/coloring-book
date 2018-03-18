@@ -1,25 +1,12 @@
-
-// TODO for testing only: remove
-let bp0, bp1, bp2, bp3;
-
-function setup() {
-	let r4="R90,80,71"
-	bp0 = BASEPATH.clone();
-	bp1 = BASEPATH.clone().transform(r4);
-	bp2 = BASEPATH.clone().transform(r4+r4);
-	bp3 = BASEPATH.clone().transform(r4+r4+r4);
-
-	WORKINGSET = PAPER.set().push(bp0,bp1,bp2,bp3);
-}
-
 /*
-
+Transform functions for paths and path sets.
 */
+
 const transforms = (function() {
     "use strict";
 
 
-	function mirrorV(pathSet, callback, options={}) {
+	function mirrorV(pathSet, callback, options) {
 		return doTransform(pathSet, getMirrorV, callback, options);	
 	}
 
@@ -42,29 +29,36 @@ const transforms = (function() {
     // Private
     function doRotation(pathSet, rotations, callback, options={}) {
     	const animateMs = options.animateMs || 0;
-    	
-		const rotationDegrees = 360/rotations;
+
 		const bbox = pathSet.getBBox();
         const origin = {
             X: bbox.x2 - (options.rotationOffsetX || 0),
             Y: bbox.y2 - (options.rotationOffsetY || 0)
         };
-        let transform = getRotateDegreesTransformString(origin, rotationDegrees);
 
+        let newPathSet = []; // use Paper.Set instead?
 		// Use recursive routine to draw each rotated copy of pathSet
 		let drawNextRotation = function(r) {
 			if (r >= rotations)
-				return callback(pathSet);
+				return callback(newPathSet);
 
-            let newPath = pathSet.items[r - 1].clone();
+            let nextPathSet = (newPathSet.length > 0) ? newPathSet[newPathSet.length - 1].clone() : pathSet;
+
             let transformCallback = function() {
                 // Add the new line and recursively call again for next rotation, r
-                pathSet.push(newPath);
+                newPathSet.push(nextPathSet);
                 drawNextRotation(r + 1);
             };
-
+            let transformString = getRotation(origin, rotations);
+            
             let animateInterval = Math.max(animateMs/rotations, 450);
-            newPath.animate({transform: transform}, animateInterval, "<", transformCallback);
+            options.animateMs = animateInterval;
+            if (pathSet.length > 1) {
+                doComposedTransform(nextPathSet, transformString, transformCallback, options);
+            } else {
+                transformString = "..." + transformString
+                nextPathSet.animate({transform: transformString}, animateInterval, "<", transformCallback);
+            }
         };
 
 	    drawNextRotation(1);
@@ -74,17 +68,16 @@ const transforms = (function() {
     Helper function to perform the transform in animation.
     */
     function doTransform(pathSet, transformGetter, callback, options={}) {
-		if (hasRotation(pathSet))
-			return doComposedTransform(pathSet, transformGetter, callback, options);
+        let transformString = transformGetter(pathSet, options);
+    	if (hasRotation(pathSet))
+			return doComposedTransform(pathSet, transformString, callback, options);
 
-        const transformString = "..." + transformGetter(pathSet, options);
+        transformString = "..." + transformString;
     	const animateMs = options.animateMs || 0;
-    	let newPath = pathSet.clone();
     	let animateCallback = function() {
-    		pathSet.push(newPath);
-    		callback(pathSet);
+            callback(pathSet)
     	};
-        newPath.animate({transform: transformString}, animateMs, "<", animateCallback);   	
+        pathSet.animate({transform: transformString}, animateMs, "<", animateCallback);   	
     }
 
 	function hasRotation(pathSet) {
@@ -109,54 +102,40 @@ const transforms = (function() {
 	Necessary because Raphael Set objects do not properly handle the linear algebra
 	of composed transformations for reflections.
 	*/
-	function doComposedTransform(pathSet, transformGetter, callback, options={}) {
-		// Composed transformations look bad in animation because they are
-		// not a fluid motion from the starting path to the end path.
+	function doComposedTransform(pathSet, transformString, callback, options={}) {
+		const animateMs = options.animateMs || 0;
 
-		// Get the transformation for the pathSet as a whole,
+		// The transformString is the transformation for the pathSet as a whole,
 		// but apply it to each path individually.
 		// Need to compose it within each path's previous transformation
 		// matrix.
-		const transformString = transformGetter(pathSet, options);
 
-		let newPaths = pathSet.clone();
-	    newPaths.forEach((elt) => {
-			const eltTransformString = "..." + getComposedTransform(elt, transformString, options);
-			elt.transform(eltTransformString);
-		    pathSet.push(elt);
-		});
-		return callback(pathSet);
-
-		// OR IF DECIDE YOU CAN ANIMATE:
-
-		// Must animate all elements in unison and call callback only once
+		// Must animate all elements in unison and apply callback only once
 		// all animations are complete.
-
-		// let callbackCount = 0;
-		// let collector = function() {
-		// 	callbackCount += 1;
-		// 	if (callbackCount == newPaths.length)
-	 //    		callback(pathSet);
-	 //    };
-	 //    // Use .animate function for first element, and them animateWith
-	 //    // for the following elements.
-	 //    let syncElt, syncAnim; // animateWith needs element and animation to sync its animation with
-	 //    newPaths.forEach((elt) => {
-		// 	let eltTransformString = "..." + getComposedTransform(elt, transformString, options);
-		// 	let animateParams = {transform: eltTransformString};
-		//     let anim = Raphael.animation(animateParams, animateMs, "<", collector);
-		//     if (!syncElt) {
-		//     	syncElt = elt;
-		//     	syncAnim = anim;
-		//     	elt.animate(anim);
-		//     } else {
-		//     	elt.animateWith(syncElt, syncElt, anim);  
-		//     }
-		//     pathSet.push(elt);
-		// });
+		let callbackCount = 0;
+		let collector = function() {
+			callbackCount += 1;
+			if (callbackCount == pathSet.length)
+	    		callback(pathSet);
+	    };
+	    // Use .animate function for first element, and them animateWith
+	    // for the following elements.
+	    let syncElt, syncAnim; // animateWith needs element and animation to sync its animation with
+	    pathSet.forEach((elt) => {
+	    	let eltTransformString = getComposedTransform(elt, transformString);
+            let animateParams = {transform: eltTransformString};
+		    let anim = Raphael.animation(animateParams, animateMs, "<", collector);
+		    if (!syncElt) {
+		    	syncElt = elt;
+		    	syncAnim = anim;
+		    	elt.animate(anim);
+		    } else {
+		    	elt.animateWith(syncElt, syncAnim, anim);  
+		    }
+		});
 	}
 
-	function getComposedTransform(path, transformString, options={}) {
+	function getComposedTransform(path, transformString) {
 		// If there have been no previous transformations, then
 		// there are none to reverse and can simply return the desired
 		// transform.
@@ -174,11 +153,27 @@ const transforms = (function() {
 		// inverse of previous transforms: (-m)
 		// desired transform: (t)
 		// previous transforms: (m)
-		return [
-			pathMatrixInverse.toTransformString(),
-			transformString,
-			pathMatrix.toTransformString()
-		].join(",");
+        /*
+        TODO: Use proper matrix multiplication.
+
+        Hack until then...
+            Problem: Want to perform complex transform that is multiple parts,
+            but want it to animate as one seamless movement rather than the sequence
+            of transformations composed.  i.e. Want final matrix transformation.
+            Stupid solution: clone element want to transform, transform it ugly way without
+            animation, grab the final transform matrix, delete cloned element, and then use
+            final transform matrix to animate element we actually want to transform.
+        */
+        let composedTransformString = [
+            matrix.getString(pathMatrixInverse),
+            transformString,
+            matrix.getString(pathMatrix)
+        ].join(",");
+        let pathClone = path.clone();
+        pathClone.transform("..." + composedTransformString);
+        let composedMatrixString = matrix.getString(pathClone.matrix);
+        pathClone.remove();
+        return composedMatrixString;
 	}
 
 
@@ -190,13 +185,12 @@ const transforms = (function() {
 
     Returns (String) transformation
     */
+    // TODO: maybe stop using this? or generalize for both H and V direction?
     function getOrder2RotationH(pathSet, options={}) {
         let bbox = pathSet.getBBox();
         let rotationOffsetX = options.rotationOffsetX || 0;
         let rotationOffsetY = options.rotationOffsetY || 0;
-        let transformString = "R180," + String(bbox.x2 - rotationOffsetX) + "," + String(bbox.y2 - rotationOffsetY);
-
-        return transformString;
+        return "R180," + String(bbox.x2 - rotationOffsetX) + "," + String(bbox.y2 - rotationOffsetY);
     }
 
     /*
@@ -235,7 +229,6 @@ const transforms = (function() {
     */
     function getGlideH(pathSet, options={}) {
         const mirrorOffset = options.mirrorOffset || 0;
-
         /*
         Uses the Raphael transform Element.scale(sx, sy, [cx], [cy]) https://dmitrybaranovskiy.github.io/raphael/reference.html#Element.scale
         sx: (number) horisontal scale amount
@@ -245,12 +238,11 @@ const transforms = (function() {
     		If cx & cy aren’t specified centre of the shape is used instead.
     	*/
         let bbox = pathSet.getBBox();
-        let mirrorX = bbox.x;  // could be either x or x2
         let mirrorY = bbox.y2 - mirrorOffset;
 
         let transformString = "";
         // add mirror portion
-        transformString += ("S1,-1," + String(mirrorX) + "," + String(mirrorY));
+        transformString += ("S1,-1,0," + String(mirrorY));
         // add translation
         transformString += getTranslationH(pathSet, options);
         return transformString;
@@ -268,15 +260,9 @@ const transforms = (function() {
     */
     function getMirrorH(pathSet, options = {}) {
         let bbox = pathSet.getBBox();
-        let mirrorX = 0;
         let mirrorY = (!!options.centeredMirror) ? (bbox.y1 + (1/2)*bbox.height) : bbox.y2;
-        return [
-        	"S1,-1,",
-        	String(mirrorX),
-        	String(mirrorY)
-        ].join(",");
+        return "S1,-1,0," + String(mirrorY);
     }
-
 
     /*
     Constructor for vertical mirror transform string.
@@ -298,9 +284,17 @@ const transforms = (function() {
     		If cx & cy aren’t specified centre of the shape is used instead.
     	*/
         let bbox = pathSet.getBBox();
-        let mirrorY = bbox.y2;
         let mirrorX = (!!options.centeredMirror) ? (bbox.x1 + (1/2)*bbox.width) : bbox.x2;
-    	return "S-1,1," + String(mirrorX) + "," + String(mirrorY);
+    	return "S-1,1," + String(mirrorX) + ",0";
+    }
+
+    function getRotation(origin, rotationalOrder) {
+        const rotateDegrees = 360/rotationalOrder;
+        return [
+            "R" + String(rotateDegrees),
+            origin.X,
+            origin.Y,
+        ].join(",");
     }
 
     return {
@@ -316,6 +310,9 @@ const transforms = (function() {
         order4Rotation: order4Rotation,
         glideH: glideH,
         mirrorV: mirrorV,
-        mirrorH: mirrorH
+        mirrorH: mirrorH,
+
+        // Other utility transformations
+        getRotation: getRotation
     };
 }());

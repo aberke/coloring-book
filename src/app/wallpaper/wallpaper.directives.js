@@ -38,10 +38,14 @@ function WallpaperPatternDirective($window) {
 		// initialize the variables that will be set later
 		scope.paper = null;
 		scope.wallpaperPattern = null;
-		// generatorGetters is a {X:[X], Y:[Y]} object of transformation functions (generators)
-		// where [X] is an array of generators that transform the pattern along the X-axis
-		// and [Y] is an array of generators that transform the pattern along the Y-axis
-		scope.generatorGetters = { X: [], Y: [] };
+		/* transforms is an object of transformation functions (generators)
+			{
+	            FundamentalDomain: (optional) [list of (function) transforms]
+	            X: (function) transform along the X-axis
+	            Y: (optional) (function) transform along the Y-axis
+	        }
+		*/
+		scope.transforms = { X: [], Y: [] };
 		scope.patternSpaceHeight = null;
 
 
@@ -59,14 +63,14 @@ function WallpaperPatternDirective($window) {
 		    // Generate the fundamental domain path once so that it can use random variables
 		    // and yet still look the same when it's redrawn by the wallpaperPattern
 		    let fundamentalDomainPath = scope.patternFunction(origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
-		    scope.wallpaperPattern = new WallpaperPattern(scope.paper, fundamentalDomainPath, scope.generatorGetters, scope.drawOptions);
+		    scope.wallpaperPattern = new WallpaperPattern(scope.paper, fundamentalDomainPath, scope.transforms, scope.drawOptions);
 		};
 
 
 		scope.p1Handler = function() {
-		    scope.generatorGetters = {
-		    	X: [transforms.getTranslationH],
-		    	Y: [transforms.getTranslationV]
+		    scope.transforms = {
+		    	X: transforms.getTranslationH,
+		    	Y: transforms.getTranslationV
 		    };
 		    scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
 
@@ -75,10 +79,10 @@ function WallpaperPatternDirective($window) {
 		};
 
 		scope.p2Handler = function() {
-		    scope.generatorGetters = {
+		    scope.transforms = {
 				FundamentalDomain: [transforms.order2Rotation],
-				X: [transforms.getTranslationH], // TODO: replace with order-2 rotation
-		    	Y: [transforms.getTranslationV]  // TODO: replace with order-2 rotation
+				X: transforms.getTranslationH, // TODO: replace with order-2 rotation (set mirror offet halfway and this can work)
+		    	Y: transforms.getTranslationV  // TODO: replace with order-2 rotation
 		    };
 		    scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
 
@@ -88,9 +92,10 @@ function WallpaperPatternDirective($window) {
 		};
 
 		scope.pmHandler = function() {
-		    scope.generatorGetters = {
-				X: [transforms.getMirrorV, transforms.getMirrorV],
-		    	Y: [transforms.getTranslationV]
+		    scope.transforms = {
+		    	FundamentalDomain: [transforms.mirrorV],
+				X: transforms.getMirrorV,
+		    	Y: transforms.getTranslationV
 		    };
 		    scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
 
@@ -99,9 +104,9 @@ function WallpaperPatternDirective($window) {
 		};
 
 		scope.pgHandler = function() {
-			scope.generatorGetters = {
-				X: [transforms.getGlideH],
-				Y: [transforms.getTranslationV]
+			scope.transforms = {
+				X: transforms.getGlideH,
+				Y: transforms.getTranslationV
 			};
 
 			// create G mirror within fundamental domain
@@ -116,9 +121,9 @@ function WallpaperPatternDirective($window) {
 		};
 
 		scope.cmHandler = function() {
-			scope.generatorGetters = {
-				X: [transforms.getGlideH],
-				Y: [transforms.getMirrorH]
+			scope.transforms = {
+				X: transforms.getGlideH,
+				Y: transforms.getMirrorH
 			};
 
 			// create G mirror within fundamental domain
@@ -137,10 +142,10 @@ function WallpaperPatternDirective($window) {
 		that is on neither axis of reflection.
 		*/
 		scope.pggHandler = function() {
-			scope.generatorGetters = {
+			scope.transforms = {
 				FundamentalDomain: [transforms.order2Rotation, transforms.glideH],
-				X: [transforms.getTranslationH],
-				Y: [transforms.getTranslationV]
+				X: transforms.getTranslationH,
+				Y: transforms.getTranslationV
 			};
 
 			let mirrorHOffsetFraction = (1/2);
@@ -157,10 +162,10 @@ function WallpaperPatternDirective($window) {
 		It also has an order-2 rotation that is on neither axis of reflection.
 		*/
 		scope.pmgHandler = function() {
-			scope.generatorGetters = {
+			scope.transforms = {
 				FundamentalDomain: [transforms.order2Rotation],
-				X: [transforms.getMirrorV],
-				Y: [transforms.getTranslationV]
+				X: transforms.getMirrorV,
+				Y: transforms.getTranslationV
 			};
 
 			scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
@@ -170,10 +175,10 @@ function WallpaperPatternDirective($window) {
 		};
 
 		scope.pmmHandler = function() {
-			scope.generatorGetters = {
-				FundamentalDomain: [], // TODO: implement MirrorV and MirrorH
-				X: [transforms.getMirrorV, transforms.getMirrorV],
-				Y: [transforms.getMirrorH, transforms.getMirrorH]
+			scope.transforms = {
+				FundamentalDomain: [transforms.mirrorV, transforms.mirrorH],
+				X: transforms.getMirrorV,
+				Y: transforms.getMirrorH
 			};
 			scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
 
@@ -187,10 +192,10 @@ function WallpaperPatternDirective($window) {
 		on no axis.
 		*/
 		scope.cmmHandler = function() {
-			scope.generatorGetters = {
+			scope.transforms = {
 				FundamentalDomain: [transforms.order2Rotation],
-				X: [transforms.getMirrorV],
-				Y: [transforms.getMirrorH]
+				X: transforms.getMirrorV,
+				Y: transforms.getMirrorH
 			};
 			scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
 
@@ -202,10 +207,10 @@ function WallpaperPatternDirective($window) {
 		p4 has an order-4 rotations with order-2 rotations between them.
 		*/
 		scope.p4Handler = function() {
-		    scope.generatorGetters = {
+		    scope.transforms = {
 				FundamentalDomain: [transforms.order4Rotation],
-				X: [transforms.getTranslationH], // TODO: replace with order-2 rotation
-		    	Y: [transforms.getTranslationV]  // TODO: replace with order-2 rotation
+				X: transforms.getTranslationH, // TODO: replace with order-2 rotation
+		    	Y: transforms.getTranslationV  // TODO: replace with order-2 rotation
 		    };
 		    scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
 
@@ -219,11 +224,10 @@ function WallpaperPatternDirective($window) {
 		It also has order-2 rotations on the intersections of the mirror axes.
 		*/
 		scope.p4gHandler = function() {
-		    scope.generatorGetters = {
+		    scope.transforms = {
 				FundamentalDomain: [transforms.order4Rotation, transforms.mirrorV],
-				// FundamentalDomain: [transforms.mirrorV, transforms.order4Rotation],
-				X: [transforms.getTranslationH],
-		    	Y: [transforms.getTranslationV]
+				X: transforms.getTranslationH,
+		    	Y: transforms.getTranslationV
 		    };
 		    scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
 
@@ -236,10 +240,10 @@ function WallpaperPatternDirective($window) {
 		mirror reflection axes.
 		*/
 		scope.p4mHandler = function() {
-		    scope.generatorGetters = {
+		    scope.transforms = {
 				FundamentalDomain: [transforms.mirrorH, transforms.order4Rotation],
-				X: [transforms.getTranslationH],
-		    	Y: [transforms.getTranslationV]
+				X: transforms.getTranslationH,
+		    	Y: transforms.getTranslationV
 		    };
 		    scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
 		    scope.drawOptions.rotationOffsetY = scope.fundamentalDomainHeight;
@@ -268,6 +272,5 @@ function WallpaperPatternDirective($window) {
 				handlers[scope.groupName]();
 		};
 		scope.init();
-
 	}};
 };

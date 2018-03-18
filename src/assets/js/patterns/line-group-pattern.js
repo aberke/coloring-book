@@ -2,9 +2,10 @@
 TODO: Use chaining of promises instead of these ugly callbacks.
 */
 
-const DEFAULT_FILL = 'white';
+const DEFAULT_FILL = 'transparent';
 const DEFAULT_STROKE_COLOR = 'black';
 const DEFAULT_STROKE_WIDTH = 2;
+
 
 /*
 LineGroupPattern is an abstract class for FriezePattern and WallpaperPattern
@@ -14,27 +15,26 @@ class LineGroupPattern {
     /**
     @param {object} paper on which to draw
     @param {array|string} fundamentalDomainPath
-    @param {array} generatorGetters: List of functions that transform the fundamental domain
+    @param {object} transforms
+        Map of functions that transform the fundamental domain for a central set,
+        and along the X and Y axes:
+        {
+            FundamentalDomain: (optional) [list of (function) transforms]
+            X: (function) transform
+            Y: (optional) (function) transform
+        }
     @param {object} options
     */
-    constructor(paper, fundamentalDomainPath, generatorGetters, options) {
+    constructor(paper, fundamentalDomainPath, transforms, options) {
         
         if (this.constructor === LineGroupPattern) {
             throw new TypeError('Abstract class "LineGroupPattern" cannot be instantiated directly.'); 
         }
 
         this.paper = paper;
-        PAPER = paper;
         this.paperSet = this.paper.set();
         this.fundamentalDomainPath = fundamentalDomainPath;
-        // TODO: rename
-        // this.transforms = transforms
-        // {
-        //     FundamentalDomain: (optional) [list of (function) transforms]
-        //     X: (function) transform
-        //     Y: (optional) (function) transform
-        // }
-        this.generatorGetters = generatorGetters;
+        this.transforms = transforms;
 
         // handle options
         this.options = options || {};
@@ -56,8 +56,8 @@ class LineGroupPattern {
     Make paperSet 'clickable'
     */
     addFill() {
-        // always adding fill, even when none specified -- using white
-        // this is so that handlers are not just on the lines, but also the space within
+        // Always adding fill, even when none specified -- using 'transparent'.
+        // This way handlers are not just on the lines, but also the space within.
         this.paperSet.attr({ 'fill': this.fill });
     }
 
@@ -149,79 +149,70 @@ class LineGroupPattern {
         return (transformSet.getBBox().y2 > maxDrawHeight);
     }
 
-    transformFundamentalDomain(workingSet, callback) {
-        let transforms = this.generatorGetters.FundamentalDomain || [];
+    /*
+    The transformations of the fundamental domain exist within a FLAT path set.
+    This function iteratively appends paths to the path set.  For each fundamental domain
+    transform function, it takes the current working path set and passes it to
+    the transform function with returns a transformed clone of the original path set.
+    Each of the paths in that transformed path set are appended to the original path set.
+    */
+    transformFundamentalDomain(pathSet, callback) {
+        let transforms = this.transforms.FundamentalDomain || [];
         let transformOptions = Object.assign({animateMs: this.beginAnimateMs}, this.options);
-        
+
         let transformNext = function(i, pathSet) {
             if (i == transforms.length)
                 return callback(pathSet);
 
+            // The returned transformed path set is a transformed clone of the
+            // original pathSet. 
             let transform = transforms[i];
-            let transformCallback = (function(transformedPathSet) {
-                transformNext(i + 1, transformedPathSet);
-            }).bind(this);
-
-            transform(pathSet, transformCallback, transformOptions);
-
-        }.bind(this);
-        transformNext(0, workingSet);
+            let transformCallback = function(transformedPathSet) {
+                // keep the path set flat - i.e. avoid sets within sets.
+                let flatTransformedPathSet = flattenedList(transformedPathSet);
+                flatTransformedPathSet.forEach((elt) => { pathSet.push(elt); });
+                transformNext(i + 1, pathSet);
+            };
+            let pathSetClone = pathSet.clone();
+            transform(pathSetClone, transformCallback, transformOptions);
+        };
+        transformNext(0, pathSet);
     }
 
     transformX(workingSet, callback) {
         let terminateCheck = this.stopTransformX.bind(this);
-        return this.transformAlongAxis(0, workingSet, this.generatorGetters.X, terminateCheck, callback);
+        return this.transformAlongAxis(workingSet, this.transforms.X, terminateCheck, callback);
     }
     transformY(workingSet, callback) {
         let terminateCheck = this.stopTransformY.bind(this);
-        return this.transformAlongAxis(0, workingSet, this.generatorGetters.Y, terminateCheck, callback);
+        return this.transformAlongAxis(workingSet, this.transforms.Y, terminateCheck, callback);
     }
     // TODO: after have fundamentalDomainTransform, refactor this
-    transformAlongAxis(i, workingSet, transformGetters, terminateCheck, terminateCallback) {
-        let transformGetter = transformGetters[i];
-        
-        // Base case: applied all generators, repeat last one.
-        if (i >= transformGetters.length - 1) 
-            return this.recursiveTransform(transformGetter, workingSet, terminateCheck, terminateCallback);
-        
-        let transformString = "..." + transformGetter(workingSet, this.options);
-        let clonedSet = workingSet.clone();
-        let animateCallback = (function() {
-            workingSet = this.paper.set().push(workingSet).push(clonedSet);
-            this.transformAlongAxis(i + 1, workingSet, transformGetters, terminateCheck, terminateCallback);
-        }).bind(this);
-        clonedSet.animate({transform: transformString}, this.beginAnimateMs, "<", animateCallback);
-    }
-
     /*
-    Transforms fundamental domain across paper
-    @transformGetter: function to get transformation for the transformObject
-    @transormObject: fundamental domain to transform
+    Transforms path set across paper
+    @workingSet: set of paths to transform
+    @transformGetter: function to get transformation for the path set
     @terminateCheck: function that returns boolean indicating whether to terminate recursion
-    @terminateCallback: function called with final paperSet of translations when done transforming - i.e. termination/base case met
+    @terminateCallback: function called with final path set when done transforming - i.e. termination/base case met
     */
-    // TODO: refactor this.  Put in transforms.js?
-    recursiveTransform(transformGetter, transformObject, terminateCheck, terminateCallback) {
+    transformAlongAxis(workingSet, transformGetter, terminateCheck, terminateCallback) {
         // Always get the last item, clone it, and translate it
         // Add translations to new set: translationSet =: [paperSet]
-        let self = this;
-        let transformSet = this.paper.set().push(transformObject);
-        // console.log('recursiveTransform')
-
-        function drawNext(i, transformSet) {
-            // console.log('recursiveTransform drawNext', i, transformSet)
+        let transformSet = this.paper.set().push(workingSet);
+        
+        let drawNext = (function(i, transformSet) {
             if (terminateCheck(transformSet))
                 return terminateCallback(transformSet);
 
             let lastItem = transformSet[transformSet.length - 1];
             let nextItem = lastItem.clone();
-            let transformString = "..." + transformGetter(nextItem, self.options);
+            let transformString = "..." + transformGetter(nextItem, this.options);
 
             let animateCallback = function() {
                 drawNext(i + 1, transformSet.push(nextItem));
             };
-            nextItem.animate({transform: transformString}, self.endAnimateMs, "<", animateCallback);
-        }
+            nextItem.animate({transform: transformString}, this.endAnimateMs, "<", animateCallback);
+        }).bind(this);
         drawNext(0, transformSet);
     }
 
@@ -248,11 +239,6 @@ class LineGroupPattern {
 
 
 class FriezePattern extends LineGroupPattern {
-
-    constructor(paper, fundamentalDomainPath, generatorGetters, options) {
-        generatorGetters = { X: generatorGetters };
-        super(paper, fundamentalDomainPath, generatorGetters, options);
-    }
 
     redraw() {
         // while redrawing, remove the opacity attribute and 'clickable-ness'
@@ -282,11 +268,15 @@ class FriezePattern extends LineGroupPattern {
             'stroke': this.stroke,
             'stroke-width': this.strokeWidth,
         });
-
-        // Apply the generators in order and recursively repeat the last one.
-        // Add color + interactions afterwards.
         let workingSet = this.paper.set().push(basePath);
-        this.transformX(workingSet, this.drawCallback.bind(this));
+
+        // Apply the transforms.
+        // Add color + interactions afterwards.
+        let transformXCallback = this.drawCallback.bind(this);
+        let transformFDCallback = (function(workingSet) {
+            this.transformX(workingSet, transformXCallback);
+        }).bind(this);
+        this.transformFundamentalDomain(workingSet, transformFDCallback);
     }
 }
 
@@ -307,7 +297,6 @@ class WallpaperPattern extends LineGroupPattern {
         // copy the fundamentalDomain
         // transform it to live at spot
         let basePath = this.paper.path(this.fundamentalDomainPath);
-        BASEPATH = basePath;
         let maxWidth = this.maxTransformWidth(basePath);
         let transformString = [
             "T",
@@ -325,7 +314,6 @@ class WallpaperPattern extends LineGroupPattern {
 
         // Apply the generators in order and recursively repeat the last one
         let workingSet = this.paper.set().push(basePath);
-        WORKINGSET = workingSet;
 
         // TODO: use promise?
         let transformYCallback = this.drawCallback.bind(this);
@@ -337,7 +325,5 @@ class WallpaperPattern extends LineGroupPattern {
             this.transformX(workingSet, transformXCallback);
         }).bind(this);
         this.transformFundamentalDomain(workingSet, transformFDCallback);
-
-        // this.transformX(workingSet, transformXCallback);
     }
 }
