@@ -41,12 +41,14 @@ function friezePatternDirective($window) {
         scope.paper = null;
         scope.friezePattern = null;
         /* transforms is an object of transformation functions (generators)
-            {
-                FundamentalDomain: (optional) [list of (function) transforms]
-                X: (function) transform along the X-axis
-            }
+        {
+            FundamentalDomain: (optional) [list of (function) transforms]
+            X: (function) transform along the X-axis
+        }
         */
         scope.transforms = {};
+        // pattern space height computed for each pattern group and used
+        // to set height of paper, draw symmetry lines, and determine offsets for transforms.
         scope.patternSpaceHeight = null;
         // object mapping symmetryName -> Set of symmetries
         // eg, {g: paper.Set([line1, line2]), h1: paper.Set([line1, line2]), v1: paper.Set([line1, line2]), }
@@ -107,7 +109,7 @@ function friezePatternDirective($window) {
 
         scope.p1Handler = function() {
             scope.transforms = {
-                X: transforms.getTranslationH
+                X: transforms.translateH
             };
             scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
 
@@ -118,7 +120,7 @@ function friezePatternDirective($window) {
         scope.p11mHandler = function() {
             scope.transforms = {
                 FundamentalDomain: [transforms.mirrorH],
-                X: transforms.getTranslationH
+                X: transforms.translateH
             };
             // multiply by 2 because there is a horizontal reflection
             scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin);
@@ -136,11 +138,10 @@ function friezePatternDirective($window) {
             // "Vertical Reflection only"
             // getMirrorV generator used twice because:
             //  - there are two mirror lines
-            //  - double transformation should be considered single
-            //    unit for click -> regeneration target (bug otherwise)
+            //  - double transformation should be considered single unit for click -> regeneration target (bug otherwise)
             scope.transforms = {
                 FundamentalDomain: [transforms.mirrorV],
-                X: transforms.getMirrorV
+                X: transforms.mirrorV
             };
 
             scope.patternSpaceHeight = (scope.fundamentalDomainHeight + scope.margin);
@@ -166,7 +167,7 @@ function friezePatternDirective($window) {
             // "Glide Reflection only"
             scope.transforms = {
                 FundamentalDomain: [transforms.glideH],
-                X: transforms.getTranslationH
+                X: transforms.translateH
             };
 
             // create H mirror within fundamental domain
@@ -192,7 +193,7 @@ function friezePatternDirective($window) {
             // "Order-2 Rotations"
             scope.transforms = {
                 FundamentalDomain: [transforms.order2Rotation],
-                X: transforms.getTranslationH // TODO: use order2Rotation again?
+                X: transforms.translateH // TODO: use order2Rotation again?
             };
 
             let rotationOffsetYFraction = isNumeric(scope.drawOptions.rotationOffset) ? scope.drawOptions.rotationOffset : (1/4);
@@ -228,7 +229,7 @@ function friezePatternDirective($window) {
             // "Vertical Reflection + (Glide Reflection || Order-2 Rotations)"
             scope.transforms = {
                 FundamentalDomain: [transforms.mirrorV, transforms.glideH],
-                X: transforms.getTranslationH 
+                X: transforms.translateH 
             };
 
             // create H mirror within fundamental domain
@@ -283,7 +284,7 @@ function friezePatternDirective($window) {
             // patternDescription = "Horizontal Reflection + Vertical Reflections + Order-2 Rotations + Translation";
             scope.transforms = {
                 FundamentalDomain: [transforms.mirrorH, transforms.mirrorV],
-                X: transforms.getMirrorV
+                X: transforms.mirrorV
             };
             // multiply by 2 because there is a horizontal reflection
             scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin);

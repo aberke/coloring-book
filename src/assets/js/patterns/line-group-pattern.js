@@ -44,10 +44,7 @@ class LineGroupPattern {
         this.stroke = options.stroke || DEFAULT_STROKE_COLOR;
         this.strokeWidth = options.strokeWidth || DEFAULT_STROKE_WIDTH;
 
-        // The animation for the first transforms is intentionally slower than
-        // the ending recursive transforms in order to better illustrate what is happening.
-        this.beginAnimateMs = (!DISABLE_ANIMATIONS) ? 1000 : 0;
-        this.endAnimateMs = (!DISABLE_ANIMATIONS) ? 500 : 0;
+        this.options.animateMs = (!DISABLE_ANIMATIONS) ? 700 : 0;
 
         this.draw();
     }
@@ -150,15 +147,20 @@ class LineGroupPattern {
     }
 
     /*
-    The transformations of the fundamental domain exist within a FLAT path set.
+    The transformations of the fundamental domain is maintained as a FLAT path set.
     This function iteratively appends paths to the path set.  For each fundamental domain
     transform function, it takes the current working path set and passes it to
     the transform function with returns a transformed clone of the original path set.
     Each of the paths in that transformed path set are appended to the original path set.
+
+    E.g. For transforms.FundamentalDomain: [t1, t2]
+    Working pathSet:  [{fd=fundamentalDomain}]
+                      [{fd=fundamentalDomain}, {t1(fd)}]
+                      [{fd=fundamentalDomain}, {t1(fd)}, {t2(fd)}, {t2(t1(fd))}]
     */
     transformFundamentalDomain(pathSet, callback) {
         let transforms = this.transforms.FundamentalDomain || [];
-        let transformOptions = Object.assign({animateMs: this.beginAnimateMs}, this.options);
+        let transformOptions = this.options;
 
         let transformNext = function(i, pathSet) {
             if (i == transforms.length)
@@ -187,32 +189,29 @@ class LineGroupPattern {
         let terminateCheck = this.stopTransformY.bind(this);
         return this.transformAlongAxis(workingSet, this.transforms.Y, terminateCheck, callback);
     }
-    // TODO: after have fundamentalDomainTransform, refactor this
     /*
     Transforms path set across paper
     @workingSet: set of paths to transform
     @transformGetter: function to get transformation for the path set
     @terminateCheck: function that returns boolean indicating whether to terminate recursion
-    @terminateCallback: function called with final path set when done transforming - i.e. termination/base case met
+    @terminateCallback: function called with final path set when done transforming - i.e. terminationCheck/base case met
     */
-    transformAlongAxis(workingSet, transformGetter, terminateCheck, terminateCallback) {
-        // Always get the last item, clone it, and translate it
-        // Add translations to new set: translationSet =: [paperSet]
+    transformAlongAxis(workingSet, transform, terminateCheck, terminateCallback) {
+        // Iteratively get the last item, clone it, and tranform it
         let transformSet = this.paper.set().push(workingSet);
+        let transformOptions = this.options;
         
-        let drawNext = (function(i, transformSet) {
+        let drawNext = function(i, transformSet) {
             if (terminateCheck(transformSet))
                 return terminateCallback(transformSet);
 
             let lastItem = transformSet[transformSet.length - 1];
             let nextItem = lastItem.clone();
-            let transformString = "..." + transformGetter(nextItem, this.options);
-
-            let animateCallback = function() {
+            let transformCallback = function() {
                 drawNext(i + 1, transformSet.push(nextItem));
             };
-            nextItem.animate({transform: transformString}, this.endAnimateMs, "<", animateCallback);
-        }).bind(this);
+            transform(nextItem, transformCallback, transformOptions);
+        };
         drawNext(0, transformSet);
     }
 
@@ -231,71 +230,11 @@ class LineGroupPattern {
         throw new Error('Not implemented');
     }
 
-    /* Abstract class method */
-    draw() {
-        throw new Error('Not implemented');
-    }
-}
-
-
-class FriezePattern extends LineGroupPattern {
-
-    redraw() {
-        // while redrawing, remove the opacity attribute and 'clickable-ness'
-        this.removePaperSetHandlers();
-        let bBox = this.paperSet.getBBox();
-        let offsetX = (bBox.x2 > 0) ? bBox.x2 : 0;
-        this.draw(offsetX);
-        analytics.trackRedraw('FriezePattern');
-    }
-
-    draw(offsetX=0) {
-        // draw the pattern starting at offsetX:
-        // copy the fundamentalDomain
-        // transform it to live at spot
-        let basePath = this.paper.path(this.fundamentalDomainPath);
-
-        // translate it to the xOffset so that is where newly added fundamental domain begins.
-        // (relevent for redrawing)
-        basePath.transform([
-            "...T",
-            String(offsetX),
-            ",0"
-        ].join());
-
-        // apply styling attributes
-        basePath.attr({
-            'stroke': this.stroke,
-            'stroke-width': this.strokeWidth,
-        });
-        let workingSet = this.paper.set().push(basePath);
-
-        // Apply the transforms.
-        // Add color + interactions afterwards.
-        let transformXCallback = this.drawCallback.bind(this);
-        let transformFDCallback = (function(workingSet) {
-            this.transformX(workingSet, transformXCallback);
-        }).bind(this);
-        this.transformFundamentalDomain(workingSet, transformFDCallback);
-    }
-}
-
-class WallpaperPattern extends LineGroupPattern {
-
-    redraw() {
-        // while redrawing, remove the opacity attribute and 'clickable-ness'
-        this.removePaperSetHandlers();
-        let bBox = this.paperSet.getBBox();
-        let offsetX = (bBox.x2 > 0) ? bBox.x2 : 0;
-        let offsetY = (bBox.y2 > 0) ? bBox.y2 : 0;
-        this.draw(offsetX, offsetY);
-        analytics.trackRedraw('WallpaperPattern');
-    }
-
     draw(offsetX=0, offsetY=0) {
+        // (offsetY only relevant for Wallpaper pattern, not Frieze).
         // draw the pattern starting at x,y coordinate that suits offsetX, offsetY:
         // copy the fundamentalDomain
-        // transform it to live at spot
+        // transform it to start at offset
         let basePath = this.paper.path(this.fundamentalDomainPath);
         let maxWidth = this.maxTransformWidth(basePath);
         let transformString = [
@@ -312,18 +251,51 @@ class WallpaperPattern extends LineGroupPattern {
             "stroke-width": this.strokeWidth,
         });
 
-        // Apply the generators in order and recursively repeat the last one
         let workingSet = this.paper.set().push(basePath);
 
-        // TODO: use promise?
-        let transformYCallback = this.drawCallback.bind(this);
-        let transformXCallback = (function(workingSet) {
-            this.transformY(workingSet, transformYCallback);
-        }).bind(this);
-
+        // Set up the transforms & callbacks chain. TODO: use promise?
+        // Frieze function calls:
+        //    transformFundamentalDomain -> transformX -> drawCallback
+        // Wallpaper function calls:
+        //    transformFundamentalDomain -> transformX -> transformY -> drawCallback
+        let finalCallback = this.drawCallback.bind(this);
+        let transformXCallback;
+        if (!this.transforms.Y)
+            transformXCallback = finalCallback;
+        else
+            transformXCallback = (function(workingSet) { this.transformY(workingSet, finalCallback); }).bind(this);
+        
         let transformFDCallback = (function(workingSet) {
             this.transformX(workingSet, transformXCallback);
         }).bind(this);
+        // Apply the transforms.
+        // Add color + interactions afterwards.
         this.transformFundamentalDomain(workingSet, transformFDCallback);
+    }
+}
+
+
+class FriezePattern extends LineGroupPattern {
+
+    redraw() {
+        // while redrawing, remove the opacity attribute and 'clickable-ness'
+        this.removePaperSetHandlers();
+        let bBox = this.paperSet.getBBox();
+        let offsetX = (bBox.x2 > 0) ? bBox.x2 : 0;
+        this.draw(offsetX);
+        analytics.trackRedraw('FriezePattern');
+    }
+}
+
+class WallpaperPattern extends LineGroupPattern {
+
+    redraw() {
+        // while redrawing, remove the opacity attribute and 'clickable-ness'
+        this.removePaperSetHandlers();
+        let bBox = this.paperSet.getBBox();
+        let offsetX = (bBox.x2 > 0) ? bBox.x2 : 0;
+        let offsetY = (bBox.y2 > 0) ? bBox.y2 : 0;
+        this.draw(offsetX, offsetY);
+        analytics.trackRedraw('WallpaperPattern');
     }
 }
