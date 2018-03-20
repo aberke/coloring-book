@@ -6,7 +6,9 @@ function WallpaperPageCntl($location) {
 	// view model is this WallpaperPageCntl
 	let vm = this;
 
-	vm.wallpaperGroupNames = ["p1", "pm", "pg", "cm", "p2", "pmm"];
+	vm.wallpaperGroupNames = [
+		"p1", "pm", "pg", "cm", "p2", "pgg", "pmg", "pmm", "cmm", "p4", "p4g", "p4m"
+	];
 
 	vm.selectedGroupName = $location.search().group || "p1";
 
