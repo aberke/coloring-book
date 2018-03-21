@@ -26,25 +26,6 @@ function flattenedList(toFlatten) {
     return toReturn;
 }
 
-/*
-Checks if passed in rotational degrees are valid
-
-@param {string | number} degrees
-@returns {boolean}
-**/
-function isValidRotateDeegrees(rotateDegrees) {
-    return (0 <= Number(rotateDegrees) && Number(rotateDegrees));
-}
-
-// TODO: move this to transforms.js
-function getRotateDegreesTransformString(origin, rotateDegrees) {
-    return [
-        "...R" + String(rotateDegrees),
-        origin.X,
-        origin.Y,
-    ].join(",");
-}
-
 function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }

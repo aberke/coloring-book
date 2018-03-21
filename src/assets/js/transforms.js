@@ -296,13 +296,39 @@ const transforms = (function() {
         return "S-1,1," + String(mirrorX) + ",0";
     }
 
+    /*
+    Returns (string) transform for rotation of given rotational order around origin.
+    */
     function getRotation(origin, rotationalOrder) {
-        const rotateDegrees = 360/rotationalOrder;
+        return getRotationByDegrees(origin, 360/rotationalOrder);
+    }
+
+
+    /*
+    Returns (string) transform for rotation of given degrees order around origin.
+    */
+    function getRotationByDegrees(origin, rotateDegrees) {
+        if (!isValidRotateDegrees(rotateDegrees)) {
+            console.error("Invalid rotate degrees: ", rotateDegrees);
+            return "";
+        }
         return [
             "R" + String(rotateDegrees),
             origin.X,
             origin.Y,
         ].join(",");
+    }
+
+
+    /*
+    (Private)
+    Checks if passed in rotational degrees are valid.
+
+    @param {string | number} degrees
+    @returns {boolean}
+    **/
+    function isValidRotateDegrees(rotateDegrees) {
+        return (0 <= Number(rotateDegrees));
     }
 
     return {
@@ -323,6 +349,10 @@ const transforms = (function() {
         translateV: translateV,
 
         // Other utility transformations
-        getRotation: getRotation
+        getRotation: getRotation,
+        getRotationByDegrees: getRotationByDegrees,
+
+        // Utilities
+        isValidRotateDegrees: isValidRotateDegrees
     };
 }());

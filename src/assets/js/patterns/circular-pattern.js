@@ -140,7 +140,6 @@ class CircularPattern {
 			return;
 		// set a flag that this shape is currently drawing
 		this.drawing = true;
-		const rotationDegrees = 360/this.rotations;
 
 		// use recursive routine to draw each rotated line of the circular pattern
 		let drawNextRotation = function(r) {
@@ -152,6 +151,7 @@ class CircularPattern {
 
             // newLine will be the fundamental domain, maybe cloned and transformed
             let newLine;
+            let transformString; // string defining the transform of the newLine
             let callback = function() {
                 // Add the new line and recursively call again for next rotation, r
                 this.pathSet.push(newLine);
@@ -159,22 +159,27 @@ class CircularPattern {
             }.bind(this);
 
             if (r == 0) {
+            	// Draw the first line as the fundamental domain line in its initial position.
                 newLine = this.getFundamentalDomainLine();
+            	if (this.initialRotation > 0) {
+            		transformString = "..." + transforms.getRotationByDegrees(this.origin, this.initialRotation);
+            		newLine.transform(transformString);
+            	}
                 return callback();
             }
 
             newLine = this.pathSet.items[r - 1].clone();
-            let transform = getRotateDegreesTransformString(this.origin, rotationDegrees);
+            transformString = "..." + transforms.getRotation(this.origin, this.rotations);
 
             // maybe animate rotating the newLine
             // avoid using .animate for this.animateMs=0 because there will still be a small delay
             if (this.animateMs > 0) {
             	let animateInterval = Math.max(this.animateMs/this.rotations, 350);
-                return newLine.animate({transform: transform}, animateInterval, callback);
+                return newLine.animate({transform: transformString}, animateInterval, callback);
             }
 
             // Without animation simply apply transform
-            newLine.transform(transform);
+            newLine.transform(transformString);
             return callback();
         }.bind(this);
 
@@ -199,7 +204,6 @@ class CircularPattern {
     @returns Paper.set() of paths of line
     */
     getFundamentalDomainLine() {
-
         if (this.fundamentalDomain)
             return this.fundamentalDomain.clone();
 
@@ -222,10 +226,6 @@ class CircularPattern {
                 ["s", Math.pow(this.scaleFactor, l), Math.pow(this.scaleFactor, l), this.origin.X, this.origin.Y],
             ];
             nextSlicesPath.transform(transformList);
-            // rotate by initial rotation
-            if (this.initialRotation > 0)
-                nextSlicesPath.transform(getRotateDegreesTransformString(this.origin, this.initialRotation));
-            
             this.fundamentalDomain.push(nextSlicesPath);
         }
         return this.fundamentalDomain;
