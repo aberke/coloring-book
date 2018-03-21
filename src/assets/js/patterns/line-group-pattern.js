@@ -171,7 +171,7 @@ class LineGroupPattern {
             let transform = transforms[i];
             let transformCallback = function(transformedPathSet) {
                 // keep the path set flat - i.e. avoid sets within sets.
-                let flatTransformedPathSet = flattenedList(transformedPathSet);
+                let flatTransformedPathSet = util.flattenedList(transformedPathSet);
                 flatTransformedPathSet.forEach((elt) => { pathSet.push(elt); });
                 transformNext(i + 1, pathSet);
             };
