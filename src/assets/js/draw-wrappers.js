@@ -193,22 +193,18 @@ function setTapReflect(paper, pathSet, origin, mirror) {
     pathSet.attr({"class": "clickable"});
 }
 
-function setInitialRotation(pathSet, origin, rotation) {
-    if (rotation <= 0)
+function setInitialRotation(pathSet, origin, rotateDegrees) {
+    if (rotateDegrees <= 0 || !transforms.isValidRotateDegrees(rotateDegrees))
         return;
 
-    pathSet.transform([
-        "...R" + String(rotation),
-        String(origin.X),
-        String(origin.Y),
-    ].join(","));   
+    pathSet.transform("..." + transforms.getRotationByDegrees(origin, rotateDegrees));   
 }
 
 function setTapRotate(paper, pathSet, origin, rotateDegrees) {
-    if (!isValidRotateDeegrees(rotateDegrees))
+    if (rotateDegrees <= 0 || !transforms.isValidRotateDegrees(rotateDegrees))
         return;
 
-    let transformString = getRotateDegreesTransformString(origin, rotateDegrees);
+    let transformString = "..." + transforms.getRotationByDegrees(origin, rotateDegrees);
     paper.canvas.addEventListener("mouseup", function() {
         if (pathSet.isRotating)
             return; // avoid rotating if already rotating
@@ -221,11 +217,11 @@ function setTapRotate(paper, pathSet, origin, rotateDegrees) {
     pathSet.attr({"class": "clickable"});
 }
 
-function setAutoRotate(pathSet, origin, autoRotateDegrees) {
-    if (!isValidRotateDeegrees(autoRotateDegrees))
+function setAutoRotate(pathSet, origin, rotateDegrees) {
+    if (rotateDegrees <= 0 || !transforms.isValidRotateDegrees(rotateDegrees))
         return;
 
-    let transformString = getRotateDegreesTransformString(origin, autoRotateDegrees);
+    let transformString = "..." + transforms.getRotationByDegrees(origin, rotateDegrees);
     let onIntervalFunction = function() {
         pathSet.animate({transform: transformString}, ANIMATION_LENGTH);
     };
