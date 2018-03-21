@@ -90,8 +90,8 @@ function friezePatternDirective($window) {
 
         // Draws h1 symmetry lines
         scope.setupH1SymmetrySet = function(h1Y, hGap) {
-            let h1Set = drawXaxis(scope.paper, h1Y, hGap);
-            addSymmetrySetProperties(h1Set, SYMMETRY_SET_STYLES.h1);
+            let h1Set = util.drawXaxis(scope.paper, h1Y, hGap);
+            util.addSymmetrySetProperties(h1Set, SYMMETRY_SET_STYLES.h1);
             scope.symmetrySets.h1 = h1Set;
         };
 
@@ -153,11 +153,11 @@ function friezePatternDirective($window) {
             // draw v1's & v2's
             // space v-lines by 2*width of fundamental domain
             let vGap = (2*scope.fundamentalDomainWidth);
-            let v1Set = drawYAxesSet(scope.paper, 0, vGap);
-            let v2Set = drawYAxesSet(scope.paper, scope.fundamentalDomainWidth, vGap);
+            let v1Set = util.drawYAxesSet(scope.paper, 0, vGap);
+            let v2Set = util.drawYAxesSet(scope.paper, scope.fundamentalDomainWidth, vGap);
 
-            addSymmetrySetProperties(v1Set, SYMMETRY_SET_STYLES.v1);
-            addSymmetrySetProperties(v2Set, SYMMETRY_SET_STYLES.v2);
+            util.addSymmetrySetProperties(v1Set, SYMMETRY_SET_STYLES.v1);
+            util.addSymmetrySetProperties(v2Set, SYMMETRY_SET_STYLES.v2);
             scope.symmetrySets.v1 = v1Set;
             scope.symmetrySets.v2 = v2Set;
         };
@@ -183,8 +183,8 @@ function friezePatternDirective($window) {
 
             // draw the symmetry set
             let glideStartY = scope.fundamentalDomainHeight + scope.margin - mirrorHOffset;
-            let glideSet = drawXaxis(scope.paper, glideStartY)
-            addSymmetrySetProperties(glideSet, SYMMETRY_SET_STYLES.g);
+            let glideSet = util.drawXaxis(scope.paper, glideStartY)
+            util.addSymmetrySetProperties(glideSet, SYMMETRY_SET_STYLES.g);
             scope.symmetrySets.g = glideSet;
         };
 
@@ -196,7 +196,7 @@ function friezePatternDirective($window) {
                 X: transforms.translateH // TODO: use order2Rotation again?
             };
 
-            let rotationOffsetYFraction = isNumeric(scope.drawOptions.rotationOffset) ? scope.drawOptions.rotationOffset : (1/4);
+            let rotationOffsetYFraction = util.isNumeric(scope.drawOptions.rotationOffset) ? scope.drawOptions.rotationOffset : (1/4);
             let rotationOffsetY = (rotationOffsetYFraction)*(scope.fundamentalDomainHeight);
 
             scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin - rotationOffsetY);
@@ -216,10 +216,10 @@ function friezePatternDirective($window) {
             };
             let rotationPointSetGapX = 2*scope.fundamentalDomainWidth;
 
-            let rotationPointSet1 = drawOrder2RotationPointSet(scope.paper, rotationPointSet1Start, rotationPointSetGapX);
-            let rotationPointSet2 = drawOrder2RotationPointSet(scope.paper, rotationPointSet2Start, rotationPointSetGapX);
-            addSymmetrySetProperties(rotationPointSet1, SYMMETRY_SET_STYLES.r1);
-            addSymmetrySetProperties(rotationPointSet2, SYMMETRY_SET_STYLES.r2);
+            let rotationPointSet1 = util.drawOrder2RotationPointSet(scope.paper, rotationPointSet1Start, rotationPointSetGapX);
+            let rotationPointSet2 = util.drawOrder2RotationPointSet(scope.paper, rotationPointSet2Start, rotationPointSetGapX);
+            util.addSymmetrySetProperties(rotationPointSet1, SYMMETRY_SET_STYLES.r1);
+            util.addSymmetrySetProperties(rotationPointSet2, SYMMETRY_SET_STYLES.r2);
             scope.symmetrySets.r1 = rotationPointSet1;
             scope.symmetrySets.r2 = rotationPointSet2;
         };
@@ -245,19 +245,19 @@ function friezePatternDirective($window) {
 
             // draw the symmetry sets
             let glideStartY = scope.fundamentalDomainHeight + scope.margin - mirrorHOffset;
-            let glideSet = drawXaxis(scope.paper, glideStartY);
+            let glideSet = util.drawXaxis(scope.paper, glideStartY);
 
-            addSymmetrySetProperties(glideSet, SYMMETRY_SET_STYLES.g);
+            util.addSymmetrySetProperties(glideSet, SYMMETRY_SET_STYLES.g);
             scope.symmetrySets.g = glideSet;
 
             // draw v1"s & v2"s
             // space v-lines by 2*width of fundamental domain
             var vGap = 4*(scope.fundamentalDomainWidth);
-            var v1Set = drawYAxesSet(scope.paper, 3*(scope.fundamentalDomainWidth), vGap);
-            var v2Set = drawYAxesSet(scope.paper, scope.fundamentalDomainWidth, vGap);
+            var v1Set = util.drawYAxesSet(scope.paper, 3*(scope.fundamentalDomainWidth), vGap);
+            var v2Set = util.drawYAxesSet(scope.paper, scope.fundamentalDomainWidth, vGap);
 
-            addSymmetrySetProperties(v1Set, SYMMETRY_SET_STYLES.v1);
-            addSymmetrySetProperties(v2Set, SYMMETRY_SET_STYLES.v2);
+            util.addSymmetrySetProperties(v1Set, SYMMETRY_SET_STYLES.v1);
+            util.addSymmetrySetProperties(v2Set, SYMMETRY_SET_STYLES.v2);
             scope.symmetrySets.v1 = v1Set;
             scope.symmetrySets.v2 = v2Set;
 
@@ -272,10 +272,10 @@ function friezePatternDirective($window) {
             };
             let rotationPointSetGapX = 4*scope.fundamentalDomainWidth;
 
-            let rotationPointSet1 = drawOrder2RotationPointSet(scope.paper, rotationPointSet1Start, rotationPointSetGapX);
-            let rotationPointSet2 = drawOrder2RotationPointSet(scope.paper, rotationPointSet2Start, rotationPointSetGapX);
-            addSymmetrySetProperties(rotationPointSet1, SYMMETRY_SET_STYLES.r1);
-            addSymmetrySetProperties(rotationPointSet2, SYMMETRY_SET_STYLES.r2);
+            let rotationPointSet1 = util.drawOrder2RotationPointSet(scope.paper, rotationPointSet1Start, rotationPointSetGapX);
+            let rotationPointSet2 = util.drawOrder2RotationPointSet(scope.paper, rotationPointSet2Start, rotationPointSetGapX);
+            util.addSymmetrySetProperties(rotationPointSet1, SYMMETRY_SET_STYLES.r1);
+            util.addSymmetrySetProperties(rotationPointSet2, SYMMETRY_SET_STYLES.r2);
             scope.symmetrySets.r1 = rotationPointSet1;
             scope.symmetrySets.r2 = rotationPointSet2;
         };
@@ -299,11 +299,11 @@ function friezePatternDirective($window) {
             // draw v1"s & v2"s
             // space v-lines by 2*width of fundamental domain
             let vGap = (2*scope.fundamentalDomainWidth);
-            let v1Set = drawYAxesSet(scope.paper, 0, vGap);
-            let v2Set = drawYAxesSet(scope.paper, scope.fundamentalDomainWidth, vGap);
+            let v1Set = util.drawYAxesSet(scope.paper, 0, vGap);
+            let v2Set = util.drawYAxesSet(scope.paper, scope.fundamentalDomainWidth, vGap);
 
-            addSymmetrySetProperties(v1Set, SYMMETRY_SET_STYLES.v1);
-            addSymmetrySetProperties(v2Set, SYMMETRY_SET_STYLES.v2);
+            util.addSymmetrySetProperties(v1Set, SYMMETRY_SET_STYLES.v1);
+            util.addSymmetrySetProperties(v2Set, SYMMETRY_SET_STYLES.v2);
             scope.symmetrySets.v1 = v1Set;
             scope.symmetrySets.v2 = v2Set;
 
@@ -318,10 +318,10 @@ function friezePatternDirective($window) {
             };
             let rotationPointSetGapX = 2*scope.fundamentalDomainWidth;
 
-            let rotationPointSet1 = drawOrder2RotationPointSet(scope.paper, rotationPointSet1Start, rotationPointSetGapX);
-            let rotationPointSet2 = drawOrder2RotationPointSet(scope.paper, rotationPointSet2Start, rotationPointSetGapX);
-            addSymmetrySetProperties(rotationPointSet1, SYMMETRY_SET_STYLES.r1);
-            addSymmetrySetProperties(rotationPointSet2, SYMMETRY_SET_STYLES.r2);
+            let rotationPointSet1 = util.drawOrder2RotationPointSet(scope.paper, rotationPointSet1Start, rotationPointSetGapX);
+            let rotationPointSet2 = util.drawOrder2RotationPointSet(scope.paper, rotationPointSet2Start, rotationPointSetGapX);
+            util.addSymmetrySetProperties(rotationPointSet1, SYMMETRY_SET_STYLES.r1);
+            util.addSymmetrySetProperties(rotationPointSet2, SYMMETRY_SET_STYLES.r2);
             scope.symmetrySets.r1 = rotationPointSet1;
             scope.symmetrySets.r2 = rotationPointSet2;
         };
