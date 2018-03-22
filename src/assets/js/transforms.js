@@ -184,23 +184,6 @@ const transforms = (function() {
         return composedMatrixString;
     }
 
-
-    /*
-    Constructor for the transformation string for order-2 rotation that extends pathSet
-    in the horizontal direction.
-    @pathSet: (Paper.path | Paper.set) to construct transformation from
-    @options: Dict of optional items:
-
-    Returns (String) transformation
-    */
-    // TODO: maybe stop using this? or generalize for both H and V direction?
-    function getOrder2RotationH(pathSet, options={}) {
-        let bbox = pathSet.getBBox();
-        let rotationOffsetX = options.rotationOffsetX || 0;
-        let rotationOffsetY = options.rotationOffsetY || 0;
-        return "R180," + String(bbox.x2 - rotationOffsetX) + "," + String(bbox.y2 - rotationOffsetY);
-    }
-
     /*
     Constructor for horizontal translation transform string
     @pathSet: (Paper.path | Paper.set) to construct transformation from
@@ -332,13 +315,6 @@ const transforms = (function() {
     }
 
     return {
-        getGlideH: getGlideH,
-        getMirrorH: getMirrorH,
-        getMirrorV: getMirrorV,
-        getTranslationH: getTranslationH,
-        getTranslationV: getTranslationV,
-        getOrder2RotationH: getOrder2RotationH,
-
         // Fundamental domain transforms:
         order2Rotation: order2Rotation,
         order4Rotation: order4Rotation,
