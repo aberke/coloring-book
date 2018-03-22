@@ -164,6 +164,8 @@ const transforms = (function() {
         /*
         TODO: Use proper matrix multiplication.
 
+        // TODO: change all of these transform getters to return Matrices.
+
         Hack until then...
             Problem: Want to perform complex transform that is multiple parts,
             but want it to animate as one seamless movement rather than the sequence
@@ -172,33 +174,27 @@ const transforms = (function() {
             animation, grab the final transform matrix, delete cloned element, and then use
             final transform matrix to animate element we actually want to transform.
         */
-        let composedTransformString = [
-            matrix.getString(pathMatrixInverse),
-            transformString,
-            matrix.getString(pathMatrix)
-        ].join(",");
+        console.log('getComposedTransform', 'transformString:', transformString)
+        console.log('pathMatrixInverse', pathMatrixInverse)
+        console.log('pathMatrix', pathMatrix)
+        console.log('matrix.rightMultiply(pathMatrix, pathMatrixInverse)', matrix.rightMultiply(pathMatrix, pathMatrixInverse))
+
+        let composedMatrix = matrix.rightMultiply(pathMatrix, matrix.rightMultiply(transformString, pathMatrixInverse));
+        console.log('composedMatrix', composedMatrix)
+        let composedMatrixString = matrix.getString(composedMatrix)
+        console.log('composedMatrixString', composedMatrixString)
+
+        // let composedTransformString = [
+        //     matrix.getString(pathMatrixInverse),
+        //     transformString,
+        //     matrix.getString(pathMatrix)
+        // ].join(",");
         let pathClone = path.clone();
-        pathClone.transform("..." + composedTransformString);
-        let composedMatrixString = matrix.getString(pathClone.matrix);
+        pathClone.transform("..." + composedMatrixString);
+        // pathClone.transform("..." + composedTransformString);
+        let composedTransformString = matrix.getString(pathClone.matrix);
         pathClone.remove();
-        return composedMatrixString;
-    }
-
-
-    /*
-    Constructor for the transformation string for order-2 rotation that extends pathSet
-    in the horizontal direction.
-    @pathSet: (Paper.path | Paper.set) to construct transformation from
-    @options: Dict of optional items:
-
-    Returns (String) transformation
-    */
-    // TODO: maybe stop using this? or generalize for both H and V direction?
-    function getOrder2RotationH(pathSet, options={}) {
-        let bbox = pathSet.getBBox();
-        let rotationOffsetX = options.rotationOffsetX || 0;
-        let rotationOffsetY = options.rotationOffsetY || 0;
-        return "R180," + String(bbox.x2 - rotationOffsetX) + "," + String(bbox.y2 - rotationOffsetY);
+        return composedTransformString;
     }
 
     /*
@@ -337,7 +333,6 @@ const transforms = (function() {
         getMirrorV: getMirrorV,
         getTranslationH: getTranslationH,
         getTranslationV: getTranslationV,
-        getOrder2RotationH: getOrder2RotationH,
 
         // Fundamental domain transforms:
         order2Rotation: order2Rotation,

@@ -32,7 +32,7 @@ const matrix = (function() {
 
     /*
     Multiplies two Raphael.Matrix objects that represent path transforms.
-    Returns result Raphael.matrix(a, b, c, d, e, f)
+    Returns result of m1*m2 as Raphael.matrix(a, b, c, d, e, f)
     */
     function rightMultiply(m1, m2) {
         return Raphael.matrix(
