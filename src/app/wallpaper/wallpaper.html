@@ -7,6 +7,14 @@
                 <span ng-class="{active:wallpaperPage.selectedGroupName==groupName}" class="clickable">{{groupName}}</span>
             </li>
         </ul>
+        <!-- TODO: Show this and allow choosing -->
+        <h3>Patterns</h3>
+        <ul>
+            <li ng-repeat="drawPathFunction in wallpaperPage.drawPathFunctions" ng-click="wallpaperPage.selectDrawPathFunction(drawPathFunction.name)">
+                <!-- TODO: Draw pattern as clickable option -->
+                <span ng-class="{active:wallpaperPage.selectedDrawPathFunction.name==drawPathFunction.name}" class="clickable">{{drawPathFunction.name}}</span>
+            </li>
+        </ul>
     </nav>
 
     <div ng-repeat="groupName in wallpaperPage.wallpaperGroupNames" ng-click="wallpaperPage.selectGroup(groupName)" class="wallpaper-pattern-container">
@@ -20,11 +28,11 @@
             </div>
 
             <wallpaper-pattern
-                style="max-height: 400px;"
-                pattern-function='trianglesPath2'
+                style="max-height: 600px;"
+                pattern-function='{{drawPathFunction}}'
                 group-name='{{ groupName }}'
-                fundamental-domain-width=80
-                fundamental-domain-height=70
+                fundamental-domain-width=60
+                fundamental-domain-height=60
             ></wallpaper-pattern>
 
         </div>

@@ -23,9 +23,17 @@ class LineGroupPattern {
             X: (function) transform
             Y: (optional) (function) transform
         }
-    @param {object} options
+    @param (optional) {object} transformOptions
+        Map of functions that transform the fundamental domain for a central set,
+        and along the X and Y axes:
+        {
+            FundamentalDomain: [list of {options} objects for each FundamentalDomain transform]
+            X: {options} object for X transform
+            Y: {options} object for Y transform
+        }
+    @param (optional) {object} drawOptions
     */
-    constructor(paper, fundamentalDomainPath, transforms, options) {
+    constructor(paper, fundamentalDomainPath, transforms, transformOptions={}, drawOptions={}) {
         
         if (this.constructor === LineGroupPattern) {
             throw new TypeError('Abstract class "LineGroupPattern" cannot be instantiated directly.'); 
@@ -37,14 +45,15 @@ class LineGroupPattern {
         this.transforms = transforms;
 
         // handle options
-        this.options = options || {};
-        this.id = options.id || 'anonymous';
+        this.transformOptions = transformOptions;
+        this.drawOptions = drawOptions;
+        this.id = drawOptions.id || 'anonymous';
         // add styling options
-        this.fill = options.fill || DEFAULT_FILL;
-        this.stroke = options.stroke || DEFAULT_STROKE_COLOR;
-        this.strokeWidth = options.strokeWidth || DEFAULT_STROKE_WIDTH;
+        this.fill = drawOptions.fill || DEFAULT_FILL;
+        this.stroke = drawOptions.stroke || DEFAULT_STROKE_COLOR;
+        this.strokeWidth = drawOptions.strokeWidth || DEFAULT_STROKE_WIDTH;
 
-        this.options.animateMs = (!DISABLE_ANIMATIONS) ? 700 : 0;
+        this.animateMs = (!DISABLE_ANIMATIONS) ? 700 : 0;
 
         this.draw();
     }
@@ -103,7 +112,7 @@ class LineGroupPattern {
 
         // Allow the option to avoid drawing past the boundary of the containing div:
         // If contained is true, stop drawing before hit boundary of the containing div
-        let contain = this.options.contain || false;
+        let contain = this.drawOptions.contain || false;
         // Need buffer room in the containing bounds because these dimensions are not precise
         // and without buffer pattern will stop prematurely.
         let containerBuffer = 5;
@@ -138,7 +147,7 @@ class LineGroupPattern {
 
         // Allow the option to avoid drawing past the boundary of the containing div:
         // If contained is true, stop drawing before hit boundary of the containing div
-        let contain = this.options.contain || false;
+        let contain = this.drawOptions.contain || false;
         // Need some buffer room in the containing bounds because these dimensions are not precise
         // and without buffer pattern will stop prematurely.
         let containerBuffer = 5;
@@ -159,16 +168,19 @@ class LineGroupPattern {
                       [{fd=fundamentalDomain}, {t1(fd)}, {t2(fd)}, {t2(t1(fd))}]
     */
     transformFundamentalDomain(pathSet, callback) {
-        let transforms = this.transforms.FundamentalDomain || [];
-        let transformOptions = this.options;
+        let fdTransforms = this.transforms.FundamentalDomain || [];
+        let transformOptions = this.transformOptions.FundamentalDomain;
+        let animateOptions = {animateMs: this.animateMs};
 
         let transformNext = function(i, pathSet) {
-            if (i == transforms.length)
+            if (i == fdTransforms.length)
                 return callback(pathSet);
 
             // The returned transformed path set is a transformed clone of the
             // original pathSet. 
-            let transform = transforms[i];
+            let transform = fdTransforms[i];
+            let options = (transformOptions.length > i) ? transformOptions[i] : {};
+            options = Object.assign(options, animateOptions);
             let transformCallback = function(transformedPathSet) {
                 // keep the path set flat - i.e. avoid sets within sets.
                 let flatTransformedPathSet = util.flattenedList(transformedPathSet);
@@ -176,31 +188,34 @@ class LineGroupPattern {
                 transformNext(i + 1, pathSet);
             };
             let pathSetClone = pathSet.clone();
-            transform(pathSetClone, transformCallback, transformOptions);
+            transform(pathSetClone, transformCallback, options);
         };
         transformNext(0, pathSet);
     }
 
     transformX(workingSet, callback) {
         let terminateCheck = this.stopTransformX.bind(this);
-        return this.transformAlongAxis(workingSet, this.transforms.X, terminateCheck, callback);
+        let transforms = this.transforms.X;
+        let transformOptions = Object.assign(this.transformOptions.X || {}, {animateMs: this.animateMs});
+        return this.transformAlongAxis(workingSet, transforms, transformOptions, terminateCheck, callback);
     }
     transformY(workingSet, callback) {
         let terminateCheck = this.stopTransformY.bind(this);
-        return this.transformAlongAxis(workingSet, this.transforms.Y, terminateCheck, callback);
+        let transforms = this.transforms.Y;
+        let transformOptions = Object.assign(this.transformOptions.Y || {}, {animateMs: this.animateMs});
+        return this.transformAlongAxis(workingSet, transforms, transformOptions, terminateCheck, callback);
     }
     /*
     Transforms path set across paper
     @workingSet: set of paths to transform
-    @transformGetter: function to get transformation for the path set
+    @transform: function to get transformation for the path set
+    @options: object of options for transform function
     @terminateCheck: function that returns boolean indicating whether to terminate recursion
     @terminateCallback: function called with final path set when done transforming - i.e. terminationCheck/base case met
     */
-    transformAlongAxis(workingSet, transform, terminateCheck, terminateCallback) {
+    transformAlongAxis(workingSet, transform, options, terminateCheck, terminateCallback) {
         // Iteratively get the last item, clone it, and tranform it
         let transformSet = this.paper.set().push(workingSet);
-        let transformOptions = this.options;
-        
         let drawNext = function(i, transformSet) {
             if (terminateCheck(transformSet))
                 return terminateCallback(transformSet);
@@ -210,7 +225,7 @@ class LineGroupPattern {
             let transformCallback = function() {
                 drawNext(i + 1, transformSet.push(nextItem));
             };
-            transform(nextItem, transformCallback, transformOptions);
+            transform(nextItem, transformCallback, options);
         };
         drawNext(0, transformSet);
     }
@@ -236,10 +251,10 @@ class LineGroupPattern {
         // copy the fundamentalDomain
         // transform it to start at offset
         let basePath = this.paper.path(this.fundamentalDomainPath);
-        let maxWidth = this.maxTransformWidth(basePath);
+        this.maxWidth = this.maxTransformWidth(basePath);
         let transformString = [
             "T",
-            String((offsetX > maxWidth) ? 0 : offsetX),
+            String((offsetX > this.maxWidth) ? 0 : offsetX),
             ",",
             String(offsetY)
         ].join();
@@ -295,7 +310,15 @@ class WallpaperPattern extends LineGroupPattern {
         let bBox = this.paperSet.getBBox();
         let offsetX = (bBox.x2 > 0) ? bBox.x2 : 0;
         let offsetY = (bBox.y2 > 0) ? bBox.y2 : 0;
-        this.draw(offsetX, offsetY);
+
+        // TODO: Fix how doing transforms -- this is a hack
+        // If this was a lower row of the transform, take upper row and
+        // use transformY.
+        if (!!this.paperSet.length && (offsetX > this.maxWidth))
+            this.transformY(this.paperSet.pop(), this.drawCallback.bind(this));
+        else
+            this.draw(offsetX, offsetY); // TODO: Remove use of offsetY if not using with above hack
+        
         analytics.trackRedraw('WallpaperPattern');
     }
 }

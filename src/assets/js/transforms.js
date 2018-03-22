@@ -29,19 +29,44 @@ const transforms = (function() {
         return doRotation(pathSet, 2, callback, options);
     }
 
+    function order3Rotation(pathSet, callback, options) {
+        return doRotation(pathSet, 3, callback, options);
+    }
+
     function order4Rotation(pathSet, callback, options) {
         return doRotation(pathSet, 4, callback, options);
     }
 
+    function order6Rotation(pathSet, callback, options) {
+        return doRotation(pathSet, 6, callback, options);
+    }
+
     // Private
+
+    /*
+    Rotates pathSet around origin point.
+    Origin defaults to bottom right corner of pathSet.
+    */
     function doRotation(pathSet, rotations, callback, options={}) {
-        const animateMs = options.animateMs || 0;
+        console.log('doRotation', rotations, options)
+        const animateMs = 3000; //options.animateMs || 0;
 
         const bbox = pathSet.getBBox();
-        const origin = {
-            X: bbox.x2 - (options.rotationOffsetX || 0),
-            Y: bbox.y2 - (options.rotationOffsetY || 0)
+        let origin = {
+            X: bbox.x2,
+            Y: bbox.y2
         };
+        // TODO: Use only multipliers
+        if (!!options.rotationOffsetXMultiplier)
+            origin.X = bbox.x + options.rotationOffsetXMultiplier*bbox.width;
+        else if (!!options.rotationOffsetX)
+            origin.X = bbox.x2 - options.rotationOffsetX;
+
+        if (!!options.rotationOffsetYMultiplier)
+            origin.Y = bbox.y + options.rotationOffsetYMultiplier*bbox.height;
+        else if (!!options.rotationOffsetY)
+            origin.Y = bbox.y2 - options.rotationOffsetY;
+
 
         let newPathSet = []; // use Paper.Set instead?
         // Use recursive routine to draw each rotated copy of pathSet
@@ -75,10 +100,12 @@ const transforms = (function() {
     Helper function to perform the transform in animation.
     */
     function doTransform(pathSet, transformGetter, callback, options={}) {
+        console.log('doTransform', transformGetter.name, options)
         let transformString = transformGetter(pathSet, options);
         if (hasRotation(pathSet))
             return doComposedTransform(pathSet, transformString, callback, options);
 
+        console.log('doTransform 2')
         transformString = "..." + transformString;
         const animateMs = options.animateMs || 0;
         let animateCallback = function() {
@@ -110,6 +137,7 @@ const transforms = (function() {
     of composed transformations for reflections.
     */
     function doComposedTransform(pathSet, transformString, callback, options={}) {
+        console.log('doComposedTransform', transformString)
         const animateMs = options.animateMs || 0;
 
         // The transformString is the transformation for the pathSet as a whole,
@@ -192,9 +220,10 @@ const transforms = (function() {
     Returns (String) transform
     */
     function getTranslationH(pathSet, options={}) {
-        let bbox = pathSet.getBBox();
-        let transformX = bbox.width + (options.gap || 0);
-        return "T" + String(transformX) + ",0";
+        let width = pathSet.getBBox().width;
+        // TODO: make sure gap not still used
+        let translateX = width*(options.translationOffsetXMultiplier || 1) + (options.translationOffsetX || 0); // + (options.gap || 0);
+        return "T" + String(translateX) + ",0";
     }
 
     /*
@@ -205,9 +234,10 @@ const transforms = (function() {
     Returns (String) transform
     */
     function getTranslationV(pathSet, options={}) {
-        let bbox = pathSet.getBBox();
-        let transformY = bbox.height + (options.gap || 0);
-        return "T0," + String(transformY); // must use uppercase T
+        let height = pathSet.getBBox().height;
+        // TODO: make sure gap not still used
+        let translateY = height*(options.translationOffsetYMultiplier); // (options.gap || 0);
+        return "T0," + String(translateY);
     }
 
     /*
@@ -275,7 +305,12 @@ const transforms = (function() {
             If cx & cy aren’t specified centre of the shape is used instead.
         */
         let bbox = pathSet.getBBox();
-        let mirrorX = (!!options.centeredMirror) ? (bbox.x1 + (1/2)*bbox.width) : bbox.x2;
+        let mirrorX = bbox.x2;
+        if (!!options.centeredMirror)
+            mirrorX = (bbox.x + (1/2)*bbox.width);
+        else if (!!options.mirrorOffsetXMultiplier)
+            mirrorX = (bbox.x + options.mirrorOffsetXMultiplier*bbox.width);
+        
         return "S-1,1," + String(mirrorX) + ",0";
     }
 
@@ -317,7 +352,9 @@ const transforms = (function() {
     return {
         // Fundamental domain transforms:
         order2Rotation: order2Rotation,
+        order3Rotation: order3Rotation,
         order4Rotation: order4Rotation,
+        order6Rotation: order6Rotation,
         glideH: glideH,
         mirrorV: mirrorV,
         mirrorH: mirrorH,
@@ -329,6 +366,10 @@ const transforms = (function() {
         getRotationByDegrees: getRotationByDegrees,
 
         // Utilities
-        isValidRotateDegrees: isValidRotateDegrees
+        isValidRotateDegrees: isValidRotateDegrees,
+
+
+        // TESTING
+        getMirrorV: getMirrorV // TODO
     };
 }());

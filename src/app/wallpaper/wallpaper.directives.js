@@ -49,14 +49,18 @@ function WallpaperPatternDirective($window) {
         };
 
         scope.drawPattern = function() {
-            let origin = {
-                X: 0,
-                Y: 0,
-            };
-            // Generate the fundamental domain path once so that it can use random variables
-            // and yet still look the same when it's redrawn by the wallpaperPattern
-            let fundamentalDomainPath = scope.patternFunction(origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
-            scope.wallpaperPattern = new WallpaperPattern(scope.paper, fundamentalDomainPath, scope.transforms, scope.drawOptions);
+            if (!scope.fundamentalDomainPath) {
+                let origin = {
+                    X: 0,
+                    Y: 0,
+                };
+                // Generate the fundamental domain path once so that it can use random variables
+                // and yet still look the same when it's redrawn by the wallpaperPattern
+                scope.fundamentalDomainPath = scope.patternFunction(origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
+            }
+            scope.wallpaperPattern = new WallpaperPattern(scope.paper, scope.fundamentalDomainPath,
+                                                            scope.transforms, scope.transformOptions,
+                                                            scope.drawOptions);
         };
 
 
@@ -227,6 +231,185 @@ function WallpaperPatternDirective($window) {
             scope.drawPattern();
         };
 
+        /*
+        p3 has order-3 rotations and no reflections.
+		___     
+	  /_\ /_\___  
+	  \ / \ /\ /\
+		--- ------     
+	  /_\ /_\/_\/  
+	  \ / \ /  
+		---   
+        */
+        scope.p3Handler = function() {
+            scope.transforms = {
+                FundamentalDomain: [
+                	transforms.order3Rotation,
+                	transforms.order3Rotation
+                ],
+                X: transforms.translateH,
+                Y: transforms.translateV
+            };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {rotationOffsetYMultiplier: 1}, // TODO: use multipliers for offsets instead of ints
+                    {rotationOffsetYMultiplier: (1/2)},
+                ],
+                X: {translationOffsetXMultiplier: 1},
+                Y: {translationOffsetYMultiplier: (1/2)},
+            };
+            
+            scope.setupPaper();
+        	// TODO: implement use of underlying grids and then draw
+        	// pattern functions on top of grid
+        	let origin = {X: 0, Y: 0};
+        	scope.fundamentalDomainPath = triangularGridFundamentalDomainHalf(origin, scope.fundamentalDomainWidth);
+            scope.drawPattern();
+        };
+
+        /*
+        p31m has reflections with axes inclined at 60 degrees to one another, and order 3 rotations.
+        Some of the centers of rotation lie on the reflection axes, and some do not.
+        There are some glide-reflections.
+		*/
+		// TODO
+		scope.p31mHandler = function() {
+            scope.transforms = {
+                FundamentalDomain: [
+                	transforms.order3Rotation,
+                    transforms.mirrorV,
+                	transforms.order3Rotation
+                ],
+                X: transforms.translateH,
+                Y: transforms.translateV
+            };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {rotationOffsetYMultiplier: 1},
+                    {mirrorOffsetXMultiplier: (1/3)},
+                    {
+                    	rotationOffsetXMultiplier: 1,
+                    	rotationOffsetYMultiplier: (1/2)
+                    },
+                ],
+                X: {translationOffsetXMultiplier: (5/6)},
+                Y: {translationOffsetYMultiplier: (1/2)},
+            };
+            
+            scope.setupPaper();
+        	// TODO: implement use of underlying grids and then draw
+        	// pattern functions on top of grid
+        	let origin = {X: 0, Y: 0};
+        	scope.fundamentalDomainPath = triangularGridFundamentalDomainHalf(origin, scope.fundamentalDomainWidth);
+            scope.drawPattern();
+        };
+
+		/*
+		p3m1 contains reflections and order-3 rotations.
+		The axes of the reflections are again inclined at 60° to one another and
+		all of the centers of rotation lie on the reflection axes.
+		There are some glide-reflections.
+		*/
+        scope.p3m1Handler = function() {
+            scope.transforms = {
+                FundamentalDomain: [
+                    transforms.mirrorH,
+                	transforms.order3Rotation,
+                	transforms.order3Rotation
+                ],
+                X: transforms.translateH,
+                Y: transforms.translateV
+            };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {},
+                    {rotationOffsetYMultiplier: (1/2)},
+                    {rotationOffsetYMultiplier: (1/2)},
+                ],
+                X: {translationOffsetXMultiplier: 1},
+                Y: {translationOffsetYMultiplier: (1/2)},
+            };
+            
+            scope.setupPaper();
+        	// TODO: implement use of underlying grids and then draw
+        	// pattern functions on top of grid
+        	let origin = {X: 0, Y: 0};
+        	scope.fundamentalDomainPath = triangularGridFundamentalDomainHalf(origin, scope.fundamentalDomainWidth);
+            scope.drawPattern();
+        };
+
+        /*
+		p6 has order 6 rotations.
+		It also contains rotations of orders 2 and 3, but no reflections or glide-reflections.
+		p6 Uses a triangular grid.
+        */
+        scope.p6Handler = function() {
+            scope.transforms = {
+                FundamentalDomain: [
+                	transforms.order6Rotation,
+                	transforms.order3Rotation
+                ],
+                X: transforms.translateH,
+                Y: transforms.translateV
+            };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {rotationOffsetYMultiplier: 1},
+                    {rotationOffsetYMultiplier: (1/2)},
+                ],
+                X: {translationOffsetXMultiplier: (5/6)}, // <-- See geometry notes for computation of width via 30-60-90 triangles of underlying grid.
+                Y: {translationOffsetYMultiplier: (1/2)},
+            };
+            
+            scope.setupPaper();
+        	// TODO: implement use of underlying grids and then draw
+        	// pattern functions on top of grid
+        	let origin = {X: 0, Y: 0};
+        	scope.fundamentalDomainPath = triangularGridFundamentalDomainHalf(origin, scope.fundamentalDomainWidth);
+            scope.drawPattern();
+        };
+
+        /*
+		p6m has rotations of order 2, 3, and 6 as well as reflections.
+        The axes of reflection meet at all the centers of rotation.
+        At the centers of the order 6 rotations, six reflection axes meet and are inclined at 30° to one another.
+        There are some glide-reflections.
+		It uses a triangular grid.
+        */
+        scope.p6mHandler = function() {
+            scope.transforms = {
+                FundamentalDomain: [
+                	transforms.mirrorH,
+                	transforms.order6Rotation,
+                	transforms.order3Rotation
+                ],
+                X: transforms.translateH,
+                Y: transforms.translateV
+            };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                	{},
+                    {
+                    	rotationOffsetXMultiplier: 3,
+                    	rotationOffsetYMultiplier: (1/2)
+                    },
+                    {
+                    	rotationOffsetXMultiplier: (7/6), // <-- from counting sides and hypotenuses of triangles of underlying grid.
+                    	rotationOffsetYMultiplier: (1/2)
+                    },
+                ],
+                X: {translationOffsetXMultiplier: 1},
+                Y: {translationOffsetYMultiplier: (1/2)}
+            };
+            
+            scope.setupPaper();
+        	// TODO: implement use of underlying grids and then draw
+        	// pattern functions on top of grid
+        	let origin = {X: 0, Y: 0};
+        	scope.fundamentalDomainPath = triangularGridFundamentalDomainHalf(origin, scope.fundamentalDomainWidth);
+            scope.drawPattern();
+        };
+
         const handlers = {
             "p1": scope.p1Handler,
             "pm": scope.pmHandler,
@@ -240,6 +423,13 @@ function WallpaperPatternDirective($window) {
             "p4": scope.p4Handler,
             "p4g": scope.p4gHandler,
             "p4m": scope.p4mHandler,
+            "p3": scope.p3Handler,
+            "p31m": scope.p31mHandler,
+            "p3m1": scope.p3m1Handler,
+			// TODO: could make p6 tighter with different underlying fundamental domain grid
+			// of 60-60-60 triangles
+			"p6": scope.p6Handler,
+			"p6m": scope.p6mHandler
         };
 
         scope.init = function() {

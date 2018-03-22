@@ -67,7 +67,6 @@ Pathlist fits within containing box:
     (X1=origin.X, origin.Y+height)----(X2=origin.X+width, Y2=origin.Y+height)
 **/
 function slantedSlices(origin, width, height, options={}) {
-
     // levels can be passed in as an option with a default of 3
     // and must be within range of minLevels and maxLevels
     const minLevels = 1;
@@ -518,11 +517,41 @@ function getFundamentalDomainLineSlicePath(startPoint, width, height, withReflec
     return pathList;
 }
 
-/***********************************************
-Utility functions
+
+/************************************************
+Underlying Fundamental Domain grid pieces
 ************************************************/
 
+/*
+Returns the path for a 30-60-90 triangle.
+height of triangle = sqrt(3)*width
+|\
+|_\
+This is the top half of a 30-30-120 triangle
+|\
+| \
+| /  
+|/
+This triangle is 1/3 of a 60-60-60 triangle that is the building block
+for a triangular grid underlay for a fundamental domain.
+*/
+function triangularGridFundamentalDomainHalf(origin, size) {
+    let width = size;
+    let height = width*Math.sqrt(3);
+    // Assumes origin is top left corner <-- TODO: Make that the norm for these paths.
+    return [
+        ["M", origin.X, origin.Y],
+        ["v", height],
+        ["h", width],
+        ["Z"]
+    ];
+}
 
+
+
+/************************************************
+Utility functions
+************************************************/
 
 function getCatmullRomPath(fromPoint, toPoint, centerPoint, multiplierX, multiplierY) {
     const differenceX = (centerPoint.X - fromPoint.X);
