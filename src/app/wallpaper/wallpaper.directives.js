@@ -9,7 +9,6 @@ Use
     group-name={"p1" | "p11g" | ... one of the 17 wallpaper groups to draw}
     fundamental-domain-width={number}
     fundamental-domain-height={number}
-    margin={Number} // margin of space to allow around fundamental domain
     show-symmetry-sets={boolean} // value to watch -- show the symmetry set lines when true
 ></div>
 **/
@@ -26,11 +25,6 @@ function WallpaperPatternDirective($window) {
 
         // initialize the drawOptions
         scope.drawOptions = JSON.parse(attrs.drawOptions || "{}");
-
-        // margin is the margin to leave above and below the drawn pattern
-        // useful for patterns that have rotations that otherwise send their patterns outside
-        // the canvas
-        scope.margin = Number(attrs.margin || 1);
         
         scope.fundamentalDomainWidth = Number(attrs.fundamentalDomainWidth || "100");
         scope.fundamentalDomainHeight = Number(attrs.fundamentalDomainHeight || "80");
@@ -46,7 +40,6 @@ function WallpaperPatternDirective($window) {
         }
         */
         scope.transforms = {};
-        scope.patternSpaceHeight = null;
 
 
         scope.setupPaper = function() {
@@ -58,7 +51,7 @@ function WallpaperPatternDirective($window) {
         scope.drawPattern = function() {
             let origin = {
                 X: 0,
-                Y: scope.fundamentalDomainHeight + scope.margin,
+                Y: scope.fundamentalDomainHeight,
             };
             // Generate the fundamental domain path once so that it can use random variables
             // and yet still look the same when it's redrawn by the wallpaperPattern
@@ -72,7 +65,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
-            scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
 
             scope.setupPaper();
             scope.drawPattern();
@@ -84,7 +76,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH, // TODO: replace with order-2 rotation (set mirror offet halfway and this can work)
                 Y: transforms.translateV  // TODO: replace with order-2 rotation
             };
-            scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
 
             scope.setupPaper();
             // scope.drawOptions.rotationOffsetY = (scope.fundamentalDomainHeight)/2;
@@ -97,7 +88,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.mirrorV,
                 Y: transforms.translateV
             };
-            scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
 
             scope.setupPaper();
             scope.drawPattern();
@@ -113,7 +103,6 @@ function WallpaperPatternDirective($window) {
             // mirrorOffsetFraction=0 will mean normal mirror at bottom of fundamental domain
             let mirrorHOffsetFraction = (1/2);
             let mirrorHOffset = mirrorHOffsetFraction*scope.fundamentalDomainHeight;
-            scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin)*(1 - mirrorHOffsetFraction);
 
             scope.drawOptions.mirrorOffset = mirrorHOffset;
             scope.setupPaper();
@@ -130,7 +119,6 @@ function WallpaperPatternDirective($window) {
             // mirrorOffsetFraction=0 will mean normal mirror at bottom of fundamental domain
             let mirrorHOffsetFraction = (1/2);
             let mirrorHOffset = mirrorHOffsetFraction*scope.fundamentalDomainHeight;
-            scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin)*(1 - mirrorHOffsetFraction);
 
             scope.drawOptions.mirrorOffset = mirrorHOffset;
             scope.setupPaper();
@@ -150,7 +138,6 @@ function WallpaperPatternDirective($window) {
 
             let mirrorHOffsetFraction = (1/2);
             let mirrorHOffset = mirrorHOffsetFraction*scope.fundamentalDomainHeight;
-            scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin)*(1 - mirrorHOffsetFraction);
             scope.drawOptions.mirrorOffset = mirrorHOffset;
 
             scope.setupPaper();
@@ -167,9 +154,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.mirrorV,
                 Y: transforms.translateV
             };
-
-            scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
-
             scope.setupPaper();
             scope.drawPattern();
         };
@@ -180,8 +164,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.mirrorV,
                 Y: transforms.mirrorH
             };
-            scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
-
             scope.setupPaper();
             scope.drawPattern();
         };
@@ -197,8 +179,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.mirrorV,
                 Y: transforms.mirrorH
             };
-            scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
-
             scope.setupPaper();
             scope.drawPattern();
         };
@@ -212,8 +192,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH, // TODO: replace with order-2 rotation
                 Y: transforms.translateV  // TODO: replace with order-2 rotation
             };
-            scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
-
             scope.setupPaper();
             scope.drawPattern();
         };
@@ -229,8 +207,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
-            scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
-
             scope.setupPaper();
             scope.drawPattern();
         };
@@ -245,7 +221,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
-            scope.patternSpaceHeight = scope.fundamentalDomainHeight + scope.margin;
             scope.drawOptions.rotationOffsetY = scope.fundamentalDomainHeight;
             
             scope.setupPaper();
