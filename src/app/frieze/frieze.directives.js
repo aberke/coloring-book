@@ -102,8 +102,13 @@ function friezePatternDirective($window) {
             };
             // generate the fundamental domain path once so that it can use random variables
             // and yet still look the same when it"s redrawn by the FriezePattern
-            let fundamentalDomainPath = scope.patternFunction(origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
-            scope.friezePattern = new FriezePattern(scope.paper, fundamentalDomainPath, scope.transforms, scope.drawOptions);
+            let fdPath = scope.patternFunction(origin, scope.fundamentalDomainWidth,
+                                                scope.fundamentalDomainHeight,
+                                                scope.patternFunctionOptions);
+            scope.friezePattern = new FriezePattern(scope.paper, fdPath,
+                                                    scope.transforms,
+                                                    scope.transformOptions,
+                                                    scope.drawOptions);
         };
 
 
@@ -167,22 +172,25 @@ function friezePatternDirective($window) {
             // "Glide Reflection only"
             scope.transforms = {
                 FundamentalDomain: [transforms.glideH],
-                X: transforms.translateH
+                X: transforms.glideH
+            };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {mirrorOffsetYMultiplier: (3/4)}
+                ],
+                X:  {
+                    mirrorOffsetYMultiplier: (1/2),
+                    translationOffsetXMultiplier: (1/2)
+                }
             };
 
-            // create H mirror within fundamental domain
-            // mirrorOffsetFraction=0 will mean normal mirror at bottom of fundamental domain
-            let mirrorHOffsetFraction = (1/4);
-            let mirrorHOffset = mirrorHOffsetFraction*scope.fundamentalDomainHeight;
+            scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin)*(3/4);
 
-            scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin)*(1 - mirrorHOffsetFraction);
-
-            scope.drawOptions.mirrorOffset = mirrorHOffset;
             scope.setupPaper();
             scope.drawPattern();
 
             // draw the symmetry set
-            let glideStartY = scope.fundamentalDomainHeight + scope.margin - mirrorHOffset;
+            let glideStartY = scope.margin + (3/4)*scope.fundamentalDomainHeight;
             let glideSet = util.drawXaxis(scope.paper, glideStartY)
             util.addSymmetrySetProperties(glideSet, SYMMETRY_SET_STYLES.g);
             scope.symmetrySets.g = glideSet;
@@ -191,28 +199,30 @@ function friezePatternDirective($window) {
         scope.p2Handler = function() {
             // pdpdpdpd
             // "Order-2 Rotations"
+            let rotationOffsetYMultiplier = util.isNumeric(scope.drawOptions.rotationOffset) ? scope.drawOptions.rotationOffset : (3/4);
+            
             scope.transforms = {
                 FundamentalDomain: [transforms.order2Rotation],
-                X: transforms.translateH // TODO: use order2Rotation again?
+                X: transforms.translateH
+            };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {rotationOffsetYMultiplier: rotationOffsetYMultiplier}
+                ]
             };
 
-            let rotationOffsetYFraction = util.isNumeric(scope.drawOptions.rotationOffset) ? scope.drawOptions.rotationOffset : (1/4);
-            let rotationOffsetY = (rotationOffsetYFraction)*(scope.fundamentalDomainHeight);
-
-            scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin - rotationOffsetY);
+            scope.patternSpaceHeight = 2*(rotationOffsetYMultiplier*scope.fundamentalDomainHeight + scope.margin);
             scope.setupPaper();
-
-            scope.drawOptions.rotationOffsetY = rotationOffsetY;
             scope.drawPattern();
 
             // Draw the rotation point sets
             let rotationPointSet1Start = {
                 X: scope.fundamentalDomainWidth,
-                Y: scope.fundamentalDomainHeight + scope.margin - rotationOffsetY
+                Y: rotationOffsetYMultiplier*scope.fundamentalDomainHeight + scope.margin
             };
             let rotationPointSet2Start = {
                 X: 2*scope.fundamentalDomainWidth,
-                Y: scope.fundamentalDomainHeight + scope.margin - rotationOffsetY
+                Y: rotationOffsetYMultiplier*scope.fundamentalDomainHeight + scope.margin
             };
             let rotationPointSetGapX = 2*scope.fundamentalDomainWidth;
 
@@ -227,24 +237,25 @@ function friezePatternDirective($window) {
         scope.p2mgHandler = function() {
             // pqbdpqbdpqbdpqbdpqbd
             // "Vertical Reflection + (Glide Reflection || Order-2 Rotations)"
+            // Has H mirror within fundamental domain
+            let mirrorOffsetYMultiplier = (3/4);
             scope.transforms = {
                 FundamentalDomain: [transforms.mirrorV, transforms.glideH],
                 X: transforms.translateH 
             };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {},
+                    {mirrorOffsetYMultiplier: mirrorOffsetYMultiplier}
+                ]
+            };
 
-            // create H mirror within fundamental domain
-            // mirrorOffsetFraction=0 will mean normal mirror at bottom of fundamental domain
-            let mirrorHOffsetFraction = (1/4);
-            let mirrorHOffset = (mirrorHOffsetFraction)*(scope.fundamentalDomainHeight);
-
-            scope.patternSpaceHeight = 2*(scope.fundamentalDomainHeight + scope.margin)*(1 - mirrorHOffsetFraction);
+            scope.patternSpaceHeight = 2*(mirrorOffsetYMultiplier*scope.fundamentalDomainHeight + scope.margin);
             scope.setupPaper();
-
-            scope.drawOptions.mirrorOffset = mirrorHOffset;
             scope.drawPattern();
 
             // draw the symmetry sets
-            let glideStartY = scope.fundamentalDomainHeight + scope.margin - mirrorHOffset;
+            let glideStartY = mirrorOffsetYMultiplier*scope.fundamentalDomainHeight + scope.margin;
             let glideSet = util.drawXaxis(scope.paper, glideStartY);
 
             util.addSymmetrySetProperties(glideSet, SYMMETRY_SET_STYLES.g);
@@ -264,11 +275,11 @@ function friezePatternDirective($window) {
             // Draw the rotation point sets
             let rotationPointSet1Start = {
                 X: 2*scope.fundamentalDomainWidth,
-                Y: scope.fundamentalDomainHeight + scope.margin - mirrorHOffset
+                Y: mirrorOffsetYMultiplier*scope.fundamentalDomainHeight + scope.margin
             };
             let rotationPointSet2Start = {
                 X: 4*scope.fundamentalDomainWidth,
-                Y: scope.fundamentalDomainHeight + scope.margin - mirrorHOffset
+                Y: mirrorOffsetYMultiplier*scope.fundamentalDomainHeight + scope.margin
             };
             let rotationPointSetGapX = 4*scope.fundamentalDomainWidth;
 

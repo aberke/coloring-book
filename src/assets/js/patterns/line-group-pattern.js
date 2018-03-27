@@ -179,7 +179,7 @@ class LineGroupPattern {
             // The returned transformed path set is a transformed clone of the
             // original pathSet. 
             let transform = fdTransforms[i];
-            let options = (transformOptions.length > i) ? transformOptions[i] : {};
+            let options = (transformOptions && transformOptions.length > i) ? transformOptions[i] : {};
             options = Object.assign(options, animateOptions);
             let transformCallback = function(transformedPathSet) {
                 // keep the path set flat - i.e. avoid sets within sets.

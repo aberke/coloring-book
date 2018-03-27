@@ -518,6 +518,91 @@ function getFundamentalDomainLineSlicePath(startPoint, width, height, withReflec
 }
 
 
+function curves(n, origin, width, height) {
+    // set default n
+    n = n || 4;
+
+    // draw the path with start at origin
+    var pathList = [];
+    var startPointPathPart = ["M", origin.X, origin.Y];
+
+    // add the curve a few times, always starting and ending in the same place
+    var endX = width;
+    var endY = -1*(height/2);
+    var controlX = width/2;
+    var controlY = (-1)*(2*height);
+    var i = 0;
+    var heightChange = height/n;
+    while (i < n && endY < origin.Y) {
+        i += 1;
+        pathList.push(startPointPathPart);
+        controlY += heightChange;
+        pathList.push(["q", controlX, controlY, endX, endY]);
+    }
+    return pathList;
+}
+var curves2 = curves.bind(this, 2);
+var curves3 = curves.bind(this, 3);
+var curves4 = curves.bind(this, 4);
+var curves5 = curves.bind(this, 5);
+
+
+function quarterEllipse(origin, width, height) {
+	/*
+	Draw series of connected curves of diminishing height where axis length = offset
+	*/
+    // draw the path with start at origin
+    var pathString = "";
+    var startingSpotString = "M" + String(origin.X) + "," + String(origin.Y);
+    // add the curve a few times, always starting and ending in the same place
+    var aX = width;
+    var aY = height;
+
+    var i = 0;
+    var maxLoops = 4;
+    var angle = 0;
+    var heightChange = (-1)*(height/maxLoops);
+    while (i <= maxLoops && aY > 0) {
+        pathString += (startingSpotString + " ");
+        pathString += ("a" + String(aX) + "," + String(aY) + " " + String(angle) + " 0,1 " + String(aX) + ",-" + String(aY) + " ");
+        // draw vertical line connecting to previous curve
+        if (i > 0)
+        	pathString += (" l0," + String(heightChange) + " ");
+
+        aY += heightChange;
+        i += 1;
+    }
+    return pathString;
+}
+
+/***
+Generates path for triangles: n triangles placed within eachother
+@return {array} for a pathList for n triangles, placed within eachother
+**/
+function trianglesPath(n, origin, width, height) {
+    // default height is same as width
+    height = height || width;
+
+    let pathList = [];
+    let startPointPathPart = ["M", origin.X, origin.Y];
+
+    let i, widthDivisor;
+    for (i=0; i<n; i++) {
+        pathList += [
+            [startPointPathPart],
+            ["h", width/Math.pow(2, i)],
+            ["v", (-1)*height],
+            ["Z"]
+        ];
+    }
+    return pathList;
+}
+function trianglePath(o, w, h) { return trianglesPath(1, o, w, h); }
+function trianglesPath2(o, w, h) { return trianglesPath(2, o, w, h); }
+function trianglesPath3(o, w, h) { return trianglesPath(3, o, w, h); }
+function trianglesPath4(o, w, h) { return trianglesPath(4, o, w, h); }
+
+
 /************************************************
 Underlying Fundamental Domain grid pieces
 ************************************************/

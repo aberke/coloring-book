@@ -77,12 +77,11 @@ function WallpaperPatternDirective($window) {
         scope.p2Handler = function() {
             scope.transforms = {
                 FundamentalDomain: [transforms.order2Rotation],
-                X: transforms.translateH, // TODO: replace with order-2 rotation (set mirror offet halfway and this can work)
-                Y: transforms.translateV  // TODO: replace with order-2 rotation
+                X: transforms.translateH,
+                Y: transforms.translateV
             };
 
             scope.setupPaper();
-            // scope.drawOptions.rotationOffsetY = (scope.fundamentalDomainHeight)/2;
             scope.drawPattern();
         };
 
@@ -99,32 +98,39 @@ function WallpaperPatternDirective($window) {
 
         scope.pgHandler = function() {
             scope.transforms = {
+            	FundamentalDomain: [transforms.glideH],
                 X: transforms.glideH,
                 Y: transforms.translateV
             };
+            scope.transformOptions = {
+            	FundamentalDomain: [
+            		{mirrorOffsetYMultiplier: 1}
+            	],
+                X: {
+                	mirrorOffsetYMultiplier: (1/2),
+                	translationOffsetXMultiplier: (1/2)
+                }
+            };
 
-            // create G mirror within fundamental domain
-            // mirrorOffsetFraction=0 will mean normal mirror at bottom of fundamental domain
-            let mirrorHOffsetFraction = (1/2);
-            let mirrorHOffset = mirrorHOffsetFraction*scope.fundamentalDomainHeight;
-
-            scope.drawOptions.mirrorOffset = mirrorHOffset;
             scope.setupPaper();
             scope.drawPattern();
         };
 
         scope.cmHandler = function() {
             scope.transforms = {
+            	FundamentalDomain: [transforms.glideH],
                 X: transforms.glideH,
                 Y: transforms.mirrorH
             };
-
-            // create G mirror within fundamental domain
-            // mirrorOffsetFraction=0 will mean normal mirror at bottom of fundamental domain
-            let mirrorHOffsetFraction = (1/2);
-            let mirrorHOffset = mirrorHOffsetFraction*scope.fundamentalDomainHeight;
-
-            scope.drawOptions.mirrorOffset = mirrorHOffset;
+            scope.transformOptions = {
+            	FundamentalDomain: [
+            		{mirrorOffsetYMultiplier: 1}
+            	],
+                X: {
+                	mirrorOffsetYMultiplier: (1/2),
+                	translationOffsetXMultiplier: (1/2)
+                }
+            };
             scope.setupPaper();
             scope.drawPattern();
         };
@@ -139,11 +145,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
-
-            let mirrorHOffsetFraction = (1/2);
-            let mirrorHOffset = mirrorHOffsetFraction*scope.fundamentalDomainHeight;
-            scope.drawOptions.mirrorOffset = mirrorHOffset;
-
             scope.setupPaper();
             scope.drawPattern();
         };
@@ -193,8 +194,8 @@ function WallpaperPatternDirective($window) {
         scope.p4Handler = function() {
             scope.transforms = {
                 FundamentalDomain: [transforms.order4Rotation],
-                X: transforms.translateH, // TODO: replace with order-2 rotation
-                Y: transforms.translateV  // TODO: replace with order-2 rotation
+                X: transforms.translateH,
+                Y: transforms.translateV
             };
             scope.setupPaper();
             scope.drawPattern();
@@ -225,7 +226,12 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
-            scope.drawOptions.rotationOffsetY = scope.fundamentalDomainHeight;
+            scope.transformOptions = {
+                FundamentalDomain: [
+                	{},
+                    {rotationOffsetYMultiplier: (1/2)}
+                ]
+            };
             
             scope.setupPaper();
             scope.drawPattern();
@@ -252,7 +258,7 @@ function WallpaperPatternDirective($window) {
             };
             scope.transformOptions = {
                 FundamentalDomain: [
-                    {rotationOffsetYMultiplier: 1}, // TODO: use multipliers for offsets instead of ints
+                    {rotationOffsetYMultiplier: 1},
                     {rotationOffsetYMultiplier: (1/2)},
                 ],
                 X: {translationOffsetXMultiplier: 1},
@@ -272,7 +278,6 @@ function WallpaperPatternDirective($window) {
         Some of the centers of rotation lie on the reflection axes, and some do not.
         There are some glide-reflections.
 		*/
-		// TODO
 		scope.p31mHandler = function() {
             scope.transforms = {
                 FundamentalDomain: [
@@ -362,10 +367,10 @@ function WallpaperPatternDirective($window) {
             };
             
             scope.setupPaper();
-        	// TODO: implement use of underlying grids and then draw
-        	// pattern functions on top of grid
-        	let origin = {X: 0, Y: 0};
-        	scope.fundamentalDomainPath = triangularGridFundamentalDomainHalf(origin, scope.fundamentalDomainWidth);
+            // TODO: implement use of underlying grids and then draw
+            // pattern functions on top of grid
+            let origin = {X: 0, Y: 0};
+            scope.fundamentalDomainPath = triangularGridFundamentalDomainHalf(origin, scope.fundamentalDomainWidth);
             scope.drawPattern();
         };
 
@@ -388,14 +393,14 @@ function WallpaperPatternDirective($window) {
             };
             scope.transformOptions = {
                 FundamentalDomain: [
-                	{},
+                    {},
                     {
-                    	rotationOffsetXMultiplier: 3,
-                    	rotationOffsetYMultiplier: (1/2)
+                        rotationOffsetXMultiplier: 3,
+                        rotationOffsetYMultiplier: (1/2)
                     },
                     {
-                    	rotationOffsetXMultiplier: (7/6), // <-- from counting sides and hypotenuses of triangles of underlying grid.
-                    	rotationOffsetYMultiplier: (1/2)
+                        rotationOffsetXMultiplier: (7/6), // <-- from counting sides and hypotenuses of triangles of underlying grid.
+                        rotationOffsetYMultiplier: (1/2)
                     },
                 ],
                 X: {translationOffsetXMultiplier: 1},
@@ -403,10 +408,10 @@ function WallpaperPatternDirective($window) {
             };
             
             scope.setupPaper();
-        	// TODO: implement use of underlying grids and then draw
-        	// pattern functions on top of grid
-        	let origin = {X: 0, Y: 0};
-        	scope.fundamentalDomainPath = triangularGridFundamentalDomainHalf(origin, scope.fundamentalDomainWidth);
+            // TODO: implement use of underlying grids and then draw
+            // pattern functions on top of grid
+            let origin = {X: 0, Y: 0};
+            scope.fundamentalDomainPath = triangularGridFundamentalDomainHalf(origin, scope.fundamentalDomainWidth);
             scope.drawPattern();
         };
 
@@ -426,10 +431,10 @@ function WallpaperPatternDirective($window) {
             "p3": scope.p3Handler,
             "p31m": scope.p31mHandler,
             "p3m1": scope.p3m1Handler,
-			// TODO: could make p6 tighter with different underlying fundamental domain grid
-			// of 60-60-60 triangles
-			"p6": scope.p6Handler,
-			"p6m": scope.p6mHandler
+            // TODO: could make p6 tighter with different underlying fundamental domain grid
+            // of 60-60-60 triangles
+            "p6": scope.p6Handler,
+            "p6m": scope.p6mHandler
         };
 
         scope.init = function() {

@@ -48,24 +48,17 @@ const transforms = (function() {
     Origin defaults to bottom right corner of pathSet.
     */
     function doRotation(pathSet, rotations, callback, options={}) {
-        console.log('doRotation', rotations, options)
-        const animateMs = 3000; //options.animateMs || 0;
+        const animateMs = options.animateMs || 0;
 
         const bbox = pathSet.getBBox();
         let origin = {
             X: bbox.x2,
             Y: bbox.y2
         };
-        // TODO: Use only multipliers
         if (!!options.rotationOffsetXMultiplier)
             origin.X = bbox.x + options.rotationOffsetXMultiplier*bbox.width;
-        else if (!!options.rotationOffsetX)
-            origin.X = bbox.x2 - options.rotationOffsetX;
-
         if (!!options.rotationOffsetYMultiplier)
             origin.Y = bbox.y + options.rotationOffsetYMultiplier*bbox.height;
-        else if (!!options.rotationOffsetY)
-            origin.Y = bbox.y2 - options.rotationOffsetY;
 
 
         let newPathSet = []; // use Paper.Set instead?
@@ -100,12 +93,10 @@ const transforms = (function() {
     Helper function to perform the transform in animation.
     */
     function doTransform(pathSet, transformGetter, callback, options={}) {
-        console.log('doTransform', transformGetter.name, options)
         let transformString = transformGetter(pathSet, options);
         if (hasRotation(pathSet))
             return doComposedTransform(pathSet, transformString, callback, options);
 
-        console.log('doTransform 2')
         transformString = "..." + transformString;
         const animateMs = options.animateMs || 0;
         let animateCallback = function() {
@@ -137,7 +128,6 @@ const transforms = (function() {
     of composed transformations for reflections.
     */
     function doComposedTransform(pathSet, transformString, callback, options={}) {
-        console.log('doComposedTransform', transformString)
         const animateMs = options.animateMs || 0;
 
         // The transformString is the transformation for the pathSet as a whole,
@@ -215,58 +205,35 @@ const transforms = (function() {
     /*
     Constructor for horizontal translation transform string
     @pathSet: (Paper.path | Paper.set) to construct transformation from
-    @options:
-        @gap: (Number) distance to translate past the width of the pathSet
+    @options: (Object) dictionary of arguments
     Returns (String) transform
     */
     function getTranslationH(pathSet, options={}) {
         let width = pathSet.getBBox().width;
-        // TODO: make sure gap not still used
-        let translateX = width*(options.translationOffsetXMultiplier || 1) + (options.translationOffsetX || 0); // + (options.gap || 0);
+        let translateX = width*(options.translationOffsetXMultiplier || 1);
         return "T" + String(translateX) + ",0";
     }
 
     /*
     Constructor for horizontal translation transform string
     @pathSet: (Paper.path | Paper.set) to construct transformation from
-    @options:
-        @gap: (Number) distance to translate past the height of the pathSet
+    @options: (Object) dictionary of arguments
     Returns (String) transform
     */
     function getTranslationV(pathSet, options={}) {
         let height = pathSet.getBBox().height;
-        // TODO: make sure gap not still used
-        let translateY = height*(options.translationOffsetYMultiplier); // (options.gap || 0);
+        let translateY = height*(options.translationOffsetYMultiplier || 1);
         return "T0," + String(translateY);
     }
 
     /*
     Constructor for glide reflection transformation string
     @pathSet: (Paper.path | Paper.set) to construct transformation from
-    @options: (Object) dictionary of arguments:
-        @mirrorOffset: (Number) distance from bottom of pathset to create H mirror
-        @gap: (Number) distance to translate past the width of the pathSet
+    @options: (Object) dictionary of arguments
     Returns (String) transformation
     */
     function getGlideH(pathSet, options={}) {
-        const mirrorOffset = options.mirrorOffset || 0;
-        /*
-        Uses the Raphael transform Element.scale(sx, sy, [cx], [cy]) https://dmitrybaranovskiy.github.io/raphael/reference.html#Element.scale
-        sx: (number) horisontal scale amount
-        sy: (number) vertical scale amount
-        cx: (number) x coordinate of the centre of scale
-        cy: (number) y coordinate of the centre of scale
-            If cx & cy aren’t specified centre of the shape is used instead.
-        */
-        let bbox = pathSet.getBBox();
-        let mirrorY = bbox.y2 - mirrorOffset;
-
-        let transformString = "";
-        // add mirror portion
-        transformString += ("S1,-1,0," + String(mirrorY));
-        // add translation
-        transformString += getTranslationH(pathSet, options);
-        return transformString;
+        return getMirrorH(pathSet, options) + getTranslationH(pathSet, options);
     }
 
     /*
@@ -275,13 +242,12 @@ const transforms = (function() {
     not through the center.  
 
     @pathSet: (Paper.path | Paper.set) to construct transformation from
-    @options:
-        {boolean} centeredMirror - defaults to false.
+    @options: (Object) dictionary of arguments
     Returns (String) transformation
     */
     function getMirrorH(pathSet, options = {}) {
         let bbox = pathSet.getBBox();
-        let mirrorY = (!!options.centeredMirror) ? (bbox.y1 + (1/2)*bbox.height) : bbox.y2;
+        let mirrorY = bbox.y + (options.mirrorOffsetYMultiplier || 1)*bbox.height;
         return "S1,-1,0," + String(mirrorY);
     }
 
@@ -291,8 +257,7 @@ const transforms = (function() {
     not through the center. 
 
     @pathSet: (Paper.path | Paper.set) to construct transformation from
-    @options:
-        {boolean} centeredMirror - defaults to false.
+    @options: (Object) dictionary of arguments
     Returns (String) transform
     */
     function getMirrorV(pathSet, options={}) {
@@ -302,15 +267,9 @@ const transforms = (function() {
         sy: (number) vertical scale amount
         cx: (number) x coordinate of the centre of scale
         cy: (number) y coordinate of the centre of scale
-            If cx & cy aren’t specified centre of the shape is used instead.
         */
         let bbox = pathSet.getBBox();
-        let mirrorX = bbox.x2;
-        if (!!options.centeredMirror)
-            mirrorX = (bbox.x + (1/2)*bbox.width);
-        else if (!!options.mirrorOffsetXMultiplier)
-            mirrorX = (bbox.x + options.mirrorOffsetXMultiplier*bbox.width);
-        
+        let mirrorX = bbox.x + (options.mirrorOffsetXMultiplier || 1)*bbox.width;
         return "S-1,1," + String(mirrorX) + ",0";
     }
 
@@ -366,10 +325,6 @@ const transforms = (function() {
         getRotationByDegrees: getRotationByDegrees,
 
         // Utilities
-        isValidRotateDegrees: isValidRotateDegrees,
-
-
-        // TESTING
-        getMirrorV: getMirrorV // TODO
+        isValidRotateDegrees: isValidRotateDegrees
     };
 }());
