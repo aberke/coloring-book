@@ -24,8 +24,11 @@ function canvasCenteredDrawingDirective($window) {
 				options = JSON.parse(attrs.options || "{}");
 			} catch(e) {}
 
+			console.log('canvasCenteredDrawingDirective', 'drawFunction', drawFunction)
+			console.log('functionOptions', functionOptions)
+			console.log('options', options)
 			let drawing = drawInCanvasCenter(paper, drawFunction, functionOptions, options);
-			
+
 			// if this is a part of a text-content-graphic, style for it
 			let eltParent = element.parent();
 			let eltGrandparent = element.parent().parent();

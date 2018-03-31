@@ -71,7 +71,7 @@ function slantedSlices(origin, width, height, options={}) {
     // and must be within range of minLevels and maxLevels
     const minLevels = 1;
     const maxLevels = 3;
-    const levels = Math.max(minLevels, Math.min(options.levels || 3, maxLevels));
+    const levels = Math.max(minLevels, Math.min(options.levels || 2, maxLevels));
 
     const pathsPerLevel = options.pathsPerLevel || 2;
 
@@ -541,10 +541,10 @@ function curves(n, origin, width, height) {
     }
     return pathList;
 }
-var curves2 = curves.bind(this, 2);
-var curves3 = curves.bind(this, 3);
-var curves4 = curves.bind(this, 4);
-var curves5 = curves.bind(this, 5);
+function curves2(o, w, h) { return curves(2, o, w, h); }
+function curves3(o, w, h) { return curves(3, o, w, h); }
+function curves4(o, w, h) { return curves(4, o, w, h); }
+function curves5(o, w, h) { return curves(5, o, w, h); }
 
 
 function quarterEllipse(origin, width, height) {
@@ -580,7 +580,7 @@ Generates path for triangles: n triangles placed within eachother
 @return {array} for a pathList for n triangles, placed within eachother
 **/
 function trianglesPath(n, origin, width, height) {
-    // default height is same as width
+    // Default height = width.
     height = height || width;
 
     let pathList = [];

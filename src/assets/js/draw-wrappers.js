@@ -31,10 +31,7 @@ enabled when DISABLE_ANIMATIONS.
 
 @returns {pathSet: object, origin: {X: number, Y: number}}
 */
-function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
-    functionOptions = functionOptions || {};
-    options = options || {};
-
+function drawInCanvasCenter(paper, drawFunction, functionOptions={}, options={}) {
     let width = paper.getSize().width;
     let height = paper.getSize().height;
 

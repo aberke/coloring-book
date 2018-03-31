@@ -84,6 +84,7 @@ angular.module('app', [
 // bootstrap the directives
 .directive('tweet', tweetDirective)
 .directive('fraction', fractionDirective)
+.directive('simpleDrawing', simpleDrawingDirective)
 .directive('canvasCenteredDrawing', canvasCenteredDrawingDirective)
 .directive('circularPattern', circularPatternDirective)
 

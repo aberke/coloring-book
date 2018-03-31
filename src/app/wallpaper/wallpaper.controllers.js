@@ -16,7 +16,18 @@ function WallpaperPageCntl($location) {
 	vm.selectedGroupName = $location.search().group || "p1";
 
 	vm.drawPathFunctions = [
-		trianglePath, trianglesPath2
+		trianglePath,
+		trianglesPath2,
+		trianglesPath3,
+		trianglesPath4,
+		slantedSlices,
+		petalsEllipseWithDiamondPath,
+		petalEllipse,
+		quarterEllipse,
+		curves2,
+		curves3,
+		curves4,
+		curves5
 	];
 	vm.selectGroup = function(groupName) {
 		vm.selectedGroupName = groupName;
