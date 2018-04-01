@@ -22,6 +22,14 @@ function friezePatternDirective($window) {
 
         scope.groupName = attrs.groupName || "p1";
         scope.patternFunction = $window[attrs.patternFunction];
+
+        console.log('friezePatternDirective')
+        console.log('attrs.patternFunction', attrs.patternFunction)
+        console.log('$window[attrs.patternFunction]', $window[attrs.patternFunction])
+        scope.patternFunction = attrs.patternFunction;
+        console.log('typeof(scope.patternFunction)', typeof(scope.patternFunction))
+        console.log('scope.patternFunction', scope.patternFunction)
+
         scope.patternFunctionOptions = JSON.parse(attrs.patternFunctionOptions || "{}");
 
         // initialize the drawOptions

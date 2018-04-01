@@ -109,7 +109,7 @@ function circularPatternDirective($location) {
 
 				// draw mirror lines last so that they sit on top
 				if (scope.mirrorLines)
-					drawMirrorLines(paper, origin, scope.mirrorLines);
+					paths.drawMirrorLines(paper, origin, scope.mirrorLines);
 			}
 
 			scope.redrawFn = function(opts = {}) {

@@ -212,7 +212,7 @@ class CircularPattern {
 
         // Generate base slices if do not already have them.
         if (!this.slicesPathList)
-            this.slicesPathList = getFundamentalDomainLineSlices(this.origin, this.width, this.height, this.options);
+            this.slicesPathList = paths.getFundamentalDomainLineSlices(this.origin, this.width, this.height, this.options);
 
         let slicesPath = this.paper.path(this.slicesPathList);
         // for each level, add the base slices, scaled and translated appropriately

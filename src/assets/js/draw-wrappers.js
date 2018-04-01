@@ -58,7 +58,7 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions, options) {
         pathSet.push(drawInscribingShape(paper, origin, size, options.inscribed));
 
     if (options.mirrorLines) {
-        let mirrorLinesPaths = drawMirrorLines(paper, origin, options.mirrorLines, size + (1/2)*margin);
+        let mirrorLinesPaths = paths.drawMirrorLines(paper, origin, options.mirrorLines, size + (1/2)*margin);
         pathSet.push(mirrorLinesPaths);
     }
 
@@ -264,7 +264,7 @@ function drawTriangles(paper, centerPoint, size, options) {
         Y: centerPoint.Y + (1/2)*size,
     };
 
-    let pathList = trianglesPath(n, origin, size, size);
+    let pathList = paths.trianglesPath(n, origin, size, size);
     let path = paper.path(pathList);
     return paper.set().push(path);
 }
@@ -277,7 +277,7 @@ function drawPetalEllipse(paper, centerPoint, size) {
         Y: centerPoint.Y + (1/2)*size,
     };
 
-    let pathList = petalEllipse(origin, size, size);
+    let pathList = paths.petalEllipse(origin, size, size);
     let path = paper.path(pathList);
     return paper.set().push(path);
 }

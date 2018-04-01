@@ -47,7 +47,7 @@ class CyclicShape {
 		let linePathList = [
 			// add side one of path as curved
 			startPointPathPart,
-			getCatmullRomPath(this.origin, endPoint, centerPoint, 1, 1),
+			paths.getCatmullRomPath(this.origin, endPoint, centerPoint, 1, 1),
 			// add side two of path as straight line
 			startPointPathPart,
 			["L", endPoint.X, endPoint.Y],
