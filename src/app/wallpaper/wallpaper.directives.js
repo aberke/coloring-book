@@ -269,7 +269,7 @@ function WallpaperPatternDirective($window) {
         	// TODO: implement use of underlying grids and then draw
         	// pattern functions on top of grid
         	let origin = {X: 0, Y: 0};
-        	scope.fundamentalDomainPath = triangularGridFundamentalDomainHalf(origin, scope.fundamentalDomainWidth);
+        	scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
             scope.drawPattern();
         };
 
@@ -305,7 +305,7 @@ function WallpaperPatternDirective($window) {
         	// TODO: implement use of underlying grids and then draw
         	// pattern functions on top of grid
         	let origin = {X: 0, Y: 0};
-        	scope.fundamentalDomainPath = triangularGridFundamentalDomainHalf(origin, scope.fundamentalDomainWidth);
+        	scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
             scope.drawPattern();
         };
 
@@ -339,7 +339,7 @@ function WallpaperPatternDirective($window) {
         	// TODO: implement use of underlying grids and then draw
         	// pattern functions on top of grid
         	let origin = {X: 0, Y: 0};
-        	scope.fundamentalDomainPath = triangularGridFundamentalDomainHalf(origin, scope.fundamentalDomainWidth);
+        	scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
             scope.drawPattern();
         };
 
@@ -349,10 +349,14 @@ function WallpaperPatternDirective($window) {
 		p6 Uses a triangular grid.
         */
         scope.p6Handler = function() {
+            // TODO: implement use of underlying grids and then draw
+            // pattern functions on top of grid
+            let origin = {X: 0, Y: 0};
+            scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
             scope.transforms = {
                 FundamentalDomain: [
-                	transforms.order6Rotation,
-                	transforms.order3Rotation
+                	transforms.order3Rotation,
+                	transforms.order6Rotation
                 ],
                 X: transforms.translateH,
                 Y: transforms.translateV
@@ -362,15 +366,11 @@ function WallpaperPatternDirective($window) {
                     {rotationOffsetYMultiplier: 1},
                     {rotationOffsetYMultiplier: (1/2)},
                 ],
-                X: {translationOffsetXMultiplier: (5/6)}, // <-- See geometry notes for computation of width via 30-60-90 triangles of underlying grid.
+                X: {translationOffsetXMultiplier: 1},
                 Y: {translationOffsetYMultiplier: (1/2)},
             };
             
             scope.setupPaper();
-            // TODO: implement use of underlying grids and then draw
-            // pattern functions on top of grid
-            let origin = {X: 0, Y: 0};
-            scope.fundamentalDomainPath = triangularGridFundamentalDomainHalf(origin, scope.fundamentalDomainWidth);
             scope.drawPattern();
         };
 
@@ -382,11 +382,15 @@ function WallpaperPatternDirective($window) {
 		It uses a triangular grid.
         */
         scope.p6mHandler = function() {
+            // TODO: implement use of underlying grids and then draw
+            // pattern functions on top of grid
+            let origin = {X: 0, Y: 0};
+            scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
             scope.transforms = {
                 FundamentalDomain: [
                 	transforms.mirrorH,
-                	transforms.order6Rotation,
-                	transforms.order3Rotation
+                	transforms.order3Rotation,
+                	transforms.order6Rotation
                 ],
                 X: transforms.translateH,
                 Y: transforms.translateV
@@ -395,11 +399,11 @@ function WallpaperPatternDirective($window) {
                 FundamentalDomain: [
                     {},
                     {
-                        rotationOffsetXMultiplier: 3,
+                        rotationOffsetXMultiplier: 1,
                         rotationOffsetYMultiplier: (1/2)
                     },
                     {
-                        rotationOffsetXMultiplier: (7/6), // <-- from counting sides and hypotenuses of triangles of underlying grid.
+                        rotationOffsetXMultiplier: 1,
                         rotationOffsetYMultiplier: (1/2)
                     },
                 ],
@@ -408,10 +412,6 @@ function WallpaperPatternDirective($window) {
             };
             
             scope.setupPaper();
-            // TODO: implement use of underlying grids and then draw
-            // pattern functions on top of grid
-            let origin = {X: 0, Y: 0};
-            scope.fundamentalDomainPath = triangularGridFundamentalDomainHalf(origin, scope.fundamentalDomainWidth);
             scope.drawPattern();
         };
 
@@ -425,14 +425,15 @@ function WallpaperPatternDirective($window) {
             "pmg": scope.pmgHandler,
             "pmm": scope.pmmHandler,
             "cmm": scope.cmmHandler,
+
             "p4": scope.p4Handler,
             "p4g": scope.p4gHandler,
             "p4m": scope.p4mHandler,
+
             "p3": scope.p3Handler,
             "p31m": scope.p31mHandler,
             "p3m1": scope.p3m1Handler,
-            // TODO: could make p6 tighter with different underlying fundamental domain grid
-            // of 60-60-60 triangles
+
             "p6": scope.p6Handler,
             "p6m": scope.p6mHandler
         };

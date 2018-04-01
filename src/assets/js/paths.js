@@ -229,7 +229,7 @@ function petalsEllipseWithDiamondPath(origin, width, height) {
 Draw series of connected curves of diminishing height where axis length = offset
 @return {array} for a pathList
 **/
-function petalEllipse(origin, width, height, options = {}) {
+function petalEllipse(origin, width, height, options={}) {
     // Height defaults to width.
     height = height || width;
 
@@ -244,7 +244,7 @@ function petalEllipse(origin, width, height, options = {}) {
     let maxLoops = options.maxLoops || 3;
     let angle = -10;
     let heightChange = (-1)*(height/maxLoops);
-    while (i <= maxLoops && aY > 0) {
+    while (i <= maxLoops && aY > 1) {
         pathList.push(startPointPathPart);
         pathList.push(["a", aX, aY, angle, 0, 1, aX, (-1)*aY]);
         pathList.push(startPointPathPart);
@@ -396,7 +396,7 @@ Path is randomly generated.
 
 @returns {array} pathList
 */
-function getFundamentalDomainLineSlices(origin, width, height, options = {}) {
+function getFundamentalDomainLineSlices(origin, width, height, options={}) {
     var slicesCount = options.slicesCount || 3;
     var withReflection = options.withReflection || false;
     var deltaYMultiplier = options.deltaYMultiplier || 1;
@@ -523,16 +523,16 @@ function curves(n, origin, width, height) {
     n = n || 4;
 
     // draw the path with start at origin
-    var pathList = [];
-    var startPointPathPart = ["M", origin.X, origin.Y];
+    let pathList = [];
+    let startPointPathPart = ["M", origin.X, origin.Y];
 
     // add the curve a few times, always starting and ending in the same place
-    var endX = width;
-    var endY = -1*(height/2);
-    var controlX = width/2;
-    var controlY = (-1)*(2*height);
-    var i = 0;
-    var heightChange = height/n;
+    let endX = width;
+    let endY = -1*(height/2);
+    let controlX = width/2;
+    let controlY = (-1)*(1.8*height);
+    let i = 0;
+    let heightChange = height/n;
     while (i < n && endY < origin.Y) {
         i += 1;
         pathList.push(startPointPathPart);
@@ -608,6 +608,34 @@ Underlying Fundamental Domain grid pieces
 ************************************************/
 
 /*
+Returns the path for a 60-60-60 triangle that is the building block
+for a triangular grid underlay for a fundamental domain.
+^    x
+|    xxx
+|    xxxxxx
+h    xxxxxxxx
+|    xxxxxx
+|    xxx
+v    x
+<---- w ----->
+
+w = (h/2)*sqrt(3)
+
+NOTE: This is not used by line groups
+*/
+function triangularGridFundamentalDomainFull(origin, size) {
+    // Origin is top left corner
+    let height = size;
+    let width = (height/2)*Math.sqrt(3);
+    return [
+        ["M", origin.X, origin.Y],
+        ["v", height],
+        ["l", width, (-1/2)*height],
+        ["Z"]
+    ];
+}
+
+/*
 Returns the path for a 30-60-90 triangle.
 height of triangle = sqrt(3)*width
 |\
@@ -620,10 +648,10 @@ This is the top half of a 30-30-120 triangle
 This triangle is 1/3 of a 60-60-60 triangle that is the building block
 for a triangular grid underlay for a fundamental domain.
 */
-function triangularGridFundamentalDomainHalf(origin, size) {
+function triangularGridFundamentalDomainSixth(origin, size) {
     let width = size;
     let height = width*Math.sqrt(3);
-    // Assumes origin is top left corner <-- TODO: Make that the norm for these paths.
+    // Origin is top left corner <-- TODO: Make that the norm for these paths.
     return [
         ["M", origin.X, origin.Y],
         ["v", height],

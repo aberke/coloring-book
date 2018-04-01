@@ -6,9 +6,11 @@ Wallpaper and Frieze Page specific
 #wallpaper-page,
 #wallpaper-page h1,
 #wallpaper-page h2,
+#wallpaper-page h3,
 #frieze-page,
 #frieze-page h1,
-#frieze-page h2 {
+#frieze-page h2,
+#frieze-page h3 {
 	font-weight: 300;
 	color: black;
 }

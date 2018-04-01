@@ -1,23 +1,29 @@
 <div id="wallpaper-page" ng-controller="WallpaperPageCntl as wallpaperPage">
-
+    
+    <h1 class="app-only">Wallpaper</h1>
+    
     <nav id="wallpaper-nav" class="app-only">
-        <h1>Wallpaper Groups</h1>
-        <ul>
-            <li ng-repeat="groupName in wallpaperPage.wallpaperGroupNames" ng-click="wallpaperPage.selectGroup(groupName)">
-                <span ng-class="{active:wallpaperPage.selectedGroupName==groupName}" class="clickable">{{groupName}}</span>
-            </li>
-        </ul>
+        <div class="groups">
+            <h3>Symmetry Groups</h3>
+            <ul>
+                <li ng-repeat="groupName in wallpaperPage.wallpaperGroupNames" ng-click="wallpaperPage.selectGroup(groupName)">
+                    <span ng-class="{active:wallpaperPage.selectedGroupName==groupName}" class="clickable">{{groupName}}</span>
+                </li>
+            </ul>
+        </div>
 
-        <h3>Patterns</h3>
-        <ul>
-            <li ng-repeat="drawPathFunction in wallpaperPage.drawPathFunctions" ng-click="wallpaperPage.selectDrawPathFunction(drawPathFunction.name)">
-                <simple-drawing
-                    ng-class="{active:wallpaperPage.selectedDrawPathFunction.name==drawPathFunction.name}"
-                    class="clickable"
-                    draw-function='{{ drawPathFunction.name }}'
-                ></simple-drawing>
-            </li>
-        </ul>
+        <div class="illustrations">
+            <h3>Illustrations</h3>
+            <ul>
+                <li ng-repeat="drawPathFunction in wallpaperPage.drawPathFunctions" ng-click="wallpaperPage.selectDrawPathFunction(drawPathFunction.name)">
+                    <simple-drawing
+                        ng-class="{active:wallpaperPage.selectedDrawPathFunction.name==drawPathFunction.name}"
+                        class="clickable"
+                        draw-function='{{ drawPathFunction.name }}'
+                    ></simple-drawing>
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <div ng-repeat="groupName in wallpaperPage.wallpaperGroupNames" ng-click="wallpaperPage.selectGroup(groupName)" class="wallpaper-pattern-container">
