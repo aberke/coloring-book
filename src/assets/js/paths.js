@@ -661,6 +661,22 @@ function triangularGridFundamentalDomainSixth(origin, size) {
 }
 
 
+/*
+Returns the path for a square that is the building block for a square grid
+underlay for a fundamental domain.
+*/
+function squareGridFundamentalDomain(origin, size) {
+    // Origin is top left corner.
+    return [
+        ["M", origin.X, origin.Y],
+        ["v", size],
+        ["h", size],
+        ["v", (-1)*size],
+        ["Z"]
+    ];
+}
+
+
 
 /************************************************
 Utility functions

@@ -48,17 +48,28 @@ function WallpaperPatternDirective($window) {
             scope.paper = new Raphael(elt, "100%", "100%");
         };
 
+        /*
+		The underlying fundamental domain is either composed of a grid of squares (default) or
+		triangles.
+		A pattern design path lies on top, copying its transformations.
+        */
         scope.drawPattern = function() {
-            if (!scope.fundamentalDomainPath) {
-                let origin = {
-                    X: 0,
-                    Y: 0,
-                };
-                // Generate the fundamental domain path once so that it can use random variables
-                // and yet still look the same when it's redrawn by the wallpaperPattern
-                scope.fundamentalDomainPath = scope.patternFunction(origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
-            }
-            scope.wallpaperPattern = new WallpaperPattern(scope.paper, scope.fundamentalDomainPath,
+            if (!scope.fundamentalDomainPathFunction)
+                scope.fundamentalDomainPathFunction = squareGridFundamentalDomain;
+
+            scope.fundamentalDomainPath = scope.fundamentalDomainPathFunction({X:0, Y:0}, scope.fundamentalDomainWidth);
+
+            const patternDesignOrigin = {
+                X: 0,
+                Y: 0,
+            };
+            // Generate the path once so that it can use random variables
+            // and yet still look the same when it's redrawn by the wallpaperPattern
+            scope.patternDesignPath = scope.patternFunction(patternDesignOrigin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
+        
+            scope.wallpaperPattern = new WallpaperPattern(scope.paper,
+                                                            scope.fundamentalDomainPath,
+                                                            scope.patternDesignPath,
                                                             scope.transforms, scope.transformOptions,
                                                             scope.drawOptions);
         };
@@ -69,7 +80,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
-
             scope.setupPaper();
             scope.drawPattern();
         };
@@ -80,7 +90,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
-
             scope.setupPaper();
             scope.drawPattern();
         };
@@ -238,16 +247,14 @@ function WallpaperPatternDirective($window) {
         };
 
         /*
-        p3 has order-3 rotations and no reflections.
-		___     
-	  /_\ /_\___  
-	  \ / \ /\ /\
-		--- ------     
-	  /_\ /_\/_\/  
-	  \ / \ /  
-		---   
+        p3 has order-3 rotations and no reflections. 
         */
         scope.p3Handler = function() {
+            // TODO: implement use of underlying grids and then draw
+            // pattern functions on top of grid
+            // let origin = {X: 0, Y: 0};
+            // scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
+            scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
             scope.transforms = {
                 FundamentalDomain: [
                 	transforms.order3Rotation,
@@ -266,10 +273,6 @@ function WallpaperPatternDirective($window) {
             };
             
             scope.setupPaper();
-        	// TODO: implement use of underlying grids and then draw
-        	// pattern functions on top of grid
-        	let origin = {X: 0, Y: 0};
-        	scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
             scope.drawPattern();
         };
 
@@ -279,6 +282,11 @@ function WallpaperPatternDirective($window) {
         There are some glide-reflections.
 		*/
 		scope.p31mHandler = function() {
+            // TODO: implement use of underlying grids and then draw
+            // pattern functions on top of grid
+            // let origin = {X: 0, Y: 0};
+            // scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
+            scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
             scope.transforms = {
                 FundamentalDomain: [
                 	transforms.order3Rotation,
@@ -302,10 +310,6 @@ function WallpaperPatternDirective($window) {
             };
             
             scope.setupPaper();
-        	// TODO: implement use of underlying grids and then draw
-        	// pattern functions on top of grid
-        	let origin = {X: 0, Y: 0};
-        	scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
             scope.drawPattern();
         };
 
@@ -316,6 +320,11 @@ function WallpaperPatternDirective($window) {
 		There are some glide-reflections.
 		*/
         scope.p3m1Handler = function() {
+            // TODO: implement use of underlying grids and then draw
+            // pattern functions on top of grid
+            // let origin = {X: 0, Y: 0};
+            // scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
+            scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
             scope.transforms = {
                 FundamentalDomain: [
                     transforms.mirrorH,
@@ -336,10 +345,6 @@ function WallpaperPatternDirective($window) {
             };
             
             scope.setupPaper();
-        	// TODO: implement use of underlying grids and then draw
-        	// pattern functions on top of grid
-        	let origin = {X: 0, Y: 0};
-        	scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
             scope.drawPattern();
         };
 
@@ -351,8 +356,9 @@ function WallpaperPatternDirective($window) {
         scope.p6Handler = function() {
             // TODO: implement use of underlying grids and then draw
             // pattern functions on top of grid
-            let origin = {X: 0, Y: 0};
-            scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
+            // let origin = {X: 0, Y: 0};
+            // scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
+            scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
             scope.transforms = {
                 FundamentalDomain: [
                 	transforms.order3Rotation,
@@ -385,7 +391,8 @@ function WallpaperPatternDirective($window) {
             // TODO: implement use of underlying grids and then draw
             // pattern functions on top of grid
             let origin = {X: 0, Y: 0};
-            scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
+            scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
+            // scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
             scope.transforms = {
                 FundamentalDomain: [
                 	transforms.mirrorH,

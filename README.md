@@ -75,6 +75,13 @@ Run/Build in production mode with `--production` flag.
 - `$ gulp serve --production`
 
 
+#### Debugging
+
+URL parameters:
+
+- `?debug`
+
+
 #### Linting
 
 Please rememember to lint: `$ gulp lint`
