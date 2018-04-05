@@ -56,8 +56,8 @@ Wallpaper and Frieze Page specific
 #frieze-page .print-only .frieze-pattern-title {
 	border: none;
 }
-#wallpaper-page .wallpaper .title-container,
-#frieze-page .frieze .title-container {
+#wallpaper-page.wallpaper .title-container,
+#frieze-page.frieze .title-container {
 	min-height: 140px;
 }
 #wallpaper-page .title-container ul,
@@ -66,10 +66,6 @@ Wallpaper and Frieze Page specific
 	display: inline-block;
 	vertical-align: middle;
 	margin-top: 0;
-}
-#wallpaper-page .title-container h1,
-#frieze-page .title-container h1 {
-	vertical-align: text-bottom;
 }
 
 #wallpaper-page .print .title-container h1,

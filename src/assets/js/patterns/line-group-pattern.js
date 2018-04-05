@@ -70,12 +70,10 @@ class LineGroupPattern {
     }
 
     addPathSetStyle(fdPathSet, pdPathSet) {
-        fdPathSet.attr({ "stroke": "transparent" });
-        if (!!DEBUG)
-            fdPathSet.attr({
-                "stroke": "gray",
-                "stroke-width": this.strokeWidth
-            });
+        fdPathSet.attr({
+            "stroke": ((!!DEBUG) ? "gray" : "transparent"),
+            "stroke-width": this.strokeWidth
+        });
         
         pdPathSet.attr({
             "stroke": DEFAULT_STROKE_COLOR,
@@ -245,7 +243,6 @@ class LineGroupPattern {
     @terminateCheck: function that returns boolean indicating whether to terminate recursion
     @terminateCallback: function called with final path set when done transforming - i.e. terminationCheck/base case met
     */
-    // transformAlongAxis(workingSet, transform, options, terminateCheck, terminateCallback) {
     transformAlongAxis(fdPathSet, pdPathSet, transform, options, terminateCheck, terminateCallback) {
         // Iteratively get the last item, clone it, and tranform it
         let transformFdSet = this.paper.set().push(fdPathSet);
@@ -327,12 +324,13 @@ class LineGroupPattern {
 class FriezePattern extends LineGroupPattern {
 
     redraw() {
-        // TODO
         // While redrawing, remove the opacity attribute and 'clickable-ness'.
         this.removePaperSetHandlers();
-        let bbox = this.fdPathSet.getBBox();
-        let offsetX = (bbox.x2 > 0) ? bbox.x2 : 0;
-        this.draw(offsetX);
+        if (!!this.fdPathSet.length)
+            this.transformX(this.fdPathSet.pop(), this.pdPathSet.pop(), this.drawCallback.bind(this));
+        else
+            this.draw();
+        
         analytics.trackRedraw('FriezePattern');
     }
 }
