@@ -55,8 +55,7 @@ Creates a path of random slices slanted from the origin towards the opposite cor
 
 @returns {array} pathList
 **/
-function slantedSlices(origin, width, height, options) {
-    options = options || {};
+function slantedSlices(origin, width, height, options={}) {
 
     // levels can be passed in as an option with a default of 3
     // and must be within range of minLevels and maxLevels
@@ -137,14 +136,6 @@ function slantedSlices(origin, width, height, options) {
 
     }
     return pathList;
-}
-
-function closedCurvePathWithinBox(fromPoint, toPoint, containingBox) {
-    return slantedClosedPathWithinBox(fromPoint, toPoint, containingBox, true);
-}
-
-function diamondWithinBox(fromPoint, toPoint, containingBox) {
-    return slantedClosedPathWithinBox(fromPoint, toPoint, containingBox, false);
 }
 
 /*
@@ -284,25 +275,6 @@ function slantedDiamond(origin, width, height) {
     };
     return slantedClosedPathWithinBox(origin, toPoint, containingBox, false);
 }
-
-
-
-/**
-Creates path for a line from the origin to opposite corner of the enclosing box.
-
-@param {X: number, Y: number} origin
-@param {number} width of enclosed path
-@param {number} height enclosing path
-
-@returns {array} pathList
-**/
-function slantedLinePath(origin, width, height) {
-    return [
-        ["M", origin.X, origin.Y],
-        ["L", origin.X + width, origin.Y - height]
-    ];
-}
-
 
 
 /**
