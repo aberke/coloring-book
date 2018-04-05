@@ -255,18 +255,6 @@ function drawQuarterEllipse(paper, centerPoint, size) {
     return paper.set().push(path);
 }
 
-function drawCurves(paper, centerPoint, size, options) {
-    // triangles function uses origin at bottom left
-    let origin = {
-        X: centerPoint.X - (1/2)*size,
-        Y: centerPoint.Y + (1/2)*size,
-    };
-
-    let pathList = curves(options.n, origin, size, size);
-    let path = paper.path(pathList);
-    return paper.set().push(path);
-}
-
 function drawTriangles(paper, centerPoint, size, options) {
     let n = options.N || 3;
 
