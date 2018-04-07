@@ -98,7 +98,7 @@ function friezePatternDirective($window) {
         scope.drawPattern = function() {
             let origin = {
                 X: 0,
-                Y: scope.fundamentalDomainHeight + scope.margin,
+                Y: 0 + scope.margin,
             };
             // generate the fundamental domain path once so that it can use random variables
             // and yet still look the same when it"s redrawn by the FriezePattern
