@@ -29,11 +29,7 @@ function simpleDrawingDirective($window) {
             elt.className += " canvas";
             // create the canvas paper and define it's size
             let paper = new Raphael(elt);
-            // TODO: change origin to be top left corner -- correct 0,0
-            let origin = {
-                X: 0,
-                Y: height
-            };
+            let origin = {X: 0, Y: 0};
             // Draw.
             scope.pathList = drawFunction(origin, width, height, drawFunctionOptions);
             scope.path = paper.path(scope.pathList);
