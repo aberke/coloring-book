@@ -247,7 +247,7 @@ function drawQuarterEllipse(paper, centerPoint, size) {
     // function uses origin at bottom left
     let origin = {
         X: centerPoint.X - (1/2)*size,
-        Y: centerPoint.Y + (1/2)*size,
+        Y: centerPoint.Y - (1/2)*size,
     };
 
     let pathList = quarterEllipse(origin, size, size);
@@ -261,7 +261,7 @@ function drawTriangles(paper, centerPoint, size, options) {
     // triangles function uses origin at bottom left
     let origin = {
         X: centerPoint.X - (1/2)*size,
-        Y: centerPoint.Y + (1/2)*size,
+        Y: centerPoint.Y - (1/2)*size,
     };
 
     let pathList = trianglesPath(n, origin, size, size);
@@ -274,7 +274,7 @@ function drawPetalEllipse(paper, centerPoint, size) {
     // uses origin at bottom left
     let origin = {
         X: centerPoint.X - (1/2)*size,
-        Y: centerPoint.Y + (1/2)*size,
+        Y: centerPoint.Y - (1/2)*size,
     };
 
     let pathList = petalEllipse(origin, size, size);
