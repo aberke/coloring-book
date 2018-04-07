@@ -51,7 +51,7 @@ function WallpaperPatternDirective($window) {
         scope.drawPattern = function() {
             let origin = {
                 X: 0,
-                Y: scope.fundamentalDomainHeight,
+                Y: 0,
             };
             // Generate the fundamental domain path once so that it can use random variables
             // and yet still look the same when it's redrawn by the wallpaperPattern

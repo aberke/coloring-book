@@ -43,9 +43,10 @@ function drawMirrorLines(paper, centerPoint, N, size) {
 
 
 /**
-Creates a path of random slices slanted from the origin towards the opposite corner.
+Creates a path of random slices slanted from the bottom-left corner
+towards the opposite corner.
 
-@param {X: number, Y: number} origin
+@param {X: number, Y: number} origin representing top left corner
 @param {number} width of enclosed path
 @param {number} height enclosing path
 @param {object} options
@@ -54,60 +55,65 @@ Creates a path of random slices slanted from the origin towards the opposite cor
                 {boolean} allowCurved (default: false) -- when false slices will not be curved
 
 @returns {array} pathList
+
+Pathlist fits within containing box:
+    X1 is the leftmost width of the allowed box
+    X2 is the rightmost width of the allowed box
+    Y1 is the topmost height of the containing box
+    Y2 is the bottommost height
+
+    (X1=origin.X, origin.Y)-----------(X2=origin.X+width, Y1=origin.Y)
+    |                                |
+    (X1=origin.X, origin.Y+height)----(X2=origin.X+width, Y2=origin.Y+height)
 **/
 function slantedSlices(origin, width, height, options={}) {
 
     // levels can be passed in as an option with a default of 3
     // and must be within range of minLevels and maxLevels
-    var minLevels = 1;
-    var maxLevels = 3;
-    var levels = Math.max(minLevels, Math.min(options.levels || 3, maxLevels));
+    const minLevels = 1;
+    const maxLevels = 3;
+    const levels = Math.max(minLevels, Math.min(options.levels || 3, maxLevels));
 
-    var pathsPerLevel = options.pathsPerLevel || 2;
+    const pathsPerLevel = options.pathsPerLevel || 2;
 
-    var allowCurved = (!!options.allowCurved && options.allowCurved !== "false");
+    const allowCurved = (!!options.allowCurved && options.allowCurved !== "false");
     // function to randomly decide if a path is curved or not
     function chooseIsCurved() {
         return (allowCurved && Math.random() > 0.4) ? true : false;
     }
 
-    var pathList = [];
+    let pathList = [];
 
-    // Set up containing box:
-    // X1 is the leftmost width of the allowed box
-    // X2 is the rightmost width of the allowed box
-    // Y1 is the bottommost height of the containing box
-    // Y2 is the topmost height
-
-    // (X1, Y2)----(X2, Y2)
-    // |           |
-    // (X1, Y1)----(X2, Y1)
-    var containingBox = {
+    const containingBox = {
         X1: origin.X,
         X2: origin.X + width,
         Y1: origin.Y,
-        Y2: origin.Y - height,
+        Y2: origin.Y + height,
     };
 
-    var startPoint = origin;
-    var midPoint = {
+    const startPoint = {
+        X: origin.X,
+        Y: origin.Y + height,
+    };
+    const midPoint = {
         X: origin.X + (1/2)*width,
-        Y: origin.Y - (1/2)*height,
+        Y: origin.Y + (1/2)*height,
     };
-    var endPoint = {
+    const endPoint = {
         X: origin.X + width,
-        Y: origin.Y - height
+        Y: origin.Y
     };
-    var centerStartPoint = {
+    const centerStartPoint = {
         X: origin.X + (1/4)*width,
-        Y: origin.Y - (1/4)*height,
+        Y: origin.Y + (3/4)*height,
     };
-    var centerEndPoint = {
+    const centerEndPoint = {
         X: origin.X + (3/4)*width,
-        Y: origin.Y - (3/4)*height,
+        Y: origin.Y + (1/4)*height,
     };
 
-    for (var p=1; p <= pathsPerLevel; p++) {
+    let p;
+    for (p=1; p <= pathsPerLevel; p++) {
         
         // create as many as 'pathsPerLevel' centered paths for when # of levels is 1
         // create only 3 centered path when levels > 2
@@ -145,38 +151,38 @@ The curves/lines should fit within the containing box boundaries.
 
 X1 is the leftmost width of the allowed box
 X2 is the rightmost width of the allowed box
-Y1 is the bottommost height of the containing box
-Y2 is the topmost height
+Y1 is the topmost height of the containing box
+Y2 is the bottommost height
 Box:
 
-(X1, Y2)----(X2, Y2)
+(X1, Y1)----(X2, Y2)
 |           |
-(X1, Y1)----(X2, Y1)
+(X1, Y2)----(X2, Y2)
 **/
 function slantedClosedPathWithinBox(fromPoint, toPoint, containingBox, isCurved) {
-    var boxX1 = containingBox.X1;
-    var boxX2 = containingBox.X2;
-    var boxY1 = containingBox.Y1;
-    var boxY2 = containingBox.Y2;
+    let boxX1 = containingBox.X1;
+    let boxX2 = containingBox.X2;
+    let boxY1 = containingBox.Y1;
+    let boxY2 = containingBox.Y2;
 
     // slope line that cuts from corner to corner of the box
-    var slope = (boxY2 - boxY1)/(boxX2 - boxX1);
-    var buffer = 15; // buffer from the vertical sides of the containing box and from the line
+    let slope = (boxY1 - boxY2)/(boxX2 - boxX1);
+    let buffer = 15; // buffer from the vertical sides of the containing box and from the line
 
     // side 1
-    var cX1 = getRandomNumber(boxX1, boxX2 - buffer);
+    let cX1 = getRandomNumber(boxX1, boxX2 - buffer),
     // make sure Y is above the slope line
     // neex a y that is between the y of the line and boxY2
-    var cY1 = getRandomNumber(boxY2, slope*cX1 + boxY1 - buffer);
+        cY1 = getRandomNumber(boxY1, slope*cX1 + boxY2 - buffer),
 
     // side 2
-    var cX2 = getRandomNumber(boxX1 + buffer, boxX2);
+        cX2 = getRandomNumber(boxX1 + buffer, boxX2),
     // make sure Y is below the slope line
     // neex a y that is between boxY1 and the y of the line (a buffer amount above line)
-    var cY2 = getRandomNumber(slope*cX2 + boxY1 + buffer, boxY1);
+        cY2 = getRandomNumber(slope*cX2 + boxY2 + buffer, boxY2);
 
     // push the path
-    var startPointPathPart = ["M", fromPoint.X, fromPoint.Y];
+    const startPointPathPart = ["M", fromPoint.X, fromPoint.Y];
     if (isCurved) {
         return [
             // top side
@@ -188,7 +194,7 @@ function slantedClosedPathWithinBox(fromPoint, toPoint, containingBox, isCurved)
             ["Q", cX2, cY2, toPoint.X, toPoint.Y],
         ];
     } else {
-        var lineToEndPoint = ["L", toPoint.X, toPoint.Y];
+        const lineToEndPoint = ["L", toPoint.X, toPoint.Y];
         return [
             // top side
             startPointPathPart,
@@ -213,7 +219,7 @@ Creates path for petal ellipse enclosed by a slanted diamond
 @returns {array} pathList
 **/
 function petalsEllipseWithDiamondPath(origin, width, height) {
-    var pathList = [];
+    let pathList = [];
     pathList += petalEllipse(origin, width, height, {maxLoops: getRandomInt(1, 2)});
     pathList += slantedDiamond(origin, width, height);
     return pathList;
@@ -221,24 +227,24 @@ function petalsEllipseWithDiamondPath(origin, width, height) {
 
 
 /**
- * Draw series of connected curves of diminishing height where axis length = offset
+Draw series of connected curves of diminishing height where axis length = offset
+@return {array} for a pathList
 **/
 function petalEllipse(origin, width, height, options = {}) {
-    // height defaults to width
+    // Height defaults to width.
     height = height || width;
 
-    // draw the path with start at origin
-    var pathList = [];
-    var startPointPathPart = ["M", origin.X, origin.Y];
+    let pathList = [];
+    let startPointPathPart = ["M", origin.X, origin.Y + height];
 
     // add the curve a few times, always starting and ending in the same place
-    var aX = origin.X + width;
-    var aY = height;
+    let aX = origin.X + width;
+    let aY = height;
 
-    var i = 0;
-    var maxLoops = options.maxLoops || 3;
-    var angle = -10;
-    var heightChange = (-1)*(height/maxLoops);
+    let i = 0;
+    let maxLoops = options.maxLoops || 3;
+    let angle = -10;
+    let heightChange = (-1)*(height/maxLoops);
     while (i <= maxLoops && aY > 0) {
         pathList.push(startPointPathPart);
         pathList.push(["a", aX, aY, angle, 0, 1, aX, (-1)*aY]);
@@ -263,18 +269,118 @@ Creates path for a slanted diamond
 @returns {array} pathList
 **/
 function slantedDiamond(origin, width, height) {
-    var toPoint = {
-        X: origin.X + width,
-        Y: origin.Y - height,
+    const fromPoint = {
+        X: origin.X,
+        Y: origin.Y + height,
     };
-    var containingBox = {
+    const toPoint = {
+        X: origin.X + width,
+        Y: origin.Y,
+    };
+    const containingBox = {
         X1: origin.X,
         X2: toPoint.X,
         Y1: origin.Y,
         Y2: toPoint.Y,
     };
-    return slantedClosedPathWithinBox(origin, toPoint, containingBox, false);
+    return slantedClosedPathWithinBox(fromPoint, toPoint, containingBox, false);
 }
+
+
+function curves(n, origin, width, height) {
+    // set default n
+    n = n || 4;
+
+    // draw the path with start at origin
+    var pathList = [];
+    var startPointPathPart = ["M", origin.X, origin.Y];
+
+    // add the curve a few times, always starting and ending in the same place
+    var endX = width;
+    var endY = -1*(height/2);
+    var controlX = width/2;
+    var controlY = (-1)*(2*height);
+    var i = 0;
+    var heightChange = height/n;
+    while (i < n && endY < origin.Y) {
+        i += 1;
+        pathList.push(startPointPathPart);
+        controlY += heightChange;
+        pathList.push(["q", controlX, controlY, endX, endY]);
+    }
+    return pathList;
+}
+var curves2 = curves.bind(this, 2);
+var curves3 = curves.bind(this, 3);
+var curves4 = curves.bind(this, 4);
+var curves5 = curves.bind(this, 5);
+
+
+function quarterEllipse(origin, width, height) {
+	/*
+	Draw series of connected curves of diminishing height where axis length = offset
+	*/
+    // draw the path with start at origin
+    var pathString = "";
+    var startingSpotString = "M" + String(origin.X) + "," + String(origin.Y);
+    // add the curve a few times, always starting and ending in the same place
+    var aX = width;
+    var aY = height;
+
+    var i = 0;
+    var maxLoops = 4;
+    var angle = 0;
+    var heightChange = (-1)*(height/maxLoops);
+    while (i <= maxLoops && aY > 0) {
+        pathString += (startingSpotString + " ");
+        pathString += ("a" + String(aX) + "," + String(aY) + " " + String(angle) + " 0,1 " + String(aX) + ",-" + String(aY) + " ");
+        // draw vertical line connecting to previous curve
+        if (i > 0)
+        	pathString += (" l0," + String(heightChange) + " ");
+
+        aY += heightChange;
+        i += 1;
+    }
+    return pathString;
+}
+
+/***
+Generates path for triangles: n triangles placed within eachother
+@return {array} for a pathList for n triangles, placed within eachother
+
+Pathlist fits within containing box:
+    X1 is the leftmost width of the allowed box
+    X2 is the rightmost width of the allowed box
+    Y1 is the topmost height of the containing box
+    Y2 is the bottommost height
+
+    (origin.X, origin.Y)-----------(origin.X+width, origin.Y)
+    |                                |
+    (origin.X, origin.Y+height)----(origin.X+width, origin.Y+height)
+**/
+function trianglesPath(n, origin, width, height) {
+    n = n || 1;
+    // Default height = width.
+    height = height || width;
+
+    let pathList = [];
+    let startPointPathPart = ["M", origin.X, origin.Y + height];
+
+    let i, widthDivisor;
+    for (i=0; i<n; i++) {
+        pathList += [
+            [startPointPathPart],
+            ["h", width/Math.pow(2, i)],
+            ["v", (-1)*height],
+            ["Z"]
+        ];
+    }
+    return pathList;
+}
+function trianglePath(o, w, h) { return trianglesPath(1, o, w, h); }
+function trianglesPath2(o, w, h) { return trianglesPath(2, o, w, h); }
+function trianglesPath3(o, w, h) { return trianglesPath(3, o, w, h); }
+function trianglesPath4(o, w, h) { return trianglesPath(4, o, w, h); }
 
 
 /**
@@ -341,7 +447,6 @@ function getFundamentalDomainLineSlices(origin, width, height, options = {}) {
     }
     return pathList;
 }
-
 
 /**
 Generates a path that starts at startPoint, and ends further along
@@ -413,100 +518,17 @@ function getFundamentalDomainLineSlicePath(startPoint, width, height, withReflec
     return pathList;
 }
 
+/***********************************************
+Utility functions
+************************************************/
+
+
 
 function getCatmullRomPath(fromPoint, toPoint, centerPoint, multiplierX, multiplierY) {
-    var differenceX = (centerPoint.X - fromPoint.X);
-    var differenceY = (centerPoint.Y - fromPoint.Y);
+    const differenceX = (centerPoint.X - fromPoint.X);
+    const differenceY = (centerPoint.Y - fromPoint.Y);
     return ["R", fromPoint.X + multiplierX*differenceX, fromPoint.Y + multiplierY*differenceY, toPoint.X, toPoint.Y];
 }
-
-
-function curves(n, origin, width, height) {
-    // set default n
-    n = n || 4;
-
-    // draw the path with start at origin
-    var pathList = [];
-    var startPointPathPart = ["M", origin.X, origin.Y];
-
-    // add the curve a few times, always starting and ending in the same place
-    var endX = width;
-    var endY = -1*(height/2);
-    var controlX = width/2;
-    var controlY = (-1)*(2*height);
-    var i = 0;
-    var heightChange = height/n;
-    while (i < n && endY < origin.Y) {
-        i += 1;
-        pathList.push(startPointPathPart);
-        controlY += heightChange;
-        pathList.push(["q", controlX, controlY, endX, endY]);
-    }
-    return pathList;
-}
-var curves2 = curves.bind(this, 2);
-var curves3 = curves.bind(this, 3);
-var curves4 = curves.bind(this, 4);
-var curves5 = curves.bind(this, 5);
-
-
-function quarterEllipse(origin, width, height) {
-	/*
-	Draw series of connected curves of diminishing height where axis length = offset
-	*/
-    // draw the path with start at origin
-    var pathString = "";
-    var startingSpotString = "M" + String(origin.X) + "," + String(origin.Y);
-    // add the curve a few times, always starting and ending in the same place
-    var aX = width;
-    var aY = height;
-
-    var i = 0;
-    var maxLoops = 4;
-    var angle = 0;
-    var heightChange = (-1)*(height/maxLoops);
-    while (i <= maxLoops && aY > 0) {
-        pathString += (startingSpotString + " ");
-        pathString += ("a" + String(aX) + "," + String(aY) + " " + String(angle) + " 0,1 " + String(aX) + ",-" + String(aY) + " ");
-        // draw vertical line connecting to previous curve
-        if (i > 0)
-        	pathString += (" l0," + String(heightChange) + " ");
-
-        aY += heightChange;
-        i += 1;
-    }
-    return pathString;
-}
-
-/***
-Generates path for triangles: n triangles placed within eachother
-@return {array} for a pathList for n triangles, placed within eachother
-**/
-var trianglesPath = function(n, origin, width, height) {
-    n = n || 1;
-    // default height is same as width
-    height = height || width;
-
-    let pathList = [];
-    let startPointPathPart = ["M", origin.X, origin.Y];
-
-    let i, widthDivisor;
-    for (i=0; i<n; i++) {
-        pathList += [
-            [startPointPathPart],
-            ["h", width/Math.pow(2, i)],
-            ["v", (-1)*height],
-            ["Z"]
-        ];
-    }
-    return pathList;
-};
-var trianglePath = trianglesPath.bind(this, 1);
-var trianglesPath2 = trianglesPath.bind(this, 2);
-var trianglesPath3 = trianglesPath.bind(this, 3);
-var trianglesPath4 = trianglesPath.bind(this, 4);
-
-/*** Utility functions ***/
 
 
 /*
