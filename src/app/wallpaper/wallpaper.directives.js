@@ -237,10 +237,6 @@ function WallpaperPatternDirective($window) {
         p3 has order-3 rotations and no reflections. 
         */
         scope.p3Handler = function() {
-            // TODO: implement use of underlying grids and then draw
-            // pattern functions on top of grid
-            // let origin = {X: 0, Y: 0};
-            // scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
             scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
             scope.transforms = {
                 FundamentalDomain: [
@@ -267,10 +263,6 @@ function WallpaperPatternDirective($window) {
         There are some glide-reflections.
 		*/
 		scope.p31mHandler = function() {
-            // TODO: implement use of underlying grids and then draw
-            // pattern functions on top of grid
-            // let origin = {X: 0, Y: 0};
-            // scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
             scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
             scope.transforms = {
                 FundamentalDomain: [
@@ -303,10 +295,6 @@ function WallpaperPatternDirective($window) {
 		There are some glide-reflections.
 		*/
         scope.p3m1Handler = function() {
-            // TODO: implement use of underlying grids and then draw
-            // pattern functions on top of grid
-            // let origin = {X: 0, Y: 0};
-            // scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
             scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
             scope.transforms = {
                 FundamentalDomain: [
@@ -335,10 +323,6 @@ function WallpaperPatternDirective($window) {
 		p6 Uses a triangular grid.
         */
         scope.p6Handler = function() {
-            // TODO: implement use of underlying grids and then draw
-            // pattern functions on top of grid
-            // let origin = {X: 0, Y: 0};
-            // scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
             scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
             scope.transforms = {
                 FundamentalDomain: [
@@ -367,11 +351,7 @@ function WallpaperPatternDirective($window) {
 		It uses a triangular grid.
         */
         scope.p6mHandler = function() {
-            // TODO: implement use of underlying grids and then draw
-            // pattern functions on top of grid
-            let origin = {X: 0, Y: 0};
             scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
-            // scope.fundamentalDomainPath = triangularGridFundamentalDomainSixth(origin, scope.fundamentalDomainWidth);
             scope.transforms = {
                 FundamentalDomain: [
                 	transforms.mirrorH,
