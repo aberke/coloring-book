@@ -278,9 +278,9 @@ function slantedDiamond(origin, width, height) {
     };
     const containingBox = {
         X1: origin.X,
-        X2: toPoint.X,
+        X2: origin.X + width,
         Y1: origin.Y,
-        Y2: toPoint.Y,
+        Y2: origin.Y + height,
     };
     return slantedClosedPathWithinBox(fromPoint, toPoint, containingBox, false);
 }
