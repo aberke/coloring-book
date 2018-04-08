@@ -261,8 +261,8 @@ function WallpaperPatternDirective($window) {
         p31m has reflections with axes inclined at 60 degrees to one another, and order 3 rotations.
         Some of the centers of rotation lie on the reflection axes, and some do not.
         There are some glide-reflections.
-		*/
-		scope.p31mHandler = function() {
+        */
+        scope.p31mHandler = function() {
             scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
             scope.transforms = {
                 FundamentalDomain: [
@@ -288,12 +288,12 @@ function WallpaperPatternDirective($window) {
             scope.drawPattern();
         };
 
-		/*
-		p3m1 contains reflections and order-3 rotations.
-		The axes of the reflections are again inclined at 60° to one another and
-		all of the centers of rotation lie on the reflection axes.
-		There are some glide-reflections.
-		*/
+        /*
+        p3m1 contains reflections and order-3 rotations.
+        The axes of the reflections are again inclined at 60° to one another and
+        all of the centers of rotation lie on the reflection axes.
+        There are some glide-reflections.
+        */
         scope.p3m1Handler = function() {
             scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
             scope.transforms = {
@@ -318,9 +318,9 @@ function WallpaperPatternDirective($window) {
         };
 
         /*
-		p6 has order 6 rotations.
-		It also contains rotations of orders 2 and 3, but no reflections or glide-reflections.
-		p6 Uses a triangular grid.
+        p6 has order 6 rotations.
+        It also contains rotations of orders 2 and 3, but no reflections or glide-reflections.
+        p6 Uses a triangular grid.
         */
         scope.p6Handler = function() {
             scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
@@ -344,11 +344,11 @@ function WallpaperPatternDirective($window) {
         };
 
         /*
-		p6m has rotations of order 2, 3, and 6 as well as reflections.
+        p6m has rotations of order 2, 3, and 6 as well as reflections.
         The axes of reflection meet at all the centers of rotation.
         At the centers of the order 6 rotations, six reflection axes meet and are inclined at 30° to one another.
         There are some glide-reflections.
-		It uses a triangular grid.
+        It uses a triangular grid.
         */
         scope.p6mHandler = function() {
             scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
