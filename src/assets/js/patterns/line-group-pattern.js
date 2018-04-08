@@ -133,16 +133,15 @@ class LineGroupPattern {
     }
 
     maxTransformWidth(transformObject) {
-        let objectWidth = transformObject.getBBox().width;
-        let width = this.paper.getSize().width;
-
+        const objectWidth = transformObject.getBBox().width;
+        const patternWidth = this.paper.getSize().width;
         // Allow the option to avoid drawing past the boundary of the containing div:
-        // If contained is true, stop drawing before hit boundary of the containing div
-        let contain = this.drawOptions.contain || false;
+        // If contain is true, stop drawing before hit boundary of the containing div
+        const contain = this.drawOptions.contain || false;
         // Need buffer room in the containing bounds because these dimensions are not precise
         // and without buffer pattern will stop prematurely.
-        let containerBuffer = 5;
-        return containerBuffer + (contain ? (width - objectWidth) : width);
+        const containerBuffer = 5;
+        return containerBuffer + (contain ? (patternWidth - objectWidth) : patternWidth);
     }
 
     /*
@@ -154,9 +153,9 @@ class LineGroupPattern {
             return false;
 
         let transformObject = transformSet[transformSet.length - 1];
-        let maxWidth = this.maxTransformWidth(transformObject);
-
-        return (transformSet.getBBox().x2 > maxWidth);
+        if (!this.maxWidth)
+            this.maxWidth = this.maxTransformWidth(transformObject);
+        return (transformSet.getBBox().x2 >= this.maxWidth);
     }
 
     /*
