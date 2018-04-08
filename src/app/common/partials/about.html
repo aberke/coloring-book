@@ -15,9 +15,6 @@
     border-bottom: 5px double purple;
 }
 
-#about .frieze-pattern {
-	margin-bottom: 10px;
-}
 @media (min-width: 500px) {
 	#about .frieze-pattern { min-width: 400px; }
 }
@@ -107,15 +104,13 @@ p#about-illustrations {
         <strong>Digital copy:</strong> <a target="_blank" href="http://www.coloring-book.co">coloring-book.co</a>
     </p>
     <br/>
-    <div style="max-width: 650px; display: inline-block;"
-    	class='frieze-pattern'
+    <frieze-pattern style="max-width: 650px; display: inline-block;"
         pattern-function='petalsEllipseWithDiamondPath'
 		draw-options='{"strokeWidth": 1, "contain": true}'
         group-name='p11g'
-        fundamental-domain-width=50
-        fundamental-domain-height=30
-        margin=5
-    ></div>
+        fundamental-domain-width=45
+        fundamental-domain-height=45
+    ></frieze-pattern>
     <br/>
 
     <p id="about-illustrations">The illustrations in this book are drawn by algorithms that follow the symmetry rules of the groups each illustration represents. These algorithms use generative art techniques to add components of randomness - notice each illustration is unique.</p>

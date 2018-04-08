@@ -9,7 +9,6 @@ Use
     group-name={"p1" | "p11g" | ... one of the 7 frieze groups to draw}
     fundamental-domain-width={number} // TODO: rename?
     fundamental-domain-height={number}
-    margin={Number} // margin of space to allow below fundamental domain
     show-symmetry-sets={boolean} // value to watch -- show the symmetry set lines when true
 ></div>
 **/
@@ -28,15 +27,12 @@ function friezePatternDirective($window) {
         scope.drawOptions = JSON.parse(attrs.drawOptions || "{}");
 
         scope.patternData = friezeGroupsData[scope.groupName];
-
-        // margin is the margin to leave BELOW the drawn pattern.
-        scope.margin = Number(attrs.margin || 1);
         
         // Pattern design width and height:
         scope.fdWidth = Number(attrs.fundamentalDomainWidth || "80");
         scope.fdHeight = Number(attrs.fundamentalDomainHeight || "80");
         // Size of underlying fundamental domain grid tiles (width=height).
-        scope.fdSize = Math.min(scope.fdWidth, scope.fdHeight);
+        scope.fdSize = scope.fdHeight;
 
         // initialize the variables that will be set later
         scope.paper = null;
@@ -81,14 +77,6 @@ function friezePatternDirective($window) {
                 scope.hideSymmetrySets();
         });
 
-        scope.setupPaper = function() {
-            let elt = element[0];
-            elt.className += " frieze-pattern";
-            let height = scope.patternSpaceHeight + scope.margin;
-            elt.style.height = (String(height) + "px");
-            scope.paper = new Raphael(elt, "100%", height);
-        };
-
         // Draws h1 symmetry lines
         scope.setupH1SymmetrySet = function(h1Y, hGap) {
             let h1Set = util.drawXaxis(scope.paper, h1Y, hGap);
@@ -96,16 +84,20 @@ function friezePatternDirective($window) {
             scope.symmetrySets.h1 = h1Set;
         };
 
+        scope.setupPaper = function() {
+            let elt = element[0];
+            elt.className += " frieze-pattern";
+            elt.style.height = (String(scope.patternSpaceHeight) + "px");
+            scope.paper = new Raphael(elt, "100%", scope.patternSpaceHeight);
+        };
+
         scope.drawPattern = function() {
-            scope.fundamentalDomainPath = squareGridFundamentalDomain({X:0, Y:0}, scope.fdSize);
-            const patternDesignOrigin = {
-                X: 0,
-                Y: 0 + scope.margin,
-            };
+            const origin = {X: 0, Y: 0};
+            scope.fundamentalDomainPath = squareGridFundamentalDomain(origin, scope.fdSize);
             // Generate the path once so that it can use random variables
             // and yet still look the same when it's redrawn by the wallpaperPattern
-            scope.patternDesignPath = scope.patternFunction(patternDesignOrigin,
-                                                            scope.fdWidth, scope.fdHeight,
+            scope.patternDesignPath = scope.patternFunction(origin, scope.fdWidth,
+                                                            scope.fdHeight,
                                                             scope.patternFunctionOptions);
         
             scope.friezePattern = new FriezePattern(scope.paper,
