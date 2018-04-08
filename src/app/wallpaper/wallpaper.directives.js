@@ -29,7 +29,7 @@ function WallpaperPatternDirective($window) {
         scope.fundamentalDomainWidth = Number(attrs.fundamentalDomainWidth || "100");
         scope.fundamentalDomainHeight = Number(attrs.fundamentalDomainHeight || "80");
 
-        // initialize the variables that will be set later
+        // Initialize the variables that will be set later.
         scope.paper = null;
         scope.wallpaperPattern = null;
         /* transforms is an object of transformation functions (generators)
@@ -49,11 +49,13 @@ function WallpaperPatternDirective($window) {
         };
 
         /*
-		The underlying fundamental domain is either composed of a grid of squares (default) or
-		triangles.
-		A pattern design path lies on top, copying its transformations.
+        The underlying fundamental domain is either composed of a grid of squares (default) or
+        triangles.
+        A pattern design path lies on top, copying its transformations.
         */
         scope.drawPattern = function() {
+            scope.setupPaper();
+
             if (!scope.fundamentalDomainPathFunction)
                 scope.fundamentalDomainPathFunction = squareGridFundamentalDomain;
 
@@ -80,7 +82,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -90,7 +91,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -100,8 +100,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.mirrorV,
                 Y: transforms.translateV
             };
-
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -120,8 +118,6 @@ function WallpaperPatternDirective($window) {
                 	translationOffsetXMultiplier: (1/2)
                 }
             };
-
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -140,7 +136,6 @@ function WallpaperPatternDirective($window) {
                 	translationOffsetXMultiplier: (1/2)
                 }
             };
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -154,7 +149,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -168,7 +162,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.mirrorV,
                 Y: transforms.translateV
             };
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -178,7 +171,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.mirrorV,
                 Y: transforms.mirrorH
             };
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -193,7 +185,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.mirrorV,
                 Y: transforms.mirrorH
             };
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -206,7 +197,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -221,7 +211,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.mirrorV,
                 Y: transforms.translateV
             };
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -241,8 +230,6 @@ function WallpaperPatternDirective($window) {
                     {rotationOffsetYMultiplier: (1/2)}
                 ]
             };
-            
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -271,8 +258,6 @@ function WallpaperPatternDirective($window) {
                 X: {translationOffsetXMultiplier: 1},
                 Y: {translationOffsetYMultiplier: (1/2)},
             };
-            
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -308,8 +293,6 @@ function WallpaperPatternDirective($window) {
                 X: {translationOffsetXMultiplier: (5/6)},
                 Y: {translationOffsetYMultiplier: (1/2)},
             };
-            
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -343,8 +326,6 @@ function WallpaperPatternDirective($window) {
                 X: {translationOffsetXMultiplier: 1},
                 Y: {translationOffsetYMultiplier: (1/2)},
             };
-            
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -375,8 +356,6 @@ function WallpaperPatternDirective($window) {
                 X: {translationOffsetXMultiplier: 1},
                 Y: {translationOffsetYMultiplier: (1/2)},
             };
-            
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -417,8 +396,6 @@ function WallpaperPatternDirective($window) {
                 X: {translationOffsetXMultiplier: 1},
                 Y: {translationOffsetYMultiplier: (1/2)}
             };
-            
-            scope.setupPaper();
             scope.drawPattern();
         };
 
