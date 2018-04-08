@@ -67,12 +67,11 @@ Pathlist fits within containing box:
     (X1=origin.X, origin.Y+height)----(X2=origin.X+width, Y2=origin.Y+height)
 **/
 function slantedSlices(origin, width, height, options={}) {
-
     // levels can be passed in as an option with a default of 3
     // and must be within range of minLevels and maxLevels
     const minLevels = 1;
     const maxLevels = 3;
-    const levels = Math.max(minLevels, Math.min(options.levels || 3, maxLevels));
+    const levels = Math.max(minLevels, Math.min(options.levels || 2, maxLevels));
 
     const pathsPerLevel = options.pathsPerLevel || 2;
 
@@ -230,7 +229,7 @@ function petalsEllipseWithDiamondPath(origin, width, height) {
 Draw series of connected curves of diminishing height where axis length = offset
 @return {array} for a pathList
 **/
-function petalEllipse(origin, width, height, options = {}) {
+function petalEllipse(origin, width, height, options={}) {
     // Height defaults to width.
     height = height || width;
 
@@ -245,7 +244,7 @@ function petalEllipse(origin, width, height, options = {}) {
     let maxLoops = options.maxLoops || 3;
     let angle = -10;
     let heightChange = (-1)*(height/maxLoops);
-    while (i <= maxLoops && aY > 0) {
+    while (i <= maxLoops && aY > 1) {
         pathList.push(startPointPathPart);
         pathList.push(["a", aX, aY, angle, 0, 1, aX, (-1)*aY]);
         pathList.push(startPointPathPart);
@@ -279,29 +278,29 @@ function slantedDiamond(origin, width, height) {
     };
     const containingBox = {
         X1: origin.X,
-        X2: toPoint.X,
+        X2: origin.X + width,
         Y1: origin.Y,
-        Y2: toPoint.Y,
+        Y2: origin.Y + height,
     };
     return slantedClosedPathWithinBox(fromPoint, toPoint, containingBox, false);
 }
 
 
 function curves(n, origin, width, height) {
-    // set default n
+    // Set default n.
     n = n || 4;
 
-    // draw the path with start at origin
-    var pathList = [];
-    var startPointPathPart = ["M", origin.X, origin.Y];
+    // Draw the path with start at bottom left corner.
+    let pathList = [];
+    let startPointPathPart = ["M", origin.X, origin.Y + height];
 
     // add the curve a few times, always starting and ending in the same place
-    var endX = width;
-    var endY = -1*(height/2);
-    var controlX = width/2;
-    var controlY = (-1)*(2*height);
-    var i = 0;
-    var heightChange = height/n;
+    let endX = width;
+    let endY = -1*(height/2);
+    let controlX = width/2;
+    let controlY = (-1)*(1.8*height);
+    let i = 0;
+    let heightChange = height/n;
     while (i < n && endY < origin.Y) {
         i += 1;
         pathList.push(startPointPathPart);
@@ -310,39 +309,11 @@ function curves(n, origin, width, height) {
     }
     return pathList;
 }
-var curves2 = curves.bind(this, 2);
-var curves3 = curves.bind(this, 3);
-var curves4 = curves.bind(this, 4);
-var curves5 = curves.bind(this, 5);
+function curves2(o, w, h) { return curves(2, o, w, h); }
+function curves3(o, w, h) { return curves(3, o, w, h); }
+function curves4(o, w, h) { return curves(4, o, w, h); }
+function curves5(o, w, h) { return curves(5, o, w, h); }
 
-
-function quarterEllipse(origin, width, height) {
-	/*
-	Draw series of connected curves of diminishing height where axis length = offset
-	*/
-    // draw the path with start at origin
-    var pathString = "";
-    var startingSpotString = "M" + String(origin.X) + "," + String(origin.Y);
-    // add the curve a few times, always starting and ending in the same place
-    var aX = width;
-    var aY = height;
-
-    var i = 0;
-    var maxLoops = 4;
-    var angle = 0;
-    var heightChange = (-1)*(height/maxLoops);
-    while (i <= maxLoops && aY > 0) {
-        pathString += (startingSpotString + " ");
-        pathString += ("a" + String(aX) + "," + String(aY) + " " + String(angle) + " 0,1 " + String(aX) + ",-" + String(aY) + " ");
-        // draw vertical line connecting to previous curve
-        if (i > 0)
-        	pathString += (" l0," + String(heightChange) + " ");
-
-        aY += heightChange;
-        i += 1;
-    }
-    return pathString;
-}
 
 /***
 Generates path for triangles: n triangles placed within eachother
@@ -397,7 +368,7 @@ Path is randomly generated.
 
 @returns {array} pathList
 */
-function getFundamentalDomainLineSlices(origin, width, height, options = {}) {
+function getFundamentalDomainLineSlices(origin, width, height, options={}) {
     var slicesCount = options.slicesCount || 3;
     var withReflection = options.withReflection || false;
     var deltaYMultiplier = options.deltaYMultiplier || 1;
@@ -518,18 +489,120 @@ function getFundamentalDomainLineSlicePath(startPoint, width, height, withReflec
     return pathList;
 }
 
-/***********************************************
-Utility functions
+/*
+Draws a series of connected curves of diminishing height where axis length = offset.
+
+Returns {array} pathList.
+*/
+function quarterEllipse(origin, width, height) {
+    // Draw the path with start at bottom left corner.
+    let pathList = [];
+    let startingSpotString = ["M", origin.X, + origin.Y + height];
+    
+    // Add the curve a few times, always starting and ending in the same place
+    let aX = width,
+        aY = height;
+
+    let i = 0,
+        maxLoops = 4,
+        angle = 0,
+        heightChange = (-1)*(height/maxLoops);
+    while (i <= maxLoops && aY > 0) {
+        pathList += startingSpotString;
+        pathList += ["a", aX, aY, angle, 0, 1, aX, (-1)*aY];
+        // draw vertical line connecting to previous curve
+        if (i > 0)
+        	pathList += ["l", 0, heightChange];
+
+        aY += heightChange;
+        i += 1;
+    }
+    return pathList;
+}
+
+
+/************************************************
+Underlying Fundamental Domain grid pieces
 ************************************************/
 
+/*
+Returns the path for a 60-60-60 triangle that is the building block
+for a triangular grid underlay for a fundamental domain.
+^    x
+|    xxx
+|    xxxxxx
+h    xxxxxxxx
+|    xxxxxx
+|    xxx
+v    x
+<---- w ----->
 
+w = (h/2)*sqrt(3)
+
+NOTE: This is not used by line groups
+*/
+function triangularGridFundamentalDomainFull(origin, size) {
+    // Origin is top left corner
+    let height = size;
+    let width = (height/2)*Math.sqrt(3);
+    return [
+        ["M", origin.X, origin.Y],
+        ["v", height],
+        ["l", width, (-1/2)*height],
+        ["Z"]
+    ];
+}
+
+/*
+Returns the path for a 30-60-90 triangle.
+height of triangle = sqrt(3)*width
+|\
+|_\
+This is the top half of a 30-30-120 triangle
+|\
+| \
+| /  
+|/
+This triangle is 1/3 of a 60-60-60 triangle that is the building block
+for a triangular grid underlay for a fundamental domain.
+*/
+function triangularGridFundamentalDomainSixth(origin, size) {
+    let width = size;
+    let height = width*Math.sqrt(3);
+    return [
+        ["M", origin.X, origin.Y],
+        ["v", height],
+        ["h", width],
+        ["Z"]
+    ];
+}
+
+
+/*
+Returns the path for a square that is the building block for a square grid
+underlay for a fundamental domain.
+*/
+function squareGridFundamentalDomain(origin, size) {
+    // Origin is top left corner.
+    return [
+        ["M", origin.X, origin.Y],
+        ["v", size],
+        ["h", size],
+        ["v", (-1)*size],
+        ["Z"]
+    ];
+}
+
+
+/************************************************
+Utility functions
+************************************************/
 
 function getCatmullRomPath(fromPoint, toPoint, centerPoint, multiplierX, multiplierY) {
     const differenceX = (centerPoint.X - fromPoint.X);
     const differenceY = (centerPoint.Y - fromPoint.Y);
     return ["R", fromPoint.X + multiplierX*differenceX, fromPoint.Y + multiplierY*differenceY, toPoint.X, toPoint.Y];
 }
-
 
 /*
 Returns random number between min and max

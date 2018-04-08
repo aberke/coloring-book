@@ -363,13 +363,12 @@
 				<div ng-repeat="groupName in groupNames" class="frieze-pattern-container">
 					<div ng-if="selectedGroupName===groupName">
 						<p>Selected Group: {{groupName}}</p>
-						<div class='frieze-pattern'
+						<frieze-pattern
 						pattern-function=petalEllipse
 						group-name='{{groupName}}'
 						fundamental-domain-width=100
 						fundamental-domain-height=80
-						margin=10
-						></div>
+						></frieze-pattern>
 					</div>
 				</div>
 			</div>

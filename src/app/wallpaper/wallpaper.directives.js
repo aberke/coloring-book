@@ -29,7 +29,7 @@ function WallpaperPatternDirective($window) {
         scope.fundamentalDomainWidth = Number(attrs.fundamentalDomainWidth || "100");
         scope.fundamentalDomainHeight = Number(attrs.fundamentalDomainHeight || "80");
 
-        // initialize the variables that will be set later
+        // Initialize the variables that will be set later.
         scope.paper = null;
         scope.wallpaperPattern = null;
         /* transforms is an object of transformation functions (generators)
@@ -48,15 +48,32 @@ function WallpaperPatternDirective($window) {
             scope.paper = new Raphael(elt, "100%", "100%");
         };
 
+        /*
+        The underlying fundamental domain is either composed of a grid of squares (default) or
+        triangles.
+        A pattern design path lies on top, copying its transformations.
+        */
         scope.drawPattern = function() {
-            let origin = {
+            scope.setupPaper();
+
+            if (!scope.fundamentalDomainPathFunction)
+                scope.fundamentalDomainPathFunction = squareGridFundamentalDomain;
+
+            scope.fundamentalDomainPath = scope.fundamentalDomainPathFunction({X:0, Y:0}, scope.fundamentalDomainWidth);
+
+            const patternDesignOrigin = {
                 X: 0,
                 Y: 0,
             };
-            // Generate the fundamental domain path once so that it can use random variables
+            // Generate the path once so that it can use random variables
             // and yet still look the same when it's redrawn by the wallpaperPattern
-            let fundamentalDomainPath = scope.patternFunction(origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
-            scope.wallpaperPattern = new WallpaperPattern(scope.paper, fundamentalDomainPath, scope.transforms, scope.drawOptions);
+            scope.patternDesignPath = scope.patternFunction(patternDesignOrigin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
+        
+            scope.wallpaperPattern = new WallpaperPattern(scope.paper,
+                                                            scope.fundamentalDomainPath,
+                                                            scope.patternDesignPath,
+                                                            scope.transforms, scope.transformOptions,
+                                                            scope.drawOptions);
         };
 
 
@@ -65,20 +82,15 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
-
-            scope.setupPaper();
             scope.drawPattern();
         };
 
         scope.p2Handler = function() {
             scope.transforms = {
                 FundamentalDomain: [transforms.order2Rotation],
-                X: transforms.translateH, // TODO: replace with order-2 rotation (set mirror offet halfway and this can work)
-                Y: transforms.translateV  // TODO: replace with order-2 rotation
+                X: transforms.translateH,
+                Y: transforms.translateV
             };
-
-            scope.setupPaper();
-            // scope.drawOptions.rotationOffsetY = (scope.fundamentalDomainHeight)/2;
             scope.drawPattern();
         };
 
@@ -88,40 +100,42 @@ function WallpaperPatternDirective($window) {
                 X: transforms.mirrorV,
                 Y: transforms.translateV
             };
-
-            scope.setupPaper();
             scope.drawPattern();
         };
 
         scope.pgHandler = function() {
             scope.transforms = {
+            	FundamentalDomain: [transforms.glideH],
                 X: transforms.glideH,
                 Y: transforms.translateV
             };
-
-            // create G mirror within fundamental domain
-            // mirrorOffsetFraction=0 will mean normal mirror at bottom of fundamental domain
-            let mirrorHOffsetFraction = (1/2);
-            let mirrorHOffset = mirrorHOffsetFraction*scope.fundamentalDomainHeight;
-
-            scope.drawOptions.mirrorOffset = mirrorHOffset;
-            scope.setupPaper();
+            scope.transformOptions = {
+            	FundamentalDomain: [
+            		{mirrorOffsetYMultiplier: 1}
+            	],
+                X: {
+                	mirrorOffsetYMultiplier: (1/2),
+                	translationOffsetXMultiplier: (1/2)
+                }
+            };
             scope.drawPattern();
         };
 
         scope.cmHandler = function() {
             scope.transforms = {
+            	FundamentalDomain: [transforms.glideH],
                 X: transforms.glideH,
                 Y: transforms.mirrorH
             };
-
-            // create G mirror within fundamental domain
-            // mirrorOffsetFraction=0 will mean normal mirror at bottom of fundamental domain
-            let mirrorHOffsetFraction = (1/2);
-            let mirrorHOffset = mirrorHOffsetFraction*scope.fundamentalDomainHeight;
-
-            scope.drawOptions.mirrorOffset = mirrorHOffset;
-            scope.setupPaper();
+            scope.transformOptions = {
+            	FundamentalDomain: [
+            		{mirrorOffsetYMultiplier: 1}
+            	],
+                X: {
+                	mirrorOffsetYMultiplier: (1/2),
+                	translationOffsetXMultiplier: (1/2)
+                }
+            };
             scope.drawPattern();
         };
 
@@ -135,12 +149,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
-
-            let mirrorHOffsetFraction = (1/2);
-            let mirrorHOffset = mirrorHOffsetFraction*scope.fundamentalDomainHeight;
-            scope.drawOptions.mirrorOffset = mirrorHOffset;
-
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -154,7 +162,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.mirrorV,
                 Y: transforms.translateV
             };
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -164,7 +171,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.mirrorV,
                 Y: transforms.mirrorH
             };
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -179,7 +185,6 @@ function WallpaperPatternDirective($window) {
                 X: transforms.mirrorV,
                 Y: transforms.mirrorH
             };
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -189,10 +194,9 @@ function WallpaperPatternDirective($window) {
         scope.p4Handler = function() {
             scope.transforms = {
                 FundamentalDomain: [transforms.order4Rotation],
-                X: transforms.translateH, // TODO: replace with order-2 rotation
-                Y: transforms.translateV  // TODO: replace with order-2 rotation
+                X: transforms.translateH,
+                Y: transforms.translateV
             };
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -204,10 +208,9 @@ function WallpaperPatternDirective($window) {
         scope.p4gHandler = function() {
             scope.transforms = {
                 FundamentalDomain: [transforms.order4Rotation, transforms.mirrorV],
-                X: transforms.translateH,
+                X: transforms.mirrorV,
                 Y: transforms.translateV
             };
-            scope.setupPaper();
             scope.drawPattern();
         };
 
@@ -221,9 +224,158 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
-            scope.drawOptions.rotationOffsetY = scope.fundamentalDomainHeight;
-            
-            scope.setupPaper();
+            scope.transformOptions = {
+                FundamentalDomain: [
+                	{},
+                    {rotationOffsetYMultiplier: (1/2)}
+                ]
+            };
+            scope.drawPattern();
+        };
+
+        /*
+        p3 has order-3 rotations and no reflections. 
+        */
+        scope.p3Handler = function() {
+            scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
+            scope.transforms = {
+                FundamentalDomain: [
+                	transforms.order3Rotation,
+                	transforms.order3Rotation
+                ],
+                X: transforms.translateH,
+                Y: transforms.translateV
+            };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {rotationOffsetYMultiplier: 1},
+                    {rotationOffsetYMultiplier: (1/2)},
+                ],
+                X: {translationOffsetXMultiplier: 1},
+                Y: {translationOffsetYMultiplier: (1/2)},
+            };
+            scope.drawPattern();
+        };
+
+        /*
+        p31m has reflections with axes inclined at 60 degrees to one another, and order 3 rotations.
+        Some of the centers of rotation lie on the reflection axes, and some do not.
+        There are some glide-reflections.
+        */
+        scope.p31mHandler = function() {
+            scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
+            scope.transforms = {
+                FundamentalDomain: [
+                	transforms.order3Rotation,
+                    transforms.mirrorV,
+                	transforms.order3Rotation
+                ],
+                X: transforms.translateH,
+                Y: transforms.translateV
+            };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {rotationOffsetYMultiplier: 1},
+                    {mirrorOffsetXMultiplier: (1/3)},
+                    {
+                    	rotationOffsetXMultiplier: 1,
+                    	rotationOffsetYMultiplier: (1/2)
+                    },
+                ],
+                X: {translationOffsetXMultiplier: (5/6)},
+                Y: {translationOffsetYMultiplier: (1/2)},
+            };
+            scope.drawPattern();
+        };
+
+        /*
+        p3m1 contains reflections and order-3 rotations.
+        The axes of the reflections are again inclined at 60° to one another and
+        all of the centers of rotation lie on the reflection axes.
+        There are some glide-reflections.
+        */
+        scope.p3m1Handler = function() {
+            scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
+            scope.transforms = {
+                FundamentalDomain: [
+                    transforms.mirrorH,
+                	transforms.order3Rotation,
+                	transforms.order3Rotation
+                ],
+                X: transforms.translateH,
+                Y: transforms.translateV
+            };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {},
+                    {rotationOffsetYMultiplier: (1/2)},
+                    {rotationOffsetYMultiplier: (1/2)},
+                ],
+                X: {translationOffsetXMultiplier: 1},
+                Y: {translationOffsetYMultiplier: (1/2)},
+            };
+            scope.drawPattern();
+        };
+
+        /*
+        p6 has order 6 rotations.
+        It also contains rotations of orders 2 and 3, but no reflections or glide-reflections.
+        p6 Uses a triangular grid.
+        */
+        scope.p6Handler = function() {
+            scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
+            scope.transforms = {
+                FundamentalDomain: [
+                	transforms.order3Rotation,
+                	transforms.order6Rotation
+                ],
+                X: transforms.translateH,
+                Y: transforms.translateV
+            };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {rotationOffsetYMultiplier: 1},
+                    {rotationOffsetYMultiplier: (1/2)},
+                ],
+                X: {translationOffsetXMultiplier: 1},
+                Y: {translationOffsetYMultiplier: (1/2)},
+            };
+            scope.drawPattern();
+        };
+
+        /*
+        p6m has rotations of order 2, 3, and 6 as well as reflections.
+        The axes of reflection meet at all the centers of rotation.
+        At the centers of the order 6 rotations, six reflection axes meet and are inclined at 30° to one another.
+        There are some glide-reflections.
+        It uses a triangular grid.
+        */
+        scope.p6mHandler = function() {
+            scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
+            scope.transforms = {
+                FundamentalDomain: [
+                	transforms.mirrorH,
+                	transforms.order3Rotation,
+                	transforms.order6Rotation
+                ],
+                X: transforms.translateH,
+                Y: transforms.translateV
+            };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {},
+                    {
+                        rotationOffsetXMultiplier: 1,
+                        rotationOffsetYMultiplier: (1/2)
+                    },
+                    {
+                        rotationOffsetXMultiplier: 1,
+                        rotationOffsetYMultiplier: (1/2)
+                    },
+                ],
+                X: {translationOffsetXMultiplier: 1},
+                Y: {translationOffsetYMultiplier: (1/2)}
+            };
             scope.drawPattern();
         };
 
@@ -237,9 +389,17 @@ function WallpaperPatternDirective($window) {
             "pmg": scope.pmgHandler,
             "pmm": scope.pmmHandler,
             "cmm": scope.cmmHandler,
+
             "p4": scope.p4Handler,
             "p4g": scope.p4gHandler,
             "p4m": scope.p4mHandler,
+
+            "p3": scope.p3Handler,
+            "p31m": scope.p31mHandler,
+            "p3m1": scope.p3m1Handler,
+
+            "p6": scope.p6Handler,
+            "p6m": scope.p6mHandler
         };
 
         scope.init = function() {

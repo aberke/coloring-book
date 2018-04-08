@@ -1,0 +1,110 @@
+/****************************************
+Wallpaper and Frieze Page specific
+*****************************************/
+
+
+#wallpaper-page,
+#wallpaper-page h1,
+#wallpaper-page h2,
+#wallpaper-page h3,
+#frieze-page,
+#frieze-page h1,
+#frieze-page h2,
+#frieze-page h3 {
+	font-weight: 300;
+	color: black;
+}
+
+#wallpaper-nav,
+#frieze-nav {
+	margin: 25px 50px;
+}
+#wallpaper-nav h1, 
+#wallpaper-nav ul,
+#frieze-nav h1, 
+#frieze-nav ul {
+	border: none;
+	padding: 0;
+}
+
+#wallpaper-nav h1,
+#frieze-nav h1 {
+	display: block;
+	padding-left: 15px;
+	text-align: center;
+	text-transform: uppercase;
+}
+#wallpaper-nav ul,
+#frieze-nav ul {
+	display: block;
+	text-align: center;
+}
+#wallpaper-nav li,
+#frieze-nav li {
+	display: inline;
+	padding: 10px;
+	font-size: 1.2em;
+}
+
+.wallpaper-pattern-container .wallpaper-pattern-title,
+.frieze-pattern-container .frieze-pattern-title {
+	display: inline-block;
+	width: 100px;
+	cursor: pointer;
+}
+#wallpaper-page .print-only .wallpaper-pattern-title,
+#frieze-page .print-only .frieze-pattern-title {
+	border: none;
+}
+#wallpaper-page.wallpaper .title-container,
+#frieze-page.frieze .title-container {
+	min-height: 140px;
+}
+#wallpaper-page .title-container ul,
+#frieze-page .title-container ul {
+	max-width: 45%;
+	display: inline-block;
+	vertical-align: middle;
+	margin-top: 0;
+}
+
+#wallpaper-page .print .title-container h1,
+#frieze-page .print .title-container h1 {
+	border: none;
+}
+@media print {
+	#wallpaper-page .title-container h1,
+	#frieze-page .title-container h1 {
+		border: none;
+	}
+}
+
+.wallpaper-pattern,
+.frieze-pattern {
+	display: block;
+}
+
+/* Give frieze-pattern's a default margin */
+.frieze-pattern {
+	margin: 10px auto;
+}
+#frieze-page .frieze-pattern {
+	margin: 25px auto;
+}
+
+
+#wallpaper-page simple-drawing {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	margin: 10px;
+}
+#wallpaper-page simple-drawing.clickable {
+	opacity: 0.6;
+}
+#wallpaper-page simple-drawing.clickable:hover {
+	opacity: 0.9;
+}
+#wallpaper-page simple-drawing.clickable.active {
+	opacity: 1;
+}

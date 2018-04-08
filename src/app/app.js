@@ -1,6 +1,8 @@
 'use strict';
 
-// Parameter to be toggled
+// Parameters to be toggled
+const DEBUG_PARAM = 'debug';
+let DEBUG = false;
 // Purpose: There are browser performance boosts that can be made when
 // in print mode, such as avoiding setting up listeners & animations
 var DISABLE_ANIMATIONS = false;
@@ -84,6 +86,7 @@ angular.module('app', [
 // bootstrap the directives
 .directive('tweet', tweetDirective)
 .directive('fraction', fractionDirective)
+.directive('simpleDrawing', simpleDrawingDirective)
 .directive('canvasCenteredDrawing', canvasCenteredDrawingDirective)
 .directive('circularPattern', circularPatternDirective)
 
@@ -95,13 +98,15 @@ angular.module('app', [
     // set the 'print' flag if the route is the PRINT_ROUTE or PRINT_PARAM is present
     // set 'disable-animations' flag if param is present or in printing
     vm.checkMode = function() {
+        if (!!$location.search()[DEBUG_PARAM])
+            DEBUG = true;
+        
         if (!!$location.search()[PRINT_PARAM] || $location.path() === PRINT_ROUTE) {
             vm.print = true;
             DISABLE_ANIMATIONS = true;
         } else if (!!$location.search()[DISABLE_ANIMATIONS_PARAM]) {
             DISABLE_ANIMATIONS = true;
         }
-
     }
     
     // handle anchor tags & routeparam changes

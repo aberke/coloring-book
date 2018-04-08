@@ -1,6 +1,6 @@
 function canvasCenteredDrawingDirective($window) {
 	return {
-		restrict: 'EAC', //E = element, A = attribute, C = class, M = comment
+		restrict: "EAC", //E = element, A = attribute, C = class, M = comment
 		link: function ($scope, element, attrs) {
 			//DOM manipulation
 
@@ -14,7 +14,7 @@ function canvasCenteredDrawingDirective($window) {
 			elt.className += " canvas";
 
 			// get the drawFunction
-			let drawFunction = attrs.drawFunction ? $window[attrs.drawFunction] : 'drawCircle';
+			let drawFunction = attrs.drawFunction ? $window[attrs.drawFunction] : "drawCircle";
 
 			// safely get the options -- yeah not that safe
 			let functionOptions = {};
@@ -25,7 +25,7 @@ function canvasCenteredDrawingDirective($window) {
 			} catch(e) {}
 
 			let drawing = drawInCanvasCenter(paper, drawFunction, functionOptions, options);
-			
+
 			// if this is a part of a text-content-graphic, style for it
 			let eltParent = element.parent();
 			let eltGrandparent = element.parent().parent();
