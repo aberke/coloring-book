@@ -107,13 +107,9 @@ function setupInteractions(paper, pathSet, origin, size, drawFunction,
         setAutoRotate(pathSet, origin, options.autoRotateDegrees);
 
     // optionally redraw or rotate on click/mouseup/tap
-    if (options.tapRedraw) {
-        paper.canvas.addEventListener('mouseup', function() {
-            paper.clear();
-            drawFunction(paper, origin, size, functionOptions, true);
-            analytics.trackRedraw(drawFunction.name);
-        });
-    } else if (options.tapRotate)
+    if (options.tapRedraw)
+        setTapRedraw(paper, pathSet, origin, size, drawFunction, functionOptions);
+    else if (options.tapRotate)
         setTapRotate(paper, pathSet, origin, options.tapRotate);
     else if (options.tapReflect)
         setTapReflect(paper, pathSet, origin, options.tapReflect);
@@ -170,6 +166,15 @@ function setMirror(pathSet, origin, mirror, onInterval=false) {
         });
     else
         pathSet.transform(transformString);
+}
+
+function setTapRedraw(paper, pathSet, origin, size, drawFunction, functionOptions) {
+    paper.canvas.addEventListener("mouseup", function() {
+        paper.clear();
+        drawFunction(paper, origin, size, functionOptions, true);
+        analytics.trackRedraw(drawFunction.name);
+    });
+    pathSet.attr({"class": "clickable"});
 }
 
 function setTapReflect(paper, pathSet, origin, mirror) {
