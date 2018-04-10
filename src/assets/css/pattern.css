@@ -108,3 +108,8 @@ Wallpaper and Frieze Page specific
 #wallpaper-page simple-drawing.clickable.active {
 	opacity: 1;
 }
+
+/* TODO: adjust height by size of screen */
+#wallpaper-page .wallpaper-pattern {
+	height: 800px;
+}
