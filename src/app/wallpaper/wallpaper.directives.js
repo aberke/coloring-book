@@ -18,7 +18,14 @@ function WallpaperPatternDirective($window) {
     restrict: "EA",
     scope: {}, // using isolated scope
     link: function(scope, element, attrs) {
-
+        // Set up the element that holds the drawing and
+        // apply styling - most importantly: height.  This contains
+        // the SVG/paper from overflowing.
+        // Note that it is important to define the 'height' property
+        // and not just the max-height property (in CSS or on elt style).
+        let elt = element[0];
+        elt.className += " wallpaper-pattern";
+        
         scope.groupName = attrs.groupName || "p1";
         scope.patternFunction = $window[attrs.patternFunction];
         scope.patternFunctionOptions = JSON.parse(attrs.patternFunctionOptions || "{}");
@@ -42,38 +49,28 @@ function WallpaperPatternDirective($window) {
         scope.transforms = {};
 
 
-        scope.setupPaper = function() {
-            let elt = element[0];
-            elt.className += " wallpaper-pattern";
-            scope.paper = new Raphael(elt, "100%", "100%");
-        };
-
         /*
         The underlying fundamental domain is either composed of a grid of squares (default) or
         triangles.
         A pattern design path lies on top, copying its transformations.
         */
         scope.drawPattern = function() {
-            scope.setupPaper();
+            let height = elt.clientHeight;
+            scope.paper = new Raphael(elt, "100%", height);
 
             if (!scope.fundamentalDomainPathFunction)
                 scope.fundamentalDomainPathFunction = squareGridFundamentalDomain;
 
-            scope.fundamentalDomainPath = scope.fundamentalDomainPathFunction({X:0, Y:0}, scope.fundamentalDomainWidth);
-
-            const patternDesignOrigin = {
-                X: 0,
-                Y: 0,
-            };
+            const origin = {X: 0, Y: 0};
+            const fundamentalDomainPath = scope.fundamentalDomainPathFunction(origin, scope.fundamentalDomainWidth);
             // Generate the path once so that it can use random variables
             // and yet still look the same when it's redrawn by the wallpaperPattern
-            scope.patternDesignPath = scope.patternFunction(patternDesignOrigin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
+            const patternDesignPath = scope.patternFunction(origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
         
-            scope.wallpaperPattern = new WallpaperPattern(scope.paper,
-                                                            scope.fundamentalDomainPath,
-                                                            scope.patternDesignPath,
-                                                            scope.transforms, scope.transformOptions,
-                                                            scope.drawOptions);
+            scope.wallpaperPattern = new WallpaperPattern(scope.paper, fundamentalDomainPath,
+                                                        patternDesignPath,
+                                                        scope.transforms, scope.transformOptions,
+                                                        scope.drawOptions);
         };
 
 

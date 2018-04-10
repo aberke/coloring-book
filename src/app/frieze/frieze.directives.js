@@ -44,6 +44,7 @@ function friezePatternDirective($window) {
         }
         */
         scope.transforms = {};
+        scope.transformOptions = {};
         // pattern space height computed for each pattern group and used
         // to set height of paper, draw symmetry lines, and determine offsets for transforms.
         scope.patternSpaceHeight = null;
@@ -93,16 +94,16 @@ function friezePatternDirective($window) {
 
         scope.drawPattern = function() {
             const origin = {X: 0, Y: 0};
-            scope.fundamentalDomainPath = squareGridFundamentalDomain(origin, scope.fdSize);
+            const fundamentalDomainPath = squareGridFundamentalDomain(origin, scope.fdSize);
             // Generate the path once so that it can use random variables
             // and yet still look the same when it's redrawn by the wallpaperPattern
-            scope.patternDesignPath = scope.patternFunction(origin, scope.fdWidth,
+            const patternDesignPath = scope.patternFunction(origin, scope.fdWidth,
                                                             scope.fdHeight,
                                                             scope.patternFunctionOptions);
         
             scope.friezePattern = new FriezePattern(scope.paper,
-                                                    scope.fundamentalDomainPath,
-                                                    scope.patternDesignPath,
+                                                    fundamentalDomainPath,
+                                                    patternDesignPath,
                                                     scope.transforms,
                                                     scope.transformOptions,
                                                     scope.drawOptions);
