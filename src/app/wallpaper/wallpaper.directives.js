@@ -2,15 +2,16 @@
 /*
 Use
 ------------------------------
-<div class="wallpaper-pattern"
+<wallpaper-pattern
+    style="height: <HEIGHT>;" // Height should be set either on the element or in CSS in order to size SVG within appropriately.
     pattern-function={function} // function with which to draw fundamental domain
     pattern-function-options={object} // options that will be passed to the pattern-function
-    draw-options={} // options that will be passed to the wallpaperPattern constructor
+    draw-options={} // options that will be passed to the WallpaperPattern constructor
     group-name={"p1" | "p11g" | ... one of the 17 wallpaper groups to draw}
     fundamental-domain-width={number}
     fundamental-domain-height={number}
-    show-symmetry-sets={boolean} // value to watch -- show the symmetry set lines when true
-></div>
+    show-symmetry-sets={boolean} // (TODO) value to watch -- show the symmetry set lines when true
+></wallpaper-pattern>
 **/
 function WallpaperPatternDirective($window) {
     return {

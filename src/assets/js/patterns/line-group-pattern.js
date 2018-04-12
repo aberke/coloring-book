@@ -144,6 +144,18 @@ class LineGroupPattern {
         return containerBuffer + (contain ? (patternWidth - objectWidth) : patternWidth);
     }
 
+    maxTransformHeight(transformObject) {
+        const objectHeight = transformObject.getBBox().height;
+        const paperHeight = this.paper.getSize().height;
+        // Allow the option to avoid drawing past the boundary of the containing div:
+        // If contained is true, stop drawing before hit boundary of the containing div
+        const contain = this.drawOptions.contain || false;
+        // Need some buffer room in the containing bounds because these dimensions are not precise
+        // and without buffer pattern will stop prematurely.
+        const containerBuffer = 5;
+        return containerBuffer + (contain ? (paperHeight - objectHeight) : paperHeight);
+    }
+
     /*
     Returns boolean: whether pattern has reached containing bounds
     in the X direction.
@@ -167,17 +179,11 @@ class LineGroupPattern {
             return false;
 
         let transformObject = transformSet[transformSet.length - 1];
-        let objectHeight = transformObject.getBBox().height;
-        let height = this.paper.getSize().height;
+        if (!this.maxHeight)
+            this.maxHeight = this.maxTransformHeight(transformObject);
 
-        // Allow the option to avoid drawing past the boundary of the containing div:
-        // If contained is true, stop drawing before hit boundary of the containing div
-        let contain = this.drawOptions.contain || false;
-        // Need some buffer room in the containing bounds because these dimensions are not precise
-        // and without buffer pattern will stop prematurely.
-        let containerBuffer = 5;
-        let maxDrawHeight = containerBuffer + (contain ? (height - objectHeight) : height);
-        return (transformSet.getBBox().y2 > maxDrawHeight);
+        let currentPatternHeight = transformSet.getBBox().y2;
+        return (currentPatternHeight >= this.maxHeight);
     }
 
     /*
