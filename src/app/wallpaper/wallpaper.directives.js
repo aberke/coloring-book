@@ -147,6 +147,12 @@ function WallpaperPatternDirective($window) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {rotationOffsetYMultiplier: (1/2)},
+                    {mirrorOffsetYMultiplier: (3/4)}
+                ]
+            };
             scope.drawPattern();
         };
 
@@ -159,6 +165,11 @@ function WallpaperPatternDirective($window) {
                 FundamentalDomain: [transforms.order2Rotation],
                 X: transforms.mirrorV,
                 Y: transforms.translateV
+            };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {rotationOffsetYMultiplier: (1/2)}
+                ]
             };
             scope.drawPattern();
         };
@@ -182,6 +193,11 @@ function WallpaperPatternDirective($window) {
                 FundamentalDomain: [transforms.order2Rotation],
                 X: transforms.mirrorV,
                 Y: transforms.mirrorH
+            };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {rotationOffsetYMultiplier: (1/2)}
+                ]
             };
             scope.drawPattern();
         };
