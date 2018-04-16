@@ -15,10 +15,21 @@ http://coloring-book.co
 The illustrations in this book are drawn in javascript by algorithms that follow the symmetry rules of the groups that the illustrations belong to. These algorithms also use generative art techniques to add components of randomness - notice the illustrations never repeat.
 
 
-##### Give Feedback // Get Updates
+## Contribute
+
+Yes please.
+This is an open source project and contributions are greatly appreciated.
+
+
+#### Non-Technical Contributions: Give Feedback // Get Updates
 
 - http://coloring-book.co/form
 
+
+#### Technical Contributions
+
+Please see below on how to get started with running the project locally. The project's [ISSUES](https://github.com/aberke/coloring-book/issues) lists known bugs and areas of improvement.  You are more than invited to submit pull requests to resolve these, or any other areas of improvement you are aware of.
+Thanks <3
 
 
 ## Posters
@@ -177,3 +188,9 @@ Can upload images to combine into GIFs here: http://gifmaker.me/
 
 Share with http://www.coloring-book.co not http://coloring-book.co to avoid redirect
 
+
+### License
+
+GNU General Public License v3.0
+
+See LICENSE.txt to see the full text.
