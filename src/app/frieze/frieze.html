@@ -1,5 +1,6 @@
 <div id="frieze-page" class="frieze" ng-controller="FriezePageCntl as friezePage">
 
+
     <nav id='frieze-nav' class='app-only'>
         <h1>Frieze Groups</h1>
         <ul>
@@ -8,6 +9,7 @@
             </li>
         </ul>
     </nav>
+
 
     <div ng-repeat="(groupName, groupData) in friezePage.friezeGroupsData" class="frieze-pattern-container">
         <div ng-if="friezePage.selectedGroupName===groupName">

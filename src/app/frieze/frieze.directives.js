@@ -15,7 +15,7 @@ Use
 function friezePatternDirective($window) {
     return {
 
-    restrict: "EAC", //E = element, A = attribute, C = class, M = comment
+    restrict: "EAC", // E = element, A = attribute, C = class, M = comment
     scope: {}, // using isolated scope
     link: function(scope, element, attrs) {
 
@@ -26,7 +26,7 @@ function friezePatternDirective($window) {
         // initialize the drawOptions
         scope.drawOptions = JSON.parse(attrs.drawOptions || "{}");
 
-        scope.patternData = friezeGroupsData[scope.groupName];
+        scope.patternData = frieze.GROUP_DATA[scope.groupName];
         
         // Pattern design width and height:
         scope.fdWidth = Number(attrs.fundamentalDomainWidth || "80");
@@ -59,7 +59,7 @@ function friezePatternDirective($window) {
         scope.showSymmetrySets = function() {
             for (let symmetrySetName in scope.symmetrySets) {
                 let symmetrySet = scope.symmetrySets[symmetrySetName];
-                symmetrySet.toFront().attr({opacity: 1});
+                symmetrySet.toFront().attr({opacity: 0.75});
             }
         };
         /*
@@ -81,7 +81,7 @@ function friezePatternDirective($window) {
         // Draws h1 symmetry lines
         scope.setupH1SymmetrySet = function(h1Y, hGap) {
             let h1Set = util.drawXaxis(scope.paper, h1Y, hGap);
-            util.addSymmetrySetProperties(h1Set, SYMMETRY_SET_STYLES.h1);
+            util.addSymmetrySetProperties(h1Set, frieze.SYMMETRY_SET_STYLES.h1);
             scope.symmetrySets.h1 = h1Set;
         };
 
@@ -157,8 +157,8 @@ function friezePatternDirective($window) {
             let v1Set = util.drawYAxesSet(scope.paper, 0, vGap);
             let v2Set = util.drawYAxesSet(scope.paper, scope.fdSize, vGap);
 
-            util.addSymmetrySetProperties(v1Set, SYMMETRY_SET_STYLES.v1);
-            util.addSymmetrySetProperties(v2Set, SYMMETRY_SET_STYLES.v2);
+            util.addSymmetrySetProperties(v1Set, frieze.SYMMETRY_SET_STYLES.v1);
+            util.addSymmetrySetProperties(v2Set, frieze.SYMMETRY_SET_STYLES.v2);
             scope.symmetrySets.v1 = v1Set;
             scope.symmetrySets.v2 = v2Set;
         };
@@ -182,7 +182,7 @@ function friezePatternDirective($window) {
             // draw the symmetry set
             let glideStartY = mirrorOffsetYMultiplier*scope.fdSize;
             let glideSet = util.drawXaxis(scope.paper, glideStartY)
-            util.addSymmetrySetProperties(glideSet, SYMMETRY_SET_STYLES.g);
+            util.addSymmetrySetProperties(glideSet, frieze.SYMMETRY_SET_STYLES.g);
             scope.symmetrySets.g = glideSet;
         };
 
@@ -218,8 +218,8 @@ function friezePatternDirective($window) {
 
             let rotationPointSet1 = util.drawOrder2RotationPointSet(scope.paper, rotationPointSet1Start, rotationPointSetGapX);
             let rotationPointSet2 = util.drawOrder2RotationPointSet(scope.paper, rotationPointSet2Start, rotationPointSetGapX);
-            util.addSymmetrySetProperties(rotationPointSet1, SYMMETRY_SET_STYLES.r1);
-            util.addSymmetrySetProperties(rotationPointSet2, SYMMETRY_SET_STYLES.r2);
+            util.addSymmetrySetProperties(rotationPointSet1, frieze.SYMMETRY_SET_STYLES.r1);
+            util.addSymmetrySetProperties(rotationPointSet2, frieze.SYMMETRY_SET_STYLES.r2);
             scope.symmetrySets.r1 = rotationPointSet1;
             scope.symmetrySets.r2 = rotationPointSet2;
         };
@@ -248,7 +248,7 @@ function friezePatternDirective($window) {
             let glideStartY = mirrorOffsetYMultiplier*scope.fdSize;
             let glideSet = util.drawXaxis(scope.paper, glideStartY);
 
-            util.addSymmetrySetProperties(glideSet, SYMMETRY_SET_STYLES.g);
+            util.addSymmetrySetProperties(glideSet, frieze.SYMMETRY_SET_STYLES.g);
             scope.symmetrySets.g = glideSet;
 
             // draw v1"s & v2"s
@@ -257,8 +257,8 @@ function friezePatternDirective($window) {
             var v1Set = util.drawYAxesSet(scope.paper, 3*(scope.fdSize), vGap);
             var v2Set = util.drawYAxesSet(scope.paper, scope.fdSize, vGap);
 
-            util.addSymmetrySetProperties(v1Set, SYMMETRY_SET_STYLES.v1);
-            util.addSymmetrySetProperties(v2Set, SYMMETRY_SET_STYLES.v2);
+            util.addSymmetrySetProperties(v1Set, frieze.SYMMETRY_SET_STYLES.v1);
+            util.addSymmetrySetProperties(v2Set, frieze.SYMMETRY_SET_STYLES.v2);
             scope.symmetrySets.v1 = v1Set;
             scope.symmetrySets.v2 = v2Set;
 
@@ -275,8 +275,8 @@ function friezePatternDirective($window) {
 
             let rotationPointSet1 = util.drawOrder2RotationPointSet(scope.paper, rotationPointSet1Start, rotationPointSetGapX);
             let rotationPointSet2 = util.drawOrder2RotationPointSet(scope.paper, rotationPointSet2Start, rotationPointSetGapX);
-            util.addSymmetrySetProperties(rotationPointSet1, SYMMETRY_SET_STYLES.r1);
-            util.addSymmetrySetProperties(rotationPointSet2, SYMMETRY_SET_STYLES.r2);
+            util.addSymmetrySetProperties(rotationPointSet1, frieze.SYMMETRY_SET_STYLES.r1);
+            util.addSymmetrySetProperties(rotationPointSet2, frieze.SYMMETRY_SET_STYLES.r2);
             scope.symmetrySets.r1 = rotationPointSet1;
             scope.symmetrySets.r2 = rotationPointSet2;
         };
@@ -303,8 +303,8 @@ function friezePatternDirective($window) {
             let v1Set = util.drawYAxesSet(scope.paper, 0, vGap);
             let v2Set = util.drawYAxesSet(scope.paper, scope.fdSize, vGap);
 
-            util.addSymmetrySetProperties(v1Set, SYMMETRY_SET_STYLES.v1);
-            util.addSymmetrySetProperties(v2Set, SYMMETRY_SET_STYLES.v2);
+            util.addSymmetrySetProperties(v1Set, frieze.SYMMETRY_SET_STYLES.v1);
+            util.addSymmetrySetProperties(v2Set, frieze.SYMMETRY_SET_STYLES.v2);
             scope.symmetrySets.v1 = v1Set;
             scope.symmetrySets.v2 = v2Set;
 
@@ -321,8 +321,8 @@ function friezePatternDirective($window) {
 
             let rotationPointSet1 = util.drawOrder2RotationPointSet(scope.paper, rotationPointSet1Start, rotationPointSetGapX);
             let rotationPointSet2 = util.drawOrder2RotationPointSet(scope.paper, rotationPointSet2Start, rotationPointSetGapX);
-            util.addSymmetrySetProperties(rotationPointSet1, SYMMETRY_SET_STYLES.r1);
-            util.addSymmetrySetProperties(rotationPointSet2, SYMMETRY_SET_STYLES.r2);
+            util.addSymmetrySetProperties(rotationPointSet1, frieze.SYMMETRY_SET_STYLES.r1);
+            util.addSymmetrySetProperties(rotationPointSet2, frieze.SYMMETRY_SET_STYLES.r2);
             scope.symmetrySets.r1 = rotationPointSet1;
             scope.symmetrySets.r2 = rotationPointSet2;
         };

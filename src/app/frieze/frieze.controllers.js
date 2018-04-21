@@ -7,7 +7,7 @@ function FriezePageCntl($location) {
 	// view model is this FriezePageCntl
 	let vm = this;
 
-	vm.friezeGroupsData = friezeGroupsData;
+	vm.friezeGroupsData = frieze.GROUP_DATA;
 	vm.selectedGroupName = $location.search().group || "p1";
 
 	vm.showGroupDescription = false;
