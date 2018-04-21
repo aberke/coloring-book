@@ -2,7 +2,7 @@
 /*
 Controller for the wallpaper page
 */
-function WallpaperPageCntl($location) {
+function WallpaperPageCntl($location, $anchorScroll) {
 	// view model is this WallpaperPageCntl
 	let vm = this;
 
