@@ -41,8 +41,8 @@ Wallpaper and Frieze Page specific
 }
 #wallpaper-nav li,
 #frieze-nav li {
-	display: inline;
-	padding: 10px;
+	display: inline-block;
+	padding: 5px 10px;
 	font-size: 1.2em;
 }
 
@@ -109,7 +109,6 @@ Wallpaper and Frieze Page specific
 	opacity: 1;
 }
 
-/* TODO: adjust height by size of screen */
 #wallpaper-page .wallpaper-pattern {
-	height: 800px;
+	height: 850px;
 }
