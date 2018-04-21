@@ -91,7 +91,7 @@ angular.module('app', [
 .directive('circularPattern', circularPatternDirective)
 
 // set up the main page controller
-.controller('MainCntl', function($window, $rootScope, $location, $anchorScroll, $routeParams) {
+.controller('MainCntl', function($window, $rootScope, $location, $anchorScroll) {
     // view model
     let vm = this;
 
@@ -112,7 +112,6 @@ angular.module('app', [
     // handle anchor tags & routeparam changes
     // this will be triggered on first page load, as well as all route changes
     $rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute) {
-        $location.hash($routeParams.scrollTo);
         $anchorScroll();
         vm.checkMode();
         analytics.trackPageView();
