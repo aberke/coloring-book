@@ -37,15 +37,15 @@ const util = (function() {
      * @param {set} paper.Set to apply properties to
      * @param {styles} dictionary of styles to show upon hover
     **/
-    function addSymmetrySetProperties(set, styles) {
-        styles = styles || {};
-        styles['stroke-width'] = SYMMETRY_STROKE_WIDTH;
+    function addSymmetrySetProperties(set, styles={}) {
+        if (!styles['stroke-width'])
+            styles['stroke-width'] = SYMMETRY_STROKE_WIDTH;
         set.attr(styles);
 
         // initially hide the symmetry set and show upon hover
         set.attr({opacity: 0});
-        set.mouseover(function() { set.attr({opacity: 0.6}); });
-        set.mouseout(function() { set.attr({opacity: 0}); });
+        set.mouseover(function() { set.attr({ opacity: 0.6 }); });
+        set.mouseout(function() { set.attr({ opacity: 0 }); });
     }
 
     /**
@@ -150,14 +150,10 @@ const util = (function() {
      * @param {number} starting Y coordinate
      * @returns {paper.Path}
     **/
-    function drawXaxis(paper, y, color) {
+    function drawXaxis(paper, y) {
         let paperWidth = paper.getSize().width;
         let xAxisPathString = "M0," + String(y) + " l" + String(paperWidth) + ",0";
-        let xAxisPath = paper.path(xAxisPathString)
-            .attr({
-                "stroke-width": SYMMETRY_STROKE_WIDTH,
-                "stroke": color || "lightgray"
-            });
+        let xAxisPath = paper.path(xAxisPathString);
         return xAxisPath;
     }
 
