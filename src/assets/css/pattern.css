@@ -84,15 +84,6 @@ Wallpaper and Frieze Page specific
 	display: block;
 }
 
-/* Give frieze-pattern's a default margin */
-.frieze-pattern {
-	margin: 10px auto;
-}
-#frieze-page .frieze-pattern {
-	margin: 25px auto;
-}
-
-
 #wallpaper-page simple-drawing {
 	display: inline-block;
 	width: 50px;

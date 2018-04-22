@@ -150,14 +150,10 @@ const util = (function() {
      * @param {number} starting Y coordinate
      * @returns {paper.Path}
     **/
-    function drawXaxis(paper, y, color) {
+    function drawXaxis(paper, y) {
         let paperWidth = paper.getSize().width;
         let xAxisPathString = "M0," + String(y) + " l" + String(paperWidth) + ",0";
-        let xAxisPath = paper.path(xAxisPathString)
-            .attr({
-                "stroke-width": SYMMETRY_STROKE_WIDTH,
-                "stroke": color || "lightgray"
-            });
+        let xAxisPath = paper.path(xAxisPathString);
         return xAxisPath;
     }
 

@@ -34,7 +34,16 @@ function friezePatternDirective($window) {
         // Size of underlying fundamental domain grid tiles (width=height).
         scope.fdSize = scope.fdHeight;
 
-        // initialize the variables that will be set later
+        let container = element[0];
+        // Build margin within javascript instead of CSS so that patterns
+        // can be spaced out while vertical symmetry lines still connect.
+        const margin = 10;
+        const origin = {
+            X: 0,
+            Y: margin
+        };
+        
+        // Initialize the variables that will be set later
         scope.paper = null;
         scope.friezePattern = null;
         /* transforms is an object of transformation functions (generators)
@@ -79,21 +88,21 @@ function friezePatternDirective($window) {
         });
 
         // Draws h1 symmetry lines
-        scope.setupH1SymmetrySet = function(h1Y, hGap) {
-            let h1Set = util.drawXaxis(scope.paper, h1Y, hGap);
+        scope.setupH1SymmetrySet = function(h1Y) {
+            let h1Set = util.drawXaxis(scope.paper, h1Y);
             util.addSymmetrySetProperties(h1Set, frieze.SYMMETRY_SET_STYLES.h1);
             scope.symmetrySets.h1 = h1Set;
         };
 
         scope.setupPaper = function() {
-            let elt = element[0];
-            elt.className += " frieze-pattern";
-            elt.style.height = (String(scope.patternSpaceHeight) + "px");
-            scope.paper = new Raphael(elt, "100%", scope.patternSpaceHeight);
+            container.className += " frieze-pattern";
+            // Put margin above and below pattern.
+            const height = scope.patternSpaceHeight + 2*margin;
+            container.style.height = (String(height) + "px");
+            scope.paper = new Raphael(container, "100%", height);
         };
 
         scope.drawPattern = function() {
-            const origin = {X: 0, Y: 0};
             const fundamentalDomainPath = squareGridFundamentalDomain(origin, scope.fdSize);
             // Generate the path once so that it can use random variables
             // and yet still look the same when it's redrawn by the wallpaperPattern
@@ -131,9 +140,8 @@ function friezePatternDirective($window) {
             scope.drawPattern();
 
             // Draw symmetry sets
-            const h1StartY = scope.fdSize;
-            const hGap = scope.patternSpaceHeight;
-            scope.setupH1SymmetrySet(h1StartY, hGap);
+            const h1StartY = scope.fdSize + margin;
+            scope.setupH1SymmetrySet(h1StartY);
         };
 
         scope.p1m1Handler = function() {
@@ -180,7 +188,7 @@ function friezePatternDirective($window) {
             scope.drawPattern();
 
             // draw the symmetry set
-            let glideStartY = mirrorOffsetYMultiplier*scope.fdSize;
+            let glideStartY = mirrorOffsetYMultiplier*scope.fdSize + margin;
             let glideSet = util.drawXaxis(scope.paper, glideStartY)
             util.addSymmetrySetProperties(glideSet, frieze.SYMMETRY_SET_STYLES.g);
             scope.symmetrySets.g = glideSet;
@@ -207,12 +215,12 @@ function friezePatternDirective($window) {
 
             // Draw the rotation point sets
             let rotationPointSet1Start = {
-                X: scope.fdSize,
-                Y: rotationOffsetYMultiplier*scope.fdSize
+                X: origin.X + scope.fdSize,
+                Y: origin.Y + rotationOffsetYMultiplier*scope.fdSize
             };
             let rotationPointSet2Start = {
-                X: 2*scope.fdSize,
-                Y: rotationOffsetYMultiplier*scope.fdSize
+                X: origin.X + 2*scope.fdSize,
+                Y: origin.Y + rotationOffsetYMultiplier*scope.fdSize
             };
             let rotationPointSetGapX = 2*scope.fdSize;
 
@@ -245,7 +253,7 @@ function friezePatternDirective($window) {
             scope.drawPattern();
 
             // draw the symmetry sets
-            let glideStartY = mirrorOffsetYMultiplier*scope.fdSize;
+            let glideStartY = mirrorOffsetYMultiplier*scope.fdSize + margin;
             let glideSet = util.drawXaxis(scope.paper, glideStartY);
 
             util.addSymmetrySetProperties(glideSet, frieze.SYMMETRY_SET_STYLES.g);
@@ -264,12 +272,12 @@ function friezePatternDirective($window) {
 
             // Draw the rotation point sets
             let rotationPointSet1Start = {
-                X: 2*scope.fdSize,
-                Y: mirrorOffsetYMultiplier*scope.fdSize
+                X: origin.X + 2*scope.fdSize,
+                Y: origin.Y + mirrorOffsetYMultiplier*scope.fdSize
             };
             let rotationPointSet2Start = {
-                X: 4*scope.fdSize,
-                Y: mirrorOffsetYMultiplier*scope.fdSize
+                X: origin.X + 4*scope.fdSize,
+                Y: origin.Y + mirrorOffsetYMultiplier*scope.fdSize
             };
             let rotationPointSetGapX = 4*scope.fdSize;
 
@@ -293,9 +301,8 @@ function friezePatternDirective($window) {
             scope.drawPattern();
 
             // Draw symmetry sets
-            let h1Y = scope.fdSize;
-            let hGap = scope.patternSpaceHeight;
-            scope.setupH1SymmetrySet(h1Y, hGap);
+            let h1Y = scope.fdSize + margin;
+            scope.setupH1SymmetrySet(h1Y);
 
             // draw v1"s & v2"s
             // space v-lines by 2*width of fundamental domain
@@ -310,12 +317,12 @@ function friezePatternDirective($window) {
 
             // Draw the rotation point sets
             let rotationPointSet1Start = {
-                X: 0,
-                Y: scope.fdSize
+                X: origin.X,
+                Y: origin.Y + scope.fdSize
             };
             let rotationPointSet2Start = {
-                X: scope.fdSize,
-                Y: scope.fdSize
+                X: origin.X + scope.fdSize,
+                Y: origin.Y + scope.fdSize
             };
             let rotationPointSetGapX = 2*scope.fdSize;
 
