@@ -233,7 +233,6 @@ class LineGroupPattern {
         let transformOptions = Object.assign(this.transformOptions.X || {}, {animateMs: this.animateMs});
         return this.transformAlongAxis(fdPathSet, pdPathSet, transforms, transformOptions, terminateCheck, callback);
     }
-    // transformY(workingSet, callback) {
     transformY(fdPathSet, pdPathSet, callback) {
         let terminateCheck = this.stopTransformY.bind(this);
         let transforms = this.transforms.Y;
