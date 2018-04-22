@@ -41,14 +41,12 @@ const transforms = (function() {
         return doRotation(fdPathSet, pdPathSet, 6, callback, options);
     }
 
-    // Private
-
     /*
     Rotates pathSet around origin point.
     Origin defaults to bottom right corner of pathSet.
     */
     function doRotation(fdPathSet, pdPathSet, rotations, callback, options={}) {
-        const animateMs = options.animateMs || 0;
+        const animateMs = getAnimationMs();
         const animateInterval = Math.max(animateMs/Math.round(rotations), 450);
 
         const bbox = fdPathSet.getBBox();
@@ -106,7 +104,7 @@ const transforms = (function() {
             return doComposedTransform(fdPathSet, pdPathSet, transformString, callback, options);
 
         transformString = "..." + transformString;
-        const animateMs = options.animateMs || 0;
+        const animateMs = getAnimationMs();
         let animateCallback = function() {
             callback(fdPathSet, pdPathSet);
         };
@@ -137,7 +135,8 @@ const transforms = (function() {
     of composed transformations for reflections.
     */
     function doComposedTransform(fdPathSet, pdPathSet, transformString, callback, options={}) {
-        const animateMs = options.animateMs || 0;
+        // animateMs may have been calculated by upstream transformation (like rotation).
+        const animateMs = options.animateMs || getAnimationMs();
         
         // The transformString is the transformation for the pathSet as a whole,
         // but apply it to each path individually.
@@ -314,7 +313,6 @@ const transforms = (function() {
 
 
     /*
-    (Private)
     Checks if passed in rotational degrees are valid.
 
     @param {string | number} degrees
@@ -322,6 +320,13 @@ const transforms = (function() {
     **/
     function isValidRotateDegrees(rotateDegrees) {
         return (0 <= Number(rotateDegrees));
+    }
+
+    /*
+    Returns animation interval (in ms).
+    */
+    function getAnimationMs() {
+        return (!DISABLE_ANIMATIONS) ? 700 : 0;
     }
 
     return {

@@ -64,8 +64,6 @@ class LineGroupPattern {
         this.fill = drawOptions.fill || DEFAULT_FILL;
         this.strokeWidth = drawOptions.strokeWidth || DEFAULT_STROKE_WIDTH;
 
-        this.animateMs = (!DISABLE_ANIMATIONS) ? 700 : 0;
-
         this.draw();
     }
 
@@ -201,8 +199,7 @@ class LineGroupPattern {
     transformFundamentalDomain(fdPathSet, pdPathSet, callback) {
         let fdTransforms = this.transforms.FundamentalDomain || [];
         let transformOptions = this.transformOptions.FundamentalDomain;
-        let animateOptions = {animateMs: this.animateMs};
-
+        
         let transformNext = function(i, fdPathSet, pdPathSet) {
             if (i == fdTransforms.length)
                 return callback(fdPathSet, pdPathSet);
@@ -211,7 +208,6 @@ class LineGroupPattern {
             // original pathSet. 
             let transform = fdTransforms[i];
             let options = (transformOptions && transformOptions.length > i) ? transformOptions[i] : {};
-            options = Object.assign(options, animateOptions);
             let transformCallback = function(transformedFdPathSet, transformedPdPathSet) {
                 // keep the path set flat - i.e. avoid sets within sets.
                 let flatTransformedFdPathSet = util.flattenedList(transformedFdPathSet);
@@ -230,13 +226,13 @@ class LineGroupPattern {
     transformX(fdPathSet, pdPathSet, callback) {
         let terminateCheck = this.stopTransformX.bind(this);
         let transforms = this.transforms.X;
-        let transformOptions = Object.assign(this.transformOptions.X || {}, {animateMs: this.animateMs});
+        let transformOptions = this.transformOptions.X;
         return this.transformAlongAxis(fdPathSet, pdPathSet, transforms, transformOptions, terminateCheck, callback);
     }
     transformY(fdPathSet, pdPathSet, callback) {
         let terminateCheck = this.stopTransformY.bind(this);
         let transforms = this.transforms.Y;
-        let transformOptions = Object.assign(this.transformOptions.Y || {}, {animateMs: this.animateMs});
+        let transformOptions = this.transformOptions.Y || {};
         return this.transformAlongAxis(fdPathSet, pdPathSet, transforms, transformOptions, terminateCheck, callback);
     }
     /*
