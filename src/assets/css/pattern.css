@@ -14,10 +14,23 @@ Wallpaper and Frieze Page specific
 	font-weight: 300;
 	color: black;
 }
+@media (max-width: 875px) {
+	#frieze-page h1 {
+		font-size: 1.7em;
+	}
+}
 
 #wallpaper-nav,
-#frieze-nav {
+#frieze-nav,
+.pattern-page .description-container {
 	margin: 25px 50px;
+}
+@media (max-width: 875px) {
+	#wallpaper-nav,
+	#frieze-nav,
+	.pattern-page .description-container {
+		margin: 25px;
+	}
 }
 #wallpaper-nav h1, 
 #wallpaper-nav ul,
@@ -51,11 +64,19 @@ Wallpaper and Frieze Page specific
 	display: inline-block;
 	width: 100px;
 	cursor: pointer;
+    margin: 0 25px;
+    padding: 0;
+    text-align: left;
 }
 #wallpaper-page .print-only .wallpaper-pattern-title,
 #frieze-page .print-only .frieze-pattern-title {
 	border: none;
 }
+
+.pattern-page .title-container {
+    margin-bottom: 25px;
+}
+
 #wallpaper-page.wallpaper .title-container h1,
 #frieze-page.frieze .title-container h1 {
 	text-align: left;
@@ -72,6 +93,45 @@ Wallpaper and Frieze Page specific
 	}
 }
 
+/* top description for all wallpaper 
+& description for specific group
+*/
+#wallpaper-page .description-container,
+#wallpaper-page .group-description-container {
+    display: block;
+    -webkit-transition: max-height 1s linear;
+    -moz-transition: max-height 1s linear;
+    -ms-transition: max-height 1s linear;
+    -o-transition: max-height 1s linear;
+    transition: max-height 1s linear;
+    overflow: hidden;
+    max-height: 0; 
+}
+#wallpaper-page .description-container.active,
+#wallpaper-page .group-description-container.active {
+    max-height: 400px;
+}
+.pattern-page .group-description-container {
+	margin: 0 25px;
+}
+.pattern-page .group-description-container p {
+	text-align: left;
+	padding-left: 0;
+}
+
+.pattern-page .toggle-group-description-button {
+    margin: 15px 25px;
+    float: right;
+    cursor: pointer;
+    color: gray;
+}
+.pattern-page .toggle-group-description-button:hover {
+    color: purple;
+}
+.pattern-page .toggle-group-description-button .text {
+    text-decoration: underline;
+}
+
 #frieze-page ul.pattern-generators-list {
     list-style-type: none;
     list-style: none;
@@ -79,6 +139,7 @@ Wallpaper and Frieze Page specific
     display: block;
     padding:0;
     margin:0;
+    margin-top: 10px;
     margin-left: 20px;
     margin-bottom: 30px;
 
@@ -91,7 +152,7 @@ Wallpaper and Frieze Page specific
     max-height: 0;
 }
 #frieze-page ul.pattern-generators-list.show {
-  max-height: 300px;
+	max-height: 300px;
 }
 
 #frieze-page ul.pattern-generators-list li { 
@@ -101,6 +162,16 @@ Wallpaper and Frieze Page specific
 
 #frieze-page ul.pattern-generators-list li:before {
     content: "- ";
+}
+
+.wallpaper-pattern .fundamental-domain {
+	stroke: gray;
+	stroke-opacity: 0;
+	stroke-width: 0;
+}
+.wallpaper-pattern.debug .fundamental-domain {
+	stroke-opacity: 1;
+	stroke-width: 1;
 }
 
 #wallpaper-page simple-drawing {
@@ -114,17 +185,65 @@ Wallpaper and Frieze Page specific
 }
 #wallpaper-page simple-drawing.clickable:hover {
 	opacity: 0.9;
+	stroke-width: 1.5px;
 }
 #wallpaper-page simple-drawing.clickable.active {
 	opacity: 1;
+	stroke-width: 1.5px;
 }
+
+/* Icons */
+
+.pattern-page .action-icons-container {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+}
+.pattern-page a.icon {
+    cursor: pointer;
+    text-align: center;
+    padding: 2fpx;
+    width: 40px;
+    text-decoration: none;
+
+    color: black;
+    font-size: small;
+}
+.pattern-page .action-nav a.question-icon {
+    opacity: 0.7;
+}
+.pattern-page .action-nav a.print-icon {
+    opacity: 0.8;
+}
+/* Do not show print icon at top when in mobile mode */
+@media (max-width: 875px) {
+    .pattern-page .action-nav a.print-icon {
+        display: none;
+    }
+}
+.pattern-page a.icon:hover,
+.pattern-page a.icon.active {
+    opacity: 1;
+    font-weight: bold;
+}
+
+
+/* Pattern page footer */
+.pattern-page .footer {
+    padding: 25px;
+}
+.pattern-page .footer p,
+.pattern-page .footer a {
+    text-align: center;
+}
+
 
 /*
 Pattern styling (vs just pattern page styling)
 */
 
 #wallpaper-page .wallpaper-pattern {
-	height: 850px;
+	height: 900px;
 }
 
 .wallpaper-pattern,

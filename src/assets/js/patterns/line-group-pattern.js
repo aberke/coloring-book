@@ -143,15 +143,20 @@ class LineGroupPattern {
     }
 
     maxTransformHeight(transformObject) {
-        const objectHeight = transformObject.getBBox().height;
         const paperHeight = this.paper.getSize().height;
-        // Allow the option to avoid drawing past the boundary of the containing div:
-        // If contained is true, stop drawing before hit boundary of the containing div
-        const contain = this.drawOptions.contain || false;
         // Need some buffer room in the containing bounds because these dimensions are not precise
         // and without buffer pattern will stop prematurely.
         const containerBuffer = 5;
-        return containerBuffer + (contain ? (paperHeight - objectHeight) : paperHeight);
+        let maxHeight = containerBuffer + paperHeight;
+        // Allow the option to avoid drawing past the boundary of the containing div:
+        // If contained is true, stop drawing before hit boundary of the containing div
+        const contain = this.drawOptions.contain || false;
+        if (!!contain) {
+            const objectHeight = transformObject.getBBox().height;
+            const hMultipler = (this.transformOptions.Y && this.transformOptions.Y.translationOffsetYMultiplier) ? this.transformOptions.Y.translationOffsetYMultiplier : 1;
+            maxHeight = maxHeight - (hMultipler)*objectHeight;
+        }
+        return maxHeight
     }
 
     /*
@@ -264,9 +269,16 @@ class LineGroupPattern {
     }
 
     drawCallback(fdPathSet, pdPathSet) {
-        // needed for both adding color & interactive behavior
+        // Needed for both adding color & interactive behavior.
         fdPathSet.forEach(elt => this.fdPathSet.push(elt) );
         pdPathSet.forEach(elt => this.pdPathSet.push(elt) );
+
+        // Add classes to path sets so that they can be styled with CSS.
+        // Note this is a different use case from the !DEBUG flag but the same
+        // fundamental domain lines are shown.
+        util.addClassNamesToElements(this.fdPathSet, ['fundamental-domain']);
+        util.addClassNamesToElements(this.pdPathSet, ['pattern-design']);
+
         // add interactive behavior
         if (!DISABLE_ANIMATIONS)
             this.addPaperSetHandlers();

@@ -1,13 +1,32 @@
-<div id="wallpaper-page" ng-controller="WallpaperPageCntl as wallpaperPage">
+<div class="pattern-page" id="wallpaper-page" ng-controller="WallpaperPageCntl as wallpaperPage">
     
-    <h1 class="app-only">Wallpaper</h1>
+    <div class="app-only action-nav">
+        
+        <h1 class="app-only">Wallpaper</h1>
+        
+        <div class="action-icons-container">
+            <a class="question-icon icon" ng-class="{active: wallpaperPage.showDescriptions}" ng-href="" ng-click="wallpaperPage.toggleShowDescriptions()">
+                <img class="icon-img" src="/assets/icons/question-mark-in-circle.svg" width="22px" height="22px" />
+                <span class="icon-text">Explain</span>
+            </a>
+            <a class="print-icon icon" ng-href="/#!/wallpaper?print&drawPathFunction={{wallpaperPage.selectedDrawPathFunction.name}}&group={{wallpaperPage.selectedGroupName}}" target="_blank">
+                <img class="icon-img" src="/assets/icons/open-new-tab.svg" width="22px" height="22px" />
+                <span class="icon-text">Print</span>
+            </a>
+        </div>
+    </div>
+
+    <div ng-class="{active: wallpaperPage.showDescriptions}" class="description-container">
+        <p>{{wallpaperPage.wallpaperDescription}}</p>
+        <p class="challenge">Choose an illustration and a symmetry group to generate a new pattern.</p>
+    </div>
     
     <nav id="wallpaper-nav" class="app-only">
         <div class="groups">
             <h3>Symmetry Groups</h3>
             <ul>
-                <li ng-repeat="groupName in wallpaperPage.wallpaperGroupNames" ng-click="wallpaperPage.selectGroup(groupName)">
-                    <span ng-class="{active:wallpaperPage.selectedGroupName==groupName}" class="clickable">{{groupName}}</span>
+                <li ng-repeat="group in wallpaperPage.wallpaperGroups" ng-click="wallpaperPage.selectGroup(group.name)">
+                    <span ng-class="{active:wallpaperPage.selectedGroupName==group.name}" class="clickable">{{group.name}}</span>
                 </li>
             </ul>
         </div>
@@ -26,20 +45,28 @@
         </div>
     </nav>
 
-    <div ng-repeat="groupName in wallpaperPage.wallpaperGroupNames" ng-click="wallpaperPage.selectGroup(groupName)" class="wallpaper-pattern-container">
-        <div ng-if="wallpaperPage.selectedGroupName===groupName">
+    <div ng-repeat="group in wallpaperPage.wallpaperGroups" ng-click="wallpaperPage.selectGroup(groupName)" class="wallpaper-pattern-container">
+        <div ng-if="wallpaperPage.selectedGroupName===group.name">
             
-            <div class='title-container' ng-click="wallpaperPage.showGroupDetails()">
-                <h1 class='wallpaper-pattern-title'>{{ groupName }}</h1>
-                <ul ng-show="wallpaperPage.showGroupDescription". class='pattern-generators-list'>
-                    <li ng-repeat="generator in groupData.generators">{{generator}}</li>
-                </ul>
+            <div class='title-container' ng-click="wallpaperPage.toggleShowDescriptions()">
+                <h1 class='wallpaper-pattern-title'>{{ group.name }}</h1>
+                <span class="toggle-group-description-button app-only">
+                    <span ng-if="!wallpaperPage.showDescriptions"><span class="text">show</span> &#8744;</span>
+                    <span style="font-weight: bold;" ng-if="wallpaperPage.showDescriptions">X</span>
+                </span>
+                
+                <div ng-class="{active: wallpaperPage.showDescriptions}" class="group-description-container">
+                    <p>{{group.description}}</p>
+                    <p class="challenge">Can you find the symmetries?</p>
+                </div>
+
             </div>
 
             <wallpaper-pattern
+                ng-class='{debug: wallpaperPage.showDescriptions}'
                 pattern-function='{{ wallpaperPage.selectedDrawPathFunction.name }}'
                 draw-options='{"contain": true}'
-                group-name='{{ groupName }}'
+                group-name='{{ group.name }}'
                 fundamental-domain-width=70
                 fundamental-domain-height=70
             ></wallpaper-pattern>
@@ -47,4 +74,20 @@
         </div>
     </div>
     <br/>
+
+    <section class="footer app-only">
+        <p>
+            <a class="print-icon icon" ng-href="/#!/wallpaper?print&drawPathFunction={{wallpaperPage.selectedDrawPathFunction.name}}&group={{wallpaperPage.selectedGroupName}}" target="_blank">
+                <img class="icon-img" src="/assets/icons/open-new-tab.svg" width="25px" height="25px" />
+                <span class="icon-text">print</span>
+            </a>
+        </p>
+
+        <p>This page is part of a mathematical coloring book about symmetry <span style="display: inline-block;">(and wallpaper patterns).</span></p>
+        <p>
+            <!-- TODO: make this a link to wallpaper section of the book -->
+            <a target="_blank" href="/">read more about wallpaper</a> | <a target="_blank" href="/#!/info#about">about the book</a> | <a target="_blank" href="https://docs.google.com/document/d/1Io0hj8uRPAKvSuFbeYloWhEItXVmVixMLv3DjAd6zic/edit?usp=sharing">references</a>
+        </p>
+
+    </section>
 </div>

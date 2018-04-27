@@ -48,6 +48,7 @@ const gulp = require("gulp"),
 const srcFiles = {
   js: "src/**/*.js",
   css: "src/**/*.css",
+  icons: "src/**/icons/**",
   img: "src/**/img/**",
   html: "src/**/*.html",
 
@@ -84,6 +85,7 @@ gulp.task("all", function (cb) {
     gulp.src([
         srcFiles.js,
         srcFiles.css,
+        srcFiles.icons,
         srcFiles.img,
         srcFiles.html,
         srcFiles.bookPDF,
