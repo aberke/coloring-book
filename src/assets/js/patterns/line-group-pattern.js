@@ -69,15 +69,15 @@ class LineGroupPattern {
 
     addPathSetStyle(fdPathSet, pdPathSet) {
         fdPathSet.attr({
-            "stroke": ((!!DEBUG) ? "gray" : "transparent"),
-            "stroke-width": this.strokeWidth
+            'stroke': ((!!DEBUG) ? 'gray' : 'transparent'),
+            'stroke-width': this.strokeWidth
         });
         
         pdPathSet.attr({
-            "stroke": DEFAULT_STROKE_COLOR,
-            "stroke-width": this.strokeWidth,
+            'stroke': DEFAULT_STROKE_COLOR,
+            'stroke-width': this.strokeWidth,
             // Make paperSet 'clickable' by filling it in.
-            "fill": 'transparent',
+            'fill': 'transparent',
         });
     }
 
@@ -277,22 +277,13 @@ class LineGroupPattern {
         throw new Error('Not implemented');
     }
 
-    draw(offsetX=0, offsetY=0) {
-        // (offsetY only relevant for Wallpaper pattern, not Frieze).
-        // draw the pattern starting at x,y coordinate that suits offsetX, offsetY:
+    draw() {
+        // draw the pattern starting at 0,0 coordinate
         // copy the fundamentalDomain
         // transform it to start at offset
         let baseFdPath = this.paper.path(this.fundamentalDomainPath);
         let basePdPath = this.paper.path(this.patternDesignPath);
         this.maxWidth = this.maxTransformWidth(baseFdPath);
-        let transformString = [
-            "T",
-            String((offsetX > this.maxWidth) ? 0 : offsetX),
-            ",",
-            String(offsetY)
-        ].join();
-        baseFdPath.transform(transformString);
-        basePdPath.transform(transformString);
         let fdSet = this.paper.set().push(baseFdPath);
         let pdSet = this.paper.set().push(basePdPath);
 
@@ -345,13 +336,12 @@ class WallpaperPattern extends LineGroupPattern {
         let offsetX = (bbox.x2 > 0) ? bbox.x2 : 0;
         let offsetY = (bbox.y2 > 0) ? bbox.y2 : 0;
 
-        // TODO: Fix how doing transforms -- this is a hack
         // If this was a lower row of the transform, take upper row and
         // use transformY.
         if (!!this.fdPathSet.length && (offsetX > this.maxWidth))
             this.transformY(this.fdPathSet.pop(), this.pdPathSet.pop(), this.drawCallback.bind(this));
         else
-            this.draw(offsetX, offsetY); // TODO: Remove use of offsetY if not using with above hack
+            this.draw();
         
         analytics.trackRedraw('WallpaperPattern');
     }
