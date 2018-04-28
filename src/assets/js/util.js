@@ -4,11 +4,25 @@ Collection of utility functions.
 
 
 const util = (function() {
-    "use strict";
+    'use strict';
 
 
     const SYMMETRY_STROKE_WIDTH = 5;
 
+
+    /*
+    Adds a list of class names to each element in a pathSet.
+    */
+    function addClassNamesToElements(pathSet, classNames) {
+        flattenedList(pathSet).forEach(elt => { 
+            classNames.forEach(cn => {
+                if (!elt.node.className.baseVal)
+                    elt.node.className.baseVal = cn;
+                else
+                    elt.node.className.baseVal += (" " + cn);
+            });
+        });
+    }
 
     /*
     Returns a flattened list of elements.
@@ -30,22 +44,6 @@ const util = (function() {
 
     function isNumeric(n) {
       return !isNaN(parseFloat(n)) && isFinite(n);
-    }
-
-    /**
-     * Shows the symmetrySet upon hover with styles
-     * @param {set} paper.Set to apply properties to
-     * @param {styles} dictionary of styles to show upon hover
-    **/
-    function addSymmetrySetProperties(set, styles={}) {
-        if (!styles['stroke-width'])
-            styles['stroke-width'] = SYMMETRY_STROKE_WIDTH;
-        set.attr(styles);
-
-        // initially hide the symmetry set and show upon hover
-        set.attr({opacity: 0});
-        set.mouseover(function() { set.attr({ opacity: 0.6 }); });
-        set.mouseout(function() { set.attr({ opacity: 0 }); });
     }
 
     /**
@@ -159,14 +157,13 @@ const util = (function() {
 
 
     return {
+        addClassNamesToElements: addClassNamesToElements,
         flattenedList: flattenedList,
         isNumeric: isNumeric,
         
         // Symmetry set drawing
-        addSymmetrySetProperties: addSymmetrySetProperties,
         drawOrder2RotationPointSet: drawOrder2RotationPointSet,
         drawYAxesSet: drawYAxesSet,
         drawXaxis: drawXaxis
-
     };
 }());

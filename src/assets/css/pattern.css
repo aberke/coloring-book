@@ -79,9 +79,21 @@ Wallpaper and Frieze Page specific
 	}
 }
 
-.wallpaper-pattern,
-.frieze-pattern {
-	display: block;
+#frieze-page ul.pattern-generators-list {
+    list-style-type: none;
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+
+#frieze-page ul.pattern-generators-list li { 
+    padding-left: 1em; 
+    text-indent: -.7em;
+}
+
+#frieze-page ul.pattern-generators-list li:before {
+    content: "- ";
+    /*TODO: set color here on class by class basis; */
 }
 
 #wallpaper-page simple-drawing {
@@ -100,6 +112,44 @@ Wallpaper and Frieze Page specific
 	opacity: 1;
 }
 
+/*
+Pattern styling (vs just pattern page styling)
+*/
+
 #wallpaper-page .wallpaper-pattern {
 	height: 850px;
+}
+
+.wallpaper-pattern,
+.frieze-pattern {
+	display: block;
+}
+
+/* Style the symmetries of the frieze patterns 
+
+There are different types of symmetries, each with their own class name,
+but all symmetry elements share the 'symmetry' class.
+By default they are not shown, but can be toggled to display.
+*/
+.frieze-pattern path.symmetry {
+	opacity: 0;
+}
+.show-symmetry-sets .frieze-pattern path.symmetry,
+.frieze-pattern:hover path.symmetry {
+	opacity: 0.6;
+}
+
+.frieze-pattern path.horizontal-mirror,
+.frieze-pattern path.vertical-mirror {
+	stroke: #007f70;
+	stroke-width: 2;
+}
+.frieze-pattern path.glide-reflection {
+	stroke-width: 2;
+	stroke: purple;
+	stroke-dasharray: 5;
+}
+.frieze-pattern path.rotation {
+	stroke-width: 4;
+	stroke: #e65c00;
 }
