@@ -56,16 +56,9 @@ Wallpaper and Frieze Page specific
 #frieze-page .print-only .frieze-pattern-title {
 	border: none;
 }
-#wallpaper-page.wallpaper .title-container,
-#frieze-page.frieze .title-container {
-	min-height: 140px;
-}
-#wallpaper-page .title-container ul,
-#frieze-page .title-container ul {
-	max-width: 45%;
-	display: inline-block;
-	vertical-align: middle;
-	margin-top: 0;
+#wallpaper-page.wallpaper .title-container h1,
+#frieze-page.frieze .title-container h1 {
+	text-align: left;
 }
 
 #wallpaper-page .print .title-container h1,
@@ -82,8 +75,23 @@ Wallpaper and Frieze Page specific
 #frieze-page ul.pattern-generators-list {
     list-style-type: none;
     list-style: none;
+    width: 100%;
+    display: block;
     padding:0;
     margin:0;
+    margin-left: 20px;
+    margin-bottom: 30px;
+
+    -webkit-transition: max-height 1s;
+    -moz-transition: max-height 1s;
+    -ms-transition: max-height 1s;
+    -o-transition: max-height 1s;
+    transition: max-height 1s;
+    overflow: hidden;
+    max-height: 0;
+}
+#frieze-page ul.pattern-generators-list.show {
+  max-height: 300px;
 }
 
 #frieze-page ul.pattern-generators-list li { 
@@ -93,7 +101,6 @@ Wallpaper and Frieze Page specific
 
 #frieze-page ul.pattern-generators-list li:before {
     content: "- ";
-    /*TODO: set color here on class by class basis; */
 }
 
 #wallpaper-page simple-drawing {

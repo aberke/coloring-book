@@ -2,53 +2,75 @@
 const frieze = (function() {
     'use strict';
 
+    const generators = {
+        translation: {
+            text: 'Translation'
+        },
+        horizontalMirror: {
+            text: 'Horizontal mirror reflection',
+            class: 'horizontal-mirror'
+        },
+        verticalMirror: {
+            text: 'Vertical mirror reflection',
+            class: 'vertical-mirror'
+        },
+        glideReflection: {
+            text: 'Glide reflection',
+            class: 'glide-reflection'
+        },
+        order2Rotation: {
+            text: 'Order 2 rotations',
+            class: 'rotation'
+        }
+    };
 
-	const GROUP_DATA = {
-		'p1': {
-			generators: ['Translation'],
-		},
-		'p11m': {
-			generators: [
-				'Translation',
-				'Horizontal reflection'
-			],
-		},
-		'p1m1': {
-			generators: [
-				'Translation',
-				'Vertical reflection'
-			],
-		},
-		'p11g': {
-			generators: [
-				'Translation',
-				'Glide reflection'
-			],
-		},
-		'p2': {
-			generators: [
-				'Translation',
-				'Order-2 Rotations'
-			],
-		},
-		'p2mg': {
-			generators: [
-				'Translation',
-				'Vertical reflection',
-				'Glide reflection',
-				'Order-2 Rotations',
-			],
-		},
-		'p2mm': {
-			generators: [
-				'Translation',
-				'Horizontal reflection',
-				'Vertical reflection',
-				'Glide reflection',
-				'Order-2 Rotations',
-			],
-		},
-	};
+
+    const GROUP_DATA = {
+        'p1': {
+            generators: [generators.translation],
+        },
+        'p11m': {
+            generators: [
+                generators.translation,
+                generators.horizontalMirror
+            ],
+        },
+        'p1m1': {
+            generators: [
+                generators.translation,
+                generators.verticalMirror
+            ],
+        },
+        'p11g': {
+            generators: [
+                generators.translation,
+                generators.glideReflection
+            ],
+        },
+        'p2': {
+            generators: [
+                generators.translation,
+                generators.order2Rotation
+            ],
+        },
+        'p2mg': {
+            generators: [
+                generators.translation,
+                generators.verticalMirror,
+                generators.glideReflection,
+                generators.order2Rotation,
+            ],
+        },
+        'p2mm': {
+            generators: [
+                generators.translation,
+                generators.horizontalMirror,
+                generators.verticalMirror,
+                generators.glideReflection,
+                generators.order2Rotation,
+            ],
+        },
+    };
     return {
         GROUP_DATA: GROUP_DATA
     };

@@ -1,8 +1,7 @@
 <div id="frieze-page" class="frieze" ng-controller="FriezePageCntl as friezePage">
 
-
     <nav id='frieze-nav' class='app-only'>
-        <h1>Frieze Groups</h1>
+        <h1>Frieze Patterns</h1>
         <ul>
             <li ng-repeat="(groupName, groupData) in friezePage.friezeGroupsData" ng-click="friezePage.selectGroup(groupName)">
                 <span ng-class="{active:friezePage.selectedGroupName==groupName}" class="clickable">{{groupName}}</span>
@@ -19,8 +18,8 @@
             
             <div class='title-container' ng-click="friezePage.showGroupDetails()">
                 <h1 class='frieze-pattern-title'>{{ groupName }}</h1>
-                <ul ng-show="friezePage.showGroupDescription" class='pattern-generators-list'>
-                    <li ng-repeat="generator in groupData.generators">{{generator}}</li>
+                <ul ng-class="{show: friezePage.showGroupDescription}" class='pattern-generators-list'>
+                    <li ng-class="generator.class" ng-repeat="generator in groupData.generators">{{generator.text}}</li>
                 </ul>
             </div>
 
