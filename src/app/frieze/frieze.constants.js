@@ -1,37 +1,7 @@
 
 const frieze = (function() {
-    "use strict";
+    'use strict';
 
-	/*
-	Define how symmetry set lines should be show with RaphaelJS attributes.
-	*/
-	const SYMMETRY_SET_STYLES = {
-		h1: {
-			'stroke': '#007f70',
-			'stroke-width': 2
-		},
-		v1: {
-			'stroke': '#007f70',
-			'stroke-width': 2
-		},
-		v2: {
-			'stroke': '#007f70',
-			'stroke-width': 2
-		},
-		g: {
-			'stroke': 'purple',
-			'stroke-dasharray': '-',
-			'stroke-width': 2,
-	    },
-	    r1: {
-			'stroke': '#e65c00',
-			'stroke-width': 4,
-	    },
-	    r2: {
-			'stroke': '#e65c00',
-			'stroke-width': 4,
-		}
-	};
 
 	const GROUP_DATA = {
 		'p1': {
@@ -80,7 +50,6 @@ const frieze = (function() {
 		},
 	};
     return {
-        GROUP_DATA: GROUP_DATA,
-        SYMMETRY_SET_STYLES: SYMMETRY_SET_STYLES
+        GROUP_DATA: GROUP_DATA
     };
 }());
