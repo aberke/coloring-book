@@ -166,7 +166,7 @@ const transforms = (function() {
             let animateParams = {transform: eltTransformString};
             let anim = Raphael.animation(animateParams, animateMs, "<", collector);
             if (!syncElt) {
-                syncElt =pdElt;
+                syncElt = pdElt;
                 syncAnim = anim;
                 pdElt.animate(anim);
             } else {
