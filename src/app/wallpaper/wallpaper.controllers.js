@@ -7,7 +7,7 @@ function WallpaperPageCntl($location, $anchorScroll) {
 	// view model is this WallpaperPageCntl
 	let vm = this;
 
-	vm.wallpaperDescription = "The wallpaper patterns repeat in multiple directions.   The simplest patterns to see are those that translate from top to bottom, and left to right, but other patterns have more symmetries than just translation: rotations, mirror reflections, and glide reflections.  There are exactly 17 ways symmetry groups that combine these symmetries in the plane.";
+	vm.wallpaperDescription = "The wallpaper patterns repeat infinitely in multiple directions.   The simplest patterns to see are those that translate from top to bottom, and left to right, but other patterns have more symmetries than just translation: rotations, mirror reflections, and glide reflections.  There are exactly 17 ways symmetry groups that combine these symmetries in the plane.";
 
 	vm.wallpaperGroups = [
 		{
@@ -16,15 +16,15 @@ function WallpaperPageCntl($location, $anchorScroll) {
 		},
 		{
 			name: "pm",
-			description: "This group contains mirror reflections. The axes of mirror reflection are parallel to one axis of translation and perpendicular to the other axis of translation.  There are neither rotations nor glide reflections.",
+			description: "This group contains mirror reflections. The axes of mirror reflection are parallel to one axis of translation and perpendicular to the other axis of translation.  It has neither rotations nor glide reflections.",
 		},
 		{
 			name: "pg",
-			description: "This group has glide reflections. The direction of the glide reflection is parallel to one axis of translation and perpendicular to the other axis of translation. There are neither rotations nor mirror reflections.",
+			description: "This group has glide reflections, and has neither rotations nor mirror reflections.",
 		},
 		{
 			name: "cm",
-			description: "This group contains mirror reflections and glide reflections with parallel axes. The axes of the mirror reflections bisect the angle formed by the translations (so the lattice is rhombic).  There are no rotations in this group.",
+			description: "This group contains mirror reflections and glide reflections with parallel axes. It has no rotations.",
 		},
 		{
 			name: "p2",
@@ -32,11 +32,11 @@ function WallpaperPageCntl($location, $anchorScroll) {
 		},
 		{
 			name: "pgg",
-			description: "This group contains no mirror reflections, but it has glide-reflections and ½ turn rotations. There are perpendicular axes for the glide reflections, and the rotation centers do not lie on the axes.",
+			description: "This group has glide reflections and ½ turn rotations, but no mirror reflections. The glide reflections have perpendicular axes, and the rotation centers do not lie on the axes."
 		},
 		{
 			name: "pmg",
-			description: "This group contains mirror reflections and glide reflections which are perpendicular to the mirror reflection axes. It has ½ turn rotations on the glide axes, halfway between the mirror reflection axes.",
+			description: "This group contains mirror reflections and glide reflections which are perpendicular to the mirror reflection axes. It also has ½ turn rotations on the glide axes, halfway between the mirror reflection axes."
 		},
 		{
 			name: "pmm",
@@ -48,15 +48,15 @@ function WallpaperPageCntl($location, $anchorScroll) {
 		},
 		{
 			name: "p4",
-			description: "This group has ¼ turn rotations and ½ turn rotations. The centers of the ½ turn rotations are midway between the centers of the ¼ turn rotations. There are no reflections.",
+			description: "This group has ¼ turn and ½ turn rotations. The centers of the ½ turn rotations are midway between the centers of the ¼ turn rotations. It has no reflections.",
 		},
 		{
 			name: "p4g",
-			description: "This group contains reflections and ½ turn and ¼ turn rotations. There are two perpendicular axes of reflection passing through each order ½ turn rotation, but the ¼ turn rotation centers do not lie on any reflection axis. There are four directions of glide reflection.",
+			description: "This group contains reflections as well as ½ turn and ¼ turn rotations. There are two perpendicular axes of mirror reflection passing through each order ½ turn rotation, while the ¼ turn rotation centers do not lie on any reflection axis. It has four directions of glide reflection."
 		},
 		{
 			name: "p4m",
-			description: "This group has ½ turn and ¼ turn rotations and four axes of mirror reflection. Every rotation center lies on some reflection axes: The centers of the ¼ turn rotations are at the intersection of four mirror reflection axes.  The centers of the ½ turn rotations sit on the intersection of two mirror reflection axes and two different reflection glide reflection axes.",
+			description: "This group has ½ turn and ¼ turn rotations, as well as four axes of mirror reflection. Every rotation center lies on some reflection axes: The centers of the ¼ turn rotations are at the intersection of four mirror reflection axes.  The centers of the ½ turn rotations sit on the intersection of two mirror reflection axes and two different reflection glide reflection axes."
 		},
 		{
 			name: "p3",
