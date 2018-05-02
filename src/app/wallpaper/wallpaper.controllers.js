@@ -3,6 +3,7 @@
 Controller for the wallpaper page
 */
 function WallpaperPageCntl($location, $anchorScroll) {
+
 	// view model is this WallpaperPageCntl
 	let vm = this;
 
@@ -118,9 +119,12 @@ function WallpaperPageCntl($location, $anchorScroll) {
 	vm.selectDrawPathFunction($location.search().drawPathFunction);
 
 	// showDescriptions controls whether to show extra information.
-	vm.showDescriptions = (!!$location.search().showDescriptions && $location.search().showDescriptions != "false");
+	// If ?showDescriptions is set in the URL params, then the control is
+	// initialized to true.
+	// Note this avoids updating URL param on toggling so that page does not
+	// reload and control/collapsed transition is smoother.
+	vm.showDescriptions = (!!$location.search().showDescriptions);
 	vm.toggleShowDescriptions = function() {
 		vm.showDescriptions = !vm.showDescriptions;
-		$location.search("showDescriptions", vm.showDescriptions);
 	}
 }

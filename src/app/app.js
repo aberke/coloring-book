@@ -31,12 +31,12 @@ angular.module('app', [
         $routeProvider
         .when('/', {
             templateUrl: '/app/book/book.html',
-        	// avoid reloading view when updating ?pageNumber param
+            // avoid reloading view when updating ?pageNumber param
             reloadOnSearch: false,
         })
         .when('/book', {
             templateUrl: '/app/book/book.html',
-        	// avoid reloading view when updating ?pageNumber param
+            // avoid reloading view when updating ?pageNumber param
             reloadOnSearch: false,
         })
         .when(PRINT_ROUTE, {

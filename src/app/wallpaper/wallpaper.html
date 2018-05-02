@@ -5,7 +5,7 @@
         <h1 class="app-only">Wallpaper</h1>
         
         <div class="action-icons-container">
-            <a class="question-icon icon" ng-class="{active: wallpaperPage.showDescriptions}" ng-href="" ng-click="wallpaperPage.toggleShowDescriptions()">
+            <a class="question-icon icon" ng-class="{active: wallpaperPage.showDescriptions}" href="" ng-click="wallpaperPage.toggleShowDescriptions()">
                 <img class="icon-img" src="/assets/icons/question-mark-in-circle.svg" width="22px" height="22px" />
                 <span class="icon-text">Explain</span>
             </a>
@@ -45,14 +45,14 @@
         </div>
     </nav>
 
-    <div ng-repeat="group in wallpaperPage.wallpaperGroups" ng-click="wallpaperPage.selectGroup(groupName)" class="wallpaper-pattern-container">
+    <div ng-repeat="group in wallpaperPage.wallpaperGroups" class="wallpaper-pattern-container">
         <div ng-if="wallpaperPage.selectedGroupName===group.name">
             
             <div class='title-container' ng-click="wallpaperPage.toggleShowDescriptions()">
                 <h1 class='wallpaper-pattern-title'>{{ group.name }}</h1>
                 <span class="toggle-group-description-button app-only">
-                    <span ng-if="!wallpaperPage.showDescriptions"><span class="text">show</span> &#8744;</span>
-                    <span style="font-weight: bold;" ng-if="wallpaperPage.showDescriptions">X</span>
+                    <span ng-show="!wallpaperPage.showDescriptions"><span class="text">show</span> &#8744;</span>
+                    <span style="font-weight: bold;" ng-show="wallpaperPage.showDescriptions">X</span>
                 </span>
                 
                 <div ng-class="{active: wallpaperPage.showDescriptions}" class="group-description-container">
