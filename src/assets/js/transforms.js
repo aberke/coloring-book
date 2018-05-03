@@ -143,6 +143,11 @@ const transforms = (function() {
         // Need to compose it within each path's previous transformation
         // matrix.
 
+        // Must flatten the path sets so that transformation can be applied
+        // to individual path elements.
+        let flattenedFdPathSet = util.flattenedList(fdPathSet);
+        let flattenedPdPathSet = util.flattenedList(pdPathSet);
+
         // Must animate all elements in unison and apply callback only once
         // all animations are complete.
         let callbackCount = 0;
@@ -154,7 +159,8 @@ const transforms = (function() {
         // Use .animate function for first element, and them animateWith
         // for the following elements.
         let syncElt, syncAnim; // animateWith needs element and animation to sync its animation with
-        fdPathSet.forEach((fdElt, index) => {
+
+        flattenedFdPathSet.forEach((fdElt, index) => {
             // Compute transform on fundamental domain pathset element, but apply to both
             // fundamental domain and pattern design path elements.
             let eltTransformString = getComposedTransform(fdElt, transformString);
@@ -162,7 +168,7 @@ const transforms = (function() {
             // pattern design element within animation.
             fdElt.transform(eltTransformString);
 
-            let pdElt = pdPathSet[index];
+            let pdElt = flattenedPdPathSet[index];
             let animateParams = {transform: eltTransformString};
             let anim = Raphael.animation(animateParams, animateMs, "<", collector);
             if (!syncElt) {
@@ -260,7 +266,7 @@ const transforms = (function() {
     @options: (Object) dictionary of arguments
     Returns (String) transformation
     */
-    function getMirrorH(pathSet, options = {}) {
+    function getMirrorH(pathSet, options={}) {
         let bbox = pathSet.getBBox();
         let mirrorY = bbox.y + (options.mirrorOffsetYMultiplier || 1)*bbox.height;
         return "S1,-1,0," + String(mirrorY);

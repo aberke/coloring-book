@@ -221,9 +221,15 @@ function WallpaperPatternDirective($window) {
         */
         scope.p4gHandler = function() {
             scope.transforms = {
-                FundamentalDomain: [transforms.order4Rotation, transforms.mirrorV],
+                FundamentalDomain: [transforms.order4Rotation, transforms.glideH],
                 X: transforms.mirrorV,
-                Y: transforms.translateV
+                Y: transforms.mirrorH
+            };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {},
+                    {mirrorOffsetYMultiplier: (1/2)}
+                ]
             };
             scope.drawPattern();
         };
