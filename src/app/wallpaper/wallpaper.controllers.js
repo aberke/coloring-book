@@ -7,7 +7,7 @@ function WallpaperPageCntl($location, $anchorScroll) {
 	// view model is this WallpaperPageCntl
 	let vm = this;
 
-	vm.wallpaperDescription = "The wallpaper patterns repeat infinitely in multiple directions.   The simplest patterns to see are those that translate from top to bottom, and left to right, but other patterns have more symmetries than just translation: rotations, mirror reflections, and glide reflections.  There are exactly 17 ways symmetry groups that combine these symmetries in the plane.";
+	vm.wallpaperDescription = "The wallpaper patterns repeat infinitely in multiple directions.   The simplest patterns to see are those that translate from top to bottom, and left to right, but other patterns have more symmetries than just translation: rotations, mirror reflections, and glide reflections.  There are exactly 17 symmetry groups that combine these symmetries in the plane.";
 
 	vm.wallpaperGroups = [
 		{
