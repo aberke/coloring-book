@@ -1,16 +1,14 @@
 # coloring-book
 
-<img width=100 align="right" src="http://www.coloring-book.co/assets/img/arrow-head-curve.mov.gif">
-
 You may know of coloring books as a childhood amusement or as a means to adult relaxation. How about as a medium to explore the mathematics of symmetry?
 
 This is a Coloring Book about Group Theory.  It is both digital and on paper.
+![alt text](src/assets/img/cn/c9.png?raw=true "cn shape")
 
 By coloring on paper, readers can explore symmetry and the beauty of math.  
 Following along on the digital copy to brings the concepts and illustrations to life in interactive animations.
 
 http://coloring-book.co
-
 
 The illustrations in this book are drawn in javascript by algorithms that follow the symmetry rules of the groups that the illustrations belong to. These algorithms also use generative art techniques to add components of randomness - notice the illustrations never repeat.
 
