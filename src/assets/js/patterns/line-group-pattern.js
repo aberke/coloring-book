@@ -270,8 +270,8 @@ class LineGroupPattern {
 
     drawCallback(fdPathSet, pdPathSet) {
         // Needed for both adding color & interactive behavior.
-        fdPathSet.forEach(elt => this.fdPathSet.push(elt) );
-        pdPathSet.forEach(elt => this.pdPathSet.push(elt) );
+        fdPathSet.forEach(elt => this.fdPathSet.push(elt));
+        pdPathSet.forEach(elt => this.pdPathSet.push(elt));
 
         // Add classes to path sets so that they can be styled with CSS.
         // Note this is a different use case from the !DEBUG flag but the same
