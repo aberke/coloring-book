@@ -138,6 +138,11 @@ Workflow:
 	- `$ git push production`
 
 
+### Style Guide
+
+Use the [/#!/style-guide](http://www.coloring-book.co/#!/style-guide)
+
+
 ## Printable Copy
 
 Full PDF of book available at http://coloring-book.co/book.pdf
@@ -164,15 +169,11 @@ For regenerating the PDF at /coloring-book.pdf:
 - Save as PDF at `/book.pdf`
 
 
-### Style Guide
+## Making Art Assets
 
-Use the [/#!/style-guide](http://www.coloring-book.co/#!/style-guide)
+### Wallpaper Patterns
 
-
-### Pieces
-
-Starting to generate & put together the pieces.  They are shown at /#!/pieces
-
+- Can optionally set height with URL parater `?height=HEIGHT`
 
 ### Making GIFs
 
@@ -183,6 +184,11 @@ Can upload images to combine into GIFs here: http://gifmaker.me/
 - Use Quicktime player to take screencast
 - Use https://giphy.com/create/gifmaker to convert .mov file to gif
 - Use ?animate URL param to auto animate things on the page upon page load
+
+
+### Pieces
+
+Starting to generate & put together the pieces.  They are shown at /#!/pieces
 
 
 ### Notes:

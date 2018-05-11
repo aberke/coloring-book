@@ -13,12 +13,17 @@ Use
     show-symmetry-sets={boolean} // (TODO) value to watch -- show the symmetry set lines when true
 ></wallpaper-pattern>
 **/
-function WallpaperPatternDirective($window) {
+function WallpaperPatternDirective($window, $location) {
     return {
 
     restrict: "EA",
     scope: {}, // using isolated scope
     link: function(scope, element, attrs) {
+        
+        // Initialize the variables that will be set later.
+        scope.paper = null;
+        scope.wallpaperPattern = null;
+
         // Set up the element that holds the drawing and
         // apply styling - most importantly: height.  This contains
         // the SVG/paper from overflowing.
@@ -26,20 +31,31 @@ function WallpaperPatternDirective($window) {
         // and not just the max-height property (in CSS or on elt style).
         let elt = element[0];
         elt.className += " wallpaper-pattern";
-        
-        scope.groupName = attrs.groupName || "p1";
-        scope.patternFunction = $window[attrs.patternFunction];
-        scope.patternFunctionOptions = JSON.parse(attrs.patternFunctionOptions || "{}");
 
-        // initialize the drawOptions
-        scope.drawOptions = JSON.parse(attrs.drawOptions || "{}");
-        
+        // Set the size of both the paper, and the containing element.
+        let height = elt.clientHeight;
+        let width = elt.clientWidth;
+        // Can optionally override default height (default from CSS rules)
+        // by passing in search parameter ?height=NUMBER
+        height = Number($location.search().height || height);
+        elt.style.height = height;
+
+        // Determine fundamental domain width from passed attributes
+        // Make fundamental domain smaller for mobile.
         scope.fundamentalDomainWidth = Number(attrs.fundamentalDomainWidth || "100");
         scope.fundamentalDomainHeight = Number(attrs.fundamentalDomainHeight || "80");
 
-        // Initialize the variables that will be set later.
-        scope.paper = null;
-        scope.wallpaperPattern = null;
+        // Make fundamental domain smaller for mobile: Want at least 6 visible
+        // instances of fundamental domain going width-wise.
+        if ((6*scope.fundamentalDomainWidth > width)
+            && (scope.fundamentalDomainWidth > 65))
+            scope.fundamentalDomainWidth = scope.fundamentalDomainHeight = width/6;
+        
+        // Initialize pattern specific parameters.
+        scope.groupName = attrs.groupName || "p1";
+        scope.patternFunction = $window[attrs.patternFunction];
+        scope.patternFunctionOptions = JSON.parse(attrs.patternFunctionOptions || "{}");
+        
         /* transforms is an object of transformation functions (generators)
         {
             FundamentalDomain: (optional) [list of (function) transforms]
@@ -49,6 +65,8 @@ function WallpaperPatternDirective($window) {
         */
         scope.transforms = {};
 
+        // Initialize the drawOptions.
+        scope.drawOptions = JSON.parse(attrs.drawOptions || "{}");
 
         /*
         The underlying fundamental domain is either composed of a grid of squares (default) or
@@ -56,7 +74,6 @@ function WallpaperPatternDirective($window) {
         A pattern design path lies on top, copying its transformations.
         */
         scope.drawPattern = function() {
-            let height = elt.clientHeight;
             scope.paper = new Raphael(elt, "100%", height);
 
             if (!scope.fundamentalDomainPathFunction)

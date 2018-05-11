@@ -94,6 +94,8 @@ function WallpaperPageCntl($location, $anchorScroll) {
 		trianglesPath2,
 		trianglePath
 	];
+
+	vm.patternWidth = $location.search().width;
 	
 	vm.selectGroup = function(groupName) {
 		vm.selectedGroupName = groupName;
