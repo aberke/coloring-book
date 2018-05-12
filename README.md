@@ -173,7 +173,7 @@ For regenerating the PDF at /coloring-book.pdf:
 
 ### Wallpaper Patterns
 
-- Can optionally set height with URL parater `?height=HEIGHT`
+- Can optionally contain within maximum height via URL parater `?height=HEIGHT`
 
 ### Making GIFs
 
