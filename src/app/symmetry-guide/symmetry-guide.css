@@ -1,0 +1,45 @@
+
+#symmetry-guide-page {
+	text-align: center;
+}
+
+#symmetry-guide-page .canvas.extra-small {
+	width: 30px;
+	height: 30px;
+}
+
+#symmetry-guide-page .book-section-title h2 {
+	font-weight: 400;
+	margin-bottom: 10;
+	margin-top: 10;
+}
+#symmetry-guide-page .book-section-title h3,
+#symmetry-guide-page .book-section-title h4 {
+	font-weight: 300;
+	font-size: 0.68em; /* small enough for one line on a phone */
+	margin: 0;
+}
+
+#symmetry-guide-page #definitions-container {
+	max-width: 700px;
+	margin: auto;
+	padding: 0 10px 30px;
+}
+
+#symmetry-guide-page p, 
+#symmetry-guide-page a.symmetry-guide-term-name {
+	max-width: 700px;
+	text-align: left;
+	margin: auto;
+	color: black;
+}
+#symmetry-guide-page p {
+	padding: 10px 0;
+}
+
+#symmetry-guide-page .symmetry-guide-term-name,
+#symmetry-guide-page a.symmetry-guide-term-name {
+	font-weight: 600;
+	text-decoration: none;
+	font-size: larger;
+}
