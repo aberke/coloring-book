@@ -1,0 +1,261 @@
+<section id="symmetry-guide-page">
+
+    <div class="book-section-title">
+        <h2>Symmetries</h2>
+
+        <h4>Of Patterns in the Plane</h4>
+
+    </div>
+
+    <div id="definitions-container">
+
+        <p><a href="/#!/symmetries#translation" id="translation" class="symmetry-guide-term-name">Translation</a> is a shift in a given direction.</p>
+        <br/>
+        <div class="text-content-graphic line">
+            <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
+            <div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":0}'
+            ></div><div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":0, "stroke-dasharray":"-"}'
+            ></div><div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":0}'
+            ></div><div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":0}'
+            ></div><div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":0}'
+            ></div><div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":0}'
+            ></div>
+            <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
+        </div>
+        <div class="text-content-graphic line">
+            <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
+            <div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":0}'
+            ></div><div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":0}'
+            ></div><div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":0, "stroke-dasharray":"-"}'
+            ></div><div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":0}'
+            ></div><div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":0}'
+            ></div><div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":0}'
+            ></div>
+            <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
+        </div>
+        <br/>
+
+        <p>An infinitely repeating pattern has translation as a symmetry - the entire pattern can be shifted over without changing in appearance:</p>
+                
+        <frieze-pattern
+            pattern-function='trianglePath'
+            group-name='p1'
+            fundamental-domain-width=25
+            fundamental-domain-height=25
+            draw-options='{"contain": true}'
+        ></frieze-pattern>
+        <br/>
+        <br/>
+
+        <p><a href="/#!/symmetries#mirror-reflection" id="mirror-reflection" class="symmetry-guide-term-name">Mirror Reflection</a> is a reflection across an imaginary line.</p>
+
+        <div class="text-content-graphic line">
+            <div style="border-right: 1px solid gray;" class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":9}'
+            ></div><div style="border-left: 1px solid gray;" class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":9, "mirror":"V", "stroke-dasharray": "-"}'
+            ></div>
+        </div>
+        <br/>
+        <p>A pattern has mirror reflection as a symmetry if the entire pattern can reflect across the same line without changing in appearance:</p>
+
+        <frieze-pattern
+            pattern-function='trianglePath'
+            group-name='p1m1'
+            fundamental-domain-width=25
+            fundamental-domain-height=25
+            draw-options='{"contain": true}'
+        ></frieze-pattern>
+        <br/>
+        <br/>
+        
+        <p><a href="/#!/symmetries#glide-reflection" id="glide-reflection" class="symmetry-guide-term-name">Glide Reflection</a> composes translation and mirror reflection: A <span style="font-weight: bold;">glide reflection</span> reflects across a mirror line at the same time as translating along it.</p>
+
+        <div style="display: inline-block; border-bottom: 2px solid gray;" class="text-content-graphic line">
+            <div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":5}'
+            ></div><div class='canvas fake-canvas extra-small'
+            ></div>
+        </div>
+        <div class="text-content-graphic line">
+            <div class='canvas fake-canvas extra-small'
+            ></div><div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":5, "mirror":"H", "stroke-dasharray":"-"}'
+            ></div>
+        </div>
+        <br/>
+        <p>A pattern has glide reflection as a symmetry if a glide reflection does not change the pattern in appearance:</p>
+
+        <frieze-pattern
+            pattern-function='trianglePath'
+            group-name='p11g'
+            fundamental-domain-width=25
+            fundamental-domain-height=25
+            draw-options='{"contain": true, "mirrorOffsetYMultiplier": 1}'
+        ></frieze-pattern>
+        <br/>
+        <br/>
+        
+        <p><a href="/#!/symmetries#rotation" id="rotation" class="symmetry-guide-term-name">Rotation</a> is a symmetry that rotates a pattern around a single point without changing it in appearance.</p>
+
+	    <p class="symmetry-guide-term-name">½ turn rotation:</p>
+
+        <div class="text-content-graphic line">
+            <div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":0}'
+            ></div><div class='canvas fake-canvas extra-small'
+            ></div>
+        </div>
+        <div class="text-content-graphic line">
+            <div class='canvas fake-canvas extra-small'
+            ></div><div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"initialRotation":180, "margin":0, "stroke-dasharray":"-"}'
+            ></div>
+        </div>
+	    <br/>
+        <wallpaper-pattern
+            style='height: 110px;'
+            pattern-function='trianglePath'
+            group-name='p2'
+            fundamental-domain-width=25
+            fundamental-domain-height=25
+            draw-options='{"contain": true}'
+        ></wallpaper-pattern>
+
+        <br/>
+        <p class="symmetry-guide-term-name">¼ turn rotation:</p>
+
+        <div class="text-content-graphic line">
+            <div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"margin":3}'
+            ></div><div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"initialRotation":90, "margin":3, "stroke-dasharray":"-"}'
+            ></div>
+        </div>
+        <div class="text-content-graphic line">
+            <div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"initialRotation":270, "margin":3, "stroke-dasharray":"-"}'
+            ></div><div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawTriangles'
+                function-options='{"N":1}'
+                options='{"initialRotation":180, "margin":3, "stroke-dasharray":"-"}'
+            ></div>
+        </div>
+
+        <br/>
+
+        <wallpaper-pattern
+            style='height: 110px;'
+            pattern-function='trianglePath'
+            group-name='p4'
+            fundamental-domain-width=25
+            fundamental-domain-height=25
+            draw-options='{"contain": true}'
+        ></wallpaper-pattern>
+
+        <br/>
+        <p class="symmetry-guide-term-name">⅓ turn rotation:</p>
+        <br/>
+        <wallpaper-pattern
+            style='height: 220px;'
+            pattern-function='trianglePath'
+            group-name='p3'
+            fundamental-domain-width=25
+            fundamental-domain-height=25
+            draw-options='{"contain": true}'
+        ></wallpaper-pattern>
+
+        <br/>
+        <p class="symmetry-guide-term-name">⅙ turn rotation:</p>
+        <br/>
+        <wallpaper-pattern
+            style='height: 220px;'
+            pattern-function='trianglePath'
+            group-name='p6'
+            fundamental-domain-width=25
+            fundamental-domain-height=25
+            draw-options='{"contain": true}'
+        ></wallpaper-pattern>
+        <br/>
+
+        <p>These symmetries can be combined in patterns that repeat infinitely.  Play with their combinations: <a target="_blank" href="/#!/wallpaper">coloring-book.co/wallpaper</a>.</p>
+
+	</div>
+</section>
+<ng-include src="'/app/common/partials/footer.html'"></ng-include>
