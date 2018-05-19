@@ -82,14 +82,21 @@ Wallpaper and Frieze Page specific
 	text-align: left;
 }
 
-#wallpaper-page .print .title-container h1,
-#frieze-page .print .title-container h1 {
+.print .pattern-page {
 	border: none;
 }
+
 @media print {
+	.description-container {
+		margin: 0;
+	}
 	#wallpaper-page .title-container h1,
 	#frieze-page .title-container h1 {
 		border: none;
+	}
+	/* Avoid page break between the pattern title and pattern */
+	.wallpaper-pattern-container {
+		page-break-inside: avoid;
 	}
 }
 
@@ -243,7 +250,7 @@ Pattern styling (vs just pattern page styling)
 */
 
 #wallpaper-page .wallpaper-pattern {
-	height: 900px;
+	height: 990px;
 }
 
 .wallpaper-pattern,

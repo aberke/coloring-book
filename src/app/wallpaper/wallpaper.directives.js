@@ -3,7 +3,6 @@
 Use
 ------------------------------
 <wallpaper-pattern
-    style="height: <HEIGHT>;" // Height should be set either on the element or in CSS in order to size SVG within appropriately.
     pattern-function={function} // function with which to draw fundamental domain
     pattern-function-options={object} // options that will be passed to the pattern-function
     draw-options={} // options that will be passed to the WallpaperPattern constructor
