@@ -28,6 +28,8 @@ angular.module('app', [
 ])
 .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
+        $locationProvider.html5Mode(true);
+
         $routeProvider
         .when('/', {
             templateUrl: '/app/book/book.html',
@@ -82,8 +84,10 @@ angular.module('app', [
         })
         .otherwise({ redirectTo: '/' });
 
-
-    $locationProvider.hashPrefix('!');
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
 }])
 
 // bootstrap the directives

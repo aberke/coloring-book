@@ -28,10 +28,7 @@ const gulp = require("gulp"),
   // For watching and rebuilding files
   watch = require("gulp-watch"),
 
-  // For serving from gulp
-  http = require("http"),
-
-  ecstatic = require("ecstatic"),
+  run = require("gulp-run"),
 
   // Makes angular code safe for minification by adding DI Annotation
   // (Note: I could have just written better Angular JS code to not need this)
@@ -136,11 +133,8 @@ gulp.task("watch", function () {
 
 
 gulp.task("serve", ["watch"], function() {
-  const port = process.env.PORT || 5000
-  http.createServer(
-    ecstatic({ root: __dirname + "/dist" })
-  ).listen(port);
-  console.log("Listening on port ", port);
+  // Run the node script that is used in production.
+  run("node index.js").exec();
 });
 
 

@@ -81,7 +81,6 @@ Files are transpiled and built to `/dist` by gulp and are served by a node http-
 	- There should then be a `/dist/` directory of the processed `src` files
 - Run `$ gulp serve`
 	- This uses `gulp watch` to reprocess `src` files as they're updated
-	- Or run the server in production mode with `$ npm start`
 - Visit http://127.0.0.1:5000
 
 Run/Build in production mode with `--production` flag.
