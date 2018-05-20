@@ -37,7 +37,7 @@ Thanks <3
 
 ## Posters
 
-Printable posters available at <a href="http://www.coloring-book.co/#!/posters/">/#!/posters/</a>
+Printable posters available at <a href="http://www.coloring-book.co/posters/">/posters/</a>
 - Includes printable frieze group posters
 
 
@@ -47,19 +47,19 @@ Printable posters available at <a href="http://www.coloring-book.co/#!/posters/"
 
 - Frieze Groups explorer: [/frieze](http://www.coloring-book.co/frieze)
 
-- Wallpaper Groups explorer: [/wallpaper](http://www.coloring-book.co/#!/wallpaper)
+- Wallpaper Groups explorer: [/wallpaper](http://www.coloring-book.co/wallpaper)
 
-- Guide to symmetries in the plane: [/symmetries](http://www.coloring-book.co/#!/symmetries)
+- Guide to symmetries in the plane: [/symmetries](http://www.coloring-book.co/symmetries)
 	- Add parameter `?print` for version formatted for printing
 
 
 ## Worksheets
 
-- Worksheet at <a href="http://www.coloring-book.co/#!/worksheet">/#!/worksheet</a>
+- Worksheet at <a href="http://www.coloring-book.co/worksheet">/worksheet</a>
 	- Print this worksheet -- meant for Second Sunday at Pioneer Works
 	- Designed to be printed in landscape mode on 11x17 paper
 	
-- Frieze pattern cards at <a href="http://www.coloring-book.co/#!/cards/">/#!/cards</a>
+- Frieze pattern cards at <a href="http://www.coloring-book.co/cards/">/cards</a>
 	- Print and cut into cards with one pattern piece per card.
 	- Try to arrange these cards to generate the Frieze Patterns.
 
@@ -141,14 +141,14 @@ Workflow:
 
 ### Style Guide
 
-Use the [/#!/style-guide](http://www.coloring-book.co/#!/style-guide)
+Use the [/style-guide](http://www.coloring-book.co/style-guide)
 
 
 ## Printable Copy
 
 Full PDF of book available at http://coloring-book.co/book.pdf
 
-PDF/printable ready HTML book available at `/#!/print-book`
+PDF/printable ready HTML book available at `/print-book`
 
 
 ##### Notes:
@@ -160,7 +160,7 @@ Helpful URL parameters:
 	- This will also disable animations (for better browser performance)
 
 For regenerating the PDF at /coloring-book.pdf:
-- Go to /#!/print-book
+- Go to /print-book
 - Use Firefox browser (best obeys @page CSS specs)
 - Make sure the illustrations look good (or click to recreate them)
 - File -> print (Open the browser’s print dialog)
@@ -189,7 +189,7 @@ Can upload images to combine into GIFs here: http://gifmaker.me/
 
 ### Pieces
 
-Starting to generate & put together the pieces.  They are shown at /#!/pieces
+Starting to generate & put together the pieces.  They are shown at /pieces
 
 
 ### Notes:
