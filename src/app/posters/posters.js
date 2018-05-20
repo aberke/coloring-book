@@ -38,8 +38,8 @@ angular.module('app.posters', [])
 		'cn-6-9',
 	];
 
-	let friezePosterUrlBase = '/#!/frieze?print';
-	let otherPostersUrlBase = '/#!/posters/';
+	let friezePosterUrlBase = '/frieze?print';
+	let otherPostersUrlBase = '/posters/';
 
 	function setupFriezePosters() {
 		friezeGroupNames.forEach(function(fg) {
