@@ -48,7 +48,9 @@ Printable posters available at <a href="http://www.coloring-book.co/#!/posters/"
 - Frieze Groups explorer: [/frieze](http://www.coloring-book.co/frieze)
 
 - Wallpaper Groups explorer: [/wallpaper](http://www.coloring-book.co/#!/wallpaper)
-  - (Work in progress)
+
+- Guide to symmetries in the plane: [/symmetries](http://www.coloring-book.co/#!/symmetries)
+	- Add parameter `?print` for version formatted for printing
 
 
 ## Worksheets
