@@ -21,39 +21,48 @@ Wallpaper and Frieze Page specific
 }
 
 #wallpaper-nav,
-#frieze-nav,
+#frieze-page .action-nav,
 .pattern-page .description-container {
 	margin: 25px 50px;
 }
 @media (max-width: 875px) {
 	#wallpaper-nav,
-	#frieze-nav,
+	#frieze-page .action-nav,
 	.pattern-page .description-container {
 		margin: 25px;
 	}
 }
-#wallpaper-nav h1, 
-#wallpaper-nav ul,
-#frieze-nav h1, 
-#frieze-nav ul {
+.pattern-page .description-container a {
+	text-transform: lowercase;
+	font-size: small;
+	display: block;
+}
+@media (max-width: 875px) {
+    .pattern-page .description-container a {
+		text-align: center;
+    }
+}
+
+#frieze-page .action-nav h1, 
+#frieze-page .action-nav ul {
 	border: none;
 	padding: 0;
 }
 
-#wallpaper-nav h1,
-#frieze-nav h1 {
+#wallpaper-page .action-nav h1,
+#frieze-page .action-nav h1 {
 	display: block;
 	padding-left: 15px;
 	text-align: center;
 	text-transform: uppercase;
 }
 #wallpaper-nav ul,
-#frieze-nav ul {
+#frieze-page .action-nav ul {
 	display: block;
 	text-align: center;
 }
 #wallpaper-nav li,
-#frieze-nav li {
+#frieze-page .action-nav li {
 	display: inline-block;
 	padding: 5px 10px;
 	font-size: 1.2em;
@@ -234,6 +243,10 @@ Wallpaper and Frieze Page specific
     font-weight: bold;
 }
 
+.pattern-page a.symmetries-guide {
+    display: block;
+    text-transform: lowercase;
+}
 
 /* Pattern page footer */
 .pattern-page .footer {
