@@ -36,6 +36,7 @@ angular.module('app.posters', [])
 		'triangles',
 		'cn-2-5',
 		'cn-6-9',
+		'wallpaper-repeated',
 	];
 
 	let friezePosterUrlBase = '/frieze?print';

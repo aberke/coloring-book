@@ -1,0 +1,53 @@
+<style>
+
+.poster-page .poster-container {
+	margin: 60px auto;
+	padding: 2%;
+}
+
+#wallpaper-repeated .wallpaper-pattern {
+	height: 185px;
+}
+#wallpaper-repeated .poster-container p {
+	text-align: center;
+	font-size: 1.15em;
+	font-weight: 300;
+	margin: 0;
+	font-family: sans-serif;
+}
+#wallpaper-repeated .poster-container p.info {
+	font-weight: 600;
+}
+
+</style>
+
+<div id="wallpaper-repeated" class="poster-page">
+	
+	<div class="poster-container">
+
+		<wallpaper-pattern
+			pattern-function=trianglesPath2
+			draw-options='{"contain": true}'
+			group-name='cmm'
+			fundamental-domain-width=30
+			fundamental-domain-height=30
+		></wallpaper-pattern>
+
+		<p>WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER</p>
+		<p>WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER</p>
+		<p>WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER</p>
+		<!-- <p class="info"></p> -->
+		<p>WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER</p>
+		<p>WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER</p>
+		<p>WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER   WALLPAPER</p>
+
+		<wallpaper-pattern
+			pattern-function=trianglesPath2
+			draw-options='{"contain": true}'
+			group-name='cmm'
+			fundamental-domain-width=30
+			fundamental-domain-height=30
+		></wallpaper-pattern>
+
+	</div>
+</div>
