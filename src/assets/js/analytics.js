@@ -30,11 +30,17 @@ const analytics = (function() {
 	}
 
 
+	/* Names the page used to associate analytics events to. */
+	function getPage() {
+		return location.pathname + location.hash + location.search;
+	}
+
+
 	function trackPageView() {
 		if (!googleAnalytics)
 			return;
 
-		googleAnalytics('send', 'pageview', location.hash);
+		googleAnalytics('send', 'pageview', getPage());
 	}
 
 
@@ -45,7 +51,7 @@ const analytics = (function() {
 	  - some other string...
 	*/
 	function trackRedraw(type) {
-		let page = location.hash;
+		let page = getPage();
 		if (!googleAnalytics)
 			return;
 
@@ -56,6 +62,7 @@ const analytics = (function() {
 			eventLabel: page,
 		});
 	}
+
 
     return {
         initTracking: initTracking,

@@ -63,10 +63,13 @@
                     var redrawSierpinskiArrowheadCurveWithBase = function() {
                         sierpinskiArrowheadCurvePaper.clear();
                         drawInCanvasCenter(sierpinskiArrowheadCurvePaper, drawSierpinskiArrowheadCurveWithBase);
+
+                        analytics.trackRedraw("SierpinskiArrowheadCurve");
                     }
                     // add mouse-up handler to the canvas to cause redraw
-                    sierpinskiArrowheadCurvePaper.canvas.addEventListener('mouseup', redrawSierpinskiArrowheadCurveWithBase);
-                    redrawSierpinskiArrowheadCurveWithBase();
+                    sierpinskiArrowheadCurvePaper.canvas.addEventListener("mouseup", redrawSierpinskiArrowheadCurveWithBase);
+
+                    drawInCanvasCenter(sierpinskiArrowheadCurvePaper, drawSierpinskiArrowheadCurveWithBase);
 
                 </script>
             </div>
