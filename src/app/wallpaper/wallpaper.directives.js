@@ -16,7 +16,13 @@ function WallpaperPatternDirective($window, $location) {
     return {
 
     restrict: "EA",
-    scope: {}, // using isolated scope
+    scope: {
+        // This exposes the redrawFn to the parent scope.
+        // An isolated scope is used for the redraw fn with a namable
+        // attribute so that a call to one directive's redraw fn does not
+        // trigger another directive's fn.
+        redrawFn: "=?",
+    },
     link: function(scope, element, attrs) {
         
         // Initialize the variables that will be set later.
@@ -89,6 +95,11 @@ function WallpaperPatternDirective($window, $location) {
                                                         scope.transforms, scope.transformOptions,
                                                         scope.drawOptions);
         };
+        
+        scope.redrawFn = function() {
+            scope.paper.clear();
+            scope.drawPattern();
+        }
 
 
         scope.p1Handler = function() {

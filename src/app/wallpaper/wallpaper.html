@@ -63,6 +63,7 @@
 
             </div>
 
+            <p ng-show="main.debug" class="debug-redraw-button" ng-click="redraw()">redraw</p>
             <wallpaper-pattern
                 ng-class='{debug: wallpaperPage.showDescriptions}'
                 pattern-function='{{ wallpaperPage.selectedDrawPathFunction.name }}'
@@ -70,6 +71,7 @@
                 group-name='{{ group.name }}'
                 fundamental-domain-width=70
                 fundamental-domain-height=70
+                redraw-fn="redraw"
             ></wallpaper-pattern>
 
         </div>

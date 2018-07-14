@@ -104,8 +104,10 @@ angular.module('app', [
     // set the 'print' flag if the route is the PRINT_ROUTE or PRINT_PARAM is present
     // set 'disable-animations' flag if param is present or in printing
     vm.checkMode = function() {
-        if (!!$location.search()[DEBUG_PARAM])
+        if (!!$location.search()[DEBUG_PARAM]) {
+            vm.debug = true;
             DEBUG = true;
+        }
         
         if (!!$location.search()[PRINT_PARAM] || $location.path() === PRINT_ROUTE) {
             vm.print = true;

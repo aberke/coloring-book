@@ -135,16 +135,21 @@ Wallpaper and Frieze Page specific
 	padding-left: 0;
 }
 
-.pattern-page .toggle-group-description-button {
+.pattern-page .toggle-group-description-button,
+.pattern-page .debug-redraw-button {
     margin: 15px 25px;
-    float: right;
     cursor: pointer;
     color: gray;
+    text-transform: lowercase;
+}
+.pattern-page .toggle-group-description-button {
+    float: right;
 }
 .pattern-page .toggle-group-description-button:hover {
     color: purple;
 }
-.pattern-page .toggle-group-description-button .text {
+.pattern-page .toggle-group-description-button .text,
+.pattern-page .debug-redraw-button {
     text-decoration: underline;
 }
 
