@@ -21,7 +21,7 @@ enabled when DISABLE_ANIMATIONS.
 @param {object} options
                 {string} text: text to draw below shape
                 {number} autoRotateDegrees: defaults to none.
-                        When set, shape automatically rotates every so often by this amount in animation
+                        When set, shape automatically rotates on interval by this amount in animation
                 {number} margin: margin to keep within sides of canvas and shape
                 {boolean} tapRedraw: whether to redraw upon click-like event.
                 {number} tapRotate: number of degrees to rotate upon tap.  Must be between 0 and 360.
@@ -112,7 +112,7 @@ function setupInteractions(paper, pathSet, origin, size, drawFunction,
         setTapReflect(paper, pathSet, origin, options.tapReflect);
 
     if (options.autoReflect)
-        setMirror(pathSet, origin, options.autoReflect, true);   
+        setMirror(pathSet, origin, options.autoReflect, true);
 }
 
 

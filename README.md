@@ -183,13 +183,14 @@ Can upload images to combine into GIFs here: http://gifmaker.me/
 #### Screencast to GIFs Workflow
 
 - Use Quicktime player to take screencast
-- Use https://giphy.com/create/gifmaker to convert .mov file to gif
 - Use ?animate URL param to auto animate things on the page upon page load
+- Use PicGIF (downloaded for mac) to convert movie --> GIF
+- OR Use https://giphy.com/create/gifmaker to convert .mov file to gif
 
 
 ### Pieces
 
-Starting to generate & put together the pieces.  They are shown at /pieces
+/pieces
 
 
 ### Notes:
