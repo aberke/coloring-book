@@ -3,242 +3,272 @@
     <div class="text-content">
         <div class="content-container-wrapper">
             <div class="content-container">
-                <h3 class="frieze-pattern-name">p1m1</h3>
-                <p class="frieze-pattern-description">Vertical Reflection &amp; Translation</p> 
 
-	            <p>Patterns can have <span class="bold-math">vertical mirrors</span> as well.</p>
-                <!-- [piece] -->
-                <!-- [piece, piece mirrored, show V1 mirror] -->
-                <!-- [full pattern] -->
+                <p>A <span class="bold-math">translation</span> can be composed with another <span class="bold-math">translation</span> so that in the same way a pattern can shift over by 1 unit and remain unchanged, it can also shift over by 2 units and remain unchanged.</p>
+
+                <!-- [Simple triangles pattern, diff side stroke for 2nd] -->
+                <!-- [Simple triangles pattern, diff side stroke for 4th] -->
                 <div class="text-content-graphic line">
+                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
                     <div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawTriangles'
                         function-options='{"N":1}'
-                        options='{"margin":9}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0, "stroke-dasharray":"-"}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
                     ></div>
-                    <div class='canvas fake-canvas extra-small'></div>
-                    <div class='canvas fake-canvas extra-small'></div>
-                    <div class='canvas fake-canvas extra-small'></div>
-                    <div class='canvas fake-canvas extra-small'></div>
-                    <div class='canvas fake-canvas extra-small'></div>
+                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
                 </div>
                 <br/>
                 <div class="text-content-graphic line">
-                    <div style="border-right: 1px solid gray;" class='canvas extra-small'
+                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
+                    <div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawTriangles'
                         function-options='{"N":1}'
-                        options='{"margin":9}'
-                    ></div><div style="border-left: 1px solid gray;" class='canvas extra-small'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawTriangles'
                         function-options='{"N":1}'
-                        options='{"margin":11, "mirror":"V"}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0, "stroke-dasharray":"-"}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
                     ></div>
-                    <div class='canvas fake-canvas extra-small'></div>
-                    <div class='canvas fake-canvas extra-small'></div>
-                    <div class='canvas fake-canvas extra-small'></div>
-                    <div class='canvas fake-canvas extra-small'></div>
+                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
+                </div>
+
+                <br/>
+                
+                <p>We can keep composing <span class="bold-math">translations</span> to see larger and larger shifts...</p>
+
+                <!-- [Simple triangles pattern, diff side stroke for 2nd] -->
+                <!-- [Simple triangles pattern, diff side stroke for 5th] -->
+                <div class="text-content-graphic line">
+                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0, "stroke-dasharray":"-"}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div>
+                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
                 </div>
                 <br/>
                 <div class="text-content-graphic line">
+                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
                     <div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawTriangles'
                         function-options='{"N":1}'
-                        options='{"margin":9}'
-                    ></div>
-                    <div class='canvas extra-small'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawTriangles'
                         function-options='{"N":1}'
-                        options='{"margin":9, "mirror":"V"}'
-                    ></div>
-                    <div class='canvas extra-small'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawTriangles'
                         function-options='{"N":1}'
-                        options='{"margin":9}'
-                    ></div>
-                    <div class='canvas extra-small'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawTriangles'
                         function-options='{"N":1}'
-                        options='{"margin":9, "mirror":"V"}'
-                    ></div>
-                    <div class='canvas extra-small'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawTriangles'
                         function-options='{"N":1}'
-                        options='{"margin":9}'
-                    ></div>
-                    <div class='canvas extra-small'
+                        options='{"margin":0, "stroke-dasharray":"-"}'
+                    ></div><div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawTriangles'
                         function-options='{"N":1}'
-                        options='{"margin":9, "mirror":"V"}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
                     ></div>
+                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
                 </div>
 
-                <p>These mirrors shift over with each repeated translation, so once a pattern has one vertical mirror, it has an infinite number of vertical mirrors.</p>
-                <!-- [full pattern, with repeated V1 mirrors shown] -->
-                <div class="text-content-graphic line">
-                    <div style="border-right: 1px solid gray;" class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":9}'
-                    ></div><div style="border-left: 1px solid gray;" class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":11, "mirror":"V"}'
-                    ></div><div style="border-right: 1px solid gray;" class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":9}'
-                    ></div><div style="border-left: 1px solid gray;" class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":11, "mirror":"V"}'
-                    ></div><div style="border-right: 1px solid gray;" class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":9}'
-                    ></div><div style="border-left: 1px solid gray;" class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":11, "mirror":"V"}'
-                    ></div>
-                </div>
+                <br/>
 
-                <p>Twice that many, really.</p>
-                <!-- [full pattern, with all V1 & V2 mirrors shown] -->
-                <div class="text-content-graphic line">
-                    <div style="border-right: 1px solid gray;" class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":9}'
-                    ></div><div style="border-left: 1px solid gray; border-right: 1px dashed black;" class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":11, "mirror":"V"}'
-                    ></div><div style="border-right: 1px solid gray; border-left: 1px dashed black;" class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":9}'
-                    ></div><div style="border-left: 1px solid gray; border-right: 1px dashed black;" class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":11, "mirror":"V"}'
-                    ></div><div style="border-right: 1px solid gray; border-left: 1px dashed black;" class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":9}'
-                    ></div><div style="border-left: 1px solid gray; border-right: 2px dashed black;" class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":11, "mirror":"V"}'
-                    ></div>
-                </div>
-
-                <p>Even though we start with a vertical mirror on one side of each piece, as the pattern repeats, another different vertical mirror shows itself.</p>
+                <p>Or we can use color to take them away.</p>
 
                 <br/>
                 <br/>
+                <br/>
 
-                <p class="challenge">Challenge: Can you find the mirrors in the following patterns?</p>
-                <p class="challenge">Coloring Challenge: Can you color the patterns to remove the mirrors?</p>
+                <p class="challenge">Coloring Challenge: Color the pattern so that it is not possible to translate it by 1 triangle unit without changing it in appearance.</p>
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p1'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                    draw-options='{"fill":"#3bcca6", contain": true}'
+                ></frieze-pattern>
 
-	        </div>
-	    </div>
+            </div>
+        </div>
     </div>
     <!-- text-content -->
 
     <div class="coloring-content">
         <div class="content-container-wrapper">
             <div class="content-container">
-                <div class='frieze-pattern'
-                    pattern-function=slantedSlices
-                    group-name='p1m1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                    pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": false}'
-                ></div>
 
-                <div class='frieze-pattern'
-                    pattern-function=slantedSlices
-                    group-name='p1m1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                    margin=1
-                    pattern-function-options='{"levels": 3, "pathsPerLevel": 1, "allowCurved": true}'
-                ></div>
-                <div class='frieze-pattern'
-                    pattern-function=slantedSlices
-                    group-name='p1m1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                    pattern-function-options='{"levels": 3, "pathsPerLevel": 1, "allowCurved": false}'
-                ></div>
-                
-                <div class='frieze-pattern'
-                    pattern-function=slantedSlices
-                    group-name='p1m1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                    pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": true}'
-                ></div>
-                
-                <div class='frieze-pattern'
-                    pattern-function='trianglesPath2'
-                    group-name='p1m1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                ></div>
-                
-                <div class='frieze-pattern'
+                <frieze-pattern
+                    pattern-function='petalEllipse'
+                    group-name='p1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=62
+                    draw-options='{"fill":"#3bcca6", "contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='quarterEllipse'
+                    group-name='p1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=62
+                    draw-options='{"fill":"#3bcca6", "contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
                     pattern-function='petalsEllipseWithDiamondPath'
-                    group-name='p1m1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                ></div>
-
-                <div class='frieze-pattern'
-                    pattern-function=slantedSlices
-                    group-name='p1m1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                    pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": false}'
-                ></div>
-
-                <div class='frieze-pattern'
-                    pattern-function=slantedSlices
-                    group-name='p1m1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                    pattern-function-options='{"levels": 1, "pathsPerLevel": 1, "allowCurved": true}'
-                ></div>
-
-                <div class='frieze-pattern'
-                    pattern-function='trianglePath'
-                    group-name='p1m1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                ></div>
+                    group-name='p1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=62
+                    draw-options='{"fill":"#3bcca6", "contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='petalEllipse'
+                    group-name='p1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=62
+                    draw-options='{"fill":"#3bcca6", "contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='quarterEllipse'
+                    group-name='p1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=62
+                    draw-options='{"fill":"#3bcca6", "contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='petalsEllipseWithDiamondPath'
+                    group-name='p1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=62
+                    draw-options='{"fill":"#3bcca6", "contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='petalEllipse'
+                    group-name='p1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=62
+                    draw-options='{"fill":"#3bcca6", "contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='quarterEllipse'
+                    group-name='p1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=62
+                    draw-options='{"fill":"#3bcca6", "contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='petalsEllipseWithDiamondPath'
+                    group-name='p1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=62
+                    draw-options='{"fill":"#3bcca6", "contain": true}'
+                ></frieze-pattern>
             </div>
-            <p class="design-caption">p1m1 frieze patterns: {vertical reflection, translation}</p>
+            <p class="design-caption">p1 frieze patterns: {translation}</p>
         </div>
     </div>
     <!-- coloring-content -->

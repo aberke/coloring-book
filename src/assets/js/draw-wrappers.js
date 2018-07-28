@@ -271,6 +271,20 @@ function drawTriangles(paper, centerPoint, size, options) {
     return paper.set().push(path);
 }
 
+function drawCurves(paper, centerPoint, size, options) {
+    let n = options.N || 3;
+
+    // curves function uses origin at bottom left
+    let origin = {
+        X: centerPoint.X - (1/2)*size,
+        Y: centerPoint.Y - (1/2)*size,
+    };
+
+    let pathList = curves(n, origin, size, size);
+    let path = paper.path(pathList);
+    return paper.set().push(path);
+}
+
 
 function drawPetalEllipse(paper, centerPoint, size) {
     // uses origin at bottom left
