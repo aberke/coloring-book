@@ -3,263 +3,39 @@
     <div class="text-content">
         <div class="content-container-wrapper">
             <div class="content-container">
-	            <p>A <span class="bold-math">translation</span> shifts our patterns over by a certain distance without changing them,</p>
-                <!-- [pattern with diff side stroke on 1st iteration] -->
-                <!-- [above pattern with diff side stroke on 2nd iteration] -->
-                <div class="text-content-graphic line">
-                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0, "stroke-dasharray":"-"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div>
-                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
-                </div>
+                <p>The <span class="bold-math">frieze patterns</span> illustrate the <span class="bold-math">frieze groups</span>.  These groups contain symmetries, not patterns - the patterns just help us see them.</p>
+
                 <br/>
-                <div class="text-content-graphic line">
-                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0, "stroke-dasharray":"-"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div>
-                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
-                </div>
-                <p>but shifting by twice that distance is also a translation.</p>
-                <!-- [above pattern with diff side stroke on 1st iteration] -->
-                <!-- [above pattern with diff side stroke on 3rd iteration] -->
-                <div class="text-content-graphic line">
-                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0, "stroke-dasharray":"-"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div>
-                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
-                </div>
+                <p>For example, <span class="bold-math">{vertical reflection, translation}</span> is a group that can be seen with the patterns:</p>
+                <!-- 
+                [triangle pattern]
+                [curves pattern]
+                [ellipse pattern]
+                 -->
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p1m1'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='curves2'
+                    group-name='p1m1'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='quarterEllipse'
+                    group-name='p1m1'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>
+
                 <br/>
-                <div class="text-content-graphic line">
-                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0, "stroke-dasharray":"-"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div>
-                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
-                </div>
-
-                <p>So is 3 times that distance,</p>
-                <!-- [above pattern with diff side stroke on 1st iteration] -->
-                <!-- [above pattern with diff side stroke on 4th iteration] -->
-
-                <div class="text-content-graphic line">
-                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0, "stroke-dasharray":"-"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div>
-                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
-                </div>
-                <br/>
-                <div class="text-content-graphic line">
-                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0, "stroke-dasharray":"-"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div>
-                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
-                </div>
-
-                <p>and so on...</p>
-
+                <p>And we can come up with infinitely more pattern designs to illustrate it.</p>
 	        </div>
 	    </div>
     </div>
@@ -268,75 +44,77 @@
     <div class="coloring-content">
         <div class="content-container-wrapper">
             <div class="content-container">
-
-                <div class='frieze-pattern'
+                <frieze-pattern
                     pattern-function=slantedSlices
-                    group-name='p1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                    pattern-function-options='{"levels": 1, "pathsPerLevel": 1, "allowCurved": false}'
-                ></div>
-
-                <div class='frieze-pattern'
+                    group-name='p1m1'
+                    fundamental-domain-width=70
+                    fundamental-domain-height=60
+                    pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": false}'
+                    draw-options='{"contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
                     pattern-function=slantedSlices
-                    group-name='p1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                    pattern-function-options='{"levels": 2, "pathsPerLevel": 1, "allowCurved": true}'
-                ></div>
-                <div class='frieze-pattern'
+                    group-name='p1m1'
+                    fundamental-domain-width=70
+                    fundamental-domain-height=60
+                    pattern-function-options='{"levels": 1, "pathsPerLevel": 1, "allowCurved": true}'
+                    draw-options='{"contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
                     pattern-function=slantedSlices
-                    group-name='p1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
+                    group-name='p1m1'
+                    fundamental-domain-width=70
+                    fundamental-domain-height=60
                     pattern-function-options='{"levels": 3, "pathsPerLevel": 1, "allowCurved": false}'
-                ></div>
-                
-                <div class='frieze-pattern'
+                    draw-options='{"contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
                     pattern-function=slantedSlices
-                    group-name='p1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                    pattern-function-options='{"levels": 3, "pathsPerLevel": 2, "allowCurved": true}'
-                ></div>
-                
-                <div class='frieze-pattern'
+                    group-name='p1m1'
+                    fundamental-domain-width=70
+                    fundamental-domain-height=60
+                    pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": true}'
+                    draw-options='{"contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
                     pattern-function='trianglesPath2'
-                    group-name='p1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                ></div>
-                
-                <div class='frieze-pattern'
+                    group-name='p1m1'
+                    fundamental-domain-width=70
+                    fundamental-domain-height=60
+                    draw-options='{"contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
                     pattern-function='petalsEllipseWithDiamondPath'
-                    group-name='p1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                ></div>
-
-                <div class='frieze-pattern'
+                    group-name='p1m1'
+                    fundamental-domain-width=70
+                    fundamental-domain-height=60
+                    draw-options='{"contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
                     pattern-function=slantedSlices
-                    group-name='p1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                    pattern-function-options='{"levels": 4, "pathsPerLevel": 1, "allowCurved": false}'
-                ></div>
-
-                <div class='frieze-pattern'
+                    group-name='p1m1'
+                    fundamental-domain-width=70
+                    fundamental-domain-height=60
+                    pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": false}'
+                    draw-options='{"contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
                     pattern-function=slantedSlices
-                    group-name='p1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                    pattern-function-options='{"levels": 5, "pathsPerLevel": 1, "allowCurved": true}'
-                ></div>
-
-                <div class='frieze-pattern'
-                    pattern-function='trianglesPath4'
-                    group-name='p1'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=78
-                ></div>
+                    group-name='p1m1'
+                    fundamental-domain-width=70
+                    fundamental-domain-height=60
+                    pattern-function-options='{"levels": 1, "pathsPerLevel": 1, "allowCurved": true}'
+                    draw-options='{"contain": true}'
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p1m1'
+                    fundamental-domain-width=70
+                    fundamental-domain-height=60
+                    draw-options='{"contain": true}'
+                ></frieze-pattern>
             </div>
+            <p class="design-caption">p1m1 frieze patterns: {vertical reflection, translation}</p>
         </div>
     </div>
     <!-- coloring-content -->

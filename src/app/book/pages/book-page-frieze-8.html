@@ -3,142 +3,139 @@
     <div class="text-content">
         <div class="content-container-wrapper">
             <div class="content-container">
-                <h3 class="frieze-pattern-name">p11g</h3>
-                <p class="frieze-pattern-description">Glide Reflection &amp; Translation</p>
-
-	            <p>There is another type of symmetry called <span class="bold-math">glide reflection</span>.</p>
-                <!-- [simple p11g pattern] -->
                 <div class="text-content-graphic line">
                     <div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawTriangles'
                         function-options='{"N":1}'
-                        options='{"margin":5}'
+                        options='{"margin":9}'
                     ></div>
-                    <div class='canvas fake-canvas extra-small'></div>
                     <div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawTriangles'
                         function-options='{"N":1}'
-                        options='{"margin":5}'
+                        options='{"margin":9, "mirror":"V"}'
                     ></div>
-                    <div class='canvas fake-canvas extra-small'></div>
                     <div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawTriangles'
                         function-options='{"N":1}'
-                        options='{"margin":5}'
+                        options='{"margin":9}'
                     ></div>
-                    <div class='canvas fake-canvas extra-small'></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V"}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V"}'
+                    ></div>
                 </div>
+
+	            <p>All of these mirrors can be removed with color.</p>
+                <!-- [same p1m1 pattern with alternating aqua, purple colors to make it p1] -->
                 <div class="text-content-graphic line">
-                    <div class='canvas fake-canvas extra-small'></div>
                     <div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawTriangles'
                         function-options='{"N":1}'
-                        options='{"margin":5, "mirror":"H"}'
+                        options='{"margin":9, "fill":1}'
                     ></div>
-                    <div class='canvas fake-canvas extra-small'></div>
                     <div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawTriangles'
                         function-options='{"N":1}'
-                        options='{"margin":5, "mirror":"H"}'
+                        options='{"margin":9, "mirror":"V", "fill":2}'
                     ></div>
-                    <div class='canvas fake-canvas extra-small'></div>
                     <div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawTriangles'
                         function-options='{"N":1}'
-                        options='{"margin":5, "mirror":"H"}'
+                        options='{"margin":9, "fill":1}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V", "fill":2}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "fill":1}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V", "fill":2}'
+                    ></div>
+                </div>
+
+                <p>With color, we can reduce the patterns so that translation is their only symmetry.</p>
+
+                <div class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "fill":1}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V"}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "fill":1}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V"}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "fill":1}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":9, "mirror":"V"}'
                     ></div>
                 </div>
 
                 <br/>
 
-                <p>A <strong>glide reflection</strong> is a transformation that reflects across a mirror line at the same time as translating along it.</p>
-
-                <div style="display: inline-block; border-bottom: 2px solid gray;" class="text-content-graphic line">
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":5}'
-                    ></div><div class='canvas fake-canvas extra-small'>
-                        <p class="text big">&rarr;</p>
-                    </div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":5}'
-                    ></div><div class='canvas fake-canvas extra-small'
-                    ></div>
-                </div>
-                <div class="text-content-graphic line">
-                    <div class='canvas fake-canvas extra-small'
-                    ></div><div class='canvas fake-canvas extra-small'
-                    ></div><div class='canvas fake-canvas extra-small'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":5, "mirror":"H", "stroke-dasharray":"-"}'
-                    ></div>
-                </div>
-
-                <br/>
-
-                <p>By continuing to translate or glide, a pattern with glide reflection is generated.</p>
-
-                <div class="text-content-graphic line">
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":5}'
-                    ></div><div class='canvas fake-canvas extra-small'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":5}'
-                    ></div><div class='canvas fake-canvas extra-small'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":5}'
-                    ></div><div class='canvas fake-canvas extra-small'
-                    ></div>
-                </div>
-                <div class="text-content-graphic line">
-                    <div class='canvas fake-canvas extra-small'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":5, "mirror":"H", "stroke-dasharray":"-"}'
-                    ></div><div class='canvas fake-canvas extra-small'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":5, "mirror":"H", "stroke-dasharray":"-"}'
-                    ></div><div class='canvas fake-canvas extra-small'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":5, "mirror":"H", "stroke-dasharray":"-"}'
-                    ></div>
-                </div>
+                <p>Why can we do this?</p>
+                <p>This brings us back to subgroups.</p>
 
                 <br/>
                 <br/>
+                <br/>
+                <br/>
 
-                <p class="challenge">Challenge: Can you find the glide reflections in the following patterns?</p>
-                
+                <p class="challenge">Coloring Challenge: Color the patterns to remove any mirrors so that translation is their only symmetry.</p>
+
 	        </div>
 	    </div>
     </div>
@@ -147,53 +144,81 @@
 
     <div class="coloring-content">
         <div class="content-container-wrapper">
-            <div class="content-container">
-                <div class='frieze-pattern'
-                    pattern-function=slantedSlices
-                    group-name='p11g'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=75
-                    pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": false}'
-                ></div>
 
-                <div class='frieze-pattern'
-                    pattern-function=slantedSlices
-                    group-name='p11g'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=75
-                    pattern-function-options='{"levels": 3, "pathsPerLevel": 1, "allowCurved": true}'
-                ></div>
-                <div class='frieze-pattern'
-                    pattern-function=slantedSlices
-                    group-name='p11g'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=75
-                    pattern-function-options='{"levels": 3, "pathsPerLevel": 1, "allowCurved": false}'
-                ></div>
+            <div class="content-container">
                 
-                <div class='frieze-pattern'
-                    pattern-function=slantedSlices
-                    group-name='p11g'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=75
-                    pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": true}'
-                ></div>
-                
-                <div class='frieze-pattern'
+                <frieze-pattern
                     pattern-function='trianglesPath2'
-                    group-name='p11g'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=75
-                ></div>
-                
-                <div class='frieze-pattern'
-                    pattern-function='petalsEllipseWithDiamondPath'
-                    group-name='p11g'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=75
-                ></div>
+                    group-name='p1m1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>                
+                <frieze-pattern
+                    pattern-function='trianglesPath3'
+                    group-name='p1m1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>                
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p1m1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>                
+                <frieze-pattern
+                    pattern-function='quarterEllipse'
+                    group-name='p1m1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>                
+                <frieze-pattern
+                    pattern-function='trianglesPath3'
+                    group-name='p1m1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>                
+                <frieze-pattern
+                    pattern-function='trianglesPath2'
+                    group-name='p1m1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>                
+                <frieze-pattern
+                    pattern-function='trianglesPath3'
+                    group-name='p1m1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>                
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p1m1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>                
+                <frieze-pattern
+                    pattern-function='quarterEllipse'
+                    group-name='p1m1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>                
+                <frieze-pattern
+                    pattern-function='trianglesPath3'
+                    group-name='p1m1'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>
             </div>
-            <p class="design-caption">p11g frieze patterns: {glide reflection, translation}</p>
+            <p class="design-caption">p1m1 frieze patterns: {vertical reflection, translation}</p>
         </div>
     </div>
     <!-- coloring-content -->

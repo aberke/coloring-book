@@ -1,0 +1,59 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+                
+                <frieze-pattern
+                    pattern-function='curves2'
+                    group-name='p2'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                    draw-options='{"contain": true, "rotationOffset": 1}'
+                ></frieze-pattern>
+	            <p>Frieze patterns are limited to repetition in one direction, but Wallpaper patterns do not have that limit.</p>
+
+                <br/>
+                <br/>
+
+                <p>When that limit is removed for the Wallpaper Groups, the number of possible patterns and amount of symmetry within them grows beyond what we have colored.</p>
+
+                <br/>
+
+                <wallpaper-pattern style="height: 180px;"
+                    pattern-function='curves2'
+                    draw-options='{"contain":true}'
+                    group-name='p2'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: Can you find all of the directions in which the pattern repeats?</p>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <wallpaper-pattern style="height: 100%;"
+                    pattern-function='curves3'
+                    draw-options='{"contain":true}'
+                    group-name='p4'
+                    fundamental-domain-width=50
+                    fundamental-domain-height=50
+                ></wallpaper-pattern>
+
+            </div>
+            <p class="design-caption">wallpaper pattern with ¼ turn rotation and translation</p>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

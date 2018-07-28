@@ -3,314 +3,163 @@
     <div class="text-content">
         <div class="content-container-wrapper">
             <div class="content-container">
-	            <p>We can see this in more complex patterns as well.</p>
 
-                <p><span class="bold-math">{horizontal reflection, translation}:</span></p>
-                <!-- [p11m (complex) pattern with diff side stroke on 1st iteration] -->
-                <!-- [p11m pattern with diff side stroke on 2rd iteration] -->
-                <!-- [p11m pattern with diff side stroke on 3rd iteration] -->
-                <div class="text-content-graphic line">
-                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "stroke-dasharray":"-"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div>
-                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
-                </div>
+                <!-- [p2 curve] -->
+                <frieze-pattern
+                    pattern-function='curves2'
+                    group-name='p2'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                    draw-options='{"fill":"#3bcca6", "contain": true, "rotationOffset": 1}'
+                ></frieze-pattern>
+
+                <p>As long as the pattern has units</p>
+
+                <!-- [curve] -->
                 <div class="text-content-graphic line">
                     <div class='canvas extra-small'
                         canvas-centered-drawing
-                        draw-function='drawTriangles'
+                        draw-function='drawCurves'
                         function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H", "stroke-dasharray":"-"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
+                        options='{"margin":0}'
                     ></div>
                 </div>
+
 
                 <br/>
+                <p>where applying the same symmetries to any unit leaves the entire pattern unchanged</p>
+                <br/>
 
-                <div class="text-content-graphic line">
-                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "stroke-dasharray":"-"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div>
-                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
-                </div>
+                <!-- [curve] → [text: ½ turn rotation] [curve + curve with ½ turn applied] -->
                 <div class="text-content-graphic line">
                     <div class='canvas extra-small'
                         canvas-centered-drawing
-                        draw-function='drawTriangles'
+                        draw-function='drawCurves'
                         function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
-                    ></div><div class='canvas extra-small'
+                        options='{"margin":0}'
+                    ></div><div class='canvas fake-canvas extra-small'>
+                        <p class="text big">&rarr;</p>
+                    </div><div class='canvas extra-small'
                         canvas-centered-drawing
-                        draw-function='drawTriangles'
+                        draw-function='drawCurves'
                         function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H", "stroke-dasharray":"-"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas fake-canvas extra-small'
                     ></div>
-                </div>
-
-                <br/>
-                <div class="text-content-graphic line">
-                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "stroke-dasharray":"-"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0}'
-                    ></div>
-                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
                 </div>
                 <div class="text-content-graphic line">
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
+                    <div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas fake-canvas extra-small'
                     ></div><div class='canvas extra-small'
                         canvas-centered-drawing
-                        draw-function='drawTriangles'
+                        draw-function='drawCurves'
                         function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H", "stroke-dasharray":"-"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":2}'
-                        options='{"margin":0, "mirror":"H"}'
+                        options='{"initialRotation":180, "margin":0, "stroke-dasharray":"-"}'
                     ></div>
                 </div>
 
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
 
-                <p class="challenge">Coloring challenge: Color the patterns in a way so that the distance between their repetitions is larger than it was without color.</p>
 
-	        </div>
-	    </div>
+                <br/>
+                <p>then the pattern illustrates the same group as any others with the same symmetries:</p>
+
+                <p style="margin-bottom: 0;"><strong>{rotation, translation}</strong></p>
+
+                <!--  
+                [p2 curve]
+                [p2 triangles3]
+                [p2 petal ellipse]
+                -->
+                <frieze-pattern
+                    pattern-function='curves2'
+                    group-name='p2'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                    draw-options='{"fill":"#3bcca6", "contain": true, "rotationOffset": 1}'
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='trianglesPath3'
+                    group-name='p2'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                    draw-options='{"fill":"#3bcca6", "contain": true, "rotationOffset": 1}'
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='petalEllipse'
+                    group-name='p2'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                    draw-options='{"fill":"#3bcca6", "contain": true, "rotationOffset": 1}'
+                ></frieze-pattern>
+
+            </div>
+        </div>
     </div>
     <!-- text-content -->
 
     <div class="coloring-content">
         <div class="content-container-wrapper">
             <div class="content-container">
-                <!-- Alternate between p11m & p2mm patterns -->
-                <div class='frieze-pattern'
-                    pattern-function=slantedSlices
+                <frieze-pattern
+                    pattern-function='petalsEllipseWithDiamondPath'
                     group-name='p2'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=75
-                    pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": false}'
-                ></div>
-
-                <div class='frieze-pattern'
-                    pattern-function=slantedSlices
-                    group-name='p11m'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=75
-                    pattern-function-options='{"levels": 3, "pathsPerLevel": 1, "allowCurved": true}'
-                ></div>
-                <div class='frieze-pattern'
-                    pattern-function=slantedSlices
-                    group-name='p2'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=75
-                    pattern-function-options='{"levels": 3, "pathsPerLevel": 1, "allowCurved": false}'
-                ></div>
-                
-                <div class='frieze-pattern'
-                    pattern-function=slantedSlices
-                    group-name='p11m'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=75
-                    pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": true}'
-                ></div>
-                
-                <div class='frieze-pattern'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>
+                <frieze-pattern
                     pattern-function='trianglesPath2'
                     group-name='p2'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=75
-                ></div>
-                
-                <div class='frieze-pattern'
-                    pattern-function='petalsEllipseWithDiamondPath'
-                    group-name='p11m'
-                    fundamental-domain-width=90
-                    fundamental-domain-height=75
-                ></div>
+                    fundamental-domain-width=60    
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>                
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p2'
+                    fundamental-domain-width=60   
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>                
+                <frieze-pattern
+                    pattern-function='petalEllipse'
+                    group-name='p2'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>                
+                <frieze-pattern
+                    pattern-function='trianglesPath2'
+                    group-name='p2'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>                
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p2'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>                
+                <frieze-pattern
+                    pattern-function='petalEllipse'
+                    group-name='p2'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>                
+                <frieze-pattern
+                    pattern-function='trianglesPath3'
+                    group-name='p2'
+                    fundamental-domain-width=60
+                    fundamental-domain-height=60
+                    draw-options='{"contain":true}'
+                ></frieze-pattern>
             </div>
+
+            <p class="design-caption">p2 frieze patterns: {½ turn rotations, translation}</p>
         </div>
     </div>
     <!-- coloring-content -->
