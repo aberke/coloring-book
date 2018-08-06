@@ -17,6 +17,31 @@
 	font-weight: 600;
 }
 
+/* Info > Video */
+.info-view#videos {
+	min-height: 225px;
+}
+.info-view .info-video-container p {
+	margin: 0;
+	padding: 5px;
+	max-width: none;
+}
+.info-video-container:first-child {
+	float: left;
+}
+.info-video-container:nth-child(2) {
+	float: right;
+}
+/*videos are stacked when viewport is small*/
+@media (max-width: 810px) {
+	.info-view .info-video-container {
+		float: none;
+	}
+	.info-video-container:first-child {
+		padding-bottom: 10px;
+	}
+}
+/* Info > Video */
 
 /* Info > Events */
 .info-view#events .book-section-title {
