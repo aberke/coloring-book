@@ -21,6 +21,9 @@
 .info-view#videos {
 	min-height: 225px;
 }
+.info-view .info-video-container video {
+	width: 390px;
+}
 .info-view .info-video-container p {
 	margin: 0;
 	padding: 5px;
@@ -36,9 +39,19 @@
 @media (max-width: 810px) {
 	.info-view .info-video-container {
 		float: none;
+		padding: 0;
+		margin-left: 0;
+		margin-right: 0;
+		display: inline-block;
+		text-align: center;
 	}
 	.info-video-container:first-child {
 		padding-bottom: 10px;
+	}
+}
+@media (max-width: 400px) {
+	.info-view .info-video-container video {
+		width: 300px;
 	}
 }
 /* Info > Video */
