@@ -276,6 +276,22 @@ Pattern styling (vs just pattern page styling)
 	display: block;
 }
 
+.pattern-page .frieze-pattern path,
+.pattern-page .wallpaper-pattern path {
+	stroke-width: 2;
+}
+
+/* Style the written vs coloring content for the patterns */
+/* Thinner lines for better coloring */
+.text-content .frieze-pattern path,
+.text-content .wallpaper-pattern path {
+	stroke-width: 2;
+}
+.coloring-content .frieze-pattern path,
+.coloring-content .wallpaper-pattern path {
+	stroke-width: 1.5;
+}
+
 /* Style the symmetries of the frieze patterns 
 
 There are different types of symmetries, each with their own class name,

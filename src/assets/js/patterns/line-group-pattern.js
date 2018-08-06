@@ -4,7 +4,6 @@ TODO: Use chaining of promises instead of these ugly callbacks.
 
 const DEFAULT_FILL = 'transparent';
 const DEFAULT_STROKE_COLOR = 'black';
-const DEFAULT_STROKE_WIDTH = 2;
 
 
 /*
@@ -62,7 +61,6 @@ class LineGroupPattern {
         this.id = drawOptions.id || 'anonymous';
         // add styling options
         this.fill = drawOptions.fill || DEFAULT_FILL;
-        this.strokeWidth = drawOptions.strokeWidth || DEFAULT_STROKE_WIDTH;
 
         this.draw();
     }
@@ -70,12 +68,10 @@ class LineGroupPattern {
     addPathSetStyle(fdPathSet, pdPathSet) {
         fdPathSet.attr({
             'stroke': ((!!DEBUG) ? 'gray' : 'transparent'),
-            'stroke-width': this.strokeWidth
         });
         
         pdPathSet.attr({
             'stroke': DEFAULT_STROKE_COLOR,
-            'stroke-width': this.strokeWidth,
             // Make paperSet 'clickable' by filling it in.
             'fill': 'transparent',
         });
