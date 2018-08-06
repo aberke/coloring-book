@@ -43,6 +43,12 @@
 }
 /* Info > Video */
 
+
+.info-view#about-the-artist-and-project img {
+	max-width: 350px;
+}
+
+
 /* Info > Events */
 .info-view#events .book-section-title {
 	font-size: 1.5em;
