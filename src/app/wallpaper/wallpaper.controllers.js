@@ -81,15 +81,15 @@ function WallpaperPageCntl($location, $anchorScroll) {
 	];
 
 	vm.drawPathFunctions = [
-		petalEllipse,
-		quarterEllipse,
 		curves2,
 		curves3,
 		curves4,
 		curves5,
 		petalsEllipseWithDiamondPath,
-		slantedSlices,
-		trianglesPath4,
+		petalEllipse,
+		curvesToStraightSide,
+		curvedTriangle,
+		quarterEllipse,
 		trianglesPath3,
 		trianglesPath2,
 		trianglePath
