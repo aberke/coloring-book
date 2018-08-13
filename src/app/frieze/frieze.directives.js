@@ -7,7 +7,7 @@ Use
     pattern-function-options={object} // options that will be passed to the pattern-function
     draw-options={} // options that will be passed to the FriezePattern constructor
     group-name={"p1" | "p11g" | ... one of the 7 frieze groups to draw}
-    fundamental-domain-width={number} // TODO: rename?
+    fundamental-domain-width={number}
     fundamental-domain-height={number}
 ></div>
 **/
