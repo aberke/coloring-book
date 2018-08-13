@@ -31,7 +31,7 @@ function friezePatternDirective($window) {
         scope.fdWidth = Number(attrs.fundamentalDomainWidth || "80");
         scope.fdHeight = Number(attrs.fundamentalDomainHeight || "80");
         // Size of underlying fundamental domain grid tiles (width=height).
-        scope.fdSize = scope.fdHeight;
+        scope.fdSize = scope.fdWidth;
 
         let container = element[0];
         // Build margin within javascript instead of CSS so that patterns

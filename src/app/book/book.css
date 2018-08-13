@@ -75,6 +75,9 @@ body.print p {
     /*make space for the menu*/
     margin-top: 70px;
 }
+#book-title-container path {
+    stroke-width: 1px;
+}
 /*remove the space for the menu*/
 .print #book-title-container {
     margin-top: 0;

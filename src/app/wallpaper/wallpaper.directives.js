@@ -176,7 +176,8 @@ function WallpaperPatternDirective($window, $location) {
             };
             scope.transformOptions = {
                 FundamentalDomain: [
-                    {rotationOffsetYMultiplier: (1/2)},
+                    // {rotationOffsetYMultiplier: 1},
+                    {rotationOffsetYMultiplier: (3/4)}, // TODO
                     {mirrorOffsetYMultiplier: (3/4)}
                 ]
             };
@@ -195,7 +196,8 @@ function WallpaperPatternDirective($window, $location) {
             };
             scope.transformOptions = {
                 FundamentalDomain: [
-                    {rotationOffsetYMultiplier: (1/2)}
+                    {rotationOffsetYMultiplier: 1}
+                    // {rotationOffsetYMultiplier: (1/2)} // TODO
                 ]
             };
             scope.drawPattern();

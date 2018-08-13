@@ -32,7 +32,7 @@ function WallpaperPageCntl($location, $anchorScroll) {
 		},
 		{
 			name: "pgg",
-			description: "This group has glide reflections and ½ turn rotations, but no mirror reflections. The glide reflections have perpendicular axes, and the rotation centers do not lie on the axes."
+			description: "This group has glide reflections and ½ turn rotations, but no mirror reflections. The glide reflections have perpendicular axes, and the rotation centers do not lie on their intersection."
 		},
 		{
 			name: "pmg",

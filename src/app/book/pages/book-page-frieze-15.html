@@ -6,7 +6,7 @@
 
                 <!-- [p2 curve] -->
                 <frieze-pattern
-                    pattern-function='curves2'
+                    pattern-function='trianglePath'
                     group-name='p2'
                     fundamental-domain-width=30
                     fundamental-domain-height=30
@@ -19,30 +19,28 @@
                 <div class="text-content-graphic line">
                     <div class='canvas extra-small'
                         canvas-centered-drawing
-                        draw-function='drawCurves'
-                        function-options='{"N":2}'
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
                         options='{"margin":0}'
                     ></div>
                 </div>
 
 
-                <br/>
                 <p>where applying the same symmetries to any unit leaves the entire pattern unchanged</p>
-                <br/>
 
                 <!-- [curve] → [text: ½ turn rotation] [curve + curve with ½ turn applied] -->
                 <div class="text-content-graphic line">
                     <div class='canvas extra-small'
                         canvas-centered-drawing
-                        draw-function='drawCurves'
-                        function-options='{"N":2}'
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
                         options='{"margin":0}'
                     ></div><div class='canvas fake-canvas extra-small'>
                         <p class="text big">&rarr;</p>
                     </div><div class='canvas extra-small'
                         canvas-centered-drawing
-                        draw-function='drawCurves'
-                        function-options='{"N":2}'
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
                         options='{"margin":0}'
                     ></div><div class='canvas fake-canvas extra-small'
                     ></div>
@@ -53,15 +51,12 @@
                     ></div><div class='canvas fake-canvas extra-small'
                     ></div><div class='canvas extra-small'
                         canvas-centered-drawing
-                        draw-function='drawCurves'
-                        function-options='{"N":2}'
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
                         options='{"initialRotation":180, "margin":0, "stroke-dasharray":"-"}'
                     ></div>
                 </div>
 
-
-
-                <br/>
                 <p>then the pattern illustrates the same group as any others with the same symmetries:</p>
 
                 <p style="margin-bottom: 0;"><strong>{rotation, translation}</strong></p>
@@ -72,14 +67,14 @@
                 [p2 petal ellipse]
                 -->
                 <frieze-pattern
-                    pattern-function='curves2'
+                    pattern-function='trianglePath'
                     group-name='p2'
                     fundamental-domain-width=30
                     fundamental-domain-height=30
                     draw-options='{"fill":"#3bcca6", "contain": true, "rotationOffset": 1}'
                 ></frieze-pattern>
                 <frieze-pattern
-                    pattern-function='trianglesPath3'
+                    pattern-function='trianglesPath2'
                     group-name='p2'
                     fundamental-domain-width=30
                     fundamental-domain-height=30
