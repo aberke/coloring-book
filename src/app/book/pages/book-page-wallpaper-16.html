@@ -1,0 +1,50 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <h3 class="wallpaper-pattern-name">p4g</h3>
+
+                <p>This pattern group again contains ½ turn and ¼ turn rotations as well as both mirror and glide reflections, but this time with more glide reflections.<p>
+
+                <wallpaper-pattern style="height: 180px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true}'
+                    group-name='p4g'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+                <p>Each ¼ turn rotation sits on the intersection of 2 perpendicular glide reflection axes, and ½ turn rotations on the intersection of 2 perpendicular mirror reflection axes.</p>
+
+                <br/>
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: Can you see the many different axes of glide reflection?</p>
+                <p class="challenge">Coloring Challenge: Color the pattern to remove the ¼ turns while keeping  the ½ turns.</p>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+
+            <div class="content-container">
+                <wallpaper-pattern style="height: 100%;"
+                    pattern-function=trianglesPath3
+                    draw-options='{"contain":true}'
+                    group-name='p4g'
+                    fundamental-domain-width=50
+                    fundamental-domain-height=50
+                ></wallpaper-pattern>
+            </div>
+            <p class="design-caption">p4g wallpaper pattern: mirror reflection, glide reflection, ¼ turn rotation, ½ turn rotation, translation</p>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

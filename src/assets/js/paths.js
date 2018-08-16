@@ -329,25 +329,35 @@ Pathlist fits within containing box:
     |                                |
     (origin.X, origin.Y+height)----(origin.X+width, origin.Y+height)
 **/
-function trianglesPath(n, origin, width, height) {
+function trianglesPath(n, origin, width, height, symmetrical) {
     n = n || 1;
-    // Default height = width.
-    height = height || width;
+    // Redeclare the variables in order to modify them without downstream effects.
+    let x = origin.X,
+        y = origin.Y,
+        w = width,
+        h = (height || width); // Default height = width.
 
+    if (!symmetrical && n == 1 && width == h) {
+        // Make the bottom of the triangle end up where it would with the original height.
+        // This makes a gap at the top of the containing box instead of the bottom.
+        y += (1/3)*h;
+        h = (2/3)*h;
+    }
     let pathList = [];
-    let startPointPathPart = ["M", origin.X, origin.Y + height];
-
-    let i, widthDivisor;
+    let startPointPathPart = ["M", x, y + h];
+    let i;
     for (i=0; i<n; i++) {
         pathList += [
             [startPointPathPart],
             ["h", width/Math.pow(2, i)],
-            ["v", (-1)*height],
+            ["v", (-1)*h],
             ["Z"]
         ];
     }
     return pathList;
 }
+function symmetricalTrianglePath(o, w) { return trianglesPath(1, o, w, w, true); }
+// trianglePath is asymmetrical.
 function trianglePath(o, w, h) { return trianglesPath(1, o, w, h); }
 function trianglesPath2(o, w, h) { return trianglesPath(2, o, w, h); }
 function trianglesPath3(o, w, h) { return trianglesPath(3, o, w, h); }
@@ -490,7 +500,7 @@ function getFundamentalDomainLineSlicePath(startPoint, width, height, withReflec
 }
 
 /*
-Draws a series of connected curves of diminishing height where axis length = offset.
+Draws a series of connected curves of diminishing height.
 
 Returns {array} pathList.
 */
@@ -519,7 +529,74 @@ function quarterEllipse(origin, width, height) {
     }
     return pathList;
 }
+/*
+Draws curved paths starting from bottom left corner to right side.
+The right side is a solid straight line.
+It looks similar to this but with closed curves:
+   /|
+ ///|
+//  |
 
+About drawing elliptical arcs:
+https://www.w3.org/TR/SVG/paths.html#PathDataEllipticalArcCommands
+A (absolute)
+a (relative)
+(rx ry x-axis-rotation large-arc-flag sweep-flag x y)+
+*/
+function curvesToStraightSide(origin, width, height) {
+    // Draw the path with start at bottom left corner.
+    let pathList = [];
+    let startingSpotString = ["M", origin.X, + origin.Y + height];
+    
+    let x = width,
+        y = height,
+        rx = x,
+        ry = y;
+
+    let curves = 4;
+
+    let angle = 0,
+        heightChange = (-1/(curves - 1))*height,
+        rxChange = (-1)*(width/(curves*2));
+
+    while (curves >= 0 && y >= 0) {
+        pathList += startingSpotString;
+        pathList += ["a", rx, ry, angle, 0, 1, x, (-1)*y];
+        // Draw vertical line down to connect to the next curve.
+        if (curves > 1)
+            pathList += ["l", 0, (-1)*heightChange];
+
+        rx += rxChange;
+        ry += (1/2)*heightChange;
+        y += heightChange;
+        curves -= 1;
+    }
+
+    return pathList;
+}
+
+function curvedTriangle(origin, width, height) {
+    // Draw the path with start at bottom left corner.
+    let pathList = [];
+    let startingSpotString = ["M", origin.X, + origin.Y + height];
+    
+    let rx1 = width,
+        ry1 = height,
+        rx2 = rx1 + (-1/3)*width,
+        ry2 = ry1 + (-1/2)*height;
+
+    const angle = 0;
+
+    pathList += startingSpotString;
+    pathList += ["a", rx1, ry1, angle, 0, 1, width, (-1)*height];
+    pathList += ["Z"];
+
+    pathList += startingSpotString;
+    pathList += ["a", rx2, ry2, angle, 0, 1, width, 0];
+    pathList += ["l", 0, (-1)*height];
+
+    return pathList;
+}
 
 /************************************************
 Underlying Fundamental Domain grid pieces

@@ -1,0 +1,48 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <h3 class="wallpaper-pattern-name">p6m</h3>
+
+                <p>This pattern group has ⅙ turn, ⅓ turn, and ½ turn rotations, as well as mirror and glide reflections.<p>
+
+                <wallpaper-pattern style="height: 255px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true}'
+                    group-name='p6m'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+                <br/>
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: How many axes of mirror reflection intersect at the centers of the ⅙ turn rotations?</p>
+                <p class="challenge">Challenge: Can you see the glide reflections?</p>
+                <p class="challenge">Coloring Challenge:  Color the pattern to remove its ⅙ turns while keeping its reflections and ⅓ turns.</p>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+                <wallpaper-pattern style="height: 100%;"
+                    pattern-function=curvedTriangle
+                    draw-options='{"contain":true}'
+                    group-name='p6m'
+                    fundamental-domain-width=48
+                    fundamental-domain-height=48
+                ></wallpaper-pattern>
+            </div>
+            <p class="design-caption">p6m wallpaper pattern: mirror reflection, glide reflection, ⅙ turn rotation, ⅓ turn rotation, ½ turn rotation, translation</p>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

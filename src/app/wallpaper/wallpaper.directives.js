@@ -9,7 +9,6 @@ Use
     group-name={"p1" | "p11g" | ... one of the 17 wallpaper groups to draw}
     fundamental-domain-width={number}
     fundamental-domain-height={number}
-    show-symmetry-sets={boolean} // (TODO) value to watch -- show the symmetry set lines when true
 ></wallpaper-pattern>
 **/
 function WallpaperPatternDirective($window, $location) {
@@ -176,7 +175,7 @@ function WallpaperPatternDirective($window, $location) {
             };
             scope.transformOptions = {
                 FundamentalDomain: [
-                    {rotationOffsetYMultiplier: (1/2)},
+                    {rotationOffsetYMultiplier: util.isNumeric(scope.drawOptions.rotationOffsetYMultiplier) ? scope.drawOptions.rotationOffsetYMultiplier : (3/4)},
                     {mirrorOffsetYMultiplier: (3/4)}
                 ]
             };
@@ -195,7 +194,7 @@ function WallpaperPatternDirective($window, $location) {
             };
             scope.transformOptions = {
                 FundamentalDomain: [
-                    {rotationOffsetYMultiplier: (1/2)}
+                    {rotationOffsetYMultiplier: util.isNumeric(scope.drawOptions.rotationOffsetYMultiplier) ? scope.drawOptions.rotationOffsetYMultiplier : (1/2)},
                 ]
             };
             scope.drawPattern();
@@ -223,7 +222,7 @@ function WallpaperPatternDirective($window, $location) {
             };
             scope.transformOptions = {
                 FundamentalDomain: [
-                    {rotationOffsetYMultiplier: (1/2)}
+                    {rotationOffsetYMultiplier: util.isNumeric(scope.drawOptions.rotationOffsetYMultiplier) ? scope.drawOptions.rotationOffsetYMultiplier : (1/2)},
                 ]
             };
             scope.drawPattern();

@@ -1,0 +1,48 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <h3 class="wallpaper-pattern-name">p6</h3>
+
+                <p>Any group with both ½ turns and ⅓ turns must have all of their combinations, including ⅙ turns...<p>
+
+                <wallpaper-pattern style="height: 255px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true}'
+                    group-name='p6'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+                <p>This pattern group has ½ turn, ⅓ turn, and  ⅙ turn rotations but no reflections.</p>
+
+                <br/>
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: Can you see the ⅙ turns?  Can you see the ½ turns?</p>
+                <p class="challenge">Coloring Challenge: Color the pattern to remove the ½ turn and ⅙ turn rotations but maintain the ⅓ turns.</p>
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+                <wallpaper-pattern style="height: 100%;"
+                    pattern-function=trianglesPath2
+                    draw-options='{"contain":true}'
+                    group-name='p6'
+                    fundamental-domain-width=40
+                    fundamental-domain-height=40
+                ></wallpaper-pattern>
+            </div>
+            <p class="design-caption">p6 wallpaper pattern: ⅙ turn rotation, ⅓ turn rotation, ½ turn rotation, translation</p>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

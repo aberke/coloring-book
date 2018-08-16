@@ -7,7 +7,7 @@ Use
     pattern-function-options={object} // options that will be passed to the pattern-function
     draw-options={} // options that will be passed to the FriezePattern constructor
     group-name={"p1" | "p11g" | ... one of the 7 frieze groups to draw}
-    fundamental-domain-width={number} // TODO: rename?
+    fundamental-domain-width={number}
     fundamental-domain-height={number}
 ></div>
 **/
@@ -31,7 +31,7 @@ function friezePatternDirective($window) {
         scope.fdWidth = Number(attrs.fundamentalDomainWidth || "80");
         scope.fdHeight = Number(attrs.fundamentalDomainHeight || "80");
         // Size of underlying fundamental domain grid tiles (width=height).
-        scope.fdSize = scope.fdHeight;
+        scope.fdSize = scope.fdWidth;
 
         let container = element[0];
         // Build margin within javascript instead of CSS so that patterns

@@ -249,9 +249,10 @@ footer #footer-title {
 	text-align: center;
 }
 
-/* Frieze section */
+/* Frieze section + Wallpaper section */
 
-.frieze-pattern-name {
+.frieze-pattern-name,
+.wallpaper-pattern-name {
 	font-weight: 600;
 	text-decoration: underline;
 	text-align: left;
@@ -278,6 +279,9 @@ footer #footer-title {
 .bold-math {
 	font-weight: 700;
 	display: inline-block;
+}
+.bold-math.big {
+	font-size: x-large;
 }
 .math-block {
 	display: inline-block;
@@ -353,6 +357,9 @@ But shrinks the canvas for smaller, mobile views */
 	display: inline-block;
 	vertical-align: middle;
 }
+.text-content-graphic .canvas {
+	stroke-width: 2;
+}
 .text-content-graphic .canvas .mirror-line {
 	stroke: slategray;
 	stroke-width: 1;
@@ -394,6 +401,46 @@ But shrinks the canvas for smaller, mobile views */
 
 .fake-canvas {
 	vertical-align: top;
+}
+
+/*
+Drawing rotation points with CSS:
+They go inside a .rotation-point elt
+with pseudo::after elements added accordingly.
+*/
+
+.rotation-point {
+	position: relative;
+}
+.rotation-point.order-2.bottom-left::before {
+	content: "♦";
+	position: absolute;
+	bottom: -12;
+	left: -8;
+}
+.extra-small.rotation-point.order-2.bottom-left::before {
+	bottom: -8;
+	left: -5;
+	font-size: x-small;
+}
+.rotation-point.order-2.bottom-right::after {
+	content: "♦";
+	position: absolute;
+	bottom: -12;
+	right: -8;
+}
+.extra-small.rotation-point.order-2.bottom-right::after {
+	bottom: -8;
+	right: -5;
+	font-size: x-small;
+}
+.rotation-point.order-4.bottom-right::after {
+	content: "■";
+	position: absolute;
+}
+.extra-small.rotation-point.order-4.bottom-right::after {
+	bottom: -9;
+	right: -4;
 }
 
 .text-content-graphic figure {

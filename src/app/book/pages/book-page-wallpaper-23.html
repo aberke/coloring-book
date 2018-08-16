@@ -1,0 +1,123 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <p>Like we saw before, it doesn’t matter what the starting piece of a pattern is.<p>
+
+                <!-- [trianglePath, trianglesPath2, trianglesPath3] -->
+                <div class="text-content-graphic line">
+                    <simple-drawing
+                        class='canvas extra-small'
+                        draw-function='symmetricalTrianglePath'
+                    ></simple-drawing><div class='canvas fake-canvas extra-small'
+                    ></div><simple-drawing
+                        class='canvas extra-small'
+                        draw-function='trianglesPath2'
+                    ></simple-drawing><div class='canvas fake-canvas extra-small'
+                    ></div><simple-drawing
+                        class='canvas extra-small'
+                        draw-function='trianglesPath3'
+                    ></simple-drawing>
+                </div>
+
+                <p>as long as we can see the symmetries in the patterns between those pieces.<p>
+
+                <!-- [p2 pattern blending triangles, i.e. a row for each piece: trianglePath, trianglesPath2, trianglesPath3] -->
+                <wallpaper-pattern style="height: 60px;"
+                    pattern-function='symmetricalTrianglePath'
+                    draw-options='{"contain":true}'
+                    group-name='p2'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+                <wallpaper-pattern style="height: 60px;"
+                    pattern-function='trianglesPath2'
+                    draw-options='{"contain":true}'
+                    group-name='p2'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+                <wallpaper-pattern style="height: 60px;"
+                    pattern-function='trianglesPath3'
+                    draw-options='{"contain":true}'
+                    group-name='p2'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: Can you see the ½ turns in the pattern?</p>
+                <p class="challenge">Coloring Challenge: Color the pattern so that translation is its only symmetry.</p>
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+
+            <div class="content-container">
+                <div style="height: 100%;">
+                    <wallpaper-pattern style="height: 100px;"
+                        pattern-function=petalEllipse
+                        draw-options='{"contain":true}'
+                        group-name='p2'
+                        fundamental-domain-width=50
+                        fundamental-domain-height=50
+                    ></wallpaper-pattern>
+                    <wallpaper-pattern style="height: 100px;"
+                        pattern-function=curvesToStraightSide
+                        draw-options='{"contain":true}'
+                        group-name='p2'
+                        fundamental-domain-width=50
+                        fundamental-domain-height=50
+                    ></wallpaper-pattern>
+                    <wallpaper-pattern style="height: 100px;"
+                        pattern-function=quarterEllipse
+                        draw-options='{"contain":true}'
+                        group-name='p2'
+                        fundamental-domain-width=50
+                        fundamental-domain-height=50
+                    ></wallpaper-pattern>
+                    <wallpaper-pattern style="height: 100px;"
+                        pattern-function=trianglesPath3
+                        draw-options='{"contain":true}'
+                        group-name='p2'
+                        fundamental-domain-width=50
+                        fundamental-domain-height=50
+                    ></wallpaper-pattern>
+                    <wallpaper-pattern style="height: 100px;"
+                        pattern-function=trianglesPath2
+                        draw-options='{"contain":true}'
+                        group-name='p2'
+                        fundamental-domain-width=50
+                        fundamental-domain-height=50
+                    ></wallpaper-pattern>
+                    <wallpaper-pattern style="height: 100px;"
+                        pattern-function=symmetricalTrianglePath
+                        draw-options='{"contain":true}'
+                        group-name='p2'
+                        fundamental-domain-width=50
+                        fundamental-domain-height=50
+                    ></wallpaper-pattern>
+                    <wallpaper-pattern style="height: 100px;"
+                        pattern-function=curvedTriangle
+                        draw-options='{"contain":true}'
+                        group-name='p2'
+                        fundamental-domain-width=50
+                        fundamental-domain-height=50
+                    ></wallpaper-pattern>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

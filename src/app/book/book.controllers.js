@@ -37,7 +37,7 @@ function BookCntl($scope, $window, $location, $anchorScroll) {
         'rotations-section': 'cn-0',
         'reflections-section': 'dn-1',
         'frieze-section': 'frieze-1',
-        // 'wallpaper-section': TODO
+        'wallpaper-section': 'wallpaper-1',
     };
 
     vm.pages = [
@@ -227,6 +227,78 @@ function BookCntl($scope, $window, $location, $anchorScroll) {
         }, {
             name: 'frieze-19',
             url: vm.bookPageUrl('book-page-frieze-19.html'),
+        }, {
+            name: 'wallpaper-1',
+            url: vm.bookPageUrl('book-page-wallpaper-1.html'),
+        }, {
+            name: 'wallpaper-2',
+            url: vm.bookPageUrl('book-page-wallpaper-2.html'),
+        }, {
+            name: 'wallpaper-3',
+            url: vm.bookPageUrl('book-page-wallpaper-3.html'),
+        }, {
+            name: 'wallpaper-4',
+            url: vm.bookPageUrl('book-page-wallpaper-4.html'),
+        }, {
+            name: 'wallpaper-5',
+            url: vm.bookPageUrl('book-page-wallpaper-5.html'),
+        }, {
+            name: 'wallpaper-6',
+            url: vm.bookPageUrl('book-page-wallpaper-6.html'),
+        }, {
+            name: 'wallpaper-7',
+            url: vm.bookPageUrl('book-page-wallpaper-7.html'),
+        }, {
+            name: 'wallpaper-8',
+            url: vm.bookPageUrl('book-page-wallpaper-8.html'),
+        }, {
+            name: 'wallpaper-9',
+            url: vm.bookPageUrl('book-page-wallpaper-9.html'),
+        }, {
+            name: 'wallpaper-10',
+            url: vm.bookPageUrl('book-page-wallpaper-10.html'),
+        }, {
+            name: 'wallpaper-11',
+            url: vm.bookPageUrl('book-page-wallpaper-11.html'),
+        }, {
+            name: 'wallpaper-12',
+            url: vm.bookPageUrl('book-page-wallpaper-12.html'),
+        }, {
+            name: 'wallpaper-13',
+            url: vm.bookPageUrl('book-page-wallpaper-13.html'),
+        }, {
+            name: 'wallpaper-14',
+            url: vm.bookPageUrl('book-page-wallpaper-14.html'),
+        }, {
+            name: 'wallpaper-15',
+            url: vm.bookPageUrl('book-page-wallpaper-15.html'),
+        }, {
+            name: 'wallpaper-16',
+            url: vm.bookPageUrl('book-page-wallpaper-16.html'),
+        }, {
+            name: 'wallpaper-17',
+            url: vm.bookPageUrl('book-page-wallpaper-17.html'),
+        }, {
+            name: 'wallpaper-18',
+            url: vm.bookPageUrl('book-page-wallpaper-18.html'),
+        }, {
+            name: 'wallpaper-19',
+            url: vm.bookPageUrl('book-page-wallpaper-19.html'),
+        }, {
+            name: 'wallpaper-20',
+            url: vm.bookPageUrl('book-page-wallpaper-20.html'),
+        }, {
+            name: 'wallpaper-21',
+            url: vm.bookPageUrl('book-page-wallpaper-21.html'),
+        }, {
+            name: 'wallpaper-22',
+            url: vm.bookPageUrl('book-page-wallpaper-22.html'),
+        }, {
+            name: 'wallpaper-23',
+            url: vm.bookPageUrl('book-page-wallpaper-23.html'),
+        }, {
+            name: 'wallpaper-24',
+            url: vm.bookPageUrl('book-page-wallpaper-24.html'),
         }, {
             name: 'get-updates',
             url: vm.bookPageUrl('book-page-last.html'),
