@@ -1,0 +1,49 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <h3 class="wallpaper-pattern-name">p3</h3>
+
+                <p>Wallpaper patterns can have ⅓ turn rotations too.<p>
+
+                <wallpaper-pattern style="height: 255px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true}'
+                    group-name='p3'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+                <p>This is the simplest wallpaper pattern group that contains a ⅓ turn rotation.  It has no reflections, but others can...</p>
+
+                <br/>
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: Can you see the points of ⅓ turn rotation?</p>
+                <p class="challenge">Coloring Challenge: Color the pattern to remove its rotations so that translation is its only symmetry.</p>
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+
+            <div class="content-container">
+                <wallpaper-pattern style="height: 100%;"
+                    pattern-function=petalEllipse
+                    draw-options='{"contain":true}'
+                    group-name='p3'
+                    fundamental-domain-width=45
+                    fundamental-domain-height=45
+                ></wallpaper-pattern>
+            </div>
+            <p class="design-caption">p3 wallpaper pattern: ⅓ turn rotation, translation</p>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

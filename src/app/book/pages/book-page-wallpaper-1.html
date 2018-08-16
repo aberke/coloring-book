@@ -3,35 +3,30 @@
     <div class="text-content">
         <div class="content-container-wrapper">
             <div class="content-container">
-                
-                <frieze-pattern
-                    pattern-function='trianglesPath2'
-                    group-name='p2'
-                    fundamental-domain-width=30
-                    fundamental-domain-height=30
-                    draw-options='{"contain": true, "rotationOffset": 1}'
-                ></frieze-pattern>
-	            <p>Frieze patterns are limited to repetition along one dimension, but Wallpaper patterns do not have that limit.</p>
+
+                <h3 class="book-section-subtitle">Wallpaper Groups</h3>
 
                 <br/>
                 <br/>
 
-                <p>When that limit is removed for the Wallpaper Groups, the number of possible patterns and amount of symmetry within them grows beyond what we have colored.</p>
-
-                <br/>
+	            <p>The <span class="bold-math">Wallpaper Groups</span> can be seen in patterns that repeat along 2 dimensions, and with more dimensions come more symmetries.</p>
 
                 <wallpaper-pattern style="height: 180px;"
-                    pattern-function='trianglesPath2'
+                    pattern-function='trianglePath'
                     draw-options='{"contain":true}'
-                    group-name='p2'
+                    group-name='p4m'
                     fundamental-domain-width=30
                     fundamental-domain-height=30
                 ></wallpaper-pattern>
 
                 <br/>
+                
+                <p>Again, a page cuts off our patterns when really they continue repeating infinitely beyond the page borders.</p>
+
                 <br/>
 
-                <p class="challenge">Challenge: Can you find all of the directions in which the pattern repeats?</p>
+                <p class="challenge">Challenge: Can you see the repetitions in the pattern?</p>
+                <p class="challenge">Challenge: Can you extend your imagination to see the pattern repeat infinitely beyond the page borders?</p>
 
 	        </div>
 	    </div>
@@ -41,17 +36,15 @@
     <div class="coloring-content">
         <div class="content-container-wrapper">
             <div class="content-container">
-
                 <wallpaper-pattern style="height: 100%;"
-                    pattern-function='curves3'
+                    pattern-function='petalEllipse'
                     draw-options='{"contain":true}'
                     group-name='p4'
                     fundamental-domain-width=50
                     fundamental-domain-height=50
                 ></wallpaper-pattern>
-
             </div>
-            <p class="design-caption">wallpaper pattern with ¼ turn rotation, ½ turn rotation, and translation</p>
+            <p class="design-caption">wallpaper pattern</p>
         </div>
     </div>
     <!-- coloring-content -->

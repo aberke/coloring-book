@@ -1,0 +1,58 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <h3 class="wallpaper-pattern-name">pmg</h3>
+
+                <p>This pattern group contains both mirror and glide reflections where the axes of the glide reflections are perpendicular to those of the mirror reflections.  It also has ½ turn rotations on the glide reflection axes, halfway between the mirror reflections.<p>
+
+                <!-- [pattern with rotationOffsetYMultiplier = 1] -->
+                <wallpaper-pattern style="height: 180px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true, "rotationOffsetYMultiplier": 1}'
+                    group-name='pmg'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+                <p>We can again shift the axes to see a pattern with the same symmetries.</p>
+
+                <!-- [pattern with rotationOffsetYMultiplier != 1] -->
+                <wallpaper-pattern style="height: 150px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true, "rotationOffsetYMultiplier": 0.5}'
+                    group-name='pmg'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+                <br/>
+
+                <p class="challenge">Challenge: Can you see glide reflections and the points of rotation?</p>
+                <p class="challenge">Coloring Challenge: Color the pattern to remove the glide reflections while maintaining the mirror reflections.  What happens to the rotations?</p>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+
+            <div class="content-container">
+                <wallpaper-pattern style="height: 100%;"
+                    pattern-function=curvesToStraightSide
+                    draw-options='{"contain":true}'
+                    group-name='pmg'
+                    fundamental-domain-width=50
+                    fundamental-domain-height=50
+                ></wallpaper-pattern>
+            </div>
+            <p class="design-caption">pmg wallpaper pattern: mirror reflection, glide reflection, ½ turn rotation, translation</p>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

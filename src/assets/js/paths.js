@@ -329,15 +329,15 @@ Pathlist fits within containing box:
     |                                |
     (origin.X, origin.Y+height)----(origin.X+width, origin.Y+height)
 **/
-function trianglesPath(n, origin, width, height) {
+function trianglesPath(n, origin, width, height, symmetrical) {
     n = n || 1;
     // Redeclare the variables in order to modify them without downstream effects.
     let x = origin.X,
         y = origin.Y,
         w = width,
         h = (height || width); // Default height = width.
-    // Triangles path must be asymmetrical.
-    if (n == 1 && width == h) {
+
+    if (!symmetrical && n == 1 && width == h) {
         // Make the bottom of the triangle end up where it would with the original height.
         // This makes a gap at the top of the containing box instead of the bottom.
         y += (1/3)*h;
@@ -356,6 +356,7 @@ function trianglesPath(n, origin, width, height) {
     }
     return pathList;
 }
+function symmetricalTrianglePath(o, w) { return trianglesPath(1, o, w, w, true); }
 // trianglePath is asymmetrical.
 function trianglePath(o, w, h) { return trianglesPath(1, o, w, h); }
 function trianglesPath2(o, w, h) { return trianglesPath(2, o, w, h); }

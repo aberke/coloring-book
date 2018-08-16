@@ -1,0 +1,50 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <h3 class="wallpaper-pattern-name">p3m1</h3>
+
+                <p>This pattern group also has mirror reflections, glide reflections, and ⅓ turn rotations,<p>
+
+                <wallpaper-pattern style="height: 255px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true}'
+                    group-name='p3m1'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+                <p>and this time all of the centers of rotation lie on the reflection axes.</p>
+
+                <br/>
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: Can you see the glide reflections?</p>
+                <p class="challenge">Coloring Challenge: Color the pattern to again remove the reflections while keeping the ⅓ turns.</p>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+
+            <div class="content-container">
+                <wallpaper-pattern style="height: 100%;"
+                    pattern-function=trianglesPath2
+                    draw-options='{"contain":true}'
+                    group-name='p3m1'
+                    fundamental-domain-width=40
+                    fundamental-domain-height=40
+                ></wallpaper-pattern>
+            </div>
+            <p class="design-caption">p3m1 wallpaper pattern: mirror reflection, glide reflection, ⅓ turn rotation, translation</p>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

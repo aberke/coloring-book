@@ -1,0 +1,47 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <h3 class="wallpaper-pattern-name">p1</h3>
+
+                <p>The simplest group of wallpaper patterns has translation as the only symmetry.<p>
+
+                <wallpaper-pattern style="height: 180px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true}'
+                    group-name='p1'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+                <p>All wallpaper patterns have many directions of translation - they get more interesting when we consider groups of more complex symmetries...</p>
+
+                <br/>
+
+                <p class="challenge">Coloring Challenge: Color the pattern so that the shortest possible translation is in a diagonal direction.</p>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+
+            <div class="content-container">
+                <wallpaper-pattern style="height: 100%;"
+                    pattern-function=trianglesPath3
+                    draw-options='{"contain":true}'
+                    group-name='p1'
+                    fundamental-domain-width=50
+                    fundamental-domain-height=50
+                ></wallpaper-pattern>
+            </div>
+            <p class="design-caption">p1 wallpaper pattern: translation</p>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

@@ -1,0 +1,48 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <h3 class="wallpaper-pattern-name">cmm</h3>
+
+                <p>Like another pattern group we already colored, this one has perpendicular reflection axes with ½ turn rotations at their intersections.<p>
+
+                <wallpaper-pattern style="height: 180px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true, "rotationOffsetYMultiplier": 1}'
+                    group-name='cmm'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+                <p>However it also has additional rotations that do not lie on the intersection of the reflections.</p>
+
+                <br/>
+
+                <p class="challenge">Challenge: Can you see the points of ½ turn rotations that lie on the mirror reflection axes as well as those that do not?</p>
+                <p class="challenge">Coloring Challenge: Color the pattern to remove all mirror reflections.</p>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+
+            <div class="content-container">
+                <wallpaper-pattern style="height: 100%;"
+                    pattern-function=trianglesPath2
+                    draw-options='{"contain":true}'
+                    group-name='cmm'
+                    fundamental-domain-width=50
+                    fundamental-domain-height=50
+                ></wallpaper-pattern>
+            </div>
+            <p class="design-caption">cmm wallpaper pattern: mirror reflection, glide reflection, ½ turn rotation, translation</p>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

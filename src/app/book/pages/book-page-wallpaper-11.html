@@ -1,0 +1,57 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <h3 class="wallpaper-pattern-name">pgg</h3>
+
+                <p>This pattern group has glide reflections and ½ turn rotations, but no mirror reflections. The glide reflections have perpendicular axes, and the rotation centers do not lie on their intersection.<p>
+
+                <!-- [pattern with rotation center at offset=1] -->
+                <wallpaper-pattern style="height: 180px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true, "rotationOffsetYMultiplier": 1}'
+                    group-name='pgg'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+                <p>We can shift these axes and yet have a pattern with the same symmetries, and so it’s in the same wallpaper group.</p>
+
+                <!-- [pattern with rotation center at offset != 1] -->
+                <wallpaper-pattern style="height: 180px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true, "rotationOffsetYMultiplier": 0.75}'
+                    group-name='pgg'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+                <br/>
+
+                <p class="challenge">Challenge: Can you see the many different axes of glide reflection?</p>
+                <p class="challenge">Coloring Challenge: Color the pattern to remove the horizontal axes of glide reflection while maintaining the vertical glide reflections.</p>
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+
+            <div class="content-container">
+                <wallpaper-pattern style="height: 100%;"
+                    pattern-function=curves4
+                    draw-options='{"contain":true, "rotationOffsetYMultiplier": 0.66}'
+                    group-name='pgg'
+                    fundamental-domain-width=50
+                    fundamental-domain-height=50
+                ></wallpaper-pattern>
+            </div>
+            <p class="design-caption">pgg wallpaper pattern: glide reflection, ½ turn rotation, translation</p>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

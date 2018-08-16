@@ -1,0 +1,52 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <h3 class="wallpaper-pattern-name">p4m</h3>
+
+                <p>This pattern group has ½ turn and ¼ turn rotations, as well as reflections with axes that intersect in ways that are both perpendicular and diagonal.<p>
+
+                <wallpaper-pattern style="height: 180px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true}'
+                    group-name='p4m'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+                <p>Each of its rotation centers lie on multiple reflection axes:
+                <br/>
+                The centers of the ¼ turns are at the intersection of 4 mirror reflection axes.  The centers of the ½ turns sit on the intersection of 2 mirror reflection axes and 2 different glide reflection axes.</p>
+
+                <br/>
+                <br/>
+                <br/>
+
+                <p class="challenge">Challenge: Can you see the ½ turns as well as the ¼ turns?  Can you find the many different axes of reflection?</p>
+                <p class="challenge">Coloring challenge: Color the pattern to remove its reflections so that rotations are its only symmetries.</p>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+
+            <div class="content-container">
+                <wallpaper-pattern style="height: 100%;"
+                    pattern-function=quarterEllipse
+                    draw-options='{"contain":true}'
+                    group-name='p4m'
+                    fundamental-domain-width=50
+                    fundamental-domain-height=50
+                ></wallpaper-pattern>
+            </div>
+            <p class="design-caption">p4m wallpaper pattern: mirror reflection, glide reflection, ¼ turn rotation, ½ turn rotation, translation</p>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

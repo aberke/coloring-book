@@ -73,7 +73,7 @@ body.print p {
     max-width: 800px;
     margin: 15px auto;
     /*make space for the menu*/
-    margin-top: 70px;
+    margin-top: 65px;
 }
 #book-title-container path {
     stroke-width: 1px;

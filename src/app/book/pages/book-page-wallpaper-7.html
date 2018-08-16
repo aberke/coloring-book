@@ -1,0 +1,181 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <h3 class="wallpaper-pattern-name">pg</h3>
+
+                <!-- [pg wallpaper pattern] -->
+                <wallpaper-pattern style="height: 180px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true}'
+                    group-name='pg'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+                <p>This pattern group has glide reflections<p>
+
+                <!-- [pg frieze pattern (i.e. 2 rows) with glide reflection line] -->
+                <div style="display: inline-block; border-bottom: 2px solid gray;" class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div>
+                </div>
+                <div class="text-content-graphic line">
+                    <div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H"}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H"}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H"}'
+                    ></div>
+                </div>
+
+                <p>along parallel axes.</p>
+
+                <!-- [pg wallpaper pattern with glide reflection lines] -->
+                <div style="display: inline-block; border-bottom: 2px solid gray;" class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div>
+                </div>
+                <!-- note: the reflection line is on the bottom section due to annoying CSS block issues -->
+                <div class="text-content-graphic line">
+                    <div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H"}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H"}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H"}'
+                    ></div>
+                </div>
+                <div style="display: inline-block; border-top: 2px dashed gray; border-bottom: 2px solid gray;" class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div>
+                </div>
+                <div class="text-content-graphic line">
+                    <div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H"}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H"}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":5, "mirror":"H"}'
+                    ></div>
+                </div>
+
+                <p>These axes shift over with its translations, because the combination of the glide reflection and translation symmetries in this pattern group must also be in the group.</p>
+                <br/>
+
+                <p class="challenge">Challenge: Can you see the different parallel axes of the glide reflections?</p>
+                <p class="challenge">Coloring Challenge: Color the pattern to remove the glide reflection so the only symmetry is translation.</p>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+
+            <div class="content-container">
+                <wallpaper-pattern style="height: 100%;"
+                    pattern-function=curvesToStraightSide
+                    draw-options='{"contain":true}'
+                    group-name='pg'
+                    fundamental-domain-width=50
+                    fundamental-domain-height=50
+                ></wallpaper-pattern>
+            </div>
+            <p class="design-caption">pg wallpaper pattern: glide reflection, translation</p>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>

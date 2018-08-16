@@ -1,0 +1,113 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <p>We can see these symmetries in the patterns of the physical world around us<p>
+
+                <div class="text-content-graphic line">
+                    <figure>
+                        <a href="https://www.maxpixel.net/Arid-Heat-Sahara-Africa-Desert-Hot-Wave-Dune-984081" target="_blank" class="img-attribution-link">
+                            <img style="border:2px solid black;" src="/assets/img/wallpaper-in-physical-world/sand.jpg" alt="Sand (p1 pattern) - " height="90px"/>
+                        </a>
+                        <figcaption>Sand</figcaption>
+                    </figure>
+                    <figure>
+                        <a target="_blank" href="https://www.flickr.com/photos/64476710@N00/4991822665">
+                            <img style="border:2px solid black;" src="/assets/img/wallpaper-in-physical-world/coral.jpg" alt="'Brain Coral' By Steve L. Martin (p1 or p6 pattern)" height="90px"/>
+                        </a>
+                        <figcaption>Coral</figcaption>
+                    </figure>
+                </div>
+
+                <div class="text-content-graphic line">
+                    <figure>
+                        <a target="_blank" href="https://www.maxpixel.net/Financial-District-Building-Attraction-London-2242008">
+                            <img style="border:2px solid black;" src="/assets/img/wallpaper-in-physical-world/office-building.jpg" alt="Office building (pmm pattern)" height="90px"/>
+                        </a>
+                        <figcaption>Office building</figcaption>
+                    </figure>
+                    <figure>
+                        <img style="border:2px solid black;" src="/assets/img/wallpaper-in-physical-world/basket-weave.jpg" alt="Basket (cmm pattern)" height="90px"/>
+                        <figcaption>Basket</figcaption>
+                    </figure>
+                    <figure>
+                        <img style="border:2px solid black;" src="/assets/img/wallpaper-in-physical-world/bricks.svg" alt="Bricks (cmm pattern)" height="90px"/>
+                        <figcaption>Bricks</figcaption>
+                    </figure>
+                </div>
+
+                <br/>
+
+                <p>or stay in the world of perfect mathematics.</p>
+                
+                <br/>
+
+                <wallpaper-pattern style="height: 60px; margin-bottom: 8px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true}'
+                    group-name='p1'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+                <wallpaper-pattern style="height: 120px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true}'
+                    group-name='pmm'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+                <wallpaper-pattern style="height: 60px;"
+                    pattern-function='trianglePath'
+                    draw-options='{"contain":true}'
+                    group-name='cmm'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></wallpaper-pattern>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+                <div style="height: 100%;">
+                    <wallpaper-pattern style="height: 100px;"
+                        pattern-function=curves5
+                        draw-options='{"contain":true}'
+                        group-name='p4'
+                        fundamental-domain-width=50
+                        fundamental-domain-height=50
+                    ></wallpaper-pattern>
+                    <wallpaper-pattern style="height: 200px;"
+                        pattern-function=curves4
+                        draw-options='{"contain":true}'
+                        group-name='p4'
+                        fundamental-domain-width=50
+                        fundamental-domain-height=50
+                    ></wallpaper-pattern>
+                    <wallpaper-pattern style="height: 200px;"
+                        pattern-function=curves3
+                        draw-options='{"contain":true}'
+                        group-name='p4'
+                        fundamental-domain-width=50
+                        fundamental-domain-height=50
+                    ></wallpaper-pattern>
+                    <wallpaper-pattern style="height: 200px;"
+                        pattern-function=curves2
+                        draw-options='{"contain":true}'
+                        group-name='p4'
+                        fundamental-domain-width=50
+                        fundamental-domain-height=50
+                    ></wallpaper-pattern>
+                </div>
+            </div>
+            <p class="design-caption">p4 wallpaper pattern: ¼ turn rotation, ½ turn rotation, translation</p>
+        </div>
+    </div>
+    <!-- coloring-content -->
+
+</div>
