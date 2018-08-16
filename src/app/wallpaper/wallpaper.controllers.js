@@ -52,7 +52,7 @@ function WallpaperPageCntl($location, $anchorScroll) {
 		},
 		{
 			name: "p4g",
-			description: "This group contains reflections as well as ½ turn and ¼ turn rotations. There are two perpendicular axes of mirror reflection passing through each ½ turn rotation, while there are four different glide reflections, with two glide reflection axes passing through each ¼ turn rotation."
+			description: "This group contains reflections as well as ½ turn and ¼ turn rotations. There are two perpendicular axes of mirror reflection passing through each ½ turn rotation, while there are four directions of glide reflection."
 		},
 		{
 			name: "p4m",
