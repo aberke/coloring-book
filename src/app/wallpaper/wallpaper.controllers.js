@@ -101,10 +101,6 @@ function WallpaperPageCntl($location, $anchorScroll) {
 		vm.selectedGroupName = groupName;
 		$location.search("group", groupName);
 	};
-	// Initialize group from search params or default.
-	vm.selectedGroupName = $location.search().group;
-	if (!vm.selectedGroupName)
-		vm.selectGroup("p4g");
 
 	vm.selectDrawPathFunction = function(drawPathFunctionName) {
 		// Initilize to default
@@ -117,8 +113,6 @@ function WallpaperPageCntl($location, $anchorScroll) {
 		vm.selectedDrawPathFunction = drawPathFunction;
 		$location.search("drawPathFunction", drawPathFunction.name);
 	}
-	// Initialize drawPathFunction selection from search params or default.
-	vm.selectDrawPathFunction($location.search().drawPathFunction);
 
 	// showDescriptions controls whether to show extra information.
 	// If ?showDescriptions is set in the URL params, then the control is
@@ -129,4 +123,19 @@ function WallpaperPageCntl($location, $anchorScroll) {
 	vm.toggleShowDescriptions = function() {
 		vm.showDescriptions = !vm.showDescriptions;
 	}
+
+	vm.init = function() {
+		// Initialize group from search params or default.
+		vm.selectedGroupName = $location.search().group;
+		if (!vm.selectedGroupName)
+			vm.selectGroup("p4g");
+
+		// Initialize drawPathFunction from search params or default.
+		vm.selectDrawPathFunction($location.search().drawPathFunction);
+		
+		// Avoid breaking back button when this is the first
+		// visit from a foreign page.
+		$location.replace();
+	}
+	vm.init();
 }

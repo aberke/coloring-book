@@ -97,7 +97,7 @@ angular.module('app', [
 .directive('circularPattern', circularPatternDirective)
 
 // set up the main page controller
-.controller('MainCntl', function($window, $rootScope, $location, $anchorScroll) {
+.controller('MainCntl', function($rootScope, $location, $anchorScroll) {
     // view model
     let vm = this;
 

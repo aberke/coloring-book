@@ -382,18 +382,25 @@ function BookCntl($scope, $window, $location, $anchorScroll) {
         return 0;   
     };
 
-    vm.setPageByNumber = function(pageIndex) {
+    vm.setPageByNumber = function(pageIndex, isInit=false) {
         vm.pageNumber = pageIndex;
         vm.pageName = vm.pages[pageIndex].name;
-        $location.search('pageName', vm.pageName);
-        $location.search('pageNumber', pageIndex);
+        $location.search({
+            'pageName': vm.pageName,
+            'pageNumber': pageIndex,
+        });
+        // In order to not break the back button and allow the user
+        // to return to the page they came from, do not add a new
+        // browser history the first time the search params are updated.
+        if (isInit)
+            $location.replace();
     };
 
 
     vm.init = function() {
         // get the page from the url
         vm.pageNumber = vm.getPageNumber();
-        vm.setPageByNumber(vm.pageNumber);
+        vm.setPageByNumber(vm.pageNumber, true);
         vm.setupPage();
     };
 
