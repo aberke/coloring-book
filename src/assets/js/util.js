@@ -156,6 +156,42 @@ const util = (function() {
     }
 
 
+    function getRotateFn(pathSet, origin, rotateDegrees, animateMs=3000) {
+        if (rotateDegrees <= 0 || !transforms.isValidRotateDegrees(rotateDegrees))
+            return; 
+        let transformString = "..." + transforms.getRotationByDegrees(origin, rotateDegrees);
+        return function() {
+            if (pathSet.isRotating)
+                return; // avoid rotating if already rotating
+
+            pathSet.isRotating = true;
+            pathSet.animate({transform: transformString}, animateMs, function() {
+                pathSet.isRotating = false;
+            });
+        };
+    }
+
+    function getReflectFn(pathSet, origin, mirror, animateMs=3000) {
+        let transformString = "...";
+        if (mirror === "V")
+            transformString += transforms.getMirrorVString(origin.X, origin.Y);
+        else if (mirror === "H")
+            transformString += transforms.getMirrorHString(origin.X, origin.Y);
+        else
+            return;
+
+        return function() {
+            if (pathSet.isReflecting)
+                return; // avoid reflecting if already reflecting
+
+            pathSet.isReflecting = true;
+            pathSet.animate({transform: transformString}, animateMs, function() {
+                pathSet.isReflecting = false;
+            });
+        };
+    }
+
+
     return {
         addClassNamesToElements: addClassNamesToElements,
         flattenedList: flattenedList,
@@ -164,6 +200,10 @@ const util = (function() {
         // Symmetry set drawing
         drawOrder2RotationPointSet: drawOrder2RotationPointSet,
         drawYAxesSet: drawYAxesSet,
-        drawXaxis: drawXaxis
+        drawXaxis: drawXaxis,
+
+        // Function getters
+        getRotateFn: getRotateFn,
+        getReflectFn: getReflectFn,
     };
 }());

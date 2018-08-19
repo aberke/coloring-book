@@ -108,17 +108,18 @@
         <div class="content-container-wrapper">
             <div class="content-container">
 
-                <!-- Line of Circular patterns of order-3, inscribed in triangles -->
+                <!-- Line of patterns of order-3 -->
                 <div class="canvas-row">
                     <div class='canvas sixth'
                         canvas-centered-drawing
-                        draw-function='drawTriangle'
-                        options='{"tapRotate": 120, "margin": 3}'
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 120, "margin":0}'
                     ></div>
                     <div class='canvas sixth'
                         canvas-centered-drawing
                         draw-function='drawTriangle'
-                        options='{"tapRotate": 120, "margin": 3, "initialRotation": 180}'
+                        options='{"tapRotate": 120, "margin": 0, "initialRotation": 180}'
                     ></div>
                     <circular-pattern
                         class="sixth" 
@@ -137,8 +138,9 @@
                     ></div>
                     <div class='canvas sixth'
                         canvas-centered-drawing
-                        draw-function='drawTriangle'
-                        options='{"tapRotate": 120, "margin": 3}'
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 120, "margin":0}'
                     ></div>
                 </div>
 
@@ -152,22 +154,23 @@
                         rotations=6
                         slices-count=4
                         levels=2
-                        margin=10
+                        margin=0
                         mirror-lines=6
                     ></div>
                 </div>
                 
-                <!-- Line of Circular patterns of order-3, inscribed in triangles -->
+                <!-- Line of patterns of order-3 -->
                 <div class="canvas-row">
                     <div class='canvas sixth'
                         canvas-centered-drawing
-                        draw-function='drawTriangle'
-                        options='{"tapRotate": 120, "margin": 3}'
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 120, "margin":0, "initialRotation": 180}'
                     ></div>
                     <div class='canvas sixth'
                         canvas-centered-drawing
                         draw-function='drawTriangle'
-                        options='{"tapRotate": 120, "margin": 3, "initialRotation": 180}'
+                        options='{"tapRotate": 120, "margin": 0}'
                     ></div>
                     <circular-pattern
                         class="sixth" 
@@ -178,16 +181,18 @@
                         levels=3
                         margin=0
                         mirror-lines=1
+                        initial-rotation=180
                     ></circular-pattern>
                     <div class='canvas sixth'
                         canvas-centered-drawing
                         draw-function='drawTriangle'
-                        options='{"tapRotate": 120, "margin": 0, "initialRotation": 180}'
+                        options='{"tapRotate": 120, "margin": 0}'
                     ></div>
                     <div class='canvas sixth'
                         canvas-centered-drawing
-                        draw-function='drawTriangle'
-                        options='{"tapRotate": 120, "margin": 3}'
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
+                        options='{"tapRotate": 120, "margin":0, "initialRotation": 180}'
                     ></div>
                 </div>
 
