@@ -26,8 +26,8 @@ enabled when DISABLE_ANIMATIONS.
                 {boolean} tapRedraw: whether to redraw upon click-like event.
                 {number} tapRotate: number of degrees to rotate upon tap.  Must be between 0 and 360.
                         Only one of tapRedraw and tapRotate can be used.
-                {string ("V"|"H")} autoReflect: option to on interval across either vertical (V) or horizontal (H) mirror
-                {string ("V"|"H")} mirror: option to reflect vertically or horizontally across center of canvas.
+                {string ("V"|"H")} autoReflect: reflect on interval across either vertical (V) or horizontal (H) mirror
+                {string ("V"|"H")} mirror: reflect vertically or horizontally across center of canvas.
 
 @returns {pathSet: object, origin: {X: number, Y: number}}
 */
@@ -83,7 +83,7 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions={}, options={})
         setInitialRotation(pathSet, origin, options.initialRotation);
 
     if (options.mirror)
-        setMirror(pathSet, origin, options.mirror, false);
+        setMirror(pathSet, origin, options.mirror);
 
     // Maybe turn on animations/interactions based on options:
     // Disable animations when DISABLE_ANIMATIONS (for better browser performance)
@@ -98,12 +98,8 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions={}, options={})
 
 function setupInteractions(paper, pathSet, origin, size, drawFunction,
                            functionOptions, options) {
-    
-    // Optionally rotate on interval
-    if (options.autoRotateDegrees)
-        setAutoRotate(pathSet, origin, options.autoRotateDegrees);
 
-    // optionally redraw or rotate on click/mouseup/tap
+    // Optionally redraw or rotate on click/mouseup/tap.
     if (options.tapRedraw)
         setTapRedraw(paper, pathSet, origin, size, drawFunction, functionOptions);
     else if (options.tapRotate)
@@ -111,8 +107,18 @@ function setupInteractions(paper, pathSet, origin, size, drawFunction,
     else if (options.tapReflect)
         setTapReflect(paper, pathSet, origin, options.tapReflect);
 
-    if (options.autoReflect)
-        setMirror(pathSet, origin, options.autoReflect, true);
+    // There are automatic animations that occur on interval.
+    // Feedback about intuitiveness of interface was that anything that
+    // animates should be controllable by the user.  So here anything that
+    // has an auto animation can also have a tap controlled animation.
+    if (options.autoReflect) {
+        setAutoReflect(pathSet, origin, options.autoReflect);
+        setTapReflect(paper, pathSet, origin, options.autoReflect);
+    }
+    if (options.autoRotateDegrees) {
+        setAutoRotate(pathSet, origin, options.autoRotateDegrees);
+        setTapRotate(paper, pathSet, origin, options.autoRotateDegrees);
+    }
 }
 
 
@@ -148,21 +154,16 @@ function setIntervalWrapper(onIntervalFunction) {
 /**
 Reflect the pathSet across the center on either a vertical or horizontal mirror.
 **/
-function setMirror(pathSet, origin, mirror, onInterval=false) {
-    let transformString;
+function setMirror(pathSet, origin, mirror) {
+    let transformString = "...";
     if (mirror === "V")
-        transformString = "...S-1,1," + String(origin.X) + "," + String(origin.Y);
+        transformString += transforms.getMirrorVString(origin.X, origin.Y);
     else if (mirror === "H")
-        transformString = "...S1,-1," + String(origin.X) + "," + String(origin.Y);
+        transformString += transforms.getMirrorHString(origin.X, origin.Y);
     else
         return;
 
-    if (!!onInterval)
-        setIntervalWrapper(function(){
-            pathSet.animate({transform: transformString}, ANIMATION_LENGTH);
-        });
-    else
-        pathSet.transform(transformString);
+    pathSet.transform(transformString);
 }
 
 function setTapRedraw(paper, pathSet, origin, size, drawFunction, functionOptions) {
@@ -175,59 +176,37 @@ function setTapRedraw(paper, pathSet, origin, size, drawFunction, functionOption
 }
 
 function setTapReflect(paper, pathSet, origin, mirror) {
-    let transformString;
-    if (mirror === "V")
-        transformString = "...S-1,1," + String(origin.X) + "," + String(origin.Y);
-    else if (mirror === "H")
-        transformString = "...S1,-1," + String(origin.X) + "," + String(origin.Y);
-    else
-        return;
-
-    paper.canvas.addEventListener("mouseup", function() {
-        if (pathSet.isReflecting)
-            return; // avoid reflecting if already reflecting
-
-        pathSet.isReflecting = true;
-        pathSet.animate({transform: transformString}, ANIMATION_LENGTH, function() {
-            pathSet.isReflecting = false;
-        });
-    });
+    let reflectFn = util.getReflectFn(pathSet, origin, mirror, ANIMATION_LENGTH);
+    paper.canvas.addEventListener("mouseup", reflectFn);
     pathSet.attr({"class": "clickable"});
+}
+
+function setAutoReflect(pathSet, origin, mirror) {
+    let reflectFn = util.getReflectFn(pathSet, origin, mirror, ANIMATION_LENGTH);
+    if (!reflectFn)
+        return;
+    setIntervalWrapper(reflectFn);
 }
 
 function setInitialRotation(pathSet, origin, rotateDegrees) {
     if (rotateDegrees <= 0 || !transforms.isValidRotateDegrees(rotateDegrees))
         return;
-
     pathSet.transform("..." + transforms.getRotationByDegrees(origin, rotateDegrees));   
 }
 
 function setTapRotate(paper, pathSet, origin, rotateDegrees) {
-    if (rotateDegrees <= 0 || !transforms.isValidRotateDegrees(rotateDegrees))
+    let rotateFn = util.getRotateFn(pathSet, origin, rotateDegrees, ANIMATION_LENGTH);
+    if (!rotateFn)
         return;
-
-    let transformString = "..." + transforms.getRotationByDegrees(origin, rotateDegrees);
-    paper.canvas.addEventListener("mouseup", function() {
-        if (pathSet.isRotating)
-            return; // avoid rotating if already rotating
-
-        pathSet.isRotating = true;
-        pathSet.animate({transform: transformString}, ANIMATION_LENGTH, function() {
-            pathSet.isRotating = false;
-        });
-    });
+    paper.canvas.addEventListener("mouseup", rotateFn);
     pathSet.attr({"class": "clickable"});
 }
 
 function setAutoRotate(pathSet, origin, rotateDegrees) {
-    if (rotateDegrees <= 0 || !transforms.isValidRotateDegrees(rotateDegrees))
+    let rotateFn = util.getRotateFn(pathSet, origin, rotateDegrees, ANIMATION_LENGTH);
+    if (!rotateFn)
         return;
-
-    let transformString = "..." + transforms.getRotationByDegrees(origin, rotateDegrees);
-    let onIntervalFunction = function() {
-        pathSet.animate({transform: transformString}, ANIMATION_LENGTH);
-    };
-    setIntervalWrapper(onIntervalFunction);
+    setIntervalWrapper(rotateFn);
 }
 
 

@@ -8,6 +8,7 @@ Use
 	rotations={number}
 	initial-rotation={number}
 	with-reflection={true|false}
+	tap-reflect={"H"|"V"} // mutually exclusive with with-redraw
 	slices-count={number}
 	levels={number}
 	margin={number}
@@ -30,6 +31,9 @@ function circularPatternDirective($location) {
 			rotations: "@",
 			slicesCount: "@?",
 			withReflection: "@?",
+			// Reflects across the inscribed shape.
+			// (mutually exclusive with with-redraw and requires inscribed shape)
+			tapReflect: "@?",
 			// This exposes the redrawFn to the parent scope.
 			// An isolated scope is used for the redraw fn with a namable
 			// attribute so that a call to one directive's redraw fn does not
@@ -54,12 +58,14 @@ function circularPatternDirective($location) {
 
 			// create the canvas paper and define it's size
 			let paper = new Raphael(elt);
+			let inscribedShapePathset;
 			let origin = getCanvasCenter(paper);
 			let margin = Number(scope.margin || 0);
 			let diameter = size - margin;
 
 			let asFlower = ("asFlower" in attrs && attrs.asFlower !== "false") ? true : false;
 			let withRedraw = (("withRedraw" in attrs) && (attrs.withRedraw != "false"));
+			let tapReflect = attrs.tapReflect;  // mutually exclusive with with-redraw
 
 			// Default animation time in ms
 			let animateMs = 3000;
@@ -98,7 +104,7 @@ function circularPatternDirective($location) {
 
 			function draw(options) {
 				if (scope.inscribed)
-					drawInscribingShape(paper, origin, diameter, scope.inscribed, options.initialRotation || 0);
+					inscribedShapePathset = drawInscribingShape(paper, origin, diameter, scope.inscribed, options.initialRotation || 0);
 
 				let rings = JSON.parse(attrs.rings || "[]");
 				drawRings(rings);
@@ -126,16 +132,23 @@ function circularPatternDirective($location) {
 				analytics.trackRedraw("CircularPattern");
 			}
 
+			draw(collectDrawOptions());
+
+			 // with-redraw and tap-reflect are mutually exclusive.
+			let onclickFn;
+			if (withRedraw)
+				onclickFn = scope.redrawFn;
+			else if (tapReflect && inscribedShapePathset)
+				onclickFn = util.getReflectFn(inscribedShapePathset, origin, tapReflect, animateMs);
+
 			// Attach redraw handler if with-redraw flag was present
-			if (withRedraw) {
+			if (onclickFn) {
 				elt.className += " clickable";
-				paper.canvas.addEventListener("mouseup", scope.redrawFn);
+				paper.canvas.addEventListener("mouseup", onclickFn);
 				element.on("$destroy", function() {
-					paper.canvas.removeEventListener("mouseup", scope.redrawFn);
+					paper.canvas.removeEventListener("mouseup", onclickFn);
 				});
 			}
-
-			draw(collectDrawOptions());
 		}
 	};
 }

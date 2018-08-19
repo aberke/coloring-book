@@ -269,7 +269,10 @@ const transforms = (function() {
     function getMirrorH(pathSet, options={}) {
         let bbox = pathSet.getBBox();
         let mirrorY = bbox.y + (options.mirrorOffsetYMultiplier || 1)*bbox.height;
-        return "S1,-1,0," + String(mirrorY);
+        return getMirrorHString(0, mirrorY);
+    }
+    function getMirrorHString(x, y) {
+        return "S1,-1," + String(x) + "," + String(y);
     }
 
     /*
@@ -291,7 +294,10 @@ const transforms = (function() {
         */
         let bbox = pathSet.getBBox();
         let mirrorX = bbox.x + (options.mirrorOffsetXMultiplier || 1)*bbox.width;
-        return "S-1,1," + String(mirrorX) + ",0";
+        return getMirrorVString(mirrorX, 0);
+    }
+    function getMirrorVString(x, y) {
+        return "S-1,1," + String(x) + "," + String(y);
     }
 
     /*
@@ -347,7 +353,9 @@ const transforms = (function() {
         translateH: translateH,
         translateV: translateV,
 
-        // Other utility transformations
+        // Transform string getters
+        getMirrorHString: getMirrorHString,
+        getMirrorVString: getMirrorVString,
         getRotation: getRotation,
         getRotationByDegrees: getRotationByDegrees,
 

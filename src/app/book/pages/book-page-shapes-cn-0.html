@@ -79,175 +79,22 @@
     <!-- coloring-content -->
     <div class="coloring-content page-print-break-before">
         <div class="content-container-wrapper">
+
             <div class="content-container">
 
-                <!-- row of 6 sierpinkski triables -->
-                <div class="canvas-row">
-                    <div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": -1}'
-                        options='{"tapRedraw": true, "initialRotation":90, "mirrorLines":1, "margin":0}'
-                    ></div><div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": 1}'
-                        options='{"tapRedraw": true, "initialRotation":270, "mirrorLines":1, "margin":0}'
-                    ></div><div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": -1}'
-                        options='{"tapRedraw": true, "initialRotation":90, "mirrorLines":1, "margin":0}'
-                    ></div><div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": 1}'
-                        options='{"tapRedraw": true, "initialRotation":270, "mirrorLines":1, "margin":0}'
-                    ></div><div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": -1}'
-                        options='{"tapRedraw": true, "initialRotation":90, "mirrorLines":1, "margin":0}'
-                    ></div><div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": 1}'
-                        options='{"tapRedraw": true, "initialRotation":270, "mirrorLines":1, "margin":0}'
-                    ></div>
+                <div class="canvas" 
+                    with-redraw 
+                    circular-pattern
+                    rings="[0.45, 0.5, 0.8, 0.85]"
+                    rotations=9
+                    slices-count=4
+                    levels=2
+                    mirror-lines=9
+                    margin=10>
                 </div>
-
-
-                <!-- line of order-3 cyclic shapes -->
-                <div class="canvas-row">
-                    <div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
-                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
-                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
-                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
-                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
-                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
-                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90}'
-                    ></div>
-                </div>
-
-                <!-- 1 Sierpinski Triangle 'flower' surrounded by Sierpinski triangles -->
-                <div class="canvas-row">
-                    <div class="canvas third clickable"
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangleFlower'
-                        function-options=5
-                        options='{"tapRotate": 120, "margin":0, "initialRotation":180}'
-                        inscribe="circle"
-                    ></div><div class="canvas third clickable"
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangleFlower'
-                        function-options=5
-                        options='{"tapRotate": 120, "margin":0}'
-                        inscribe="circle"
-                    ></div><div class="canvas third clickable"
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangleFlower'
-                        function-options=5
-                        options='{"tapRotate": 120, "margin":0, "initialRotation":180}'
-                        inscribe="circle"
-                    ></div>
-                </div>
-
-
-                <!-- line of order-3 cyclic shapes -->
-                <div class="canvas-row">
-                    <div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
-                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
-                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
-                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
-                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
-                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270}'
-                    ></div><div class='canvas sixth'
-                        canvas-centered-drawing
-                        draw-function='drawRegularPolygon'
-                        function-options='{"N":3, "concave":true, "withMirrorSections":true}'
-                        options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270}'
-                    ></div>
-                </div>
-
-                <!-- row of 6 sierpinkski triables -->
-                <div class="canvas-row">
-                    <div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": 1}'
-                        options='{"tapRedraw": true, "initialRotation":90, "mirrorLines":1, "margin":0}'
-                    ></div><div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": -1}'
-                        options='{"tapRedraw": true, "initialRotation":270, "mirrorLines":1, "margin":0}'
-                    ></div><div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": 1}'
-                        options='{"tapRedraw": true, "initialRotation":90, "mirrorLines":1, "margin":0}'
-                    ></div><div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": -1}'
-                        options='{"tapRedraw": true, "initialRotation":270, "mirrorLines":1, "margin":0}'
-                    ></div><div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": 1}'
-                        options='{"tapRedraw": true, "initialRotation":90, "mirrorLines":1, "margin":0}'
-                    ></div><div class='canvas sixth clickable'
-                        canvas-centered-drawing
-                        draw-function='drawSierpinskiTriangle'
-                        function-options='{"level": 3, "orientation": -1}'
-                        options='{"tapRedraw": true, "initialRotation":270, "mirrorLines":1, "margin":0}'
-                    ></div>
-                </div>
-            </div>
                 
-            <p class="design-caption">sierpinski triangles <span class="app-only">(click on them)</span></p>
+            </div>
+            <p class="design-caption">circular pattern of order 9</p>
         </div>
     </div>
 </div>
