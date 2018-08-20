@@ -59,72 +59,71 @@ Structure
 }
 
 #table-of-contents {
-    padding-top: 30px;
-    padding-bottom: 40px;
-}
-
-#table-of-contents .content-container {
-	padding: 0 20px;
+    padding-bottom: 20px;
 }
 
 #table-of-contents .book-section-title {
-    font-size: 2.2em;
-    border-bottom: 7px double #670067;
-    font-weight: 400;
-    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding: 15px 0;
+    max-width: 90%;
+    min-width: 45%;
 }
 
-.table-of-contents-shapes-and-symmetries-title .canvas {
-    width: 50px;
-    height: 50px;
+#table-of-contents #table-of-contents-before-sections,
+#table-of-contents #table-of-contents-main-sections,
+#table-of-contents #table-of-contents-after-sections {
+	max-width: 500px;
+	margin: auto;
 }
-.table-of-contents-shapes-and-symmetries-subtitle .canvas {
+#table-of-contents #table-of-contents-before-sections {
+	padding-bottom: 20px;
+	border-bottom: 1px dashed black;
+}
+#table-of-contents #table-of-contents-after-sections {
+	max-width: 500px;
+	margin: auto;
+	padding-top: 20px;
+	border-top: 1px dashed black;
+}
+#table-of-contents #table-of-contents-main-sections {
+	padding: 10px 0;
+}
+#table-of-contents #table-of-contents-before-sections .table-of-contents-section,
+#table-of-contents #table-of-contents-after-sections .table-of-contents-section {
+	margin: 15px;	
+}
+#table-of-contents #table-of-contents-before-sections .table-of-contents-section,
+#table-of-contents #table-of-contents-after-sections .table-of-contents-section,
+#table-of-contents .table-of-contents-section a,
+#table-of-contents .table-of-contents-subsection a,
+#table-of-contents .table-of-contents-description {
+	color: black;
+	font-weight: 300;
+}
+#table-of-contents .table-of-contents-section-description {
+	max-width: 90%;
+	margin: 10px auto;
+	font-style: italic;
+}
+
+#table-of-contents .table-of-contents-subsection .canvas {
     width: 30px;
     height: 30px;
+    display: inline-block;
+}
+#table-of-contents .table-of-contents-subsection a {
+	line-height: 30px;
+	vertical-align: top;
 }
 
 #table-of-contents h3 {
     font-size: 1.7em;
     margin: 0;
-    margin-top: 7px;
+    margin-top: 25px;
     text-transform: uppercase;
-}
-
-#table-of-contents h3,
-#table-of-contents h4 {
-    display: inline-block;
-    vertical-align: top;
-    font-weight: 300;
-}
-#table-of-contents h3 a,
-#table-of-contents h4 a {
-    text-decoration: none;
-    color: black;
 }
 #table-of-contents p {
 	text-align: center;
-}
-#table-of-contents .title-container .canvas,
-#table-of-contents .title-container .frieze-pattern,
-#table-of-contents .title-container .wallpaper-pattern,
-#table-of-contents .subtitle-container .canvas {
-    display: inline-block;
-    vertical-align: middle;
-    max-width: 380px;
-}
-#table-of-contents .title-container .frieze-pattern,
-#table-of-contents .title-container .wallpaper-pattern {
-	display: block;
-	margin: auto;
-}
-
-#table-of-contents .subtitle-container h4 {
-    margin-top: 7px;
-}
-
-#table-of-contents .title-container {
-    text-align: center;
-    margin-top: 30px;
 }
 
 #book-cover .canvas {

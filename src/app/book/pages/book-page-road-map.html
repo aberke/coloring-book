@@ -66,7 +66,7 @@
 
         <br/>
 
-        <p>But first we’ll start with the basics of <span class="road-map-section-name">Shapes &amp; Symmetries</span>.</p>
+        <p>But first we'll start with the basics of <span class="road-map-section-name">Shapes &amp; Symmetries</span>.</p>
 
         <div class="text-content-graphic line">
             <div class='canvas black clickable'
@@ -75,12 +75,12 @@
                 function-options='{"level": 2, "orientation": 1}'
                 options='{"tapRedraw": true, "stroke-width":1}'
             ></div>
-            <circular-pattern
+            <circular-pattern style="stroke-width: 1;"
                 class="black" 
                 with-redraw
                 rotations=8
-                slices-count=2
-                levels=2
+                slices-count=1
+                levels=1
                 margin=10
                 inscribed="square"
             ></circular-pattern>
@@ -89,17 +89,18 @@
                 canvas-centered-drawing
                 draw-function='drawRegularPolygon'
                 function-options='{"N":6, "withMirrorSections":true, "coloring":[1,2,0,0,1,2,0,0,1,2,0,0], "concave":true}'
-                options='{"tapRotate": 120, "stroke-width":1}'
+                options='{"autoRotateDegrees": 120, "stroke-width":1}'
             ></div>
 
-            <circular-pattern
-                class="canvas black" 
+            <circular-pattern style="stroke-width: 1;"
+                class="canvas black"
+                rings="[0.8, 1]" 
                 with-redraw
-                rotations=8
+                rotations=7
                 slices-count=2
-                levels=2
-                margin=10
-                mirror-lines=8
+                levels=1
+                margin=0
+                mirror-lines=7
             ></circular-pattern>
 
         </div>
