@@ -23,22 +23,20 @@
         </div>
     </div>
 
+    <!-- Who This Book Is For -->
+    <ng-include class="info-view" id="who-this-book-is-for" src="'/app/info/partials/who-this-book-is-for.html'"></ng-include>
 
-    <div class="info-view" id="about-the-artist-and-project">
-        <h2 class="book-section-title">About the Author &amp; Project</h2>
+    <!-- What This “Book” Is And Is About -->
+    <ng-include class="info-view" id="what-this-book-is-and-is-about" src="'/app/info/partials/what-this-book-is-and-is-about.html'"></ng-include>
 
-        <p>Alex Berke received degrees in mathematics and computer science from Brown University.  After graduating college, she lived in New York City working as a technologist, with a focus on social impact.  Most recently she worked as a software engineer at Google on the Search team's news credibility effort to fight disinformation, before entering graduate school at MIT.</p>
+    <!-- How To Use This “Book” -->
+    <ng-include class="info-view" id="how-to-use-this-book" src="'/app/info/partials/how-to-use-this-book.html'"></ng-include>
 
-        <img src="/assets/img/personal-headshot.JPG" />
+    <!-- Why A Coloring Book -->
+    <ng-include class="info-view" id="why-a-coloring-book" src="'/app/info/partials/why-a-coloring-book.html'"></ng-include>
 
-        <p>She has benefited from her education in computer science, but only found computer science in college by pursuing her passion for mathematical thinking.  She was only aware of this passion due to all the time she spent as a kid staring at mathematical designs and playing with logic puzzles, and then having a few adults around to suggest that the concepts she loved in these images and games were what math was all about.  She feels lucky she had those resources and adults around her.</p>
-        <p>This project was produced to provide a resource for others to discover the beauty of mathematics.  It intends to show that the best parts of math are not about numbers, and make those parts more accessible.
-        </p>
-
-        <p>
-            <strong>Why a Coloring Book?</strong> <a target="_blank" href="https://docs.google.com/document/d/1G8_m8-pwwpQ8AMAWEnYDEEn6rdC7crGaKBcHETBa_F0/edit?usp=sharing">Reason</a>
-        </p>
-    </div>
+    <!-- About the Author & Project -->
+    <ng-include class="info-view" id="about-the-artist-and-project" src="'/app/info/partials/about-the-author-and-project.html'"></ng-include>
 
 
     <div class="info-view" id="get-the-book">
@@ -57,170 +55,11 @@
         </p>
     </div>
 
-    <div class="info-view" id="events">
-        <h2 class="book-section-title">Exhibitions <span style="display: inline-block;">// Events //</span> Workshops</h2>
+    <!-- Events -->
+    <ng-include class="info-view" id="events" src="'/app/info/partials/events.html'"></ng-include>
 
-        <div class="event">
-            <h4 id="event-art-installed-at-google-2018" class="event-title"><a href="/info#event-art-installed-at-google-2018">Artwork Installed @ Google NYC Office</a></h4>
-            <p class="event-subtitle">June - August 2018 | Google NYC, 111 8th Ave, Manhattan, NY</p>
-            <p class="event-description">Merging the use of paper and digital surfaces as mediums to facilitate community engagement:
-            <br/>
-            <br/>
-            Wallpaper Patterns hang on walls of the Google NYC office, alongside markers, for employees and visitors to add color to.  Extra pattern print-outs with “coloring challenges” to puzzle over, and an interactive digital component accompany the wall posters.
-            <br/>
-            The installation evolved as passersby engaged with the artwork and added color.
-            </p>
-            <div class="event-imgs-container">
-                <img src="/assets/img/events/art-installed-at-google-2018/tablet-with-one-pattern.JPG" />
-                <img src="/assets/img/events/art-installed-at-google-2018/uncolored-long-hallway-view.JPG" />
-                <img src="/assets/img/events/art-installed-at-google-2018/partially-colored.JPG" />
-            </div>
-        </div>
-
-        <div class="event">
-            <h4 id="event-NYC-salon-2018" class="event-title"><a href="/info#event-NYC-salon-2018">MATHEMATICAL DISCUSSION &amp; COLORING WORKSHOP @ NYC Salon</a></h4>
-            <p class="event-subtitle">July 24, 2018 | <a href="https://www.facebook.com/groups/NYCSalon/" target="_blank">NYC Salon</a> in Manhattan NY</p>
-            <p class="event-description">
-            </p>
-        </div>
-
-        <div class="event">
-            <h4 id="event-NYC-HTML5-Meetup-2018" class="event-title"><a href="/info#event-NYC-HTML5-Meetup-2018">Technical Talk @ NYC HTML5 Meetup</a></h4>
-            <p class="event-subtitle">June 21, 2018 | Manhattan, NY</p>
-            <p class="event-description">
-                Building Interactive Web Art to Educate a Mass Audience
-                <br/>
-                <a href="https://www.meetup.com/nychtml5/events/251798405/" target="_blank">Event link</a>
-            </p>
-        </div>
-
-        <div class="event">
-            <h4 class="event-title">Solo Exhibition: WALLPAPER @ Babycastles GALLERY</h4>
-            <p class="event-subtitle">May 31 - June 14, 2018 | <a href="https://babycastles.com/" target="_blank">Babycastles Gallery</a> in Manhattan NY</p>
-            <p class="event-description">
-                An Interactive Coloring Exhibition
-                <br/>
-                // Algorithmic Art // Exploration Through Animation //
-                <br/> 
-                // Coloring Puzzles // Arcade Games //
-                <br/> 
-            </p>
-            
-            <a class="event-link" href="https://babycastles.com/Wallpaper" target="_blank">Exhibition Link</a>
-            <div class="event-imgs-container">
-                <img style="width: 90%; max-width: 400px; height: auto;" src="/assets/img/events/babycastles-2018/poster-wallpaper-repeated-at-babycastles.gif" />
-            </div>
-        </div>
-
-        <div class="event">
-            <h4 class="event-title">Babycastles Academy featuring: A Mathematical Coloring Workshop </h4>
-            <p class="event-subtitle">June 3, 2018 | <a href="https://babycastles.com/" target="_blank">Babycastles</a> in Manhattan NY</p>
-            <p class="event-description">
-                Lightly lecturing on the mathematical study of symmetry, "debugging" artworks by M.C. Escher, and producing wallpaper patterns in breakout coloring exercises.
-                <br/>
-                Free, with materials provided.
-            </p>
-            <a class="event-link" href="https://babycastles.com/Wallpaper" target="_blank">Link</a>
-            <div class="event-imgs-container"></div>
-        </div>
-
-        <div class="event">
-            <h4 id="event-Creative-Coding-NYC-Feb-2018" class="event-title"><a href="/info#event-Creative-Coding-NYC-Feb-2018">Building Interactive Art on the Web to Educate a Mass Audience @ Creative Coding NYC</a></h4>
-            <p class="event-subtitle">February 28, 2018 | <a href="https://www.meetup.com/Creative-Coding-NYC/" target="_blank">Creative Coding NYC</a></p>
-            <p class="event-description">
-                A talk about the artistic inspiration, programmatic implementation, and mathematical theory of "Illustrating Group Theory".
-                <a class="event-link" href="https://www.meetup.com/Creative-Coding-NYC/events/247694234/" target="_blank">Event Link</a>
-            </p>
-            <div class="event-imgs-container">
-                <img class="big" src="/assets/img/events/Creative-Coding-NYC-Feb-28-2018.jpeg" />
-            </div>
-        </div>
-
-        <div class="event">
-            <h4 id="event-RC-Jan-2018" class="event-title"><a href="/info#event-RC-Jan-2018">Mathematical Discussion &#43; Coloring Workshop &commat; The Recurse Center</a></h4>
-            <p class="event-subtitle">January 2018 | <a href="https://www.recurse.com" target="_blank">Recurse Center</a> in Manhattan NY</p>
-            <p class="event-description">Discussed the programming methods used to develop the content of "Illustrating Group Theory", and how these methods leverage mathematical theory in order to illustrate that very theory in an interactive format.  The mathematical discussion was guided by digital interactions, moments of debugging M.C. Escher's artistic works, and exercises with pen and paper.</p>
-            <div class="event-imgs-container">
-                <img src="/assets/img/events/recurse-workshop-2018/reed-and-coloring.JPG" />
-                <img src="/assets/img/events/recurse-workshop-2018/coloring-2.JPG" />
-            </div>
-        </div>
-
-        <div class="event">
-            <h4 id="event-AngularNYC-Jan-2018" class="event-title"><a href="/info#event-AngularNYC-Jan-2018">AngularNYC Technical Presentation</a></h4>
-            <p class="event-subtitle">January 2018 | <a href="https://www.meetup.com/AngularNYC/events/246041494/" target="_blank">AngularNYC Meetup</a>, hosted at Google in Manhattan NY</p>
-            <p class="event-description">
-                Technical talk about the implementation of a digital coloring book and developing algorithms in Javascript to produce artwork.
-                <a class="event-link" href="https://www.meetup.com/AngularNYC/events/246041494/" target="_blank">Link</a>
-            </p>
-        </div>
-
-        <div class="event">
-            <!-- link to this with http://www.coloring-book.co/info#event-second-sundays-2017 -->
-            <h4 id="event-second-sundays-2017" class="event-title"><a href="/info#event-second-sundays-2017">Pioneer Works Second Sundays Exhibition</a></h4>
-            <p class="event-subtitle">May 2017 | <a href="http://pioneerworks.org" target="_blank">Pioneer Works</a>, Brooklyn NY</p>
-            <p class="event-description">
-            The Brooklyn community was invited to color on the walls and learn about math.
-            Large-scale prints of frieze patterns were posted to the wall for the public to color in; an interactive display of those same pattern groups was projected on an adjacent wall for passersby to play with and better understand the algorithms behind the patterns projected.
-            </p>
-            <div class="event-imgs-container">
-                <img src="/assets/img/events/pioneer-works-2017/rollerskate-girls.JPG" />
-                <img src="/assets/img/events/pioneer-works-2017/group-coloring-wide.JPG" />
-                <img src="/assets/img/events/pioneer-works-2017/adults-interact.jpg" />
-            </div>
-            <p class="event-description">
-            A special event targeted for younger children involved piecing together design cutouts to create more new patterns like the ones projected on the wall, as well as working together on special coloring worksheets.
-            </p>
-            <div class="event-imgs-container">
-                <img src="/assets/img/events/pioneer-works-2017/kid-and-worksheet.jpg" />
-                <img src="/assets/img/events/pioneer-works-2017/kids-interact.png" />
-            </div>
-        </div>
-
-        <!-- template for event --><!--
-        <div class="event">
-            <h4 class="event-title"></h4>
-            <p class="event-subtitle">Date | Location</p>
-            <p class="event-description"></p>
-            <a class="event-link" href="" target="_blank">Link</a>
-            <div class="event-imgs-container"></div>
-        </div> -->
-
-    </div>
-    <!-- events -->
-
-
-    <div class="info-view" id="share">
-        <h2 class="book-section-title">Share</h2>
-
-        <p>Follow on instagram: <a href="https://www.instagram.com/colorByMath/" target="_blank">@colorByMath</a></p>
-
-        <p>Share what you've colored on Facebook: <a href="https://www.facebook.com/colorByMath/" target="_blank">facebook.com/colorByMath</a>. <br/>Or post to Instagram and Twitter with the #colorByMath hashtag.</p>
-
-        <div id="share-buttons-container">
-            <div tweet class="twitter-share-button share-btn"></div>
-            
-            <div class="fb-share-button share-btn" data-href="http://www.coloring-book.co/" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.coloring-book.co%2F&amp;src=sdkpreparse"><img src="/assets/img/icons/fb-share-icon.png" alt="share to facebook" height="20px" /></a></div>
-        </div>
-    </div>
-
-    <div class="info-view" id="contact">
-        <h2 class="book-section-title">Contact</h2>
-
-        <p>
-            If you are an <strong>educator</strong> I want to hear from you.<br/><br/>
-            If you want to collaborate or host an event with this material, please reach out.<br/><br/>
-            If you just read/colored/played with the content in this book, I want to know what you think.<br/>
-        </p>
-
-        <p>
-            Contact me directly at <a href="mailto:colorbymath@gmail.com?subject=Coloring%20Book">colorbymath@gmail.com</a>.
-            <br>
-            Or submit feedback in this form: <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeHWQDnA1ycEoDlJQXIz48sPoac-q5QlRo2Dyznu5E2ixYeGg/viewform">coloring-book.co/form</a>
-        </p> 
-
-    </div>
-    <!-- contact -->
+    <!-- Contact // Share // Code // ETC -->
+    <ng-include class="info-view" src="'/app/info/partials/contact-share-code-etc.html'"></ng-include>
 
 	<ng-include ng-if="!main.print" src="'/app/common/partials/footer.html'"></ng-include>
 

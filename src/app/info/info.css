@@ -6,7 +6,19 @@
 }
 .info-view {
 	padding: 55px 20px;
+	display: block;
 }
+
+.info-view h3 {
+	padding: 5px;
+	min-width: 30%;
+	max-width: 90%;
+	text-transform: uppercase;
+	border-bottom: 4px double purple;
+	font-weight: 400;
+	display: inline-block;
+}
+
 .info-view .book-section-title {
 	margin: 30px auto;
 }
@@ -55,6 +67,15 @@
 	}
 }
 /* Info > Video */
+
+.info-view#why-a-coloring-book h3 {
+	padding: 0;
+	margin: 0;
+	margin-top: 15px;
+	text-transform: none;
+	font-weight: 500px;
+	border: none;
+}
 
 
 .info-view#about-the-artist-and-project img {
