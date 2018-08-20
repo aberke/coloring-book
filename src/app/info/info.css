@@ -67,8 +67,10 @@
 	font-size: 1.5em;
 }
 .info-view .event {
-	margin: 20px auto;
-	margin-bottom: 50px;
+	margin: auto;
+	margin-bottom: 25px;
+	padding-bottom: 20px;
+	border-bottom: 1px dashed black;
 }
 .info-view .event-title {
     margin: 10px;
