@@ -5,91 +5,62 @@
 
             <h2 class="book-section-title">Table of Contents</h2>
 
-            <div class="title-container table-of-contents-shapes-and-symmetries-title">
-                <circular-pattern
-                    with-redraw 
-                    rotations=7
-                    slices-count=2
-                    levels=1
-                    margin=10
-                ></circular-pattern>
-                <h3><a href="/?pageName=shapes-and-symmetries-section">Shapes &amp; Symmetries</a></h3>
-                <circular-pattern
-                    with-redraw
-                    rotations=7
-                    slices-count=2
-                    levels=1
-                    margin=10
-                ></circular-pattern>
-            </div>
-            <div class="subtitle-container table-of-contents-shapes-and-symmetries-subtitle">
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawCyclicShape'
-                    function-options='{"N":4}'
-                    options='{"autoRotateDegrees":90}'
-                ></div>
-                <h4><a href="/?pageName=rotations-section">Rotations // Cyclic Groups</a></h4>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawCyclicShape'
-                    function-options='{"N":4}'
-                    options='{"autoRotateDegrees":90}'
-                ></div>
-            </div>
-            <div class="subtitle-container table-of-contents-shapes-and-symmetries-subtitle">
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":7, "concave": true}'
-                    options='{"autoReflect": "V"}'
-                ></div>
-                <h4><a href="/?pageName=reflections-section">Reflections // Dihedral Groups</a></h4>
-                <div class='canvas'
-                    canvas-centered-drawing
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N":7, "concave": true}'
-                    options='{"autoReflect": "V"}'
-                ></div>
+            <div id="table-of-contents-before-sections">
+                <h5 class="table-of-contents-section"><a href="/info#who-this-book-is-for">Who This Book Is For</a></h5>
+
+                <h5 class="table-of-contents-section"><a href="/info#what-this-book-is-and-is-about">What This "Book" Is And Is About</a></h5>
+
+                <h5 class="table-of-contents-section"><a href="/info#how-to-use-this-book">How To Use This "Book"</a></h5>
+
+                <h5 class="table-of-contents-section"><a href="/info#why-a-coloring-book">Why A Coloring Book</a></h5>
             </div>
 
-            <div class="title-container pattern-title">
-                <frieze-pattern
-                    pattern-function='trianglesPath2'
-                    group-name='p11g'
-                    fundamental-domain-width=35
-                    fundamental-domain-height=28
-                ></frieze-pattern>
-                <h3><a href="/?pageName=frieze-section">Frieze Groups</a></h3>
-                <frieze-pattern
-                    pattern-function='trianglesPath2'
-                    group-name='p11g'
-                    fundamental-domain-width=35
-                    fundamental-domain-height=28
-                ></frieze-pattern>
+            <div id="table-of-contents-main-sections">
+                <h3 class="table-of-contents-section"><a href="/?pageName=shapes-and-symmetries-section">Shapes &amp; Symmetries</a></h3>
+                <h4 class="table-of-contents-subsection">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":5}'
+                        options='{"autoRotateDegrees":72}'
+                    ></div>
+                    <a href="/?pageName=rotations-section">Rotations &amp; Cyclic Groups</a>
+                </h4>
+                <h4 class="table-of-contents-subsection">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave": true, "withMirrorSections": true}'
+                        options='{"autoReflect": "V"}'
+                    ></div>
+                    <a href="/?pageName=reflections-section">Reflections &amp; Dihedral Groups</a>
+                </h4>
+                
+                <h3 class="table-of-contents-section"><a href="/?pageName=frieze-section">Frieze Groups</a></h3>
+                <p class="table-of-contents-section-description">An introduction to the symmetries of infinitely repeating patterns and the 7 frieze pattern groups.</p>
+
+                <h3 class="table-of-contents-section"><a href="/?pageName=wallpaper-section">Wallpaper Groups</a></h3>
+                <p class="table-of-contents-section-description">A guided exploration of the 17 wallpaper pattern groups, with challenges to find and manipulate the symmetries of patterns that repeat in multiple directions.</p>
             </div>
 
-            <div class="title-container pattern-title">
-                <wallpaper-pattern
-                    style="height: 120px; margin-top: 0px; margin-bottom: 0px;"
-                    pattern-function='curves3'
-                    group-name='p4'
-                    fundamental-domain-width=30
-                    fundamental-domain-height=30
-                ></wallpaper-pattern>
-                <h3><a href="/?pageName=wallpaper-section">Wallpaper Groups</a></h3>
-                <wallpaper-pattern
-                    style="height: 120px; margin-top: 0px; margin-bottom: 0px;"
-                    pattern-function='curves3'
-                    group-name='p4'
-                    fundamental-domain-width=30
-                    fundamental-domain-height=30
-                ></wallpaper-pattern>
+            <div id="table-of-contents-after-sections">
+                <h5 class="table-of-contents-section"><a href="/theory-reference">Theory Reference </a></h5>
+
+                <h5 class="table-of-contents-section"><a href="/symmetries">Symmetries Guide</a></h5>
+
+                <!-- TODO -->
+                <h5 class="table-of-contents-section"><a href="/references">References </a></h5>
+
+                <h5 class="table-of-contents-section"><a href="/info#about-the-author-and-project">About the Author &amp; Project</a></h5>
+
+                <h5 class="table-of-contents-section"><a href="/info#contact">Contact &amp; Social Media</a></h5>
+
+                <h5 class="table-of-contents-section"><a href="/info#code">Code</a></h5>
             </div>
+
             <br/>
             <br/>
             <p class='design-caption app-only'>Throughout this book, click on the designs to regenerate them</p>
         </div>
     </div>
-
 </div>
