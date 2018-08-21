@@ -1,0 +1,40 @@
+<!-- This page contains all of the content that comes after the main book content. -->
+<div class="book-page" id="after-info" ng-if="book.page.name == p.name || main.print">
+
+    <div class="content-container-wrapper">
+        <div class="content-container">
+            <div class="text-content">
+                <div id="end-page-content">
+                    <br/>
+                    <!-- TODO: Remove this once completed -->
+                    <p class="coming-soon">This project is a work in progress - your help and feedback is appreciated!</p>
+                    <ng-include src="'/app/common/partials/get-updates.html'"></ng-include>
+
+                    <br/>
+                    <br/>
+
+                    <p style="font-style: italic; text-align: center;">Here are some wallpaper patterns to play with: <a target="_blank" href="/wallpaper">http://coloring-book.co/wallpaper</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-container-wrapper">
+        <div class="content-container">
+            <!-- theory-reference -->
+            <ng-include src="'/app/theory-reference/theory-reference-partial.html'"></ng-include>
+
+            <!-- symmetry-guide -->
+            <ng-include src="'/app/symmetry-guide/symmetry-guide-partial.html'"></ng-include>
+
+            <!-- contact-share-code-etc -->
+            <ng-include src="'/app/info/partials/contact-share-code-etc.html'"></ng-include>
+
+            <!-- about-the-author-and-project -->
+            <ng-include src="'/app/info/partials/about-the-author-and-project.html'"></ng-include>
+
+            <!-- For website only: Show footer -->
+            <ng-include class="app-only" src="'/app/common/partials/footer.html'"></ng-include>
+        </div>
+    </div>
+</div>

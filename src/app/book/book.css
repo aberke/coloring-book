@@ -10,45 +10,65 @@ Styles for book
 
 
 
-/*Printing:*/
-/*Intended to be printed on 8.5x11*/
+/* Printing: */
+/*
+Intended to be printed on 8.5x11
+Default left, right, top, bottom margin is set
+*/
 @page {
     size: 8.5in 11in;
-    margin: 0.5in;
+    margin: 0.25in;
 }
 
 body.print p {
     text-align: left;
+    page-break-inside: avoid;
 }
 
-.book-page .text-content, .book-page .coloring-content,
-#book-cover, #table-of-contents
-{
-    page-break-after: always;
-}
-#table-of-contents {
-    /*create blank page: print it on the right side, side left page blank*/
-    page-break-before: right;
+/*
+Leave a blank page before the first content page 
+Need content to start on an even page so that text aligns with designs
+(page 1 is the cover).
+*/
+.print #table-of-contents {
+    page-break-after: right;
 }
 
+/*
+Each page has its height and width set to match the @page definition.
+Most .book-pages are two pages with .text-content and .coloring-content.
+The other ones must be explicitly told to take up the entire page size.
+*/
 .print .book-page .text-content,
 .print .book-page .coloring-content,
 .print #book-cover,
 .print #road-map, 
-.print #table-of-contents {
+.print #before-info,
+.print #table-of-contents,
+.print #after-info
+{
+    page-break-after: always;
     padding: 0 1.5%;
     width: 97%; /* allow the padding - works best with firefox printing */
     border: none;
-    
-    width: 8in;
-    height: 10in;
 
     position: relative;
+}
+.print .book-page .text-content,
+.print .book-page .coloring-content,
+.print #book-cover,
+.print #road-map,
+.print #table-of-contents {       
+    width: 8in; 
+    height: 10in;
+    page-break-inside: avoid;
 }
 
 .print #book-cover,
 .print #table-of-contents,
-.print #road-map {
+.print #road-map,
+.print #before-info,
+.print #after-info {
     margin: auto;
 }
 .print #book-cover,
@@ -69,6 +89,29 @@ body.print p {
     height: 100%;
 }
 
+/*remove the space for the menu*/
+.print #book-title-container {
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+.print #end-page-content {
+    padding-top: 250px;
+}
+
+.print .book-page .coloring-content .wallpaper-pattern {
+    height: 910px;
+    margin-top: 15px;
+}
+
+/* Printing */
+
+
+
+.book-page .coloring-content .wallpaper-pattern {
+    height: 100%;
+}
+
 #book-title-container {
     max-width: 800px;
     margin: 15px auto;
@@ -78,11 +121,7 @@ body.print p {
 #book-title-container path {
     stroke-width: 1px;
 }
-/*remove the space for the menu*/
-.print #book-title-container {
-    margin-top: 0;
-    margin-bottom: 40px;
-}
+
 #book-title-container h1 {
     font-weight: 400;
     color: purple;
@@ -118,7 +157,7 @@ h1#book-title .title-piece.smaller {
 
 .book-section-title, .book-section-subtitle {
     display: inline-block;
-    margin: 40px auto;
+    margin: 30px auto;
     padding: 15px 30px;
     min-width: 50%;
     font-weight: 400;

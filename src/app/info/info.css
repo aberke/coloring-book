@@ -1,12 +1,32 @@
-.info-view, .info-view p {
+.info-view {
+	padding: 25px 20px;
+	display: block;
+	page-break-inside: avoid;
 	max-width: 800px;
+}
+/* Make sure the first info-view section falls below the menu */
+.info-view#about {
+	padding-top: 55px;
+	vertical-align: center;
+}
+
+.info-view, .info-view p {
 	margin: auto;
 	text-align: center !important;
 	padding: 20px;
 }
-.info-view {
-	padding: 55px 20px;
-	display: block;
+.info-view p {
+	max-width: 600px;
+}
+.info-view p strong {
+	font-weight: 600;
+}
+
+.print .info-view p {
+    font-size: small;
+    padding: 10px;
+    padding-top: 0;
+    max-width: 800px;
 }
 
 .info-view h3 {
@@ -18,15 +38,16 @@
 	font-weight: 400;
 	display: inline-block;
 }
+.print .info-view h3 {
+	font-size: 1em;
+}
+.print .info-view h2 {
+	font-size: 1.5em;
+	padding: 5px;
+}
 
 .info-view .book-section-title {
 	margin: 30px auto;
-}
-.info-view p {
-	max-width: 600px;
-}
-.info-view p strong {
-	font-weight: 600;
 }
 
 /* Info > Video */
@@ -76,7 +97,9 @@
 	font-weight: 500px;
 	border: none;
 }
-
+.info-view#why-a-coloring-book p {
+	padding-top: 8px;
+}
 
 .info-view#about-the-author-and-project img {
 	max-width: 350px;

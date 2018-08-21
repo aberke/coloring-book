@@ -1,0 +1,118 @@
+<section id="theory-reference-page">
+
+    <div id="theory-reference-intro">
+	    <h2 class="book-section-title">Theory Reference</h2>
+
+    	<p>Group theory helps define abstract structures discussed in algebra. The groups in this coloring book are only a window into the groups explored in other realms of mathematics.</p>
+
+		<br/>
+
+		<p>There are some rules and definitions that pertain to all groups, not just ours.</p>
+
+		<a href="/theory-reference#group" id="group" class="theory-reference-term-name">Group</a>
+		<p class="theory-reference-term-definition">A group G is a <a href="/theory-reference#set" class="theory-reference-term">set</a> coupled with a <a href="/theory-reference#binary-operator" class="theory-reference-term">binary operator</a> &#x2737; that satisfies 4 requirements:</p>
+		<span class="theory-reference-term-note">See the details of each rule for examples.</span>
+		<ul id="group-requirements">
+			<li><a href="/theory-reference#closure" class="theory-reference-term">Closure</a>:  G is closed under &#x2737;; i.e., if a and b are in G, then a&#x2737;b is in G.</li>
+
+			<li><a href="/theory-reference#identity" class="theory-reference-term">Identity element</a>:  There exists an identity element e in G; i.e., for all a in G we have <span style="display: inline-block;">a &#x2737; e = e &#x2737; a = a.</span></li>
+
+			<li><a href="/theory-reference#inverse" class="theory-reference-term">Inverse element</a>: Every element in G has an inverse in G; i.e., for all a in G, there exists an element -a in G such that <span style="display: inline-block;">a&#x2737;(-a) = (-a)&#x2737;a = e.</span></li>
+
+			<li><a href="/theory-reference#associativity" class="theory-reference-term">Associativity</a>: The operator &#x2737; acts associatively; i.e., for all a,b,c in G, <span class="math-block">a &#x2737; (b &#x2737; c) = (a &#x2737; b) &#x2737; c.</span></li>
+		</ul>
+    </div>
+    
+
+    <div id="definitions-container">
+
+	    <a href="/theory-reference#associativity" id="associativity" class="theory-reference-term-name">Associative Property</a>
+	    <p class="theory-reference-term-definition">When an operator &#x2737; for a group G is associative, the way elements in G are grouped when the operator is applied does not matter.  I.e.,  for all a,b,c in G, <span class="math-block">a &#x2737; (b &#x2737; c) = (a &#x2737; b) &#x2737; c.</span></p>
+
+	    <p class="theory-reference-term-example">One example of this is adding numbers: <span class="math-block">1 + (2 + 3) = (1 + 2) + 3.</span></p>
+		<p class="theory-reference-term-example">Notice that subtraction of numbers is not associative: <span class="math-block">1 &minus; (2 &minus; 3)</span>  does not equal <span class="math-block">(1 &minus; 2) &minus; 3.</span></p>
+		<br/>
+		<p class="theory-reference-term-example">Our groups of rotations have an associative operator: Our operator here is combining rotations.</p>
+		<p class="theory-reference-term-example">For C3, <span class="math-block">(<fraction>1/3</fraction> turn &#x2737; <fraction>1/3</fraction> turn) &#x2737; <fraction>2/3</fraction> turn</span> = <span class="math-block"><fraction>1/3</fraction> turn &#x2737; (<fraction>1/3</fraction> turn &#x2737; <fraction>2/3</fraction> turn).</span>
+		That is, rotating twice by a <fraction>1/3</fraction> turn and then rotating the result by a <fraction>2/3</fraction> turn is the same as combining a <fraction>1/3</fraction> turn with the result of rotating by a <fraction>1/3</fraction> turn and then by a <fraction>2/3</fraction> turn.</p>
+
+
+	    <a href="/theory-reference#binary-operator" id="binary-operator" class="theory-reference-term-name">Binary Operator</a>
+	    <p class="theory-reference-term-definition">A <strong>binary operator</strong> &#x2737; combines 2 elements, a and b, from a <a href="/theory-reference#set" class="theory-reference-term">set</a> S to give a third element: <span class="math-block">a &#x2737; b.</span></p>
+
+	    <p class="theory-reference-term-example">An example is addition over the set of counting numbers:  + is a <a href="/theory-reference#binary-operator" class="theory-reference-term">binary operator</a> that combines 2 numbers to create their sum: <span style="display: inline-block;">1 + 2 = 3.</span></p>
+
+	    <p class="theory-reference-term-example">Our <a href="/theory-reference#binary-operator" class="theory-reference-term">binary operator</a> combines the transformations that act on our symmetry groups.  For symmetry elements a and b, <span class="math-block">a &#x2737; b</span> says "do a, and then do b".
+		For example, if transformation a is "rotate by a <fraction>1/4</fraction> turn" and b is "reflect horizontally", then <span class="math-block">a &#x2737; b</span> is "rotate by a <fraction>1/4</fraction> turn and then reflect horizontally”.</p>
+
+
+	    <a href="/theory-reference#closure" id="closure" class="theory-reference-term-name">Closure</a>
+	    <p class="theory-reference-term-definition">A <a href="/theory-reference#set" class="theory-reference-term">set</a> S is <strong>closed</strong> under an operator &#x2737; if combining any 2 elements in S with &#x2737; results in an element that is also in S; i.e, for any a and b in S, a&#x2737;b is also in S.</p>
+	    <p class="theory-reference-term-example">For example, the set of all counting numbers <span style="display: inline-block;">0,1,2,3,...</span> is closed under the addition operator + because adding any two counting numbers results in another counting number.</p>
+		<p class="theory-reference-term-example">Coming back to our sets of rotations, the set <span class="math-block">&#123; <fraction>1/4</fraction> turn, <fraction>2/4</fraction> turn &#125;</span> is not closed because combining the <fraction>1/4</fraction> turn with the <fraction>2/4</fraction> turn results in the <fraction>3/4</fraction> turn which is not in this set.</p>
+
+
+	    <a href="/theory-reference#commutativity" id="commutativity" class="theory-reference-term-name">Commutative Property</a>
+	    <p class="theory-reference-term-definition">A <a href="/theory-reference#binary-operator" class="theory-reference-term">binary operator</a> &#x2737; is <strong>commutative</strong> if the order in which it combines elements does not matter.</p>
+	    <p class="theory-reference-term-definition">I.e., for any 2 elements a &amp; b, <span class="math-block">a&#x2737;b = b&#x2737;a.</span></p>
+
+	    <p class="theory-reference-term-example">For example, addition is commutative because <span class="math-block">1 + 2 = 2 + 1,</span> but subtraction is not commutative because <span class="math-block">1 &minus; 2 &ne; 2 &minus; 1.</span></p>
+
+
+	    <a href="/theory-reference#cyclic-group" id="cyclic-group" class="theory-reference-term-name">Cyclic Group</a>
+	    <p class="theory-reference-term-definition">A group G is called <strong>cyclic</strong> if it can be generated by a single element.</p>
+
+	    <p class="theory-reference-term-example">Our groups of rotations are cyclic groups because they can be generated by their smallest nonzero element. For example, our C2 group was <span class="math-block">&#123;0 turn, <fraction>1/2</fraction> turn&#125;</span>, and it was generated by the <fraction>1/2</fraction> turn.</p>
+	    <p class="theory-reference-term-example">There are many other cyclic groups out there. Another C2 group that may look different, is the group <span class="math-block">&#123;1, &minus;1&#125;</span> where the members of the group are the numbers 1 and &minus;1 and the way of combining these members is with multiplication.  It can be generated by &minus;1.</p>
+
+		<p class="theory-reference-term-note">The term <strong>cyclic</strong> may be misleading.  Our cyclic groups had a finite number of elements, and combining them again and again created cycles.  However, there are cyclic groups with infinite elements, such as the integers under addition.</p>
+
+
+	    <a href="/theory-reference#generator" id="generator" class="theory-reference-term-name">Generator</a>
+	    <p class="theory-reference-term-definition"><strong>Generators</strong> of a group are a set of elements that when combined with themselves, or each other, can produce all the other elements of the group.</p>
+	    <p class="theory-reference-term-example">For example, &minus;2 and 2 are <strong>generators</strong> that when combined with addition, generate the entire group of even integers.</p>
+
+
+	    <a href="/theory-reference#identity" id="identity" class="theory-reference-term-name">Identity Element</a>
+	    <p class="theory-reference-term-definition">An <strong>identity element</strong> is a neutral element - when it’s combined with other members in the group, it does not change them.</p>
+	    <p class="theory-reference-term-example">For our groups of rotations, the identity element is the 0 turn: rotating by the 0 turn is the same as doing nothing at all.</p>
+	    <p class="theory-reference-term-example">For the group of integers under addition, the identity element is 0: <span class="math-block">0 + 2 = 2.</span></p>
+	    <p class="theory-reference-term-example">For the group of integers under multiplication, the identity element is 1: <span class="math-block">1 x 2 = 2.</span></p>
+
+
+	    <a href="/theory-reference#inverse" id="inverse" class="theory-reference-term-name">Inverse Element</a>
+	    <p class="theory-reference-term-definition">An <strong>inverse element</strong> is the reverse of another element.</p>
+	    <p class="theory-reference-term-definition">More formally, for a set, S with a binary operator, &#x2737;, and a and b in S: a is the <strong>inverse</strong> of b if <span class="math-block">a&#x2737;b = b&#x2737;a = e,</span> where e is the <a href="/theory-reference#identity-element" class="theory-reference-term">identity element</a>.</p>
+
+	    <p class="theory-reference-term-example">For our groups of rotations, each rotation’s inverse element is the rotation that undoes it.  For example, the inverse of the <fraction>1/3</fraction> turn is the <fraction>2/3</fraction> turn because <fraction>1/3</fraction> turn &#x2737; <fraction>2/3</fraction> turn &rarr; full turn.  The full turn is the same as the 0 turn which is our identity element. </p>
+	    <p class="theory-reference-term-example">For addition on the integers, each integer’s inverse element is it’s negative: &minus;1 is the inverse of 1 because <span class="math-block">&minus;1 + 1 = 0.</span></p>
+
+
+	    <a href="/theory-reference#order" id="order" class="theory-reference-term-name">Order</a>
+	    <p class="theory-reference-term-definition">The <strong>order</strong> of a group G is the number of elements in G.  The <strong>order</strong> of G is sometimes written as <strong>|G|</strong>.</p>
+	    <p class="theory-reference-term-example">For example, the order of our C3 group of rotations is 3 because C3 has 3 elements: <span class="math-block">&#123;0 turn, <fraction>1/3</fraction> turn, <fraction>2/3</fraction> turn&#125;</span></p>
+	    <!-- TODO: (graphic with triangles) -->
+
+
+	    <a href="/theory-reference#set" id="set" class="theory-reference-term-name">Set</a>
+	    <p class="theory-reference-term-definition">A <strong>set</strong> is a collection of distinct elements.</p>
+	    <br/>
+	    <p class="theory-reference-term-example">For example, the set <span class="math-block">&#123;<span style="color:blue">blue</span>, <span style="color:red">red</span>, <span style="color:blue">blue</span>&#125;</span> is the same set as the set <span class="math-block">&#123;<span style="color:blue">blue</span>, <span style="color:red">red</span>&#125;</span>.</p>
+	    <p class="theory-reference-term-example">For our sets of rotations, the set <span class="math-block">&#123;0 turn, <fraction>1/3</fraction> turn, <fraction>4/3</fraction> turn&#125;</span> is the same as the set <span class="math-block">&#123;0 turn, <fraction>1/3</fraction> turn&#125;</span> because a <fraction>1/3</fraction> turn means the same thing as a <fraction>4/3</fraction> turn - they are not distinct.</p>
+
+
+
+	    <a href="/theory-reference#subgroup" id="subgroup" class="theory-reference-term-name">Subgroup</a>
+	    <p class="theory-reference-term-definition">Given a group G, a <strong>subgroup</strong> of G is a group with the same <a href="/theory-reference#binary-operator" class="theory-reference-term">binary operator</a> as G and whose members are all also in G.</p>
+	    <p class="theory-reference-term-example">For example, the group of even integers under addition <span class="math-block">&#123;... &minus;2, 0, 2, 4,...&#125;</span>, + is a subgroup of the group of all integers under addition <span class="math-block">&#123;... &minus;2, &minus;1, 0, 1, 2,...&#125;</span>, +.</p>
+	    <p class="theory-reference-term-example">However, the same cannot be said for odd integers.  The set of odd integers under addition <span class="math-block">&#123;... &minus;3, &minus;1, 1, 3, 5,...&#125;</span>, + is not <a href="/theory-reference#closure" class="theory-reference-term">closed</a> and therefore cannot be a group:  Combining odd integers with addition produces even integers (e.g. 1 + 3 = 4), which are clearly not in the set of odd integers.</p>
+	    <p class="theory-reference-term-note">Notice that a group and its subgroups always have the same identity element.</p>
+
+	    <!-- template here: -->
+	    <a href="/theory-reference#" id="" class="theory-reference-term-name"></a>
+	    <p class="theory-reference-term-definition"></p>
+	    <p class="theory-reference-term-example"></p>
+	    <p class="theory-reference-term-note"></p>
+
+	</div>
+</section>

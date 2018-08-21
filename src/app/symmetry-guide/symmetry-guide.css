@@ -2,6 +2,9 @@
 #symmetry-guide-page {
 	text-align: center;
 }
+.print #symmetry-guide-page {
+	page-break-after: always;
+}
 
 #symmetry-guide-page .canvas.extra-small {
 	width: 30px;
@@ -32,6 +35,10 @@
 	max-width: 700px;
 	margin: auto;
 	padding: 0 10px 30px;
+}
+#symmetry-guide-page .symmetry-definition-container {
+	margin-bottom: 20px;
+	page-break-inside: avoid;
 }
 
 #symmetry-guide-page p,

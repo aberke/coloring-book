@@ -41,7 +41,7 @@ angular.module('app', [
             reloadOnSearch: false,
         })
         .when(PRINT_ROUTE, {
-            templateUrl: '/app/print-book.html',
+            templateUrl: '/app/book/book.html',
         })
         .when('/theory-reference', {
             templateUrl: '/app/theory-reference/theory-reference.html',
@@ -110,6 +110,7 @@ angular.module('app', [
         }
         
         if (!!$location.search()[PRINT_PARAM] || $location.path() === PRINT_ROUTE) {
+            $rootScope.print = true;
             vm.print = true;
             DISABLE_ANIMATIONS = true;
         } else if (!!$location.search()[DISABLE_ANIMATIONS_PARAM]) {

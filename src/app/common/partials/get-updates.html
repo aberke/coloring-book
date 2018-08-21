@@ -1,5 +1,11 @@
 <!-- Google form -->
 <div id="get-updates-form-container">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeHWQDnA1ycEoDlJQXIz48sPoac-q5QlRo2Dyznu5E2ixYeGg/viewform?embedded=true"
+
+	<!-- If web, show the form. -->
+    <iframe ng-if="!main.print" src="https://docs.google.com/forms/d/e/1FAIpQLSeHWQDnA1ycEoDlJQXIz48sPoac-q5QlRo2Dyznu5E2ixYeGg/viewform?embedded=true"
     frameborder="0" marginheight="0" marginwidth="0">&#x25B5; &#x25B5; ..Loading.. &#x25B5; &#x25B5;</iframe>
+
+    <!-- Otherwise, tell them about the form. -->
+    <p ng-if="!!main.print"><a href="http://coloring-book.co/form">http://coloring-book.co/form</a></p>
+
 </div>
