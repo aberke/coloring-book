@@ -21,7 +21,7 @@ not rendered in the DOM when the book-page is not the current page
 be removed from the page -- together they're too heavy for browsers
 
 */
-function BookCntl($scope, $window, $location, $anchorScroll) {
+function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
     // view model is this BookCntl
     let vm = this;
 
@@ -40,6 +40,7 @@ function BookCntl($scope, $window, $location, $anchorScroll) {
         'wallpaper-section': 'wallpaper-1',
     };
 
+    // Some pages are only shown in the print version - printOnly.
     vm.pages = [
         {
             name: 'cover',
@@ -50,6 +51,10 @@ function BookCntl($scope, $window, $location, $anchorScroll) {
         }, {
             name: 'road-map',
             url: vm.bookPageUrl('book-page-road-map.html'),
+        }, {
+            name: 'before-info',
+            url: vm.bookPageUrl('book-page-before-info.html'),
+            printOnly: true,
         }, {
             name: 'table-of-contents',
             url: vm.bookPageUrl('book-page-table-of-contents.html'),
@@ -300,8 +305,8 @@ function BookCntl($scope, $window, $location, $anchorScroll) {
             name: 'wallpaper-24',
             url: vm.bookPageUrl('book-page-wallpaper-24.html'),
         }, {
-            name: 'get-updates',
-            url: vm.bookPageUrl('book-page-last.html'),
+            name: 'after-info',
+            url: vm.bookPageUrl('book-page-after-info.html'),
         }
     ];
 
@@ -396,8 +401,20 @@ function BookCntl($scope, $window, $location, $anchorScroll) {
             $location.replace();
     };
 
+    vm.removePrintOnlyPages = function() {
+        let p;
+        for (p=0; p<vm.pages.length; p++) {
+            if (!!vm.pages[p].printOnly)
+                vm.pages.splice(p, 1);
+        }        
+    }
+
 
     vm.init = function() {
+        // Unless in print mode, remove the printOnly pages.
+        if (!$rootScope.print)
+            vm.removePrintOnlyPages();
+        
         // get the page from the url
         vm.pageNumber = vm.getPageNumber();
         vm.setPageByNumber(vm.pageNumber, true);

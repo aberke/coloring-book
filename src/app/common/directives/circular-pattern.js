@@ -51,8 +51,11 @@ function circularPatternDirective($location) {
 			// add the canvas class in case not already there.  This adds style { display: block }.
 			elt.className += " canvas";
 			let size = elt.clientWidth;
-			if (size <= 0) // applicable for when CSS says display=none
+			let margin = Number(scope.margin || 0);
+			let diameter = size - margin;
+			if (diameter <= 0)  // applicable for when CSS says display=none
 				return;
+
 			elt.style.height = String(size) + "px";
 			elt.style.padding = 0; // remove padding used to make square with CSS
 
@@ -60,8 +63,6 @@ function circularPatternDirective($location) {
 			let paper = new Raphael(elt);
 			let inscribedShapePathset;
 			let origin = getCanvasCenter(paper);
-			let margin = Number(scope.margin || 0);
-			let diameter = size - margin;
 
 			let asFlower = ("asFlower" in attrs && attrs.asFlower !== "false") ? true : false;
 			let withRedraw = (("withRedraw" in attrs) && (attrs.withRedraw != "false"));

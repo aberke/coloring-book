@@ -47,7 +47,7 @@ const transforms = (function() {
     */
     function doRotation(fdPathSet, pdPathSet, rotations, callback, options={}) {
         const animateMs = getAnimationMs();
-        const animateInterval = Math.max(animateMs/Math.round(rotations), 450);
+        const animateInterval = (animateMs > 0) ? Math.max(animateMs/Math.round(rotations), 450) : 0;
 
         const bbox = fdPathSet.getBBox();
         let origin = {
@@ -89,7 +89,12 @@ const transforms = (function() {
                 doComposedTransform(nextFdPathSet, nextPdPathSet, transformString, transformCallback, options);
             } else {
                 nextFdPathSet.transform("..." + transformString);
-                nextPdPathSet.animate({transform: "..." + transformString}, animateInterval, "<", transformCallback);
+                if (!DISABLE_ANIMATIONS) {
+                    nextPdPathSet.animate({transform: "..." + transformString}, animateInterval, "<", transformCallback);
+                } else {
+                    nextPdPathSet.transform("..." + transformString);
+                    transformCallback();
+                }
             }
         };
         drawNextRotation(1);
@@ -108,8 +113,13 @@ const transforms = (function() {
         let animateCallback = function() {
             callback(fdPathSet, pdPathSet);
         };
-        fdPathSet.transform(transformString)
-        pdPathSet.animate({transform: transformString}, animateMs, "<", animateCallback);     
+        fdPathSet.transform(transformString);
+        if (!DISABLE_ANIMATIONS) {
+            pdPathSet.animate({transform: transformString}, animateMs, "<", animateCallback);
+        } else {
+            pdPathSet.transform(transformString);
+            animateCallback();
+        }
     }
 
     function hasRotation(pathSet) {
@@ -169,6 +179,8 @@ const transforms = (function() {
             fdElt.transform(eltTransformString);
 
             let pdElt = flattenedPdPathSet[index];
+            // Do not try to disable animations here -- they transforms must stay in sync.
+            // Otherwise they will end up jumbling the designs on top of eachother.
             let animateParams = {transform: eltTransformString};
             let anim = Raphael.animation(animateParams, animateMs, "<", collector);
             if (!syncElt) {

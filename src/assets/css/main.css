@@ -21,6 +21,8 @@ Writing
 */
 h1, h2, h3 {
 	text-align: center;
+	page-break-inside: avoid;
+	page-break-after: avoid;
 }
 h1 {
 	font-size: 2.2em;
@@ -172,6 +174,9 @@ Style differently for printing on paper -- similar to mobile
 Note: So far this seems to work best with Firefox -- Preview as PDF
 */
 
+.page-print-break-before {
+	page-break-before: always;
+}
 .page-print-break-after {
 	page-break-after: always;
 }
@@ -187,9 +192,6 @@ Note: So far this seems to work best with Firefox -- Preview as PDF
 	display: none;
 }
 .print nav {
-	display: none;
-}
-.print #get-updates-form-container {
 	display: none;
 }
 .print footer {
@@ -221,7 +223,7 @@ Note: So far this seems to work best with Firefox -- Preview as PDF
 	text-align: center;
 }
 
-.coming-soon, #book-page-last.book-page .coming-soon {
+.book-page .coming-soon {
 	font-style: italic;
 	text-align: center;
 	margin-top: 70px;
