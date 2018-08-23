@@ -1,6 +1,7 @@
 
 #theory-reference-page {
 	text-align: center;
+	margin: auto;
 }
 .print #theory-reference-page {
 	page-break-before: always;
@@ -15,6 +16,9 @@
 }
 #theory-reference-page h2 {
 	width: 100%;
+	padding: 10px 0;
+	/*Avoid colliding with menu*/
+	margin-top: 50px;
 }
 .print #theory-reference-page h2 {
 	margin-top: 0;
