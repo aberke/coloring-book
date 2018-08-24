@@ -141,6 +141,19 @@ h1#book-title {
     h1#book-title {
         width: 100%;
     }
+
+    .animate-next-page .book-page.ng-leave.ng-leave-active {
+        top: -1600px;
+    }
+    .animate-next-page .book-page.ng-enter {
+        top: 1600px;
+    }
+    .animate-previous-page .book-page.ng-leave.ng-leave-active {
+        top: 1600px;
+    }
+    .animate-previous-page .book-page.ng-enter {
+        top: -1600px;
+    }
 }
 
 h1#book-title .title-piece {
@@ -198,12 +211,12 @@ move from one book-page to the next with animation:
 .animate-next-page .book-page.ng-leave.ng-leave-active {
     width: 100%;
     position: absolute;
-    top: -1200px;
+    top: -1600px;
 }
 .animate-next-page .book-page.ng-enter {
     width: 100%;
     position: absolute;
-    top: 1200px;
+    top: 1600px;
 }
 
 .animate-previous-page .book-page.ng-leave,
@@ -215,12 +228,12 @@ move from one book-page to the next with animation:
 .animate-previous-page .book-page.ng-leave.ng-leave-active {
     width: 100%;
     position: absolute;
-    top: 1200px;
+    top: 1600px;
 }
 .animate-previous-page .book-page.ng-enter {
     width: 100%;
     position: absolute;
-    top: -1200px;
+    top: -1600px;
 }
 
 .page-change-btn {
