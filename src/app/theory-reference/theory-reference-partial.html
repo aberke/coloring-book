@@ -90,9 +90,32 @@
 
 	    <a href="/theory-reference#order" id="order" class="theory-reference-term-name">Order</a>
 	    <p class="theory-reference-term-definition">The <strong>order</strong> of a group G is the number of elements in G.  The <strong>order</strong> of G is sometimes written as <strong>|G|</strong>.</p>
-	    <p class="theory-reference-term-example">For example, the order of our C3 group of rotations is 3 because C3 has 3 elements: <span class="math-block">&#123;0 turn, <fraction>1/3</fraction> turn, <fraction>2/3</fraction> turn&#125;</span></p>
-	    <!-- TODO: (graphic with triangles) -->
+	    <p style="margin-bottom: 0;" class="theory-reference-term-example">For example, the order of our C3 group of rotations is 3 because C3 has 3 elements:</p>
+    	<div class="text-content-graphic">
+            <p class="text big">&#123;</p>
 
+            <div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                options='{"text":"0 turn", "autoRotateDegrees":120,"initialRotation":0}'
+            ></div>
+            <div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                options='{"text":"1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
+            ></div>
+            <div class='canvas extra-small'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                options='{"text":"2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
+            ></div>
+
+            <!-- closing bracket -->
+            <p class="text big">&#125;</p>
+	    </div>
 
 	    <a href="/theory-reference#set" id="set" class="theory-reference-term-name">Set</a>
 	    <p class="theory-reference-term-definition">A <strong>set</strong> is a collection of distinct elements.</p>
@@ -104,8 +127,8 @@
 
 	    <a href="/theory-reference#subgroup" id="subgroup" class="theory-reference-term-name">Subgroup</a>
 	    <p class="theory-reference-term-definition">Given a group G, a <strong>subgroup</strong> of G is a group with the same <a href="/theory-reference#binary-operator" class="theory-reference-term">binary operator</a> as G and whose members are all also in G.</p>
-	    <p class="theory-reference-term-example">For example, the group of even integers under addition <span class="math-block">&#123;... &minus;2, 0, 2, 4,...&#125;</span>, + is a subgroup of the group of all integers under addition <span class="math-block">&#123;... &minus;2, &minus;1, 0, 1, 2,...&#125;</span>, +.</p>
-	    <p class="theory-reference-term-example">However, the same cannot be said for odd integers.  The set of odd integers under addition <span class="math-block">&#123;... &minus;3, &minus;1, 1, 3, 5,...&#125;</span>, + is not <a href="/theory-reference#closure" class="theory-reference-term">closed</a> and therefore cannot be a group:  Combining odd integers with addition produces even integers (e.g. 1 + 3 = 4), which are clearly not in the set of odd integers.</p>
+	    <p class="theory-reference-term-example">For example, the group of even integers under addition <span class="math-block">&#123;... &minus;2, 0, 2, 4,...&#125;, +</span> is a subgroup of the group of all integers under addition <span class="math-block">&#123;... &minus;2, &minus;1, 0, 1, 2,...&#125;, +</span>.</p>
+	    <p class="theory-reference-term-example">However, the same cannot be said for odd integers.  The set of odd integers under addition <span class="math-block">&#123;... &minus;3, &minus;1, 1, 3, 5,...&#125;, +</span> is not <a href="/theory-reference#closure" class="theory-reference-term">closed</a> and therefore cannot be a group:  Combining odd integers with addition produces even integers (e.g. 1 + 3 = 4), which are clearly not in the set of odd integers.</p>
 	    <p class="theory-reference-term-note">Notice that a group and its subgroups always have the same identity element.</p>
 
 	    <!-- template here: -->
