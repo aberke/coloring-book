@@ -47,6 +47,17 @@
 	line-height: 1.2;
 }
 
+#theory-reference-page .text-content-graphic {
+	text-align: left;
+}
+#theory-reference-page .text-content-graphic p {
+	display: inline-block;
+}
+#theory-reference-page .text-content-graphic .canvas.extra-small {
+	width: 35px;
+	height: 35px;
+}
+
 #theory-reference-page ul li {
 	margin: 5px auto;
 }
@@ -68,6 +79,9 @@
 }
 #theory-reference-page .theory-reference-term-definition {
 	font-size: large;	
+}
+#theory-reference-page .math-block {
+	font-weight: bold;
 }
 
 /*
