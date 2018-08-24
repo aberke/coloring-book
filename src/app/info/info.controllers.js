@@ -5,7 +5,7 @@
 There is one large HTML page for the multiple info views/sections.
 The InfoCntl handles jumping to the right section
 */
-function InfoCntl($location, $anchorScroll) {
+function InfoCntl($anchorScroll) {
     // view model is this InfoCntl
     let vm = this;
 
