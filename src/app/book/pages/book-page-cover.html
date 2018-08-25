@@ -4,14 +4,14 @@
         <div class="content-container">
             <div id="book-title-container">
 
-                <wallpaper-pattern style="height: 70px; margin-bottom: 0;"
+                <!-- Wallpaper pattern height set by CSS on print/non-print basis -->
+                <wallpaper-pattern id="book-cover-top-wallpaper" style="margin-bottom: 0;"
                     pattern-function=curves4
                     draw-options='{"contain":true}'
                     group-name='p4'
                     fundamental-domain-width=35
                     fundamental-domain-height=35
-                ></wallpaper-pattern>
-                <wallpaper-pattern style="height: 70px; margin-top: 0; margin-bottom: 10px;"
+                ></wallpaper-pattern><wallpaper-pattern style="margin-top: 0; margin-bottom: 10px;"
                     pattern-function=curves3
                     draw-options='{"contain":true}'
                     group-name='p4'
@@ -24,7 +24,7 @@
                     <span class="title-piece smaller">A Coloring Book</span>
                 </h1>
 
-                <wallpaper-pattern style="height: 70px; margin-top: 10px;"
+                <wallpaper-pattern style="margin-top: 10px;"
                     pattern-function=curves2
                     draw-options='{"contain":true}'
                     group-name='p4'
@@ -33,7 +33,7 @@
                 ></wallpaper-pattern>
             </div>
 
-            <p>Math is about more than just numbers. In this "book" the story of math is visual, told in shapes and patterns.</p>
+            <p>Math is about more than just numbers. In this “book” the story of math is visual, told in shapes and patterns.</p>
 
             <div class="text-content-graphic">
                 <div id="book-cover-graphic" class="canvas clickable"></div>
