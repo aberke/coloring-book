@@ -49,6 +49,22 @@ Structure
 	display: block;
 }
 
+/*
+Settings for wallpaper on book-cover:
+The top wallpaper has always 1 row.
+The other wallpapers have only 1 row on web version,
+2 rows on print version
+*/
+#book-cover .wallpaper-pattern {
+	height: 70px;
+}
+.print #book-cover .wallpaper-pattern {
+	height: 140px;
+}
+.print #book-cover #book-cover-top-wallpaper.wallpaper-pattern {
+	height: 70px;
+}
+
 #book-cover p {
 	padding: 20px;
 	max-width: 500px;

@@ -24,8 +24,8 @@
                         <figcaption>Moth</figcaption>
                     </figure>
                     <figure>
-                        <img src="/assets/img/symmetry-in-nature/acorn.png" alt="Acorn" height="90px"/>
-                        <figcaption>Acorn</figcaption>
+                        <img src="/assets/img/symmetry-in-nature/sunflower.jpg" alt="Sunflower" height="80px" style="margin: 5px;"/>
+                        <figcaption>Sunflower</figcaption>
                     </figure>
                     <figure>
                         <img src="/assets/img/symmetry-in-nature/starfish.png" alt="Starfish" height="90px"/>
@@ -38,26 +38,25 @@
                 <p>Math creates a space where perfect symmetry can be considered.</p>
 
                 <div class="text-content-graphic line">
-                    <circular-pattern
+                    <circular-pattern class="black"
                         with-redraw
                         rotations=2
                         with-reflection=true
-                        slices-count=3
+                        slices-count=2
                         levels=2
                         margin=5
                         mirror-lines=1
                     ></circular-pattern>
 
-                    <circular-pattern
+                    <circular-pattern class="black"
                         with-redraw
-                        rotations=8
-                        slices-count=2
+                        rotations=10
+                        slices-count=1
                         levels=2
                         margin=5
-                        inscribed=circle
                     ></circular-pattern>
 
-                    <div class='canvas sixth'
+                    <div class='canvas sixth black'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N":5, "concave":true, "withMirrorSections":true}'

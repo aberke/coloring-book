@@ -43,6 +43,12 @@ angular.module('app', [
         .when(PRINT_ROUTE, {
             templateUrl: '/app/book/book.html',
         })
+        .when('/back-cover', {
+            templateUrl: '/app/back-cover.html',
+        })
+        .when('/front-cover', {
+            templateUrl: '/app/front-cover.html',
+        })
         .when('/theory-reference', {
             templateUrl: '/app/theory-reference/theory-reference.html',
         })
