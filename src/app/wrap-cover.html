@@ -1,0 +1,59 @@
+<style>
+/*
+width 18”x11.5” w at least 300 DPI
+= 45.72cm x 29.21cm
+*/
+#cover-wrap {
+	width: 45.72cm;
+	height: 29.21cm;
+}
+
+/*All the lines need to be thicker for the printed cover*/
+#cover-wrap .wallpaper-pattern,
+#cover-wrap .wallpaper-pattern path {
+	stroke-width: 1.3px;
+}
+
+#cover-wrap h1#book-title {
+	font-weight: 500;
+}
+
+#cover-wrap p {
+	font-weight: 400;
+}
+#cover-wrap #book-cover p {
+	font-size: 1.15em;
+}
+
+#cover-wrap #back-cover,
+#cover-wrap #front-cover {
+	display: inline-block;
+	width: unset;
+	vertical-align: top;
+	width: 21.59cm; /*= 8.5"*/
+	height: 29.21cm;
+	margin-top: 0.5cm;
+}
+
+/*Spine needs to be at least 1.073cm */
+#cover-wrap #back-cover {
+	margin-right: 1.08cm;
+	margin-left: 0.3cm;
+}
+#cover-wrap #front-cover {
+	margin-left: 0.8cm;
+}
+#cover-wrap #book-cover {
+	margin: auto;
+}
+
+</style>
+
+
+<div id="cover-wrap">
+
+<ng-include id="back-cover" src="'/app/common/partials/back-cover.html'"></ng-include>
+
+<ng-include id="front-cover" src="'/app/book/pages/book-page-cover.html'"></ng-include>
+
+</div>

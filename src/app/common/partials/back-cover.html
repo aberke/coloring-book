@@ -1,19 +1,12 @@
 <style>
 
-@page {
-    size: 8.75in 11.5in;
-    margin: 0.25in;
-}
-
 #back-cover {
-    width: 100%;
-    display: block;
     margin: auto;
 }
 #back-cover p {
     max-width: 470px;
     text-align: center;
-    margin: 16px auto;
+    margin: 14px auto;
 }
 #back-cover .content-container {
     margin: auto;
@@ -31,12 +24,13 @@
 }
 #back-cover .wallpaper-pattern {
     margin: auto;
-    width: 840px;
+    width: 780px;
 }
 
 #back-cover .wallpaper-and-content-container {
-    width: 840px;
+    width: 780px;
     margin: auto;
+    height: 539px;
 }
 #back-cover .wallpaper-and-content-container .wallpaper-pattern,
 #back-cover .wallpaper-and-content-container .content-container {
@@ -47,12 +41,12 @@
     height must then be a multiple of the fundamental-domain-height
     */ 
     display: inline-block;
-    height: 560px;
+    height: 540px;
     padding: 0;
 }
 #back-cover .wallpaper-and-content-container .content-container {
-    width: 550px;
-    height: 550px;
+    width: 531px;
+    height: 538px;
     vertical-align: top;
 }
 
@@ -64,29 +58,29 @@
 
 <div id="back-cover">
 
-    <wallpaper-pattern style="height: 140px;"
+    <wallpaper-pattern style="height: 120px;"
         pattern-function=curves2
         draw-options='{"contain":true}'
         group-name='p4g'
-        fundamental-domain-width=35
-        fundamental-domain-height=35
+        fundamental-domain-width=30
+        fundamental-domain-height=30
     ></wallpaper-pattern>
-    <wallpaper-pattern style="height: 140px;"
+    <wallpaper-pattern style="height: 120px;"
         pattern-function=curves3
         draw-options='{"contain":true}'
         group-name='p4g'
-        fundamental-domain-width=35
-        fundamental-domain-height=35
+        fundamental-domain-width=30
+        fundamental-domain-height=30
     ></wallpaper-pattern>
 
     <div class="wallpaper-and-content-container">
 
-        <wallpaper-pattern style="width: 140px;"
+        <wallpaper-pattern style="width: 120px;"
             pattern-function=curves3
             draw-options='{"contain":true}'
             group-name='p4g'
-            fundamental-domain-width=35
-            fundamental-domain-height=35
+            fundamental-domain-width=30
+            fundamental-domain-height=30
         ></wallpaper-pattern>
 
         <div class="content-container">
@@ -159,29 +153,27 @@
             <p class="about-illustrations">The illustrations in this book are drawn by algorithms. The algorithms follow the symmetry rules for the illustrated groups. Many of these algorithms also add components of randomness so that each set of illustrations is unique.</p>
         </div>
 
-        <wallpaper-pattern style="width: 140px;"
+        <wallpaper-pattern style="width: 120px;"
             pattern-function=curves3
             draw-options='{"contain":true}'
             group-name='p4g'
-            fundamental-domain-width=35
-            fundamental-domain-height=35
+            fundamental-domain-width=30
+            fundamental-domain-height=30
         ></wallpaper-pattern>
 
-    </div>
-
-    <wallpaper-pattern style="height: 140px;"
+    </div><wallpaper-pattern style="height: 120px;"
         pattern-function=curves4
         draw-options='{"contain":true}'
         group-name='p4g'
-        fundamental-domain-width=35
-        fundamental-domain-height=35
+        fundamental-domain-width=30
+        fundamental-domain-height=30
     ></wallpaper-pattern>
-    <wallpaper-pattern style="height: 70px;"
+    <wallpaper-pattern style="height: 120px;"
         pattern-function=curves5
         draw-options='{"contain":true}'
         group-name='p4g'
-        fundamental-domain-width=35
-        fundamental-domain-height=35
+        fundamental-domain-width=30
+        fundamental-domain-height=30
     ></wallpaper-pattern>
 
 </div>
