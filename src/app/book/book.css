@@ -101,7 +101,6 @@ The other ones must be explicitly told to take up the entire page size.
 
 .print .book-page .coloring-content .wallpaper-pattern {
     height: 910px;
-    margin-top: 15px;
 }
 
 /* Printing */
