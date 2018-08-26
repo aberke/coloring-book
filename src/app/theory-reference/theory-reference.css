@@ -30,6 +30,10 @@
 	page-break-inside: avoid;
 }
 
+#theory-reference-page .theory-reference-term-container {
+	page-break-inside: avoid;
+}
+
 
 #theory-reference-page p,
 #theory-reference-page a.theory-reference-term-name,
