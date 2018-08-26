@@ -445,34 +445,23 @@ with pseudo::after elements added accordingly.
 	position: relative;
 }
 .rotation-point.order-2.bottom-left::before {
-	content: "♦";
+	/*Places a ♦ at the bottom left corner*/
+	content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' stroke='black' stroke-width='1' fill='black' height='10' width='10'><path d='M0 5 L5 0 L10 5 L5 10 Z' /></svg>");
 	position: absolute;
-	bottom: -12;
-	left: -8;
-}
-.extra-small.rotation-point.order-2.bottom-left::before {
-	bottom: -8;
-	left: -5;
-	font-size: x-small;
+	bottom: -5px;
+	left: -5px;
 }
 .rotation-point.order-2.bottom-right::after {
-	content: "♦";
+	content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' stroke='black' stroke-width='1' fill='black' height='10' width='10'><path d='M0 5 L5 0 L10 5 L5 10 Z' /></svg>");
 	position: absolute;
-	bottom: -12;
-	right: -8;
-}
-.extra-small.rotation-point.order-2.bottom-right::after {
-	bottom: -8;
-	right: -5;
-	font-size: x-small;
+	bottom: -5px;
+	right: -5px;
 }
 .rotation-point.order-4.bottom-right::after {
-	content: "■";
+	content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' stroke='black' stroke-width='1' fill='black' height='10' width='10'><path d='M0 0 L10 0 L10 10 L0 10 Z' /></svg>");
 	position: absolute;
-}
-.extra-small.rotation-point.order-4.bottom-right::after {
-	bottom: -9;
-	right: -4;
+	bottom: -5px;
+	right: -5px;
 }
 
 .text-content-graphic figure {
