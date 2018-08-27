@@ -43,136 +43,136 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
     // Some pages are only shown in the print version - printOnly.
     vm.pages = [
         {
-            name: 'cover',
-            url: vm.bookPageUrl('book-page-cover.html'),
-        }, {
-            name: 'about',
-            url: vm.bookPageUrl('book-page-about.html'),
-        }, {
-            name: 'road-map',
-            url: vm.bookPageUrl('book-page-road-map.html'),
-        }, {
-            name: 'before-info',
-            url: vm.bookPageUrl('book-page-before-info.html'),
-            printOnly: true,
-        }, {
-            name: 'table-of-contents',
-            url: vm.bookPageUrl('book-page-table-of-contents.html'),
-        }, {
-            name: 'nature-intro',
-            url: vm.bookPageUrl('book-page-nature-intro.html'),
-        }, {
-            name: 'shapes-intro-1',
-            url: vm.bookPageUrl('book-page-shapes-intro-1.html'),
-        }, {
-            name: 'shapes-intro-2',
-            url: vm.bookPageUrl('book-page-shapes-intro-2.html'),
-        }, {
-            name: 'cn-0',
-            url: vm.bookPageUrl('book-page-shapes-cn-0.html'),
-        }, {
-            name: 'cn-1',
-            url: vm.bookPageUrl('book-page-shapes-cn-1.html'),
-        }, {
-            name: 'cn-2',
-            url: vm.bookPageUrl('book-page-shapes-cn-2.html'),
-        }, {
-            name: 'cn-3',
-            url: vm.bookPageUrl('book-page-shapes-cn-3.html'),
-        }, {
-            name: 'cn-4',
-            url: vm.bookPageUrl('book-page-shapes-cn-4.html'),
-        }, {
-            name: 'cn-5',
-            url: vm.bookPageUrl('book-page-shapes-cn-5.html'),
-        }, {
-        //  name: 'cn-6',
-        //  url: vm.bookPageUrl('book-page-shapes-cn-6.html'),
+        //     name: 'cover',
+        //     url: vm.bookPageUrl('book-page-cover.html'),
         // }, {
-            name: 'cn-7',
-            url: vm.bookPageUrl('book-page-shapes-cn-7.html'),
-        }, {
-            name: 'cn-8',
-            url: vm.bookPageUrl('book-page-shapes-cn-8.html'),
-        }, {
-            name: 'cn-9',
-            url: vm.bookPageUrl('book-page-shapes-cn-9.html'),
-        }, {
-            name: 'cn-10',
-            url: vm.bookPageUrl('book-page-shapes-cn-10.html'),
-        }, {
-            name: 'cn-11',
-            url: vm.bookPageUrl('book-page-shapes-cn-11.html'),
-        }, {
-            name: 'cn-12',
-            url: vm.bookPageUrl('book-page-shapes-cn-12.html'),
-        }, {
-            name: 'cn-13',
-            url: vm.bookPageUrl('book-page-shapes-cn-13.html'),
-        }, {
-            name: 'cn-14',
-            url: vm.bookPageUrl('book-page-shapes-cn-14.html'),
-        }, {
-            name: 'cn-15',
-            url: vm.bookPageUrl('book-page-shapes-cn-15.html'),
-        }, {
-            name: 'cn-16',
-            url: vm.bookPageUrl('book-page-shapes-cn-16.html'),
-        }, {
-            name: 'cn-17',
-            url: vm.bookPageUrl('book-page-shapes-cn-17.html'),
-        }, {
-            name: 'cn-18',
-            url: vm.bookPageUrl('book-page-shapes-cn-18.html'),
-        }, {
-            name: 'cn-19',
-            url: vm.bookPageUrl('book-page-shapes-cn-19.html'),
-        }, {
-            name: 'dn-1',
-            url: vm.bookPageUrl('book-page-shapes-dn-1.html'),
-        }, {
-            name: 'dn-2',
-            url: vm.bookPageUrl('book-page-shapes-dn-2.html'),
-        }, {
-            name: 'dn-3',
-            url: vm.bookPageUrl('book-page-shapes-dn-3.html'),
-        }, {
-            name: 'dn-4',
-            url: vm.bookPageUrl('book-page-shapes-dn-4.html'),
-        }, {
-            name: 'dn-5',
-            url: vm.bookPageUrl('book-page-shapes-dn-5.html'),
-        }, {
-            name: 'dn-6',
-            url: vm.bookPageUrl('book-page-shapes-dn-6.html'),
-        }, {
-            name: 'dn-7',
-            url: vm.bookPageUrl('book-page-shapes-dn-7.html'),
-        }, {
-            name: 'dn-8',
-            url: vm.bookPageUrl('book-page-shapes-dn-8.html'),
-        }, {
-            name: 'dn-9',
-            url: vm.bookPageUrl('book-page-shapes-dn-9.html'),
-        }, {
-            name: 'dn-10',
-            url: vm.bookPageUrl('book-page-shapes-dn-10.html'),
-        }, {
-            name: 'dn-11',
-            url: vm.bookPageUrl('book-page-shapes-dn-11.html'),
-        }, {
-            name: 'dn-12',
-            url: vm.bookPageUrl('book-page-shapes-dn-12.html'),
-        }, {
-            name: 'dn-13',
-            url: vm.bookPageUrl('book-page-shapes-dn-13.html'),
-        }, {
-            name: 'dn-14',
-            url: vm.bookPageUrl('book-page-shapes-dn-14.html'),
-        }, {
-            name: 'dn-15',
-            url: vm.bookPageUrl('book-page-shapes-dn-15.html'),
-        }, {
+        //     name: 'about',
+        //     url: vm.bookPageUrl('book-page-about.html'),
+        // }, {
+        //     name: 'road-map',
+        //     url: vm.bookPageUrl('book-page-road-map.html'),
+        // }, {
+        //     name: 'before-info',
+        //     url: vm.bookPageUrl('book-page-before-info.html'),
+        //     printOnly: true,
+        // }, {
+        //     name: 'table-of-contents',
+        //     url: vm.bookPageUrl('book-page-table-of-contents.html'),
+        // }, {
+        //     name: 'nature-intro',
+        //     url: vm.bookPageUrl('book-page-nature-intro.html'),
+        // }, {
+        //     name: 'shapes-intro-1',
+        //     url: vm.bookPageUrl('book-page-shapes-intro-1.html'),
+        // }, {
+        //     name: 'shapes-intro-2',
+        //     url: vm.bookPageUrl('book-page-shapes-intro-2.html'),
+        // }, {
+        //     name: 'cn-0',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-0.html'),
+        // }, {
+        //     name: 'cn-1',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-1.html'),
+        // }, {
+        //     name: 'cn-2',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-2.html'),
+        // }, {
+        //     name: 'cn-3',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-3.html'),
+        // }, {
+        //     name: 'cn-4',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-4.html'),
+        // }, {
+        //     name: 'cn-5',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-5.html'),
+        // }, {
+        // //  name: 'cn-6',
+        // //  url: vm.bookPageUrl('book-page-shapes-cn-6.html'),
+        // // }, {
+        //     name: 'cn-7',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-7.html'),
+        // }, {
+        //     name: 'cn-8',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-8.html'),
+        // }, {
+        //     name: 'cn-9',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-9.html'),
+        // }, {
+        //     name: 'cn-10',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-10.html'),
+        // }, {
+        //     name: 'cn-11',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-11.html'),
+        // }, {
+        //     name: 'cn-12',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-12.html'),
+        // }, {
+        //     name: 'cn-13',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-13.html'),
+        // }, {
+        //     name: 'cn-14',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-14.html'),
+        // }, {
+        //     name: 'cn-15',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-15.html'),
+        // }, {
+        //     name: 'cn-16',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-16.html'),
+        // }, {
+        //     name: 'cn-17',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-17.html'),
+        // }, {
+        //     name: 'cn-18',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-18.html'),
+        // }, {
+        //     name: 'cn-19',
+        //     url: vm.bookPageUrl('book-page-shapes-cn-19.html'),
+        // }, {
+        //     name: 'dn-1',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-1.html'),
+        // }, {
+        //     name: 'dn-2',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-2.html'),
+        // }, {
+        //     name: 'dn-3',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-3.html'),
+        // }, {
+        //     name: 'dn-4',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-4.html'),
+        // }, {
+        //     name: 'dn-5',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-5.html'),
+        // }, {
+        //     name: 'dn-6',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-6.html'),
+        // }, {
+        //     name: 'dn-7',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-7.html'),
+        // }, {
+        //     name: 'dn-8',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-8.html'),
+        // }, {
+        //     name: 'dn-9',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-9.html'),
+        // }, {
+        //     name: 'dn-10',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-10.html'),
+        // }, {
+        //     name: 'dn-11',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-11.html'),
+        // }, {
+        //     name: 'dn-12',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-12.html'),
+        // }, {
+        //     name: 'dn-13',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-13.html'),
+        // }, {
+        //     name: 'dn-14',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-14.html'),
+        // }, {
+        //     name: 'dn-15',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-15.html'),
+        // }, {
             name: 'dn-16',
             url: vm.bookPageUrl('book-page-shapes-dn-16.html'),
         }, {

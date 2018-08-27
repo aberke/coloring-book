@@ -17,7 +17,7 @@ Default left, right, top, bottom margin is set
 */
 @page {
     size: 8.5in 11in;
-    margin: 0.25in;
+    margin: 0.25in 0;
 }
 
 body.print p {
@@ -101,6 +101,14 @@ The other ones must be explicitly told to take up the entire page size.
 
 .print .book-page .coloring-content .wallpaper-pattern {
     height: 910px;
+}
+.print .book-page .coloring-content .wallpaper-pattern svg,
+.print .book-page .coloring-content .frieze-pattern svg {
+    /*
+    allow patterns to continue to full left/right edges of page
+    but not continue below because they will collide with captinons
+    */
+    overflow: visible !important;
 }
 
 /* Printing */

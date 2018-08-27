@@ -131,7 +131,7 @@ class LineGroupPattern {
         const patternWidth = this.paper.getSize().width;
         // Allow the option to avoid drawing past the boundary of the containing div:
         // If contain is true, stop drawing before hit boundary of the containing div
-        const contain = this.drawOptions.contain || false;
+        const contain = this.drawOptions.contain || this.drawOptions.containWidth || false;
         // Need buffer room in the containing bounds because these dimensions are not precise
         // and without buffer pattern will stop prematurely.
         const containerBuffer = 5;
@@ -146,7 +146,7 @@ class LineGroupPattern {
         let maxHeight = containerBuffer + paperHeight;
         // Allow the option to avoid drawing past the boundary of the containing div:
         // If contained is true, stop drawing before hit boundary of the containing div
-        const contain = this.drawOptions.contain || false;
+        const contain = this.drawOptions.contain || this.drawOptions.containHeight || false;
         if (!!contain) {
             const objectHeight = transformObject.getBBox().height;
             const hMultipler = (this.transformOptions.Y && this.transformOptions.Y.translationOffsetYMultiplier) ? this.transformOptions.Y.translationOffsetYMultiplier : 1;
@@ -164,8 +164,7 @@ class LineGroupPattern {
             return false;
 
         let transformObject = transformSet[transformSet.length - 1];
-        if (!this.maxWidth)
-            this.maxWidth = this.maxTransformWidth(transformObject);
+        this.maxWidth = this.maxTransformWidth(transformObject);
         return (transformSet.getBBox().x2 >= this.maxWidth);
     }
 
@@ -291,7 +290,6 @@ class LineGroupPattern {
         // transform it to start at offset
         let baseFdPath = this.paper.path(this.fundamentalDomainPath);
         let basePdPath = this.paper.path(this.patternDesignPath);
-        this.maxWidth = this.maxTransformWidth(baseFdPath);
         let fdSet = this.paper.set().push(baseFdPath);
         let pdSet = this.paper.set().push(basePdPath);
 
@@ -346,6 +344,8 @@ class WallpaperPattern extends LineGroupPattern {
 
         // If this was a lower row of the transform, take upper row and
         // use transformY.
+        if (!this.maxWidth)
+            this.maxWidth = this.maxTransformWidth(baseFdPath);
         if (!!this.fdPathSet.length && (offsetX > this.maxWidth))
             this.transformY(this.fdPathSet.pop(), this.pdPathSet.pop(), this.drawCallback.bind(this));
         else
