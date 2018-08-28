@@ -131,7 +131,7 @@ class LineGroupPattern {
         const patternWidth = this.paper.getSize().width;
         // Allow the option to avoid drawing past the boundary of the containing div:
         // If contain is true, stop drawing before hit boundary of the containing div
-        const contain = PRINT_MODE || this.drawOptions.contain || this.drawOptions.containWidth || false;
+        const contain = (!!PRINT_MODE) || this.drawOptions.contain || this.drawOptions.containWidth || false;
         // Need buffer room in the containing bounds because these dimensions are not precise
         // and without buffer pattern will stop prematurely.
         const containerBuffer = 0;
@@ -146,7 +146,7 @@ class LineGroupPattern {
         let maxHeight = containerBuffer + paperHeight;
         // Allow the option to avoid drawing past the boundary of the containing div:
         // If contained is true, stop drawing before hit boundary of the containing div
-        const contain = PRINT_MODE || this.drawOptions.contain || this.drawOptions.containHeight || false;
+        const contain = (!!PRINT_MODE) || this.drawOptions.contain || this.drawOptions.containHeight || false;
         if (!!contain) {
             const objectHeight = transformObject.getBBox().height;
             const hMultipler = (this.transformOptions.Y && this.transformOptions.Y.translationOffsetYMultiplier) ? this.transformOptions.Y.translationOffsetYMultiplier : 1;
