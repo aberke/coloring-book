@@ -280,6 +280,7 @@ footer #footer-title {
 	font-weight: 600;
 	margin: 5px 0 50px 0;
 	text-align: left;
+	padding-left: 0;  /* otherwise it is shifted over from frieze-pattern-name on mobile and print */
 }
 
 
