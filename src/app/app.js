@@ -10,6 +10,8 @@ var DISABLE_ANIMATIONS = false;
 const DISABLE_ANIMATIONS_PARAM = 'disable-animations';
 const PRINT_ROUTE = '/print-book';
 const PRINT_PARAM = 'print';
+// Set a print mode accessible to other JS.
+let PRINT_MODE = false;
 
 
 
@@ -43,11 +45,8 @@ angular.module('app', [
         .when(PRINT_ROUTE, {
             templateUrl: '/app/book/book.html',
         })
-        .when('/back-cover', {
-            templateUrl: '/app/back-cover.html',
-        })
-        .when('/front-cover', {
-            templateUrl: '/app/front-cover.html',
+        .when('/wrap-cover', {
+            templateUrl: '/app/wrap-cover.html',
         })
         .when('/theory-reference', {
             templateUrl: '/app/theory-reference/theory-reference.html',
@@ -119,6 +118,7 @@ angular.module('app', [
             $rootScope.print = true;
             vm.print = true;
             DISABLE_ANIMATIONS = true;
+            PRINT_MODE = true;
         } else if (!!$location.search()[DISABLE_ANIMATIONS_PARAM]) {
             DISABLE_ANIMATIONS = true;
         }

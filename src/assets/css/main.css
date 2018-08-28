@@ -439,40 +439,44 @@ in the canvas is too close to the canvas edge.
 Drawing rotation points with CSS:
 They go inside a .rotation-point elt
 with pseudo::after elements added accordingly.
+They are gray when in the text-content-graphic to match the mirror lines.
 */
 
 .rotation-point {
 	position: relative;
 }
-.rotation-point.order-2.bottom-left::before {
-	content: "♦";
+.rotation-point.bottom-left::before {
 	position: absolute;
-	bottom: -12;
-	left: -8;
+	bottom: -5px;
+	left: -5px;	
 }
-.extra-small.rotation-point.order-2.bottom-left::before {
-	bottom: -8;
-	left: -5;
-	font-size: x-small;
+.rotation-point.bottom-right::after {
+	position: absolute;
+	bottom: -5px;
+	right: -5px;	
 }
+/*
+Place a SVG as the content of the rotation point
+It is by default black.
+It is gray to match the mirror-lines if this is in a .text-content-graphic
+*/
+.rotation-point.order-2.bottom-left::before,
 .rotation-point.order-2.bottom-right::after {
-	content: "♦";
-	position: absolute;
-	bottom: -12;
-	right: -8;
+	/*Places a BLACK ♦ at the corner filled with black */
+	content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' stroke='black' fill='black' fill-opacity='1' stroke-width='1' height='10' width='10'><path d='M0 5 L5 0 L10 5 L5 10 Z' /></svg>");
 }
-.extra-small.rotation-point.order-2.bottom-right::after {
-	bottom: -8;
-	right: -5;
-	font-size: x-small;
+.text-content-graphic .rotation-point.order-2.bottom-left::before,
+.text-content-graphic .rotation-point.order-2.bottom-right::after {
+	/*Places a GRAY ♦ at the corner filled with black */
+	content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' stroke='slategray' fill='slategray' fill-opacity='1' stroke-width='1' height='10' width='10'><path d='M0 5 L5 0 L10 5 L5 10 Z' /></svg>");
 }
 .rotation-point.order-4.bottom-right::after {
-	content: "■";
-	position: absolute;
+	/* place a BLACK square at the bottom right corner */
+	content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' stroke='black' fill='black' fill-opacity='1' stroke-width='1' height='10' width='10'><path d='M0 0 L10 0 L10 10 L0 10 Z' /></svg>");
 }
-.extra-small.rotation-point.order-4.bottom-right::after {
-	bottom: -9;
-	right: -4;
+.text-content-graphic .rotation-point.order-4.bottom-right::after {
+	/* place a GRAY square at the bottom right corner */
+	content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' stroke='slategray' fill='slategray' fill-opacity='1' stroke-width='1' height='10' width='10'><path d='M0 0 L10 0 L10 10 L0 10 Z' /></svg>");
 }
 
 .text-content-graphic figure {

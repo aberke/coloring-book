@@ -7,16 +7,16 @@
                 <!-- Wallpaper pattern height set by CSS on print/non-print basis -->
                 <wallpaper-pattern id="book-cover-top-wallpaper" style="margin-bottom: 0;"
                     pattern-function=curves4
-                    draw-options='{"contain":true}'
                     group-name='p4'
                     fundamental-domain-width=35
                     fundamental-domain-height=35
+                    draw-options='{"contain":true}'
                 ></wallpaper-pattern><wallpaper-pattern style="margin-top: 0; margin-bottom: 10px;"
                     pattern-function=curves3
-                    draw-options='{"contain":true}'
                     group-name='p4'
                     fundamental-domain-width=35
                     fundamental-domain-height=35
+                    draw-options='{"contain":true}'
                 ></wallpaper-pattern>
 
                 <h1 id="book-title">
@@ -26,47 +26,22 @@
 
                 <wallpaper-pattern style="margin-top: 10px;"
                     pattern-function=curves2
-                    draw-options='{"contain":true}'
                     group-name='p4'
                     fundamental-domain-width=35
                     fundamental-domain-height=35
+                    draw-options='{"contain":true}'
                 ></wallpaper-pattern>
             </div>
 
             <p>Math is about more than just numbers. In this “book” the story of math is visual, told in shapes and patterns.</p>
 
-            <div class="text-content-graphic">
-                <div id="book-cover-graphic" class="canvas clickable"></div>
-                <script type="text/javascript-lazy">
-
-                    // draw the arrow head curve with a 'redraw' onclick
-                    var sierpinskiArrowheadCurvePaper = new Raphael("book-cover-graphic");
-
-                    // TODO? break this out and put into the fractals repo?
-                    var drawSierpinskiArrowheadCurveWithBase = function(paper, centerPoint, size, options) {
-                        options = options || {};
-                        options.level = options.level || 4;
-                        var sierpinskiTrianglePath = sierpinskiTriangle.getSierpinskiTriangle(centerPoint, size, options);
-                        var sierpinskiArrowheadCurvePath = sierpinskiArrowheadCurve.getSierpinskiArrowheadCurve(centerPoint, size, options);
-                        // draw sierpinskiTrianglePath as base
-                        var pathBelow = paper.path(sierpinskiTrianglePath);
-                        pathBelow.attr({'stroke': fractalsUtil.LIGHT_GRAY});
-                        // draw with animation on top of base in darker stroke color
-                        fractalsUtil.drawPathByPath(paper, sierpinskiArrowheadCurvePath);
-                    }
-
-                    var redrawSierpinskiArrowheadCurveWithBase = function() {
-                        sierpinskiArrowheadCurvePaper.clear();
-                        drawInCanvasCenter(sierpinskiArrowheadCurvePaper, drawSierpinskiArrowheadCurveWithBase);
-
-                        analytics.trackRedraw("SierpinskiArrowheadCurve");
-                    }
-                    // add mouse-up handler to the canvas to cause redraw
-                    sierpinskiArrowheadCurvePaper.canvas.addEventListener("mouseup", redrawSierpinskiArrowheadCurveWithBase);
-
-                    drawInCanvasCenter(sierpinskiArrowheadCurvePaper, drawSierpinskiArrowheadCurveWithBase);
-
-                </script>
+            <div class="text-content-graphic line">
+                <div class='canvas third'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 8, "concave":true, "withMirrorSections": true, "coloring":[0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1]}'
+                options='{"autoRotateDegrees":90, "stroke-width":1}'
+                ></div>
             </div>
 
             <p>Group theory is a mathematical study with which we can explore symmetry.</p>

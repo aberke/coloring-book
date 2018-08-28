@@ -22,11 +22,15 @@
 	font-weight: 600;
 }
 
+.print .info-view {
+	max-width: 700px;
+}
+
 .print .info-view p {
     font-size: small;
     padding: 10px;
     padding-top: 0;
-    max-width: 800px;
+    max-width: 650px;
 }
 
 .info-view h3 {
@@ -101,6 +105,9 @@
 	padding-top: 8px;
 }
 
+.info-view#about-the-author-and-project {
+	max-width: 600px;
+}
 .info-view#about-the-author-and-project img {
 	max-width: 350px;
 }

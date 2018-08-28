@@ -17,7 +17,7 @@ Default left, right, top, bottom margin is set
 */
 @page {
     size: 8.5in 11in;
-    margin: 0.25in;
+    margin: 0.25in 0;
 }
 
 body.print p {
@@ -35,9 +35,40 @@ Need content to start on an even page so that text aligns with designs
 }
 
 /*
+Create page numbers when in print mode that start at 1 on the
+first page where there is text-content
+*/
+body.print {
+    counter-reset: page;
+}
+
+.print .book-page .text-content::after,
+.print .book-page .coloring-content::after {
+    counter-increment: page;
+    content: counter(page);
+}
+ /* Make sure the pae is at least so long so that page number does not come up too high */
+
+.print .book-page .text-content,
+.print .book-page .coloring-content,
+.print #end-page-content {
+    min-height: 700px;
+}
+
+/*
 Each page has its height and width set to match the @page definition.
 Most .book-pages are two pages with .text-content and .coloring-content.
 The other ones must be explicitly told to take up the entire page size.
+
+The padding/spacing for the coloring-content is slightly different:
+In order to fit a multiple of 4 fundamental domains for
+frieze/wallpaper patterns using:
+    pattern fundamental-domain-width = 48
+    coloring-content width: 770 (~ 47 x 16)
+THIS IS IMPORTANT: So that shapes do not get cuttoff and 
+patterns with order-4 rotations can be better seen.
+Note: frickin firefox blows up the width so I am using smaller width
+for many wallpaper patterns;
 */
 .print .book-page .text-content,
 .print .book-page .coloring-content,
@@ -45,14 +76,24 @@ The other ones must be explicitly told to take up the entire page size.
 .print #road-map, 
 .print #before-info,
 .print #table-of-contents,
-.print #after-info
-{
+.print #after-info {
     page-break-after: always;
+    border: none;
+    position: relative;
+}
+.print .book-page .text-content,
+.print #book-cover,
+.print #road-map, 
+.print #before-info,
+.print #table-of-contents,
+.print #after-info {
     padding: 0 1.5%;
     width: 97%; /* allow the padding - works best with firefox printing */
-    border: none;
-
-    position: relative;
+}
+.print .book-page .coloring-content {
+    width: 770px;
+    padding: 0;
+    margin: auto;
 }
 .print .book-page .text-content,
 .print .book-page .coloring-content,
@@ -101,7 +142,14 @@ The other ones must be explicitly told to take up the entire page size.
 
 .print .book-page .coloring-content .wallpaper-pattern {
     height: 910px;
-    margin-top: 15px;
+}
+.print .book-page .coloring-content .wallpaper-pattern svg,
+.print .book-page .coloring-content .frieze-pattern svg {
+    /*
+    allow patterns to continue to full left/right edges of page
+    but not continue below because they will collide with captinons
+    */
+    overflow: visible !important;
 }
 
 /* Printing */
