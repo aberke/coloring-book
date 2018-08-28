@@ -11,7 +11,7 @@
                 <!-- [pattern with rotationOffsetYMultiplier = 1] -->
                 <wallpaper-pattern style="height: 180px;"
                     pattern-function='trianglePath'
-                    draw-options='{"contain":true, "rotationOffsetYMultiplier": 1}'
+                    draw-options='{"rotationOffsetYMultiplier": 1}'
                     group-name='pmg'
                     fundamental-domain-width=30
                     fundamental-domain-height=30
@@ -22,7 +22,7 @@
                 <!-- [pattern with rotationOffsetYMultiplier != 1] -->
                 <wallpaper-pattern style="height: 150px;"
                     pattern-function='trianglePath'
-                    draw-options='{"contain":true, "rotationOffsetYMultiplier": 0.5}'
+                    draw-options='{"rotationOffsetYMultiplier": 0.5}'
                     group-name='pmg'
                     fundamental-domain-width=30
                     fundamental-domain-height=30
@@ -44,10 +44,9 @@
             <div class="content-container">
                 <wallpaper-pattern
                     pattern-function=curvesToStraightSide
-                    draw-options='{"containHeight":true}'
                     group-name='pmg'
-                    fundamental-domain-width=50
-                    fundamental-domain-height=50
+                    fundamental-domain-width=45
+                    fundamental-domain-height=45
                 ></wallpaper-pattern>
             </div>
             <p class="design-caption">pmg wallpaper pattern: mirror reflection, glide reflection, ½ turn rotation, translation</p>
