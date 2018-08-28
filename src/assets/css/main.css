@@ -379,6 +379,14 @@ But shrinks the canvas for smaller, mobile views */
 	text-align: center;
 	stroke-linejoin: bevel;
 }
+/*
+Leave space at the top for the wider line.
+Otherwise it looks sliced off when the outline of the illustration
+in the canvas is too close to the canvas edge.
+*/
+.text-content-graphic .canvas.inscribe svg {
+	padding: 1px;
+}
 .text-content-graphic .canvas .mirror-line {
 	stroke: slategray;
 	stroke-width: 1;
@@ -398,6 +406,10 @@ But shrinks the canvas for smaller, mobile views */
 	display: inline-block;
 	vertical-align: middle;
 	border-right: 1px solid #f1f1f1;
+}
+
+.coloring-content .mirror-line {
+	stroke: black;
 }
 
 .canvas.small,

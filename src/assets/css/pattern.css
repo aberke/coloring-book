@@ -212,6 +212,13 @@ Wallpaper and Frieze Page specific
 	opacity: 1;
 	stroke-width: 1.5px;
 }
+/*
+avoid cutting off the side of the drawing:
+*/
+#wallpaper-page simple-drawing svg {
+	padding: 1px;
+}
+
 
 /* Icons */
 
@@ -290,6 +297,14 @@ Pattern styling (vs just pattern page styling)
 .coloring-content .frieze-pattern path,
 .coloring-content .wallpaper-pattern path {
 	stroke-width: 1.3;
+}
+/*
+Add padding around the SVG so that the lines near the edges do not
+get sliced off.
+*/
+.frieze-pattern svg,
+.wallpaper-pattern svg {
+	padding: 1px;
 }
 
 /* Style the symmetries of the frieze patterns 
