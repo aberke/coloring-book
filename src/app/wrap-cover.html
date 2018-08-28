@@ -25,23 +25,39 @@ width 18”x11.5” w at least 300 DPI
 	font-size: 1.15em;
 }
 
+#cover-wrap #back-cover-container,
+#cover-wrap #front-cover-container {
+	display: inline-block;
+	width: 50%;
+	margin: 0.5cm 0;
+}
+#cover-wrap #back-cover-container {
+	float: left;
+}
+#cover-wrap #front-cover-container {
+	float: right;
+}
+
 #cover-wrap #back-cover,
 #cover-wrap #front-cover {
-	display: inline-block;
-	width: unset;
-	vertical-align: top;
-	width: 21.59cm; /*= 8.5"*/
+	/*= 8.5"*/
+	width: 21.59cm;
 	height: 29.21cm;
-	margin-top: 0.5cm;
+}
+#cover-wrap #back-cover {
+	margin-left: 0;
+}
+#cover-wrap #front-cover {
+	margin-right: 0;
 }
 
 /*Spine needs to be at least 1.073cm */
 #cover-wrap #back-cover {
-	margin-right: 1.08cm;
-	margin-left: 0.3cm;
+/*	margin-right: 1.10cm;
+	margin-left: 0.3cm;*/
 }
 #cover-wrap #front-cover {
-	margin-left: 0.8cm;
+	/*margin-left: 0.8cm;*/
 }
 #cover-wrap #book-cover {
 	margin: auto;
@@ -52,8 +68,8 @@ width 18”x11.5” w at least 300 DPI
 
 <div id="cover-wrap">
 
-<ng-include id="back-cover" src="'/app/common/partials/back-cover.html'"></ng-include>
+<ng-include id="back-cover-container" src="'/app/common/partials/back-cover.html'"></ng-include>
 
-<ng-include id="front-cover" src="'/app/book/pages/book-page-cover.html'"></ng-include>
+<ng-include id="front-cover-container" src="'/app/book/pages/book-page-cover.html'"></ng-include>
 
 </div>

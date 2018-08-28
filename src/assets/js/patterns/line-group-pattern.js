@@ -134,7 +134,7 @@ class LineGroupPattern {
         const contain = this.drawOptions.contain || this.drawOptions.containWidth || false;
         // Need buffer room in the containing bounds because these dimensions are not precise
         // and without buffer pattern will stop prematurely.
-        const containerBuffer = 5;
+        const containerBuffer = 0;
         return containerBuffer + (contain ? (patternWidth - objectWidth) : patternWidth);
     }
 
@@ -142,7 +142,7 @@ class LineGroupPattern {
         const paperHeight = this.paper.getSize().height;
         // Need some buffer room in the containing bounds because these dimensions are not precise
         // and without buffer pattern will stop prematurely.
-        const containerBuffer = 5;
+        const containerBuffer = 0;
         let maxHeight = containerBuffer + paperHeight;
         // Allow the option to avoid drawing past the boundary of the containing div:
         // If contained is true, stop drawing before hit boundary of the containing div

@@ -35,6 +35,27 @@ Need content to start on an even page so that text aligns with designs
 }
 
 /*
+Create page numbers when in print mode that start at 1 on the
+first page where there is text-content
+*/
+body.print {
+    counter-reset: page;
+}
+
+.print .book-page .text-content::after,
+.print .book-page .coloring-content::after {
+    counter-increment: page;
+    content: counter(page);
+}
+ /* Make sure the pae is at least so long so that page number does not come up too high */
+
+.print .book-page .text-content,
+.print .book-page .coloring-content,
+.print #end-page-content {
+    min-height: 700px;
+}
+
+/*
 Each page has its height and width set to match the @page definition.
 Most .book-pages are two pages with .text-content and .coloring-content.
 The other ones must be explicitly told to take up the entire page size.

@@ -43,31 +43,31 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
     // Some pages are only shown in the print version - printOnly.
     vm.pages = [
         {
-        //     name: 'cover',
-        //     url: vm.bookPageUrl('book-page-cover.html'),
-        // }, {
-        //     name: 'about',
-        //     url: vm.bookPageUrl('book-page-about.html'),
-        // }, {
-        //     name: 'road-map',
-        //     url: vm.bookPageUrl('book-page-road-map.html'),
-        // }, {
-        //     name: 'before-info',
-        //     url: vm.bookPageUrl('book-page-before-info.html'),
-        //     printOnly: true,
-        // }, {
-        //     name: 'table-of-contents',
-        //     url: vm.bookPageUrl('book-page-table-of-contents.html'),
-        // }, {
-        //     name: 'nature-intro',
-        //     url: vm.bookPageUrl('book-page-nature-intro.html'),
-        // }, {
-        //     name: 'shapes-intro-1',
-        //     url: vm.bookPageUrl('book-page-shapes-intro-1.html'),
-        // }, {
-        //     name: 'shapes-intro-2',
-        //     url: vm.bookPageUrl('book-page-shapes-intro-2.html'),
-        // }, {
+            name: 'cover',
+            url: vm.bookPageUrl('book-page-cover.html'),
+        }, {
+            name: 'about',
+            url: vm.bookPageUrl('book-page-about.html'),
+        }, {
+            name: 'road-map',
+            url: vm.bookPageUrl('book-page-road-map.html'),
+        }, {
+            name: 'before-info',
+            url: vm.bookPageUrl('book-page-before-info.html'),
+            printOnly: true,
+        }, {
+            name: 'table-of-contents',
+            url: vm.bookPageUrl('book-page-table-of-contents.html'),
+        }, {
+            name: 'nature-intro',
+            url: vm.bookPageUrl('book-page-nature-intro.html'),
+        }, {
+            name: 'shapes-intro-1',
+            url: vm.bookPageUrl('book-page-shapes-intro-1.html'),
+        }, {
+            name: 'shapes-intro-2',
+            url: vm.bookPageUrl('book-page-shapes-intro-2.html'),
+        }, {
         //     name: 'cn-0',
         //     url: vm.bookPageUrl('book-page-shapes-cn-0.html'),
         // }, {
@@ -173,9 +173,9 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         //     name: 'dn-15',
         //     url: vm.bookPageUrl('book-page-shapes-dn-15.html'),
         // }, {
-            name: 'dn-16',
-            url: vm.bookPageUrl('book-page-shapes-dn-16.html'),
-        }, {
+        //     name: 'dn-16',
+        //     url: vm.bookPageUrl('book-page-shapes-dn-16.html'),
+        // }, {
             name: 'frieze-1',
             url: vm.bookPageUrl('book-page-frieze-1.html'),
         }, {

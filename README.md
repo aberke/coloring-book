@@ -188,6 +188,7 @@ Can upload images to combine into GIFs here: http://gifmaker.me/
 - OR Use https://giphy.com/create/gifmaker to convert .mov file to gif
 
 
+
 ### Pieces
 
 /pieces
