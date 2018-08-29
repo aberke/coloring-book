@@ -56,13 +56,13 @@ The other wallpapers have only 1 row on web version,
 2 rows on print version
 */
 #book-cover .wallpaper-pattern {
-	height: 70px;
+	height: 65px;
 }
 .print #book-cover .wallpaper-pattern {
-	height: 140px;
+	height: 130px;
 }
 .print #book-cover #book-cover-top-wallpaper.wallpaper-pattern {
-	height: 70px;
+	height: 65px;
 }
 
 #book-cover p {
@@ -353,7 +353,8 @@ footer #footer-title {
 	margin: auto;
 	text-align: center;
 }
-.text-content-graphic p {
+.text-content-graphic p,
+.print .text-content-graphic p.mobile-block {
 	font-family: sans-serif;
 	font-weight: 700;
 	text-align: center;
@@ -366,10 +367,15 @@ footer #footer-title {
 	line-height: 2;
 }
 
-/* The mobile-small class makes a canvas the normal size for larger views
-But shrinks the canvas for smaller, mobile views */
+/*
+The mobile-small class makes a canvas the normal size for larger views
+But shrinks the canvas for smaller, mobile views
+UNLESS in .print mode
+*/
 .canvas.mobile-small,
-.text-content-graphic .canvas {
+.text-content-graphic .canvas,
+.print .canvas.mobile-small,
+.print .text-content-graphic .canvas.mobile-small {
 	width: 70px;
 	height: 70px;
 	display: inline-block;
