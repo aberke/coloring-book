@@ -21,11 +21,25 @@
 }
 #back-cover .wallpaper-pattern {
     margin: auto;
-    width: 780px;
+    width: 844px;
 }
+/*
+The segments of wallpaper patterns must be in multiples of 
+4xwidth of fundamental domain so that wallpaper patterns can fully unfold.
+
+Side segments:      4xfundamental-domain-width
+                    = 4x30 = 120
+Interior segment:   4x5xfundamental-domain-width
+                    =4x5x30 = 600
+
+Total width: 2 x (side segments width) +  Interior segment
+                    = 2x120 + 600 ~ 840 <-- allowing a little padding
+
+*/
+
 
 #back-cover .wallpaper-and-content-container {
-    width: 780px;
+    width: 844px;
     margin: auto;
     height: 539px;
 }
@@ -38,30 +52,26 @@
     height must then be a multiple of the fundamental-domain-height
     */ 
     display: inline-block;
-    height: 540px;
+    height: 544px;
     padding: 0;
 }
 #back-cover .wallpaper-and-content-container .content-container {
-    width: 531px;
+    width: 590px;
     height: 538px;
     vertical-align: top;
-}
-
-#back-cover .#back-cover p.about-illustrations {
-	font-style: italic;
 }
 
 </style>
 
 <div id="back-cover">
 
-    <wallpaper-pattern style="height: 120px;"
+    <wallpaper-pattern style="height: 122px;"
         pattern-function=curves2
         group-name='p4g'
         fundamental-domain-width=30
         fundamental-domain-height=30
     ></wallpaper-pattern>
-    <wallpaper-pattern style="height: 120px;"
+    <wallpaper-pattern style="height: 122px;"
         pattern-function=curves3
         group-name='p4g'
         fundamental-domain-width=30
@@ -70,7 +80,7 @@
 
     <div class="wallpaper-and-content-container">
 
-        <wallpaper-pattern style="width: 120px;"
+        <wallpaper-pattern style="width: 122px;"
             pattern-function=curves3
             group-name='p4g'
             fundamental-domain-width=30
@@ -147,20 +157,20 @@
             <p class="about-illustrations">The illustrations in this book are drawn by algorithms. The algorithms follow the symmetry rules for the illustrated groups. Many of these algorithms also add components of randomness so that each set of illustrations is unique.</p>
         </div>
 
-        <wallpaper-pattern style="width: 120px;"
+        <wallpaper-pattern style="width: 122px;"
             pattern-function=curves3
             group-name='p4g'
             fundamental-domain-width=30
             fundamental-domain-height=30
         ></wallpaper-pattern>
 
-    </div><wallpaper-pattern style="height: 120px;"
+    </div><wallpaper-pattern style="height: 122px;"
         pattern-function=curves4
         group-name='p4g'
         fundamental-domain-width=30
         fundamental-domain-height=30
     ></wallpaper-pattern>
-    <wallpaper-pattern style="height: 120px;"
+    <wallpaper-pattern style="height: 122px;"
         pattern-function=curves5
         group-name='p4g'
         fundamental-domain-width=30
