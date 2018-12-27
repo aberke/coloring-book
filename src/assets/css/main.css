@@ -540,6 +540,9 @@ figcaption, .design-caption, .print .design-caption {
 		padding-left: 5px;
 		padding-right: 5px;
 	}
+	p.mobile-small {
+		font-size: small;
+	}
 	.text-content-graphic p {
 		padding: 0;
 	}
