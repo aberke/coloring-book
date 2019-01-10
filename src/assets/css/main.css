@@ -20,7 +20,6 @@ body {
 Writing 
 */
 h1, h2, h3 {
-	text-align: center;
 	page-break-inside: avoid;
 	page-break-after: avoid;
 }
@@ -163,10 +162,15 @@ The other wallpapers have only 1 row on web version,
 	vertical-align: middle;
 }
 .text-content {
+	padding-left: 2%;
+	padding-right: 0.5%;
 	max-width: 600px;
 	width: 40%;
 	min-height: 200px;
 	vertical-align: middle;
+}
+.book-page .text-content .content-container-wrapper {
+	text-align: left;
 }
 .book-page .coloring-content {
 	width: 54%;
@@ -351,7 +355,6 @@ footer #footer-title {
 .text-content-graphic {
 	display: block;
 	margin: auto;
-	text-align: center;
 }
 .text-content-graphic p,
 .print .text-content-graphic p.mobile-block {
@@ -485,6 +488,16 @@ It is gray to match the mirror-lines if this is in a .text-content-graphic
 	content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' stroke='slategray' fill='slategray' fill-opacity='1' stroke-width='1' height='10' width='10'><path d='M0 0 L10 0 L10 10 L0 10 Z' /></svg>");
 }
 
+figure {
+	margin: 5px 0;
+}
+figcaption {
+	padding-top: 4px;
+}
+.text-content-graphic figcaption {
+	text-align: center;
+}
+
 .text-content-graphic figure {
     display: inline-block;
     padding: 0;
@@ -493,14 +506,18 @@ It is gray to match the mirror-lines if this is in a .text-content-graphic
 .text-content-graphic figure.larger img {
     height: 130px;
 }
-figcaption, .design-caption, .print .design-caption {
+figcaption,
+.design-caption,
+.print .design-caption {
     font-size: 12px;
     font-style: italic;
-    text-align: center;
 }
-.print .design-caption {
+body.print .design-caption {
     font-size: 13px;
-    text-align: center;
+	text-align: center;
+}
+.design-caption {
+	text-align: center;
 }
 
 .share-btn {
@@ -579,6 +596,7 @@ figcaption, .design-caption, .print .design-caption {
 	/*allow vertical space between text-content and coloring-content on mobile*/
 	.book-page .text-content {
 		margin-bottom: 50px;
+		text-align: center;
 	}
 	.book-page .text-content, .book-page .coloring-content {
 		padding: 0 1.5%;

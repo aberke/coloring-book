@@ -219,11 +219,11 @@ h1#book-title .title-piece.smaller {
 .book-section-title, .book-section-subtitle {
     display: inline-block;
     margin: 30px auto;
-    padding: 15px 30px;
+    margin-bottom: 50px;
+    padding: 15px 0px;
     min-width: 50%;
     font-weight: 400;
     font-size: 2em;
-    border-bottom: 7px double #670067;
     text-transform: uppercase;
 }
 
