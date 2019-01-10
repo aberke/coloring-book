@@ -1,0 +1,177 @@
+<div class="book-page consolidated" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES</span>
+            <span class="page-number"></span>
+        </div>
+
+        <div class="content-container-wrapper">
+            <div class="content-container">
+                <br/>
+                <br/>
+                <br/>
+                <h2 class="book-section-title">ROTATIONS</h2>
+
+                <br/>
+                <br/>
+
+                <p>A regular triangle has equal side lengths and equal angles.</p>
+
+                <!-- [triangle] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"autoRotateDegrees":120}'
+                    ></div>
+                </div>
+
+                <p>What’s more, it can be rotated ⅓ of the way around a circle and appear unchanged.  Had our eyes been closed when it rotated, we would not have noticed a difference.</p>
+
+                <!-- [triangle inscribed within circle.  Rotates on interval] → [triangle inscribed within circle.  Rotates on interval, ⅓ turn written below] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas inscribe small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"autoRotateDegrees":120,"inscribed":"circle", "text":" "}'
+                    ></div>
+
+                    <p class="text big">&rarr;</p>
+
+                    <div class='canvas inscribe small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"text":"1/3 turn","autoRotateDegrees":120,"inscribed":"circle"}'
+                    ></div>
+                </div>
+
+                <p>If the triangle is instead rotated by an arbitrary amount, like ¼ of the way around a circle, it will then appear changed, since it is oriented differently.</p>
+
+                <div class="text-content-graphic line">
+                    <div class='canvas inscribe small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"autoRotateDegrees":120,"inscribed":"circle", "text":" "}'
+                    ></div>
+
+                    <p class="text big">&rarr;</p>
+
+                    <div class='canvas inscrib small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"text":"1/4 turn","autoRotateDegrees":120,"inscribed":"circle","initialRotation":90}'
+                    ></div>
+                    <div class='canvas inscribe small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"text":"2/4 turn","autoRotateDegrees":120,"inscribed":"circle","initialRotation":180}'
+                    ></div>
+                    <div class='canvas inscribe small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"text":"3/4 turn","autoRotateDegrees":120,"inscribed":"circle","initialRotation":270}'
+                    ></div>
+                </div>
+
+                <p>We can even find ways to color the triangle so that a ⅓ turn still does not change it.</p>
+                <!-- [Triangle, colored to keep C3] -⅓ turn → [triangle, turned] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas third small'
+                        canvas-centered-drawing 
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "withMirrorSections": true, "coloring": [1,0,1,0,1,0]}'
+                        options='{"autoRotateDegrees":"120", "text":" "}'
+                    ></div>
+
+                    <p class="text big">&rarr;</p>
+
+                    <div class='canvas third small'
+                        canvas-centered-drawing 
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "withMirrorSections": true, "coloring": [1,0,1,0,1,0]}'
+                        options='{"autoRotateDegrees":"120", "initialRotation":120, "text":"1/3 turn"}'
+                    ></div>
+                </div>
+
+                <p>While this will not work for other ways.</p>
+                <!-- [Triangle colored to have only V mirror symmetry] -⅓ turn → [triangle, turned] -->
+                <!-- [Triangle colored to have only H mirror symmetry] -⅓ turn → [triangle, turned] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas third small'
+                        canvas-centered-drawing 
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "withMirrorSections": true, "coloring": [1,1,0,1,1,0]}'
+                        options='{"autoRotateDegrees":"120", "text":" "}'
+                    ></div>
+
+                    <p class="text big">&rarr;</p>
+
+                    <div class='canvas third small'
+                        canvas-centered-drawing 
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "withMirrorSections": true, "coloring": [1,1,0,1,1,0]}'
+                        options='{"autoRotateDegrees":"120", "initialRotation":120, "text":"1/3 turn"}'
+                    ></div>
+                </div>
+                <div class="text-content-graphic line">
+                    <div class='canvas third small'
+                        canvas-centered-drawing 
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "withMirrorSections": true, "coloring": [0,1,1,0,0,0]}'
+                        options='{"autoRotateDegrees":"120", "text":" "}'
+                    ></div>
+                    
+                    <p class="text big ">&rarr;</p>
+
+                    <div class='canvas third small'
+                        canvas-centered-drawing 
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "withMirrorSections": true, "coloring": [0,1,1,0,0,0]}'
+                        options='{"autoRotateDegrees":"120", "initialRotation":120, "text":"1/3 turn"}'
+                    ></div>
+                </div>
+
+
+                <p class="challenge">Check in: Which of the following colored triangles can be rotated by a ⅓ turn without changing in appearance?</p>
+
+                <!-- [colorings of triangles] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas third small'
+                        canvas-centered-drawing 
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "withMirrorSections": true, "coloring": [0,0,1,1,1,1]}'
+                        options='{"autoRotateDegrees":"120"}'
+                    ></div>
+                    <div class='canvas third small'
+                        canvas-centered-drawing 
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "withMirrorSections": true, "coloring": [1,1,1,1,1,1]}'
+                        options='{"autoRotateDegrees":"120"}'
+                    ></div>
+                    <div class='canvas third small'
+                        canvas-centered-drawing 
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "withMirrorSections": true, "coloring": [0,1,0,1,0,1]}'
+                        options='{"autoRotateDegrees":"120"}'
+                    ></div>
+                    <div class='canvas third small'
+                        canvas-centered-drawing 
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "withMirrorSections": true, "coloring": [0,0,1,0,0,1]}'
+                        options='{"autoRotateDegrees":"120"}'
+                    ></div>
+                </div>
+
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+</div>

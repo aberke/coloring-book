@@ -201,6 +201,11 @@ Can upload images to combine into GIFs here: http://gifmaker.me/
 Share with http://www.coloring-book.co not http://coloring-book.co to avoid redirect
 
 
+### Coloring Workbook
+
+This book is in the process of being transformed into more of a 'workbook' for publication.
+
+
 ### License
 
 

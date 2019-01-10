@@ -1,25 +1,23 @@
-<div class="book-page" id="before-info" ng-if="book.page.name == p.name || main.print">
+<div id="before-info" ng-if="book.page.name == p.name || main.print">
+    <div class="book-page content-container-wrapper">
+        <div class="content-container">       
 
-        <!-- 
-        This is a long page.  Assign the print breaks as desired based on the length
-        of the content, optimizing for not breaking up sections.
-        -->
-        <div class="content-container-wrapper">
-            <div class="content-container">       
+            <!-- Who This Book Is For -->
+            <ng-include src="'/app/info/partials/who-this-book-is-for.html'"></ng-include>
 
-                <!-- Who This Book Is For -->
-                <ng-include src="'/app/info/partials/who-this-book-is-for.html'"></ng-include>
+            <!-- What This “Book” Is And Is About -->
+            <ng-include src="'/app/info/partials/what-this-book-is-and-is-about.html'"></ng-include>
 
-                <!-- What This “Book” Is And Is About -->
-                <ng-include src="'/app/info/partials/what-this-book-is-and-is-about.html'"></ng-include>
+            <!-- How To Use This “Book” -->
+            <ng-include src="'/app/info/partials/how-to-use-this-book.html'"></ng-include>
 
-                <!-- How To Use This “Book” -->
-                <ng-include src="'/app/info/partials/how-to-use-this-book.html'"></ng-include>
-
-                <!-- Why A Coloring Book -->
-                <ng-include class="page-print-break-before page-print-break-after" src="'/app/info/partials/why-a-coloring-book.html'"></ng-include>
-
-	        </div>
-	    </div>
-
+        </div>
+    </div>
+    <div class="book-page content-container-wrapper">
+        <div class="content-container">       
+            <!-- Why A Coloring Book -->
+            <ng-include class="page-print-break-before page-print-break-after" src="'/app/info/partials/why-a-coloring-book.html'"></ng-include>
+        </div>
+    </div>
 </div>
+
