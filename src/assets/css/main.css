@@ -543,6 +543,14 @@ body.print .design-caption {
 	.mobile-only {
 		display: block;
 	}
+	.book-page .text-content .content-container-wrapper {
+		text-align: center;
+	}
+	.text-content-graphic,
+	figure {
+		text-align: center;
+	}
+	
 	.text-content-graphic .canvas.mobile-only {
 		display: inline-block;
 	}
