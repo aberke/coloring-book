@@ -25,6 +25,17 @@
 .print .info-view {
 	max-width: 700px;
 }
+.print .info-view h2,
+.info-view h2,
+.print .info-view h3,
+.info-view h3,
+.print .info-view h4,
+.info-view h4,
+.print .info-view h5,
+.info-view h5 {
+	text-align: center;
+}
+
 
 .print .info-view p {
     font-size: small;
