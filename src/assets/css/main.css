@@ -33,7 +33,7 @@ h1 {
 p {
 	text-align: left;
 	line-height: 1.3;
-	font-weight: 300;
+	font-weight: 400;
 }
 /* Writing */
 
@@ -78,18 +78,28 @@ The other wallpapers have only 1 row on web version,
 #table-of-contents {
     padding-bottom: 20px;
 }
+#table-of-contents .content-container,
+.print #table-of-contents .content-container {
+	text-align: left;
+	max-width: 600px;
+	padding: 2%;
+	margin: auto;
+}
 
 #table-of-contents .book-section-title {
-    margin-bottom: 20px;
+	margin: 0;
+    margin-bottom: 25px;
     padding: 15px 0;
     max-width: 90%;
     min-width: 45%;
+}
+#table-of-contents h5 {
+	font-size: 0.95em;
 }
 
 #table-of-contents #table-of-contents-before-sections,
 #table-of-contents #table-of-contents-main-sections,
 #table-of-contents #table-of-contents-after-sections {
-	max-width: 500px;
 	margin: auto;
 }
 #table-of-contents #table-of-contents-before-sections {
@@ -97,7 +107,6 @@ The other wallpapers have only 1 row on web version,
 	border-bottom: 1px dashed black;
 }
 #table-of-contents #table-of-contents-after-sections {
-	max-width: 500px;
 	margin: auto;
 	padding-top: 20px;
 	border-top: 1px dashed black;
@@ -107,7 +116,7 @@ The other wallpapers have only 1 row on web version,
 }
 #table-of-contents #table-of-contents-before-sections .table-of-contents-section,
 #table-of-contents #table-of-contents-after-sections .table-of-contents-section {
-	margin: 15px;	
+	margin: 10px 0;	
 }
 #table-of-contents #table-of-contents-before-sections .table-of-contents-section,
 #table-of-contents #table-of-contents-after-sections .table-of-contents-section,
@@ -119,8 +128,9 @@ The other wallpapers have only 1 row on web version,
 }
 #table-of-contents .table-of-contents-section-description {
 	max-width: 90%;
-	margin: 10px auto;
 	font-style: italic;
+	font-size: 0.95em;
+	text-transform: lowercase;
 }
 
 #table-of-contents .table-of-contents-subsection .canvas {
@@ -138,9 +148,6 @@ The other wallpapers have only 1 row on web version,
     margin: 0;
     margin-top: 25px;
     text-transform: uppercase;
-}
-#table-of-contents p {
-	text-align: center;
 }
 
 #book-cover .canvas {
@@ -506,6 +513,15 @@ figcaption {
 .text-content-graphic figure.larger img {
     height: 130px;
 }
+
+.print h1,
+.print h2,
+.print h3,
+.print .text-content-graphic,
+.print figure {
+	text-align: left;
+}
+
 figcaption,
 .design-caption,
 .print .design-caption {
@@ -543,7 +559,8 @@ body.print .design-caption {
 	.mobile-only {
 		display: block;
 	}
-	.book-page .text-content .content-container-wrapper {
+	.book-page .text-content .content-container-wrapper,
+	#table-of-contents .content-container {
 		text-align: center;
 	}
 	.text-content-graphic,

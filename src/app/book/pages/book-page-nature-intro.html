@@ -4,41 +4,37 @@
         <div class="content-container-wrapper">
             <div class="content-container">
 
-                <h2 class="book-section-title">Shapes &amp; Symmetries</h2>
+                <h2 style="margin-top: 0;" class="book-section-title">Shapes &amp; Symmetries</h2>
 
                 <br/>
 
-	            <p>Symmetry presents itself in nature,</p>
-
                 <figure>
-                    <img style="border:2px solid black;" alt="Landscape reflection in water" src="/assets/img/symmetry-in-nature/landscape-reflection.png" height="150px" />
+                    <img style="border:2px solid black;" alt="Landscape reflection in water" src="/assets/img/symmetry-in-nature/landscape-reflection.png" height="105px" />
                     <figcaption>Landscape reflection in water</figcaption>
                 </figure>
 
                 <br/>
-                <p>But often with imperfections.</p>
+                <p>Symmetry presents itself in nature, but often with imperfections.</p>
 
-	            <div class="text-content-graphic line">
+                <div class="text-content-graphic line">
                     <figure>
-                        <img src="/assets/img/symmetry-in-nature/moth.png" alt="Moth" height="90px"/>
+                        <img src="/assets/img/symmetry-in-nature/moth.png" alt="Moth" height="60px"/>
                         <figcaption>Moth</figcaption>
                     </figure>
                     <figure>
-                        <img src="/assets/img/symmetry-in-nature/sunflower.jpg" alt="Sunflower" height="80px" style="margin: 5px;"/>
+                        <img src="/assets/img/symmetry-in-nature/sunflower.jpg" alt="Sunflower" height="55px" style="margin: 5px;"/>
                         <figcaption>Sunflower</figcaption>
                     </figure>
                     <figure>
-                        <img src="/assets/img/symmetry-in-nature/starfish.png" alt="Starfish" height="90px"/>
+                        <img src="/assets/img/symmetry-in-nature/starfish.png" alt="Starfish" height="60px"/>
                         <figcaption>Starfish</figcaption>
                     </figure>
-	            </div>
+                </div>
 
-                <br/>
-                <br/>
                 <p>Math creates a space where perfect symmetry can be considered.</p>
 
                 <div class="text-content-graphic line">
-                    <circular-pattern class="black"
+                    <circular-pattern class="black small"
                         with-redraw
                         rotations=2
                         with-reflection=true
@@ -47,23 +43,51 @@
                         margin=5
                         mirror-lines=1
                     ></circular-pattern>
-
-                    <circular-pattern class="black"
+                    <circular-pattern class="black small"
                         with-redraw
                         rotations=10
                         slices-count=1
                         levels=2
                         margin=5
                     ></circular-pattern>
-
-                    <div class='canvas sixth black'
+                    <div class='canvas small black'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N":5, "concave":true, "withMirrorSections":true}'
                         options='{"tapRotate":72}'
                     ></div>
-
                 </div>
+
+                <p>In our real physical world, lines may not be perfectly straight, and squares may not be perfectly square, but mathematics allows us to believe in straight lines and perfect squares.</p>
+
+                <div class="text-content-graphic line">
+                    <canvas-centered-drawing class='canvas extra-small'
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4}'
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing class='canvas extra-small'
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4}'
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing class='canvas extra-small'
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4}'
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing class='canvas extra-small'
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4}'
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing class='canvas extra-small'
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4}'
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing class='canvas extra-small'
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4}'
+                    ></canvas-centered-drawing>
+                </div>
+                <p>Throughout this book, we will pretend we are in that mathematical space. We will ignore the imperfections in our drawings, and see shapes and patterns as if they are composed of perfect lines and curves.</p>
+                <p>We will use color to play with symmetry, and even destroy it at times, all in order to better understand it.</p>
 
 	        </div>
 	    </div>

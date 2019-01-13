@@ -183,6 +183,7 @@ for many wallpaper patterns;
 h1#book-title {
     font-size: 3em;
     width: 75%;
+    text-align: center;
 }
 /*mobile*/
 @media (max-width: 875px) {
