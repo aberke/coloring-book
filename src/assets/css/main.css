@@ -176,7 +176,8 @@ The other wallpapers have only 1 row on web version,
 	min-height: 200px;
 	vertical-align: middle;
 }
-.book-page .text-content .content-container-wrapper {
+.book-page .text-content .content-container-wrapper,
+.print .book-page .text-content .content-container-wrapper {
 	text-align: left;
 }
 .book-page .coloring-content {
