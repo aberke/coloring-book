@@ -278,6 +278,10 @@ footer #footer-title {
 	text-align: center;
 }
 
+footer #license {
+	text-align: center;
+}
+
 /* Frieze section + Wallpaper section */
 
 .frieze-pattern-name,
