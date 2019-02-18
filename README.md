@@ -203,6 +203,5 @@ Share with http://www.coloring-book.co not http://coloring-book.co to avoid redi
 
 ### License
 
-GNU General Public License v3.0
 
-See LICENSE.txt to see the full text.
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
