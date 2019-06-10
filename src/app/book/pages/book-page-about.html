@@ -1,5 +1,3 @@
-<div class="book-page" ng-if="book.page.name == p.name || main.print">
-
-    <ng-include src="'/app/common/partials/about.html'"></ng-include>
-
+<div class="book-page-container" ng-if="book.page.name == p.name || main.print">
+<ng-include class="book-page" src="'/app/common/partials/about.html'"></ng-include>
 </div>

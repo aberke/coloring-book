@@ -172,13 +172,11 @@ function setTapRedraw(paper, pathSet, origin, size, drawFunction, functionOption
         drawFunction(paper, origin, size, functionOptions, true);
         analytics.trackRedraw(drawFunction.name);
     });
-    pathSet.attr({"class": "clickable"});
 }
 
 function setTapReflect(paper, pathSet, origin, mirror) {
     let reflectFn = util.getReflectFn(pathSet, origin, mirror, ANIMATION_LENGTH);
     paper.canvas.addEventListener("mouseup", reflectFn);
-    pathSet.attr({"class": "clickable"});
 }
 
 function setAutoReflect(pathSet, origin, mirror) {
@@ -199,7 +197,6 @@ function setTapRotate(paper, pathSet, origin, rotateDegrees) {
     if (!rotateFn)
         return;
     paper.canvas.addEventListener("mouseup", rotateFn);
-    pathSet.attr({"class": "clickable"});
 }
 
 function setAutoRotate(pathSet, origin, rotateDegrees) {

@@ -30,18 +30,8 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         return vm.pageSrcBase + '/' + p;
     };
 
-    // Proxy for section page-names
-    // allows linking to section starts by pageName='PAGE' in table-of-contents
-    vm.sectionPages = {
-        'shapes-and-symmetries-section': 'shapes-introduction-1',
-        'rotations-section': 'cn-0',
-        'reflections-section': 'dn-1',
-        'frieze-section': 'frieze-1',
-        'wallpaper-section': 'wallpaper-1',
-    };
-
     // Some pages are only shown in the print version - printOnly.
-    vm.pages = [
+    vm.pageSets = [
         {
             name: 'cover',
             url: vm.bookPageUrl('book-page-cover.html'),
@@ -59,48 +49,11 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
             name: 'table-of-contents',
             url: vm.bookPageUrl('book-page-table-of-contents.html'),
         }, {
-            name: 'shapes-introduction-1',
-            url: vm.bookPageUrl('shapes-introduction-1.html'),
-        },
-        {
-            name: 'shapes-introduction-2',
-            url: vm.bookPageUrl('shapes-introduction-2.html'),
-        },
-        {
-            name: 'shapes-introduction-challenges-1',
-            url: vm.bookPageUrl('shapes-introduction-challenges-1.html'),
-        },
-        {
-            name: 'shapes-introduction-challenges-2',
-            url: vm.bookPageUrl('shapes-introduction-challenges-2.html'),
-        },
-        {
-            name: 'shapes-rotations-1',
-            url: vm.bookPageUrl('shapes-rotations-1.html'),
-        },
-        {
-            name: 'shapes-rotations-2',
-            url: vm.bookPageUrl('shapes-rotations-2.html'),
-        },
-        {
-            name: 'shapes-rotations-3',
-            url: vm.bookPageUrl('shapes-rotations-3.html'),
-        },
-        {
-            name: 'shapes-rotations-challenges-1',
-            url: vm.bookPageUrl('shapes-rotations-challenges-1.html'),
-        },
-        {
-            name: 'shapes-rotations-challenges-2',
-            url: vm.bookPageUrl('shapes-rotations-challenges-2.html'),
-        },
-        {
-            name: 'shapes-rotations-challenges-3',
-            url: vm.bookPageUrl('shapes-rotations-challenges-3.html'),
-        },
-        {
-            name: 'shapes-rotations-challenges-4',
-            url: vm.bookPageUrl('shapes-rotations-challenges-4.html'),
+            name: 'shapes-introduction',
+            url: vm.bookPageUrl('shapes-introduction.html'),
+        },{
+            name: 'shapes-rotations',
+            url: vm.bookPageUrl('shapes-rotations.html'),
         }
 
         // }, {
@@ -357,7 +310,7 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
 
 
     vm.setupPage = function() {
-        vm.page = vm.pages[vm.pageNumber];
+        vm.page = vm.pageSets[vm.pageNumber];
         vm.pageName = vm.page.name;
 
         // view should only show button to return to previous page
@@ -365,7 +318,7 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         vm.showPreviousPageBtn = (vm.pageNumber > 0) ? true : false;
         // view should only show button to return to next page
         // if there is a next page
-        vm.showNextPageBtn = (vm.pageNumber < (vm.pages.length - 1)) ? true : false;    
+        vm.showNextPageBtn = (vm.pageNumber < (vm.pageSets.length - 1)) ? true : false;    
 
         // scroll to the top of the new book-page that is shown
         $anchorScroll();    
@@ -387,7 +340,7 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
     };
 
     vm.changePage = function(pageIndex) {
-        if (pageIndex < 0 || pageIndex > vm.pages.length)
+        if (pageIndex < 0 || pageIndex > vm.pageSets.length)
             return;
 
         vm.setPageByNumber(pageIndex);
@@ -406,10 +359,10 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
             let findSomePageNumber = function(page, index) {
                 pageNumber = index;
                 // 'some' function will shortcircuit here if true
-                return (page.name === pageName || page.name == vm.sectionPages[pageName]); 
+                return (page.name === pageName); 
             };
 
-            if (vm.pages.some(findSomePageNumber))
+            if (vm.pageSets.some(findSomePageNumber))
                 return pageNumber;
         }
     };
@@ -423,23 +376,16 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
 
         if (!!pageNumber)
             return pageNumber;
-
-        let pageNumberParam = Number($location.search().pageNumber);
-        // NaN will always be less than 0
-        if (pageNumberParam >= 0 && pageNumberParam < vm.pages.length)
-            return pageNumberParam;
-        
         return 0;   
     };
 
     vm.setPageByNumber = function(pageIndex, isInit=false) {
         vm.pageNumber = pageIndex;
-        vm.pageName = vm.pages[pageIndex].name;
+        vm.pageName = vm.pageSets[pageIndex].name;
         // Update search params in this way to keep the others that are not
         // related to page (e.g. debug, print)
         let searchDict = $location.search();
         searchDict.pageName = vm.pageName;
-        searchDict.pageNumber = pageIndex;
         $location.search(searchDict);
         // In order to not break the back button and allow the user
         // to return to the page they came from, do not add a new
@@ -450,10 +396,10 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
 
     vm.removePrintOnlyPages = function() {
         let p;
-        for (p=0; p<vm.pages.length; p++) {
-            if (!!vm.pages[p].printOnly)
-                vm.pages.splice(p, 1);
-        }        
+        for (p=0; p<vm.pageSets.length; p++) {
+            if (!!vm.pageSets[p].printOnly)
+                vm.pageSets.splice(p, 1);
+        }       
     }
 
 

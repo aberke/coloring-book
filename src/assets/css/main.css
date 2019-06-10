@@ -163,14 +163,12 @@ The other wallpapers have only 1 row on web version,
 }
 
 .text-content, .coloring-content {
-	padding: 1%;
 	vertical-align: middle;
 }
 .text-content {
 	padding-left: 2%;
 	padding-right: 0.5%;
 	max-width: 600px;
-	min-height: 200px;
 	margin: auto;
 }
 .book-page .text-content .content-container-wrapper,

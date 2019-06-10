@@ -11,12 +11,27 @@ The book pages use this as their size.
     font-size: 10pt;
     margin: auto;
 }
-.debug .book-page {
+.debug .book-page,
+.print.debug .book-page {
     border: 1px solid gray;
 }
 .book-page.print {
     width: 7in;
     height: 9in;
+}
+
+/* divide the pages on web view */
+.book-page {
+    padding-bottom: 20px;
+    border-bottom: 1px dashed gray;
+}
+.book-page:last-of-type {
+    border: none;
+}
+
+.print .book-page {
+    border: none;
+    padding-bottom: unset;
 }
 
 /*
@@ -85,6 +100,10 @@ body.print {
     min-height: unset;
 }
 
+.book-page .text-content.challenges p {
+    text-align: center;
+}
+
 /* Heading and page number only show for print mode */
 .page-heading,
 .page-number {
@@ -96,6 +115,8 @@ body.print {
 .page-heading {
     display: none;
 }
+
+
 
 /*
 Each page has its height and width set to match the @page definition.
@@ -291,8 +312,8 @@ move from one book-page to the next with animation:
     right:0;
     bottom:0;
 }
-.animate-next-page .book-page.ng-animate,
-.animate-previous-page .book-page.ng-animate {
+.animate-next-page .book-page-container.ng-animate,
+.animate-previous-page .book-page-container.ng-animate {
     width: 100%;
 
     -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
@@ -300,35 +321,35 @@ move from one book-page to the next with animation:
     -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
     transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
 }
-.animate-next-page .book-page.ng-leave,
-.animate-next-page .book-page.ng-enter.ng-enter-active {
+.animate-next-page .book-page-container.ng-leave,
+.animate-next-page .book-page-container.ng-enter.ng-enter-active {
     position: relative;
     width: 100%;
     top: 0;
 }
-.animate-next-page .book-page.ng-leave.ng-leave-active {
+.animate-next-page .book-page-container.ng-leave.ng-leave-active {
     width: 100%;
     position: absolute;
     top: -1600px;
 }
-.animate-next-page .book-page.ng-enter {
+.animate-next-page .book-page-container.ng-enter {
     width: 100%;
     position: absolute;
     top: 1600px;
 }
 
-.animate-previous-page .book-page.ng-leave,
-.animate-previous-page .book-page.ng-enter.ng-enter-active {
+.animate-previous-page .book-page-container.ng-leave,
+.animate-previous-page .book-page-container.ng-enter.ng-enter-active {
     position: relative;
     width: 100%;
     top: 0;
 }
-.animate-previous-page .book-page.ng-leave.ng-leave-active {
+.animate-previous-page .book-page-container.ng-leave.ng-leave-active {
     width: 100%;
     position: absolute;
     top: 1600px;
 }
-.animate-previous-page .book-page.ng-enter {
+.animate-previous-page .book-page-container.ng-enter {
     width: 100%;
     position: absolute;
     top: -1600px;
