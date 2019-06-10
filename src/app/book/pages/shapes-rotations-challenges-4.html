@@ -1,0 +1,303 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+
+    <div class="text-content challenges">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: ROTATIONS: CHALLENGES</span>
+            <span class="page-number"></span>
+        </div>
+        <br/>
+        <br/>
+
+        <p class="challenge">Color the shapes with 4 rotations so that they have only 2 rotations.</p>
+    </div>
+
+    <!-- coloring-content -->
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":2}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0, "tapRotate": 180}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":2}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0, "tapRotate": 180}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":2}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0, "tapRotate": 180}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":2}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0, "tapRotate": 180}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":2}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0, "tapRotate": 180}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":2}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":0, "tapRotate": 180}'
+                    ></div>
+                </div>
+
+                <!-- Line of circular patterns of 2 rotations -->
+                <div class="canvas-row">
+                    <div class="canvas sixth"
+                        circular-pattern
+                        initial-rotation=90
+                        with-redraw
+                        rotations=2
+                        slices-count=2
+                        levels=2
+                        mirror-lines=1
+                        margin=20
+                    ></div><div
+                        class="canvas sixth"
+                        circular-pattern
+                        initial-rotation=90
+                        with-redraw
+                        rotations=2
+                        slices-count=2
+                        levels=2
+                        mirror-lines=1
+                        margin=10>
+                    </div><div
+                        class="canvas sixth"
+                        circular-pattern
+                        initial-rotation=90
+                        with-redraw
+                        rotations=2
+                        slices-count=2
+                        levels=2
+                        mirror-lines=1
+                        margin=10>
+                    </div><div class="canvas sixth"
+                        circular-pattern
+                        initial-rotation=90
+                        with-redraw
+                        rotations=2
+                        slices-count=2
+                        levels=2
+                        mirror-lines=1
+                        margin=10>
+                    </div><div
+                        class="canvas sixth"
+                        circular-pattern
+                        initial-rotation=90
+                        with-redraw
+                        rotations=2
+                        slices-count=2
+                        levels=2
+                        mirror-lines=1
+                        margin=10>
+                    </div><div
+                        class="canvas sixth"
+                        circular-pattern
+                        initial-rotation=90
+                        with-redraw
+                        rotations=2
+                        slices-count=2
+                        levels=2
+                        mirror-lines=1
+                        margin=10>
+                    </div>
+                </div>
+
+                <!-- Line of order-3 shapes -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "withMirrorSections":true, "concave":true}'
+                        options='{"margin":0, "tapRotate": 120}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "withMirrorSections":true, "concave":true}'
+                        options='{"margin":0, "tapRotate": 120}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "withMirrorSections":true, "concave":true}'
+                        options='{"margin":0, "tapRotate": 120}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "withMirrorSections":true, "concave":true}'
+                        options='{"margin":0, "tapRotate": 120}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "withMirrorSections":true, "concave":true}'
+                        options='{"margin":0, "tapRotate": 120}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "withMirrorSections":true, "concave":true}'
+                        options='{"margin":0, "tapRotate": 120}'
+                    ></div>
+                </div>
+
+                <!-- Line of Circular patterns of rotational symmetry=3 -->
+                <div class="canvas-row">
+                    <div class="canvas sixth"
+                        circular-pattern
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        inscribed=triangle
+                        margin=10>
+                    </div><div
+                        class="canvas sixth"
+                        circular-pattern
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        inscribed=triangle
+                        margin=10>
+                    </div><div
+                        class="canvas sixth"
+                        circular-pattern
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        inscribed=triangle
+                        margin=10>
+                    </div><div class="canvas sixth"
+                        circular-pattern
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        inscribed=triangle
+                        margin=10>
+                    </div><div
+                        class="canvas sixth"
+                        circular-pattern
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        inscribed=triangle
+                        margin=10>
+                    </div><div
+                        class="canvas sixth"
+                        circular-pattern
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        inscribed=triangle
+                        margin=10>
+                    </div>
+                </div>
+
+                <!-- Line of order-4 shapes -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true, "concave":true}'
+                        options='{"mirrorLines":2, "margin":0, "tapRotate": 90}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true, "concave":true}'
+                        options='{"mirrorLines":2, "margin":0, "tapRotate": 90}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true, "concave":true}'
+                        options='{"mirrorLines":2, "margin":0, "tapRotate": 90}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true, "concave":true}'
+                        options='{"mirrorLines":2, "margin":0, "tapRotate": 90}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true, "concave":true}'
+                        options='{"mirrorLines":2, "margin":0, "tapRotate": 90}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true, "concave":true}'
+                        options='{"mirrorLines":2, "margin":0, "tapRotate": 90}'
+                    ></div>
+                </div>
+                <!-- Line of circular patterns of 4 rotations -->
+                <div class="canvas-row">
+                    <div class="canvas sixth"
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=2
+                        inscribed=square
+                        margin=10>
+                    </div><div
+                        class="canvas sixth"
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=2
+                        inscribed=square
+                        margin=10>
+                    </div><div
+                        class="canvas sixth"
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=2
+                        inscribed=square
+                        margin=10>
+                    </div><div class="canvas sixth"
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=2
+                        inscribed=square
+                        margin=10>
+                    </div><div
+                        class="canvas sixth"
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=2
+                        inscribed=square
+                        margin=10>
+                    </div><div
+                        class="canvas sixth"
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=2
+                        inscribed=square
+                        margin=10>
+                    </div>
+                </div>
+            </div>
+            <p class="design-caption">shapes with 2, 3, 4 rotations</p>
+        </div>
+    </div>
+</div>

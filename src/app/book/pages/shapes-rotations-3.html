@@ -1,0 +1,233 @@
+<div class="book-page consolidated" ng-if="book.page.name == p.name || main.print">
+
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: ROTATIONS</span>
+            <span class="page-number"></span>
+        </div>
+
+        <div class="content-container-wrapper">
+            <div class="content-container">
+                <br/>
+                <br/>
+                <p>Now that we can count rotations, we can be more precise when we say a square has more symmetry than a rectangle.</p>
+
+                <!-- [line of 2 rectangles, adjacent sides share border pattern, rotate 180deg; on hover]
+                [line of 4 triangles, all unique borders, rotate 90deg; on hover over set] -->
+                <div class="text-content-graphic line">
+                    <!-- line of rectangles -->
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRectangle'
+                        function-options='{"sideStrokes":[1, 0]}'
+                        options='{"text":"0 turn","autoRotateDegrees":180,"initialRotation":0}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRectangle'
+                        function-options='{"sideStrokes":[1, 0]}'
+                        options='{"text":"1/2 turn","autoRotateDegrees":180,"initialRotation":180}'
+                    ></div>
+                </div>
+                <div class="text-content-graphic line">
+                    <!-- line of squares -->
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text":"0 turn","autoRotateDegrees":90,"initialRotation":0}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text":"1/4 turn","autoRotateDegrees":90,"initialRotation":90}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text":"2/4 turn","autoRotateDegrees":90,"initialRotation":180}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text":"3/4 turn","autoRotateDegrees":90,"initialRotation":270}'
+                    ></div>
+                </div>
+                
+                <p>We can also see that a square has more rotational symmetry than a triangle, which in turn has more than a rectangle: A rectangle has only 2 unique rotations, while a triangle has 3, and a square has 4.</p>
+
+                <!-- (small) -->
+                <!-- [Line of 2 regular convex polygons of order 2] -->
+                <!-- [Line of 3 regular convex polygons of order 3] -->
+                <!-- [Line of 4 regular convex polygons of order 4] -->
+
+                <!-- [Line of 2 regular convex polygons of order 2] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRectangle'
+                        function-options='{"N":2}'
+                        options='{"autoRotateDegrees":180, "margin": 10}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRectangle'
+                        function-options='{"N":2}'
+                        options='{"autoRotateDegrees":180, "margin": 10}'
+                    ></div>
+                </div>
+
+                <!-- [Line of 3 regular convex polygons of order 3] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"autoRotateDegrees":120}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"autoRotateDegrees":120}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3}'
+                        options='{"autoRotateDegrees":120}'
+                    ></div>
+
+                </div>
+                <!-- [Line of 4 regular convex polygons of order 4] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4}'
+                        options='{"autoRotateDegrees":90}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4}'
+                        options='{"autoRotateDegrees":90}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4}'
+                        options='{"autoRotateDegrees":90}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4}'
+                        options='{"autoRotateDegrees":90}'
+                    ></div>
+                </div>
+
+                <p>We don't need to stop at 4 rotations.  We can find shapes with 5 rotations, 6 rotations, 7, 8, ... and keep going towards infinity.</p>
+                <!-- [Line of regular polygons of rotational order 5, 6, 7, 8 {dot} {dot} {circle}, order written underneath] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5}'
+                        options='{"text":"5", "margin":20, "autoRotateDegrees": 72}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":6}'
+                        options='{"text":"6", "margin":20, "autoRotateDegrees": 60}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":7}'
+                        options='{"text":"7", "margin":20, "autoRotateDegrees": 51}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":8}'
+                        options='{"text":"8", "margin":20, "autoRotateDegrees": 45}'
+                    ></div>
+                    <!-- dots -->
+                    <p class="text">...</p>
+                </div>
+
+                <p>And these shapes don’t even need to be so simple.</p>
+                <!-- [Line of C3 shapes of rotational order 5, 6, 7, 8 {dot} {dot}, order written underneath] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5,"withMirrorSections": true, "concave":true}'
+                        options='{"text":"5", "autoRotateDegrees": 72}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":6,"withMirrorSections": true, "concave":true}'
+                        options='{"text":"6", "autoRotateDegrees": 60}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":7,"withMirrorSections": true, "concave":true}'
+                        options='{"text":"7", "autoRotateDegrees": 51}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":8,"withMirrorSections": true, "concave":true}'
+                        options='{"text":"8", "autoRotateDegrees": 45}'
+                    ></div>
+                    <!-- dots -->
+                    <p class="text">...</p>
+                    <!-- circle -->
+                    <div class='canvas small fake-canvas'></div>
+                </div>
+
+                <!-- [Line of cyclic shapes of rotational order 5, 6, 7, 8 {dot} {dot}, order written underneath] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":5}'
+                        options='{"text":"5", "autoRotateDegrees": 72}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":6}'
+                        options='{"text":"6", "autoRotateDegrees": 60}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":7}'
+                        options='{"text":"7", "autoRotateDegrees": 51}'
+                    ></div>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":8}'
+                        options='{"text":"8", "autoRotateDegrees": 45}'
+                    ></div>
+                    
+                    <p class="text">...</p>
+
+                    <div class="canvas fake-canvas small"></div>
+                </div>
+                
+	        </div>
+	    </div>
+    </div>
+    <!-- text-content -->
+</div>

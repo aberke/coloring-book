@@ -5,9 +5,8 @@
 	max-width: 800px;
 }
 /* Make sure the first info-view section falls below the menu */
-.info-view#about {
+#info #about {
 	padding-top: 55px;
-	vertical-align: center;
 }
 
 .info-view, .info-view p {

@@ -1,38 +1,59 @@
 /*
-Styles for book
-
+Styles for the book content.
+The Book is to be published/printed on 7" x 9" trim size.
+The book pages use this as their size.
 */
 
 .book-page {
 	text-align: center;
-	width: 100%;
+	max-width: 7in;
+    max-height: 9in;
+    font-size: 10pt;
+    margin: auto;
+}
+.debug .book-page {
+    border: 1px solid gray;
+}
+.book-page.print {
+    width: 7in;
+    height: 9in;
 }
 
+/*
+"Mobile view" is any time  the page is smaller than the trim size
+*/
+@media (max-width: 6.9in) {
+    .book-page {
+        max-height: fit-content;
+    }
+    /* DEBUG */ 
+    .debug .book-page {
+        border: 1px solid blue;
+
+    }
+}
 
 
 /* Printing: */
 /*
-Intended to be printed on 8.5x11
+Intended to be printed on 7 x 9 -- could also then be on standard 8.5x11
 Default left, right, top, bottom margin is set
 */
 @page {
-    size: 8.5in 11in;
-    margin: 0.25in 0;
+    size: 7in 9in;
+    margin: 0;
+    font-size: 10pt;
 }
 
 body.print p {
-    text-align: left;
     page-break-inside: avoid;
+    font-size: 10pt;
+}
+body.print figure,
+body.print .text-content-graphic {
+    text-align: left;
 }
 
-/*
-Leave a blank page before the first content page 
-Need content to start on an even page so that text aligns with designs
-(page 1 is the cover).
-*/
-.print #table-of-contents {
-    page-break-after: right;
-}
 
 /*
 Create page numbers when in print mode that start at 1 on the
@@ -42,17 +63,38 @@ body.print {
     counter-reset: page;
 }
 
-.print .book-page .text-content::after,
-.print .book-page .coloring-content::after {
+.print .book-page .page-heading {
+    /*width: 100%;*/
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 8pt;
+    margin-bottom: 5px;
+}
+.print .book-page .page-heading .heading-title{
+    float: left;
+}
+
+.print .book-page .page-number::after {
     counter-increment: page;
     content: counter(page);
+    float: right;
 }
- /* Make sure the pae is at least so long so that page number does not come up too high */
 
-.print .book-page .text-content,
-.print .book-page .coloring-content,
-.print #end-page-content {
-    min-height: 700px;
+.print .book-page .text-content.challenges {
+    height: unset;
+    min-height: unset;
+}
+
+/* Heading and page number only show for print mode */
+.page-heading,
+.page-number {
+    font-size: 9pt;
+}
+.print .page-heading {
+    display: block;
+}
+.page-heading {
+    display: none;
 }
 
 /*
@@ -70,15 +112,20 @@ patterns with order-4 rotations can be better seen.
 Note: frickin firefox blows up the width so I am using smaller width
 for many wallpaper patterns;
 */
-.print .book-page .text-content,
-.print .book-page .coloring-content,
+
+/* consolidated version only: */
+.print .book-page {
+    page-break-inside: avoid;
+}
+
+/* For consolidated version, page break after each page */
+.print .book-page,
 .print #book-cover,
 .print #road-map, 
 .print #before-info,
 .print #table-of-contents,
 .print #after-info {
     page-break-after: always;
-    border: none;
     position: relative;
 }
 .print .book-page .text-content,
@@ -90,13 +137,7 @@ for many wallpaper patterns;
     padding: 0 1.5%;
     width: 97%; /* allow the padding - works best with firefox printing */
 }
-.print .book-page .coloring-content {
-    width: 770px;
-    padding: 0;
-    margin: auto;
-}
-.print .book-page .text-content,
-.print .book-page .coloring-content,
+
 .print #book-cover,
 .print #road-map,
 .print #table-of-contents {       
@@ -124,10 +165,8 @@ for many wallpaper patterns;
 .print .book-page .coloring-content .content-container-wrapper
 {
     position: relative;
-    display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
 }
 
 /*remove the space for the menu*/
@@ -187,9 +226,6 @@ h1#book-title {
 }
 /*mobile*/
 @media (max-width: 875px) {
-    h1#book-title {
-        width: 100%;
-    }
 
     .animate-next-page .book-page.ng-leave.ng-leave-active {
         top: -1600px;
@@ -217,16 +253,29 @@ h1#book-title .title-piece.smaller {
     border-top: 2px solid purple;
 } 
 
-.book-section-title, .book-section-subtitle {
-    display: inline-block;
-    margin: 30px auto;
-    margin-bottom: 50px;
-    padding: 15px 0px;
-    min-width: 50%;
-    font-weight: 400;
-    font-size: 2em;
-    text-transform: uppercase;
+.book-page .book-part-title,
+.book-page .book-section-title {
+    padding-left: 0;
+    text-align: left;
 }
+
+.book-page .book-section-title,
+.book-page .book-part-title {
+    text-transform: uppercase;
+    border-bottom: none;
+}
+.book-page .book-part-title {
+    text-decoration: underline;
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 70px;
+}
+.book-section-title {
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: 400;
+}
+
 
 /*
 move from one book-page to the next with animation:

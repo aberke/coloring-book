@@ -1,0 +1,34 @@
+<div class="book-page" ng-if="book.page.name == p.name || main.print">
+
+
+    <div class="text-content challenges">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: ROTATIONS: CHALLENGES</span>
+            <span class="page-number"></span>
+        </div>
+        <br/>
+        <br/>
+
+        <p class="challenge">Color the shape so that it has 3 unique rotations.</p>
+        <br/>
+    </div>
+
+    <!-- coloring-content -->
+    <div class="coloring-content">
+        <div class="content-container-wrapper">
+            <div class="content-container">
+
+                <div class="canvas"
+                    circular-pattern
+                    with-redraw
+                    rings="[0.8,0.85, 1]"
+                    rotations=9
+                    slices-count=4
+                    levels=2
+                    mirror-lines=9
+                ></div>
+            </div>
+            <p class="design-caption">circular pattern with 9 rotations</p>
+        </div>
+    </div>
+</div>

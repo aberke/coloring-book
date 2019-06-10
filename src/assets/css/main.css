@@ -32,8 +32,7 @@ h1 {
 
 p {
 	text-align: left;
-	line-height: 1.3;
-	font-weight: 400;
+	font-weight: 300;
 }
 /* Writing */
 
@@ -164,7 +163,6 @@ The other wallpapers have only 1 row on web version,
 }
 
 .text-content, .coloring-content {
-	display: inline-block;
 	padding: 1%;
 	vertical-align: middle;
 }
@@ -172,17 +170,12 @@ The other wallpapers have only 1 row on web version,
 	padding-left: 2%;
 	padding-right: 0.5%;
 	max-width: 600px;
-	width: 40%;
 	min-height: 200px;
-	vertical-align: middle;
+	margin: auto;
 }
 .book-page .text-content .content-container-wrapper,
 .print .book-page .text-content .content-container-wrapper {
 	text-align: left;
-}
-.book-page .coloring-content {
-	width: 54%;
-	border-left: 1px solid gray;
 }
 
 .poster-page .coloring-content {
@@ -345,7 +338,7 @@ footer #license {
 }
 .sixth {
 	display: inline-block;
-	width: 15%;
+	width: 16%;
 	height: 0;
 	padding-bottom: 16%;
 }
@@ -564,15 +557,6 @@ body.print .design-caption {
 	.mobile-only {
 		display: block;
 	}
-	.book-page .text-content .content-container-wrapper,
-	#table-of-contents .content-container {
-		text-align: center;
-	}
-	.text-content-graphic,
-	figure {
-		text-align: center;
-	}
-	
 	.text-content-graphic .canvas.mobile-only {
 		display: inline-block;
 	}
@@ -583,7 +567,6 @@ body.print .design-caption {
 	}
 
 	p {
-		text-align: center;
 		padding-left: 5px;
 		padding-right: 5px;
 	}
