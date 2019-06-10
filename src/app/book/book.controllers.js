@@ -20,6 +20,9 @@ not rendered in the DOM when the book-page is not the current page
 - Using display:none or ng-hide is not enough, these SVGs must
 be removed from the page -- together they're too heavy for browsers
 
+Also note: PageNumber variable references number for pageSet items,
+not pagenumbers corresponding to book-page's
+
 */
 function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
     // view model is this BookCntl
@@ -368,9 +371,7 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
     };
 
     vm.getPageNumber = function() {
-        // get the pageIndex from the search parameters if present:
         // first try to get the page by pageName
-        // otherwise try to get the pageNumber
         // otherwise return the 0th page
         let pageNumber = vm.getPageNumberByPageName();
 
@@ -418,7 +419,7 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
     // if it is, then reinitialize the page again
     $scope.$on('$routeUpdate', function() {
         let ls = $location.search();
-        if (ls.pageName !== vm.pageName || ls.pageNumber !== vm.pageNumber) {
+        if (ls.pageName !== vm.pageName) {
             vm.init();
         } else if (vm.pageName != vm.previousPageName) {
             vm.previousPageName = vm.pageName;

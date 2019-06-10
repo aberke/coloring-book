@@ -563,11 +563,6 @@ body.print .design-caption {
 	.text-content-graphic .canvas.desktop-only {
 		display: none;
 	}
-
-	p {
-		padding-left: 5px;
-		padding-right: 5px;
-	}
 	p.mobile-small {
 		font-size: small;
 	}
