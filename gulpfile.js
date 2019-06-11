@@ -137,7 +137,10 @@ gulp.task("watch", function () {
 
 gulp.task("serve", ["watch"], function() {
   // Run the node script that is used in production.
-  run("node index.js").exec();
+  return run("node index.js").exec([], function(error) {
+    console.log("error: ", error);
+  });
+
 });
 
 
