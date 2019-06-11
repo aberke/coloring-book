@@ -1,4 +1,6 @@
-<div class="book-section book-page" id="table-of-contents" ng-if="book.page.name == p.name || main.print">
+<div class="book-page-container" ng-if="book.page.name == p.name || main.print">
+
+<div class="book-section book-page" id="table-of-contents">
 
     <div class="content-container-wrapper">
         <div class="content-container">
@@ -19,9 +21,9 @@
 
             <div id="table-of-contents-main-sections">
                 <p class='table-of-contents-section-description'>with coloring challenges throughout</p>
-                <h3 class="table-of-contents-section"><a href="/?pageName=shapes-and-symmetries-section">Shapes &amp; Symmetries</a></h3>
+                <h3 class="table-of-contents-section"><a href="/?pageName=shapes-introduction">Shapes &amp; Symmetries</a></h3>
                 <h4 style="margin-bottom: 0;" class="table-of-contents-subsection">
-                    <a href="/?pageName=rotations-section">Rotations &amp; Cyclic Groups</a>
+                    <a href="/?pageName=shapes-rotations">Rotations &amp; Cyclic Groups</a>
                 </h4>
                 <p style="margin-top: 0;" class='table-of-contents-section-description'>Counting Rotations, Combining Rotations, Generators, Subgroups, Group Closure</p>
 
@@ -56,4 +58,6 @@
             <p class='design-caption app-only'>Throughout this book, click on the designs to regenerate them</p>
         </div>
     </div>
+</div>
+
 </div>

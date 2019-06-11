@@ -2,7 +2,7 @@
 <section autoscroll id="book" ng-controller="BookCntl as book">
 
     <div class="page-switch-container">
-    	<div ng-repeat="p in book.pages">
+    	<div ng-repeat="p in book.pageSets">
 
             <span ng-if="book.page.name == p.name && !main.print" class="page-change-btn page-previous-btn" ng-show="book.showPreviousPageBtn" ng-mouseup="book.previousPage()"> &#x25B5; Previous Page &#x25B5;</span>
 
