@@ -53,10 +53,16 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
             url: vm.bookPageUrl('book-page-table-of-contents.html'),
         }, {
             name: 'shapes-introduction',
-            url: vm.bookPageUrl('shapes-introduction.html'),
+            url: vm.bookPageUrl('book-page-shapes-introduction.html'),
         },{
             name: 'shapes-rotations',
-            url: vm.bookPageUrl('shapes-rotations.html'),
+            url: vm.bookPageUrl('book-page-shapes-rotations.html'),
+        },{
+            name: 'shapes-cyclic-groups',
+            url: vm.bookPageUrl('book-page-shapes-cyclic-groups.html'),
+        },{
+            name: 'shapes-generators',
+            url: vm.bookPageUrl('book-page-shapes-generators.html'),
         }
 
         // }, {

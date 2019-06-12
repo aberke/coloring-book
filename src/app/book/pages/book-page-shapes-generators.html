@@ -1,0 +1,1034 @@
+<div class="book-page-container" ng-if="book.page.name == p.name || main.print">
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: ROTATIONS</span>
+            <span class="page-number"></span>
+        </div>
+            <div class="content-container">
+
+                <p>We saw that the <fraction>1/3</fraction> turn did something special for our C3 group.  We were able to  combine it with itself again and again in order to generate all of the rotations of C3 - it is a <a target="_blank" href="/theory-reference#generator" class="theory-reference-term">generator</a> for our <span style="white-space: nowrap">C3 group.</span></p>
+
+                <!-- graphics: -->
+
+                <!-- ⅓ turn → (triangle with diff side strokes rotated ⅓ with "⅓ turn" written below) -->
+                <div class="text-content-graphic line">
+                    <p class="text"><fraction>1/3</fraction> turn</p>
+                    <p class="text big">&rarr;</p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
+                    ></div>
+                </div>
+                <!-- ⅓ turn STAR ⅓ turn → (triangle with diff side strokes rotated ⅔ with “⅔ turn” written below) -->
+                <div class="text-content-graphic line">
+                    <p class="text">
+                        <fraction>1/3</fraction> turn
+                        <span class="operator">&#x2737;</span>
+                        <fraction>1/3</fraction> turn
+                    </p>
+                    <p class="text big">&rarr;</p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
+                    ></div>
+                </div>
+                <!-- ⅓ turn STAR ⅓ turn STAR ⅓ turn → (triangle w/ diff side strokes rotated 0 with “0 turn” written below) -->
+                <!-- ⅓ turn STAR ⅓ turn → (triangle with diff side strokes rotated ⅔ with “⅔ turn” written below) -->
+                <div class="text-content-graphic line">
+                    <p class="text">
+                        <fraction>1/3</fraction> turn
+                        <span class="operator">&#x2737;</span>
+                        <fraction>1/3</fraction> turn
+                        <span class="operator">&#x2737;</span>
+                        <fraction>1/3</fraction> turn
+                    </p>
+                    <p class="text big">&rarr;</p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "0 turn", "autoRotateDegrees":120,"initialRotation":0}'
+                    ></div>
+                </div>
+
+                <p>In the same way that a <fraction>1/3</fraction> turn is a generator for our C3 group, we can see that a <fraction>1/4</fraction> turn is a generator for our C4 group.</p>
+
+                <!-- C3: 1/3 -> {(triangle rotated 0 with “0 turn” written below), (triangle rotated ⅓ with “⅓ turn” written below), (triangle rotated ⅔  with “⅔ turn” written below)} -->
+                <div class="text-content-graphic line">
+                    <p class="text">C3:&nbsp;&nbsp;&nbsp;&nbsp;<fraction>1/3</fraction> turn <span class="operator">&#x279E;</span>&nbsp;&nbsp;</p>
+
+                    <!-- opening bracket -->
+                    <p class="text big">&#123;</p>
+
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text":"0 turn", "autoRotateDegrees":120,"initialRotation":0}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text":"1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text":"2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
+                    ></div>
+
+                    <!-- closing bracket -->
+                    <p class="text big">&#125;</p>
+                </div>
+
+                <br/>
+                
+                <!-- C4: 1/4 turn -> {(square rotated 0 with “0 turn” written below), (square rotated 1/4 with “1/4 turn” written below), (square rotated 1/4 with “1/4 turn” written below), (square rotated 1/4 with “1/4 turn” written below),} -->
+                <div class="text-content-graphic line">
+                    <p class="text">C4:&nbsp;&nbsp;&nbsp;&nbsp;<fraction>1/4</fraction> turn <span class="operator">&#x279E;</span>&nbsp;&nbsp;</p>
+
+                    <!-- opening bracket -->
+                    <p class="text big">&#123;</p>
+
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text":"0 turn", "autoRotateDegrees":90,"initialRotation":0}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text":"1/4 turn", "autoRotateDegrees":90,"initialRotation":90}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text":"2/4 turn", "autoRotateDegrees":90,"initialRotation":180}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1, 0, 0, 0]}'
+                        options='{"text":"3/4 turn", "autoRotateDegrees":90,"initialRotation":270}'
+                    ></div>
+
+                    <!-- closing bracket -->
+                    <p class="text big">&#125;</p>
+                </div>
+                <br/>
+                <p>These are not our only options for generators.</p>
+            </div>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: ROTATIONS</span>
+            <span class="page-number"></span>
+        </div>
+            <div class="content-container">
+                <br/>
+
+                <div class="text-content-graphic line">
+                    <p class="text"><fraction>2/3</fraction> turn</p>
+                    <p class="text big">&rarr;</p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
+                    ></div>
+                </div>
+                <!-- 2/3 turn STAR 2/3 turn → (triangle with diff side strokes rotated 4/3 or 1/3 with turn written below) -->
+                <div class="text-content-graphic line">
+                    <p class="text">
+                        <fraction>2/3</fraction> turn
+                        <span class="operator">&#x2737;</span>
+                        <fraction>2/3</fraction> turn
+                    </p>
+                    <p class="text big">&rarr;</p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "4/3 = 1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
+                    ></div>
+                </div>
+                <div class="text-content-graphic line">
+                    <p class="text">
+                        <fraction>2/3</fraction> turn
+                        <span class="operator">&#x2737;</span>
+                        <fraction>2/3</fraction> turn
+                        <span class="operator">&#x2737;</span>
+                        <fraction>2/3</fraction> turn
+                    </p>
+                    <p class="text big">&rarr;</p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text": "6/3 = 0 turn", "autoRotateDegrees":120,"initialRotation":0}'
+                    ></div>
+                </div>
+                <br/>
+
+                <p>We can use a <fraction>2/3</fraction> turn as a generator and still end up with our C3 group.</p>
+                
+                <div class="text-content-graphic line">
+                    <p class="text">C3:&nbsp;&nbsp;&nbsp;&nbsp;<fraction>2/3</fraction> turn <span class="operator">&#x279E;</span>&nbsp;&nbsp;</p>
+
+
+                    <!-- opening bracket -->
+                    <p class="text big">&#123;</p>
+
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text":"0 turn", "autoRotateDegrees":120,"initialRotation":0}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text":"1/3 turn", "autoRotateDegrees":120,"initialRotation":120}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "sideStrokes":[1, 0, 0]}'
+                        options='{"text":"2/3 turn", "autoRotateDegrees":120,"initialRotation":240}'
+                    ></div>
+
+                    <!-- closing bracket -->
+                    <p class="text big">&#125;</p>
+                </div>
+
+                <br/>
+                <p>But beware we must be careful: not all members of our groups are generators.</p>
+                <p>For example, a <fraction>2/4</fraction> turn does not generate all of the rotations of our C4 group.</p>
+                <br/>
+
+                <!-- [2 squares, adjacent borders share side stroke, rotate 180deg; on hover over set] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[0,0,1,1]}'
+                        options='{"text":"0/4 turn", "autoRotateDegrees":180,"initialRotation":0}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[0,0,1,1]}'
+                        options='{"text":"2/4 turn", "autoRotateDegrees":180,"initialRotation":180}'
+                    ></div>
+                </div>
+                <br/>
+
+                <p>Instead a <fraction>2/4</fraction> turn generates a smaller group - our C2 group.</p>
+                
+                <!-- 2/4 → {2 squares, adjacent borders share side stroke, rotate 180deg; on hover over set} = {2 C2 shapes, rotate 180deg; on hover over set} -->
+                <div class="text-content-graphic line">
+                    <p class="text"><fraction>2/4</fraction> turn <span class="operator">&#x279E;</span>&nbsp;&nbsp;</p>
+
+                    <!-- opening bracket -->
+                    <p class="text big">&#123;</p>
+
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[1,1,0,0]}'
+                        options='{"text":"0/4 turn", "autoRotateDegrees":180}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "sideStrokes":[0,0,1,1]}'
+                        options='{"text":"2/4 turn", "autoRotateDegrees":180}'
+                    ></div>
+
+                    <!-- } = { -->
+                    <p class="text big">&#125;&nbsp;&nbsp;=&nbsp;&nbsp;&#123;</p>
+
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":2, "sideStrokes":[1,0]}'
+                        options='{"text":"0/2 turn", "autoRotateDegrees":180}'
+                    ></div>
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":2, "sideStrokes":[0,1]}'
+                        options='{"text":"1/2 turn", "autoRotateDegrees":180}'
+                    ></div>
+
+                    <!-- } -->
+                    <p class="text big">&#125;</p>
+                </div>
+
+                <br/>
+
+                <p>Another way to see this is with color...</p>
+            </div>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: ROTATIONS</span>
+            <span class="page-number"></span>
+        </div>
+            <div class="content-container">
+                <br/>
+                <p>We can transform a C4 shape into a C2 shape by coloring it.</p>
+
+                <!-- [C4 shape with C4 written below] → [Same C4 shape, colored to make it C2, with C2 written below] -->
+
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4, "sideStrokes": [1, 0, 0, 0]}'
+                        options='{"text":"C4"}'
+                    ></div>
+                    
+                    <!-- arrow -->
+                    <p class="text big"><span class="operator">&#x279E;</span></p>
+
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
+                        options='{"text":"C2"}'
+                    ></div>
+                </div>
+
+                <p>Now the only rotations that leave this colored shape unchanged are those of C2.</p>
+
+                <!-- [2 rotated versions of C4 shape, colored in same way to make it C2, with rotations written below] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
+                        options='{"text":"0 turn", "autoRotateDegrees":90}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
+                        options='{"text":"1/4 turn",  "autoRotateDegrees":90,"initialRotation":90}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
+                        options='{"text":"2/4 turn",  "autoRotateDegrees":90,"initialRotation":180}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
+                        options='{"text":"3/4 turn", "autoRotateDegrees":90,"initialRotation":270}'
+                    ></div>
+                </div>
+
+                <br/>
+
+                <div class="text-content-graphic line">
+
+                    <p>C2:</p>
+                    <!-- { -->
+                    <p class="text big">&#123;</p>
+
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
+                        options='{"text":"0 turn", "autoRotateDegrees":180, "initialRotation": "0"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4, "coloring": [0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0], "initialRotation": "180"}'
+                        options='{"text":"2/4 = 1/2 turn", "autoRotateDegrees":180, "initialRotation": "180"}'
+                    ></div>
+                    <!-- }-->
+                    <p class="text big">&#125;</p>
+                </div>
+                <br/>
+
+                <p>Again we must be careful. Not all colorings of our C4 shapes will transform them into C2 shapes.  Some will remove their rotations altogether and leave them with just the 0 turn.</p>
+
+                <!-- [Line of C4 shape colorings that turn them into C1 shapes] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4, "sideStrokes": [1, 0, 0, 0]}'
+                        options='{"text":"C4"}'
+                    ></div>
+                    
+                    <!-- arrow -->
+                    <p class="text big"><span class="operator">&#x279E;</span></p>
+
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4, "coloring": [0, 1, 1, 0], "sideStrokes": [1, 0, 0, 0]}'
+                        options='{"text":"C1"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4, "coloring": [0, 2, 2, 2], "sideStrokes": [1, 0, 0, 0]}'
+                        options='{"text":"C1"}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4, "coloring": [0, 2, 3, 1], "sideStrokes": [1, 0, 0, 0]}'
+                        options='{"text":"C1"}'
+                    ></div>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <!-- Challenge -->
+                <p class="challenge">Challenge: Find all the generators for C4 and C8.</p>
+                <p class="challenge">Challenge: Which rotations of C8 generate our C4 group but not C8?</p>
+                <!-- [line of 4 C4 shapes] -->
+                <!-- [line of 8 C8 shapes] -->
+                <div class="text-content-graphic line">
+                    <canvas-centered-drawing
+                        class='canvas small clickable'
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":8}'
+                        options='{"tapRotate":45}'
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas small clickable'
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":8}'
+                        options='{"tapRotate":45}'
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas small clickable'
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":8}'
+                        options='{"tapRotate":45}'
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas small clickable'
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":8}'
+                        options='{"tapRotate":45}'
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas small clickable'
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":8}'
+                        options='{"tapRotate":45}'
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas small clickable'
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":8}'
+                        options='{"tapRotate":45}'
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas small clickable'
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":8}'
+                        options='{"tapRotate":45}'
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas small clickable'
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":8}'
+                        options='{"tapRotate":45}'
+                    ></canvas-centered-drawing>
+                </div>
+                <div class="text-content-graphic line">
+                    <canvas-centered-drawing
+                        class='canvas small clickable'
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90}'
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas small clickable'
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90}'
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas small clickable'
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90}'
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas small clickable'
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90}'
+                    ></canvas-centered-drawing>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="book-page">
+
+    <div class="text-content challenges">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: ROTATIONS: COLORING &amp; CHALLENGES</span>
+            <span class="page-number"></span>
+        </div>
+        <br/>
+        <br/>
+        <p class="challenge">Can you use color to transform the uncolored shapes into C2 shapes?</p>
+    </div>
+
+    <!-- coloring-content -->
+    <div class="coloring-content">
+            <div class="content-container">
+                <!-- line of 6 order-4 shapes -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{"tapRotate":90}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "concave": true, "withMirrorSections":true}'
+                        options='{"tapRotate":80}'
+                    ></div><div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=1
+                        levels=1
+                        margin=10
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90, "mirrorLines":4, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        margin=10
+                    ></div>
+                </div>
+
+                <!-- line of 6 order-4 shapes -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        margin=10
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90, "mirrorLines":4, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=1
+                        levels=1
+                        margin=10
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{"tapRotate":90}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "concave": true, "withMirrorSections":true}'
+                        options='{"tapRotate":80}'
+                    ></div>
+                </div>
+            
+                <!-- line of 3 order-8 shapes -->
+                <div class="canvas-row">
+                    <div class='canvas third'
+                        circular-pattern
+                        with-redraw
+                        rotations=8
+                        slices-count=1
+                        levels=1
+                        margin=20
+                    ></div><div class='canvas third'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":8}'
+                        options='{"tapRotate":45, "mirrorLines":8, "margin":0}'
+                    ></div><div class='canvas third'
+                        circular-pattern
+                        with-redraw
+                        rotations=8
+                        slices-count=2
+                        levels=2
+                        margin=10
+                    ></div>
+                </div>
+
+                <!-- line of 6 order-4 shapes -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        margin=10
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90, "mirrorLines":4, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=1
+                        levels=1
+                        margin=10
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{"tapRotate":90}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "concave": true, "withMirrorSections":true}'
+                        options='{"tapRotate":80}'
+                    ></div>
+                </div>
+
+                <!-- line of 6 order-4 shapes -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{"tapRotate":90}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "concave": true, "withMirrorSections":true}'
+                        options='{"tapRotate":80}'
+                    ></div><div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=1
+                        levels=1
+                        margin=10
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90, "mirrorLines":4, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        margin=10
+                    ></div>
+                </div>
+            <p class="design-caption">C4 and C8 shapes</p>
+        </div>
+</div>
+
+
+<div class="book-page">
+
+    <div class="text-content challenges">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: ROTATIONS: COLORING &amp; CHALLENGES</span>
+            <span class="page-number"></span>
+        </div>
+        <br/>
+        <br/>
+
+        <p class="challenge">The C9 shape below is made up of pieces that repeat around a circle.</p>
+        <p class="challenge">Color every other repeated piece of the C9 shape in the same way, and continue around and around the circle. That is, color a piece, skip a piece, color the next piece the same way as the first, and keep going.  Do you end up coloring every piece? Can you use this to prove a 2/9 turn is or isn’t a generator for C9?</p>
+    </div>
+
+    <!-- coloring-content -->
+    <div class="coloring-content">
+
+            <div class="content-container">
+
+                <div class="canvas" 
+                    with-redraw 
+                    circular-pattern
+                    rings="[0.45, 0.5, 0.8, 0.85]"
+                    rotations=9
+                    slices-count=3
+                    levels=2
+                    mirror-lines=9
+                    margin=10>
+                </div>
+                
+            </div>
+            <p class="design-caption">C9 shape (circular tessellation)</p>
+    </div>
+</div>
+
+<div class="book-page">
+
+    <div class="text-content challenges">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: ROTATIONS: COLORING &amp; CHALLENGES</span>
+            <span class="page-number"></span>
+        </div>
+        <br/>
+        <br/>
+
+        <p class="challenge">Can you show that a 3/12 turn is not a generator for C12 by coloring every other 3 pieces in the same way?  What group does the 3/12 turn generate?</p>
+    </div>
+
+    <!-- coloring-content -->
+    <div class="coloring-content">
+        <div class="content-container">
+
+            <div class="canvas"
+                circular-pattern
+                with-redraw
+                rings="[0.6, 0.95,1]"
+                rotations=12
+                slices-count=3
+                levels=2
+                mirror-lines=12
+                with-reflection=true
+            ></div>
+
+        </div>
+        <p class="design-caption">C12 shape (circular tessellation)</p>
+    </div>
+</div>
+
+
+
+<div class="book-page">
+
+    <div class="text-content challenges">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: ROTATIONS: COLORING &amp; CHALLENGES</span>
+            <span class="page-number"></span>
+        </div>
+        <br/>
+        <br/>
+
+        <p class="challenge">For some cyclic groups, any of their transformations can be used as generators.  Which groups are these?</p>
+    </div>
+
+    <!-- coloring-content -->
+    <div class="coloring-content">
+
+                <!-- line of 6 order-3 shapes -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "withMirrorSections":true}'
+                        options='{"tapRotate":120, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":3}'
+                        options='{"tapRotate":120}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":3, "concave": true, "withMirrorSections":true}'
+                        options='{"tapRotate":120}'
+                    ></div><div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=3
+                        slices-count=1
+                        levels=1
+                        margin=25
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":3}'
+                        options='{"tapRotate":120, "mirrorLines":3, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=3
+                        slices-count=2
+                        levels=2
+                        margin=20
+                    ></div>
+                </div>
+
+                <!-- line of 6 order-4 shapes -->
+                <div class="canvas-row">
+                    <div
+                        class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=2
+                        margin=10
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90, "mirrorLines":4, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=4
+                        slices-count=1
+                        levels=1
+                        margin=10
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "concave": true, "withMirrorSections":true}'
+                        options='{"tapRotate":90}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{"tapRotate":90}'
+                    ></div>
+                </div>
+            
+                <!-- line of 6 order-5 shapes -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "withMirrorSections":true}'
+                        options='{"tapRotate":72, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":5}'
+                        options='{"tapRotate":72}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":5, "concave": true, "withMirrorSections":true}'
+                        options='{"tapRotate":72}'
+                    ></div><div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=5
+                        slices-count=1
+                        levels=1
+                        margin=25
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":5}'
+                        options='{"tapRotate":72, "mirrorLines":5, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=5
+                        slices-count=2
+                        levels=2
+                        margin=20
+                    ></div>
+                </div>
+
+                <!-- line of 6 order-6 shapes -->
+                <div class="canvas-row">
+                    <div
+                        class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=6
+                        slices-count=2
+                        levels=2
+                        margin=10
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":6}'
+                        options='{"tapRotate":60, "mirrorLines":6, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=6
+                        slices-count=1
+                        levels=1
+                        margin=10
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":6, "concave": true, "withMirrorSections":true}'
+                        options='{"tapRotate":60}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":6}'
+                        options='{"tapRotate":60, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":6, "withMirrorSections":true}'
+                        options='{"tapRotate":60}'
+                    ></div>
+                </div>
+
+                <!-- line of 6 order-7 shapes -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":7, "withMirrorSections":true}'
+                        options='{"tapRotate":51}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":7}'
+                        options='{"tapRotate":51, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":7, "concave": true, "withMirrorSections":true}'
+                        options='{"tapRotate":51}'
+                    ></div><div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=6
+                        slices-count=1
+                        levels=1
+                        margin=5
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":7}'
+                        options='{"tapRotate":51, "mirrorLines":7, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=7
+                        slices-count=2
+                        levels=2
+                        margin=5
+                    ></div>
+                </div>
+
+                <!-- line of 6 order-8 shapes -->
+                <div class="canvas-row">
+                    <div
+                        class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=8
+                        slices-count=2
+                        levels=2
+                        margin=10
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":8}'
+                        options='{"tapRotate":45, "mirrorLines":8, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        circular-pattern
+                        with-redraw
+                        rotations=8
+                        slices-count=1
+                        levels=1
+                        margin=10
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":8, "concave": true, "withMirrorSections":true}'
+                        options='{"tapRotate":45}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawCyclicShape'
+                        function-options='{"N":8}'
+                        options='{"tapRotate":45, "margin":0}'
+                    ></div><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":8, "withMirrorSections":true}'
+                        options='{"tapRotate":45}'
+                    ></div>
+                </div>
+
+            </div>
+            
+            <p class="design-caption">Shapes with 3, 4, 5, 6, 7, 8 rotations</p>
+        </div>
+</div>
+
+
+
+</div>
