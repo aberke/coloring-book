@@ -12,6 +12,7 @@ The book pages use this as their size.
     margin: auto;
 }
 .debug .book-page,
+.debug .book-page:last-of-type,
 .print.debug .book-page {
     border: 1px solid gray;
 }
@@ -179,15 +180,21 @@ for many wallpaper patterns;
     padding: 0;
 }
 
-.print .book-page .text-content .content-container-wrapper,
-.print #book-cover .content-container-wrapper,
-.print #road-map .content-container-wrapper,
-.print #table-of-contents .content-container-wrapper,
-.print .book-page .coloring-content .content-container-wrapper
+.print .book-page .text-content .content-container,
+.print #book-cover .content-container,
+.print #road-map .content-container,
+.print #table-of-contents .content-container,
+.print .book-page .coloring-content .content-container
 {
     position: relative;
     flex-direction: column;
     justify-content: center;
+}
+
+.book-page .text-content .content-container,
+.print .book-page .text-content .content-container {
+    text-align: left;
+    padding: 25px 0;
 }
 
 /*remove the space for the menu*/
@@ -289,7 +296,7 @@ h1#book-title .title-piece.smaller {
     text-decoration: underline;
     font-size: 2em;
     font-weight: 600;
-    margin-bottom: 70px;
+    margin: 30px 0;
 }
 .book-section-title {
     text-decoration: none;
@@ -361,7 +368,7 @@ move from one book-page to the next with animation:
     text-align: center;
     color: rgb(59,204,166);
     padding: 15px;
-    margin: 15px auto;
+    margin: auto;
     max-width: 60%;
 }
 .page-change-btn.page-previous-btn {

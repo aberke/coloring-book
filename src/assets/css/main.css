@@ -171,10 +171,6 @@ The other wallpapers have only 1 row on web version,
 	max-width: 600px;
 	margin: auto;
 }
-.book-page .text-content .content-container-wrapper,
-.print .book-page .text-content .content-container-wrapper {
-	text-align: left;
-}
 
 .poster-page .coloring-content {
 	width: 97%;
@@ -562,11 +558,6 @@ body.print .design-caption {
 	.desktop-only,
 	.text-content-graphic .canvas.desktop-only {
 		display: none;
-	}
-
-	p {
-		padding-left: 5px;
-		padding-right: 5px;
 	}
 	p.mobile-small {
 		font-size: small;
