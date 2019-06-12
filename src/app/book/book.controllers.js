@@ -63,6 +63,9 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         },{
             name: 'shapes-generators',
             url: vm.bookPageUrl('book-page-shapes-generators.html'),
+        },{
+            name: 'shapes-cyclic-subgroups-and-closure',
+            url: vm.bookPageUrl('book-page-shapes-cyclic-subgroups-and-closure.html'),
         }
 
         // }, {
