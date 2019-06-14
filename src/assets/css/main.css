@@ -196,15 +196,15 @@ Note: So far this seems to work best with Firefox -- Preview as PDF
 	page-break-after: always;
 }
 .print-only {
-	display: none;
+	display: none !important;
 }
 
 /* Styles meant for printing -- applied when param ?print present */
 .print .print-only {
-	display: block;
+	display: unset !important;
 }
 .print .app-only {
-	display: none;
+	display: none !important;
 }
 .print nav {
 	display: none;
@@ -546,7 +546,7 @@ body.print .design-caption {
 	display: inline-block;
 }
 
-@media (max-width: 875px) {
+@media (max-width: 7in) {
 
 	.mobile-only {
 		display: block;
