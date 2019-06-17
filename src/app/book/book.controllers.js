@@ -66,6 +66,18 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         },{
             name: 'shapes-cyclic-subgroups-and-closure',
             url: vm.bookPageUrl('book-page-shapes-cyclic-subgroups-and-closure.html'),
+        },{
+            name: 'shapes-reflections',
+            url: vm.bookPageUrl('book-page-shapes-reflections.html'),
+        },{
+            name: 'shapes-dihedral-groups',
+            url: vm.bookPageUrl('book-page-shapes-dihedral-groups.html'),
+        },{
+            name: 'shapes-dihedral-subgroups',
+            url: vm.bookPageUrl('book-page-shapes-dihedral-subgroups.html'),
+        },{
+            name: 'shapes-dihedral-inverses',
+            url: vm.bookPageUrl('book-page-shapes-dihedral-inverses.html'),
         }
 
         // }, {
