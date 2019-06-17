@@ -1431,16 +1431,256 @@
         </div>
         <br/>
         <br/>
-
-        <p class="challenge"></p>
+        <p class="challenge">How many unique rotations and reflections does each shape have?  Color all of the D8 shapes so that they are no longer D8 shapes but still have at least one mirror reflection.</p>
     </div>
-
-    <!-- coloring-content -->
     <div class="coloring-content">
+        <!-- line or regular concave polygons in ascending order -->
+        <div class="canvas-row">
+            <div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 3, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 5, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 6, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 7, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 8, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect":"V"}'
+            ></div>
+        </div>
+
+        <!-- line of dihedral shapes in ascending order -->
+        <div class="canvas-row">
+            <div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawDihedralShape'
+                function-options='{"N": 3}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawDihedralShape'
+                function-options='{"N": 4}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawDihedralShape'
+                function-options='{"N": 5}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawDihedralShape'
+                function-options='{"N": 6}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawDihedralShape'
+                function-options='{"N": 7}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawDihedralShape'
+                function-options='{"N": 8}'
+                options='{"tapReflect":"V"}'
+            ></div>
+        </div>
+
+        <div class="canvas-row">
+            <div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=3
+                slices-count=2
+                levels=1
+                margin=25
+                with-reflection=true
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=4
+                slices-count=2
+                levels=1
+                margin=15
+                with-reflection=true
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=5
+                slices-count=2
+                levels=1
+                margin=10
+                with-reflection=true
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=6
+                slices-count=2
+                levels=1
+                margin=5
+                with-reflection=true
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=7
+                slices-count=2
+                levels=1
+                margin=5
+                with-reflection=true
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=8
+                slices-count=2
+                levels=1
+                margin=5
+                with-reflection=true
+            ></div>
+        </div>
+
+        <div class="canvas-row">
+            <div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=8
+                slices-count=2
+                levels=1
+                margin=2
+                with-reflection=true
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=7
+                slices-count=2
+                levels=1
+                margin=5
+                with-reflection=true
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=6
+                slices-count=2
+                levels=1
+                margin=5
+                with-reflection=true
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=5
+                slices-count=2
+                levels=1
+                margin=10
+                with-reflection=true
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=4
+                slices-count=2
+                levels=1
+                margin=15
+                with-reflection=true
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=3
+                slices-count=2
+                levels=1
+                margin=25
+                with-reflection=true
+            ></div>
+        </div>
+
+        <!-- line of dihedral shapes in descending order -->
+        <div class="canvas-row">
+            <div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawDihedralShape'
+                function-options='{"N": 8}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawDihedralShape'
+                function-options='{"N": 7}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawDihedralShape'
+                function-options='{"N": 6}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawDihedralShape'
+                function-options='{"N": 5}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawDihedralShape'
+                function-options='{"N": 4}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawDihedralShape'
+                function-options='{"N": 3}'
+                options='{"tapReflect":"V"}'
+            ></div>
+        </div>
+
+        <!-- line or regular concave polygons in descending order -->
+        <div class="canvas-row">
+            <div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 8, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 7, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 6, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 5, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect":"V"}'
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 3, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect":"V"}'
+            ></div>
+        </div>
     </div>
-        
-    <p class="design-caption"></p>
+    <p class="design-caption">D3, D4, D5, D6, D7, D8 shapes</p>
 </div>
+
 <div class="book-page">
 
     <div class="text-content challenges">
@@ -1450,54 +1690,25 @@
         </div>
         <br/>
         <br/>
-
-        <p class="challenge"></p>
+        <p class="challenge">The D8 shape below is made up of pieces that repeat around a circle. Show that a ¼ turn and a vertical mirror cannot be used as generators for our D8 group by coloring a piece, and then coloring other pieces if and only if they can be reached by a ¼ turn or mirror reflection from an already colored piece.  What are the symmetries of the colored shape you end up with?</p>
     </div>
 
     <!-- coloring-content -->
     <div class="coloring-content">
+        <circular-pattern
+            class="canvas" 
+            with-redraw
+            rings="[0.45, 0.5, 0.8, 0.85]"
+            slices-count=2
+            levels=2
+            rotations=8
+            with-reflection=true
+            mirror-lines=8
+            margin=10>
+        </circular-pattern>
     </div>
-        
-    <p class="design-caption"></p>
-</div>
-<div class="book-page">
-
-    <div class="text-content challenges">
-        <div class="page-heading">
-            <span class="heading-title">SHAPES &amp; SYMMETRIES: REFLECTIONS: COLORING &amp; CHALLENGES</span>
-            <span class="page-number"></span>
-        </div>
-        <br/>
-        <br/>
-
-        <p class="challenge"></p>
-    </div>
-
-    <!-- coloring-content -->
-    <div class="coloring-content">
-    </div>
-        
-    <p class="design-caption"></p>
+    <p class="design-caption">D8 shape (circular tessellation)</p>
 </div>
 
-<div class="book-page">
-
-    <div class="text-content challenges">
-        <div class="page-heading">
-            <span class="heading-title">SHAPES &amp; SYMMETRIES: REFLECTIONS: COLORING &amp; CHALLENGES</span>
-            <span class="page-number"></span>
-        </div>
-        <br/>
-        <br/>
-
-        <p class="challenge"></p>
-    </div>
-
-    <!-- coloring-content -->
-    <div class="coloring-content">
-    </div>
-        
-    <p class="design-caption"></p>
-</div>
 
 </div>

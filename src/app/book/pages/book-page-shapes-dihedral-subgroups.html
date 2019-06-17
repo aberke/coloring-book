@@ -1,0 +1,1243 @@
+<div class="book-page-container" ng-if="book.page.name == p.name || main.print">
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: REFLECTIONS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+
+            <p>By looking for rotations and reflections, we can see when shapes share a symmetry group,</p>
+
+            <!-- [D4, colored square, D8 with color, all with D4 written below] -->
+            <div class="text-content-graphic line">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 4, "withMirrorSections":true}'
+                    options='{"text": "D4"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections":true, "coloring":[1,1,1,1,1,1,1,1]}'
+                    options='{"text": "D4"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 8, "withMirrorSections":true, "coloring":[1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0]}'
+                    options='{"text": "D4"}'
+                ></div>
+            </div>
+
+            <p>Or when they do not.</p>
+            <!-- [Same D4 shape - “D4” written below, Square with color added - “D2”, D8 shape with color changed] -->
+            <div class="text-content-graphic line">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 4, "withMirrorSections":true}'
+                    options='{"text": "D4"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections":true, "coloring": [1,1,0,0,1,1,0,0]}'
+                    options='{"text": "D2"}'
+                ></div>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 8, "withMirrorSections":true, "coloring":[1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0]}'
+                    options='{"text": "C4"}'
+                ></div>
+            </div>
+
+            <p>And now that we have groups with more symmetries, there are more interesting subgroups to find.</p>
+
+            <p>We can again use color to reduce the amount of symmetry a shape has.  For example, a D6 shape has 6 mirrors and 6 rotations, but color can reduce it to a shape with only 3 mirrors and 3 rotations - a D3 shape.</p>
+            <!-- [Hexagon, 6 mirrors drawn, D6 written below] → [Same shape colored so that it is D3, 3 mirrors drawn, D3 written below] -->
+            <div class="text-content-graphic line">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections": true}'
+                    options='{"autoRotateDegrees": 60, "text": "D6", "mirrorLines": 6, "margin": 25}'
+                ></div>
+                <!-- arrow -->
+                <p class="text"><span class="operator">&rarr;</span></p>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections": true, "coloring":[1,1,0,0,1,1,0,0,1,1,0,0]}'
+                    options='{"autoRotateDegrees": 120, "text": "D3", "mirrorLines": 3, "margin": 25}'
+                ></div>
+            </div>
+
+            <p>Alternatively, we could have reduced the D6 shape to a D2 shape.</p>
+
+            <!-- [Hexagon, 6 mirrors drawn, D6 written below] → [Same shape colored so that it is D2, 2 mirrors drawn, D2 written below] -->
+            <div class="text-content-graphic line">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections": true}'
+                    options='{"autoRotateDegrees": 60, "text": "D6", "mirrorLines": 6, "margin": 25}'
+                ></div>
+                <!-- arrow -->
+                <p class="text"><span class="operator">&rarr;</span></p>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections": true, "coloring":[1,1,1,0,0,1,1,1,1,0,0,1]}'
+                    options='{"autoRotateDegrees": 180, "text": "D2", "mirrorLines": 2, "margin": 25}'
+                ></div>
+            </div>
+
+            <p>This is possible because D3 and D2 are <a href="/theory-reference#subgroup" target="_blank" class="theory-reference-term">subgroups</a> of D6. Similarly, D4 is a <a href="/theory-reference#subgroup" target="_blank" class="theory-reference-term">subgroup</a> of D8, and D2 is a <a href="/theory-reference#subgroup" target="_blank" class="theory-reference-term">subgroup</a> of both D4 and D8.</p>
+            <!-- [D8 shape, D8 written below] → [Same shape colored to be D4, D4 written below] → [Same shape colored to be D2, D2 written below] -->
+            <div class="text-content-graphic line">
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 8, "withMirrorSections": true}'
+                    options='{"autoRotateDegrees": 45, "text": "D8", "mirrorLines": 8, "margin": 25}'
+                ></div>
+                <!-- arrow -->
+                <p class="text"><span class="operator">&rarr;</span></p>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 8, "withMirrorSections": true, "coloring":[1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0]}'
+                    options='{"autoRotateDegrees": 90, "text": "D4", "mirrorLines": 4, "margin": 25}'
+                ></div>
+                <!-- arrow -->
+                <p class="text"><span class="operator">&rarr;</span></p>
+                <div class='canvas'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 8, "withMirrorSections": true, "coloring":[1,1,1,0,1,1,0,1,1,1,1,0,1,1,0,1]}'
+                    options='{"autoRotateDegrees": 180, "text": "D2", "mirrorLines": 2, "margin": 25}'
+                ></div>
+            </div>
+            <br/>
+
+            <p class="challenge">Check in: What are the symmetry groups for these colored shapes?</p>
+            <!-- [D6 and D10 shapes, colored] -->
+            <div class="text-content-graphic line">
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 6, "withMirrorSections": true, "coloring":[1,0,0,0,0,1,1,0,0,0,0,1]}'
+                options='{"autoRotateDegrees": 180, "margin": 25}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 6, "withMirrorSections": true, "coloring":[1,0,0,0,1,0,0,0,1,0,0,0]}'
+                options='{"autoRotateDegrees": 120, "margin": 25}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 10, "withMirrorSections": true, "coloring":[1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,0]}'
+                options='{"autoRotateDegrees": 72, "margin": 25}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 10, "withMirrorSections": true, "coloring":[1,1,1,0,1,1,0,0,1,1,0,0,1,1,0,0,1,1,0,1]}'
+                options='{"autoRotateDegrees": 360, "margin": 25}'
+            ></canvas-centered-drawing>
+            </div>
+            <br/>
+        </div>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: REFLECTIONS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+            <p>What happens when color is added to remove only mirrors and not rotations?</p>
+                <!-- [square, mirrors drawn, D4 written below] → [square, colored as C4, C4 written below] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections": true}'
+                        options='{"autoRotateDegrees": 90, "mirrorLines": 4, "margin": 25}'
+                    ></div>
+                    <!-- arrow -->
+                <p class="text"><span class="operator">&rarr;</span></p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,0,1,0,1,0,1]}'
+                        options='{"autoRotateDegrees": 90, "margin": 25}'
+                    ></div>
+                </div>
+
+                <p>The dihedral groups have mirror reflections, while the cyclic groups do not.  When these mirrors are removed, we can see the cyclic groups are subgroups of the dihedral groups.</p>
+                <!-- [Triangle, mirrors drawn, D3 written below] → [Triangle, no mirrors, C3 written below]
+                [square, mirrors drawn, D4 written below] → [square, no mirrors, C4 written below]
+                [pentagon, mirrors drawn, D5 written below] → [square, no mirrors, C5 written below] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "withMirrorSections": true}'
+                        options='{"autoRotateDegrees": 120, "text": "D3", "margin": 25}'
+                    ></div>
+                    <!-- arrow -->
+                <p class="text"><span class="operator">&rarr;</span></p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 3, "withMirrorSections": true, "coloring": [0,1,0,1,0,1]}'
+                        options='{"autoRotateDegrees": 120, "text": "C3","margin": 25}'
+                    ></div>
+                </div>
+
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections": true}'
+                        options='{"autoRotateDegrees": 90, "text": "D4", "margin": 25}'
+                    ></div>
+                    <!-- arrow -->
+                <p class="text"><span class="operator">&rarr;</span></p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,0,1,0,1,0,1]}'
+                        options='{"autoRotateDegrees": 90, "text": "C4","margin": 25}'
+                    ></div>
+                </div>
+
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 5, "withMirrorSections": true}'
+                        options='{"autoRotateDegrees": 72, "text": "D5", "margin": 25}'
+                    ></div>
+                    <!-- arrow -->
+                <p class="text"><span class="operator">&rarr;</span></p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 5, "withMirrorSections": true, "coloring": [0,1,0,1,0,1,0,1,0,1]}'
+                        options='{"autoRotateDegrees": 72, "text": "C5","margin": 25}'
+                    ></div>
+                </div>
+
+                <p>Color can also take away a shape's rotations.</p>
+                <!-- [D4 shape, D4 written below] → [D4 shape colored not to be a D4 shape] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections": true}'
+                        options='{}'
+                    ></div>
+                    <p class="text">&rarr;</p>
+                    <div class='canvas small'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [1,1,0,0,0,0,1,1]}'
+                        options='{}'
+                    ></div>
+                </div>
+
+                <p>By coloring in this way, we can see subgroups with only mirror reflections.</p>
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 8, "concave":true}'
+                        options='{"mirrorLines":1, "autoReflect":"V"}'
+                    ></div>
+                    <p class="text">:</p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 8, "concave":true, "withMirrorSections": true, "coloring": [1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1]}'
+                        options='{"mirrorLines":1}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,1,1,1,1,0]}'
+                        options='{"mirrorLines":1}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 8, "withMirrorSections": true, "coloring": [0,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1]}'
+                        options='{"mirrorLines":1, "margin":20}'
+                    ></div>
+                </div>
+
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 8, "concave":true}'
+                        options='{"mirrorLines":1, "initialRotation":90, "autoReflect":"V"}'
+                    ></div>
+                    <p class="text">:</p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 8, "concave":true, "withMirrorSections": true, "coloring": [1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1]}'
+                        options='{"mirrorLines":1, "initialRotation":90}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,1,1,1,1,0]}'
+                        options='{"mirrorLines":1, "initialRotation":90}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 8, "withMirrorSections": true, "coloring": [0,0,1,0,0,0,1,1,0,0,1,1,0,0,0,1]}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":20}'
+                    ></div>
+                </div>
+
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 8, "concave":true}'
+                        options='{"mirrorLines":1, "initialRotation":45, "autoReflect":"V"}'
+                    ></div>
+                    <p class="text">:</p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 8, "concave":true, "withMirrorSections": true, "coloring": [1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1]}'
+                        options='{"mirrorLines":1, "initialRotation":45}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,1,1,1,1,0,0]}'
+                        options='{}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 8, "withMirrorSections": true, "coloring": [0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0]}'
+                        options='{"mirrorLines":1, "initialRotation":45, "margin":20}'
+                    ></div>
+                </div>
+
+                <div class="text-content-graphic line">
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 8, "concave":true}'
+                        options='{"mirrorLines":1, "initialRotation":135, "autoReflect":"V"}'
+                    ></div>
+                    <p class="text">:</p>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 8, "concave":true, "withMirrorSections": true, "coloring": [1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1]}'
+                        options='{"mirrorLines":1, "initialRotation":135}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [1,1,1,1,0,0,0,0]}'
+                        options='{}'
+                    ></div>
+                    <div class='canvas'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N": 8, "withMirrorSections": true, "coloring": [1,1,0,0,0,0,1,1,1,1,1,0,0,0,0,0]}'
+                        options='{"mirrorLines":1, "initialRotation":135, "margin":20}'
+                    ></div>
+                </div>
+                <br/>
+        </div>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: REFLECTIONS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+            <p class="challenge">Here is an example where a D4 shape is colored with 2 colors so that it has only 1 mirror and that mirror is horizontal.</p>
+            <div class="text-content-graphic line">
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,0,0,1,0,1,1]}'
+                    options='{}'
+                ></div>
+            </div>
+            <p class="challenge">Challenge: Find other ways to color the D4 shape with 2 colors so that its only mirror is the horizontal mirror.</p>
+            <!-- [line of 6 D4 shapes] -->
+            <div class="text-content-graphic line">
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                    options='{}'
+                ></div>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                    options='{}'
+                ></div>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                    options='{}'
+                ></div>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                    options='{}'
+                ></div>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                    options='{}'
+                ></div>
+            </div>
+            <p class="challenge">After being colored in this way, the shape no longer has the symmetries of D4, instead it illustrates a subgroup of D4.</p>
+            <p class="challenge">Challenge: Can you find different ways to color the D4 shape with 2 colors so that it has only 1 mirror and that mirror is diagonal?</p>
+            <div class="text-content-graphic line">
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,0,1,1,1,1]}'
+                    options='{}'
+                ></div>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                    options='{}'
+                ></div>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                    options='{}'
+                ></div>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                    options='{}'
+                ></div>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                    options='{}'
+                ></div>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                    options='{}'
+                ></div>
+            </div>
+            <br/>
+            <br/>
+            <p class="challenge">Our D4 group has multiple subgroups that have just 2 symmetries.  One of those subgroups is the group of symmetries with just the horizontal mirror and the 0 turn (the 0 turn is also known as the <a href="/theory-reference#identity" target="_blank" class="theory-reference-term">identity</a>).</p>
+            <p class="challenge">Challenge: Can you find the other subgroups of our D4 group that have  just 2 symmetries?</p>
+            <div class="text-content-graphic line">
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,0,0,1,0,1,1]}'
+                    options='{}'
+                ></div>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                    options='{}'
+                ></div>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                    options='{}'
+                ></div>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                    options='{}'
+                ></div>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                    options='{}'
+                ></div>
+            </div>
+            <br/>
+            <br/>
+            <p class="challenge">There are multiple ways to color our D4 shape to reduce it to a shape with only a 0 turn, a ½ turn, and 2 mirrors.  This is just our D2 group!  Here is an example where we keep the 2 diagonal mirrors.</p>
+            <div class="text-content-graphic line">
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,1,0,0,1,1,0]}'
+                    options='{}'
+                ></div>
+            </div>
+            <p class="challenge">Challenge: Color the D4 shape to remove the diagonal mirrors but keep the horizontal and vertical mirrors.</p>
+            <div class="text-content-graphic line">
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                    options='{}'
+                ></div>
+            </div>
+            <br/>
+        </div>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: REFLECTIONS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+            <p class="challenge">Challenge: Is it possible to color a D4 shape to remove the horizontal mirror while keeping the vertical mirror and ¼ turn?  (Hint: Think about group closure)</p>
+            <!-- [line of 4 D4 shapes] -->
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                ></canvas-centered-drawing>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <p class="challenge">There is a relationship between the number of symmetries in our dihedral groups, the number of symmetries in their subgroups, and the maximum number of colors we can use to reduce our dihedral shapes to show those subgroups.</p>
+            <p class="challenge">When we reduce our D4 shapes to D2 shapes, we reduce their number of symmetries from 8 (4 mirrors, 4 rotations) to 4 (2 mirrors, 2 rotations).  This is also the case when we reduce our D4 shapes to C4 shapes: Shape go from having 4 mirrors and 4 rotations to having just 4 rotations.</p>
+            <!-- [D4 shape colored as C4 shape with caption: C4] -->
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,1,0,0,1,1,0]}'
+                    options='{"text": "D2"}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,0,1,0,1,0,1]}'
+                    options='{"text": "C4"}'
+                ></canvas-centered-drawing>
+            </div>
+            <p class="challenge">Challenge: In any of the cases where we remove half the symmetries of our dihedral shapes, what is the maximum number of colors we can use?</p>
+            <!-- 
+            [uncolored D3 shape, uncolored D5 shape, uncolored D7 shape]
+            [line of 4 uncolored D4 shapes]
+            [line of 3 uncolored D6  shapes]
+            -->
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 3, "withMirrorSections": true}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 5, "withMirrorSections": true}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 7, "withMirrorSections": true}'
+                ></canvas-centered-drawing>
+            </div>
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true}'
+                ></canvas-centered-drawing>
+            </div>
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections": true}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections": true}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections": true}'
+                ></canvas-centered-drawing>
+            </div>
+            <br/>
+        </div>
+    </div>
+</div>
+
+
+<div class="book-page">
+
+    <div class="text-content challenges">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: REFLECTIONS: COLORING &amp; CHALLENGES</span>
+            <span class="page-number"></span>
+        </div>
+        <br/>
+        <br/>
+
+        <p class="challenge">Can you find different ways to remove half of the symmetries of the D8 shapes?  Color some of the shapes to remove their mirrors while keeping their rotations.  Color others to remove half of their mirrors and half of their rotations.</p>
+    </div>
+
+    <!-- coloring-content -->
+    <div class="coloring-content">
+        <div class="canvas-row">
+            <div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":8, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=8
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.5,0.6]"
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":8, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=8
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.5,0.6]"
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":8, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+            ></div>
+        </div>
+
+        <div class="canvas-row">
+            <div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=8
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.6]"
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":8, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=8
+                slices-count=1
+                levels=2
+                with-reflection=true
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":8, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+            ></div><circular-pattern
+                class="canvas sixth"
+                with-redraw
+                rotations=8
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.6]"
+            ></circular-pattern>
+        </div>
+
+        <div class="canvas-row">
+            <div class="canvas third"
+                circular-pattern
+                with-redraw
+                rings="[0.9,0.95]"
+                rotations=8
+                slices-count=2
+                levels=2
+                with-reflection=true
+                mirror-lines=8
+            ></div>
+        </div>
+        
+        <div class="canvas-row">
+            <div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=8
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.6]"
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":8, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=8
+                slices-count=1
+                levels=2
+                with-reflection=true
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":8, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=8
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.6]"
+            ></div>
+        </div>
+
+        <div class="canvas-row">
+            <div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":8, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=8
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.5,0.6]"
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":8, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=8
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.5,0.6]"
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":8, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+            ></div>
+        </div>
+    </div>
+    <p class="design-caption">D8 shapes</p>
+</div>
+
+
+<div class="book-page">
+
+    <div class="text-content challenges">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: REFLECTIONS: COLORING &amp; CHALLENGES</span>
+            <span class="page-number"></span>
+        </div>
+        <br/>
+        <br/>
+
+        <p class="challenge">Use color to reduce the D4 and D8 shapes to D2 shapes.</p>
+    </div>
+
+    <!-- coloring-content -->
+    <div class="coloring-content">
+        <!-- line of 6 order-4 shapes -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{"tapRotate":90}'
+                    ></div><circular-pattern
+                        class='canvas sixth'
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        with-reflection=true
+                        margin=10
+                    ></circular-pattern><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "concave": true, "withMirrorSections":true}'
+                        options='{"tapRotate":80}'
+                    ></div><circular-pattern
+                        class='canvas sixth'
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        with-reflection=true
+                        margin=10
+                    ></circular-pattern><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90, "mirrorLines":4, "margin":0}'
+                    ></div><circular-pattern
+                        class='canvas sixth'
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        with-reflection=true
+                        margin=10
+                    ></circular-pattern>
+                </div>
+
+                <!-- line of 6 order-4 shapes -->
+                <div class="canvas-row">
+                    <circular-pattern
+                        class='canvas sixth'
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        with-reflection=true
+                        margin=10
+                    ></circular-pattern><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90, "mirrorLines":4, "margin":0}'
+                    ></div><circular-pattern
+                        class='canvas sixth'
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        with-reflection=true
+                        margin=10
+                    ></circular-pattern><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{"tapRotate":90}'
+                    ></div><circular-pattern
+                        class='canvas sixth'
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        with-reflection=true
+                        margin=10
+                    ></circular-pattern><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "concave": true, "withMirrorSections":true}'
+                        options='{"tapRotate":80}'
+                    ></div>
+                </div>
+            
+                <!-- line of 3 order-8 shapes -->
+                <div class="canvas-row">
+                    <div class='canvas third'
+                        circular-pattern
+                        with-redraw
+                        rotations=8
+                        slices-count=1
+                        levels=1
+                        with-reflection=true
+                        margin=20
+                    ></div><div class='canvas third'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":8}'
+                        options='{"tapRotate":45, "mirrorLines":8, "margin":0}'
+                    ></div><div class='canvas third'
+                        circular-pattern
+                        with-redraw
+                        rotations=8
+                        slices-count=2
+                        levels=2
+                        margin=10
+                        with-reflection=true
+                    ></div>
+                </div>
+
+                <!-- line of 6 order-4 shapes -->
+                                <div class="canvas-row">
+                    <circular-pattern
+                        class='canvas sixth'
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        with-reflection=true
+                        margin=10
+                    ></circular-pattern><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90, "mirrorLines":4, "margin":0}'
+                    ></div><circular-pattern
+                        class='canvas sixth'
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        with-reflection=true
+                        margin=10
+                    ></circular-pattern><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{"tapRotate":90}'
+                    ></div><circular-pattern
+                        class='canvas sixth'
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        with-reflection=true
+                        margin=10
+                    ></circular-pattern><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "concave": true, "withMirrorSections":true}'
+                        options='{"tapRotate":80}'
+                    ></div>
+                </div>
+
+                <!-- line of 6 order-4 shapes -->
+                <div class="canvas-row">
+                    <div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "withMirrorSections":true}'
+                        options='{"tapRotate":90}'
+                    ></div><circular-pattern
+                        class='canvas sixth'
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        with-reflection=true
+                        margin=10
+                    ></circular-pattern><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":4, "concave": true, "withMirrorSections":true}'
+                        options='{"tapRotate":80}'
+                    ></div><circular-pattern
+                        class='canvas sixth'
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        with-reflection=true
+                        margin=10
+                    ></circular-pattern><div class='canvas sixth'
+                        canvas-centered-drawing
+                        draw-function='drawDihedralShape'
+                        function-options='{"N":4}'
+                        options='{"tapRotate":90, "mirrorLines":4, "margin":0}'
+                    ></div><circular-pattern
+                        class='canvas sixth'
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        with-reflection=true
+                        margin=10
+                    ></circular-pattern>
+                </div>
+    </div>
+        
+    <p class="design-caption">D4 and D8 shapes</p>
+</div>
+
+<div class="book-page">
+    <div class="text-content challenges">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: REFLECTIONS: COLORING &amp; CHALLENGES</span>
+            <span class="page-number"></span>
+        </div>
+        <br/>
+        <br/>
+        <p class="challenge">Can you add color to reduce the D6 shapes to D3 shapes?  Then add more color to reduce them to C3 shapes.</p>
+    </div>
+    <!-- coloring-content -->
+    <div class="coloring-content">
+
+        <div class="canvas-row">
+            <div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=6
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.6]"
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "initialRotation":90,  "inscribed": "circle"}'
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=6
+                slices-count=1
+                levels=2
+                with-reflection=true
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "initialRotation":90,  "inscribed": "circle"}'
+            ></div><circular-pattern
+                class="canvas sixth"
+                with-redraw
+                rotations=6
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.6]"
+            ></circular-pattern>
+        </div>
+        <div class="canvas-row">
+            <div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "margin":0, "initialRotation":90}'
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=6
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.5,0.6]"
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "initialRotation":90}'
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=6
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.5,0.6]"
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "initialRotation":90}'
+            ></div>
+        </div>
+
+        <div class="canvas-row">
+            <div class="canvas third"
+                circular-pattern
+                with-redraw
+                rings="[0.9,0.95]"
+                rotations=6
+                slices-count=2
+                levels=2
+                with-reflection=true
+                mirror-lines=6
+            ></div>
+        </div>
+
+        <div class="canvas-row">
+            <div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "initialRotation":90}'
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=6
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.5,0.6]"
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "initialRotation":90}'
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=6
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.5,0.6]"
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "initialRotation":90}'
+            ></div>
+        </div>
+        
+        <div class="canvas-row">
+            <div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=6
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.6]"
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "initialRotation":90, "inscribed": "circle"}'
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=6
+                slices-count=1
+                levels=2
+                with-reflection=true
+            ></div><div class='canvas sixth'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":6, "concave":true, "withMirrorSections":true}'
+                options='{"tapReflect": "V", "initialRotation":90,  "inscribed": "circle"}'
+            ></div><div class="canvas sixth"
+                circular-pattern
+                with-redraw
+                rotations=6
+                slices-count=1
+                levels=2
+                with-reflection=true
+                rings="[0.6]"
+            ></div>
+        </div>
+    </div>
+    <p class="design-caption">D6 shapes</p>
+</div>
+
+<div class="book-page">
+
+    <div class="text-content challenges">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: REFLECTIONS: COLORING &amp; CHALLENGES</span>
+            <span class="page-number"></span>
+        </div>
+        <br/>
+        <br/>
+        <p class="challenge">Can you color the D12 shape to reduce it to a D6 shape?  Then add  more color to reduce it to a C6 shape.  And add more color again to further reduce it to a C3 shape.</p>
+    </div>
+
+    <!-- coloring-content -->
+    <div class="coloring-content">
+        <circular-pattern
+            class="canvas" 
+            with-redraw
+            rings="[0.8, 0.85]"
+            slices-count=2
+            levels=2
+            rotations=12
+            with-reflection=true
+            mirror-lines=12>
+        </circular-pattern>
+    </div>
+    <p class="design-caption">D12 shape (circular tessellation)</p>
+</div>
+
+</div>
