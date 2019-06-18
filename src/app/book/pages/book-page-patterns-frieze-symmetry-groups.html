@@ -1,0 +1,333 @@
+<div class="book-page-container" ng-if="book.page.name == p.name || main.print">
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: FRIEZE GROUPS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+            <p>We have now seen patterns with each of the frieze group symmetries.</p>
+
+                <br/>
+
+                <p style="margin-bottom: 0;"><strong>translation:</strong></p>
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p1'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></frieze-pattern>
+
+                <p style="margin-bottom: 0;"><strong>horizontal mirror reflection &amp; translation:</strong></p>
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p11m'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></frieze-pattern>
+
+                <p style="margin-bottom: 0;"><strong>vertical mirror reflection &amp; translation:</strong></p>
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p1m1'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></frieze-pattern>
+
+                <p style="margin-bottom: 0;"><strong>glide reflection &amp; translation:</strong></p>
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p11g'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></frieze-pattern>
+
+                <p style="margin-bottom: 0;"><strong>½ turn rotation &amp; translation:</strong></p>
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p2'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                    draw-options='{"rotationOffset":1}'
+                ></frieze-pattern>
+
+                <br/>
+
+                <p>They all have <span class="bold-math">translations</span>, and all but the simplest have an additional <a target="_blank" href="/theory-reference#generator" class="theory-reference-term">generator</a> of either a <span class="bold-math">horizontal mirror</span>, <span class="bold-math">vertical mirror</span>, <span class="bold-math">glide reflection</span>, or <span class="bold-math">½ turn</span>.
+
+                <p>Let’s clarify what we’ve been talking about and coloring...</p>
+        </div>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: FRIEZE GROUPS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+            <p>The frieze patterns illustrate the <span class="bold-math">frieze groups</span>.  These <a target="_blank" href="/theory-reference#group" class="theory-reference-term">groups</a> contain symmetries, not patterns - the patterns just help us see them.</p>
+
+                <p>For example, <span class="bold-math">vertical mirror reflections</span> and <span class="bold-math">translations</span> are symmetries in a <a target="_blank" href="/theory-reference#group" class="theory-reference-term">group</a> that can be seen with the patterns:</p>
+                <!-- 
+                [triangle pattern]
+                [curves pattern]
+                [ellipse pattern]
+                 -->
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p1m1'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='curves2'
+                    group-name='p1m1'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='quarterEllipse'
+                    group-name='p1m1'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></frieze-pattern>
+
+                <p>And we can come up with infinitely more pattern designs to illustrate it.</p>
+                <br/>
+                <p>This is the case for all of our pattern groups.  As long as a pattern has units</p>
+
+                <!-- [curve] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div>
+                </div>
+
+
+                <p>where applying the same symmetries to any unit leaves the entire pattern unchanged</p>
+
+                <!-- [curve] → [curve + curve with ½ turn applied] -->
+                <div class="text-content-graphic line">
+                    <div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas fake-canvas extra-small'>
+                        <p class="text big">&rarr;</p>
+                    </div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"margin":0}'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div>
+                </div>
+                <div class="text-content-graphic line">
+                    <div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas fake-canvas extra-small'
+                    ></div><div class='canvas extra-small'
+                        canvas-centered-drawing
+                        draw-function='drawTriangles'
+                        function-options='{"N":1}'
+                        options='{"initialRotation":180, "margin":0, "stroke-dasharray":"-"}'
+                    ></div>
+                </div>
+
+                <p>then the pattern illustrates the same group as any others with the same symmetries.</p>
+
+                <p style="margin-bottom: 0;"><strong>½ turn rotation &amp; translation:</strong></p>
+                <!--  
+                [p2 curve]
+                [p2 triangles3]
+                [p2 petal ellipse]
+                -->
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p2'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                    draw-options='{"fill":"#3bcca6", "rotationOffset": 1}'
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='trianglesPath2'
+                    group-name='p2'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                    draw-options='{"fill":"#3bcca6", "rotationOffset": 1}'
+                ></frieze-pattern>
+                <frieze-pattern
+                    pattern-function='curvesToStraightSide'
+                    group-name='p2'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                    draw-options='{"fill":"#3bcca6", "rotationOffset": 1}'
+                ></frieze-pattern>
+        </div>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="text-content challenges">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: FRIEZE GROUPS: COLORING &amp; CHALLENGES</span>
+            <span class="page-number"></span>
+        </div>
+        <br/>
+        <br/>
+        <p class="challenge">Color the patterns that share the same types of symmetries with the same sets of colors.</p>
+    </div>
+    <div class="coloring-content">
+        <frieze-pattern
+            pattern-function=trianglesPath2
+            group-name='p2'
+            fundamental-domain-width=47
+            fundamental-domain-height=48
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=curves2
+            group-name='p11g'
+            fundamental-domain-width=47
+            fundamental-domain-height=48
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=petalEllipse
+            group-name='p11g'
+            fundamental-domain-width=47
+            fundamental-domain-height=48
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglePath
+            group-name='p2'
+            fundamental-domain-width=47
+            fundamental-domain-height=48
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=quarterEllipse
+            group-name='p1'
+            fundamental-domain-width=47
+            fundamental-domain-height=48
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglesPath2
+            group-name='p11g'
+            fundamental-domain-width=47
+            fundamental-domain-height=48
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=curves3
+            group-name='p11g'
+            fundamental-domain-width=47
+            fundamental-domain-height=48
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=petalEllipse
+            group-name='p11m'
+            fundamental-domain-width=47
+            fundamental-domain-height=48
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=curves2
+            group-name='p2'
+            fundamental-domain-width=47
+            fundamental-domain-height=48
+        ></frieze-pattern>
+    </div>
+    <p class="design-caption">frieze patterns with ½ turns, glide reflections, horizontal mirrors, and translation (22∞, ∞×, ∞∗, ∞∞)</p>
+</div>
+
+<div class="book-page">
+    <div class="text-content challenges">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: FRIEZE GROUPS: COLORING &amp; CHALLENGES</span>
+            <span class="page-number"></span>
+        </div>
+        <br/>
+        <br/>
+        <p class="challenge">Can you color the patterns to remove half of their mirrors?  Use only 2 colors.</p>
+    </div>
+    <div class="coloring-content">
+        <frieze-pattern
+            pattern-function=slantedSlices
+            group-name='p1m1'
+            fundamental-domain-width=47
+            fundamental-domain-height=50
+            pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": false}'
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=slantedSlices
+            group-name='p1m1'
+            fundamental-domain-width=47
+            fundamental-domain-height=50
+            pattern-function-options='{"levels": 1, "pathsPerLevel": 1, "allowCurved": true}'
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=slantedSlices
+            group-name='p1m1'
+            fundamental-domain-width=47
+            fundamental-domain-height=50
+            pattern-function-options='{"levels": 2, "pathsPerLevel": 1, "allowCurved": false}'
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=slantedSlices
+            group-name='p1m1'
+            fundamental-domain-width=47
+            fundamental-domain-height=50
+            pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": true}'
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function='trianglesPath2'
+            group-name='p1m1'
+            fundamental-domain-width=47
+            fundamental-domain-height=50
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function='quarterEllipse'
+            group-name='p1m1'
+            fundamental-domain-width=47
+            fundamental-domain-height=50
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=slantedSlices
+            group-name='p1m1'
+            fundamental-domain-width=47
+            fundamental-domain-height=50
+            pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": false}'
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=slantedSlices
+            group-name='p1m1'
+            fundamental-domain-width=47
+            fundamental-domain-height=50
+            pattern-function-options='{"levels": 1, "pathsPerLevel": 1, "allowCurved": true}'
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function='trianglesPath3'
+            group-name='p1m1'
+            fundamental-domain-width=47
+            fundamental-domain-height=50
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function='curvedTriangle'
+            group-name='p1m1'
+            fundamental-domain-width=47
+            fundamental-domain-height=50
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function='trianglePath'
+            group-name='p1m1'
+            fundamental-domain-width=47
+            fundamental-domain-height=50
+        ></frieze-pattern>
+    </div>
+    <p class="design-caption">frieze patterns with vertical mirrors (∗∞∞)</p>
+</div>
+
+</div>

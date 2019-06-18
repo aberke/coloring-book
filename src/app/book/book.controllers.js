@@ -84,7 +84,14 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         },{
             name: 'patterns-frieze-rotations-and-reflections',
             url: vm.bookPageUrl('book-page-patterns-frieze-rotations-and-reflections.html'),
+        },{
+            name: 'patterns-frieze-symmetry-groups',
+            url: vm.bookPageUrl('book-page-patterns-frieze-symmetry-groups.html'),
+        },{
+            name: 'patterns-frieze-combining-symmetries',
+            url: vm.bookPageUrl('book-page-patterns-frieze-combining-symmetries.html'),
         }
+
 
         // }, {
         //     name: 'nature-intro',
