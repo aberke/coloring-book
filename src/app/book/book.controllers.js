@@ -78,6 +78,12 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         },{
             name: 'shapes-dihedral-inverses',
             url: vm.bookPageUrl('book-page-shapes-dihedral-inverses.html'),
+        },{
+            name: 'patterns-frieze-translations',
+            url: vm.bookPageUrl('book-page-patterns-frieze-translations.html'),
+        },{
+            name: 'patterns-frieze-rotations-and-reflections',
+            url: vm.bookPageUrl('book-page-patterns-frieze-rotations-and-reflections.html'),
         }
 
         // }, {
