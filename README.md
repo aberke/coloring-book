@@ -37,7 +37,7 @@ Thanks <3
 
 ## Posters
 
-Printable posters available at <a href="http://www.coloring-book.co/posters/">/posters/</a>
+Printable posters available at <a href="http://www.coloring-book.co/posters">/posters</a>
 - Includes printable frieze group posters
 
 
@@ -59,7 +59,7 @@ Printable posters available at <a href="http://www.coloring-book.co/posters/">/p
 	- Print this worksheet -- meant for Second Sunday at Pioneer Works
 	- Designed to be printed in landscape mode on 11x17 paper
 	
-- Frieze pattern cards at <a href="http://www.coloring-book.co/cards/">/cards</a>
+- Frieze pattern cards at <a href="http://www.coloring-book.co/cards">/cards</a>
 	- Print and cut into cards with one pattern piece per card.
 	- Try to arrange these cards to generate the Frieze Patterns.
 
@@ -150,24 +150,28 @@ Full PDF of book available at http://coloring-book.co/book.pdf
 
 PDF/printable ready HTML book available at `/print-book`
 
+This book is designed for print with 7" x 9" trim size.
+It can also be printed on standard 8.5x11 (aka "letter") paper
 
-##### Notes:
 
-Helpful URL parameters:
+#### For regenerating the PDF at /coloring-book.pdf:
+
+- Use Firefox browser (best obeys @page CSS specs)
+- Use File > Page Setup to create (custom) page size with 7"x9" dimensions
+- Go to /print-book
+- Make sure the illustrations look good (or click to recreate them)
+- File > Print (Open the browser’s print dialog)
+- "Open PDF in Preview"
+- There may be extra blank pages.  Sorry, CSS is hard.  Delete them.
+- Save as PDF at `/book.pdf`
+
+
+### Helpful URL parameters:
 
 - `?disable-animations` to disable animations
 - `?print` to test printer friendly styling of the page
 	- This will also disable animations (for better browser performance)
-
-For regenerating the PDF at /coloring-book.pdf:
-- Go to /print-book
-- Use Firefox browser (best obeys @page CSS specs)
-- Make sure the illustrations look good (or click to recreate them)
-- File -> print (Open the browser’s print dialog)
-- Choose to have no headers & footers
-- Choose portrait view & 8.5x11 (aka "letter") paper
-- "Open PDF in Preview"
-- Save as PDF at `/book.pdf`
+- `?debug`
 
 
 ## Making Art Assets
