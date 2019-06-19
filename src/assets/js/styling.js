@@ -14,7 +14,7 @@ const COLORS = {
 
 // Ways to style the sides of a shape
 // with path.attr({'stroke-dasharray': string})
-const STROKE_DASH_ARRAY = ["", ".", "-", "-.", "--..", "-..", ". ", "- ", "--", "- .", "--."];
+const STROKE_DASH_ARRAY = ["", "-", ".", "-.", "--..", "-..", ". ", "- ", "--", "- .", "--."];
 
 // Ways to fill a shape as a "coloring"
 // Using patterns so that on black and white paper the coloring is still clear

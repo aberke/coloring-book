@@ -105,6 +105,14 @@ body.print {
     text-align: center;
 }
 
+.book-page p {
+    font-weight: 300;
+}
+
+.book-page p strong {
+    font-weight: 500;
+}
+
 /* Heading and page number only show for print mode */
 .page-heading,
 .page-number {
@@ -295,7 +303,7 @@ h1#book-title .title-piece.smaller {
 .book-page .book-part-title {
     text-decoration: underline;
     font-size: 2em;
-    font-weight: 600;
+    font-weight: 400;
     margin: 30px 0;
 }
 .book-section-title {

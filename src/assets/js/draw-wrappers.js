@@ -290,8 +290,8 @@ function drawArrow(paper, centerPoint, size, options) {
         ["M", centerPoint.X - (1/2)*size, centerPoint.Y],
         ["H", size]
     ]).attr({
-        "arrow-end": "block-medium-short",
-        "stroke-width": 4,
+        "arrow-end": "block-wide-medium",
+        "stroke-width": 2
     });
     pathSet.push(arrowPath);
     return pathSet;

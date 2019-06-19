@@ -10,8 +10,7 @@ Colors:
 **/
 
 body {
-	font-family: 'Raleway', sans-serif;
-
+	font-family: 'Roboto', sans-serif;
 	padding: 0;
 	margin: 0;
 }
@@ -261,7 +260,7 @@ a {
 }
 footer #footer-title {
 	font-size: large;
-	font-weight: 600;
+	font-weight: 400;
 	text-align: center;
 }
 
@@ -270,20 +269,12 @@ footer #license {
 }
 
 /* Frieze section + Wallpaper section */
-
-.frieze-pattern-name,
 .wallpaper-pattern-name {
-	font-weight: 600;
+	font-weight: 500;
 	text-decoration: underline;
 	text-align: left;
 	margin: 5px 0px;
 	font-size: 1.7em;
-}
-.frieze-pattern-description {
-	font-weight: 600;
-	margin: 5px 0 50px 0;
-	text-align: left;
-	padding-left: 0;  /* otherwise it is shifted over from frieze-pattern-name on mobile and print */
 }
 
 
@@ -298,7 +289,7 @@ footer #license {
 
 /* Bold math terms are for things like sets: {1/4 turn} etc */
 .bold-math {
-	font-weight: 700;
+	font-weight: 500;
 	display: inline-block;
 }
 .bold-math.big {
@@ -357,11 +348,11 @@ footer #license {
 }
 .text-content-graphic p,
 .print .text-content-graphic p.mobile-block {
-	font-family: sans-serif;
-	font-weight: 700;
+	font-weight: 500;
 	text-align: center;
 	display: inline-block;
 	margin: 0;
+	font-size: large;
 }
 /*take up the entire vertical space with the text*/
 .text-content-graphic p.text.big {
@@ -384,7 +375,7 @@ UNLESS in .print mode
 	vertical-align: middle;
 }
 .text-content-graphic .canvas {
-	stroke-width: 2;
+	stroke-width: 1;
 	text-align: center;
 	stroke-linejoin: bevel;
 }

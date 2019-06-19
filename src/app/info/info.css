@@ -18,7 +18,7 @@
 	max-width: 600px;
 }
 .info-view p strong {
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .print .info-view {
@@ -41,6 +41,9 @@
     padding: 10px;
     padding-top: 0;
     max-width: 650px;
+}
+.info-view h2 {
+	font-weight: 400;
 }
 
 .info-view h3 {
@@ -136,7 +139,7 @@
 .info-view .event-title {
     margin: 10px;
     font-size: larger;
-    font-weight: 500;
+    font-weight: 400;
     text-transform: uppercase;
 }
 .info-view .event-title a {
