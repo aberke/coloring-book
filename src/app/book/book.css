@@ -295,7 +295,7 @@ h1#book-title .title-piece.smaller {
 .book-page .book-part-title {
     text-decoration: underline;
     font-size: 2em;
-    font-weight: 600;
+    font-weight: 400;
     margin: 30px 0;
 }
 .book-section-title {

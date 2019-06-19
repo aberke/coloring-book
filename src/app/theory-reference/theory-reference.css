@@ -68,7 +68,7 @@
 
 #theory-reference-page .theory-reference-term-name,
 #theory-reference-page a.theory-reference-term-name {
-	font-weight: 600;
+	font-weight: 500;
 	text-decoration: underline;
 	margin: 20px auto;
 	margin-top: 40px;
@@ -84,8 +84,9 @@
 #theory-reference-page .theory-reference-term-definition {
 	font-size: large;	
 }
+#theory-reference-page strong,
 #theory-reference-page .math-block {
-	font-weight: bold;
+	font-weight: 500;
 }
 
 /*
