@@ -32,7 +32,7 @@ function canvasCenteredDrawingDirective($window) {
 			if (eltParent.hasClass("text-content-graphic") || eltGrandparent.hasClass("text-content-graphic")) {
 
 				drawing.pathSet.attr({
-				    'stroke-width': options['stroke-width'] || 1,
+				    'stroke-width': options['stroke-width'] || 1.3,
 				    // default linecap is 'butt' which doesn't look right with thick strokes
 				    // Docs: https://www.w3.org/TR/SVG/painting.html#StrokeLinecapProperty
 				    'stroke-linecap': 'square', // default is butt cap.

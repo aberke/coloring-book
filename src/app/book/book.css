@@ -105,6 +105,14 @@ body.print {
     text-align: center;
 }
 
+.book-page p {
+    font-weight: 300;
+}
+
+.book-page p strong {
+    font-weight: 500;
+}
+
 /* Heading and page number only show for print mode */
 .page-heading,
 .page-number {
