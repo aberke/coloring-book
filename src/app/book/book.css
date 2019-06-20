@@ -216,7 +216,7 @@ h1#book-title {
     text-align: center;
 }
 /*mobile*/
-@media (max-width: 875px) {
+@media (max-width: 6.9in) {
 
     .animate-next-page .book-page.ng-leave.ng-leave-active {
         top: -1600px;
