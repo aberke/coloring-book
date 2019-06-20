@@ -288,7 +288,8 @@ footer #license {
 }
 
 /* Bold math terms are for things like sets: {1/4 turn} etc */
-.bold-math {
+.bold-math,
+.book-page .bold-math {
 	font-weight: 500;
 	display: inline-block;
 }
