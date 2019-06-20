@@ -6,19 +6,23 @@ The book pages use this as their size.
 
 .book-page {
 	text-align: center;
-	max-width: 7in;
-    max-height: 9in;
-    font-size: 10pt;
+    /*7x9" trim size with margins (as padding)*/
+    /*note there is extra padding within content-container*/
+    max-width: 6in;
+    max-height: 8.6in;
+    padding: 0.2in 0.5in;
+    font-size: 9pt;
     margin: auto;
 }
+
+.book-page.full-bleed {
+    padding: 0;
+}
+
 .debug .book-page,
 .debug .book-page:last-of-type,
 .print.debug .book-page {
     border: 1px solid gray;
-}
-.book-page.print {
-    width: 7in;
-    height: 9in;
 }
 
 /* divide the pages on web view */
@@ -32,7 +36,6 @@ The book pages use this as their size.
 
 .print .book-page {
     border: none;
-    padding-bottom: unset;
 }
 
 /*
@@ -61,15 +64,6 @@ Default left, right, top, bottom margin is set
     font-size: 10pt;
 }
 
-body.print p {
-    page-break-inside: avoid;
-    font-size: 10pt;
-}
-body.print figure,
-body.print .text-content-graphic {
-    text-align: left;
-}
-
 
 /*
 Create page numbers when in print mode that start at 1 on the
@@ -80,10 +74,9 @@ body.print {
 }
 
 .print .book-page .page-heading {
-    /*width: 100%;*/
     font-weight: 300;
     text-transform: uppercase;
-    font-size: 8pt;
+    font-size: 7pt;
     margin-bottom: 5px;
 }
 .print .book-page .page-heading .heading-title{
@@ -94,6 +87,7 @@ body.print {
     counter-increment: page;
     content: counter(page);
     float: right;
+    font-size: 7pt;
 }
 
 .print .book-page .text-content.challenges {
@@ -143,49 +137,10 @@ Note: frickin firefox blows up the width so I am using smaller width
 for many wallpaper patterns;
 */
 
-/* consolidated version only: */
 .print .book-page {
     page-break-inside: avoid;
-}
-
-/* For consolidated version, page break after each page */
-.print .book-page,
-.print #book-cover,
-.print #road-map, 
-.print #before-info,
-.print #table-of-contents,
-.print #after-info {
     page-break-after: always;
     position: relative;
-}
-.print .book-page .text-content,
-.print #book-cover,
-.print #road-map, 
-.print #before-info,
-.print #table-of-contents,
-.print #after-info {
-    padding: 0 1.5%;
-    width: 97%; /* allow the padding - works best with firefox printing */
-}
-
-.print #book-cover,
-.print #road-map,
-.print #table-of-contents {       
-    width: 8in; 
-    height: 10in;
-    page-break-inside: avoid;
-}
-
-.print #book-cover,
-.print #table-of-contents,
-.print #road-map,
-.print #before-info,
-.print #after-info {
-    margin: auto;
-}
-.print #book-cover,
-.print #table-of-contents {
-    padding: 0;
 }
 
 .print .book-page .text-content .content-container,

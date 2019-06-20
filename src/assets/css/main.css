@@ -161,16 +161,6 @@ The other wallpapers have only 1 row on web version,
 	color: #670067;
 }
 
-.text-content, .coloring-content {
-	vertical-align: middle;
-}
-.text-content {
-	padding-left: 2%;
-	padding-right: 0.5%;
-	max-width: 600px;
-	margin: auto;
-}
-
 .poster-page .coloring-content {
 	width: 97%;
 	border: none;
@@ -353,7 +343,7 @@ footer #license {
 	text-align: center;
 	display: inline-block;
 	margin: 0;
-	font-size: large;
+	font-size: 1.2em;
 }
 /*take up the entire vertical space with the text*/
 .text-content-graphic p.text.big {
