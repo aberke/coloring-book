@@ -36,11 +36,13 @@
 }
 
 
-.print .info-view p {
+.print #who-this-book-is-for p,
+.print #what-this-book-is-and-is-about p,
+.print #how-to-use-this-book p,
+.print #why-a-coloring-book p {
     font-size: small;
     padding: 10px;
     padding-top: 0;
-    max-width: 650px;
 }
 .info-view h2 {
 	font-weight: 400;
