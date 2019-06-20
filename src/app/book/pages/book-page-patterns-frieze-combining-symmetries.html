@@ -640,7 +640,10 @@
                     fundamental-domain-height=30
                 ></div>
 
-                <p>You will have to give up.  Combining a <span class="bold-math">horizontal mirror</span> with a <span class="bold-math">vertical mirror</span> brings about a <span class="bold-math">½ turn rotation</span>.  This is just one example of how combining symmetries results in other symmetries, and brings us back to patterns we already have.</p>
+                <p>You will have to give up.  Combining a <span class="bold-math">horizontal mirror</span> with a <span class="bold-math">vertical mirror</span> brings about a <span class="bold-math">½ turn rotation</span>.  This is just one example of how combining symmetries results in other symmetries, and brings us back to pattern groups we already have.</p>
+
+                <br/>
+                <br/>
 
                 <p>Yet we can still find more repeating patterns.  Frieze patterns are limited to repetition along one dimension, but Wallpaper patterns do not have that limit.</p>
 
@@ -660,14 +663,374 @@
                     fundamental-domain-width=30
                     fundamental-domain-height=30
                 ></wallpaper-pattern>
-                <br/>
-                <br/>
-
-                <p class="challenge">Challenge: What happens when you start with a single piece and then transform it with both glide reflection and rotation?  What other symmetries emerge?</p>
         </div>
     </div>
 </div>
 
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: FRIEZE GROUPS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+
+            <p class="challenge">Challenge: What happens when you start with a single piece and then transform it with both glide reflection and rotation?  What other symmetries emerge?</p>
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+
+            <p class="challenge">We can see that the frieze group with ½ turns and translations as its only symmetries is <a target="_blank" href="/theory-reference#commutativity" class="theory-reference-term">commutative</a> - the order in  which its symmetries are applied does not matter.</p>
+
+            <p class="challenge">For example, rotating by a ½ turn around one of its rotation points</p>
+
+            <!-- … [p2 triangles with one colored in, next to rotation point] …
+            … [same graphic, with  color rotated  around rotation  point]... -->
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas rotation-point bottom-right order-2 extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas fake-canvas extra-small'>
+                    <p class="text big">&rarr;</p>
+                </div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas rotation-point bottom-right order-2 extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "fill":1}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0, "fill":1}'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div>
+            </div>
+
+            <p class="challenge">And then translating</p>
+
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas rotation-point bottom-right order-2 extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "fill":1}'
+                ></div><div class='canvas extra-small'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div>
+            </div>
+
+            <!-- … [same graphic, with color piece and rotation  point shifted over]... -->
+
+            <p class="challenge">Is the same as first translating</p>
+
+            <!-- … [p2 triangles with one colored in, next to rotation point] …
+            … [same graphic, with  colored piece and rotation point translated]... -->
+            
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas rotation-point bottom-right order-2 extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas fake-canvas extra-small'>
+                    <p class="text big">&rarr;</p>
+                </div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas rotation-point bottom-right order-2 extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0, "fill":1}'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0, "fill":1}'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div>
+            </div>
+
+            <p class="challenge">And then rotating around that same rotation point.</p>
+
+            <!-- …[same graphic result]... -->
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas rotation-point bottom-right order-2 extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "fill":1}'
+                ></div><div class='canvas extra-small'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div>
+            </div>
+
+            <p class="bold-math">½ turn <span class="operator">&#x2737;</span> translation = translation <span class="operator">&#x2737;</span> ½ turn</p>
+
+            <p class="challenge">Challenge: Which of the frieze groups are <a target="_blank" href="/theory-reference#commutativity" class="theory-reference-term">commutative</a>, and which are not?  In other words, for which frieze pattern groups does the order in which the symmetries are combined matter?</p>
+
+        </div>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: FRIEZE GROUPS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+
+                <p style="margin-bottom: 0;"><span class="bold-math">translation:</span></p>
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p1'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></frieze-pattern>
+
+                <p style="margin-bottom: 0;"><span class="bold-math">horizontal mirror reflection &amp; translation:</span></p>
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p11m'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></frieze-pattern>
+
+                <p style="margin-bottom: 0;"><span class="bold-math">vertical mirror reflection &amp; translation:</span></p>
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p1m1'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></frieze-pattern>
+
+                <p style="margin-bottom: 0;"><span class="bold-math">glide reflection &amp; translation:</span></p>
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p11g'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></frieze-pattern>
+
+                <p style="margin-bottom: 0;"><span class="bold-math">½ turn rotation &amp; translation:</span></p>
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p2'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                    draw-options='{"rotationOffset":1}'
+                ></frieze-pattern>
+
+                <p style="margin-bottom: 0;"><span class="bold-math">glide reflection, vertical mirror reflection, ½ turn rotation &amp; translation:</span></p>
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p2mg'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></frieze-pattern>
+                <p style="margin-bottom: 0;"><span class="bold-math">horizontal and vertical mirror reflection, ½ turn rotation &amp; translation:</span></p>
+                <frieze-pattern
+                    pattern-function='trianglePath'
+                    group-name='p2mm'
+                    fundamental-domain-width=30
+                    fundamental-domain-height=30
+                ></frieze-pattern>
+        </div>
+    </div>
+</div>
 
 <div class="book-page">
     <div class="text-content challenges">
