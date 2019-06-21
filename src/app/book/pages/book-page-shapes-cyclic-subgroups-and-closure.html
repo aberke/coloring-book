@@ -674,6 +674,7 @@
             slices-count=3
             levels=2
             mirror-lines=16
+            margin=5
         ></div>
     </div>
     <p class="design-caption">C16 shape (circular tessellation)</p>
@@ -1071,34 +1072,32 @@
     <!-- coloring-content -->
 	<div class="coloring-content">
         <div class="canvas-row">
-            <div class='canvas sixth'
-                canvas-centered-drawing
+            <canvas-centered-drawing class='canvas sixth'
                 draw-function='drawRegularPolygon'
                 function-options='{"N":8, "concave":true, "withMirrorSections":true}'
                 options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "inscribed":"square", "initialRotation":90}'
-            ></div><div class='canvas sixth'
-                canvas-centered-drawing
+            ></canvas-centered-drawing><canvas-centered-drawing
+                class='canvas sixth'
                 draw-function='drawRegularPolygon'
                 function-options='{"N":4, "concave":true, "withMirrorSections":true}'
                 options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90, "inscribed":"square"}'
-            ></div><div class='canvas sixth'
-                canvas-centered-drawing
+            ></canvas-centered-drawing><canvas-centered-drawing
+                class='canvas sixth'
                 draw-function='drawRegularPolygon'
                 function-options='{"N":12, "concave":true, "withMirrorSections":true}'
                 options='{"tapRotate": 180, "margin":0, "mirrorLines":2, "inscribed":"square", "initialRotation":90}'
-            ></div><div class='canvas sixth'
-                canvas-centered-drawing
+            ></canvas-centered-drawing><canvas-centered-drawing
+                class='canvas sixth'
                 draw-function='drawRegularPolygon'
                 function-options='{"N":4, "concave":true, "withMirrorSections":true}'
                 options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270, "inscribed":"square"}'
-            ></div><div class='canvas sixth'
-                canvas-centered-drawing
+            ></canvas-centered-drawing><canvas-centered-drawing
+                class='canvas sixth'
                 draw-function='drawRegularPolygon'
                 function-options='{"N":8, "concave":true, "withMirrorSections":true}'
                 options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "inscribed":"square", "initialRotation":90}'
-            ></div>
+            ></canvas-centered-drawing>
         </div>
-
         <div class="canvas-row">
             <circular-pattern
                 class="two-thirds"
@@ -1110,7 +1109,6 @@
                 mirror-lines=1
             ></circular-pattern>
         </div>
-
         <div class="canvas-row">
             <div class='canvas sixth'
                 canvas-centered-drawing
