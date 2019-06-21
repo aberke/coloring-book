@@ -111,7 +111,9 @@ function circularPatternDirective($location) {
 				drawRings(rings);
 
 				scope.circularPattern = new CircularPattern(paper, origin, diameter, options);
-				if (!asFlower && rings && rings.length) // fill the path so that it sits above the rings
+				// If there are rings, then fill the path so that it sits above the rings
+				// Unless this shape has reflection!  Because they it will cover its own reflections.
+				if (!scope.withReflection && !asFlower && rings && rings.length)
 					scope.circularPattern.pathSet.attr("fill", "white");
 
 				// draw mirror lines last so that they sit on top
