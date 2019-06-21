@@ -131,7 +131,10 @@ class LineGroupPattern {
         const patternWidth = this.paper.getSize().width;
         // Allow the option to avoid drawing past the boundary of the containing div:
         // If contain is true, stop drawing before hit boundary of the containing div
-        const contain = (!!PRINT_MODE) || this.drawOptions.contain || this.drawOptions.containWidth || false;
+        let contain = (!!PRINT_MODE) || this.drawOptions.contain || this.drawOptions.containWidth || false;
+        if (this.drawOptions.fullBleed) {
+            contain = false;
+        }
         // Need buffer room in the containing bounds because these dimensions are not precise
         // and without buffer pattern will stop prematurely.
         const containerBuffer = 0;
@@ -140,15 +143,19 @@ class LineGroupPattern {
 
     maxTransformHeight(transformObject) {
         const paperHeight = this.paper.getSize().height;
+            const objectHeight = transformObject.getBBox().height;
         // Need some buffer room in the containing bounds because these dimensions are not precise
         // and without buffer pattern will stop prematurely.
         const containerBuffer = 0;
         let maxHeight = containerBuffer + paperHeight;
         // Allow the option to avoid drawing past the boundary of the containing div:
         // If contained is true, stop drawing before hit boundary of the containing div
-        const contain = (!!PRINT_MODE) || this.drawOptions.contain || this.drawOptions.containHeight || false;
+        let contain = (!!PRINT_MODE) || this.drawOptions.contain || this.drawOptions.containHeight || false;
+        if (this.drawOptions.fullBleed) {
+            contain = false;
+            maxHeight += objectHeight;
+        }
         if (!!contain) {
-            const objectHeight = transformObject.getBBox().height;
             const hMultipler = (this.transformOptions.Y && this.transformOptions.Y.translationOffsetYMultiplier) ? this.transformOptions.Y.translationOffsetYMultiplier : 1;
             maxHeight = maxHeight - (hMultipler)*objectHeight;
         }

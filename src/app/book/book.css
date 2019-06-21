@@ -14,10 +14,10 @@ The book pages use this as their size.
     font-size: 9pt;
     margin: auto;
 }
-
+/*
 .book-page.full-bleed {
     padding: 0;
-}
+}*/
 
 .debug .book-page,
 .debug .book-page:last-of-type,
@@ -203,9 +203,6 @@ for many wallpaper patterns;
     padding-top: 250px;
 }
 
-.print .book-page .coloring-content .wallpaper-pattern {
-    height: 910px;
-}
 .print .book-page .coloring-content .wallpaper-pattern svg,
 .print .book-page .coloring-content .frieze-pattern svg {
     /*
@@ -215,7 +212,20 @@ for many wallpaper patterns;
     overflow: visible !important;
 }
 
-/* Printing */
+.book-page.full-bleed .wallpaper-pattern {
+    position: relative;
+    left: -0.8in;
+    overflow: visible !important;
+}
+.book-page.full-bleed .wallpaper-pattern svg {
+    overflow: visible !important;
+}
+.book-page {
+    overflow: hidden;
+}
+.print .book-page.full-bleed {
+    overflow-x: visible !important;
+}
 
 
 
