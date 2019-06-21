@@ -1,0 +1,34 @@
+<div class="book-page-container" ng-if="book.page.name == p.name || main.print">
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">WALLPAPER SAMPLE</span>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="coloring-content">
+        <wallpaper-pattern
+            pattern-function='petalEllipse'
+            group-name='p4g'
+            fundamental-domain-width=47
+            fundamental-domain-height=47
+            draw-options='{"contain": true}'
+        ></wallpaper-pattern>
+    </div>
+</div>
+
+<div class="book-page full-bleed">
+    <div class="coloring-content">
+        <wallpaper-pattern
+            pattern-function='curvesToStraightSide'
+            group-name='p3m1'
+            fundamental-domain-width=47
+            fundamental-domain-height=47
+            draw-options='{"fullBleed": true}'
+        ></wallpaper-pattern>
+    </div>
+</div>
+
+</div>

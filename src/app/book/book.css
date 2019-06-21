@@ -6,19 +6,25 @@ The book pages use this as their size.
 
 .book-page {
 	text-align: center;
-	max-width: 7in;
-    max-height: 9in;
-    font-size: 10pt;
+    /*7x9" trim size with margins (as padding)*/
+    /*note there is extra padding within content-container*/
+    max-width: 6in;
+    max-height: 8.6in;
+    padding: 0.2in 0.5in;
+    font-size: 9pt;
     margin: auto;
 }
+/*
+.book-page.full-bleed {
+    padding: 0;
+}*/
+
 .debug .book-page,
 .debug .book-page:last-of-type,
 .print.debug .book-page {
     border: 1px solid gray;
-}
-.book-page.print {
-    width: 7in;
-    height: 9in;
+    width: 6in;
+    height: 8.6in;
 }
 
 /* divide the pages on web view */
@@ -32,7 +38,6 @@ The book pages use this as their size.
 
 .print .book-page {
     border: none;
-    padding-bottom: unset;
 }
 
 /*
@@ -61,15 +66,6 @@ Default left, right, top, bottom margin is set
     font-size: 10pt;
 }
 
-body.print p {
-    page-break-inside: avoid;
-    font-size: 10pt;
-}
-body.print figure,
-body.print .text-content-graphic {
-    text-align: left;
-}
-
 
 /*
 Create page numbers when in print mode that start at 1 on the
@@ -80,12 +76,16 @@ body.print {
 }
 
 .print .book-page .page-heading {
-    /*width: 100%;*/
     font-weight: 300;
     text-transform: uppercase;
-    font-size: 8pt;
-    margin-bottom: 5px;
+    font-size: 7pt;
+    /*it must take up space*/
+    height: 0.1in;
 }
+.print .book-page .challenges .page-heading {
+    margin-bottom: 0.4in;
+}
+
 .print .book-page .page-heading .heading-title{
     float: left;
 }
@@ -94,14 +94,30 @@ body.print {
     counter-increment: page;
     content: counter(page);
     float: right;
+    font-size: 7pt;
 }
 
+/*
+for (print) coloring pages:
+have 8.6 to work with
+
+.text-content.challenges (heading + challenge)
+
+heading (with margin): 0.1 + 0.4 = 0.5
+
+.coloring-content
+
+.design-caption
+
+
+*/
+
 .print .book-page .text-content.challenges {
-    height: unset;
-    min-height: unset;
+    height: 1.3in;
 }
 
 .book-page .text-content.challenges p {
+    margin: 3px auto;
     text-align: center;
 }
 
@@ -143,56 +159,16 @@ Note: frickin firefox blows up the width so I am using smaller width
 for many wallpaper patterns;
 */
 
-/* consolidated version only: */
 .print .book-page {
     page-break-inside: avoid;
-}
-
-/* For consolidated version, page break after each page */
-.print .book-page,
-.print #book-cover,
-.print #road-map, 
-.print #before-info,
-.print #table-of-contents,
-.print #after-info {
     page-break-after: always;
     position: relative;
-}
-.print .book-page .text-content,
-.print #book-cover,
-.print #road-map, 
-.print #before-info,
-.print #table-of-contents,
-.print #after-info {
-    padding: 0 1.5%;
-    width: 97%; /* allow the padding - works best with firefox printing */
-}
-
-.print #book-cover,
-.print #road-map,
-.print #table-of-contents {       
-    width: 8in; 
-    height: 10in;
-    page-break-inside: avoid;
-}
-
-.print #book-cover,
-.print #table-of-contents,
-.print #road-map,
-.print #before-info,
-.print #after-info {
-    margin: auto;
-}
-.print #book-cover,
-.print #table-of-contents {
-    padding: 0;
 }
 
 .print .book-page .text-content .content-container,
 .print #book-cover .content-container,
 .print #road-map .content-container,
-.print #table-of-contents .content-container,
-.print .book-page .coloring-content .content-container
+.print #table-of-contents .content-container
 {
     position: relative;
     flex-direction: column;
@@ -205,6 +181,18 @@ for many wallpaper patterns;
     padding: 25px 0;
 }
 
+.book-page .coloring-content {
+    margin: 15px auto;
+}
+
+.debug .book-page .coloring-content,
+.print .book-page .coloring-content {
+    min-height: 6.5in;
+    margin: unset;
+}
+
+
+
 /*remove the space for the menu*/
 .print #book-title-container {
     margin-top: 0;
@@ -215,9 +203,6 @@ for many wallpaper patterns;
     padding-top: 250px;
 }
 
-.print .book-page .coloring-content .wallpaper-pattern {
-    height: 910px;
-}
 .print .book-page .coloring-content .wallpaper-pattern svg,
 .print .book-page .coloring-content .frieze-pattern svg {
     /*
@@ -227,7 +212,20 @@ for many wallpaper patterns;
     overflow: visible !important;
 }
 
-/* Printing */
+.book-page.full-bleed .wallpaper-pattern {
+    position: relative;
+    left: -0.8in;
+    overflow: visible !important;
+}
+.book-page.full-bleed .wallpaper-pattern svg {
+    overflow: visible !important;
+}
+.book-page {
+    overflow: hidden;
+}
+.print .book-page.full-bleed {
+    overflow-x: visible !important;
+}
 
 
 
@@ -261,7 +259,7 @@ h1#book-title {
     text-align: center;
 }
 /*mobile*/
-@media (max-width: 875px) {
+@media (max-width: 6.9in) {
 
     .animate-next-page .book-page.ng-leave.ng-leave-active {
         top: -1600px;

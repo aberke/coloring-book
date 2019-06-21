@@ -161,16 +161,6 @@ The other wallpapers have only 1 row on web version,
 	color: #670067;
 }
 
-.text-content, .coloring-content {
-	vertical-align: middle;
-}
-.text-content {
-	padding-left: 2%;
-	padding-right: 0.5%;
-	max-width: 600px;
-	margin: auto;
-}
-
 .poster-page .coloring-content {
 	width: 97%;
 	border: none;
@@ -303,8 +293,6 @@ footer #license {
 /*challenges are small and italic and sit on the bottom of the page*/
 .challenge {
 	font-style: italic;
-	font-size: small;
-	vertical-align: bottom;
 }
 
 .theory-reference-term {
@@ -314,7 +302,7 @@ footer #license {
 
 .half {
 	display: inline-block;
-	width: 45%;
+	width: 48%;
 }
 .third {
 	display: inline-block;
@@ -347,13 +335,12 @@ footer #license {
 	display: block;
 	margin: auto;
 }
-.text-content-graphic p,
-.print .text-content-graphic p.mobile-block {
+.text-content-graphic p {
 	font-weight: 500;
 	text-align: center;
 	display: inline-block;
 	margin: 0;
-	font-size: large;
+	font-size: 1.2em;
 }
 /*take up the entire vertical space with the text*/
 .text-content-graphic p.text.big {
@@ -509,11 +496,9 @@ figcaption {
 figcaption,
 .design-caption,
 .print .design-caption {
-    font-size: 12px;
     font-style: italic;
 }
 body.print .design-caption {
-    font-size: 13px;
 	text-align: center;
 }
 .design-caption {
@@ -538,7 +523,11 @@ body.print .design-caption {
 	display: inline-block;
 }
 
-@media (max-width: 7in) {
+@media (max-width: 6in) {
+
+	.book-page {
+		padding: 10px;
+	}
 
 	.mobile-only {
 		display: block;
@@ -556,11 +545,6 @@ body.print .design-caption {
 	}
 	.text-content-graphic p {
 		padding: 0;
-	}
-
-	.mobile-block,
-	.text-content-graphic p.mobile-block {
-		display: block;
 	}
 
 	.canvas.mobile-small,

@@ -563,7 +563,6 @@
                 <br/>
 
     			<p>Our next groups have even more <a target="_blank" href="/theory-reference#generator" class="theory-reference-term">generators</a> to play with, such as reflections.</p>
-
         </div>
     </div>
 </div>
@@ -575,8 +574,7 @@
             <span class="heading-title">SHAPES &amp; SYMMETRIES: ROTATIONS: COLORING &amp; CHALLENGES</span>
             <span class="page-number"></span>
         </div>
-        <br/>
-        <br/>
+        <p class="challenge"></p>
     </div>
 
     <!-- coloring-content -->
@@ -664,9 +662,6 @@
             <span class="heading-title">SHAPES &amp; SYMMETRIES: ROTATIONS: COLORING &amp; CHALLENGES</span>
             <span class="page-number"></span>
         </div>
-        <br/>
-        <br/>
-
         <p class="challenge">Color the shape to reduce it to a C8 shape.  Then add more color to reduce it to a C4 shape.  Can you again add more color to reduce it to show an even smaller subgroup?  What are the subgroups of C16?</p>
     </div>
 
@@ -679,6 +674,7 @@
             slices-count=3
             levels=2
             mirror-lines=16
+            margin=5
         ></div>
     </div>
     <p class="design-caption">C16 shape (circular tessellation)</p>
@@ -691,9 +687,6 @@
             <span class="heading-title">SHAPES &amp; SYMMETRIES: ROTATIONS: COLORING &amp; CHALLENGES</span>
             <span class="page-number"></span>
         </div>
-        <br/>
-        <br/>
-
         <p class="challenge">Color the shapes to make them all C2 shapes while using as many colors as possible.  How many rotations did you remove with color?  How many colors were you able to use?</p>
     </div>
 
@@ -860,9 +853,6 @@
             <span class="heading-title">SHAPES &amp; SYMMETRIES: ROTATIONS: COLORING &amp; CHALLENGES</span>
             <span class="page-number"></span>
         </div>
-        <br/>
-        <br/>
-
         <p class="challenge">These shapes illustrate groups that share a common subgroup. Can you color the shapes to remove rotations so that they illustrate their common subgroup?</p>
     </div>
 
@@ -1053,9 +1043,6 @@
             <span class="heading-title">SHAPES &amp; SYMMETRIES: ROTATIONS: COLORING &amp; CHALLENGES</span>
             <span class="page-number"></span>
         </div>
-        <br/>
-        <br/>
-
         <p class="challenge">Use color to reduce the C12 shape to a C6 shape.  Is it possible to add more color to reduce it to a C4 shape?  What about a C3 shape?</p>
     </div>
 
@@ -1085,34 +1072,32 @@
     <!-- coloring-content -->
 	<div class="coloring-content">
         <div class="canvas-row">
-            <div class='canvas sixth'
-                canvas-centered-drawing
+            <canvas-centered-drawing class='canvas sixth'
                 draw-function='drawRegularPolygon'
                 function-options='{"N":8, "concave":true, "withMirrorSections":true}'
                 options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "inscribed":"square", "initialRotation":90}'
-            ></div><div class='canvas sixth'
-                canvas-centered-drawing
+            ></canvas-centered-drawing><canvas-centered-drawing
+                class='canvas sixth'
                 draw-function='drawRegularPolygon'
                 function-options='{"N":4, "concave":true, "withMirrorSections":true}'
                 options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":90, "inscribed":"square"}'
-            ></div><div class='canvas sixth'
-                canvas-centered-drawing
+            ></canvas-centered-drawing><canvas-centered-drawing
+                class='canvas sixth'
                 draw-function='drawRegularPolygon'
                 function-options='{"N":12, "concave":true, "withMirrorSections":true}'
                 options='{"tapRotate": 180, "margin":0, "mirrorLines":2, "inscribed":"square", "initialRotation":90}'
-            ></div><div class='canvas sixth'
-                canvas-centered-drawing
+            ></canvas-centered-drawing><canvas-centered-drawing
+                class='canvas sixth'
                 draw-function='drawRegularPolygon'
                 function-options='{"N":4, "concave":true, "withMirrorSections":true}'
                 options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "initialRotation":270, "inscribed":"square"}'
-            ></div><div class='canvas sixth'
-                canvas-centered-drawing
+            ></canvas-centered-drawing><canvas-centered-drawing
+                class='canvas sixth'
                 draw-function='drawRegularPolygon'
                 function-options='{"N":8, "concave":true, "withMirrorSections":true}'
                 options='{"tapRotate": 180, "margin":0, "mirrorLines":1, "inscribed":"square", "initialRotation":90}'
-            ></div>
+            ></canvas-centered-drawing>
         </div>
-
         <div class="canvas-row">
             <circular-pattern
                 class="two-thirds"
@@ -1124,7 +1109,6 @@
                 mirror-lines=1
             ></circular-pattern>
         </div>
-
         <div class="canvas-row">
             <div class='canvas sixth'
                 canvas-centered-drawing
