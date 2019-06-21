@@ -293,8 +293,6 @@ footer #license {
 /*challenges are small and italic and sit on the bottom of the page*/
 .challenge {
 	font-style: italic;
-	font-size: small;
-	vertical-align: bottom;
 }
 
 .theory-reference-term {

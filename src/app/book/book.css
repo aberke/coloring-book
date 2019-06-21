@@ -79,8 +79,13 @@ body.print {
     font-weight: 300;
     text-transform: uppercase;
     font-size: 7pt;
-    margin-bottom: 5px;
+    /*it must take up space*/
+    height: 0.1in;
 }
+.print .book-page .challenges .page-heading {
+    margin-bottom: 0.4in;
+}
+
 .print .book-page .page-heading .heading-title{
     float: left;
 }
@@ -92,12 +97,27 @@ body.print {
     font-size: 7pt;
 }
 
+/*
+for (print) coloring pages:
+have 8.6 to work with
+
+.text-content.challenges (heading + challenge)
+
+heading (with margin): 0.1 + 0.4 = 0.5
+
+.coloring-content
+
+.design-caption
+
+
+*/
+
 .print .book-page .text-content.challenges {
-    height: unset;
-    min-height: unset;
+    height: 1.3in;
 }
 
 .book-page .text-content.challenges p {
+    margin: 3px auto;
     text-align: center;
 }
 
@@ -161,9 +181,14 @@ for many wallpaper patterns;
     padding: 25px 0;
 }
 
+.book-page .coloring-content {
+    margin: 15px auto;
+}
+
 .debug .book-page .coloring-content,
 .print .book-page .coloring-content {
-    height: 6.5in;
+    min-height: 6.5in;
+    margin: unset;
 }
 
 
