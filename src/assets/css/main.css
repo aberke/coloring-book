@@ -304,7 +304,7 @@ footer #license {
 
 .half {
 	display: inline-block;
-	width: 45%;
+	width: 48%;
 }
 .third {
 	display: inline-block;
@@ -498,11 +498,9 @@ figcaption {
 figcaption,
 .design-caption,
 .print .design-caption {
-    font-size: 12px;
     font-style: italic;
 }
 body.print .design-caption {
-    font-size: 13px;
 	text-align: center;
 }
 .design-caption {

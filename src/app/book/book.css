@@ -23,6 +23,8 @@ The book pages use this as their size.
 .debug .book-page:last-of-type,
 .print.debug .book-page {
     border: 1px solid gray;
+    width: 6in;
+    height: 8.6in;
 }
 
 /* divide the pages on web view */
@@ -146,8 +148,7 @@ for many wallpaper patterns;
 .print .book-page .text-content .content-container,
 .print #book-cover .content-container,
 .print #road-map .content-container,
-.print #table-of-contents .content-container,
-.print .book-page .coloring-content .content-container
+.print #table-of-contents .content-container
 {
     position: relative;
     flex-direction: column;
@@ -159,6 +160,13 @@ for many wallpaper patterns;
     text-align: left;
     padding: 25px 0;
 }
+
+.debug .book-page .coloring-content,
+.print .book-page .coloring-content {
+    height: 6.5in;
+}
+
+
 
 /*remove the space for the menu*/
 .print #book-title-container {
