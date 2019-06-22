@@ -6,26 +6,6 @@
 #theory-reference-page .book-page {
 	border: none;
 }
-.print #theory-reference-page {
-	page-break-before: always;
-	page-break-after: always;
-}
-
-#theory-reference-page h2 {
-	width: 100%;
-	padding: 10px 0;
-	/*Avoid colliding with menu*/
-	margin-top: 50px;
-}
-.print #theory-reference-page h2 {
-	margin-top: 0;
-	page-break-after: avoid;
-}
-
-#theory-reference-page .theory-reference-term-container {
-	page-break-inside: avoid;
-}
-
 
 #theory-reference-page p,
 #theory-reference-page a.theory-reference-term-name,
@@ -61,11 +41,6 @@
 	text-decoration: underline;
 	margin: 30 0 10 0;
 	page-break-after: avoid;
-}
-.print #theory-reference-page .theory-reference-term-name,
-.print #theory-reference-page a.theory-reference-term-name {
-	margin: 10px auto;
-	margin-top: 30px;
 }
 #theory-reference-page strong,
 #theory-reference-page .math-block {
