@@ -14,23 +14,22 @@ The book pages use this as their size.
     font-size: 9pt;
     margin: auto;
 }
-/*
-.book-page.full-bleed {
-    padding: 0;
-}*/
+
+.debug .book-page,
+.print .book-page {
+    width: 6in;
+    height: 8.6in;
+}
 
 .debug .book-page,
 .debug .book-page:last-of-type,
 .print.debug .book-page,
 .debug #theory-reference-page .book-page {
     border: 1px solid gray;
-    width: 6in;
-    height: 8.6in;
 }
 
 /* divide the pages on web view */
 .book-page {
-    padding-bottom: 20px;
     border-bottom: 1px dashed gray;
 }
 .book-page:last-of-type {
