@@ -3,17 +3,14 @@
 	text-align: center;
 	margin: auto;
 }
+#theory-reference-page .book-page {
+	border: none;
+}
 .print #theory-reference-page {
 	page-break-before: always;
 	page-break-after: always;
 }
 
-#theory-reference-page #theory-reference-intro,
-#theory-reference-page #definitions-container {
-	max-width: 700px;
-	margin: auto;
-	padding: 0 10px 30px;
-}
 #theory-reference-page h2 {
 	width: 100%;
 	padding: 10px 0;
@@ -25,11 +22,6 @@
 	page-break-after: avoid;
 }
 
-#theory-reference-page #theory-reference-intro {
-	border-bottom: 5px solid purple;
-	page-break-inside: avoid;
-}
-
 #theory-reference-page .theory-reference-term-container {
 	page-break-inside: avoid;
 }
@@ -38,17 +30,14 @@
 #theory-reference-page p,
 #theory-reference-page a.theory-reference-term-name,
 .theory-reference-term-note, #theory-reference-page li {
-	max-width: 700px;
 	text-align: left;
 	margin: auto;
 	display: block;
 	color: black;
 }
-.print #theory-reference-page p,
-.print #theory-reference-page a.theory-reference-term-name,
-.print .theory-reference-term-note, #theory-reference-page li {
-	font-size: small;
-	line-height: 1.2;
+
+#theory-reference-page .theory-reference-term-definition {
+	margin-bottom: 10px;
 }
 
 #theory-reference-page .text-content-graphic {
@@ -70,37 +59,15 @@
 #theory-reference-page a.theory-reference-term-name {
 	font-weight: 500;
 	text-decoration: underline;
-	margin: 20px auto;
-	margin-top: 40px;
-	font-size: larger;
+	margin: 30 0 10 0;
 	page-break-after: avoid;
 }
 .print #theory-reference-page .theory-reference-term-name,
 .print #theory-reference-page a.theory-reference-term-name {
 	margin: 10px auto;
 	margin-top: 30px;
-	font-size: large;
-}
-#theory-reference-page .theory-reference-term-definition {
-	font-size: large;	
 }
 #theory-reference-page strong,
 #theory-reference-page .math-block {
 	font-weight: 500;
-}
-
-/*
-.theory-reference-term-example: How it relates to one of our example groups 
-- Eg, our identity element is the action that leaves the image unchanged - ie, rotating by 360 degrees (maybe have gif here that rotates by 360 degrees, then has long pause)
-*/
-#theory-reference-page .theory-reference-term-example{
-	margin: 15px auto;
-}
-.print #theory-reference-page .theory-reference-term-example{
-	margin: 10px auto;
-}
-
-#theory-reference-page .theory-reference-term-note {
-	font-style: italic;
-	font-size: smaller;
 }

@@ -21,7 +21,8 @@ The book pages use this as their size.
 
 .debug .book-page,
 .debug .book-page:last-of-type,
-.print.debug .book-page {
+.print.debug .book-page,
+.debug #theory-reference-page .book-page {
     border: 1px solid gray;
     width: 6in;
     height: 8.6in;
