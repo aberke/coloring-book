@@ -94,6 +94,10 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         {
             name: 'wallpaper-samples',
             url: vm.bookPageUrl('book-page-wallpaper-samples.html'),
+        }, 
+        {
+            name: 'theory-reference',
+            url: vm.bookPageUrl('book-page-theory-reference.html'),
         }
         // , {
         //     name: 'after-info',

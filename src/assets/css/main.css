@@ -284,7 +284,7 @@ footer #license {
 	display: inline-block;
 }
 .bold-math.big {
-	font-size: x-large;
+	font-size: 2em;
 }
 .math-block {
 	display: inline-block;
