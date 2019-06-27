@@ -17,6 +17,7 @@ function fractionDirective() {
 		link: function (scope, element) {
 
 			let elt = element[0];
+			elt.className += " fraction";
 			let splitFraction = elt.innerHTML.split("/");
 			if (splitFraction.length < 2)
 				return;
@@ -24,7 +25,7 @@ function fractionDirective() {
 			scope.numerator = splitFraction[0];
 			scope.denominator = splitFraction[1];
 
-			elt.innerHTML = "<span class='fraction'><sup>" + String(scope.numerator) + "</sup><span>&frasl;</span><sub>" + String(scope.denominator) + "</sub></span>";
+			elt.innerHTML = "<sup>" + String(scope.numerator) + "</sup><span class='divider'>&frasl;</span><sub>" + String(scope.denominator) + "</sub>";
 		}
 	};
 }

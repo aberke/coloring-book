@@ -15,8 +15,10 @@ The book pages use this as their size.
     Director of design had recommended 4 picas
     */
     padding: 0.33in 0.66in;
-    font-size: 9pt;
     margin: auto;
+    font-size: 9pt;
+    /* Director of design recommended at least 2pts more leading than font-size */
+    line-height: 12pt;
 }
 
 .debug .book-page,

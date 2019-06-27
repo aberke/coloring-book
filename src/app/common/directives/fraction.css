@@ -3,20 +3,26 @@ Goes with the fraction directive.
 For representing fractions in HTML.
 **/
 .fraction {
-	display: inline-block;
 	font-size: 60%;
 	font-weight: 700;
 	text-align: center;
+	line-height: 1.5em;
+	margin-right: -0.5em; /* (to account for the shift of the sub text) */
+}
+.fraction > sup, 
+.fraction > sub,
+.fraction .divider {
+	display: inline-block;
+	font: inherit;
+	position: relative;
 }
 .fraction > sup {
-	display: block;
-	border-bottom: 1px solid;
-	font: inherit;
+	vertical-align: top;
 }
-.fraction > span {
-	display: none;
+.fraction .divider {
+	left: -0.12em;
+	font-size: 1.5em;
 }
 .fraction > sub {
-	display: block;
-	font: inherit;
+	left: -0.5em;
 }
