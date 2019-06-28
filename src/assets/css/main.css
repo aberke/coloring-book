@@ -345,7 +345,6 @@ footer #license {
 /*take up the entire vertical space with the text*/
 .text-content-graphic p.text.big {
 	font-size: x-large;
-	line-height: 2;
 }
 
 /*
