@@ -4,7 +4,7 @@ For representing fractions in HTML.
 **/
 .fraction {
 	font-size: 60%;
-	font-weight: 700;
+	font-weight: 500;
 	text-align: center;
 	line-height: 1.5em;
 	margin-right: -0.5em; /* (to account for the shift of the sub text) */
