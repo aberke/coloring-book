@@ -57,7 +57,7 @@
 
             <p>And now that we have groups with more symmetries, there are more interesting subgroups to find.</p>
 
-            <p>We can again use color to reduce the amount of symmetry a shape has.  For example, a D6 shape has 6 mirrors and 6 rotations, but color can reduce it to a shape with only 3 mirrors and 3 rotations - a D3 shape.</p>
+            <p>We can again use color to reduce the amount of symmetry a shape has.  For example, a D6 shape has 6 mirrors and 6 rotations, but with color we can remove 3 of these mirrors and 3 of these rotations to reduce it to a D3 shape.</p>
             <!-- [Hexagon, 6 mirrors drawn, D6 written below] → [Same shape colored so that it is D3, 3 mirrors drawn, D3 written below] -->
             <div class="text-content-graphic line">
                 <div class='canvas'
@@ -238,7 +238,7 @@
                     ></div>
                 </div>
 
-                <p>Color can also take away a shape's rotations.</p>
+                <p>Color can also take away a shape's rotations,</p>
                 <!-- [D4 shape, D4 written below] → [D4 shape colored not to be a D4 shape] -->
                 <div class="text-content-graphic line">
                     <div class='canvas small'
@@ -256,32 +256,32 @@
                     ></div>
                 </div>
 
-                <p>By coloring in this way, we can see subgroups with only mirror reflections.</p>
+                <p>To show us subgroups with only mirror reflections.</p>
                 <div class="text-content-graphic line">
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
-                        function-options='{"N": 8, "concave":true}'
-                        options='{"mirrorLines":1, "autoReflect":"V"}'
+                        function-options='{"N": 4}'
+                        options='{"mirrorLines":1, "margin":25}'
                     ></div>
                     <p class="text">:</p>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
-                        function-options='{"N": 8, "concave":true, "withMirrorSections": true, "coloring": [1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1]}'
-                        options='{"mirrorLines":1}'
+                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,1,1,1,1,0]}'
+                        options='{"mirrorLines":1, "margin":25}'
                     ></div>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
-                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,1,1,1,1,0]}'
-                        options='{"mirrorLines":1}'
+                        function-options='{"N": 8, "concave":true, "withMirrorSections": true, "coloring": [1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1]}'
+                        options='{"mirrorLines":1, "margin":25}'
                     ></div>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N": 8, "withMirrorSections": true, "coloring": [0,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1]}'
-                        options='{"mirrorLines":1, "margin":20}'
+                        options='{"mirrorLines":1, "margin":25}'
                     ></div>
                 </div>
 
@@ -289,27 +289,27 @@
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
-                        function-options='{"N": 8, "concave":true}'
-                        options='{"mirrorLines":1, "initialRotation":90, "autoReflect":"V"}'
+                        function-options='{"N": 4}'
+                        options='{"mirrorLines":[0,0,1,0], "margin":25}'
                     ></div>
                     <p class="text">:</p>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
-                        function-options='{"N": 8, "concave":true, "withMirrorSections": true, "coloring": [1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1]}'
-                        options='{"mirrorLines":1, "initialRotation":90}'
+                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,1,1,1,1,0]}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":25}'
                     ></div>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
-                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,1,1,1,1,0]}'
-                        options='{"mirrorLines":1, "initialRotation":90}'
+                        function-options='{"N": 8, "concave":true, "withMirrorSections": true, "coloring": [1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1]}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":25}'
                     ></div>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N": 8, "withMirrorSections": true, "coloring": [0,0,1,0,0,0,1,1,0,0,1,1,0,0,0,1]}'
-                        options='{"mirrorLines":1, "initialRotation":90, "margin":20}'
+                        options='{"mirrorLines":1, "initialRotation":90, "margin":25}'
                     ></div>
                 </div>
 
@@ -317,27 +317,27 @@
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
-                        function-options='{"N": 8, "concave":true}'
-                        options='{"mirrorLines":1, "initialRotation":45, "autoReflect":"V"}'
+                        function-options='{"N": 4}'
+                        options='{"mirrorLines":[0,0,0,1], "margin":25}'
                     ></div>
                     <p class="text">:</p>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
-                        function-options='{"N": 8, "concave":true, "withMirrorSections": true, "coloring": [1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1]}'
-                        options='{"mirrorLines":1, "initialRotation":45}'
+                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,1,1,1,1,0,0]}'
+                        options='{"mirrorLines":[0,0,0,1], "margin":25}'
                     ></div>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
-                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,1,1,1,1,0,0]}'
-                        options='{}'
+                        function-options='{"N": 8, "concave":true, "withMirrorSections": true, "coloring": [1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1]}'
+                        options='{"mirrorLines":1, "initialRotation":45, "margin":25}'
                     ></div>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N": 8, "withMirrorSections": true, "coloring": [0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0]}'
-                        options='{"mirrorLines":1, "initialRotation":45, "margin":20}'
+                        options='{"mirrorLines":1, "initialRotation":45, "margin":25}'
                     ></div>
                 </div>
 
@@ -345,27 +345,27 @@
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
-                        function-options='{"N": 8, "concave":true}'
-                        options='{"mirrorLines":1, "initialRotation":135, "autoReflect":"V"}'
+                        function-options='{"N": 4}'
+                        options='{"mirrorLines":[0,1,0,0], "margin":25}'
                     ></div>
                     <p class="text">:</p>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
-                        function-options='{"N": 8, "concave":true, "withMirrorSections": true, "coloring": [1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1]}'
-                        options='{"mirrorLines":1, "initialRotation":135}'
+                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [1,1,1,1,0,0,0,0]}'
+                        options='{"mirrorLines":[0,1,0,0], "margin":25}'
                     ></div>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
-                        function-options='{"N": 4, "withMirrorSections": true, "coloring": [1,1,1,1,0,0,0,0]}'
-                        options='{}'
+                        function-options='{"N": 8, "concave":true, "withMirrorSections": true, "coloring": [1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1]}'
+                        options='{"mirrorLines":1, "initialRotation":135, "margin":25}'
                     ></div>
                     <div class='canvas'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N": 8, "withMirrorSections": true, "coloring": [1,1,0,0,0,0,1,1,1,1,1,0,0,0,0,0]}'
-                        options='{"mirrorLines":1, "initialRotation":135, "margin":20}'
+                        options='{"mirrorLines":1, "initialRotation":135, "margin":25}'
                     ></div>
                 </div>
                 <br/>
@@ -559,7 +559,7 @@
             <br/>
             <br/>
             <p class="challenge">There is a relationship between the number of symmetries in our dihedral groups, the number of symmetries in their subgroups, and the maximum number of colors we can use to reduce our dihedral shapes to show those subgroups.</p>
-            <p class="challenge">When we reduce our D4 shapes to D2 shapes, we reduce their number of symmetries from 8 (4 mirrors, 4 rotations) to 4 (2 mirrors, 2 rotations).  This is also the case when we reduce our D4 shapes to C4 shapes: Shape go from having 4 mirrors and 4 rotations to having just 4 rotations.</p>
+            <p class="challenge">When we reduce our D4 shapes to D2 shapes, we reduce their number of symmetries from 8 (4 mirrors, 4 rotations) to 4 (2 mirrors, 2 rotations).  This is also the case when we reduce our D4 shapes to C4 shapes: Shapes go from having 4 mirrors and 4 rotations to having just 4 rotations.</p>
             <!-- [D4 shape colored as C4 shape with caption: C4] -->
             <div class="text-content-graphic line">
                 <canvas-centered-drawing
