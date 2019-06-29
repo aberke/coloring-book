@@ -1,4 +1,4 @@
-<div class="book-page-container" ng-if="book.page.name == p.name || main.print">
+<div class="book-page-container patterns" ng-if="book.page.name == p.name || main.print">
 
 <div class="book-page">
     <div class="text-content">
@@ -790,11 +790,9 @@
                     ></div>
                 </div>
                 <p>Why can we do this?  This brings us back to subgroups.</p>
-                <br/>
-
                 <p>Our patterns with vertical mirror reflections belong to a symmetry <a target="_blank" href="/theory-reference#group" class="theory-reference-term">group</a> with translations and vertical mirrors.</p>
 
-                <p class="bold-math">vertical mirror reflection &amp; translation:</p>
+                <p class="bold-math" style="margin-bottom: 0;">vertical mirror reflection &amp; translation:</p>
 
                 <div class="text-content-graphic line">
                     <span style="display: inline-block;">
@@ -841,7 +839,7 @@
 
                 <p>Naturally, the <a target="_blank" href="/theory-reference#group" class="theory-reference-term">group</a> with only translations is a subgroup.</p>
 
-                <p class="bold-math">translation:</p>
+                <p class="bold-math" style="margin-bottom: 0;">translation:</p>
                 
                 <div class="text-content-graphic line">
                     
@@ -1252,9 +1250,6 @@
                         options='{"margin":5, "mirror":"H"}'
                     ></div>
                 </div>
-
-                <br/>
-
                 <p>A <span class="bold-math">glide reflection</span> is a transformation that reflects across a mirror line at the same time as translating along it.</p>
 
                 <div style="display: inline-block; border-bottom: 2px dashed gray;" class="text-content-graphic line">
@@ -1284,8 +1279,6 @@
                         options='{"margin":5, "mirror":"H", "stroke-dasharray":"-"}'
                     ></div>
                 </div>
-
-                <br/>
 
                 <p>By continuing to translate or glide, a pattern with glide reflection is generated.</p>
 
@@ -1334,8 +1327,6 @@
 
                 <p>Glide reflections show themselves in other patterns as well.  The patterns we generated with horizontal mirrors have glide reflections too,
                 </p>
-
-                <br/>
 
                 <!-- [simple p11m pattern with diff side strokes to show a glide reflection] -->
                 <div class="text-content-graphic line">
@@ -1564,48 +1555,54 @@
     </div>
 
     <!-- coloring-content -->
-    <div class="coloring-content">          
+    <div class="coloring-content">
+        <frieze-pattern
+            pattern-function='trianglePath'
+            group-name='p11m'
+            fundamental-domain-width=42
+            fundamental-domain-height=35
+        ></frieze-pattern>         
         <frieze-pattern
             pattern-function='quarterEllipse'
             group-name='p1m1'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>                
         <frieze-pattern
             pattern-function='trianglesPath2'
             group-name='p11m'
-            fundamental-domain-width=50
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>                
         <frieze-pattern
             pattern-function='trianglePath'
             group-name='p1m1'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>                
         <frieze-pattern
             pattern-function='quarterEllipse'
             group-name='p11m'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>                
         <frieze-pattern
             pattern-function='trianglesPath3'
             group-name='p1m1'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
         <frieze-pattern
             pattern-function='trianglePath'
             group-name='p11m'
-            fundamental-domain-width=50
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
         <frieze-pattern
             pattern-function='trianglesPath2'
             group-name='p1m1'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
     </div>
         
@@ -1626,45 +1623,52 @@
         <frieze-pattern
             pattern-function=curves3
             group-name='p2'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
         <frieze-pattern
             pattern-function=slantedSlices
             group-name='p2'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
             pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": true}'
         ></frieze-pattern>
         <frieze-pattern
             pattern-function=petalEllipse
             group-name='p2'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
         <frieze-pattern
             pattern-function='trianglesPath2'
             group-name='p2'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
         <frieze-pattern
             pattern-function=curves2
             group-name='p2'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
         <frieze-pattern
             pattern-function='curvedTriangle'
             group-name='p2'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function='slantedSlices'
+            group-name='p2'
+            fundamental-domain-width=42
+            fundamental-domain-height=42
+            pattern-function-options='{"levels": 1, "pathsPerLevel": 1, "allowCurved": true}'
         ></frieze-pattern>
         <frieze-pattern
             pattern-function=curves4
             group-name='p2'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
     </div>
         
@@ -1686,64 +1690,64 @@
         <frieze-pattern
             pattern-function=curves3
             group-name='p11g'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
         <frieze-pattern
             pattern-function=slantedSlices
             group-name='p11g'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
             pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": true}'
         ></frieze-pattern>
         <frieze-pattern
             pattern-function='trianglePath'
             group-name='p11g'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
         <frieze-pattern
             pattern-function=petalEllipse
             group-name='p11g'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
         <frieze-pattern
             pattern-function=curves2
             group-name='p11g'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
         <frieze-pattern
             pattern-function='curvedTriangle'
             group-name='p11g'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
         <frieze-pattern
             pattern-function='trianglesPath2'
             group-name='p11g'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
         <frieze-pattern
             pattern-function='slantedSlices'
             group-name='p11g'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
             pattern-function-options='{"levels": 1, "pathsPerLevel": 1, "allowCurved": true}'
         ></frieze-pattern>
         <frieze-pattern
             pattern-function='quarterEllipse'
             group-name='p11g'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
         <frieze-pattern
             pattern-function='trianglePath'
             group-name='p11g'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
     </div>
         
@@ -1761,48 +1765,48 @@
     </div>
 
     <!-- coloring-content -->
-    <div class="coloring-content">
-        <frieze-pattern
-            pattern-function='trianglesPath2'
-            group-name='p11g'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
-        ></frieze-pattern>                
-        <frieze-pattern
-            pattern-function='trianglePath'
-            group-name='p11m'
-            fundamental-domain-width=50
-            fundamental-domain-height=50
-        ></frieze-pattern>                
-        <frieze-pattern
-            pattern-function='petalEllipse'
-            group-name='p11g'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
-        ></frieze-pattern>                
-        <frieze-pattern
-            pattern-function='trianglesPath2'
-            group-name='p11m'
-            fundamental-domain-width=50
-            fundamental-domain-height=50
-        ></frieze-pattern>                
-        <frieze-pattern
-            pattern-function='trianglePath'
-            group-name='p11g'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
-        ></frieze-pattern>                
-        <frieze-pattern
-            pattern-function='petalEllipse'
-            group-name='p11m'
-            fundamental-domain-width=50
-            fundamental-domain-height=50
-        ></frieze-pattern>      
+    <div class="coloring-content">      
         <frieze-pattern
             pattern-function='quarterEllipse'
             group-name='p11g'
-            fundamental-domain-width=47
-            fundamental-domain-height=50
+            fundamental-domain-width=42
+            fundamental-domain-height=42
+        ></frieze-pattern>              
+        <frieze-pattern
+            pattern-function='trianglePath'
+            group-name='p11m'
+            fundamental-domain-width=42
+            fundamental-domain-height=42
+        ></frieze-pattern>                
+        <frieze-pattern
+            pattern-function='petalEllipse'
+            group-name='p11g'
+            fundamental-domain-width=42
+            fundamental-domain-height=42
+        ></frieze-pattern>                
+        <frieze-pattern
+            pattern-function='trianglesPath2'
+            group-name='p11m'
+            fundamental-domain-width=42
+            fundamental-domain-height=42
+        ></frieze-pattern>                
+        <frieze-pattern
+            pattern-function='trianglePath'
+            group-name='p11g'
+            fundamental-domain-width=42
+            fundamental-domain-height=45
+        ></frieze-pattern>                
+        <frieze-pattern
+            pattern-function='petalEllipse'
+            group-name='p11m'
+            fundamental-domain-width=42
+            fundamental-domain-height=42
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function='trianglesPath2'
+            group-name='p11g'
+            fundamental-domain-width=42
+            fundamental-domain-height=42
         ></frieze-pattern>
     </div>
         

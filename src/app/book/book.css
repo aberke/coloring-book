@@ -170,6 +170,10 @@ body.print {
     margin: unset;
 }
 
+.book-page-container.patterns .book-page .coloring-content {
+    margin: 0 -0.3in;
+}
+
 
 
 /*remove the space for the menu*/
