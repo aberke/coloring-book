@@ -143,9 +143,11 @@ The other wallpapers have only 1 row on web version,
 
 #table-of-contents h3 {
     font-size: 1.7em;
-    margin: 0;
-    margin-top: 25px;
+    margin: 25px 0 10px 0;
     text-transform: uppercase;
+}
+#table-of-contents h4 {
+	margin: 0;
 }
 
 #book-cover .canvas {
