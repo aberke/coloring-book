@@ -19,32 +19,30 @@
                 	<p>C4:</p>
                     <!-- { -->
                     <p class="text big">&#123;</p>
-
-                    <div class='canvas clickable small'
-                        canvas-centered-drawing
+                    <canvas-centered-drawing
+                        class='canvas extra-small'
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "sideStrokes": [1, 0, 0, 0]}'
                         options='{"text":"0 turn", "initialRotation": "0", "autoRotateDegrees": 90}'
-                    ></div>
-                    <div class='canvas small'
-                        canvas-centered-drawing
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas extra-small'
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "sideStrokes": [1, 0, 0, 0], "initialRotation": "90"}'
                         options='{"text":"1/4 turn", "initialRotation": "90", "autoRotateDegrees": 90}'
-                    ></div>
-                    <div class='canvas small'
-                        canvas-centered-drawing
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas extra-small'
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "sideStrokes": [1, 0, 0, 0], "initialRotation": "180"}'
                         options='{"text":"2/4 turn", "initialRotation": "180", "autoRotateDegrees": 90}'
-                    ></div>
-                    <div class='canvas small'
-                        canvas-centered-drawing
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas extra-small'
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "sideStrokes": [1, 0, 0, 0], "initialRotation": "270"}'
                         options='{"text":"3/4 turn", "initialRotation": "270", "autoRotateDegrees": 90}'
-                    ></div>
-
+                    ></canvas-centered-drawing>
                     <!-- }-->
                     <p class="text big">&#125;</p>
                 </div>
@@ -57,13 +55,13 @@
                     <!-- { -->
                     <p class="text big">&#123;</p>
 
-                    <div class='canvas small'
+                    <div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "coloring":[0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
                         options='{"text":"0 turn", "initialRotation": "0", "autoRotateDegrees": 180}'
                     ></div>
-                    <div class='canvas small'
+                    <div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "coloring":[0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
@@ -83,10 +81,10 @@
                     <!-- { -->
                     <p class="text big">&#123;</p>
 
-                    <div class='canvas small'
+                    <div class='canvas extra-small'
                         canvas-centered-drawing
                         draw-function='drawCyclicShape'
-                        function-options='{"N":4, "coloring":[0, 1, 0, 2], "sideStrokes": [1, 0, 0, 0]}'
+                        function-options='{"N":4, "coloring":[0, 1, 0, 0], "sideStrokes": [1, 0, 0, 0]}'
                         options='{"text":"0 turn", "initialRotation": "0", "autoRotateDegrees": 360}'
                     ></div>
 
@@ -105,30 +103,38 @@
 
                 <!-- [Line of blank C4 and C6 shapes] -->
                 <div class="text-content-graphic line">
-                    <canvas-centered-drawing
-                    	class='canvas extra-small clickable'
-                        draw-function='drawCyclicShape'
-                        function-options='{"N":4}'
-                        options='{"tapRotate": 90}'
-                    ></canvas-centered-drawing>
-                    <canvas-centered-drawing
-                    	class='canvas extra-small clickable'
-                        draw-function='drawCyclicShape'
-                        function-options='{"N":4}'
-                        options='{"tapRotate": 90}'
-                    ></canvas-centered-drawing>
-                    <canvas-centered-drawing
-                    	class='canvas extra-small clickable'
-                        draw-function='drawCyclicShape'
-                        function-options='{"N":6}'
-                        options='{"tapRotate": 60}'
-                    ></canvas-centered-drawing>
-                    <canvas-centered-drawing
-                    	class='canvas extra-small clickable'
-                        draw-function='drawCyclicShape'
-                        function-options='{"N":6}'
-                        options='{"tapRotate": 60}'
-                    ></canvas-centered-drawing>
+                    <circular-pattern
+                        class="canvas extra-small"
+                        with-redraw
+                        rotations=4
+                        slices-count=2
+                        levels=1
+                        margin=5
+                    ></circular-pattern>
+                    <circular-pattern
+                        class="canvas extra-small"
+                        with-redraw
+                        rotations=4
+                        slices-count=1
+                        levels=2
+                        margin=5
+                    ></circular-pattern>
+                    <circular-pattern
+                        class="canvas extra-small"
+                        with-redraw
+                        rotations=6
+                        slices-count=2
+                        levels=1
+                        margin=5
+                    ></circular-pattern>
+                    <circular-pattern
+                        class="canvas extra-small"
+                        with-redraw
+                        rotations=6
+                        slices-count=1
+                        levels=2
+                        margin=5
+                    ></circular-pattern>
                 </div>
                 <br/>
                 <br/>
@@ -293,30 +299,30 @@
                     <!-- { -->
                     <p class="text big">&#123;</p>
 
-                    <div class='canvas small'
-                        canvas-centered-drawing
+                    <canvas-centered-drawing
+                        class='canvas extra-small'
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "sideStrokes": [1, 0, 0, 0]}'
                         options='{"text":"0 turn", "initialRotation": "0"}'
-                    ></div>
-                    <div class='canvas small'
-                        canvas-centered-drawing
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas extra-small'
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "sideStrokes": [1, 0, 0, 0], "initialRotation": "90"}'
                         options='{"text":"1/4 turn", "initialRotation": "90"}'
-                    ></div>
-                    <div class='canvas small'
-                        canvas-centered-drawing
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas extra-small'
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "sideStrokes": [1, 0, 0, 0], "initialRotation": "180"}'
                         options='{"text":"2/4 turn", "initialRotation": "180"}'
-                    ></div>
-                    <div class='canvas small'
-                        canvas-centered-drawing
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas extra-small'
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "sideStrokes": [1, 0, 0, 0], "initialRotation": "270"}'
                         options='{"text":"3/4 turn", "initialRotation": "270"}'
-                    ></div>
+                    ></canvas-centered-drawing>
 
                     <!-- }-->
                     <p class="text big">&#125;</p>
@@ -331,19 +337,18 @@
                     <!-- { -->
                     <p class="text big">&#123;</p>
 
-                    <div class='canvas small'
-                        canvas-centered-drawing
+                    <canvas-centered-drawing
+                        class='canvas extra-small'
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "coloring":[0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
                         options='{"text":"0 turn", "initialRotation": "0"}'
-                    ></div>
-                    <div class='canvas small'
-                        canvas-centered-drawing
+                    ></canvas-centered-drawing>
+                    <canvas-centered-drawing
+                        class='canvas extra-small'
                         draw-function='drawCyclicShape'
                         function-options='{"N":4, "coloring":[0, 1, 0, 1], "sideStrokes": [1, 0, 0, 0]}'
                         options='{"text":"2/4 turn", "initialRotation": "180"}'
-                    ></div>
-
+                    ></canvas-centered-drawing>
                     <!-- }-->
                     <p class="text big">&#125;</p>
 
@@ -352,11 +357,11 @@
                 <p>Not all sets of rotations are groups, and therefore cannot be <a target="_blank" href="/theory-reference#subgroup" class="theory-reference-term">subgroups</a>.  Try to color a shape in a way so that it has <span style="font-style:italic;">only</span> a 0 turn, <span style="white-space: nowrap;"><fraction>1/4</fraction> turn</span>, and a <span style="white-space: nowrap;"><fraction>2/4</fraction> turn.</p>
 
                 <div class="text-content-graphic line">
-                    <div class='canvas small'
-                        canvas-centered-drawing
+                    <canvas-centered-drawing
+                        class='canvas extra-small'
                         draw-function='drawCyclicShape'
                         function-options='{"N":4}'
-                    ></div>
+                    ></canvas-centered-drawing>
                 </div>
 
                 <p>It’s impossible without also giving the shape a <span style="white-space: nowrap;"><fraction>3/4</fraction> turn.</span>  <span class="bold-math">&#123;0 turn, <fraction>1/4</fraction> turn, <fraction>2/4</fraction> turn &#125;</span> is not a group, but <span class="bold-math">&#123;0 turn, <fraction>1/4</fraction> turn, <fraction>2/4</fraction> turn, <fraction>3/4</fraction> turn &#125;</span> is.  Why? This brings us back to combining rotations.</p> 
@@ -437,7 +442,7 @@
                     ></div>
                 </div>
 
-                <p>But we already saw that this is the same as just transforming the shape by their combination in the first place!  Remember, the elements in our groups are the transformations that leave our shapes unchanged, so this combination must also be in our group.</p>
+                <p>But we already saw that this is the same as just transforming the shape by the combination of these turns!  Remember, the elements in our groups are the transformations that leave our shapes unchanged, so this combination must also be in our group.</p>
 
                 <!-- [ C4: ¼ turn STAR ½ turn → ¾ turn ] -->
                 <div class="text-content-graphic line">
@@ -562,7 +567,7 @@
                 <br/>
                 <br/>
 
-    			<p>Our next groups have even more <a target="_blank" href="/theory-reference#generator" class="theory-reference-term">generators</a> to play with, such as reflections.</p>
+    			<p>Our next groups have even more <a target="_blank" href="/theory-reference#generator" class="theory-reference-term">generators</a> and symmetries to play with, such as reflections.</p>
         </div>
     </div>
 </div>
@@ -615,10 +620,10 @@
 		    <div class="canvas two-thirds"
 		        circular-pattern
 		        with-redraw
-		        rotations=9
+		        rotations=8
 		        slices-count=3
 		        levels=2
-		        mirror-lines=9
+		        mirror-lines=8
 		        rings="[0.95,1]"
                 margin=2
 		    ></div>

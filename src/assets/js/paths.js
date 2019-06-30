@@ -6,31 +6,60 @@ Collection of SVG Path generating functions
 /**
 Draws the mirrors for a D2N shape.
 
+@param mirrors can be either an array of integers or an integer.
+    mirror as array:
+        0's indicate to skip a mirror line
+        i.e [0,1,0,0] will draw the first diagonal of a D4 shape
+    mirrors as integer:
+        The number of mirrors drawn will match the integer.
+        This equivalent to passing an array of 1's the length of the integer.
+
 @returns pathSet
 **/
-function drawMirrorLines(paper, centerPoint, N, size) {
+function drawMirrorLines(paper, centerPoint, mirrors, size) {
     // Implementation detail:
     // - Draw mirrors as spokes from the center of length size/2
     // - That means drawing 2N lines
     size = size || Math.min(paper.getSize().width, paper.getSize().height);
 
-    if (!N || N <= 0 || !size || size <= 0)
+    if (!mirrors || !size || size <= 0)
         return;
+
+    let mirrorsArray, N;
+    if (mirrors.constructor === Array) {
+        mirrorsArray = mirrors;
+        N = mirrors.length;
+    } else {
+        N = Number(mirrors);
+        if (N <= 0 || isNaN(N))
+            return;
+        mirrorsArray = new Array(N).fill(1);
+    }
 
     let halfRotationRadians = Math.PI/N;
     let halfSize = (1/2)*size;
 
     let pathList = [];
-    let r, p;
-    for (r=0; r<2*N; r ++) {
-        p = {
+    let r, p1, p2;
+    for (r=0; r<N; r++) {
+        if (!mirrorsArray[r])
+            continue;
+
+        p1 = {
             X: centerPoint.X + (halfSize*Math.sin(r*halfRotationRadians)),
             Y: centerPoint.Y + (halfSize*Math.cos(r*halfRotationRadians))
         };
+        p2 = {
+            X: centerPoint.X + (halfSize*Math.sin(Math.PI + r*halfRotationRadians)),
+            Y: centerPoint.Y + (halfSize*Math.cos(Math.PI + r*halfRotationRadians))
+        };
         pathList += [
-            // center point
+            // center point to end of mirror
             ["M", centerPoint.X, centerPoint.Y],
-            ["L", p.X, p.Y]
+            ["L", p1.X, p1.Y],
+            // center point to opposite end of mirror
+            ["M", centerPoint.X, centerPoint.Y],
+            ["L", p2.X, p2.Y]
         ];
     }
     let path = paper.path(pathList).attr({
