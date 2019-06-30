@@ -676,7 +676,7 @@
         </div>
         <div class="content-container">
 
-            <p class="challenge">Challenge: What happens when you start with a single piece and then transform it with both glide reflection and rotation?  What other symmetries emerge?</p>
+            <p class="challenge">Challenge: What happens when you start with a single piece and then transform it with both rotation and glide reflection?  What other symmetries emerge?</p>
             <div class="text-content-graphic line">
                 <div class='canvas extra-small'
                     canvas-centered-drawing
@@ -688,13 +688,191 @@
             <br/>
             <br/>
             <br/>
+            
+            <p class="challenge">Aside from our simplest frieze pattern group that has just translation, we can see how different types of symmetries can be used to <a target="_blank" href="/theory-reference#generator" class="theory-reference-term">generate</a> the same pattern.</p>
 
-            <p class="challenge">We can see that the frieze group with ½ turns and translations as its only symmetries is <a target="_blank" href="/theory-reference#commutativity" class="theory-reference-term">commutative</a> - the order in  which its symmetries are applied does not matter.</p>
+            <p class="challenge">See, we can reflect across one mirror,</p>
 
+            <div class="text-content-graphic line">
+                <div style="border-right: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div style="border-left: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div>
+            </div>
+
+            <p class="challenge">And then across another different mirror,</p>
+
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div style="border-right: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div><div style="border-left: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div>
+            </div>
+
+            <p class="challenge">And keep reflecting across these alternating mirrors,</p>
+            
+            <div class="text-content-graphic line">
+                <div style="border-right: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div style="border-left: 1px solid gray; border-right: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div><div style="border-right: 1px solid gray; border-left: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div style="border-left: 1px solid gray; border-right: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div><div style="border-right: 1px solid gray; border-left: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div style="border-left: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div>
+            </div>
+
+            <p class="challenge">To generate a pattern that can also be generated by just one mirror and a translation.</p>
+
+            <div class="text-content-graphic line">
+                <div style="border-right: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div style="border-left: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div>
+                <div class='canvas fake-canvas extra-small'>
+                    <p class="text big">&rarr;</p>
+                </div>
+                <div style="border-right: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div style="border-left: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div>
+                <div style="border-right: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div style="border-left: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div>
+            </div>
+
+            <p class="challenge">This is an example of how various sets of generators - two different mirrors versus one mirror and a translation - can be used to generate the same pattern group.</p>
+
+             <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div>
+            </div>
+
+
+            <p class="challenge">Challenge: For each of the frieze pattern groups, what are the various sets of symmetries that can be used to generate the entire pattern group?</p>
+
+            <!-- REMOVED: -->
+            <!-- <p class="challenge">We can see that the frieze group with ½ turns and translations as its only symmetries is <a target="_blank" href="/theory-reference#commutativity" class="theory-reference-term">commutative</a> - the order in  which its symmetries are applied does not matter.</p>
             <p class="challenge">For example, rotating by a ½ turn around one of its rotation points</p>
 
-            <!-- … [p2 triangles with one colored in, next to rotation point] …
-            … [same graphic, with  color rotated  around rotation  point]... -->
             <div class="text-content-graphic line">
                 <div class='canvas extra-small'
                     canvas-centered-drawing
@@ -822,12 +1000,7 @@
                 ></div>
             </div>
 
-            <!-- … [same graphic, with color piece and rotation  point shifted over]... -->
-
             <p class="challenge">Is the same as first translating</p>
-
-            <!-- … [p2 triangles with one colored in, next to rotation point] …
-            … [same graphic, with  colored piece and rotation point translated]... -->
             
             <div class="text-content-graphic line">
                 <div class='canvas extra-small'
@@ -913,7 +1086,6 @@
 
             <p class="challenge">And then rotating around that same rotation point.</p>
 
-            <!-- …[same graphic result]... -->
             <div class="text-content-graphic line">
                 <div class='canvas extra-small'
                     canvas-centered-drawing
@@ -959,7 +1131,7 @@
 
             <p class="bold-math">½ turn <span class="operator">&#x2737;</span> translation = translation <span class="operator">&#x2737;</span> ½ turn</p>
 
-            <p class="challenge">Challenge: Which of the frieze groups are <a target="_blank" href="/theory-reference#commutativity" class="theory-reference-term">commutative</a>, and which are not?  In other words, for which frieze pattern groups does the order in which the symmetries are combined matter?</p>
+            <p class="challenge">Challenge: Which of the frieze groups are <a target="_blank" href="/theory-reference#commutativity" class="theory-reference-term">commutative</a>, and which are not?  In other words, for which frieze pattern groups does the order in which the symmetries are combined matter?</p> -->
 
         </div>
     </div>
