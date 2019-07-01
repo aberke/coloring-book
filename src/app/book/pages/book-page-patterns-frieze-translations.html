@@ -8,213 +8,210 @@
         </div>
         <div class="content-container">
 
-                <h2 class="book-part-title">Infinitely Repeating Patterns</h2>
-                <br/>
+            <h2 class="book-part-title">Infinitely Repeating Patterns</h2>
+            <br/>
 
-                <h2 class="book-section-title">Frieze Groups</h2>
-                <br/>
-                <br/>
+            <h2 class="book-section-title">Frieze Groups</h2>
+            <br/>
+            <br/>
 
-                <p>The <span class="bold-math">Frieze Groups</span> can be seen in patterns that repeat infinitely in opposite directions.</p>
-                <div class="text-content-graphic line">
-                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div>
-                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
-                </div>
+            <p>The <span class="bold-math">Frieze Groups</span> can be seen in patterns that repeat infinitely in opposite directions.</p>
+            <div class="text-content-graphic line">
+                <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div>
+                <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
+            </div>
 
-                <br/>
-                
-                <p>A page cannot do these patterns justice. It cuts them off when really they continue repeating forever...</p>
+            <br/>
+            
+            <p>A page cannot do these patterns justice. It cuts them off when really they continue repeating forever...</p>
 
-                <frieze-pattern
-                    pattern-function='trianglePath'
-                    group-name='p1'
-                    fundamental-domain-width=30
-                    fundamental-domain-height=30
-                    draw-options='{"fill":"#3bcca6"}'
-                ></frieze-pattern>
-                <br/>
+            <frieze-pattern
+                pattern-function='trianglePath'
+                group-name='p1'
+                fundamental-domain-width=30
+                fundamental-domain-height=30
+                draw-options='{"fill":"#3bcca6"}'
+            ></frieze-pattern>
+            <br/>
 
-                <p>Consider the smallest repeating piece of this pattern as a unit.</p>
-                <!-- [1 piece] -->
-                <div class="text-content-graphic line">
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div>
-                    <div class='canvas fake-canvas extra-small'></div>
-                    <div class='canvas fake-canvas extra-small'></div>
-                    <div class='canvas fake-canvas extra-small'></div>
-                </div>
+            <p>Consider the smallest repeating piece of this pattern as a unit.</p>
+            <!-- [1 piece] -->
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div>
+            </div>
 
-                <p>We can see the entire pattern can shift over by this unit.  Each piece shifts on to an identical piece and there is always more behind to replace what was shifted,</p>
+            <p>We can see the entire pattern can shift over by this unit.  Each piece shifts on to an identical piece and there is always more behind to replace what was shifted,</p>
 
-                <!-- [Simple triangles pattern, diff side stroke for 2nd] -->
-                <!-- [Simple triangles pattern, diff side stroke for 3rd] -->
-                <!-- [Simple triangles pattern, diff side stroke for 4th] -->
-                <div class="text-content-graphic line">
-                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0, "stroke-dasharray":"-"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div>
-                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
-                </div>
-                <br/>
-                <div class="text-content-graphic line">
-                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0, "stroke-dasharray":"-"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div>
-                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
-                </div>
-                <br/>
-                <div class="text-content-graphic line">
-                    <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
-                    <div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0, "stroke-dasharray":"-"}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div><div class='canvas extra-small'
-                        canvas-centered-drawing
-                        draw-function='drawTriangles'
-                        function-options='{"N":1}'
-                        options='{"margin":0}'
-                    ></div>
-                    <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
-                </div>
-                <br/>
+            <!-- [Simple triangles pattern, diff side stroke for 2nd] -->
+            <!-- [Simple triangles pattern, diff side stroke for 3rd] -->
+            <!-- [Simple triangles pattern, diff side stroke for 4th] -->
+            <div class="text-content-graphic line">
+                <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "stroke-dasharray":"-"}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div>
+                <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
+            </div>
+            <br/>
+            <div class="text-content-graphic line">
+                <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "stroke-dasharray":"-"}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div>
+                <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
+            </div>
+            <br/>
+            <div class="text-content-graphic line">
+                <p style="vertical-align: bottom; margin-right: 8px;" class="text">...</p>
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "stroke-dasharray":"-"}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div>
+                <p style="vertical-align: bottom; margin-left: 8px;" class="text">...</p>
+            </div>
+            <br/>
 
-                <p>so that the shift leaves the entire pattern unchanged.  Such is the nature of <span style="white-space: nowrap">infinite repetition...</span></p>
-                <p>This shift is a symmetry called <span class="bold-math">translation</span>.</p>
+            <p>so that the shift leaves the entire pattern unchanged.  Such is the nature of <span style="white-space: nowrap">infinite repetition...</span></p>
+            <p>This shift is a symmetry called <span class="bold-math">translation</span>.</p>
         </div>
     </div>
 </div>
@@ -238,9 +235,6 @@
                         function-options='{"N":1}'
                         options='{"margin":0}'
                     ></div>
-                    <div class='canvas fake-canvas extra-small'></div>
-                    <div class='canvas fake-canvas extra-small'></div>
-                    <div class='canvas fake-canvas extra-small'></div>
                 </div>
 
                 <p>that is copied and then translated</p>
@@ -258,8 +252,6 @@
                         function-options='{"N":1}'
                         options='{"margin":0}'
                     ></div>
-                    <div class='canvas fake-canvas extra-small'></div>
-                    <div class='canvas fake-canvas extra-small'></div>
                 </div>
 
                 <p>again and again...</p>
@@ -284,7 +276,6 @@
                         function-options='{"N":1}'
                         options='{"margin":0}'
                     ></div>
-                    <div class='canvas fake-canvas extra-small'></div>
                 </div>
                 <br/>
                 <div class="text-content-graphic line">
