@@ -195,12 +195,19 @@ body.print {
     overflow: visible !important;
 }
 
-.book-page.full-bleed .wallpaper-pattern {
+.book-page.full-bleed .wallpaper-pattern,
+.book-page .wallpaper-pattern.full-bleed {
     position: relative;
-    left: -0.8in;
+    left: -0.66in;
+    width: 7in;
     overflow: visible !important;
 }
-.book-page.full-bleed .wallpaper-pattern svg {
+.book-page.full-bleed .wallpaper-pattern {
+    top: -0.33in;
+}
+
+.book-page.full-bleed .wallpaper-pattern svg
+.book-page .wallpaper-pattern.full-bleed svg {
     overflow: visible !important;
 }
 .book-page {
@@ -210,10 +217,18 @@ body.print {
     overflow-x: visible !important;
 }
 
+.full-bleed .text-content.challenges .design-caption {
+    margin-bottom: 0.6in;
+}
 
 
 .book-page .coloring-content .wallpaper-pattern {
     height: 100%;
+}
+
+.wallpaper-pattern-name {
+    font-weight: 400;
+    font-size: 2em;
 }
 
 #book-title-container {
