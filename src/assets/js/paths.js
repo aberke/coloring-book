@@ -393,6 +393,67 @@ function trianglesPath3(o, w, h) { return trianglesPath(3, o, w, h); }
 function trianglesPath4(o, w, h) { return trianglesPath(4, o, w, h); }
 
 
+
+function hexagon(origin, width, height, options) {
+    let sideLength = width/2;
+    // Note: the height and width will not be the same
+    origin = {
+        X: origin.X + sideLength,
+        Y: origin.Y + (1/2)*height
+    };
+    let pathList = [];
+    let r, currentRotationRadians, nextRotationRadians;
+    let p1, p2;
+    for (r=0; r<6; r++) {
+        currentRotationRadians = (r/6)*(2*Math.PI);
+        nextRotationRadians = ((r+1)/6)*(2*Math.PI);
+        p1 = {
+            X: origin.X + sideLength*Math.cos(currentRotationRadians),
+            Y: origin.Y + sideLength*Math.sin(currentRotationRadians)
+        };
+        p2 = {
+            X: origin.X + sideLength*Math.cos(nextRotationRadians),
+            Y: origin.Y + sideLength*Math.sin(nextRotationRadians)
+        };
+        pathList += [
+            ["M", p1.X, p1.Y],
+            ["L", p2.X, p2.Y]
+        ];
+    }
+    return pathList;
+}
+
+function triangleGridHexagon(origin, width, height, options) {
+    let sideLength = width/2;
+    // Note: the height and width will not be the same
+    origin = {
+        X: origin.X + sideLength,
+        Y: origin.Y + (1/2)*height
+    };
+    let pathList = [];
+    let r, currentRotationRadians, nextRotationRadians;
+    let p1, p2;
+    for (r=0; r<6; r++) {
+        currentRotationRadians = (r/6)*(2*Math.PI);
+        nextRotationRadians = ((r+1)/6)*(2*Math.PI);
+        p1 = {
+            X: origin.X + sideLength*Math.cos(currentRotationRadians),
+            Y: origin.Y + sideLength*Math.sin(currentRotationRadians)
+        };
+        p2 = {
+            X: origin.X + sideLength*Math.cos(nextRotationRadians),
+            Y: origin.Y + sideLength*Math.sin(nextRotationRadians)
+        };
+        pathList += [
+            ["M", origin.X, origin.Y],
+            ["L", p1.X, p1.Y],
+            ["L", p2.X, p2.Y]
+        ];
+    }
+    return pathList;
+}
+
+
 /**
 Creates path of slices along a line, contained within
 (width, height) and oriented with line on the right.
@@ -684,6 +745,43 @@ function triangularGridFundamentalDomainSixth(origin, size) {
 }
 
 
+/*
+The triangle sits like this:
+size is the side length, which is also the effective width.
+
+ /\
+/  \
+----
+
+Triangle should sit at the bottom of the cell so that it aligns with design.
+*/
+function regularTriangularGridFundamentalDomain(origin, width, height) {
+    let size = Math.max(width, height);
+    let h = (size/2)*Math.sqrt(3);
+    // Move the origin over to be the bottom left.
+    return [
+        ["M", origin.X, origin.Y + size],
+        ["h", size],
+        ["l", (-1/2)*size, (-1)*h],
+        ["Z"]
+    ];
+}
+
+
+/*
+Returns the path for a rectangle that is the building block for a rectangular grid
+underlay for a fundamental domain.
+*/
+function rectangleGridFundamentalDomain(origin, width, height) {
+    // Origin is top left corner.
+    return [
+        ["M", origin.X, origin.Y],
+        ["v", height],
+        ["h", width],
+        ["v", (-1)*height],
+        ["Z"]
+    ];
+}
 /*
 Returns the path for a square that is the building block for a square grid
 underlay for a fundamental domain.
