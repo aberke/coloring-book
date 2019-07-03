@@ -260,6 +260,7 @@ h1#book-title {
 
 h1#book-title .title-piece {
     display: block;
+    line-height: 1em;
 }
 h1#book-title .title-piece.smaller {
     font-size: 0.70em;
