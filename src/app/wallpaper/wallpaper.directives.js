@@ -81,10 +81,10 @@ function WallpaperPatternDirective($window, $location) {
             scope.paper = new Raphael(elt, "100%", height);
 
             if (!scope.fundamentalDomainPathFunction)
-                scope.fundamentalDomainPathFunction = squareGridFundamentalDomain;
+                scope.fundamentalDomainPathFunction = rectangleGridFundamentalDomain;
 
             const origin = {X: 0, Y: 0};
-            const fundamentalDomainPath = scope.fundamentalDomainPathFunction(origin, scope.fundamentalDomainWidth);
+            const fundamentalDomainPath = scope.fundamentalDomainPathFunction(origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight);
             // Generate the path once so that it can use random variables
             // and yet still look the same when it's redrawn by the wallpaperPattern
             const patternDesignPath = scope.patternFunction(origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
@@ -105,6 +105,14 @@ function WallpaperPatternDirective($window, $location) {
             scope.transforms = {
                 X: transforms.translateH,
                 Y: transforms.translateV
+            };
+            scope.transformOptions = {
+                X: {
+                    translationOffsetXMultiplier: util.isNumeric(scope.drawOptions.translationOffsetXMultiplier) ? scope.drawOptions.translationOffsetXMultiplier : 1
+                },
+                Y: {
+                    translationOffsetYMultiplier: util.isNumeric(scope.drawOptions.translationOffsetYMultiplier) ? scope.drawOptions.translationOffsetYMultiplier : 1
+                }
             };
             scope.drawPattern();
         };
@@ -283,7 +291,7 @@ function WallpaperPatternDirective($window, $location) {
         p3 has order-3 rotations and no reflections. 
         */
         scope.p3Handler = function() {
-            scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
+            scope.fundamentalDomainPathFunction = regularTriangularGridFundamentalDomain;
             scope.transforms = {
                 FundamentalDomain: [
                 	transforms.order3Rotation,
@@ -294,10 +302,10 @@ function WallpaperPatternDirective($window, $location) {
             };
             scope.transformOptions = {
                 FundamentalDomain: [
-                    {rotationOffsetYMultiplier: 1},
+                    {rotationOffsetXMultiplier: 1},
                     {rotationOffsetYMultiplier: (1/2)},
                 ],
-                X: {translationOffsetXMultiplier: 1},
+                X: {translationOffsetXMultiplier: (6/7)},
                 Y: {translationOffsetYMultiplier: (1/2)},
             };
             scope.drawPattern();
@@ -369,21 +377,21 @@ function WallpaperPatternDirective($window, $location) {
         p6 Uses a triangular grid.
         */
         scope.p6Handler = function() {
-            scope.fundamentalDomainPathFunction = triangularGridFundamentalDomainSixth;
+            scope.fundamentalDomainPathFunction = regularTriangularGridFundamentalDomain;
             scope.transforms = {
                 FundamentalDomain: [
-                	transforms.order3Rotation,
-                	transforms.order6Rotation
+                    transforms.order6Rotation,
+                    transforms.order3Rotation
                 ],
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
             scope.transformOptions = {
                 FundamentalDomain: [
-                    {rotationOffsetYMultiplier: 1},
+                    {rotationOffsetXMultiplier: 1},
                     {rotationOffsetYMultiplier: (1/2)},
                 ],
-                X: {translationOffsetXMultiplier: 1},
+                X: {translationOffsetXMultiplier: (6/7)},
                 Y: {translationOffsetYMultiplier: (1/2)},
             };
             scope.drawPattern();

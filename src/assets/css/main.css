@@ -469,6 +469,13 @@ It is gray to match the mirror-lines if this is in a .text-content-graphic
 	/* place a GRAY square at the bottom right corner */
 	content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' stroke='slategray' fill='slategray' fill-opacity='1' stroke-width='1' height='10' width='10'><path d='M0 0 L10 0 L10 10 L0 10 Z' /></svg>");
 }
+.text-content-graphic .rotation-point.order-4.top-left::before {
+	/* place a GRAY square at the top left corner */
+	content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' stroke='slategray' fill='slategray' fill-opacity='1' stroke-width='1' height='10' width='10'><path d='M0 0 L10 0 L10 10 L0 10 Z' /></svg>");
+	position: absolute;
+	left: -5;
+	top: -5;
+}
 
 figure {
 	margin: 5px 0;
