@@ -46,7 +46,7 @@ const transforms = (function() {
     Origin defaults to bottom right corner of pathSet.
     */
     function doRotation(fdPathSet, pdPathSet, rotations, callback, options={}) {
-        const animateMs = getAnimationMs();
+        const animateMs = getAnimationMs(options);
         const animateInterval = (animateMs > 0) ? Math.max(animateMs/Math.round(rotations), 450) : 0;
 
         const bbox = fdPathSet.getBBox();
@@ -89,7 +89,7 @@ const transforms = (function() {
                 doComposedTransform(nextFdPathSet, nextPdPathSet, transformString, transformCallback, options);
             } else {
                 nextFdPathSet.transform("..." + transformString);
-                if (!DISABLE_ANIMATIONS) {
+                if (!(DISABLE_ANIMATIONS || options.disableAnimations)) {
                     nextPdPathSet.animate({transform: "..." + transformString}, animateInterval, "<", transformCallback);
                 } else {
                     nextPdPathSet.transform("..." + transformString);
@@ -109,12 +109,12 @@ const transforms = (function() {
             return doComposedTransform(fdPathSet, pdPathSet, transformString, callback, options);
 
         transformString = "..." + transformString;
-        const animateMs = getAnimationMs();
+        const animateMs = getAnimationMs(options);
         let animateCallback = function() {
             callback(fdPathSet, pdPathSet);
         };
         fdPathSet.transform(transformString);
-        if (!DISABLE_ANIMATIONS) {
+        if (!(DISABLE_ANIMATIONS || options.disableAnimations)) {
             pdPathSet.animate({transform: transformString}, animateMs, "<", animateCallback);
         } else {
             pdPathSet.transform(transformString);
@@ -146,7 +146,7 @@ const transforms = (function() {
     */
     function doComposedTransform(fdPathSet, pdPathSet, transformString, callback, options={}) {
         // animateMs may have been calculated by upstream transformation (like rotation).
-        const animateMs = options.animateMs || getAnimationMs();
+        const animateMs = options.animateMs || getAnimationMs(options);
         
         // The transformString is the transformation for the pathSet as a whole,
         // but apply it to each path individually.
@@ -349,8 +349,8 @@ const transforms = (function() {
     /*
     Returns animation interval (in ms).
     */
-    function getAnimationMs() {
-        return (!DISABLE_ANIMATIONS) ? 700 : 0;
+    function getAnimationMs(options) {
+        return (!(DISABLE_ANIMATIONS || options.disableAnimations)) ? 700 : 0;
     }
 
     return {

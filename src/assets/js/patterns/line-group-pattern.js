@@ -62,6 +62,7 @@ class LineGroupPattern {
         // add styling options
         this.fill = drawOptions.fill || DEFAULT_FILL;
 
+        this.disableAnimations = this.drawOptions.disableAnimations || !!DISABLE_ANIMATIONS;
         this.draw();
     }
 
@@ -206,6 +207,7 @@ class LineGroupPattern {
     transformFundamentalDomain(fdPathSet, pdPathSet, callback) {
         let fdTransforms = this.transforms.FundamentalDomain || [];
         let transformOptions = this.transformOptions.FundamentalDomain;
+        let disableAnimations = this.disableAnimations;
         
         let transformNext = function(i, fdPathSet, pdPathSet) {
             if (i == fdTransforms.length)
@@ -215,6 +217,8 @@ class LineGroupPattern {
             // original pathSet. 
             let transform = fdTransforms[i];
             let options = (transformOptions && transformOptions.length > i) ? transformOptions[i] : {};
+            if (disableAnimations)
+                options.disableAnimations = true;
             let transformCallback = function(transformedFdPathSet, transformedPdPathSet) {
                 // keep the path set flat - i.e. avoid sets within sets.
                 let flatTransformedFdPathSet = util.flattenedList(transformedFdPathSet);
@@ -251,6 +255,9 @@ class LineGroupPattern {
     @terminateCallback: function called with final path set when done transforming - i.e. terminationCheck/base case met
     */
     transformAlongAxis(fdPathSet, pdPathSet, transform, options, terminateCheck, terminateCallback) {
+        if (this.disableAnimations)
+            options.disableAnimations = true;
+
         // Iteratively get the last item, clone it, and tranform it
         let transformFdSet = this.paper.set().push(fdPathSet);
         let transformPdSet = this.paper.set().push(pdPathSet);
@@ -282,7 +289,7 @@ class LineGroupPattern {
         util.addClassNamesToElements(this.pdPathSet, ['pattern-design']);
 
         // add interactive behavior
-        if (!DISABLE_ANIMATIONS)
+        if (!this.disableAnimations)
             this.addPaperSetHandlers();
     }
 

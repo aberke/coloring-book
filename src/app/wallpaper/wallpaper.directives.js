@@ -9,6 +9,7 @@ Use
     group-name={"p1" | "p11g" | ... one of the 17 wallpaper groups to draw}
     fundamental-domain-width={number}
     fundamental-domain-height={number}
+    disable-animations=true|false // optional - if true animations and interactions are removed
 ></wallpaper-pattern>
 **/
 function WallpaperPatternDirective($window, $location) {
@@ -16,6 +17,7 @@ function WallpaperPatternDirective($window, $location) {
 
     restrict: "EA",
     scope: {
+        disableAnimations: "@?",
         // This exposes the redrawFn to the parent scope.
         // An isolated scope is used for the redraw fn with a namable
         // attribute so that a call to one directive's redraw fn does not
@@ -89,6 +91,9 @@ function WallpaperPatternDirective($window, $location) {
             // and yet still look the same when it's redrawn by the wallpaperPattern
             const patternDesignPath = scope.patternFunction(origin, scope.fundamentalDomainWidth, scope.fundamentalDomainHeight, scope.patternFunctionOptions);
         
+            if (scope.disableAnimations)
+                scope.drawOptions.disableAnimations = true;
+            
             scope.wallpaperPattern = new WallpaperPattern(scope.paper, fundamentalDomainPath,
                                                         patternDesignPath,
                                                         scope.transforms, scope.transformOptions,
