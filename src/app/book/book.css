@@ -202,6 +202,7 @@ body.print {
     width: 7in;
     overflow: visible !important;
 }
+
 .book-page.full-bleed .wallpaper-pattern {
     top: -0.33in;
 }

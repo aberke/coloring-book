@@ -123,6 +123,16 @@ function WallpaperPatternDirective($window, $location) {
                 X: transforms.translateH,
                 Y: transforms.translateV
             };
+            scope.transformOptions = {
+                FundamentalDomain: [
+                    {
+                        rotationOffsetXMultiplier: util.isNumeric(scope.drawOptions.rotationOffsetXMultiplier) ? scope.drawOptions.rotationOffsetXMultiplier : 1,
+                        rotationOffsetYMultiplier: util.isNumeric(scope.drawOptions.rotationOffsetYMultiplier) ? scope.drawOptions.rotationOffsetYMultiplier : 1,
+                    }
+                ],
+                X: {translationOffsetXMultiplier: util.isNumeric(scope.drawOptions.translationOffsetXMultiplier) ? scope.drawOptions.translationOffsetXMultiplier : 1},
+                Y: {translationOffsetYMultiplier: util.isNumeric(scope.drawOptions.translationOffsetYMultiplier) ? scope.drawOptions.translationOffsetYMultiplier : 1}
+            };
             scope.drawPattern();
         };
 
@@ -302,7 +312,10 @@ function WallpaperPatternDirective($window, $location) {
             };
             scope.transformOptions = {
                 FundamentalDomain: [
-                    {rotationOffsetXMultiplier: 1},
+                    {
+                        rotationOffsetXMultiplier: util.isNumeric(scope.drawOptions.rotationOffsetXMultiplier) ? scope.drawOptions.rotationOffsetXMultiplier : 1,
+                        rotationOffsetYMultiplier: util.isNumeric(scope.drawOptions.rotationOffsetYMultiplier) ? scope.drawOptions.rotationOffsetYMultiplier : 1,
+                    },
                     {rotationOffsetYMultiplier: (1/2)},
                 ],
                 X: {translationOffsetXMultiplier: (6/7)},

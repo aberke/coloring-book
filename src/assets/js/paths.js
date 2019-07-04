@@ -760,7 +760,7 @@ function regularTriangularGridFundamentalDomain(origin, width, height) {
     let h = (size/2)*Math.sqrt(3);
     // Move the origin over to be the bottom left.
     return [
-        ["M", origin.X, origin.Y + size],
+        ["M", origin.X, origin.Y + height],
         ["h", size],
         ["l", (-1/2)*size, (-1)*h],
         ["Z"]
