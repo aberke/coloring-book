@@ -162,7 +162,7 @@
             <br/>
 
 
-            <p>Since the pieces of our patterns repeat along translations, their points of rotations must repeat along these same translations as well.</p>
+            <p>Since the pieces of our patterns repeat along translations, their rotation points must repeat along these same translations as well.</p>
 
             <div class="text-content-graphic line">
                 <div class='canvas extra-small'
@@ -336,7 +336,7 @@
             draw-options='{"contain": true}'
         ></wallpaper-pattern>
         <br/>
-        <p>But there are no other types of rotations for the wallpaper patterns, and you can see why.</p>
+        <p>But there are no other types of rotations for the wallpaper patterns, and we can see why.</p>
         </div>
     </div>
 </div>
@@ -969,6 +969,119 @@
             </div>
             <div class="text-content-graphic line">
                 <div
+                    class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "initialRotation":270}'
+                ></div><div
+                    class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div
+                    style='border-left: 1px solid black;'
+                    class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "initialRotation":270}'
+                ></div><div
+                    style='border-right: 1px solid black;'
+                    class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div
+                    class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "initialRotation":270}'
+                ></div><div
+                    style='border-right: 1px solid black;'
+                    class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div
+                    class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "initialRotation":270}'
+                ></div><div
+                    class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div
+                    style="border-top: 1px solid black;"
+                    class='canvas extra-small rotation-point bottom-right order-4'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div
+                    style="border-top: 1px solid black;"
+                    class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "initialRotation":90}'
+                ></div><div
+                    style="border-left: 1px solid black; border-top: 1px solid black;"
+                    class='canvas extra-small rotation-point bottom-right order-4'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div
+                    style='border-top: 1px solid black; border-right: 1px solid black;'
+                    class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "initialRotation":90}'
+                ></div><div
+                    style="border-top: 1px solid black;"
+                    class='canvas extra-small rotation-point bottom-right order-4'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div
+                    style="border-top: 1px solid black; border-right: 1px solid black;"
+                    class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "initialRotation":90}'
+                ></div><div
+                    style="border-top: 1px solid black;"
+                    class='canvas extra-small rotation-point bottom-right order-4'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div
+                    style="border-top: 1px solid black;"
+                    class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "initialRotation":90}'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div
                     style='border-bottom: 1px solid black;'
                     class='canvas extra-small'
                     canvas-centered-drawing
@@ -1077,9 +1190,21 @@
             </div>
             <br/>
             <p>So that we can see that bounding shape as part of an infinite grid of identical bounding shapes, providing structure for a pattern.</p>
+
+            <wallpaper-pattern
+                style="height: 70px; margin-left: 2px; margin-top:2px;"
+                pattern-function=rectangleGridFundamentalDomain
+                group-name='p1'
+                fundamental-domain-width=16
+                fundamental-domain-height=16
+                disable-animations=true
+                draw-options='{"contain": true}'
+            ></wallpaper-pattern>
+
+            <p>See, a square can make a grid for a pattern that has ¼ turns, with 4 other squares meeting perfectly at each of its sides.  Each time it rotates by a ¼ turn, the surrounding squares rotate around it, each landing on an identical square, so that a pattern structured within this grid can be left unchanged.</p>
             <br/>
 
-            <p>Making this grid is only possible with shapes that have the right number of rotations,</p>
+            <p>Making perfect grids is possible with shapes that have the right number of rotations,</p>
             <!-- [line of polygons: rectangle, triangle, square, hexagon] -->
             <div class="text-content-graphic line">
                 <canvas-centered-drawing
@@ -1108,43 +1233,7 @@
                 ></canvas-centered-drawing>
             </div>
             <br/>
-            <p>Such as the rectangles, squares, and regular triangles and hexagons that take shape around our pieces as they make ½ turns, ¼ turns, ⅓ turns, and ⅙ turns.</p>
-
-            <div class="text-content-graphic line">
-                <canvas-centered-drawing
-                    class='canvas extra-small'
-                    draw-function='drawRectangle'
-                    function-options='{}'
-                ></canvas-centered-drawing>
-            </div>
-            <wallpaper-pattern
-                style="height: 93px; padding: 2px;"
-                pattern-function=rectangleGridFundamentalDomain
-                group-name='p2'
-                fundamental-domain-width=32
-                fundamental-domain-height=16
-                disable-animations=true
-                draw-options='{"rotationOffsetXMultiplier": 0.75, "rotationOffsetYMultiplier": 1, "translationOffsetXMultiplier": 0.667, "translationOffsetYMultiplier": 1, "contain": true}'
-            ></wallpaper-pattern>
-
-            <br/>
-
-            <div class="text-content-graphic line">
-                <canvas-centered-drawing
-                    class='canvas extra-small'
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N": 4}'
-                ></canvas-centered-drawing>
-            </div>
-            <wallpaper-pattern
-                style="height: 90px; margin-left: 2px; margin-top:2px;"
-                pattern-function=rectangleGridFundamentalDomain
-                group-name='p1'
-                fundamental-domain-width=16
-                fundamental-domain-height=16
-                disable-animations=true
-                draw-options='{"contain": true}'
-            ></wallpaper-pattern>
+            <p>Such as the shapes with 2, 4, 3 and 6 rotations that can be drawn around our pieces as they make <span style="display: inline-block;">½ turns</span>, <span style="display: inline-block;">¼ turns</span>, <span style="display: inline-block;">⅓ turns</span> and <span style="display: inline-block;">⅙ turns.</span></p>
         </div>
     </div>
 </div>
@@ -1160,12 +1249,51 @@
             <div class="text-content-graphic line">
                 <canvas-centered-drawing
                     class='canvas extra-small'
-                    draw-function='drawRegularPolygon'
-                    function-options='{"N": 3}'
+                    draw-function='drawRectangle'
+                    function-options='{}'
+                    options='{"autoRotateDegrees": 180, "centerPoint": "circle"}'
                 ></canvas-centered-drawing>
             </div>
             <wallpaper-pattern
-                style="height: 100px; margin-top: 4px; margin-left: 6px;"
+                style="height: 93px;"
+                pattern-function=rectangleGridFundamentalDomain
+                group-name='p1'
+                fundamental-domain-width=32
+                fundamental-domain-height=16
+                disable-animations=true
+                draw-options='{"contain": true}'
+            ></wallpaper-pattern>
+            <br/>
+
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing
+                    class='canvas extra-small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4}'
+                    options='{"autoRotateDegrees": 90, "centerPoint": "circle"}'
+                ></canvas-centered-drawing>
+            </div>
+            <wallpaper-pattern
+                style="height: 90px; margin-left: 2px; margin-top:2px;"
+                pattern-function=rectangleGridFundamentalDomain
+                group-name='p1'
+                fundamental-domain-width=16
+                fundamental-domain-height=16
+                disable-animations=true
+                draw-options='{"contain": true}'
+            ></wallpaper-pattern>
+            <br/>
+
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing
+                    class='canvas extra-small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 3}'
+                    options='{"autoRotateDegrees": 120, "centerPoint": "circle"}'
+                ></canvas-centered-drawing>
+            </div>
+            <wallpaper-pattern
+                style="height: 70px; margin-top: 4px; margin-left: 6px;"
                 pattern-function=triangleGridHexagon
                 group-name='p1'
                 fundamental-domain-width=40
@@ -1180,6 +1308,7 @@
                     class='canvas extra-small'
                     draw-function='drawRegularPolygon'
                     function-options='{"N": 6}'
+                    options='{"autoRotateDegrees": 60, "centerPoint": "circle"}'
                 ></canvas-centered-drawing>
             </div>
             <wallpaper-pattern
@@ -1191,6 +1320,82 @@
                 disable-animations=true
                 draw-options='{"rotationOffsetXMultiplier": 0.875, "rotationOffsetYMultiplier": 0.25, "translationOffsetXMultiplier": 0.857, "translationOffsetYMultiplier": 0.667, "contain": true}'
             ></wallpaper-pattern>
+
+            <p>Making these grids will not work with shapes that have any other number  of rotations.</p>
+            <!-- [regular pentagon] [regular septagon] [octagon]   [9-sided reg polygon] ... -->
+            <!--            5           7                   8       9   -->
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing
+                    class='canvas small clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 5}'
+                    options='{"text": 5, "margin":20, "autoRotateDegrees":72}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 7}'
+                    options='{"text": 7, "margin":20, "autoRotateDegrees":51}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 8}'
+                    options='{"text": 8, "margin":20, "autoRotateDegrees":45}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 9}'
+                    options='{"text": 9, "margin":20, "autoRotateDegrees":40}'
+                ></canvas-centered-drawing>
+                <p class="text">...</p>
+            </div>
+            <br/>
+            <p>Their angles cannot add up in a way to perfectly equal a full turn, so these other shapes cannot perfectly fit together in a grid.</p>
+        </div>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: WALLPAPER GROUPS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+
+            <p>For example, we can draw a shape with 5 rotations around a piece as its makes ⅕ turns,</p>
+            <!-- [regular pentagon with center point] -->
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing
+                    class='canvas extra-small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 5}'
+                    options='{"autoRotateDegrees": 72, "centerPoint": "circle"}'
+                ></canvas-centered-drawing>
+            </div>
+
+            <p>But we cannot make a perfect grid by surrounding that shape with 5 copies of itself at each of its sides.</p>
+
+            <!-- [failed grid with pentagon] -->
+            <wallpaper-pattern
+                style="height: 100px; margin-top: 4px; margin-left: 6px;"
+                pattern-function=pentagon
+                group-name='p2'
+                fundamental-domain-width=18
+                fundamental-domain-height=19
+                disable-animations=true
+                draw-options='{"rotationOffsetXMultiplier": 1, "rotationOffsetYMultiplier": 0.5, "translationOffsetXMultiplier": 0.92, "translationOffsetYMultiplier": 0.88, "contain": true}'
+            ></wallpaper-pattern>
+
+            <p>So we cannot have an infinitely repeating wallpaper pattern with ⅕ turns.</p>
+
+            <br/>
+            <br/>
+            <br/>
+            <p class="challenge">Challenge: Can you see the rotations in the following patterns?  Can you imagine an underlying grid?</p>
+            <p class="challenge">Challenge: Use color to remove the rotations in the patterns while maintaining their translations.</p>
 
         </div>
     </div>
