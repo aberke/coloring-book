@@ -417,6 +417,11 @@ in the canvas is too close to the canvas edge.
 	line-height: 2em;
 }
 
+.center-point {
+	stroke: slategray;
+	fill: slategray;
+}
+
 /*
 Drawing rotation points with CSS:
 They go inside a .rotation-point elt
