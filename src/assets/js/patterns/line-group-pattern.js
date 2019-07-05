@@ -254,7 +254,7 @@ class LineGroupPattern {
     @terminateCheck: function that returns boolean indicating whether to terminate recursion
     @terminateCallback: function called with final path set when done transforming - i.e. terminationCheck/base case met
     */
-    transformAlongAxis(fdPathSet, pdPathSet, transform, options, terminateCheck, terminateCallback) {
+    transformAlongAxis(fdPathSet, pdPathSet, transform, options={}, terminateCheck, terminateCallback) {
         if (this.disableAnimations)
             options.disableAnimations = true;
 
