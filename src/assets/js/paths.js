@@ -394,9 +394,15 @@ function trianglesPath4(o, w, h) { return trianglesPath(4, o, w, h); }
 
 
 
-function hexagon(origin, width, height, options) {
+function pentagon(origin, width, height) {
+    return polygon(origin, width, height, 5);
+}
+function hexagon(origin, width, height) {
+    return polygon(origin, width, height, 6);
+}
+function polygon(origin, width, height, sides=6) {
     let sideLength = width/2;
-    // Note: the height and width will not be the same
+    // Note: the height and width will not be the same (except for a square)
     origin = {
         X: origin.X + sideLength,
         Y: origin.Y + (1/2)*height
@@ -404,9 +410,9 @@ function hexagon(origin, width, height, options) {
     let pathList = [];
     let r, currentRotationRadians, nextRotationRadians;
     let p1, p2;
-    for (r=0; r<6; r++) {
-        currentRotationRadians = (r/6)*(2*Math.PI);
-        nextRotationRadians = ((r+1)/6)*(2*Math.PI);
+    for (r=0; r<sides; r++) {
+        currentRotationRadians = (r/sides)*(2*Math.PI);
+        nextRotationRadians = ((r+1)/sides)*(2*Math.PI);
         p1 = {
             X: origin.X + sideLength*Math.cos(currentRotationRadians),
             Y: origin.Y + sideLength*Math.sin(currentRotationRadians)
