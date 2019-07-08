@@ -58,6 +58,8 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions={}, options={})
         let mirrorLinesPaths = drawMirrorLines(paper, origin, options.mirrorLines, size + (1/2)*margin);
         pathSet.push(mirrorLinesPaths);
     }
+    if (options.centerPoint)
+        pathSet.push(drawCenterPoint(paper, origin, options.centerPoint));
 
     // Draw the main shape
     // The returned pathSet is either a path or a set of paths
@@ -327,6 +329,16 @@ function drawSierpinskiTriangle(paper, centerPoint, size, options, isRedraw) {
         ].join(","));
 
     return pathSet;
+}
+
+
+/*
+Returns the path for a center point drawn at the origin.
+*/
+function drawCenterPoint(paper, origin, centerPoint) {
+    let point = paper.circle(origin.X, origin.Y, 2);
+    point.attr("class", "center-point");
+    return point;
 }
 
 

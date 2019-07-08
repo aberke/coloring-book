@@ -1,0 +1,58 @@
+<div class="book-page-container" ng-if="book.page.name == p.name || main.print">
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: WALLPAPER GROUPS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+            <h2 class="book-section-title">Wallpaper Groups</h2>
+            <br/>
+            <br/>
+
+            <p>Wallpaper Patterns repeat infinitely along 2 dimensions, and with more dimensions come more symmetries.</p>
+            <p>The frieze patterns showed us how translations, rotations, and mirrors and glide reflections can be symmetries of infinitely repeating patterns.  The wallpaper patterns can translate, rotate, reflect and glide in even more directions...</p>
+
+            <wallpaper-pattern style="height: 240px;"
+                pattern-function='trianglePath'
+                group-name='p4g'
+                fundamental-domain-width=30
+                fundamental-domain-height=30
+            draw-options='{"contain": true}'
+            ></wallpaper-pattern>
+
+            <p>And since the repetitions in these patterns are no longer limited to a line, they can have more rotations than just ½ turns.</p>
+
+            
+            <p>We’ll color through patterns with all of these symmetries, as well as all of the ways in which they can be combined.  We will mutate these symmetries, and transform the patterns with color.  But first, let’s make sure we can see their infinite repetitions.</p>
+
+            <br/>
+            <br/>
+
+            <p class="challenge">Check in: Can you extend your imagination to see wallpaper patterns repeat infinitely beyond a page’s borders?</p>
+            <wallpaper-pattern style="height: 200px;"
+                class="full-bleed"
+                pattern-function='trianglePath'
+                group-name='p4g'
+                fundamental-domain-width=30
+                fundamental-domain-height=30
+                draw-options='{"fullBleed": true}'
+            ></wallpaper-pattern>
+        </div>
+    </div>
+</div>
+
+<div class="book-page full-bleed">
+    <div class="coloring-content">
+        <wallpaper-pattern
+            pattern-function='trianglesPath2'
+            group-name='p4g'
+            fundamental-domain-width=30
+            fundamental-domain-height=30
+            draw-options='{"fullBleed": true}'
+        ></wallpaper-pattern>
+    </div>
+</div>
+
+</div>

@@ -90,11 +90,23 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         },{
             name: 'patterns-frieze-combining-symmetries',
             url: vm.bookPageUrl('book-page-patterns-frieze-combining-symmetries.html'),
-        }, 
+        },
+        {
+            name: 'patterns-wallpaper-intro',
+            url: vm.bookPageUrl('book-page-patterns-wallpaper-intro.html'),
+        },
+        {
+            name: 'patterns-wallpaper-translations',
+            url: vm.bookPageUrl('book-page-patterns-wallpaper-translations.html'),
+        },
+        {
+            name: 'patterns-wallpaper-rotations',
+            url: vm.bookPageUrl('book-page-patterns-wallpaper-rotations.html'),
+        },
         {
             name: 'wallpaper-samples',
             url: vm.bookPageUrl('book-page-wallpaper-samples.html'),
-        }, 
+        },
         {
             name: 'theory-reference',
             url: vm.bookPageUrl('book-page-theory-reference.html'),
