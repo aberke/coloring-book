@@ -104,6 +104,26 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
             url: vm.bookPageUrl('book-page-patterns-wallpaper-rotations.html'),
         },
         {
+            name: 'patterns-wallpaper-catalogue-no-rotations',
+            url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-no-rotations.html'),
+        },
+        {
+            name: 'patterns-wallpaper-catalogue-order-2-rotations-1',
+            url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-order-2-rotations-1.html'),
+        },
+        {
+            name: 'patterns-wallpaper-catalogue-order-2-rotations-2',
+            url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-order-2-rotations-2.html'),
+        },
+        {
+            name: 'patterns-wallpaper-catalogue-order-4-rotations',
+            url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-order-4-rotations.html'),
+        },
+        {
+            name: 'patterns-wallpaper-catalogue-order-6-rotations',
+            url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-order-6-rotations.html'),
+        },
+        {
             name: 'wallpaper-samples',
             url: vm.bookPageUrl('book-page-wallpaper-samples.html'),
         },
