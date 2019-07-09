@@ -95,9 +95,10 @@ body.print {
 .print .book-page .page-heading .heading-title{
     float: left;
 }
-
-.print .book-page .page-number::after {
+.print .counted .book-page {
     counter-increment: page;
+}
+.print .book-page .page-number::after {
     content: counter(page);
     float: right;
     font-size: 7pt;
@@ -134,6 +135,9 @@ body.print {
     display: block;
 }
 .page-heading {
+    display: none;
+}
+.book-page.full-bleed .page-heading {
     display: none;
 }
 
