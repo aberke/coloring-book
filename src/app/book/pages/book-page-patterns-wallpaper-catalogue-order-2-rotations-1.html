@@ -1,0 +1,582 @@
+<div class="book-page-container" ng-if="book.page.name == p.name || main.print">
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: WALLPAPER GROUPS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+            <h3 class="wallpaper-pattern-name">2222</h3>
+
+            <wallpaper-pattern style="height: 180px;"
+                pattern-function='trianglePath'
+                group-name='p2'
+                fundamental-domain-width=30
+                fundamental-domain-height=30
+            ></wallpaper-pattern>
+
+            <p>This pattern has ½ turn rotations.  There are different points that we can see a single piece make a ½ turn around<p>
+
+            <!-- [dotted piece, and dotted rotated piece] -->
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "stroke-dasharray":"-"}'
+                ></div><div class='canvas rotation-point bottom-left order-2 extra-small'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div class='canvas fake-canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0, "stroke-dasharray":"-"}'
+                ></div>
+            </div>
+
+            <p>and that the entire pattern can turn around.</p>
+
+            <!--
+            [piece, piece, piece, piece, piece, piece]
+            [piece, piece, piece *(rotation dot), piece, piece, piece]
+            [piece, piece, piece, piece, piece, piece]
+            [piece, piece, piece, piece, piece, piece]
+            -->
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas rotation-point bottom-right bottom-left order-2 extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas rotation-point bottom-right bottom-left order-2 extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas rotation-point bottom-left order-2 extra-small'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small rotation-point bottom-right order-2'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas extra-small rotation-point bottom-left bottom-right order-2'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas extra-small rotation-point bottom-left bottom-right order-2'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas rotation-point bottom-right bottom-left order-2 extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0, "stroke-dasharray":"-"}'
+                ></div><div class='canvas rotation-point bottom-right bottom-left order-2 extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas rotation-point bottom-left order-2 extra-small'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small rotation-point bottom-right order-2'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas extra-small rotation-point bottom-left bottom-right order-2'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0, "stroke-dasharray":"-"}'
+                ></div><div class='canvas extra-small rotation-point bottom-left bottom-right order-2'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas rotation-point bottom-right bottom-left order-2 extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas rotation-point bottom-right bottom-left order-2 extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas rotation-point bottom-left order-2 extra-small'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div>
+            </div>
+            
+            <br/>
+
+            <p class="challenge">Challenge: Can you see the many rotation points in the pattern?</p>
+            <p class="challenge">Challenge: Color the pattern to remove some rotations while keeping others.</p>
+        </div>
+    </div>
+</div>
+
+<div class="book-page full-bleed">
+    <div class="text-content challenges">
+        <p class="design-caption">(2222)</p>
+    </div>
+    <div class="coloring-content">
+        <wallpaper-pattern
+            pattern-function=curvesToStraightSide
+            group-name='p2'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"fullBleed": true}'
+        ></wallpaper-pattern>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: WALLPAPER GROUPS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+            <h3 class="wallpaper-pattern-name">∗2222</h3>
+            <br/>
+            <wallpaper-pattern style="height: 180px;"
+                pattern-function='trianglePath'
+                group-name='pmm'
+                fundamental-domain-width=30
+                fundamental-domain-height=30
+            ></wallpaper-pattern>
+
+            <p>This pattern has perpendicular axes of mirror reflection</p>
+
+            <div class="text-content-graphic line" style="border-bottom: 2px solid gray; display: inline-block;">
+                <div style="border-right: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div style="border-left: 1px solid gray; border-right: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div><div style="border-right: 1px solid gray; border-left: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div style="border-left: 1px solid gray; border-right: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div><div style="border-right: 1px solid gray; border-left: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div style="border-left: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div style="border-right: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9, "mirror":"H"}'
+                ></div><div style="border-left: 1px solid gray; border-right: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "initialRotation":180}'
+                ></div><div style="border-right: 1px solid gray; border-left: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9, "mirror":"H"}'
+                ></div><div style="border-left: 1px solid gray; border-right: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "initialRotation":180}'
+                ></div><div style="border-right: 1px solid gray; border-left: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9, "mirror":"H"}'
+                ></div><div style="border-left: 1px solid gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "initialRotation":180}'
+                ></div>
+            </div>
+            <p>with ½ turn rotations where the axes intersect.</p>
+
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div class='canvas extra-small rotation-point bottom-left order-2'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div><div class='canvas extra-small rotation-point bottom-left order-2'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div class='canvas extra-small rotation-point bottom-left order-2'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div><div class='canvas extra-small rotation-point bottom-left order-2'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9}'
+                ></div><div class='canvas extra-small rotation-point bottom-left order-2'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "mirror":"V"}'
+                ></div>
+            </div>
+
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9, "mirror":"H"}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "initialRotation":180}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9, "mirror":"H"}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "initialRotation":180}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":9, "mirror":"H"}'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":11, "initialRotation":180}'
+                ></div>
+            </div>
+
+            <p>This is about to get more complicated...</p>
+
+            <br/>
+            <br/>
+
+            <p class="challenge">Challenge: Is it possible for patterns to have perpendicular axes of reflection without ½ turns?  <span style="white-space: nowrap;">Hint: Is the</span> result of reflecting a shape across two perpendicular mirrors the same as rotating it?</p>
+            <p class="challenge">Challenge: Color the pattern to remove its mirrors while maintaining its ½ turns.</p>
+
+        </div>
+    </div>
+</div>
+
+<div class="book-page full-bleed">
+    <div class="text-content challenges">
+        <p class="design-caption">(∗2222)</p>
+    </div>
+    <div class="coloring-content">
+        <wallpaper-pattern
+            pattern-function=petalEllipse
+            group-name='pmm'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"fullBleed": true}'
+        ></wallpaper-pattern>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: WALLPAPER GROUPS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+            <h3 class="wallpaper-pattern-name">22x</h3>
+            <br/>
+            <p>This pattern group has glide reflections and ½ turn rotations, but no mirror reflections. The glide reflections have perpendicular axes, and the rotation centers do not lie on their intersection.<p>
+
+            <!-- [pattern with rotation center at offset=1] -->
+            <!-- With 2 perpendicular glide reflections and 2 different rotations points shown -->
+            <!-- Wider on desktop via extra desktop-only pieces -->
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"mirror":"H", "margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                ></div><div style="border-right: 1px dashed gray;" class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"mirror":"H", "margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"mirror":"H", "margin":0}'
+                ></div><div class='canvas extra-small desktop-only'
+                ></div><div class='canvas extra-small desktop-only'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div style="border-right: 1px dashed gray;" class='canvas extra-small rotation-point bottom-left order-2'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small desktop-only'
+                ></div><div class='canvas extra-small desktop-only'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div style="border-bottom: 1px dashed gray;" class='canvas extra-small'
+                ></div><div style="border-bottom: 1px dashed gray;" class='canvas extra-small'
+                ></div><div style="border-bottom: 1px dashed gray;" class='canvas extra-small'
+                ></div><div style="border-bottom: 1px dashed gray; border-right: 1px dashed gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div style="border-bottom: 1px dashed gray;" class='canvas extra-small'
+                ></div><div style="border-bottom: 1px dashed gray;" class='canvas extra-small'
+                ></div><div style="border-bottom: 1px dashed gray;" class='canvas extra-small'
+                ></div><div style="border-bottom: 1px dashed gray;" class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"initialRotation":180, "margin":0}'
+                ></div><div style="border-bottom: 1px dashed gray;" class='canvas extra-small'
+                ></div><div style="border-bottom: 1px dashed gray;" class='canvas extra-small desktop-only'
+                ></div><div style="border-bottom: 1px dashed gray;" class='canvas extra-small desktop-only'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"mirror":"V", "margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div style="border-right: 1px dashed gray;" class='canvas extra-small'
+                ></div><div class='canvas extra-small rotation-point bottom-right order-2'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"mirror":"V", "margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small desktop-only'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"mirror":"V", "margin":0}'
+                ></div><div class='canvas extra-small desktop-only'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"mirror":"H", "margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                ></div><div style="border-right: 1px dashed gray;" class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"mirror":"H", "margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"mirror":"H", "margin":0}'
+                ></div><div class='canvas extra-small desktop-only'
+                ></div><div class='canvas extra-small desktop-only'
+                ></div>
+            </div>
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div style="border-right: 1px dashed gray;" class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small'
+                ></div><div class='canvas extra-small desktop-only'
+                ></div><div class='canvas extra-small desktop-only'
+                    canvas-centered-drawing
+                    draw-function='drawTriangles'
+                    function-options='{"N":1}'
+                    options='{"margin":0}'
+                ></div>
+            </div>
+            <br/>
+
+
+            <p>We can shift these axes and yet have a pattern with the same symmetries, and so it’s in the same wallpaper group.</p>
+
+            <!-- [pattern with rotation center at offset != 1] -->
+            <wallpaper-pattern style="height: 215px;"
+                pattern-function='trianglePath'
+                draw-options='{"rotationOffsetYMultiplier": 0.75,  "contain": true}'
+                group-name='pgg'
+                fundamental-domain-width=30
+                fundamental-domain-height=30
+            ></wallpaper-pattern>
+
+
+            <p class="challenge">Challenge: Can you see the many different axes of glide reflection?</p>
+            <p class="challenge">Challenge: Color the pattern to remove the horizontal axes of glide reflection while maintaining the vertical glide reflections.  What happens to the ½ turns?</p>
+        </div>
+    </div>
+</div>
+
+<div class="book-page full-bleed">
+    <div class="text-content challenges">
+        <p class="design-caption">(22x)</p>
+    </div>
+    <div class="coloring-content">
+        <wallpaper-pattern
+            pattern-function=curves4
+            group-name='pgg'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"rotationOffsetYMultiplier": 0.66, "fullBleed": true}'
+        ></wallpaper-pattern>
+    </div>
+</div>
+
+</div>

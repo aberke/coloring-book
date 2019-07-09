@@ -1,0 +1,145 @@
+<div class="book-page-container" ng-if="book.page.name == p.name || main.print">
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: WALLPAPER GROUPS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+            <h3 class="wallpaper-pattern-name">333</h3>
+            <br/>
+            <wallpaper-pattern
+                class="overflow-visible"
+                style="height: 250px; overflow: visible;"
+                pattern-function='trianglePath'
+                group-name=p3
+                fundamental-domain-width=30
+                fundamental-domain-height=30
+                draw-options='{"contain": true}'
+            ></wallpaper-pattern>
+            <br/>
+
+            <p>This is the simplest wallpaper pattern group that contains a ⅓ turn rotation.  It has no reflections, but others can...</p>
+
+            <br/>
+            <br/>
+            <br/>
+
+            <p class="challenge">Challenge: Can you see the different ⅓ turn rotation points?</p>
+            <p class="challenge">Challenge: Color the pattern to remove its rotations so that translation is its only symmetry.</p>
+        </div>
+    </div>
+</div>
+
+<div class="book-page full-bleed">
+    <div class="text-content challenges">
+        <p class="design-caption">(333)</p>
+    </div>
+    <div class="coloring-content">
+        <wallpaper-pattern
+            style="left: -1.2in; top: 10px;"
+            pattern-function=curvesToStraightSide
+            group-name='p3'
+            fundamental-domain-width=50
+            fundamental-domain-height=50
+            draw-options='{"fullBleed": true}'
+        ></wallpaper-pattern>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: WALLPAPER GROUPS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+            <h3 class="wallpaper-pattern-name">3∗3</h3>
+            <br/>
+            <p>This pattern group contains mirror reflections, glide reflections, and ⅓ turn rotations.</p>
+
+            <wallpaper-pattern
+                class="overflow-visible"
+                style="height: 300px; overflow: visible; margin-top: 60px; width: 110%;"
+                pattern-function='trianglePath'
+                group-name=p31m
+                fundamental-domain-width=30
+                fundamental-domain-height=30
+                draw-options='{"contain": true}'
+            ></wallpaper-pattern>
+            <p>Some of the centers of rotation lie on the reflection axes, and some do not.</p>
+            <br/>
+            <br/>
+            <br/>
+            <p class="challenge">Challenge: Can you see the rotation centers that are both on and off the reflection axes?</p>
+            <p class="challenge">Challenge: Color the pattern to remove the mirror reflections while keeping the ⅓ turns.</p>
+        </div>
+    </div>
+</div>
+
+<div class="book-page full-bleed">
+    <div class="text-content challenges">
+        <p class="design-caption">(3∗3)</p>
+    </div>
+
+    <div class="coloring-content">
+        <wallpaper-pattern
+            style="top: 20px;"
+            pattern-function=curves4
+            group-name='p31m'
+            fundamental-domain-width=40
+            fundamental-domain-height=40
+            draw-options='{"fullBleed": true}'
+        ></wallpaper-pattern>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: WALLPAPER GROUPS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+            <h3 class="wallpaper-pattern-name">∗333</h3>
+            <br/>
+            <p>This pattern group also has mirror reflections, glide reflections, and ⅓ turn rotations,</p>
+
+            <wallpaper-pattern
+                class="overflow-visible"
+                style="height: 300px; overflow: visible; margin-top: 60px; width: 110%;"
+                pattern-function='trianglePath'
+                group-name=p3m1
+                fundamental-domain-width=30
+                fundamental-domain-height=30
+                draw-options='{"contain": true}'
+            ></wallpaper-pattern>
+            <br/>
+            <p>And this time all of the centers of rotation lie on the reflection axes.</p>
+            <br/>
+            <br/>
+            <br/>
+            <p class="challenge">Challenge: Can you see the glide reflections?</p>
+            <p class="challenge">Challenge: Color the pattern to again remove the reflections while keeping the ⅓ turns.</p>
+        </div>
+    </div>
+</div>
+
+<div class="book-page full-bleed">
+    <div class="text-content challenges">
+        <p class="design-caption">(∗333)</p>
+    </div>
+    <div class="coloring-content">
+        <wallpaper-pattern
+            style="top: 25px;"
+            pattern-function=trianglesPath2
+            group-name='p3m1'
+            fundamental-domain-width=40
+            fundamental-domain-height=40
+            draw-options='{"fullBleed": true}'
+        ></wallpaper-pattern>
+    </div>
+</div>
+
+</div>
