@@ -432,10 +432,20 @@ They are gray when in the text-content-graphic to match the mirror lines.
 .rotation-point {
 	position: relative;
 }
+.rotation-point.top-left::before {
+	position: absolute;
+	top: -5px;
+	left: -5px;	
+}
+.rotation-point.top-right::after {
+	position: absolute;
+	top: -5px;
+	right: -6px;	
+}
 .rotation-point.bottom-left::before {
 	position: absolute;
 	bottom: -5px;
-	left: -5px;	
+	left: -6px;	
 }
 .rotation-point.bottom-right::after {
 	position: absolute;
@@ -452,6 +462,9 @@ It is gray to match the mirror-lines if this is in a .text-content-graphic
 	/*Places a BLACK ♦ at the corner filled with black */
 	content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' stroke='black' fill='black' fill-opacity='1' stroke-width='1' height='10' width='10'><path d='M0 5 L5 0 L10 5 L5 10 Z' /></svg>");
 }
+
+.text-content-graphic .rotation-point.order-2.top-left::before,
+.text-content-graphic .rotation-point.order-2.top-right::after,
 .text-content-graphic .rotation-point.order-2.bottom-left::before,
 .text-content-graphic .rotation-point.order-2.bottom-right::after {
 	/*Places a GRAY ♦ at the corner filled with black */
