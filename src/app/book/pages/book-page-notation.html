@@ -12,19 +12,19 @@
             <p>We name our cyclic groups with Cn notation, where n is a number that corresponds to the number of rotations in our group.  For example, we illustrate our C3 group with shapes that have 3 rotations.</p>
             <div class="text-content-graphic line">
                 <canvas-centered-drawing
-                    class='canvas small'
+                    class='canvas extra-small'
                     draw-function='drawCyclicShape'
                     function-options='{"N":3}'
                     options='{"text": "C3"}'
                 ></canvas-centered-drawing>
                 <canvas-centered-drawing
-                    class='canvas small'
+                    class='canvas extra-small'
                     draw-function='drawCyclicShape'
                     function-options='{"N":4}'
                     options='{"text": "C4"}'
                 ></canvas-centered-drawing>
                 <canvas-centered-drawing
-                    class='canvas small'
+                    class='canvas extra-small'
                     draw-function='drawCyclicShape'
                     function-options='{"N":5}'
                     options='{"text": "C5"}'
@@ -33,22 +33,22 @@
             <br/>
             <br/>
             <h3 class="group-name">Dihedral Groups</h3>
-            <p>We use Dn notation to name the dihedral groups, where by Dn we mean that the group has n rotations and n mirrors (n is a number). For example, we illustrate the D3 group with shapes that have 3 rotations and 3 mirror reflections as symmetries.</p>
+            <p>We use Dn notation to name our dihedral groups, where by Dn we mean that the group has n rotations and n mirrors. For example, we illustrate the D3 group with shapes that have 3 rotations and 3 mirror reflections as symmetries.</p>
             <div class="text-content-graphic line">
                 <canvas-centered-drawing
-                    class='canvas small'
+                    class='canvas extra-small'
                     draw-function='drawDihedralShape'
                     function-options='{"N":3}'
                     options='{"text": "D3"}'
                 ></canvas-centered-drawing>
                 <canvas-centered-drawing
-                    class='canvas small'
+                    class='canvas extra-small'
                     draw-function='drawDihedralShape'
                     function-options='{"N":4}'
                     options='{"text": "D4"}'
                 ></canvas-centered-drawing>
                 <canvas-centered-drawing
-                    class='canvas small'
+                    class='canvas extra-small'
                     draw-function='drawDihedralShape'
                     function-options='{"N":5}'
                     options='{"text": "D5"}'
@@ -60,13 +60,14 @@
             <h3 class="group-name">Pattern Groups</h3>
             <p>In this coloring book, we use “orbifold” notation to name each of the Frieze and Wallpaper groups with symbols, such as <span class="bold-math">∗2222</span>.  In this section, we describe what this notation means, and how to decode it.</p>
             <wallpaper-pattern
-                style="height: 125px;"
-                pattern-function='curves3'
+                style="height: 114px;"
+                pattern-function='curves2'
                 group-name='pmm'
-                fundamental-domain-width=20
-                fundamental-domain-height=20
+                fundamental-domain-width=18
+                fundamental-domain-height=18
                 draw-options='{"contain": true}'
             ></wallpaper-pattern>
+            <p>(∗2222)</p>
         </div>
     </div>
 </div>
@@ -77,7 +78,7 @@
             <span class="heading-title">NOTES ON NOTATION</span>
         </div>
         <div class="content-container">
-            <p>There are a number of ways that mathematicians use notation to classify the Frieze and Wallpaper pattern groups.  For example, we could have used the IUC notation to call that same pattern <span class="bold-math">pmm</span>.  The IUC notation names a group by its generators.  This can be confusing because of the ambiguity it presents: As we saw, many groups have multiple choices for generators.</p>
+            <p>There are a number of ways that mathematicians use notation to classify the Frieze and Wallpaper pattern groups.  For example, we could have used the IUC notation to call that same <span class="bold-math">∗2222</span> pattern <span class="bold-math">pmm</span>.  The IUC notation names a group by its generators.  This can be confusing because of the ambiguity it presents: As we saw, many groups have multiple choices for generators.</p>
 
             <p>The orbifold notation names symmetry groups by their symmetries.  The orbifold names can be read as descriptions of the symmetries we can find in the patterns they name.</p>
             <p>Before we talk about how to read the symbols in the orbifold notation, let’s talk about what an orbifold is.</p>
@@ -85,7 +86,7 @@
             <wallpaper-pattern
                 style="height: 181px;"
                 class="debug"
-                pattern-function='curves3'
+                pattern-function='curves2'
                 group-name='pmm'
                 fundamental-domain-width=30
                 fundamental-domain-height=30
@@ -94,8 +95,8 @@
             <p>(∗2222)</p>
             <br/>
 
-            <p style="font-style: italic;">An orbifold of a symmetry group is the quotient of a surface divided by the group.</p>
-            <p>We can imagine taking a pattern and folding it up along its symmetries until we come to the smallest piece that can no longer be folded.</p>
+            <p style="font-style: italic;">We can think of an orbifold as a quotient of a surface divided by a symmetry group.</p>
+            <p>Imagine taking a pattern and folding it up along its symmetries until we come to the smallest piece that can no longer be folded.</p>
             <br/>
             <!-- [orbifold for ∗2222 pattern: design surrounded by rectangle with thick lines at boundaries and order-2 rotation  points at corners] -->
             <div class="text-content-graphic line">
@@ -105,7 +106,7 @@
                 ></div><simple-drawing
                     style="border: 2px solid gray;"
                     class="canvas extra-small rotation-point top-right bottom-left order-2"
-                    draw-function="curves3"
+                    draw-function="curves2"
                 ></simple-drawing><div
                     class='canvas rotation-point bottom-left order-2 extra-small'
                 ></div>
