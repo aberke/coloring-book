@@ -16,27 +16,22 @@
                 fundamental-domain-height=30
             ></wallpaper-pattern>
 
-            <p>This pattern has ½ turn rotations.  There are different points that we can see a single piece make a ½ turn around<p>
+            <p>This pattern has ½ turn rotations.  There are 4 different points that we can see a single piece make a ½ turn around<p>
 
-            <!-- [dotted piece, and dotted rotated piece] -->
+            <br/>
             <div class="text-content-graphic line">
-                <div class='canvas extra-small'
-                    canvas-centered-drawing
+                <div
+                    style='width: 1px;'
+                    class='canvas rotation-point bottom-right order-2 extra-small'
+                ></div><canvas-centered-drawing
+                    class='canvas extra-small rotation-point top-left top-right order-2 extra-small'
                     draw-function='drawTriangles'
                     function-options='{"N":1}'
-                    options='{"margin":0, "stroke-dasharray":"-"}'
-                ></div><div class='canvas rotation-point bottom-left order-2 extra-small'
+                    options='{"margin":0}'
+                ></canvas-centered-drawing><div class='canvas rotation-point bottom-left order-2 extra-small'
                 ></div>
             </div>
-            <div class="text-content-graphic line">
-                <div class='canvas fake-canvas extra-small'
-                ></div><div class='canvas extra-small'
-                    canvas-centered-drawing
-                    draw-function='drawTriangles'
-                    function-options='{"N":1}'
-                    options='{"initialRotation":180, "margin":0, "stroke-dasharray":"-"}'
-                ></div>
-            </div>
+            <br/>
 
             <p>and that the entire pattern can turn around.</p>
 
@@ -99,7 +94,7 @@
                     canvas-centered-drawing
                     draw-function='drawTriangles'
                     function-options='{"N":1}'
-                    options='{"margin":0, "stroke-dasharray":"-"}'
+                    options='{"margin":0}'
                 ></div><div class='canvas rotation-point bottom-right bottom-left order-2 extra-small'
                 ></div><div class='canvas extra-small'
                     canvas-centered-drawing
@@ -121,7 +116,7 @@
                     canvas-centered-drawing
                     draw-function='drawTriangles'
                     function-options='{"N":1}'
-                    options='{"initialRotation":180, "margin":0, "stroke-dasharray":"-"}'
+                    options='{"initialRotation":180, "margin":0}'
                 ></div><div class='canvas extra-small rotation-point bottom-left bottom-right order-2'
                 ></div><div class='canvas extra-small'
                     canvas-centered-drawing
