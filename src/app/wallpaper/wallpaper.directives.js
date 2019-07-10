@@ -6,7 +6,7 @@ Use
     pattern-function={function} // function with which to draw fundamental domain
     pattern-function-options={object} // options that will be passed to the pattern-function
     draw-options={} // options that will be passed to the WallpaperPattern constructor
-    group-name={"p1" | "p11g" | ... one of the 17 wallpaper groups to draw}
+    group-name={"p1" | "p11g" | ... one of the 17 wallpaper groups to draw; either orbifold or IUC notation can be used}
     fundamental-domain-width={number}
     fundamental-domain-height={number}
     disable-animations=true|false // optional - if true animations and interactions are removed
@@ -452,25 +452,55 @@ function WallpaperPatternDirective($window, $location) {
         };
 
         const handlers = {
+            "o": scope.p1Handler,
             "p1": scope.p1Handler,
+
+            "∗∗": scope.pmHandler,
             "pm": scope.pmHandler,
+
+            "××": scope.pgHandler,
             "pg": scope.pgHandler,
+
+            "∗×": scope.cmHandler,
             "cm": scope.cmHandler,
+
+            "2222": scope.p2Handler,
             "p2": scope.p2Handler,
+
+            "22×": scope.pggHandler,
             "pgg": scope.pggHandler,
+
+            "22∗": scope.pmgHandler,
             "pmg": scope.pmgHandler,
+
+            "∗2222": scope.pmmHandler,
             "pmm": scope.pmmHandler,
+
+            "2∗22": scope.cmmHandler,
             "cmm": scope.cmmHandler,
 
+            "442": scope.p4Handler,
             "p4": scope.p4Handler,
+
+            "4∗2": scope.p4gHandler,
             "p4g": scope.p4gHandler,
+
+            "∗442": scope.p4mHandler,
             "p4m": scope.p4mHandler,
 
+            "333": scope.p3Handler,
             "p3": scope.p3Handler,
+
+            "3∗3": scope.p31mHandler,
             "p31m": scope.p31mHandler,
+
+            "∗333": scope.p3m1Handler,
             "p3m1": scope.p3m1Handler,
 
+            "632": scope.p6Handler,
             "p6": scope.p6Handler,
+
+            "∗632": scope.p6mHandler,
             "p6m": scope.p6mHandler
         };
 
