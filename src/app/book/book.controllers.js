@@ -128,6 +128,10 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
             url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-order-6-rotations.html'),
         },
         {
+            name: 'patterns-wallpaper-end',
+            url: vm.bookPageUrl('book-page-patterns-wallpaper-end.html'),
+        },
+        {
             name: 'notation',
             url: vm.bookPageUrl('book-page-notation.html'),
         },

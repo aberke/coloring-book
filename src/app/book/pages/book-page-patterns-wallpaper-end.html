@@ -1,0 +1,232 @@
+<div class="book-page-container counted" ng-if="book.page.name == p.name || main.print">
+
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: WALLPAPER GROUPS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+            <p>We have now colored through patterns that illustrate each of the Wallpaper Groups.  Yet each Wallpaper Group has endlessly many more pattern designs that could represent it.  As long as a pattern has the same symmetries as another, then it illustrates the same group.</p>
+            <br/>
+            <br/>
+            <p>We can continue to find these patterns in nature and the physical world around us,</p>
+            <br/>
+            <div class="text-content-graphic line">
+                <figure class="larger">
+                    <img style="border:1px solid black;" src="/assets/img/wallpaper-in-physical-world/beehive-with-bees.jpg" alt="Beehive (∗632 pattern)"/>
+                    <figcaption>Beehive</figcaption>
+                </figure>
+                <figure class="larger">
+                    <a target="_blank" href="https://www.maxpixel.net/Financial-District-Building-Attraction-London-2242008">
+                        <img style="border:1px solid black;" src="/assets/img/wallpaper-in-physical-world/office-building.jpg" alt="Office building (∗2222 pattern)"/>
+                    </a>
+                    <figcaption>Office building</figcaption>
+                </figure>
+                <figure class="larger">
+                    <img style="border:1px solid black;" src="/assets/img/wallpaper-in-physical-world/basket-weave.png" alt="Basket (2222 pattern)"/>
+                    <figcaption>Basket Weave</figcaption>
+                </figure>
+                <figure class="larger">
+                    <img style="border:1px solid black;" src="/assets/img/wallpaper-in-physical-world/brick-wall.jpg" alt="Bricks (2∗22 pattern)"/>
+                    <figcaption>Bricks</figcaption>
+                </figure>
+            </div>
+            <br/>
+            <p>Or stay within the worlds of art and design and mathematics.</p>
+            <br/>
+            <div class="text-content-graphic line">
+                <figure class="larger">
+                    <wallpaper-pattern
+                        style="border:1px solid black; height: 120px; width: 110px;"
+                        pattern-function=triangleGridHexagon
+                        group-name='p1'
+                        fundamental-domain-width=40
+                        fundamental-domain-height=34.64
+                        disable-animations=true
+                        draw-options='{"translationOffsetXMultiplier": 0.5, "translationOffsetYMultiplier": 1}'
+                    ></wallpaper-pattern>
+                    <figcaption>∗632</figcaption>
+                </figure>
+                <figure class="larger">
+                    <wallpaper-pattern
+                        style="border:1px solid black; height: 120px; width: 108px;"
+                        pattern-function=trianglePath
+                        group-name='pmm'
+                        fundamental-domain-width=12
+                        fundamental-domain-height=8
+                        disable-animations=true
+                        draw-options='{}'
+                    ></wallpaper-pattern>
+                    <figcaption>∗2222</figcaption>
+                </figure>
+                <figure class="larger">
+                    <wallpaper-pattern
+                        style="border:1px solid black; height: 120px; width: 108px;"
+                        pattern-function=trianglePath
+                        group-name='p2'
+                        fundamental-domain-width=12
+                        fundamental-domain-height=8
+                        disable-animations=true
+                        draw-options='{}'
+                    ></wallpaper-pattern>
+                    <figcaption>2222</figcaption>
+                </figure>
+                <figure class="larger">
+                    <wallpaper-pattern
+                        style="border:1px solid black; height: 120px; width: 108px;"
+                        pattern-function=trianglePath
+                        group-name='cmm'
+                        fundamental-domain-width=12
+                        fundamental-domain-height=8
+                        disable-animations=true
+                        draw-options='{}'
+                    ></wallpaper-pattern>
+                    <figcaption>2∗22</figcaption>
+                </figure>
+            </div>
+            <br/>
+            <br/>
+            <p>Symmetries, and the relationships between them, have inspired the works of artists, architects, and mathematicians, who have a history of building upon each other’s ideas and creations.  For example, our symmetries can be explored through the artworks of M.C. Escher, who studied the wallpaper patterns he saw in Islamic architecture, particularly the Alhambra palace in Spain.  Developing his artwork was aided by the papers he read about symmetry groups by mathematicians, and these mathematicians believe his art further contributed to their field.</p>
+
+            <p>Mathematics can help us understand the symmetries within art and the world around us, as well as their abstractions.  There are even symmetries that we cannot precisely draw on paper, or picture in our physical world, but that we can explore in the other realms that math shows to us.</p>
+        </div>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="coloring-content">
+        <wallpaper-pattern
+            style="height: 185px; width: 110%; margin-left: 0.1in;"
+            pattern-function=curves5
+            group-name='p4g'
+            fundamental-domain-width=46
+            fundamental-domain-height=46
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+        <wallpaper-pattern
+            style="height: 185px; width: 110%; margin-left: 0.1in;"
+            pattern-function=curves4
+            group-name='p4g'
+            fundamental-domain-width=46
+            fundamental-domain-height=46
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+        <wallpaper-pattern
+            style="height: 185px; width: 110%; margin-left: 0.1in;"
+            pattern-function=curves3
+            group-name='p4g'
+            fundamental-domain-width=46
+            fundamental-domain-height=46
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+        <wallpaper-pattern
+            style="height: 185px; width: 110%; margin-left: 0.1in;"
+            pattern-function=curves2
+            group-name='p4g'
+            fundamental-domain-width=46
+            fundamental-domain-height=46
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="coloring-content">
+        <wallpaper-pattern style="height: 91px;"
+            pattern-function=petalEllipse
+            group-name='p2'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+        <wallpaper-pattern style="height: 91px;"
+            pattern-function=curvesToStraightSide
+            group-name='p2'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+        <wallpaper-pattern style="height: 91px;"
+            pattern-function=quarterEllipse
+            group-name='p2'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+        <wallpaper-pattern style="height: 91px;"
+            pattern-function=trianglesPath3
+            group-name='p2'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+        <wallpaper-pattern style="height: 91px;"
+            pattern-function=trianglesPath2
+            group-name='p2'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+        <wallpaper-pattern style="height: 91px;"
+            pattern-function=symmetricalTrianglePath
+            group-name='p2'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+        <wallpaper-pattern style="height: 91px;"
+            pattern-function=curvedTriangle
+            group-name='p2'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+        <wallpaper-pattern style="height: 91px;"
+            pattern-function=curves2
+            group-name='p2'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+    </div>
+</div>
+
+<div class="book-page">
+    <div class="coloring-content">
+        <wallpaper-pattern
+            style="height: 185px; width: 110%; margin-left: 0.1in;"
+            pattern-function=curves5
+            group-name='p4'
+            fundamental-domain-width=46
+            fundamental-domain-height=46
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+        <wallpaper-pattern
+            style="height: 185px; width: 110%; margin-left: 0.1in;"
+            pattern-function=curves4
+            group-name='p4'
+            fundamental-domain-width=46
+            fundamental-domain-height=46
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+        <wallpaper-pattern
+            style="height: 185px; width: 110%; margin-left: 0.1in;"
+            pattern-function=curves3
+            group-name='p4'
+            fundamental-domain-width=46
+            fundamental-domain-height=46
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+        <wallpaper-pattern
+            style="height: 185px; width: 110%; margin-left: 0.1in;"
+            pattern-function=curves2
+            group-name='p4'
+            fundamental-domain-width=46
+            fundamental-domain-height=46
+            draw-options='{"contain":true}'
+        ></wallpaper-pattern>
+    </div>
+</div>
+
+</div>
