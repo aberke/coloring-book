@@ -3,21 +3,21 @@
     <nav class='app-only action-nav'>
         <h1>Frieze Patterns</h1>
         <ul>
-            <li ng-repeat="(groupName, groupData) in friezePage.friezeGroupsData" ng-click="friezePage.selectGroup(groupName)">
-                <span ng-class="{active:friezePage.selectedGroupName==groupName}" class="clickable">{{groupName}}</span>
+            <li ng-repeat="groupData in friezePage.friezeGroupsData" ng-click="friezePage.selectGroup(groupData.names.orbifold)">
+                <span ng-class="{active:friezePage.selectedGroupName==groupData.names.orbifold}" class="clickable">{{groupData.names.orbifold}}</span>
             </li>
         </ul>
     </nav>
 
     <!-- Creates a pattern container for each group -->
     <!-- Allows toggling whether to show symmetry sets via a classname -->
-    <div ng-repeat="(groupName, groupData) in friezePage.friezeGroupsData"
+    <div ng-repeat="groupData in friezePage.friezeGroupsData"
         class="frieze-pattern-container"
         ng-class="{'show-symmetry-sets': friezePage.showSymmetrySets}">
-        <div ng-if="friezePage.selectedGroupName===groupName">
+        <div ng-if="friezePage.selectedGroupName===groupData.names.orbifold || friezePage.selectedGroupName===groupData.names.IUC">
             
             <div class='title-container' ng-click="friezePage.showGroupDetails()">
-                <h1 class='frieze-pattern-title'>{{ groupName }}</h1>
+                <h1 class='frieze-pattern-title'>{{ friezePage.selectedGroupName }}</h1>
                 <ul ng-class="{show: friezePage.showGroupDescription}" class='pattern-generators-list'>
                     <li ng-class="generator.class" ng-repeat="generator in groupData.generators">{{generator.text}}</li>
                 </ul>
@@ -25,14 +25,14 @@
 
             <frieze-pattern
                 pattern-function='trianglePath'
-                group-name='{{groupName}}'
+                group-name='{{friezePage.selectedGroupName}}'
                 fundamental-domain-width=80
                 fundamental-domain-height=80
             ></frieze-pattern>
 
             <frieze-pattern
                 pattern-function=slantedSlices
-                group-name='{{groupName}}'
+                group-name='{{friezePage.selectedGroupName}}'
                 fundamental-domain-width=80
                 fundamental-domain-height=80
                 pattern-function-options='{"levels": 1, "pathsPerLevel": 1, "allowCurved": true}'
@@ -40,7 +40,7 @@
 
             <frieze-pattern
                 pattern-function=slantedSlices
-                group-name='{{groupName}}'
+                group-name='{{friezePage.selectedGroupName}}'
                 fundamental-domain-width=80
                 fundamental-domain-height=80
                 pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": false}'
@@ -48,7 +48,7 @@
 
             <frieze-pattern
                 pattern-function=slantedSlices
-                group-name='{{groupName}}'
+                group-name='{{friezePage.selectedGroupName}}'
                 fundamental-domain-width=80
                 fundamental-domain-height=80
                 pattern-function-options='{"levels": 3, "pathsPerLevel": 2, "allowCurved": true}'
@@ -56,21 +56,21 @@
             
             <frieze-pattern
                 pattern-function='petalsEllipseWithDiamondPath'
-                group-name='{{groupName}}'
+                group-name='{{friezePage.selectedGroupName}}'
                 fundamental-domain-width=80
                 fundamental-domain-height=80
             ></frieze-pattern>
             
             <frieze-pattern
                 pattern-function='trianglesPath2'
-                group-name='{{groupName}}'
+                group-name='{{friezePage.selectedGroupName}}'
                 fundamental-domain-width=80
                 fundamental-domain-height=80
             ></frieze-pattern>
             
             <frieze-pattern
                 pattern-function=slantedSlices
-                group-name='{{groupName}}'
+                group-name='{{friezePage.selectedGroupName}}'
                 fundamental-domain-width=80
                 fundamental-domain-height=80
                 pattern-function-options='{"levels": 1, "pathsPerLevel": 2, "allowCurved": true}'
@@ -78,7 +78,7 @@
 
             <frieze-pattern
                 pattern-function=slantedSlices
-                group-name='{{groupName}}'
+                group-name='{{friezePage.selectedGroupName}}'
                 fundamental-domain-width=80
                 fundamental-domain-height=80
                 pattern-function-options='{"levels": 3, "pathsPerLevel": 1, "allowCurved": false}'
@@ -86,14 +86,14 @@
 
             <frieze-pattern
                 pattern-function=slantedSlices
-                group-name='{{groupName}}'
+                group-name='{{friezePage.selectedGroupName}}'
                 fundamental-domain-width=80
                 fundamental-domain-height=80
                 pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": true}'
             ></frieze-pattern>
             <frieze-pattern
                 pattern-function=slantedSlices
-                group-name='{{groupName}}'
+                group-name='{{friezePage.selectedGroupName}}'
                 fundamental-domain-width=80
                 fundamental-domain-height=80
                 pattern-function-options='{"levels": 2, "pathsPerLevel": 2, "allowCurved": false}'
@@ -101,7 +101,7 @@
 
             <frieze-pattern
                 pattern-function=slantedSlices
-                group-name='{{groupName}}'
+                group-name='{{friezePage.selectedGroupName}}'
                 fundamental-domain-width=80
                 fundamental-domain-height=80
                 pattern-function-options='{"levels": 3, "pathsPerLevel": 1, "allowCurved": true}'

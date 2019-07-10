@@ -26,8 +26,8 @@
         <div class="groups">
             <h3>Symmetry Groups</h3>
             <ul>
-                <li ng-repeat="group in wallpaperPage.wallpaperGroups" ng-click="wallpaperPage.selectGroup(group.name)">
-                    <span ng-class="{active:wallpaperPage.selectedGroupName==group.name}" class="clickable">{{group.name}}</span>
+                <li ng-repeat="group in wallpaperPage.wallpaperGroups" ng-click="wallpaperPage.selectGroup(group.names.orbifold)">
+                    <span ng-class="{active: (wallpaperPage.selectedGroupName==group.names.orbifold || wallpaperPage.selectedGroupName==group.names.IUC)}" class="clickable">{{group.names.orbifold}}</span>
                 </li>
             </ul>
         </div>
@@ -47,7 +47,7 @@
     </nav>
 
     <div ng-repeat="group in wallpaperPage.wallpaperGroups" class="wallpaper-pattern-container">
-        <div ng-if="wallpaperPage.selectedGroupName===group.name">
+        <div ng-if="(wallpaperPage.selectedGroupName==group.names.orbifold || wallpaperPage.selectedGroupName==group.names.IUC)">
             
             <div class='title-container' ng-click="wallpaperPage.toggleShowDescriptions()">
                 <h1 class='wallpaper-pattern-title'>{{ group.name }}</h1>
@@ -68,7 +68,7 @@
                 ng-class='{debug: wallpaperPage.showDescriptions}'
                 pattern-function='{{ wallpaperPage.selectedDrawPathFunction.name }}'
                 draw-options='{"contain": true}'
-                group-name='{{ group.name }}'
+                group-name='{{ wallpaperPage.selectedGroupName }}'
                 fundamental-domain-width=70
                 fundamental-domain-height=70
                 redraw-fn="redraw"

@@ -6,7 +6,7 @@ Use
     pattern-function={function} // function with which to draw fundamental domain
     pattern-function-options={object} // options that will be passed to the pattern-function
     draw-options={} // options that will be passed to the FriezePattern constructor
-    group-name={"p1" | "p11g" | ... one of the 7 frieze groups to draw}
+    group-name={"p1" | "p11g" | ... one of the 7 frieze groups to draw in either IUC or orbifold notation}
     fundamental-domain-width={number}
     fundamental-domain-height={number}
 ></div>
@@ -18,7 +18,7 @@ function friezePatternDirective($window) {
     scope: {}, // using isolated scope
     link: function(scope, element, attrs) {
 
-        scope.groupName = attrs.groupName || "p1";
+        scope.groupName = attrs.groupName || "∞∞";
         scope.patternFunction = $window[attrs.patternFunction];
         scope.patternFunctionOptions = JSON.parse(attrs.patternFunctionOptions || "{}");
 
@@ -293,13 +293,26 @@ function friezePatternDirective($window) {
             scope.setupSymmetrySets();
         };
 
-        var handlers = {
+        const handlers = {
+            "∞∞": scope.p1Handler,
             "p1": scope.p1Handler,
+
+            "∞∗": scope.p11mHandler,
             "p11m": scope.p11mHandler,
+
+            "∗∞∞": scope.p1m1Handler,
             "p1m1": scope.p1m1Handler,
+
+            "∞×": scope.p11gHandler,
             "p11g": scope.p11gHandler,
+
+            "22∞": scope.p2Handler,
             "p2": scope.p2Handler,
+
+            "2∗∞": scope.p2mgHandler,
             "p2mg": scope.p2mgHandler,
+
+            "∗22∞": scope.p2mmHandler,
             "p2mm": scope.p2mmHandler,
         };
 

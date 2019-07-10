@@ -11,74 +11,126 @@ function WallpaperPageCntl($location, $anchorScroll) {
 
 	vm.wallpaperGroups = [
 		{
-			name: "p1",
+			names: {
+				orbifold: "o",
+				IUC: "p1"
+			},
 			description: "This is the simplest symmetry group. It consists only of translations.",
 		},
 		{
-			name: "pm",
+			names: {
+				orbifold: "∗∗",
+				IUC: "pm"
+			},
 			description: "This group contains mirror reflections. The axes of mirror reflection are parallel to one axis of translation and perpendicular to the other axis of translation.  It has neither rotations nor glide reflections.",
 		},
 		{
-			name: "pg",
+			names: {
+				orbifold: "××",
+				IUC: "pg"
+			},
 			description: "This group has glide reflections, and has neither rotations nor mirror reflections.",
 		},
 		{
-			name: "cm",
+			names: {
+				orbifold: "∗×",
+				IUC: "cm"
+			},
 			description: "This group contains mirror reflections and glide reflections with parallel axes. It has no rotations.",
 		},
 		{
-			name: "p2",
-			description: "This group has ½ turn rotations.",
+			names: {
+				orbifold: "2222",
+				IUC: "p2"
+			},
+			description: "This group has 4 different ½ turn rotations.",
 		},
 		{
-			name: "pgg",
+			names: {
+				orbifold: "22×",
+				IUC: "pgg"
+			},
 			description: "This group has glide reflections and ½ turn rotations, but no mirror reflections. The glide reflections have perpendicular axes, and the rotation centers do not lie on their intersections."
 		},
 		{
-			name: "pmg",
+			names: {
+				orbifold: "22∗",
+				IUC: "pmg"
+			},
 			description: "This group contains mirror reflections and glide reflections which are perpendicular to the mirror reflection axes. It also has ½ turn rotations on the glide axes, halfway between the mirror reflection axes."
 		},
 		{
-			name: "pmm",
+			names: {
+				orbifold: "∗2222",
+				IUC: "pmm"
+			},
 			description: "This symmetry group contains perpendicular axes of mirror reflection, with ½ turn rotations where the axes intersect.",
 		},
 		{
-			name: "cmm",
+			names: {
+				orbifold: "2∗22",
+				IUC: "cmm"
+			},
 			description: "This group has perpendicular reflection axes, as does group pmm, but this group also has additional ½ turn rotations. The centers of the additional rotations do not lie on the reflection axes.",
 		},
 		{
-			name: "p4",
+			names: {
+				orbifold: "442",
+				IUC: "p4"
+			},
 			description: "This group has ¼ turn and ½ turn rotations. The centers of the ½ turn rotations are midway between the centers of the ¼ turn rotations. It has no reflections.",
 		},
 		{
-			name: "p4g",
+			names: {
+				orbifold: "4∗2",
+				IUC: "p4g"
+			},
 			description: "This group contains reflections as well as ½ turn and ¼ turn rotations. There are two perpendicular axes of mirror reflection passing through each ½ turn rotation, while there are four directions of glide reflection."
 		},
 		{
-			name: "p4m",
+			names: {
+				orbifold: "∗442",
+				IUC: "p4m"
+			},
 			description: "This group has ½ turn and ¼ turn rotations, as well as four axes of mirror reflection. Every rotation center lies on some reflection axes: The centers of the ¼ turn rotations are at the intersection of four mirror reflection axes.  The centers of the ½ turn rotations sit on the intersection of two mirror reflection axes and two different reflection glide reflection axes."
 		},
 		{
-			name: "p3",
+			names: {
+				orbifold: "333",
+				IUC: "p3"
+			},
 			description: "This is the simplest group that contains a ⅓ turn rotation.  It has no reflections.",
 		},
 		{
-			name: "p31m",
+			names: {
+				orbifold: "3∗3",
+				IUC: "p31m"
+			},
 			description: "This group contains mirror reflections, glide reflections, and ⅓ turn rotations. Some of the centers of rotation lie on the reflection axes, and some do not.",
 		},
 		{
-			name: "p3m1",
+			names: {
+				orbifold: "∗333",
+				IUC: "p3m1"
+			},
 			description: "This group has mirror reflections, glide reflections, and ⅓ turn rotations. All of the centers of rotation lie on the reflection axes.",
 		},
 		{
-			name: "p6",
+			names: {
+				orbifold: "632",
+				IUC: "p6"
+			},
 			description: "This group has ⅙ turn, ⅓ turn, and ½ turn rotations, but no mirror or glide reflections.",
 		},
 		{
-			name: "p6m",
+			names: {
+				orbifold: "∗632",
+				IUC: "p6m"
+			},
 			description: "This group has ⅙ turn, ⅓ turn, and ½ turn rotations, as well as mirror and glide reflections. The axes of reflection meet at all the centers of rotation.",
 		}
 	];
+
 
 	vm.drawPathFunctions = [
 		curves2,

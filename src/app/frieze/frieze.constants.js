@@ -25,43 +25,67 @@ const frieze = (function() {
     };
 
 
-    const GROUP_DATA = {
-        'p1': {
+    const GROUP_DATA = [
+        {
             generators: [generators.translation],
+            names: {
+                orbifold: '∞∞',
+                IUC: 'p1',
+            },
         },
-        'p11m': {
+        {
             generators: [
                 generators.translation,
                 generators.horizontalMirror
             ],
+            names: {
+                orbifold: '∞∗',
+                IUC: 'p11m',
+            },
         },
-        'p1m1': {
+        {
             generators: [
                 generators.translation,
                 generators.verticalMirror
             ],
+            names: {
+                orbifold: '∗∞∞',
+                IUC: 'p1m1',
+            },
         },
-        'p11g': {
+        {
             generators: [
                 generators.translation,
                 generators.glideReflection
             ],
+            names: {
+                orbifold: '∞×',
+                IUC: 'p11g',
+            },
         },
-        'p2': {
+        {
             generators: [
                 generators.translation,
                 generators.order2Rotation
             ],
+            names: {
+                orbifold: '22∞',
+                IUC: 'p2',
+            },
         },
-        'p2mg': {
+        {
             generators: [
                 generators.translation,
                 generators.verticalMirror,
                 generators.glideReflection,
                 generators.order2Rotation,
             ],
+            names: {
+                orbifold: '2∗∞',
+                IUC: 'p2mg',
+            },
         },
-        'p2mm': {
+        {
             generators: [
                 generators.translation,
                 generators.horizontalMirror,
@@ -69,8 +93,12 @@ const frieze = (function() {
                 generators.glideReflection,
                 generators.order2Rotation,
             ],
+            names: {
+                orbifold: '∗22∞',
+                IUC: 'p2mm',
+            },
         },
-    };
+    ];
     return {
         GROUP_DATA: GROUP_DATA
     };
