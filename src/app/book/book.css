@@ -213,7 +213,7 @@ body.print {
 
 .book-page.full-bleed .wallpaper-pattern svg,
 .book-page .wallpaper-pattern.full-bleed svg,
-.book-page .wallpaper-pattern.overflow-visible svg {
+.wallpaper-pattern.overflow-visible svg {
     overflow: visible !important;
 }
 .book-page {
