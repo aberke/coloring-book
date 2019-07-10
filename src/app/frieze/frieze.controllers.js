@@ -8,7 +8,7 @@ function FriezePageCntl($location) {
 	let vm = this;
 
 	vm.friezeGroupsData = frieze.GROUP_DATA;
-	vm.selectedGroupName = $location.search().group || "p11g";
+	vm.selectedGroupName = $location.search().group || "∞∞";
 
 	vm.showGroupDescription = false;
 	vm.showSymmetrySets = false;
