@@ -1,32 +1,43 @@
 <!-- This page contains all of the content that comes after the main book content. -->
 <div class="book-page" id="after-info" ng-if="book.page.name == p.name || main.print">
 
-    <div class="content-container-wrapper">
-        <div class="content-container">
-            <div class="text-content">
-                <div id="end-page-content">
-                    <br/>
+    <div class="content-container">
+        <div class="text-content">
+            <br/>
+            <br/>
+            <p>There are more patterns to play with, print, and color.</p>
+            <br/>
+            <p>You can generate more circular patterns to represent the cyclic and dihedral groups at:
+            <br/>
+            <a href="/circular-pattern">http://coloring-book.co/circular-pattern</a>
+            <br/>
+            <br/>
+            <p>Or the 7 Frieze patterns:
+            <br/>
+            <a href="/frieze">http://coloring-book.co/frieze</a>
+            <br/>
+            <br/>
+            <p>As well as the 17 Wallpaper patterns:
+            <br/>
+            <a href="/wallpaper">http://coloring-book.co/wallpaper</a>
+            </p>
+            <br/>
+            <br/>
+            <br/>
+            <p>Challenge Solutions are at:
+            <br/>
+            <a href="/solutions">http://coloring-book.co/solutions</a>
+            </p>
 
-                    <p style="font-style: italic; text-align: center;">Here are some wallpaper patterns to play with: <a target="_blank" href="/wallpaper">http://coloring-book.co/wallpaper</a></p>
-                </div>
+            <br/>
+            <br/>
+            <br/>
+            <div class="app-only">
+            	<p>This coloring book will be published in print Spring 2020.</p>
+            	<p>Leave your email to be notified when it’s available.</p>
+
+            	<ng-include class="app-only ng-scope" src="'/app/common/partials/get-updates.html'"></ng-include>
             </div>
-        </div>
-    </div>
-
-    <div class="content-container-wrapper">
-        <div class="content-container">
-
-            <!-- symmetry-guide -->
-            <ng-include src="'/app/symmetry-guide/symmetry-guide-partial.html'"></ng-include>
-
-            <!-- contact-share-code-etc -->
-            <ng-include src="'/app/info/partials/contact-share-code-etc.html'"></ng-include>
-
-            <!-- about-the-author-and-project -->
-            <ng-include src="'/app/info/partials/about-the-author-and-project.html'"></ng-include>
-
-            <!-- For website only: Show footer -->
-            <ng-include class="app-only" src="'/app/common/partials/footer.html'"></ng-include>
         </div>
     </div>
 </div>
