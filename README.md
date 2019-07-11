@@ -13,13 +13,6 @@ http://coloring-book.co
 The illustrations in this book are drawn in javascript by algorithms that follow the symmetry rules of the groups that the illustrations belong to. These algorithms also use generative art techniques to add components of randomness - notice the illustrations never repeat.
 
 
-## Coloring Workbook
-
-This book is in the process of being transformed into more of a 'workbook' for publication.
-
-View/Play at http://bit.ly/stagingcolors
-
-
 ## Why a Coloring Book?
 
 The content in this "book" is presented in the form of a coloring book for multiple reasons: [link](https://docs.google.com/document/d/1G8_m8-pwwpQ8AMAWEnYDEEn6rdC7crGaKBcHETBa_F0/edit?usp=sharing)
