@@ -73,9 +73,11 @@ The other wallpapers have only 1 row on web version,
 	vertical-align: middle;
 }
 
+/* The table of contents is not used in the printed version */
 #table-of-contents {
-    padding-bottom: 20px;
+	max-height: unset;
 }
+
 #table-of-contents .content-container,
 .print #table-of-contents .content-container {
 	text-align: left;
@@ -229,8 +231,10 @@ Note: So far this seems to work best with Firefox -- Preview as PDF
 	text-align: center;
 }
 
-.book-page .coming-soon {
+.coming-soon {
 	font-style: italic;
+}
+.book-page .coming-soon {
 	text-align: center;
 	margin-top: 70px;
 }

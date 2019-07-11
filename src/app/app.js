@@ -54,6 +54,9 @@ angular.module('app', [
         .when('/symmetries', {
             templateUrl: '/app/symmetry-guide/symmetry-guide.html',
         })
+        .when('/solutions', {
+            templateUrl: '/app/solutions/solutions.html',
+        })
         .when('/pieces', {
             templateUrl: '/app/pieces.html',
         })
