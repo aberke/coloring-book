@@ -388,6 +388,10 @@ move from one book-page to the next with animation:
     margin-bottom: 35px;
 }
 
+#after-info {
+    max-height: unset;
+}
+
 
 /*
 Notes on notation pages
