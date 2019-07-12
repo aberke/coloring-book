@@ -11,8 +11,8 @@
 
 .info-view, .info-view p {
 	margin: auto;
-	text-align: center !important;
-	padding: 20px;
+	padding: 10px;
+	text-align: center;
 }
 .info-view p {
 	max-width: 600px;
@@ -23,6 +23,10 @@
 
 .print .info-view {
 	max-width: 700px;
+	text-align: left;
+}
+.print .info-view p {
+	text-align: left;
 }
 .print .info-view h2,
 .info-view h2,
@@ -40,7 +44,6 @@
 .print #what-this-book-is-and-is-about p,
 .print #how-to-use-this-book p,
 .print #why-a-coloring-book p {
-    font-size: small;
     padding: 10px;
     padding-top: 0;
 }
