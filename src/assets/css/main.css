@@ -73,6 +73,11 @@ The other wallpapers have only 1 row on web version,
 	vertical-align: middle;
 }
 
+#road-map p {
+	line-height: 1.7em;
+}
+
+
 /* The table of contents is not used in the printed version */
 #table-of-contents {
 	max-height: unset;
