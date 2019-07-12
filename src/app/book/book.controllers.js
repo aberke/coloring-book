@@ -141,6 +141,11 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         {
             name: 'theory-reference',
             url: vm.bookPageUrl('book-page-theory-reference.html'),
+        },
+        {
+            name: 'about-the-author-and-project',
+            url: vm.bookPageUrl('book-page-about-the-author.html'),
+            printOnly: true
         }
     ];
 
