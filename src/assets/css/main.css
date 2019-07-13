@@ -586,10 +586,8 @@ body.print .design-caption {
         height: 65px;
         width: auto;
     }
-
-    .text-content-graphic figure.larger img {
-        height: 95px;
-        margin-bottom: 4px;
+    .text-content-graphic figure {
+    	margin: 10px;
     }
 
     h1#book-title {

@@ -52,6 +52,8 @@ The book pages use this as their size.
 @media (max-width: 6.9in) {
     .book-page {
         max-height: fit-content;
+        font-size: 11pt;
+        line-height: 15pt;
     }
     /* DEBUG */ 
     .debug .book-page {
