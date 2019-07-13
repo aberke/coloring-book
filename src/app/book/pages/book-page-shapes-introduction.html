@@ -242,14 +242,16 @@
 
                 <!-- [square, rectangle] -->
                 <div class="text-content-graphic line">
-                    <div class='canvas small'
+                    <div class='canvas small clickable'
                         canvas-centered-drawing
                         draw-function='drawRegularPolygon'
                         function-options='{"N": 4}'
+                        options='{"tapRotate": 90}'
                     ></div>
-                    <div class='canvas small'
+                    <div class='canvas small clickable'
                         canvas-centered-drawing
                         draw-function='drawRectangle'
+                        options='{"tapRotate": 180}'
                     ></div>
                 </div>
 
@@ -260,10 +262,12 @@
                         canvas-centered-drawing
                         draw-function='drawSquare'
                         function-options='{"N": 4, "coloring": [0, 1]}'
+                        options='{"tapRotate": 360}'
                     ></div>
-                    <div class='canvas small'
+                    <div class='canvas small clickable'
                         canvas-centered-drawing
                         draw-function='drawRectangle'
+                        options='{"tapRotate": 180}'
                     ></div>
                 </div>
         </div>
