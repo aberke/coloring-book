@@ -603,10 +603,16 @@ body.print .design-caption {
 		margin-bottom: 50px;
 		text-align: center;
 	}
-	.book-page .text-content, .book-page .coloring-content {
+	.book-page .text-content,
+	.book-page .coloring-content {
 		padding: 0 1.5%;
 		width: 97%; /* allow the padding */
 		border: none;
+	}
+	.book-page-container.patterns .book-page .coloring-content {
+		width: auto;
+		padding: unset;
+		margin: 0 -10px;
 	}
 
 	#table-of-contents h3 {
