@@ -586,10 +586,8 @@ body.print .design-caption {
         height: 65px;
         width: auto;
     }
-
-    .text-content-graphic figure.larger img {
-        height: 95px;
-        margin-bottom: 4px;
+    .text-content-graphic figure {
+    	margin: 10px;
     }
 
     h1#book-title {
@@ -605,10 +603,23 @@ body.print .design-caption {
 		margin-bottom: 50px;
 		text-align: center;
 	}
-	.book-page .text-content, .book-page .coloring-content {
+	.book-page .text-content,
+	.book-page .coloring-content {
 		padding: 0 1.5%;
 		width: 97%; /* allow the padding */
 		border: none;
+	}
+	.book-page-container.patterns .book-page .coloring-content {
+		width: auto;
+		padding: unset;
+		margin: 0 -10px;
+	}
+	.book-page.mobile-only-full-bleed {
+		padding: 0;
+	}
+	.mobile-only-full-bleed .coloring-content {
+		width: auto;
+		padding: 0;
 	}
 
 	#table-of-contents h3 {

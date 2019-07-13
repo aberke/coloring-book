@@ -53,6 +53,11 @@ The book pages use this as their size.
     .book-page {
         max-height: fit-content;
     }
+    .book-page p {
+        font-size: 11pt;
+        line-height: 15pt;
+    }
+
     /* DEBUG */ 
     .debug .book-page {
         border: 1px solid blue;
@@ -307,6 +312,7 @@ h1#book-title .title-piece.smaller {
 .book-page .book-part-title {
     text-decoration: underline;
     font-size: 2em;
+    line-height: 1.5em;
     margin-top: 0;
 }
 .book-section-title {
