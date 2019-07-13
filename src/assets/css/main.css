@@ -614,6 +614,13 @@ body.print .design-caption {
 		padding: unset;
 		margin: 0 -10px;
 	}
+	.book-page.mobile-only-full-bleed {
+		padding: 0;
+	}
+	.mobile-only-full-bleed .coloring-content {
+		width: auto;
+		padding: 0;
+	}
 
 	#table-of-contents h3 {
 	    display: block;
