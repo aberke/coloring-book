@@ -16,7 +16,7 @@ function tweetDirective($timeout) {
                     function(el) {}, {
                         count: "none",
                         hashtags: "colorByMath",
-                        text: "Math is about more than just numbers. In this 'book' the story of math is visual, told in shapes and patterns. This is a coloring book about group theory."
+                        text: "Math is about more than just numbers. In this 'book' the language of math is visual, shown in shapes and patterns. This is a coloring book about group theory."
                     }
                 );
             });
