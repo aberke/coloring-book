@@ -47,6 +47,7 @@ const srcFiles = {
   css: "src/**/*.css",
   icons: "src/**/icons/**",
   img: "src/**/img/**",
+  solutions: "src/**/solutions/**",
   video: "src/**/video/**",
   html: "src/**/*.html",
 
@@ -87,6 +88,7 @@ gulp.task("all", function (cb) {
         srcFiles.img,
         srcFiles.video,
         srcFiles.html,
+        srcFiles.solutions,
         srcFiles.bookPDF,
       ]),
 
@@ -130,6 +132,7 @@ gulp.task("watch", function () {
     srcFiles.img,
     srcFiles.video,
     srcFiles.html,
+    srcFiles.solutions,
     srcFiles.bookPDF
   ], ["all"]);
 });

@@ -1,0 +1,74 @@
+/*
+Styles for the solution pages
+*/
+
+section#solutions-pages {
+    max-width: 7in;
+    margin: auto;
+}
+section#solutions-pages .solution-info {
+    padding: 0.5in;
+}
+
+#solutions-pages h1 {
+    text-transform: uppercase;
+    font-weight: 300;
+    padding: 50px 0;
+    margin: unset;
+}
+
+.solution-page {
+    border-bottom: 1px dashed gray;
+	text-align: center;
+    /*7x9" trim size with margins (as padding)*/
+    /*note there is extra padding within content-container*/
+    max-width: 5.68in;
+    max-height: 8.42in;
+    padding: 0.1in;
+    margin: auto;
+    font-size: 9pt;
+    line-height: 12pt;
+}
+
+.solution-page .page-heading {
+    display: block;
+    margin-bottom: 0.25in;
+}
+.solution-page:first-of-type {
+    border-top: 1px dashed gray;
+}
+
+/* solution-page headings */
+.solution-page .page-heading .heading-title{
+    float: left;
+}
+.solution-page .page-number {
+    float: right;
+}
+.solution-page .text-content.challenges {
+    margin-bottom: 0.25in;
+}
+.solution-page .text-content.challenges p {
+    margin: 3px auto;
+    text-align: center;
+}
+.solution-page .text-content.challenges p {
+    /* for non-print only: */
+    margin-bottom: 0.15in;
+}
+
+.solution-page .coloring-content img {
+    width: 100%;
+}
+
+/*
+Desired: Better way to make this look good on mobile
+*/
+@media (max-width: 6.9in) {
+    .solution-page {
+        overflow: scroll;
+    }
+    .solution-page .coloring-content {
+        width: 5.66in;
+    }
+}
