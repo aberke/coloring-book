@@ -85,7 +85,7 @@ body.print {
     counter-reset: page;
 }
 
-.print .book-page .page-heading {
+.page-heading {
     font-weight: 300;
     text-transform: uppercase;
     font-size: 6pt;
@@ -117,32 +117,32 @@ Even numbered pages on on right side --> page # floats right
 Default treatment: Assumes 1st page of .book-page-container
 is odd.
 */
-.print .book-page .page-heading .heading-title{
+.book-page .page-heading .heading-title{
     float: right;
 }
-.print .book-page .page-number::after {
+.book-page .page-number::after {
     float: left;
 }
-.print .book-page:nth-child(even) .page-heading .heading-title {
+.book-page:nth-child(even) .page-heading .heading-title {
     float: left;
 }
-.print .book-page:nth-child(even) .page-heading .page-number::after {
+.book-page:nth-child(even) .page-heading .page-number::after {
     float: right;
 }
 /*
 If the first page in the .book-page-container container is instead even,
 need to opposite even/odd styling scheme
 */
-.print .book-page-container.even-page-start .book-page:nth-child(odd) .page-heading .heading-title {
+.book-page-container.even-page-start .book-page:nth-child(odd) .page-heading .heading-title {
     float: left;
 }
-.print .book-page-container.even-page-start .book-page:nth-child(odd) .page-number::after {
+.book-page-container.even-page-start .book-page:nth-child(odd) .page-number::after {
     float: right;
 }
-.print .book-page-container.even-page-start .book-page:nth-child(even) .page-heading .heading-title {
+.book-page-container.even-page-start .book-page:nth-child(even) .page-heading .heading-title {
     float: right;
 }
-.print .book-page-container.even-page-start .book-page:nth-child(even) .page-number::after {
+.book-page-container.even-page-start .book-page:nth-child(even) .page-number::after {
     float: left;
 }
 
@@ -172,7 +172,7 @@ need to opposite even/odd styling scheme
 /* Heading and page number only show for print mode */
 .page-heading,
 .page-number {
-    font-size: 9pt;
+    font-size: 6pt;
 }
 .print .page-heading {
     display: block;
