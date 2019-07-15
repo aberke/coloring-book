@@ -96,17 +96,56 @@ body.print {
     margin-bottom: 0.4in;
 }
 
-.print .book-page .page-heading .heading-title{
-    float: left;
-}
 .print .counted .book-page {
     counter-increment: page;
 }
 .print .book-page .page-number::after {
     content: counter(page);
-    float: right;
     font-size: 6pt;
 }
+
+/*
+Alternate left vs right pages for whether page number is
+on interior or exterior
+
+Odd numbered pages are on left side --> page # floats left
+Even numbered pages on on right side --> page # floats right
+
+*/
+
+/*
+Default treatment: Assumes 1st page of .book-page-container
+is odd.
+*/
+.print .book-page .page-heading .heading-title{
+    float: right;
+}
+.print .book-page .page-number::after {
+    float: left;
+}
+.print .book-page:nth-child(even) .page-heading .heading-title {
+    float: left;
+}
+.print .book-page:nth-child(even) .page-heading .page-number::after {
+    float: right;
+}
+/*
+If the first page in the .book-page-container container is instead even,
+need to opposite even/odd styling scheme
+*/
+.print .book-page-container.even-page-start .book-page:nth-child(odd) .page-heading .heading-title {
+    float: left;
+}
+.print .book-page-container.even-page-start .book-page:nth-child(odd) .page-number::after {
+    float: right;
+}
+.print .book-page-container.even-page-start .book-page:nth-child(even) .page-heading .heading-title {
+    float: right;
+}
+.print .book-page-container.even-page-start .book-page:nth-child(even) .page-number::after {
+    float: left;
+}
+
 
 .print .book-page .text-content.challenges {
     height: 1.3in;
