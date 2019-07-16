@@ -367,6 +367,13 @@
                 <div class='canvas small'
                     canvas-centered-drawing
                     draw-function='drawRegularPolygon'
+                    function-options='{"N": 4}'
+                    options='{"mirrorLines":[0,0,1,0]}'
+                ></div>
+                <p class="text">:</p>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
                     function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,0,0,1,0,1,1]}'
                     options='{}'
                 ></div>
@@ -513,7 +520,7 @@
             <span class="page-number"></span>
         </div>
         <div class="content-container">
-            <p class="challenge">Challenge: Is it possible to color a D4 shape to remove the horizontal mirror while keeping the vertical mirror and ¼ turn?  (Hint: Think about group closure)</p>
+            <p class="challenge">Challenge: Is it possible to color a D4 shape to remove the horizontal mirror while keeping the vertical mirror and ¼ turn?  <span style="display: inline-block;">(Hint: Think about <a href="/theory-reference#closure" target="_blank" class="theory-reference-term">group closure</a>)</span></p>
             <!-- [line of 4 D4 shapes] -->
             <div class="text-content-graphic line">
                 <canvas-centered-drawing
