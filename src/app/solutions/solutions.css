@@ -24,7 +24,7 @@ section#solutions-pages .solution-info {
     /*note there is extra padding within content-container*/
     max-width: 5.68in;
     max-height: 8.42in;
-    padding: 0.1in;
+    padding: 0.33in 0.1in;
     margin: auto;
     font-size: 9pt;
     line-height: 12pt;
