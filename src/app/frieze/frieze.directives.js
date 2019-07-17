@@ -2,7 +2,8 @@
 /*
 Use
 ------------------------------
-<div class="frieze-pattern"
+<div
+    frieze-pattern
     pattern-function={function} // function with which to draw fundamental domain
     pattern-function-options={object} // options that will be passed to the pattern-function
     draw-options={} // options that will be passed to the FriezePattern constructor
@@ -13,8 +14,8 @@ Use
 **/
 function friezePatternDirective($window) {
     return {
-
-    restrict: "EAC", // E = element, A = attribute, C = class, M = comment
+    // Not using class to trigger directive - class is used for styling only
+    restrict: "EA", // E = element, A = attribute, C = class, M = comment
     scope: {}, // using isolated scope
     link: function(scope, element, attrs) {
 
