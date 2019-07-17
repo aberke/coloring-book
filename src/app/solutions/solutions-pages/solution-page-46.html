@@ -1,0 +1,89 @@
+<div class="solution-page">
+	<div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: REFLECTIONS</span>
+            <span class="page-number">46</span>
+        </div>
+        <div class="content-container">
+            <p class="challenge">Challenge: Is it possible to color a D4 shape to remove the horizontal mirror while keeping the vertical mirror and ¼ turn?  <span style="display: inline-block;">(Hint: Think about <a href="/theory-reference#closure" target="_blank" class="theory-reference-term">group closure</a>)</span></p>
+            <p class="answer">Answer: no.  Combining a vertical mirror with a ¼ turn results in a horizontal mirror.</p>
+            <br/>
+            <p class="challenge">There is a relationship between the number of symmetries in our dihedral groups, the number of symmetries in their subgroups, and the maximum number of colors we can use to reduce our dihedral shapes to show those subgroups.</p>
+            <p class="challenge">When we reduce our D4 shapes to D2 shapes, we reduce their number of symmetries from 8 (4 mirrors, 4 rotations) to 4 (2 mirrors, 2 rotations).  This is also the case when we reduce our D4 shapes to C4 shapes: Shapes go from having 4 mirrors and 4 rotations to having just 4 rotations.</p>
+            <!-- [D4 shape colored as C4 shape with caption: C4] -->
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,1,0,0,1,1,0]}'
+                    options='{"text": "D2"}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,0,1,0,1,0,1]}'
+                    options='{"text": "C4"}'
+                ></canvas-centered-drawing>
+            </div>
+            <p class="challenge">Challenge: In any of the cases where we remove half the symmetries of these dihedral shapes, what is the maximum number of colors we can use?</p>
+            <p class="answer">Answer: 2.  If G is the group of symmetries for the uncolored shape, and H is a subgroup of G, then the number of colors we can use to reduce a shape with the symmetries of G to a shape with the symmetries of H is equivalent to the index of H in G, [G:H].</p>
+            <!-- 
+            [uncolored D3 shape, uncolored D5 shape, uncolored D7 shape]
+            [line of 4 uncolored D4 shapes]
+            [line of 3 uncolored D6  shapes]
+            -->
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 3, "withMirrorSections": true, "coloring": [0,1,0,1,0,1]}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 5, "withMirrorSections": true, "coloring": [0,1,0,1,0,1,0,1,0,1]}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 7, "withMirrorSections": true, "coloring": [0,1,0,1,0,1,0,1,0,1,01]}'
+                ></canvas-centered-drawing>
+            </div>
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,0,1,0,1,0,1]}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,1,0,0,1,1,0]}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections": true, "coloring": [1,1,0,0,1,1,0,0]}'
+                ></canvas-centered-drawing>
+            </div>
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections": true, "coloring": [0,1,0,1,0,1,0,1,0,1,0,1]}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections": true, "coloring": [1,1,0,0,1,1,0,0,1,1,0,0]}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections": true, "coloring": [1,0,0,1,1,0,0,1,1,0,0,1]}'
+                ></canvas-centered-drawing>
+            </div>
+            <br/>
+        </div>
+    </div>
+</div>

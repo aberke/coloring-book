@@ -1,0 +1,83 @@
+<div class="solution-page">
+<div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: REFLECTIONS</span>
+            <span class="page-number">40</span>
+        </div>
+        <div class="content-container">
+
+            <p>For our D4 group, we can see that the result of applying a vertical mirror and then a horizontal mirror is a ½ turn.</p>
+            <!-- D4: [D4 shape with vertical mirror] STAR [D4 shape with horizontal mirror] → ½ turn -->
+            <div class="text-content-graphic line">
+                <p class="text">D4:</p>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4}'
+                    options='{"mirrorLines": 1, "autoReflect":"V"}'
+                ></div>
+                <p class="text"><span class="operator">&#x2737;</span></p>
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4}'
+                    options='{"mirrorLines": 1, "autoReflect":"V", "initialRotation": 90}'
+                ></div>
+                <p class="text"> = </p>
+                <p class="text">½ turn</p>
+            </div>
+            <!-- [D4 shape with 1 cell colored] → [D4 shape with 1 cell colored] → [D4 shape with 1 cell colored] -->
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections":true, "coloring": [0,0,0,0,1,0,0,0]}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class="canvas extra-small"
+                    draw-function='drawArrow'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections":true, "coloring": [0,0,0,0,0,1,0,0]}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class="canvas extra-small"
+                    draw-function='drawArrow'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections":true, "coloring": [1,0,0,0,0,0,0,0]}'
+                ></canvas-centered-drawing>
+            </div>
+            <p class="challenge">Challenge: Can you find 2 mirrors where applying one and then  the other results in a ¼ turn in our D4 group?</p>
+            <!-- [D4 shape with 1 cell colored] → [D4 shape, uncolored] → [D4 shape, uncolored] -->
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections":true, "coloring": [0,0,0,0,1,0,0,0]}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                	class="canvas"
+                    draw-function='drawArrow'
+                    function-options='{"textAbove":"vertical mirror"}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections":true, "coloring": [0,0,0,0,0,1,0,0]}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                	class="canvas"
+                    draw-function='drawArrow'
+                    function-options='{"textAbove":"diagonal mirror"}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4, "withMirrorSections":true, "coloring": [0,0,1,0,0,0,0,0]}'
+                ></canvas-centered-drawing>
+            </div>
+
+            <p class="challenge">Is it possible to use 2 mirrors to generate all of the symmetries of our D4 group?  What about our other dihedral groups?</p>
+            <p class="answer">Answer: yes; yes.</p>
+        </div>
+    </div>
+</div>
