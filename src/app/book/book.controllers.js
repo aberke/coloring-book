@@ -33,14 +33,16 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         return vm.pageSrcBase + '/' + p;
     };
 
-    // Some pages are only shown in the print version - printOnly.
+    // Some pages are only shown in the print or app version only.
     vm.pageSets = [
         {
             name: 'cover',
             url: vm.bookPageUrl('book-page-cover.html'),
+            appOnly: true,
         }, {
             name: 'about',
             url: vm.bookPageUrl('book-page-about.html'),
+            appOnly: true,
         }, {
             name: 'road-map',
             url: vm.bookPageUrl('book-page-road-map.html'),
@@ -228,6 +230,14 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
             $location.replace();
     };
 
+    vm.removeAppOnlyPages = function() {
+        let p;
+        for (p=0; p<vm.pageSets.length; p++) {
+            if (!!vm.pageSets[p].appOnly)
+                vm.pageSets.splice(p, 1);
+        }       
+    }
+
     vm.removePrintOnlyPages = function() {
         let p;
         for (p=0; p<vm.pageSets.length; p++) {
@@ -239,9 +249,13 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
 
     vm.init = function() {
         // Unless in print mode, remove the printOnly pages.
+        // And when in print mode, remove the appOnly pages
         if (!$rootScope.print)
             vm.removePrintOnlyPages();
-        
+        else
+            vm.removeAppOnlyPages();
+
+
         // get the page from the url
         vm.pageNumber = vm.getPageNumber();
         vm.setPageByNumber(vm.pageNumber, true);
