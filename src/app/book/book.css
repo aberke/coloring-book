@@ -102,7 +102,7 @@ body.print {
 }
 .print .book-page .page-number::after {
     content: counter(page);
-    font-size: 6pt;
+    font-size: 7pt;
 }
 
 /*
