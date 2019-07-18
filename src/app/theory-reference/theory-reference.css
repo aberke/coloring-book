@@ -6,6 +6,9 @@
 #theory-reference-page .book-page {
 	border: none;
 }
+#theory-reference-page .book-part-title {
+	text-decoration: none;
+}
 
 #theory-reference-page p,
 #theory-reference-page a.theory-reference-term-name,
@@ -14,6 +17,9 @@
 	margin: auto;
 	display: block;
 	color: black;
+}
+.theory-reference-term-note {
+	font-style: italic;
 }
 
 #theory-reference-page .theory-reference-term-definition {
