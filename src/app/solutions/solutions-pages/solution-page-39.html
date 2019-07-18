@@ -1,0 +1,61 @@
+<div class="solution-page">
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: REFLECTIONS</span>
+            <span class="page-number">39</span>
+        </div>
+        <div class="content-container">
+
+            <p class="challenge">Challenge: What is the result of combining two different mirrors?</p>
+
+            <div class="text-content-graphic line">
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 3}'
+                    options='{"mirrorLines": 1, "autoReflect":"V", "initialRotation": 120}'
+                ></div>
+                <p class="text"><span class="operator">&#x2737;</span></p>
+                <div class='canvas extra-small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 3}'
+                    options='{"mirrorLines": 1, "autoReflect":"V", "initialRotation": 0}'
+                ></div>
+                <p class="text"> = </p>
+                <p class="text">?</p>
+            </div>
+
+            <p class="challenge">Is the result a reflection or a rotation?</p>
+            <p class="answer">Answer: a rotation.</p>
+            <div class="text-content-graphic line">
+                <canvas-centered-drawing class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 3, "withMirrorSections":true, "coloring": [0,0,0,0,1,0,0,0]}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class="canvas extra-small"
+                    draw-function='drawArrow'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 3, "withMirrorSections":true, "coloring": [0,0,0,0,0,1,0,0]}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class="canvas extra-small"
+                    draw-function='drawArrow'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    class='canvas small'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 3, "withMirrorSections":true, "coloring": [0,0,1,0,0,0,0,0]}'
+                ></canvas-centered-drawing>
+            </div>
+
+            <p class="challenge">Is this always the case?</p>
+
+            <p class="answer">Answer: yes.</p>
+        </div>
+    </div>
+</div>

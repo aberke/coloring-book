@@ -19,7 +19,6 @@ section#solutions-pages .solution-info {
 
 .solution-page {
     border-bottom: 1px dashed gray;
-	text-align: center;
     /*7x9" trim size with margins (as padding)*/
     /*note there is extra padding within content-container*/
     max-width: 5.68in;

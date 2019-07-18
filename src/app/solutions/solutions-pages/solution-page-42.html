@@ -1,0 +1,65 @@
+<div class="solution-page">
+	<div class="text-content challenges">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: REFLECTIONS: COLORING &amp; CHALLENGES</span>
+            <span class="page-number">42</span>
+        </div>
+        <p class="challenge">The D8 shape below is made up of pieces that repeat around a circle. Show that a ¼ turn and a vertical mirror cannot be used as generators for our D8 group by coloring a piece, and then coloring other pieces if and only if they can be reached by a ¼ turn or mirror reflection from an already colored piece.  What are the symmetries of the colored shape you end up with?</p>
+        <p class="answer">Answer: the resulting shape has the same symmetries as our D4 shapes.</p>
+    </div>
+
+    <!-- 
+	// Coloring code
+
+    // Remove the directive attributes that will reproduce the shapes
+    let directiveNames, directives, directive;
+    directiveNames = ['canvas-centered-drawing', 'circular-pattern'];
+    directiveNames.forEach(function(directiveName) {
+        // handle the directives as attributes
+        directives = document.querySelectorAll('[' + directiveName + ']');
+        for (i=0; i<directives.length; i++) {
+            directive = directives[i];
+            directive.removeAttribute(directiveName);
+        }
+        // handle the directives as tags - replace them with divs
+        directives = document.getElementsByTagName(directiveName);
+        let attrs;
+        for(var d=0; d<directives.length; d++) {
+            directive = directives[d];
+            let replacementDiv = document.createElement('div');
+            attrs = directive.attributes;
+            for (a=0; a<attrs.length; a++) {
+                replacementDiv.setAttribute(attrs[a].name, attrs[a].value);
+            }
+            replacementDiv.innerHTML = directive.innerHTML;
+            directive.parentNode.replaceChild(replacementDiv, directive);
+        }
+    });
+
+    let colorsArray = ['darkslateblue', 'crimson'];
+
+    let coloringContent = document.getElementsByClassName("coloring-content");
+    let svg = coloringContent[1].getElementsByTagName("svg")[0];
+
+    let skipClass = 'mirror-line';
+
+    // make nice paths list
+    let pathList = svg.getElementsByTagName("path");
+    let paths = [];
+    for (pl=0; pl<pathList.length; pl++) {
+        let path = pathList[pl];
+        if (!!skipClass && !path.classList.contains(skipClass)) {
+            paths.push(path);
+        }
+    }
+
+    for (p=0; p<paths.length; p+=4) {
+        paths[p].setAttribute("fill",colorsArray[0]);
+        paths[p+1].setAttribute("fill",colorsArray[1]);
+    }
+	-->
+<div class="coloring-content">
+        <div class="canvas ng-isolate-scope canvas clickable" with-redraw="" rings="[0.45, 0.5, 0.8, 0.85]" slices-count="2" levels="2" rotations="8" with-reflection="true" mirror-lines="8" margin="10" style="height: 545px; padding: 0px;"><svg height="545" version="1.1" width="545" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.84943px; top: -0.468748px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.2.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><circle cx="272.5" cy="272.5" r="120.375" fill="none" stroke="#000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="272.5" cy="272.5" r="133.75" fill="none" stroke="#000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="272.5" cy="272.5" r="214" fill="none" stroke="#000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="272.5" cy="272.5" r="227.375" fill="none" stroke="#000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><path fill="darkslateblue" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="crimson" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" transform="matrix(2,0,0,2,-272.5,-183.3333)" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="none" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" transform="matrix(0.7071,0.7071,-0.7071,0.7071,272.5,-112.8732)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="none" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" transform="matrix(1.4142,1.4142,-1.4142,1.4142,209.4496,-435.196)" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="darkslateblue" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" transform="matrix(0,1,-1,0,545,0)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="crimson" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" transform="matrix(0,2,-2,0,728.3333,-272.5)" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="none" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" transform="matrix(-0.7071,0.7071,-0.7071,-0.7071,657.8732,272.5)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="none" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" transform="matrix(-1.4142,1.4142,-1.4142,-1.4142,980.196,209.4496)" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="darkslateblue" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" transform="matrix(-1,0,0,-1,545,545)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="crimson" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" transform="matrix(-2,0,0,-2,817.5,728.3333)" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="none" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" transform="matrix(-0.7071,-0.7071,0.7071,-0.7071,272.5,657.8732)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="none" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" transform="matrix(-1.4142,-1.4142,1.4142,-1.4142,335.5504,980.196)" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="darkslateblue" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" transform="matrix(0,-1,1,0,0,545)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="crimson" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" transform="matrix(0,-2,2,0,-183.3333,817.5)" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="none" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" transform="matrix(0.7071,-0.7071,0.7071,0.7071,-112.8732,272.5)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="none" stroke="#000000" d="M272.5,272.5L290.0078340590681,291.7385633212492L272.5,317.0833333333333M272.5,272.5L254.99216594093187,291.7385633212492L272.5,317.0833333333333M272.5,317.0833333333333L307.51566811813626,325.2864030278624L272.5,361.66666666666663M272.5,317.0833333333333L237.48433188186377,325.2864030278624L272.5,361.66666666666663" transform="matrix(1.4142,-1.4142,1.4142,1.4142,-435.196,335.5504)" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer;"></path><path fill="none" stroke="#000000" d="M272.5,272.5L272.5,545M272.5,272.5L272.50000000000006,0M272.5,272.5L376.781235319487,524.2571726093256M272.5,272.5L168.21876468051306,20.742827390674336M272.5,272.5L465.1865978733342,465.1865978733342M272.5,272.5L79.8134021266658,79.81340212666575M272.5,272.5L524.2571726093256,376.781235319487M272.5,272.5L20.74282739067442,168.2187646805129M272.5,272.5L545,272.5M272.5,272.5L0,272.49999999999994M272.5,272.5L524.2571726093256,168.21876468051306M272.5,272.5L20.742827390674393,376.781235319487M272.5,272.5L465.1865978733342,79.8134021266658M272.5,272.5L79.81340212666575,465.18659787333416M272.5,272.5L376.781235319487,20.742827390674364M272.5,272.5L168.21876468051286,524.2571726093256" stroke-width="1" class="mirror-line" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path></svg>
+        </div>
+    </div>
+</div>
