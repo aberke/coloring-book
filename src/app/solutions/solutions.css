@@ -28,6 +28,9 @@ section#solutions-pages .solution-info {
     font-size: 9pt;
     line-height: 12pt;
 }
+.solution-page .coloring-content {
+    text-align: center;
+}
 
 .solution-page .page-heading {
     display: block;
