@@ -3,6 +3,12 @@
 	text-align: center;
 	margin: auto;
 }
+@media (max-width: 6.9in) {
+	#theory-reference-page {
+		margin-top: 50px;
+	}
+}
+
 #theory-reference-page .book-page {
 	border: none;
 }
