@@ -86,11 +86,12 @@ body.print {
 }
 
 .page-heading {
-    font-weight: 300;
+    font-weight: 400;
     text-transform: uppercase;
     font-size: 6pt;
     /*it must take up space*/
     height: 0.18in;
+    letter-spacing: 1px;
 }
 .print .book-page .challenges .page-heading {
     margin-bottom: 0.4in;
@@ -101,7 +102,7 @@ body.print {
 }
 .print .book-page .page-number::after {
     content: counter(page);
-    font-size: 6pt;
+    font-size: 7pt;
 }
 
 /*
