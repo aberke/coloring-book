@@ -42,14 +42,17 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         }, {
             name: 'about',
             url: vm.bookPageUrl('book-page-about.html'),
-            appOnly: true,
-        }, {
-            name: 'road-map',
-            url: vm.bookPageUrl('book-page-road-map.html'),
         }, {
             name: 'before-info',
             url: vm.bookPageUrl('book-page-before-info.html'),
             printOnly: true,
+        }, {
+            name: 'before-designs',
+            url: vm.bookPageUrl('book-page-before-designs.html'),
+            printOnly: true,
+        }, {
+            name: 'road-map',
+            url: vm.bookPageUrl('book-page-road-map.html'),
         }, {
             name: 'table-of-contents',
             url: vm.bookPageUrl('book-page-table-of-contents.html'),
@@ -231,19 +234,23 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
     };
 
     vm.removeAppOnlyPages = function() {
-        let p;
-        for (p=0; p<vm.pageSets.length; p++) {
+        let p = 0;
+        while (p < vm.pageSets.length) {
             if (!!vm.pageSets[p].appOnly)
                 vm.pageSets.splice(p, 1);
+            else
+                p++;
         }       
     }
 
     vm.removePrintOnlyPages = function() {
-        let p;
-        for (p=0; p<vm.pageSets.length; p++) {
+        let p = 0;
+        while (p < vm.pageSets.length) {
             if (!!vm.pageSets[p].printOnly)
                 vm.pageSets.splice(p, 1);
-        }       
+            else
+                p++;
+        }     
     }
 
 

@@ -25,6 +25,7 @@
 .print .info-view {
 	max-width: 700px;
 	text-align: left;
+	margin: 0;
 }
 .print .info-view p {
 	text-align: left;
