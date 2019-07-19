@@ -1,3 +1,186 @@
+<style>
+
+#book-page-about.book-page {
+	max-width: unset;
+	width: 7in;
+	padding: 0;
+	text-align: unset;
+}
+#book-page-about p,
+#book-page-about .text-content-graphic {
+	text-align: center;
+}
+
+/*
+The segments of wallpaper patterns must be in multiples of 
+4xwidth of fundamental domain so that wallpaper patterns can fully unfold.
+
+Side segments:      4xfundamental-domain-width
+                    = 4x28 = 112
+Interior segment:   4x5xfundamental-domain-width
+                    =4x4x28 = 448
+
+Total width: 2 x (side segments width) +  Interior segment
+                    = 2x112 + 448
+
+
+height of content container: 4x4xfundamental domain height
+								= 4x4x28 = 448
+
+*/
+
+
+#book-page-about .wallpaper-and-content-container {
+    height: 448px;
+}
+#book-page-about .wallpaper-and-content-container .wallpaper-pattern,
+#book-page-about .wallpaper-and-content-container .content-container {
+    /*
+    style wallpaper and content next to eachother
+    height must be very specific:
+    no space between wallpaper patterns above and these so that they align
+    height must then be a multiple of the fundamental-domain-height
+    */ 
+    display: inline-block;
+    height: 450px;
+    padding: 0;
+}
+#book-page-about .wallpaper-and-content-container .content-container {
+	/* width smaller than the computed amount to force righthand wallpaper to sit next to it */
+    width: 365px; 
+    margin: 25px 40px;
+    vertical-align: top;
+}
+
+
+/*mobile version*/
+@media (max-width: 6.9in) {
+	#book-page-about.book-page {
+		width: unset;
+	}
+	#book-page-about .wallpaper-and-content-container .desktop-only {
+		display: none;
+	}
+	#book-page-about .wallpaper-and-content-container,
+	#book-page-about .wallpaper-and-content-container .wallpaper-pattern,
+	#book-page-about .wallpaper-and-content-container .content-container {
+		width: unset;
+		height: unset;
+	}
+	#book-page-about .wallpaper-and-content-container .content-container {
+		margin: auto;
+		padding: 20px;
+	}
+}
+</style>
+
 <div class="book-page-container" ng-if="book.page.name == p.name || main.print">
-<ng-include class="book-page" src="'/app/common/partials/about.html'"></ng-include>
+	<div id="book-page-about" class="book-page">
+
+		<wallpaper-pattern
+			style="height: 112px;"
+	        pattern-function=curves2
+	        group-name='p4g'
+	        fundamental-domain-width=28
+	        fundamental-domain-height=28
+	        draw-options='{"fullBleed":true}'
+	    ></wallpaper-pattern>
+	    <wallpaper-pattern
+	    	style="height: 56px;"
+	        pattern-function=curves3
+	        group-name='p4g'
+	        fundamental-domain-width=28
+	        fundamental-domain-height=28
+	        draw-options='{"fullBleed":true}'
+	    ></wallpaper-pattern>
+
+	    <div class="wallpaper-and-content-container">
+
+	        <wallpaper-pattern
+	        	class="desktop-only"
+	        	style="width: 112px;"
+	            pattern-function=curves3
+	            group-name='p4g'
+		        fundamental-domain-width=28
+		        fundamental-domain-height=28
+	        ></wallpaper-pattern>
+
+	        <div class="content-container">
+
+	        	<p>This coloring book is both digital and on paper.</p>
+
+	            <div class="text-content-graphic">
+	                <div class='canvas sixth'
+	                    canvas-centered-drawing
+	                    draw-function='drawRegularPolygon'
+	                    function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+	                    options='{"tapReflect": "H", "stroke-width":1}'
+	                ></div><div
+	                	class="canvas sixth"
+	                    circular-pattern
+	                    with-redraw
+	                    rotations=10
+	                    rings="[0.8,0.9]"
+	                    slices-count=1
+	                    levels=2
+	                    with-reflection=true
+	                ></div><div class='canvas sixth'
+	                    canvas-centered-drawing
+	                    draw-function='drawRegularPolygon'
+	                    function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+	                    options='{"tapReflect": "H", "stroke-width":1}'
+	                ></div>
+	            </div>
+
+	        	<p>The paper copy is where the coloring is done - color through the concepts to explore symmetry and the beauty of math.</p>
+
+	        	<p>The digital copy brings the concepts and illustrations to life in interactive animations.</p>
+
+			    <p>
+			    	<br/>
+			        <span class="app-only">
+		        	Print a copy: <a target="_blank" href="/book.pdf">http://coloring-book.co/book.pdf</a>
+			        <br/></span>
+			        Digital copy: <a target="_blank" href="http://www.coloring-book.co">http://coloring-book.co</a>
+			    </p>
+
+	            <!-- <p>Digital copy: <a target="_blank" href="http://www.coloring-book.co">http://coloring-book.co</a></p> -->
+	            
+	            <div class="text-content-graphic line">
+	                <div class='canvas small'
+	                canvas-centered-drawing
+	                draw-function='drawRegularPolygon'
+	                function-options='{"N": 6, "concave":true, "withMirrorSections": true, "coloring":[0,0,0,1,0,0,0,0,0,1,0]}'
+	                options='{"autoRotateDegrees":180, "stroke-width":1}'
+	                ></div>
+	            </div>
+
+	            <p class="about-illustrations">The illustrations in this book are drawn by algorithms. The algorithms follow the symmetry rules for the illustrated groups. Many of these algorithms also add components of randomness so that each set of online illustrations is unique.</p>
+	        </div><wallpaper-pattern
+	        	style="width: 112px;"
+	        	class="desktop-only"
+	            pattern-function=curves3
+	            group-name='p4g'
+	        	fundamental-domain-width=28
+	        	fundamental-domain-height=28
+	        	draw-options='{"fullBleed":true}'
+	        ></wallpaper-pattern>
+
+	    </div><wallpaper-pattern
+	    	style="height: 112px;"
+	        pattern-function=curves4
+	        group-name='p4g'
+	        fundamental-domain-width=28
+	        fundamental-domain-height=28
+	        draw-options='{"fullBleed":true}'
+	    ></wallpaper-pattern>
+	    <wallpaper-pattern
+	    	style="height: 112px;"
+	        pattern-function=curves5
+	        group-name='p4g'
+	        fundamental-domain-width=28
+	        fundamental-domain-height=28
+	        draw-options='{"fullBleed":true}'
+	    ></wallpaper-pattern>
+	</div>
 </div>

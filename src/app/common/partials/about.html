@@ -59,7 +59,22 @@ p#about-illustrations {
             canvas-centered-drawing
             draw-function='drawRegularPolygon'
             function-options='{"N":10, "concave":true, "withMirrorSections":true}'
-            options='{"tapReflect": "H", "margin":0, "initialRotation":90, "mirrorLines":2}'
+            options='{"tapReflect": "H"}'
+        ></div><div
+            class="canvas sixth"
+            circular-pattern
+            with-redraw
+            rotations=10
+            rings="[0.8,0.9]"
+            slices-count=2
+            levels=2
+            with-reflection=true
+        ></div><div
+            class='canvas sixth'
+            canvas-centered-drawing
+            draw-function='drawRegularPolygon'
+            function-options='{"N":10, "concave":true, "withMirrorSections":true}'
+            options='{"tapReflect": "H"}'
         ></div><div class="canvas sixth"
             circular-pattern
             with-redraw
@@ -68,26 +83,12 @@ p#about-illustrations {
             slices-count=2
             levels=2
             with-reflection=true
-            mirror-lines=2
-        ></div><div class='canvas sixth'
+        ></div><div
+            class='canvas sixth'
             canvas-centered-drawing
             draw-function='drawRegularPolygon'
             function-options='{"N":10, "concave":true, "withMirrorSections":true}'
-            options='{"tapReflect": "H", "margin":0, "initialRotation":90, "mirrorLines":2}'
-        ></div><div class="canvas sixth"
-            circular-pattern
-            with-redraw
-            rotations=10
-            rings="[0.8,0.9]"
-            slices-count=2
-            levels=2
-            with-reflection=true
-            mirror-lines=2
-        ></div><div class='canvas sixth'
-            canvas-centered-drawing
-            draw-function='drawRegularPolygon'
-            function-options='{"N":10, "concave":true, "withMirrorSections":true}'
-            options='{"tapReflect": "H", "margin":0, "initialRotation":90, "mirrorLines":2}'
+            options='{"tapReflect": "H"}'
         ></div>
     </div>
 
@@ -119,7 +120,7 @@ p#about-illustrations {
     ></frieze-pattern>
     <br/>
 
-    <p id="about-illustrations">The illustrations in this book are drawn by algorithms. The algorithms follow the symmetry rules for the illustrated groups. Many of these algorithms also add components of randomness so that each set of illustrations is unique.</p>
+    <p class="about-illustrations">The illustrations in this book are drawn by algorithms. The algorithms follow the symmetry rules for the illustrated groups. Many of these algorithms also add components of randomness so that each set of illustrations is unique.</p>
 
     <br/>
     <div class="canvas sixth"
@@ -131,14 +132,4 @@ p#about-illustrations {
         with-reflection=true
         rings="[0.5,0.6]"
     ></div>
-    <br/>
-    <br/>
-
-    <div class="print-only">
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <p>By Alex Berke</p>
-    </div>
 </div>

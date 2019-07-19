@@ -23,8 +23,8 @@ The book pages use this as their size.
 
 .debug .book-page,
 .print .book-page {
-    width: 6in;
-    height: 8.6in;
+    width: 5.68in;
+    height: 8.42in;
 }
 
 .debug .book-page,
@@ -280,6 +280,19 @@ need to opposite even/odd styling scheme
     font-weight: 300;
     font-size: 2em;
 }
+
+/* special full bleed pages */
+#before-designs .wallpaper-pattern,
+#patterns-wallpaper-end .book-page.full-bleed .wallpaper-pattern {
+    top: -0.26in;
+}
+@media (max-width: 6.9in) {
+    #patterns-wallpaper-end .book-page.full-bleed .wallpaper-pattern {
+        top: -10px;
+        left: -10px;
+    }
+}
+
 
 #book-title-container {
     max-width: 800px;

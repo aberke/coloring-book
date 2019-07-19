@@ -33,21 +33,26 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         return vm.pageSrcBase + '/' + p;
     };
 
-    // Some pages are only shown in the print version - printOnly.
+    // Some pages are only shown in the print or app version only.
     vm.pageSets = [
         {
             name: 'cover',
             url: vm.bookPageUrl('book-page-cover.html'),
+            appOnly: true,
         }, {
             name: 'about',
             url: vm.bookPageUrl('book-page-about.html'),
         }, {
-            name: 'road-map',
-            url: vm.bookPageUrl('book-page-road-map.html'),
-        }, {
             name: 'before-info',
             url: vm.bookPageUrl('book-page-before-info.html'),
             printOnly: true,
+        }, {
+            name: 'before-designs',
+            url: vm.bookPageUrl('book-page-before-designs.html'),
+            printOnly: true,
+        }, {
+            name: 'road-map',
+            url: vm.bookPageUrl('book-page-road-map.html'),
         }, {
             name: 'table-of-contents',
             url: vm.bookPageUrl('book-page-table-of-contents.html'),
@@ -228,20 +233,36 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
             $location.replace();
     };
 
+    vm.removeAppOnlyPages = function() {
+        let p = 0;
+        while (p < vm.pageSets.length) {
+            if (!!vm.pageSets[p].appOnly)
+                vm.pageSets.splice(p, 1);
+            else
+                p++;
+        }       
+    }
+
     vm.removePrintOnlyPages = function() {
-        let p;
-        for (p=0; p<vm.pageSets.length; p++) {
+        let p = 0;
+        while (p < vm.pageSets.length) {
             if (!!vm.pageSets[p].printOnly)
                 vm.pageSets.splice(p, 1);
-        }       
+            else
+                p++;
+        }     
     }
 
 
     vm.init = function() {
         // Unless in print mode, remove the printOnly pages.
+        // And when in print mode, remove the appOnly pages
         if (!$rootScope.print)
             vm.removePrintOnlyPages();
-        
+        else
+            vm.removeAppOnlyPages();
+
+
         // get the page from the url
         vm.pageNumber = vm.getPageNumber();
         vm.setPageByNumber(vm.pageNumber, true);

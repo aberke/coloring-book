@@ -244,6 +244,10 @@ Note: So far this seems to work best with Firefox -- Preview as PDF
 	margin-top: 70px;
 }
 
+.about-illustrations {
+	font-style: italic;
+}
+
 
 footer {
 	border-top: 10px solid #670067;
@@ -613,13 +617,6 @@ body.print .design-caption {
 		width: auto;
 		padding: unset;
 		margin: 0 -10px;
-	}
-	.book-page.mobile-only-full-bleed {
-		padding: 0;
-	}
-	.mobile-only-full-bleed .coloring-content {
-		width: auto;
-		padding: 0;
 	}
 
 	#table-of-contents h3 {
