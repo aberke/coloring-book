@@ -3,6 +3,7 @@
 	display: block;
 	page-break-inside: avoid;
 	max-width: 800px;
+	margin: 30px auto;
 }
 /* Make sure the first info-view section falls below the menu */
 #info #about {
@@ -10,12 +11,12 @@
 }
 
 .info-view, .info-view p {
-	margin: auto;
 	padding: 10px;
 	text-align: center;
 }
 .info-view p {
 	max-width: 600px;
+	margin: auto;
 }
 .info-view p strong {
 	font-weight: 500;
