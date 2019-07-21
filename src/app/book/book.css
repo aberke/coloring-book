@@ -293,6 +293,10 @@ need to opposite even/odd styling scheme
     margin-bottom: 0.6in;
 }
 
+.wallpaper-pattern.grid svg {
+    overflow: visible !important;
+}
+
 
 .book-page .coloring-content .wallpaper-pattern {
     height: 100%;
