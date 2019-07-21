@@ -1,6 +1,18 @@
 <div class="book-page-container counted" ng-if="book.page.name == p.name || main.print">
 
-<div class="book-page">
+<style>
+    /* To handle full bleed wallpaper pattern below: */
+    .print #wallpaper-intro {
+        padding-top: 0;
+        padding-bottom: 0;
+        height: 9in;
+        max-height: unset;
+    }
+    .print #wallpaper-intro .book-section-title {
+        margin-top: 0.25in;
+    }
+</style>
+<div class="book-page" id="wallpaper-intro">
     <div class="text-content">
         <div class="content-container">
             <br/>
@@ -27,7 +39,7 @@
             <br/>
             <br/>
 
-            <p class="challenge">Check in: Can you extend your imagination to see wallpaper patterns repeat infinitely beyond a page’s borders?</p>
+            <p class="challenge">Check in: Can you extend your imagination to see wallpaper patterns repeat infinitely beyond a page's borders?</p>
             <wallpaper-pattern style="height: 200px;"
                 class="full-bleed"
                 pattern-function='trianglePath'

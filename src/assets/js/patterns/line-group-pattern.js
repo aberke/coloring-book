@@ -152,7 +152,7 @@ class LineGroupPattern {
         // Allow the option to avoid drawing past the boundary of the containing div:
         // If contained is true, stop drawing before hit boundary of the containing div
         let contain = (!!PRINT_MODE) || this.drawOptions.contain || this.drawOptions.containHeight || false;
-        if (this.drawOptions.fullBleed) {
+        if (this.drawOptions.fullBleed && !this.drawOptions.containHeight) {
             contain = false;
             maxHeight += objectHeight;
         }

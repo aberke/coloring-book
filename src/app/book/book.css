@@ -243,16 +243,38 @@ need to opposite even/odd styling scheme
     overflow: visible !important;
 }
 
+.book-page.full-bleed {
+    max-width: unset;
+    max-height: unset;
+    width: 7in;
+    height: 9in;
+    padding: 0;
+}
+.book-page.full-bleed .text-content.challenges {
+    padding-top: 0.5in;
+    height: 1in;
+}
+
+@media (max-width: 6.9in) {
+    .book-page.full-bleed {
+        width: unset;
+        height: unset;
+    }
+    .book-page.full-bleed .coloring-content {
+        padding: 0;
+        width: 100%;
+    }  
+}
+
+
 .book-page.full-bleed .wallpaper-pattern,
 .book-page .wallpaper-pattern.full-bleed {
-    position: relative;
-    left: -0.66in;
     width: 7in;
     overflow: visible !important;
 }
-
-.book-page.full-bleed .wallpaper-pattern {
-    top: -0.33in;
+.book-page .wallpaper-pattern.full-bleed {
+    position: relative;
+    left: -0.66in;
 }
 
 .book-page.full-bleed .wallpaper-pattern svg,
@@ -271,6 +293,10 @@ need to opposite even/odd styling scheme
     margin-bottom: 0.6in;
 }
 
+.wallpaper-pattern.grid svg {
+    overflow: visible !important;
+}
+
 
 .book-page .coloring-content .wallpaper-pattern {
     height: 100%;
@@ -279,18 +305,6 @@ need to opposite even/odd styling scheme
 .wallpaper-pattern-name {
     font-weight: 300;
     font-size: 2em;
-}
-
-/* special full bleed pages */
-#before-designs .wallpaper-pattern,
-#patterns-wallpaper-end .book-page.full-bleed .wallpaper-pattern {
-    top: -0.26in;
-}
-@media (max-width: 6.9in) {
-    #patterns-wallpaper-end .book-page.full-bleed .wallpaper-pattern {
-        top: -10px;
-        left: -10px;
-    }
 }
 
 
