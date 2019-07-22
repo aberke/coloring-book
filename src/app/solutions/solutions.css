@@ -19,10 +19,7 @@ section#solutions-pages .solution-info {
 
 .solution-page {
     border-bottom: 1px dashed gray;
-    /*7x9" trim size with margins (as padding)*/
-    /*note there is extra padding within content-container*/
     max-width: 5.68in;
-    max-height: 8.42in;
     padding: 0.33in 0.1in;
     margin: auto;
     font-size: 9pt;
