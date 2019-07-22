@@ -1,5 +1,5 @@
 
-<section id="solutions-pages">
+<section id="solutions-pages" ng-controller="SolutionsPageCntl as vm">
 	<div class="solution-info">
 
 		<h1>challenge solutions</h1>
@@ -13,6 +13,8 @@
 		<br/>
 	</div>
 
+<div id="solutions-sections">
+<span ng-if="vm.selectedSection === 'shapes'">
 
 <ng-include src="'/app/solutions/solutions-pages/solution-page-3.html'"></ng-include>
 <ng-include src="'/app/solutions/solutions-pages/solution-page-4.html'"></ng-include>
@@ -34,16 +36,45 @@
 <ng-include src="'/app/solutions/solutions-pages/solution-page-46.html'"></ng-include>
 <ng-include src="'/app/solutions/solutions-pages/solution-page-48.html'"></ng-include>
 <ng-include src="'/app/solutions/solutions-pages/solution-page-50.html'"></ng-include>
+<ng-include src="'/app/solutions/solutions-pages/solution-page-53.html'"></ng-include>
 <ng-include src="'/app/solutions/solutions-pages/solution-page-56.html'"></ng-include>
+
+</span>
+<!-- shapes -->
+
+<span ng-if="vm.selectedSection === 'frieze'">
 <ng-include src="'/app/solutions/solutions-pages/solution-page-60.html'"></ng-include>
 <ng-include src="'/app/solutions/solutions-pages/solution-page-61.html'"></ng-include>
 <ng-include src="'/app/solutions/solutions-pages/solution-page-62.html'"></ng-include>
 <ng-include src="'/app/solutions/solutions-pages/solution-page-68.html'"></ng-include>
 <ng-include src="'/app/solutions/solutions-pages/solution-page-69.html'"></ng-include>
-<ng-include src="'/app/solutions/solutions-pages/solution-page-82.html'"></ng-include>
-<ng-include src="'/app/solutions/solutions-pages/solution-page-wallpaper-x*.html'"></ng-include>
-<ng-include src="'/app/solutions/solutions-pages/solution-page-wallpaper-4*2.html'"></ng-include>
+<ng-include src="'/app/solutions/solutions-pages/solution-page-70.html'"></ng-include>
+<ng-include src="'/app/solutions/solutions-pages/solution-page-71.html'"></ng-include>
+<ng-include src="'/app/solutions/solutions-pages/solution-page-83.html'"></ng-include>
+<ng-include src="'/app/solutions/solutions-pages/solution-page-84.html'"></ng-include>
+</span>
+<!-- frieze -->
+
+<span ng-if="vm.selectedSection === 'wallpaper'">
+<ng-include src="'/app/solutions/solutions-pages/solution-page-wallpaper-o.html'"></ng-include>
+<ng-include src="'/app/solutions/solutions-pages/solution-page-wallpaper-xx.html'"></ng-include>
+<ng-include src="'/app/solutions/solutions-pages/solution-page-wallpaper-xSTAR.html'"></ng-include>
+<ng-include src="'/app/solutions/solutions-pages/solution-page-wallpaper-2222.html'"></ng-include>
+<ng-include src="'/app/solutions/solutions-pages/solution-page-wallpaper-STAR2222.html'"></ng-include>
+<ng-include src="'/app/solutions/solutions-pages/solution-page-wallpaper-4STAR2.html'"></ng-include>
 <ng-include src="'/app/solutions/solutions-pages/solution-page-wallpaper-333.html'"></ng-include>
+</span>
+<!-- wallpaper -->
+
+</div>
+
+<p id="more-solutions">more solutions</p>
+<span ng-repeat="s in vm.sections">
+	<p class="solutions-link" ng-class="{'selected':s!==vm.selectedSection}"><a ng-click="vm.selectSection(s)">{{s}}</a></p>
+</span>
+
+
+
 
 <div class="solution-info">
 

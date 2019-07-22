@@ -1,0 +1,56 @@
+<div class="solution-page">    
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">SHAPES &amp; SYMMETRIES: REFLECTIONS</span>
+            <span class="page-number"></span>
+        </div>
+        <div class="content-container">
+            <p class="challenge">Challenge: Color the squares to show the result of reflecting across a vertical mirror and then rotating by a ¼ turn.  Then find the combination of transformations that brings the square back to its starting position.</p>
+            <!-- [Line of 5 squares, with mirror sections] -->
+            <div class="text-content-graphic line">
+                <div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "coloring":[0,0,0,0,0,1,0], "withMirrorSections":true}'
+                    options='{"text":"0 turn"}'
+                ></div><div class="canvas"
+                    canvas-centered-drawing
+                    draw-function='drawArrow'
+                    function-options='{"textAbove":"vertical reflection"}'
+                ></div><div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "withMirrorSections":true, "coloring":[0,0,0,0,1,0,0]}'
+                    options='{"text":" "}'
+                ></div><div class="canvas extra-small"
+                    canvas-centered-drawing
+                    draw-function='drawArrow'
+                    function-options='{"textAbove":"1/4 turn"}'
+                ></div><div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "withMirrorSections":true, "coloring":[0,0,1,0,0,0,0]}'
+                    options='{"text":" "}'
+                ></div><div class="canvas extra-small"
+                    canvas-centered-drawing
+                    draw-function='drawArrow'
+                    function-options='{"textAbove":"3/4 turn"}'
+                ></div><div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "withMirrorSections":true, "coloring":[0,0,0,0,1,0,0]}'
+                    options='{"text":" "}'
+                ></div><div class="canvas"
+                    canvas-centered-drawing
+                    draw-function='drawArrow'
+                    function-options='{"textAbove":"vertical reflection"}'
+                ></div><div class='canvas small'
+                    canvas-centered-drawing
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N":4, "coloring":[0,0,0,0,0,1,0], "withMirrorSections":true}'
+                    options='{"text":"0 turn"}'
+                ></div>
+            </div>
+        </div>
+    </div>
+</div>
