@@ -26,6 +26,7 @@ angular.module('app', [
     'app.book',
     'app.frieze',
     'app.posters',
+    'app.solutions',
     'app.wallpaper',
 ])
 .config(['$routeProvider', '$locationProvider',

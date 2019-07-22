@@ -8,6 +8,7 @@ section#solutions-pages {
 }
 section#solutions-pages .solution-info {
     padding: 0.5in;
+    font-size: 10pt;
 }
 
 #solutions-pages h1 {
@@ -70,4 +71,26 @@ Desired: Better way to make this look good on mobile
     .solution-page .coloring-content {
         width: 5.66in;
     }
+}
+
+/*more solutions*/
+#more-solutions,
+.solutions-link {
+    text-align: center;
+    font-size: 1.5em;
+}
+#more-solutions {
+    color: #3bcca6;
+    font-weight: 600;
+    text-transform: lowercase;
+}
+.solutions-link {
+    text-transform: uppercase;
+}
+.solutions-link.selected {
+    font-weight: 500;
+}
+.solutions-link.selected a {
+    text-decoration: underline;
+    cursor: pointer;
 }
