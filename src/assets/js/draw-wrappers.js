@@ -69,7 +69,7 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions={}, options={})
         mainPath.attr({'stroke-dasharray': options['stroke-dasharray']});
 
     if (options.fill) // fill is an integer mapping to array index
-        mainPath.attr('fill', COLORING_FILL_ARRAY[options.fill]);
+        mainPath.attr('fill', styling.getColoringFillArray()[options.fill]);
 
     pathSet.push(mainPath);
 
