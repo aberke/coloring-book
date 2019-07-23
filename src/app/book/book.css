@@ -468,6 +468,9 @@ move from one book-page to the next with animation:
 .page-change-btn.page-next-btn {
     margin-bottom: 35px;
 }
+.grayscale .page-change-btn {
+    color: black;
+}
 
 #after-info {
     max-height: unset;

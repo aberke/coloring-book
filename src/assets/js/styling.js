@@ -2,8 +2,6 @@
 const styling = (function() {
     'use strict';
 
-    console.log('styling')
-
 	const COLORS = {
 		GRAY: "#A9A9A9",
 		LIGHT_GRAY: "#d3d3d3",
@@ -12,7 +10,6 @@ const styling = (function() {
 		YELLOW: "#ffe100",
 		CORAL: "#FF7F50",
 	};
-
 
 	let coloringFillArray;
 	function getColoringFillArray() {
@@ -36,7 +33,6 @@ const styling = (function() {
 		}
 		return coloringFillArray;
 	}
-
 
     return {
 		// Ways to style the sides of a shape

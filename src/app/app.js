@@ -13,6 +13,8 @@ const PRINT_PARAM = 'print';
 // Set a print mode accessible to other JS.
 let PRINT_MODE = false;
 
+const GRAYSCALE_PARAM = 'grayscale';
+let GRAYSCALE = false;
 
 
 angular.module('app', [
@@ -113,6 +115,10 @@ angular.module('app', [
         if (!!$location.search()[DEBUG_PARAM]) {
             vm.debug = true;
             DEBUG = true;
+        }
+        if (!!$location.search()[GRAYSCALE_PARAM]) {
+            vm.grayscale = true;
+            GRAYSCALE = true;
         }
         
         if (!!$location.search()[PRINT_PARAM] || $location.path() === PRINT_ROUTE) {

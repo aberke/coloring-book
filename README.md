@@ -168,6 +168,7 @@ It can also be printed on standard 8.5x11 (aka "letter") paper
 
 ### Helpful URL parameters:
 
+- `?grayscale` to set the content to grayscale
 - `?disable-animations` to disable animations
 - `?print` to test printer friendly styling of the page
 	- This will also disable animations (for better browser performance)
