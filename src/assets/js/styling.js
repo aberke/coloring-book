@@ -3,8 +3,10 @@ const styling = (function() {
     'use strict';
 
 	const COLORS = {
-		GRAY: "#A9A9A9",
-		LIGHT_GRAY: "#d3d3d3",
+		// Use grays that can approximate CMYK grays
+		GRAY: "#999999",
+		LIGHT_GRAY: "#cccccc",
+
 		PURPLE: "#670067",
 		AQUA: "#3bcca6",
 		YELLOW: "#ffe100",

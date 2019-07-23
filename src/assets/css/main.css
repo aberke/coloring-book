@@ -265,8 +265,14 @@ a {
 }
 .grayscale footer,
 .grayscale a {
-	border-color: gray;
 	color: black;
+}
+.grayscale footer {
+	border-color: gray;
+}
+.grayscale a {
+	text-decoration: none;
+	border-bottom: 1px solid black;
 }
 footer #footer-title {
 	font-size: large;

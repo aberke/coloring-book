@@ -5,6 +5,7 @@
 }
 #theory-reference-page .book-page {
 	border: none;
+	text-align: left;
 }
 #theory-reference-page .book-part-title {
 	text-decoration: none;
@@ -45,9 +46,16 @@
 #theory-reference-page a.theory-reference-term-name {
 	font-weight: 500;
 	text-decoration: underline;
-	margin: 30 0 10 0;
+	margin: 20 0 3 0;
 	page-break-after: avoid;
+	display: inline-block;
 }
+.grayscale #theory-reference-page .theory-reference-term-name,
+.grayscale #theory-reference-page a.theory-reference-term-name {
+	text-decoration: none;
+	border-bottom: 1px solid black;
+}
+
 #theory-reference-page strong,
 #theory-reference-page .math-block {
 	font-weight: 500;
