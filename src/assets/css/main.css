@@ -341,6 +341,18 @@ footer #license {
 .purple {
 	color: #670067;
 }
+.blue {
+	color: blue;
+}
+.red {
+	color: red;
+}
+.grayscale .aqua,
+.grayscale .purple,
+.grayscale .blue,
+.grayscale .red {
+	color: black;
+}
 
 .text-content-graphic {
 	display: block;
