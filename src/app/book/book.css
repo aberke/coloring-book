@@ -386,6 +386,15 @@ h1#book-title .title-piece.smaller {
     font-size: 1.3em;
 }
 
+.book-page .text-content-graphic.boxed-wallpapers .wallpaper-pattern {
+    overflow: hidden;
+}
+.book-page .text-content-graphic.boxed-wallpapers .wallpaper-pattern svg {
+    position: relative;
+    top: -1px !important;
+    left: -13px !important;
+}
+
 
 /*
 move from one book-page to the next with animation:
