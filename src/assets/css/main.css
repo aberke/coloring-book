@@ -263,6 +263,17 @@ a {
 	color: #670067;
 	display: inline-block;
 }
+.grayscale footer,
+.grayscale a {
+	color: black;
+}
+.grayscale footer {
+	border-color: gray;
+}
+.grayscale a {
+	text-decoration: none;
+	border-bottom: 1px solid black;
+}
 footer #footer-title {
 	font-size: large;
 	font-weight: 400;
@@ -335,6 +346,18 @@ footer #license {
 }
 .purple {
 	color: #670067;
+}
+.blue {
+	color: blue;
+}
+.red {
+	color: red;
+}
+.grayscale .aqua,
+.grayscale .purple,
+.grayscale .blue,
+.grayscale .red {
+	color: black;
 }
 
 .text-content-graphic {

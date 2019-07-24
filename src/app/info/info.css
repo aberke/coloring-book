@@ -62,6 +62,10 @@
 	font-weight: 400;
 	display: inline-block;
 }
+.grayscale .info-view h3 {
+	border-bottom: 1px solid black;
+}
+
 .print .info-view h3 {
 	font-size: 1em;
 }

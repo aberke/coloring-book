@@ -24,7 +24,7 @@ class CyclicShape {
         this.sideStrokes = this.options.sideStrokes || [];
 
         // can optionally dictate how to fill sections of the shape with color
-        // by passing in array 'options.coloring' that choose colors from the COLORING_FILL_ARRAY
+        // by passing in array 'options.coloring' that choose colors from the styling.getColoringFillArray()
         // eg, options.coloring
         // defaults to shapes not being filled with color
         this.coloring = this.options.coloring || [];
@@ -86,26 +86,26 @@ class CyclicShape {
 
 
 	// can optionally pass in options.coloring as an array dictating how to fill each section of the shape
-	// eg, options.coloring = [0,0,1,1,2,2] will use fills from the list COLORING_FILL_ARRAY
+	// eg, options.coloring = [0,0,1,1,2,2] will use fills from the list styling.getColoringFillArray()
 	// by default shapes are not filled with color
 	colorPathSection(path, n) {
-		if (this.coloring && this.coloring.length > n && this.coloring[n] < COLORING_FILL_ARRAY.length)
-			path.attr("fill", COLORING_FILL_ARRAY[this.coloring[n]]);
+		if (this.coloring && this.coloring.length > n && this.coloring[n] < styling.getColoringFillArray().length)
+			path.attr("fill", styling.getColoringFillArray()[this.coloring[n]]);
 	}
 
 
 	// n is which side it is, where 0 is the bottom side
 	styleSide(path, n) {
 		// can optionally dictate how to style each side by number
-		if (this.sideStrokes && this.sideStrokes.length > n && this.sideStrokes[n] < STROKE_DASH_ARRAY.length)
+		if (this.sideStrokes && this.sideStrokes.length > n && this.sideStrokes[n] < styling.strokeDashArray.length)
 			path.attr({
-                'stroke-dasharray': STROKE_DASH_ARRAY[this.sideStrokes[n]]
+                'stroke-dasharray': styling.strokeDashArray[this.sideStrokes[n]]
             });
 
 		// or can say just say make all of the sides a different stroke -- will alternate
-		if (this.alternateSideStrokes && n < STROKE_DASH_ARRAY.length)
+		if (this.alternateSideStrokes && n < styling.strokeDashArray.length)
             path.attr({
-                'stroke-dasharray': STROKE_DASH_ARRAY[n % this.N]
+                'stroke-dasharray': styling.strokeDashArray[n % this.N]
             });
 	}	
 }

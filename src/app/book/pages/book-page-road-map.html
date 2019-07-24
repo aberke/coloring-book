@@ -6,6 +6,10 @@
     border-bottom: 4px solid #3bcca6;
     display: inline-block;
 }
+.grayscale #road-map .road-map-section-name  {
+    border-width: 1px;
+    border-color: black;
+}
 #road-map .text-content-graphic {
     text-align: left;
 }
@@ -42,7 +46,7 @@
             <div class='canvas black'
                 canvas-centered-drawing
                 draw-function='drawRegularPolygon'
-                function-options='{"N":6, "withMirrorSections":true, "coloring":[1,2,0,0,1,2,0,0,1,2,0,0], "concave":true}'
+                function-options='{"N":6, "withMirrorSections":true, "coloring":[1,2,0,0,1,0,0,0,1,0,0,0], "concave":true}'
                 options='{"autoRotateDegrees": 120, "stroke-width":1}'
             ></div>
 
