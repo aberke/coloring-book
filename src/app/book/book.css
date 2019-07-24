@@ -19,6 +19,7 @@ The book pages use this as their size.
     font-size: 9pt;
     /* Director of design recommended at least 2pts more leading than font-size */
     line-height: 12pt;
+    color: black;
 }
 
 .debug .book-page,
