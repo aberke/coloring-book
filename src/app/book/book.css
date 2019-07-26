@@ -334,22 +334,6 @@ h1#book-title {
     width: 75%;
     text-align: center;
 }
-/*mobile*/
-@media (max-width: 6.9in) {
-
-    .animate-next-page .book-page.ng-leave.ng-leave-active {
-        top: -1600px;
-    }
-    .animate-next-page .book-page.ng-enter {
-        top: 1600px;
-    }
-    .animate-previous-page .book-page.ng-leave.ng-leave-active {
-        top: 1600px;
-    }
-    .animate-previous-page .book-page.ng-enter {
-        top: -1600px;
-    }
-}
 
 h1#book-title .title-piece {
     display: block;
@@ -411,48 +395,60 @@ move from one book-page to the next with animation:
     right:0;
     bottom:0;
 }
+
+.animate-next-page .book-page-container.ng-animate,
+.animate-previous-page .book-page-container.ng-animate,
+.animate-next-page .book-page-container.ng-leave,
+.animate-next-page .book-page-container.ng-enter
+.animate-previous-page .book-page-container.ng-leave,
+.animate-previous-page .book-page-container.ng-enter {
+    width: 100%;
+}
+
 .animate-next-page .book-page-container.ng-animate,
 .animate-previous-page .book-page-container.ng-animate {
-    width: 100%;
-
     -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
     -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
     -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
     transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
 }
+/*
+"counted" book-page-containers are all different sizes so we avoid the scroll
+(otherwise they overlap as they scroll)
+*/
+.animate-next-page .book-page-container.counted.ng-animate,
+.animate-previous-page .book-page-container.counted.ng-animate,
+.animate-next-page .book-page-container.no-scroll.ng-animate,
+.animate-previous-page .book-page-container.no-scroll.ng-animate {
+    -webkit-transition:none;
+    -moz-transition:none;
+    -o-transition:none;
+    transition:none;
+}
 .animate-next-page .book-page-container.ng-leave,
-.animate-next-page .book-page-container.ng-enter.ng-enter-active {
-    position: relative;
-    width: 100%;
-    top: 0;
-}
-.animate-next-page .book-page-container.ng-leave.ng-leave-active {
-    width: 100%;
-    position: absolute;
-    top: -1600px;
-}
-.animate-next-page .book-page-container.ng-enter {
-    width: 100%;
-    position: absolute;
-    top: 1600px;
-}
-
+.animate-next-page .book-page-container.ng-enter.ng-enter-active,
 .animate-previous-page .book-page-container.ng-leave,
 .animate-previous-page .book-page-container.ng-enter.ng-enter-active {
     position: relative;
-    width: 100%;
     top: 0;
 }
-.animate-previous-page .book-page-container.ng-leave.ng-leave-active {
-    width: 100%;
+
+.animate-previous-page .book-page-container.ng-enter,
+.animate-previous-page .book-page-container.ng-leave,
+.animate-next-page .book-page-container.ng-enter,
+.animate-next-page .book-page-container.ng-leave {
     position: absolute;
-    top: 1600px;
 }
-.animate-previous-page .book-page-container.ng-enter {
-    width: 100%;
-    position: absolute;
-    top: -1600px;
+
+.animate-previous-page .book-page-container.ng-enter,
+.animate-next-page .book-page-container.ng-leave.ng-leave-active {
+    top: -1200px;
 }
+.animate-previous-page .book-page-container.ng-leave.ng-leave-active,
+.animate-next-page .book-page-container.ng-enter {
+    top: 1200px;
+}
+
 
 .page-change-btn {
     cursor: pointer;
