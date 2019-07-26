@@ -11,7 +11,7 @@ function tweetDirective($timeout) {
         link: function(scope, element, attr) {
             $timeout(function() {
                 twttr.widgets.createShareButton(
-                    "http://www.coloring-book.co",
+                    "http://www.beautifulsymmetry.onl",
                     element[0],
                     function(el) {}, {
                         count: "none",

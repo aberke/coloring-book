@@ -15,9 +15,10 @@ const analytics = (function() {
 
 	// google analytics
 	// should only be used when production.
-	const HOST = 'coloring-book.co';
+	const HOST0 = 'coloring-book.co';
+	const HOST1 = 'beautifulsymmetry.onl';
 	function initTracking() {
-	    if (location.host.indexOf(HOST) < 0) {
+	    if ((location.host.indexOf(HOST0)) < 0 && (location.host.indexOf(HOST1))) {
 	      console.log('not logging to Google Analytics for non-production')
 	      return;
 	    }

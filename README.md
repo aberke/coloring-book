@@ -8,7 +8,7 @@ This is a Coloring Book about Group Theory.  It is both digital and on paper.
 By coloring on paper, readers can explore symmetry and the beauty of math.  
 Following along on the digital copy to brings the concepts and illustrations to life in interactive animations.
 
-http://coloring-book.co
+http://beautifulsymmetry.onl
 
 The illustrations in this book are drawn in javascript by algorithms that follow the symmetry rules of the groups that the illustrations belong to. These algorithms also use generative art techniques to add components of randomness - notice the illustrations never repeat.
 
@@ -26,7 +26,7 @@ This is an open source project and contributions are greatly appreciated.
 
 #### Non-Technical Contributions: Give Feedback // Get Updates
 
-- http://coloring-book.co/form
+- http://beautifulsymmetry.onl/form
 
 
 #### Technical Contributions
@@ -37,29 +37,29 @@ Thanks <3
 
 ## Posters
 
-Printable posters available at <a href="http://www.coloring-book.co/posters">/posters</a>
+Printable posters available at <a href="http://www.beautifulsymmetry.onl/posters">/posters</a>
 - Includes printable frieze group posters
 
 
 ### Playful Pages
 
-- Create a circular pattern: [/circular-pattern](http://www.coloring-book.co/circular-pattern)
+- Create a circular pattern: [/circular-pattern](http://www.beautifulsymmetry.onl/circular-pattern)
 
-- Frieze Groups explorer: [/frieze](http://www.coloring-book.co/frieze)
+- Frieze Groups explorer: [/frieze](http://www.beautifulsymmetry.onl/frieze)
 
-- Wallpaper Groups explorer: [/wallpaper](http://www.coloring-book.co/wallpaper)
+- Wallpaper Groups explorer: [/wallpaper](http://www.beautifulsymmetry.onl/wallpaper)
 
-- Guide to symmetries in the plane: [/symmetries](http://www.coloring-book.co/symmetries)
+- Guide to symmetries in the plane: [/symmetries](http://www.beautifulsymmetry.onl/symmetries)
 	- Add parameter `?print` for version formatted for printing
 
 
 ## Worksheets
 
-- Worksheet at <a href="http://www.coloring-book.co/worksheet">/worksheet</a>
+- Worksheet at <a href="http://www.beautifulsymmetry.onl/worksheet">/worksheet</a>
 	- Print this worksheet -- meant for Second Sunday at Pioneer Works
 	- Designed to be printed in landscape mode on 11x17 paper
 	
-- Frieze pattern cards at <a href="http://www.coloring-book.co/cards">/cards</a>
+- Frieze pattern cards at <a href="http://www.beautifulsymmetry.onl/cards">/cards</a>
 	- Print and cut into cards with one pattern piece per card.
 	- Try to arrange these cards to generate the Frieze Patterns.
 
@@ -141,12 +141,12 @@ Workflow:
 
 ### Style Guide
 
-Use the [/style-guide](http://www.coloring-book.co/style-guide)
+Use the [/style-guide](http://www.beautifulsymmetry.onl/style-guide)
 
 
 ## Printable Copy
 
-Full PDF of book available at http://coloring-book.co/book.pdf
+Full PDF of book available at http://beautifulsymmetry.onl/book.pdf
 
 PDF/printable ready HTML book available at `/print-book`
 
@@ -203,7 +203,7 @@ Can upload images to combine into GIFs here: http://gifmaker.me/
 
 #### Sharing
 
-Share with http://www.coloring-book.co not http://coloring-book.co to avoid redirect
+Share with http://www.beautifulsymmetry.onl not http://beautifulsymmetry.onl to avoid redirect
 
 
 ### License
