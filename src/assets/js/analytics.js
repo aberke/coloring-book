@@ -18,7 +18,7 @@ const analytics = (function() {
 	const HOST0 = 'coloring-book.co';
 	const HOST1 = 'beautifulsymmetry.onl';
 	function initTracking() {
-	    if ((location.host.indexOf(HOST0)) < 0 && (location.host.indexOf(HOST1))) {
+	    if ((location.host.indexOf(HOST0) < 0) && (location.host.indexOf(HOST1) < 0)) {
 	      console.log('not logging to Google Analytics for non-production')
 	      return;
 	    }
