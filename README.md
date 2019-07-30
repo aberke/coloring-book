@@ -23,14 +23,6 @@ The content in this "book" is presented in the form of a coloring book for multi
 Yes please.
 This is an open source project and contributions are greatly appreciated.
 
-
-#### Non-Technical Contributions: Give Feedback // Get Updates
-
-- http://beautifulsymmetry.onl/form
-
-
-#### Technical Contributions
-
 Please see below on how to get started with running the project locally. The project's [ISSUES](https://github.com/aberke/coloring-book/issues) lists known bugs and areas of improvement.  You are more than invited to submit pull requests to resolve these, or any other areas of improvement you are aware of.
 Thanks <3
 
@@ -98,8 +90,6 @@ URL parameters:
 
 
 #### Linting
-
-Please rememember to lint: `$ gulp lint`
 
 - Uses jshint to lint Javascript via gulp via `$ gulp lint` command
 - jshint settings are in `.jshintrc` and ignore paths are in `.jshintignore`
