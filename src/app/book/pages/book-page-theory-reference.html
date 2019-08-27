@@ -1,39 +1,41 @@
-<div class="book-page-container no-scroll" ng-if="book.page.name == p.name || main.print">
+<div id="theory-reference-pages" class="book-page-container no-scroll even-page-start" ng-if="book.page.name == p.name || main.print">
 
-<section id="theory-reference-page">
+<div class="book-page">
+    <div class="text-content">
+        <div class="page-heading">
+        </div>
+        <div class="content-container">
 
-	<div class="book-page">
+        <div id="theory-reference-intro">
+    	    <h2 class="book-part-title">Theory Reference</h2>
+            <br/>
+            <br/>
 
-    <div id="theory-reference-intro">
-	    <h2 class="book-part-title">Theory Reference</h2>
+        	<p>Group theory helps define abstract structures.  The groups in this coloring book are only a window into the groups explored in the many realms of mathematics.  This book is about "symmetry groups", and we use shapes and patterns to  illustrate them.</p>
+            <p class="theory-reference-term-note">Remember: the groups contain symmetries, not the shapes or patterns.</p>
+            <br/>
+            <p>The groups we talk about are the groups of symmetries in our illustrations.  We can say a shape or pattern is more "symmetrical" than another if it has a larger group of symmetries.</p>
 
-    	<p>Group theory helps define abstract structures.  The groups in this coloring book are only a window into the groups explored in the many realms of mathematics.</p>
+    		<br/>
+
+    		<p>There are some rules and definitions that pertain to all groups, not just ours.</p>
+            <br/>
+
+    		<a href="/theory-reference#group" id="group" class="theory-reference-term-name">Group</a>
+    		<p class="theory-reference-term-definition">A group G is a <a href="/theory-reference#set" class="theory-reference-term">set</a> coupled with a <a href="/theory-reference#binary-operator" class="theory-reference-term">binary operator</a> &#x2737; that satisfies 4 requirements:</p>
+    		<span class="theory-reference-term-note">See the details of each rule for examples.</span>
+    		<ul id="group-requirements">
+    			<li><a href="/theory-reference#closure" class="theory-reference-term">Closure</a>:  G is closed under &#x2737;; i.e., if a and b are in G, then <span class="math-block">a&#x2737;b</span> is in G.</li>
+
+    			<li><a href="/theory-reference#identity" class="theory-reference-term">Identity element</a>:  There exists an identity element e in G; i.e., for all a in G we have <span class="math-block">a &#x2737; e = e &#x2737; a = a.</span></li>
+
+    			<li><a href="/theory-reference#inverse" class="theory-reference-term">Inverse element</a>: Every element in G has an inverse in G; i.e., for all a in G, there exists an element -a in G such that <span class="math-block">a&#x2737;(-a) = (-a)&#x2737;a = e.</span></li>
+
+    			<li><a href="/theory-reference#associativity" class="theory-reference-term">Associativity</a>: The operator &#x2737; acts associatively; i.e., for all a,b,c in G, <span class="math-block">a &#x2737; (b &#x2737; c) = (a &#x2737; b) &#x2737; c.</span></li>
+    		</ul>
+        </div>
         <br/>
-
-        <p>This book is about "symmetry groups", and we use shapes and patterns to  illustrate them.</p>
-        <p class="theory-reference-term-note">Remember: the groups contain symmetries, not the shapes or patterns.</p>
-        <br/>
-        <p>The groups we talk about are the groups of symmetries in our illustrations.  We can say a shape or pattern is more "symmetrical" than another if it has a larger group of symmetries.</p>
-
-		<br/>
-
-		<p>There are some rules and definitions that pertain to all groups, not just ours.</p>
-
-		<a href="/theory-reference#group" id="group" class="theory-reference-term-name">Group</a>
-		<p class="theory-reference-term-definition">A group G is a <a href="/theory-reference#set" class="theory-reference-term">set</a> coupled with a <a href="/theory-reference#binary-operator" class="theory-reference-term">binary operator</a> &#x2737; that satisfies 4 requirements:</p>
-		<span class="theory-reference-term-note">See the details of each rule for examples.</span>
-		<ul id="group-requirements">
-			<li><a href="/theory-reference#closure" class="theory-reference-term">Closure</a>:  G is closed under &#x2737;; i.e., if a and b are in G, then <span class="math-block">a&#x2737;b</span> is in G.</li>
-
-			<li><a href="/theory-reference#identity" class="theory-reference-term">Identity element</a>:  There exists an identity element e in G; i.e., for all a in G we have <span class="math-block">a &#x2737; e = e &#x2737; a = a.</span></li>
-
-			<li><a href="/theory-reference#inverse" class="theory-reference-term">Inverse element</a>: Every element in G has an inverse in G; i.e., for all a in G, there exists an element -a in G such that <span class="math-block">a&#x2737;(-a) = (-a)&#x2737;a = e.</span></li>
-
-			<li><a href="/theory-reference#associativity" class="theory-reference-term">Associativity</a>: The operator &#x2737; acts associatively; i.e., for all a,b,c in G, <span class="math-block">a &#x2737; (b &#x2737; c) = (a &#x2737; b) &#x2737; c.</span></li>
-		</ul>
-    </div>
     
-
         <div class="theory-reference-term-container">
             <a href="/theory-reference#associativity" id="associativity" class="theory-reference-term-name">Associative Property</a>
             <p class="theory-reference-term-definition">When an operator &#x2737; for a group G is associative, the way elements in G are grouped when the operator is applied does not matter.  I.e.,  for all a,b,c in G, <span class="math-block">a &#x2737; (b &#x2737; c) = (a &#x2737; b) &#x2737; c.</span></p>
@@ -45,6 +47,18 @@
         	<p class="theory-reference-term-example">For C3, <span class="math-block">(<fraction>1/3</fraction> turn &#x2737; <fraction>1/3</fraction> turn) &#x2737; <fraction>2/3</fraction> turn</span> = <span class="math-block"><fraction>1/3</fraction> turn &#x2737; (<fraction>1/3</fraction> turn &#x2737; <fraction>2/3</fraction> turn).</span>
         	That is, rotating twice by a <fraction>1/3</fraction> turn and then rotating the result by a <fraction>2/3</fraction> turn is the same as combining a <fraction>1/3</fraction> turn with the result of rotating by a <fraction>1/3</fraction> turn and then by a <fraction>2/3</fraction> turn.</p>
         </div>
+	</div>
+</div>
+</div>
+
+	<div class="book-page">
+
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">THEORY REFERENCE</span>
+        </div>
+        <div class="content-container">
+
 
         <div class="theory-reference-term-container">
             <a href="/theory-reference#binary-operator" id="binary-operator" class="theory-reference-term-name">Binary Operator</a>
@@ -53,12 +67,8 @@
             <p class="theory-reference-term-example">An example is addition over the set of counting numbers:  + is a <a href="/theory-reference#binary-operator" class="theory-reference-term">binary operator</a> that combines 2 numbers to create their sum: <span style="display: inline-block;">1 + 2 = 3.</span></p>
 
             <p class="theory-reference-term-example">Our <a href="/theory-reference#binary-operator" class="theory-reference-term">binary operator</a> combines the transformations that act on our symmetry groups.  For symmetry elements a and b, <span class="math-block">a &#x2737; b</span> says "do a, and then do b".
-        	For example, if transformation a is "rotate by a <fraction>1/4</fraction> turn" and b is "reflect horizontally", then <span class="math-block">a &#x2737; b</span> is "rotate by a <fraction>1/4</fraction> turn and then reflect horizontally”.</p>
+            For example, if transformation a is "rotate by a <fraction>1/4</fraction> turn" and b is "reflect horizontally", then <span class="math-block">a &#x2737; b</span> is "rotate by a <fraction>1/4</fraction> turn and then reflect horizontally”.</p>
         </div>
-
-	</div>
-
-	<div class="book-page">
 
         <div class="theory-reference-term-container">
             <a href="/theory-reference#closure" id="closure" class="theory-reference-term-name">Closure</a>
@@ -91,16 +101,24 @@
 
         	<p class="theory-reference-term-note">The term <strong>cyclic</strong> may be misleading.  Our cyclic groups had a finite number of elements, and combining them again and again created cycles.  However, there are cyclic groups with infinite elements, such as the integers under addition.</p>
         </div>
+	</div>
+</div>
+</div>
+
+<div class="book-page">
+
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">THEORY REFERENCE</span>
+        </div>
+        <div class="content-container">
+
 
         <div class="theory-reference-term-container">
             <a href="/theory-reference#generator" id="generator" class="theory-reference-term-name">Generator</a>
             <p class="theory-reference-term-definition"><strong>Generators</strong> of a group are a set of elements that when combined with themselves, or each other, can produce all the other elements of the group.</p>
             <p class="theory-reference-term-example">For example, &minus;2 and 2 are <strong>generators</strong> that when combined with addition, generate the entire group of even integers.</p>
         </div>
-	</div>
-
-	<div class="book-page">
-
 
         <div class="theory-reference-term-container">
             <a href="/theory-reference#identity" id="identity" class="theory-reference-term-name">Identity Element</a>
@@ -157,6 +175,17 @@
             <p class="theory-reference-term-example">For example, the set <span class="math-block">&#123;<span class="blue">blue</span>, <span class="red">red</span>, <span class="blue">blue</span>&#125;</span> is the same set as the set <span class="math-block">&#123;<span class="blue">blue</span>, <span class="red">red</span>&#125;</span>.</p>
             <p class="theory-reference-term-example">For our sets of rotations, the set <span class="math-block">&#123;0 turn, <fraction>1/3</fraction> turn, <fraction>4/3</fraction> turn&#125;</span> is the same as the set <span class="math-block">&#123;0 turn, <fraction>1/3</fraction> turn&#125;</span> because a <fraction>1/3</fraction> turn means the same thing as a <fraction>4/3</fraction> turn - they are not distinct.</p>
         </div>
+    </div>
+</div>
+</div>
+
+<div class="book-page">
+
+    <div class="text-content">
+        <div class="page-heading">
+            <span class="heading-title">THEORY REFERENCE</span>
+        </div>
+        <div class="content-container">
 
         <div class="theory-reference-term-container">
             <a href="/theory-reference#subgroup" id="subgroup" class="theory-reference-term-name">Subgroup</a>
@@ -174,8 +203,7 @@
     	    <p class="theory-reference-term-note"></p>
         </div>
         -->
-
 </div>
-</section>
-
+</div>
+</div>
 </div>
