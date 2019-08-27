@@ -1,19 +1,23 @@
 
-#theory-reference-page {
-	text-align: center;
-	margin: auto;
+/* for non book page at /theory-reference 
+	make sure the header does not conflict with the menu on mobile
+*/
+.stand-alone-page #theory-reference-pages .book-part-title {
+	margin-top: 50px;
 }
-#theory-reference-page .book-page {
+.stand-alone-page #theory-reference-pages .book-page {
 	border: none;
+}
+#theory-reference-pages .book-page {
 	text-align: left;
 }
-#theory-reference-page .book-part-title {
+#theory-reference-pages .book-part-title {
 	text-decoration: none;
 }
 
-#theory-reference-page p,
-#theory-reference-page a.theory-reference-term-name,
-.theory-reference-term-note, #theory-reference-page li {
+#theory-reference-pages p,
+#theory-reference-pages a.theory-reference-term-name,
+.theory-reference-term-note, #theory-reference-pages li {
 	text-align: left;
 	margin: auto;
 	display: block;
@@ -23,40 +27,40 @@
 	font-style: italic;
 }
 
-#theory-reference-page .theory-reference-term-definition {
+#theory-reference-pages .theory-reference-term-definition {
 	margin-bottom: 10px;
 }
 
-#theory-reference-page .text-content-graphic {
+#theory-reference-pages .text-content-graphic {
 	text-align: left;
 }
-#theory-reference-page .text-content-graphic p {
+#theory-reference-pages .text-content-graphic p {
 	display: inline-block;
 }
-#theory-reference-page .text-content-graphic .canvas.extra-small {
+#theory-reference-pages .text-content-graphic .canvas.extra-small {
 	width: 35px;
 	height: 35px;
 }
 
-#theory-reference-page ul li {
+#theory-reference-pages ul li {
 	margin: 5px auto;
 }
 
-#theory-reference-page .theory-reference-term-name,
-#theory-reference-page a.theory-reference-term-name {
+#theory-reference-pages .theory-reference-term-name,
+#theory-reference-pages a.theory-reference-term-name {
 	font-weight: 500;
 	text-decoration: underline;
 	margin: 20 0 3 0;
 	page-break-after: avoid;
 	display: inline-block;
 }
-.grayscale #theory-reference-page .theory-reference-term-name,
-.grayscale #theory-reference-page a.theory-reference-term-name {
+.grayscale #theory-reference-pages .theory-reference-term-name,
+.grayscale #theory-reference-pages a.theory-reference-term-name {
 	text-decoration: none;
 	border-bottom: 1px solid black;
 }
 
-#theory-reference-page strong,
-#theory-reference-page .math-block {
+#theory-reference-pages strong,
+#theory-reference-pages .math-block {
 	font-weight: 500;
 }
