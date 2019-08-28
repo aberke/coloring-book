@@ -54,6 +54,15 @@ The book pages use this as their size.
     .book-page {
         max-height: fit-content;
     }
+    .book-page.book-part-title-page .coloring-content {
+        margin: 0 !important;
+    }
+    .book-page.book-part-title-page .coloring-content .book-part-title-row {
+        height: unset;
+    }
+    .book-page.book-part-title-page .book-part-title {
+        font-size: 1.8em;
+    }
     .book-page p {
         font-size: 11pt;
         line-height: 15pt;
@@ -264,7 +273,7 @@ need to opposite even/odd styling scheme
     .book-page.full-bleed .coloring-content {
         padding: 0;
         width: 100%;
-    }  
+    }
 }
 
 
@@ -360,11 +369,18 @@ h1#book-title .title-piece.smaller {
     border-bottom: none;
     font-weight: 400;
 }
+.book-page.book-part-title-page .coloring-content {
+    margin-top: 70px;
+}
+.book-part-title-page .coloring-content .book-part-title-row {
+    height: 110px;
+}
 .book-page .book-part-title {
-    text-decoration: underline;
-    font-size: 2em;
-    line-height: 1.5em;
-    margin-top: 0;
+    text-align: center;
+    font-size: 3em;
+    line-height: 3em;
+    margin: 0;
+    font-weight: 300;
 }
 .book-section-title {
     text-decoration: none;
@@ -477,9 +493,6 @@ move from one book-page to the next with animation:
 /*
 Notes on notation pages
 */
-#notes-on-notation-pages .book-page .book-part-title {
-    text-decoration: none;
-}
 #notes-on-notation-pages h3 {
     font-weight: 300;
     font-size: 1.5em;

@@ -1,12 +1,115 @@
 <div class="book-page-container patterns counted even-page-start" ng-if="book.page.name == p.name || main.print">
 
+<!-- first part-title page is print-only -->
+<div class="book-page book-part-title-page full-bleed" ng-show="main.print">
+    <div class="coloring-content" style="margin: unset !important;">
+        <frieze-pattern
+            pattern-function=trianglePath
+            group-name='p1'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"fullBleed": true}'
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglePath
+            group-name='∞×'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"fullBleed": true}'
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglePath
+            group-name='∗∞∞'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"fullBleed": true}'
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglePath
+            group-name='22∞'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"fullBleed": true}'
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglePath
+            group-name='2∗∞'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"fullBleed": true}'
+        ></frieze-pattern>
+        <div class="book-part-title-row">
+            <frieze-pattern
+                pattern-function=trianglePath
+                group-name='∗22∞'
+                fundamental-domain-width=45
+                fundamental-domain-height=45
+                draw-options='{"fullBleed": true}'
+            ></frieze-pattern>
+        </div>
+        <wallpaper-pattern
+            pattern-function=trianglePath
+            group-name='22∗'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"fullBleed": true}'
+        ></wallpaper-pattern>
+    </div>
+</div>
+<div class="book-page book-part-title-page full-bleed">
+    <div class="coloring-content" style="margin: unset !important;">
+        <frieze-pattern
+            pattern-function=trianglePath
+            group-name='p1'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"fullBleed": true}'
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglePath
+            group-name='∞×'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"fullBleed": true}'
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglePath
+            group-name='∗∞∞'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"fullBleed": true}'
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglePath
+            group-name='22∞'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"fullBleed": true}'
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglePath
+            group-name='2∗∞'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"fullBleed": true}'
+        ></frieze-pattern>
+        <div class="book-part-title-row">
+            <h2 class="book-part-title">Infinitely Repeating Patterns</h2>
+        </div>
+        <wallpaper-pattern
+            pattern-function=trianglePath
+            group-name='22∗'
+            fundamental-domain-width=45
+            fundamental-domain-height=45
+            draw-options='{"fullBleed": true}'
+        ></wallpaper-pattern>
+    </div>
+</div>
+
 <div class="book-page">
     <div class="text-content">
         <div class="content-container">
-
-            <h2 class="book-part-title">Infinitely Repeating Patterns</h2>
             <br/>
-
             <h2 class="book-section-title">Frieze Groups</h2>
             <br/>
             <br/>

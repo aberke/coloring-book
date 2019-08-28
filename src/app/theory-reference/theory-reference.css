@@ -2,7 +2,7 @@
 /* for non book page at /theory-reference 
 	make sure the header does not conflict with the menu on mobile
 */
-.stand-alone-page #theory-reference-pages .book-part-title {
+.stand-alone-page #theory-reference-pages .book-section-title {
 	margin-top: 50px;
 }
 .stand-alone-page #theory-reference-pages .book-page {
@@ -11,8 +11,9 @@
 #theory-reference-pages .book-page {
 	text-align: left;
 }
-#theory-reference-pages .book-part-title {
+#theory-reference-pages .book-section-title {
 	text-decoration: none;
+	text-align: left;
 }
 
 #theory-reference-pages p,

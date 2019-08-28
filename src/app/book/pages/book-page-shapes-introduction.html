@@ -1,13 +1,461 @@
 <div class="book-page-container counted" ng-if="book.page.name == p.name || main.print">
 
-<div id="page-1" class="book-page">
-    <div class="text-content">
+    <!-- first part-title page is print-only -->
+    <div class="book-page book-part-title-page" ng-if="main.print">
+        <div class="coloring-content">
+            <!-- 6: order 2 rectangles -->
+            <div class="canvas-row"><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRectangle'
+                    function-options='{}'
+                    options='{"autoRotateDegrees":180}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRectangle'
+                    function-options='{}'
+                    options='{"autoRotateDegrees":180}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRectangle'
+                    function-options='{}'
+                    options='{"autoRotateDegrees":180}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRectangle'
+                    function-options='{}'
+                    options='{"autoRotateDegrees":180}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRectangle'
+                    function-options='{}'
+                    options='{"autoRotateDegrees":180}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRectangle'
+                    function-options='{}'
+                    options='{"autoRotateDegrees":180}'
+                ></canvas-centered-drawing></div><div
+                class="canvas-row"><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 3}'
+                    options='{"autoRotateDegrees":120, "margin":0}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 3}'
+                    options='{"autoRotateDegrees":120, "margin":0}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 3}'
+                    options='{"autoRotateDegrees":120, "margin":0}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 3}'
+                    options='{"autoRotateDegrees":120, "margin":0}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 3}'
+                    options='{"autoRotateDegrees":120, "margin":0}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 3}'
+                    options='{"autoRotateDegrees":120, "margin":0}'
+                ></canvas-centered-drawing></div><div
+                class="canvas-row"><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4}'
+                    options='{"autoRotateDegrees":90, "margin":0}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4}'
+                    options='{"autoRotateDegrees":90, "margin":0}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4}'
+                    options='{"autoRotateDegrees":90, "margin":0}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4}'
+                    options='{"autoRotateDegrees":90, "margin":0}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4}'
+                    options='{"autoRotateDegrees":90, "margin":0}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 4}'
+                    options='{"autoRotateDegrees":90, "margin":0}'
+                ></canvas-centered-drawing>
+            </div>
+            <!-- FACES TITLE -->
+            <div class="canvas-row book-part-title-row">
+                <canvas-centered-drawing
+                    style='margin-top: 30px;'
+                    class='twelfth'
+                    draw-function='drawCircle'
+                    function-options='{}'
+                    options='{}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    style='margin-top: 30px;'
+                    class='twelfth'
+                    draw-function='drawCircle'
+                    function-options='{}'
+                    options='{}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    style='margin-top: 30px;'
+                    class='twelfth'
+                    draw-function='drawCircle'
+                    function-options='{}'
+                    options='{}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    style='margin-top: 30px;'
+                    class='twelfth'
+                    draw-function='drawCircle'
+                    function-options='{}'
+                    options='{}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    style='margin-top: 30px;'
+                    class='twelfth'
+                    draw-function='drawCircle'
+                    function-options='{}'
+                    options='{}'
+                ></canvas-centered-drawing>
+                <canvas-centered-drawing
+                    style='margin-top: 30px;'
+                    class='twelfth'
+                    draw-function='drawCircle'
+                    function-options='{}'
+                    options='{}'
+                ></canvas-centered-drawing>
+            </div>
+            <!-- 6: order 5 -->
+            <div
+                class="canvas-row"><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 5, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 5, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 5, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 5, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 5, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 5, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing></div><div
+                    class="canvas-row"><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth canvas clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 6, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing></div><div 
+                class="canvas-row"><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 7, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 7, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 7, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 7, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 7, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawRegularPolygon'
+                    function-options='{"N": 7, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing>
+            </div>
+        </div>
+    </div>
 
-            <div class="content-container">
+    <div class="book-page book-part-title-page">
+        <div class="coloring-content">
+            <!-- 6: order 2 -->
+            <div class="canvas-row">
+                <canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 2}'
+                    options='{"autoRotateDegrees":180}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 2}'
+                    options='{"autoRotateDegrees":180}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 2}'
+                    options='{"autoRotateDegrees":180}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 2}'
+                    options='{"autoRotateDegrees":180}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 2}'
+                    options='{"autoRotateDegrees":180}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 2}'
+                    options='{"autoRotateDegrees":180}'
+                ></canvas-centered-drawing>
+            </div>
+            <!-- 6: order 3 -->
+            <div class="canvas-row">
+                <canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 3}'
+                    options='{"autoRotateDegrees":120}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 3}'
+                    options='{"autoRotateDegrees":120}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 3}'
+                    options='{"autoRotateDegrees":120}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 3}'
+                    options='{"autoRotateDegrees":120}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 3}'
+                    options='{"autoRotateDegrees":120}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 3}'
+                    options='{"autoRotateDegrees":120}'
+                ></canvas-centered-drawing>
+            </div>
+            <!-- 6: order 4 -->
+            <div class="canvas-row">
+                <canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 4}'
+                    options='{"autoRotateDegrees":90}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 4}'
+                    options='{"autoRotateDegrees":90}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 4}'
+                    options='{"autoRotateDegrees":90}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 4}'
+                    options='{"autoRotateDegrees":90}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 4}'
+                    options='{"autoRotateDegrees":90}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawCyclicShape'
+                    function-options='{"N": 4}'
+                    options='{"autoRotateDegrees":90}'
+                ></canvas-centered-drawing>
+            </div>
+            <!-- PART TITLE -->
+            <div class="canvas-row book-part-title-row">
                 <h2 class="book-part-title">Shapes &amp; Symmetries</h2>
-                <br/>
+            </div>
+            <!-- 6: order 5 -->
+            <div class="canvas-row">
+                <canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 5, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 5, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 5, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 5, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 5, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 5, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing></div><div
+                class="canvas-row"><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 6, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 6, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 6, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 6, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 6, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 6, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing></div><div
+                class="canvas-row"><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 7, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 7, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 7, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 7, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 7, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing><canvas-centered-drawing
+                    class='sixth clickable'
+                    draw-function='drawDihedralShape'
+                    function-options='{"N": 7, "withMirrorSections":true}'
+                    options='{"autoReflect": "V", "margin":0, "mirrorLines":1}'
+                ></canvas-centered-drawing>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-1" class="book-page">
+
+        <div class="text-content">
+            <div class="content-container">
                 <br/>
                 <h2 class="book-section-title">INTRODUCTION</h2>
+                <br/>
                 <br/>
                 <p>Symmetry presents itself in nature.</p>
                 <br/>
@@ -34,6 +482,7 @@
                         <figcaption>Starfish</figcaption>
                     </figure>
 	            </div>
+                <br/>
 
                 <p>Math creates a space where perfect symmetry can be explored.</p>
 
@@ -62,6 +511,7 @@
                         options='{"tapRotate":72}'
                     ></canvas-centered-drawing>
                 </div>
+                <br/>
 
                 <p>In our real physical world, lines may not be perfectly straight, and squares may not be perfectly square, but mathematics allows us to believe in straight lines and perfect squares.</p>
 
