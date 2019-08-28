@@ -493,10 +493,6 @@ move from one book-page to the next with animation:
 /*
 Notes on notation pages
 */
-#notes-on-notation-pages .book-page .book-part-title {
-    text-decoration: none;
-    text-align: left;
-}
 #notes-on-notation-pages h3 {
     font-weight: 300;
     font-size: 1.5em;
