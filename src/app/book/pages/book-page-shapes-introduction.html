@@ -1,6 +1,7 @@
-<div class="book-page-container counted" ng-if="book.page.name == p.name || main.print">
+<div class="book-page-container" ng-if="book.page.name == p.name || main.print">
 
     <!-- first part-title page is print-only -->
+    <!-- it is not counted. every other page in this set is counted -->
     <div class="book-page book-part-title-page" ng-if="main.print">
         <div class="coloring-content">
             <!-- 6: order 2 rectangles -->
@@ -242,7 +243,7 @@
         </div>
     </div>
 
-    <div class="book-page book-part-title-page">
+    <div class="book-page book-part-title-page counted">
         <div class="coloring-content">
             <!-- 6: order 2 -->
             <div class="canvas-row">
@@ -449,7 +450,7 @@
         </div>
     </div>
 
-    <div id="page-1" class="book-page">
+    <div class="book-page counted">
 
         <div class="text-content">
             <div class="content-container">
@@ -559,7 +560,7 @@
 </div>
 
 <!-- page -->
-<div class="book-page">
+<div class="book-page counted">
 
     <div class="text-content">
         <div class="page-heading">
@@ -721,7 +722,7 @@
     </div>
 </div>
 
-<div class="book-page">
+<div class="book-page counted">
 
     <div class="text-content challenges">
         <div class="page-heading">
@@ -820,7 +821,7 @@
 </div>
 
 
-<div class="book-page">
+<div class="book-page counted">
     <div class="text-content challenges">
         <div class="page-heading">
             <span class="heading-title">SHAPES &amp; SYMMETRIES: INTRODUCTION: COLORING &amp; CHALLENGES</span>

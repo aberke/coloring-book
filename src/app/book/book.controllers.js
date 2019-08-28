@@ -71,81 +71,81 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         },{
             name: 'shapes-cyclic-subgroups-and-closure',
             url: vm.bookPageUrl('book-page-shapes-cyclic-subgroups-and-closure.html'),
-        },{
-            name: 'shapes-reflections',
-            url: vm.bookPageUrl('book-page-shapes-reflections.html'),
-        },{
-            name: 'shapes-dihedral-groups',
-            url: vm.bookPageUrl('book-page-shapes-dihedral-groups.html'),
-        },{
-            name: 'shapes-dihedral-subgroups',
-            url: vm.bookPageUrl('book-page-shapes-dihedral-subgroups.html'),
-        },{
-            name: 'shapes-dihedral-inverses',
-            url: vm.bookPageUrl('book-page-shapes-dihedral-inverses.html'),
-        },{
-            name: 'patterns-frieze-translations',
-            url: vm.bookPageUrl('book-page-patterns-frieze-translations.html'),
-        },{
-            name: 'patterns-frieze-rotations-and-reflections',
-            url: vm.bookPageUrl('book-page-patterns-frieze-rotations-and-reflections.html'),
-        },{
-            name: 'patterns-frieze-symmetry-groups',
-            url: vm.bookPageUrl('book-page-patterns-frieze-symmetry-groups.html'),
-        },{
-            name: 'patterns-frieze-combining-symmetries',
-            url: vm.bookPageUrl('book-page-patterns-frieze-combining-symmetries.html'),
-        },
-        {
-            name: 'patterns-wallpaper-intro',
-            url: vm.bookPageUrl('book-page-patterns-wallpaper-intro.html'),
-        },
-        {
-            name: 'patterns-wallpaper-translations',
-            url: vm.bookPageUrl('book-page-patterns-wallpaper-translations.html'),
-        },
-        {
-            name: 'patterns-wallpaper-rotations',
-            url: vm.bookPageUrl('book-page-patterns-wallpaper-rotations.html'),
-        },
-        {
-            name: 'patterns-wallpaper-catalogue-no-rotations',
-            url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-no-rotations.html'),
-        },
-        {
-            name: 'patterns-wallpaper-catalogue-order-2-rotations-1',
-            url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-order-2-rotations-1.html'),
-        },
-        {
-            name: 'patterns-wallpaper-catalogue-order-2-rotations-2',
-            url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-order-2-rotations-2.html'),
-        },
-        {
-            name: 'patterns-wallpaper-catalogue-order-4-rotations',
-            url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-order-4-rotations.html'),
-        },
-        {
-            name: 'patterns-wallpaper-catalogue-order-3-rotations',
-            url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-order-3-rotations.html'),
-        },
-        {
-            name: 'patterns-wallpaper-catalogue-order-6-rotations',
-            url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-order-6-rotations.html'),
-        },
-        {
-            name: 'patterns-wallpaper-end',
-            url: vm.bookPageUrl('book-page-patterns-wallpaper-end.html'),
-        }, {
-            name: 'after-info',
-            url: vm.bookPageUrl('book-page-after-info.html'),
-        },
-        {
-            name: 'notation',
-            url: vm.bookPageUrl('book-page-notation.html'),
-        },
-        {
-            name: 'theory-reference',
-            url: vm.bookPageUrl('book-page-theory-reference.html'),
+        // },{
+        //     name: 'shapes-reflections',
+        //     url: vm.bookPageUrl('book-page-shapes-reflections.html'),
+        // },{
+        //     name: 'shapes-dihedral-groups',
+        //     url: vm.bookPageUrl('book-page-shapes-dihedral-groups.html'),
+        // },{
+        //     name: 'shapes-dihedral-subgroups',
+        //     url: vm.bookPageUrl('book-page-shapes-dihedral-subgroups.html'),
+        // },{
+        //     name: 'shapes-dihedral-inverses',
+        //     url: vm.bookPageUrl('book-page-shapes-dihedral-inverses.html'),
+        // },{
+        //     name: 'patterns-frieze-translations',
+        //     url: vm.bookPageUrl('book-page-patterns-frieze-translations.html'),
+        // },{
+        //     name: 'patterns-frieze-rotations-and-reflections',
+        //     url: vm.bookPageUrl('book-page-patterns-frieze-rotations-and-reflections.html'),
+        // },{
+        //     name: 'patterns-frieze-symmetry-groups',
+        //     url: vm.bookPageUrl('book-page-patterns-frieze-symmetry-groups.html'),
+        // },{
+        //     name: 'patterns-frieze-combining-symmetries',
+        //     url: vm.bookPageUrl('book-page-patterns-frieze-combining-symmetries.html'),
+        // },
+        // {
+        //     name: 'patterns-wallpaper-intro',
+        //     url: vm.bookPageUrl('book-page-patterns-wallpaper-intro.html'),
+        // },
+        // {
+        //     name: 'patterns-wallpaper-translations',
+        //     url: vm.bookPageUrl('book-page-patterns-wallpaper-translations.html'),
+        // },
+        // {
+        //     name: 'patterns-wallpaper-rotations',
+        //     url: vm.bookPageUrl('book-page-patterns-wallpaper-rotations.html'),
+        // },
+        // {
+        //     name: 'patterns-wallpaper-catalogue-no-rotations',
+        //     url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-no-rotations.html'),
+        // },
+        // {
+        //     name: 'patterns-wallpaper-catalogue-order-2-rotations-1',
+        //     url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-order-2-rotations-1.html'),
+        // },
+        // {
+        //     name: 'patterns-wallpaper-catalogue-order-2-rotations-2',
+        //     url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-order-2-rotations-2.html'),
+        // },
+        // {
+        //     name: 'patterns-wallpaper-catalogue-order-4-rotations',
+        //     url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-order-4-rotations.html'),
+        // },
+        // {
+        //     name: 'patterns-wallpaper-catalogue-order-3-rotations',
+        //     url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-order-3-rotations.html'),
+        // },
+        // {
+        //     name: 'patterns-wallpaper-catalogue-order-6-rotations',
+        //     url: vm.bookPageUrl('book-page-patterns-wallpaper-catalogue-order-6-rotations.html'),
+        // },
+        // {
+        //     name: 'patterns-wallpaper-end',
+        //     url: vm.bookPageUrl('book-page-patterns-wallpaper-end.html'),
+        // }, {
+        //     name: 'after-info',
+        //     url: vm.bookPageUrl('book-page-after-info.html'),
+        // },
+        // {
+        //     name: 'notation',
+        //     url: vm.bookPageUrl('book-page-notation.html'),
+        // },
+        // {
+        //     name: 'theory-reference',
+        //     url: vm.bookPageUrl('book-page-theory-reference.html'),
         }
     ];
 
