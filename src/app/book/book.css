@@ -61,7 +61,7 @@ The book pages use this as their size.
         height: unset;
     }
     .book-page.book-part-title-page .book-part-title {
-        font-size: 2em;
+        font-size: 1.8em;
     }
     .book-page p {
         font-size: 11pt;
@@ -273,7 +273,7 @@ need to opposite even/odd styling scheme
     .book-page.full-bleed .coloring-content {
         padding: 0;
         width: 100%;
-    }  
+    }
 }
 
 
