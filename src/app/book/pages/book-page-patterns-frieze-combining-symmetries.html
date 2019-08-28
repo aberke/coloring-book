@@ -1,4 +1,4 @@
-<div class="book-page-container patterns counted even-page-start" ng-if="book.page.name == p.name || main.print">
+<div class="book-page-container patterns counted" ng-if="book.page.name == p.name || main.print">
 
 <div class="book-page">
     <div class="text-content">
@@ -1254,6 +1254,62 @@
         ></frieze-pattern>
         <frieze-pattern
             pattern-function=curves5
+            group-name='p2mm'
+            fundamental-domain-width=42
+            fundamental-domain-height=42
+        ></frieze-pattern>
+    </div>
+    <p class="design-caption">patterns from each of the 7 frieze groups</p>
+    <p class="design-caption">(∞∞, ∞∗, ∗∞∞, 22∞, ∞×, 2∗∞, ∗22∞)</p>
+</div>
+
+<div class="book-page">
+    <div class="text-content challenges">
+        <div class="page-heading">
+            <span class="heading-title">INFINITELY REPEATING PATTERNS: FRIEZE GROUPS: COLORING &amp; CHALLENGES</span>
+            <span class="page-number"></span>
+        </div>
+        <p class="challenge">Can you identify the symmetries in each of the patterns?</p>
+    </div>
+    <div class="coloring-content">
+        <frieze-pattern
+            pattern-function=trianglesPath3
+            group-name='p1'
+            fundamental-domain-width=42
+            fundamental-domain-height=42
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglesPath2
+            group-name='p11m'
+            fundamental-domain-width=42
+            fundamental-domain-height=42
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglesPath3
+            group-name='p1m1'
+            fundamental-domain-width=42
+            fundamental-domain-height=42
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglesPath2
+            group-name='p2'
+            fundamental-domain-width=42
+            fundamental-domain-height=50
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglesPath3
+            group-name='p11g'
+            fundamental-domain-width=42
+            fundamental-domain-height=42
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglesPath2
+            group-name='p2mg'
+            fundamental-domain-width=37
+            fundamental-domain-height=40
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=trianglesPath3
             group-name='p2mm'
             fundamental-domain-width=42
             fundamental-domain-height=42
