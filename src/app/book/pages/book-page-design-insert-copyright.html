@@ -1,0 +1,53 @@
+<div class="book-page-container" ng-if="book.page.name == p.name || main.print">
+
+    <!-- 
+        This is a placeholder / blank page.
+        It is meant to go across from the copyright info page in the print version.
+     -->
+    <div class="book-page">
+        <div style="margin-top: 360px;" class="coloring-content">
+            <!-- lines up with following page -->
+            <div class="canvas-row">
+                    <circular-pattern
+                        class="canvas sixth"
+                        with-redraw
+                        rotations=12
+                        slices-count=1
+                        levels=2
+                        with-reflection=true
+                    ></circular-pattern>
+                    <canvas-centered-drawing
+                        class='canvas sixth'
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":12, "concave":true, "withMirrorSections":true}'
+                        options='{}'
+                    ></canvas-centered-drawing>
+                    <circular-pattern
+                        class="canvas sixth"
+                        with-redraw
+                        rotations=10
+                        rings="[0.8,0.9]"
+                        slices-count=1
+                        levels=2
+                        with-reflection=true
+                    ></circular-pattern>
+                    <canvas-centered-drawing
+                        class='canvas sixth'
+                        draw-function='drawRegularPolygon'
+                        function-options='{"N":12, "concave":true, "withMirrorSections":true}'
+                        options='{}'
+                    ></canvas-centered-drawing>
+                    <circular-pattern
+                        class="canvas sixth"
+                        with-redraw
+                        rotations=12
+                        slices-count=1
+                        levels=2
+                        with-reflection=true
+                    ></circular-pattern>
+
+                
+            </div>
+        </div>
+    </div>
+</div>

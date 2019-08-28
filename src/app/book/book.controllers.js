@@ -40,6 +40,12 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
             url: vm.bookPageUrl('book-page-cover.html'),
             appOnly: true,
         }, {
+            // This goes across from the copyright page in the print version.
+            // It has simple designs that are better than just a blank page.
+            name: 'design-insert-copyright',
+            url: vm.bookPageUrl('book-page-design-insert-copyright.html'),
+            printOnly: true,
+        }, {
             name: 'about',
             url: vm.bookPageUrl('book-page-about.html'),
         }, {
@@ -56,6 +62,12 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         }, {
             name: 'table-of-contents',
             url: vm.bookPageUrl('book-page-table-of-contents.html'),
+        }, {
+            // in case the foreword is only 1 page, need a page across from it.
+            // this will serve as that potential page.
+            name: 'design-insert-circles',
+            url: vm.bookPageUrl('book-page-design-insert-circles.html'),
+            printOnly: true,
         }, {
             name: 'shapes-introduction',
             url: vm.bookPageUrl('book-page-shapes-introduction.html'),
