@@ -333,6 +333,12 @@ footer #license {
 	height: 0;
 	padding-bottom: 16%;
 }
+.twelfth {
+	display: inline-block;
+	width: 8%;
+	height: 0;
+	padding-bottom: 8%;
+}
 .two-thirds {
 	display: inline-block;
 	width: 66%;
