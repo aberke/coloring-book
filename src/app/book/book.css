@@ -89,7 +89,8 @@ Default left, right, top, bottom margin is set
 
 /*
 Create page numbers when in print mode that start at 1 on the
-first page where there is text-content
+first page where there is text-content - this is a title page.
+Odd pages should always be on the right side.  This is a publishing convention (and apparently important).
 */
 body.print {
     counter-reset: page;
@@ -107,7 +108,8 @@ body.print {
     margin-bottom: 0.4in;
 }
 
-.print .counted .book-page {
+.print .counted .book-page,
+.print .counted.book-page {
     counter-increment: page;
 }
 .print .book-page .page-number::after {
