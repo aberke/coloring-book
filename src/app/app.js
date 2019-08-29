@@ -13,6 +13,8 @@ const PRINT_PARAM = 'print';
 // Set a print mode accessible to other JS.
 let PRINT_MODE = false;
 
+const PRINT_FULL_BLEED_SIZE_PARAM = 'print-full-bleed-size';
+
 const GRAYSCALE_PARAM = 'grayscale';
 let GRAYSCALE = false;
 
@@ -115,6 +117,9 @@ angular.module('app', [
         if (!!$location.search()[DEBUG_PARAM]) {
             vm.debug = true;
             DEBUG = true;
+        }
+        if (!!$location.search()[PRINT_FULL_BLEED_SIZE_PARAM]) {
+            vm.printFullBleedSize = true; 
         }
         if (!!$location.search()[GRAYSCALE_PARAM]) {
             vm.grayscale = true;

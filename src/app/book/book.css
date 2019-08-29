@@ -2,6 +2,7 @@
 Styles for the book content.
 The Book is to be published/printed on 7" x 9" trim size.
 The book pages use this as their size.
+This size is modified to 7.25 x 9.25 for full bleed printing.
 */
 
 .book-page {
@@ -26,6 +27,17 @@ The book pages use this as their size.
 .print .book-page {
     width: 5.68in;
     height: 8.42in;
+}
+
+/*
+Full bleed printing:
+Same interior margins, with 0.125" added to padding on all sides.
+*/
+.print-full-bleed-size.debug .book-page,
+.print.print-full-bleed-size .book-page {
+    height: 8.42in;
+    width: 5.68in;
+    padding: 0.375in 0.785in;
 }
 
 .debug .book-page,
@@ -262,9 +274,18 @@ need to opposite even/odd styling scheme
     height: 9in;
     padding: 0;
 }
+.print-full-bleed-size .book-page.full-bleed {
+    width: 7.25in;
+    height: 9.25in;
+    padding: 0;
+}
+
 .book-page.full-bleed .text-content.challenges {
     padding-top: 0.5in;
     height: 1in;
+}
+.print-full-bleed-size .book-page.full-bleed .text-content.challenges {
+    padding-top: 0.625in;
 }
 
 @media (max-width: 6.9in) {
@@ -284,9 +305,16 @@ need to opposite even/odd styling scheme
     width: 7in;
     overflow: visible !important;
 }
+.print-full-bleed-size .book-page.full-bleed .wallpaper-pattern,
+.print-full-bleed-size .book-page .wallpaper-pattern.full-bleed {
+    width: 7.25in;
+}
 .book-page .wallpaper-pattern.full-bleed {
     position: relative;
     left: -0.66in;
+}
+.print-full-bleed-size .book-page .wallpaper-pattern.full-bleed {
+    left: -0.785in;
 }
 
 .book-page.full-bleed .wallpaper-pattern svg,

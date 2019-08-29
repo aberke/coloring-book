@@ -156,6 +156,15 @@ It can also be printed on standard 8.5x11 (aka "letter") paper
 - Save as PDF at `/book.pdf`
 
 
+##### Full Bleed Printing
+
+In print production for full bleed pages, the pages must be 9.25"x7.25" so that 0.125" can be cut off from each side.
+
+- Add URL parameter `?print-full-bleed-size`
+This resizes the pages, but keeps the interior margins the same.
+- Same process as above, but use (custom) page size with 7.25"x9.25" dimensions.
+
+
 ### Helpful URL parameters:
 
 - `?grayscale` to set the content to grayscale
