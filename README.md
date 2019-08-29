@@ -152,7 +152,6 @@ It can also be printed on standard 8.5x11 (aka "letter") paper
 - Make sure the illustrations look good (or click to recreate them)
 - File > Print (Open the browser’s print dialog)
 - "Open PDF in Preview"
-- There may be extra blank pages.  Sorry, CSS is hard.  Delete them.
 - Save as PDF at `/book.pdf`
 
 
