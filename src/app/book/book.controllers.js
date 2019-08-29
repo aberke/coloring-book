@@ -62,6 +62,7 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         }, {
             name: 'table-of-contents',
             url: vm.bookPageUrl('book-page-table-of-contents.html'),
+            appOnly: true,
         }, {
             // in case the foreword is only 1 page, need a page across from it.
             // this will serve as that potential page.
@@ -147,7 +148,8 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         {
             name: 'patterns-wallpaper-end',
             url: vm.bookPageUrl('book-page-patterns-wallpaper-end.html'),
-        }, {
+        },
+        {
             name: 'after-info',
             url: vm.bookPageUrl('book-page-after-info.html'),
         },

@@ -8,6 +8,11 @@
 	padding: 0;
 	text-align: unset;
 }
+.print-full-bleed-size #book-page-about.book-page {
+	width: 7.25in;
+	height: 9.25in;
+	padding: 0;
+}
 #book-page-about p,
 #book-page-about .text-content-graphic {
 	text-align: center;
@@ -157,6 +162,16 @@ height of content container: 4x4xfundamental domain height
 
 	            <p class="about-illustrations">The illustrations in this book are drawn by algorithms. The algorithms follow the symmetry rules for the illustrated groups. Many of these algorithms also add components of randomness so that each set of online illustrations is unique.</p>
 	        </div><wallpaper-pattern
+	        	ng-if="main.printFullBleedSize"
+	        	style="width: 136px;"
+	        	class="desktop-only"
+	            pattern-function=curves3
+	            group-name='p4g'
+	        	fundamental-domain-width=28
+	        	fundamental-domain-height=28
+	        	draw-options='{"fullBleed":true}'
+	        ></wallpaper-pattern><wallpaper-pattern
+	        	ng-if="!main.printFullBleedSize"
 	        	style="width: 112px;"
 	        	class="desktop-only"
 	            pattern-function=curves3
