@@ -69,7 +69,7 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
             // name: 'design-insert-circles',
             // url: vm.bookPageUrl('book-page-design-insert-circles.html'),
             // printOnly: true,
-        }, {
+        // }, {
             name: 'shapes-introduction',
             url: vm.bookPageUrl('book-page-shapes-introduction.html'),
         },{
