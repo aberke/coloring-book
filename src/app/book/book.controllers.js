@@ -66,9 +66,9 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         }, {
             // in case the foreword is only 1 page, need a page across from it.
             // this will serve as that potential page.
-            name: 'design-insert-circles',
-            url: vm.bookPageUrl('book-page-design-insert-circles.html'),
-            printOnly: true,
+            // name: 'design-insert-circles',
+            // url: vm.bookPageUrl('book-page-design-insert-circles.html'),
+            // printOnly: true,
         }, {
             name: 'shapes-introduction',
             url: vm.bookPageUrl('book-page-shapes-introduction.html'),
