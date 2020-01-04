@@ -136,10 +136,6 @@ Use the [/style-guide](http://www.beautifulsymmetry.onl/style-guide)
 
 ## Printable Copy
 
-Full PDF of book available at http://beautifulsymmetry.onl/book.pdf
-
-PDF/printable ready HTML book available at `/print-book`
-
 This book is designed for print with 7" x 9" trim size.
 It can also be printed on standard 8.5x11 (aka "letter") paper
 
