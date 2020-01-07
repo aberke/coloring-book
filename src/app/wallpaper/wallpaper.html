@@ -64,13 +64,14 @@
             </div>
 
             <p ng-show="main.debug" class="debug-redraw-button" ng-click="redraw()">redraw</p>
+            <h1 style="padding: 0; margin: 0 10 38 10;" ng-show="main.print">{{ wallpaperPage.selectedGroupName }}</h1>
             <wallpaper-pattern
                 ng-class='{debug: wallpaperPage.showDescriptions}'
                 pattern-function='{{ wallpaperPage.selectedDrawPathFunction.name }}'
                 draw-options='{"contain": true}'
                 group-name='{{ wallpaperPage.selectedGroupName }}'
-                fundamental-domain-width=70
-                fundamental-domain-height=70
+                fundamental-domain-width='56'
+                fundamental-domain-height='56'
                 redraw-fn="redraw"
             ></wallpaper-pattern>
 
