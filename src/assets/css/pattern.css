@@ -285,7 +285,10 @@ Pattern styling (vs just pattern page styling)
 
 .pattern-page .frieze-pattern path,
 .pattern-page .wallpaper-pattern path {
-	stroke-width: 2;
+	stroke-width: 1.5;
+}
+.pattern-page .wallpaper-pattern svg {
+	overflow: overlay !important;
 }
 
 .text-content .frieze-pattern path,
