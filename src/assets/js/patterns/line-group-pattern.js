@@ -45,6 +45,7 @@ class LineGroupPattern {
             throw new TypeError('Abstract class "LineGroupPattern" cannot be instantiated directly.'); 
         }
 
+        // Paper may be removed to redraw this pattern part way through it.
         this.paper = paper;
         
         this.fundamentalDomainPath = fundamentalDomainPath;
@@ -128,6 +129,8 @@ class LineGroupPattern {
     }
 
     maxTransformWidth(transformObject) {
+        if (!this.paper.width) return;  // check if redraw called from outside directive
+
         const objectWidth = transformObject.getBBox().width;
         const patternWidth = this.paper.getSize().width;
         // Allow the option to avoid drawing past the boundary of the containing div:
@@ -143,6 +146,8 @@ class LineGroupPattern {
     }
 
     maxTransformHeight(transformObject) {
+        if (!this.paper.width) return;  // check if redraw called from outside directive
+
         const paperHeight = this.paper.getSize().height;
             const objectHeight = transformObject.getBBox().height;
         // Need some buffer room in the containing bounds because these dimensions are not precise
@@ -258,10 +263,13 @@ class LineGroupPattern {
         if (this.disableAnimations)
             options.disableAnimations = true;
 
+        let paper = this.paper;
+
         // Iteratively get the last item, clone it, and tranform it
         let transformFdSet = this.paper.set().push(fdPathSet);
         let transformPdSet = this.paper.set().push(pdPathSet);
         let drawNext = function(i, transformFdSet, transformPdSet) {
+            if (!paper.width) return;  // check if called from outside directive
             if (terminateCheck(transformFdSet))
                 return terminateCallback(transformFdSet, transformPdSet);
 
