@@ -3,3 +3,7 @@
 poster styles 
 
 */
+
+.poster-page svg {
+	overflow: overlay !important;
+}
