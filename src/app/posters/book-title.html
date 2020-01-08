@@ -1,0 +1,190 @@
+
+<link rel="stylesheet" href="/app/posters/posters.css">
+<style>
+
+.poster-page .poster-container {
+	margin: auto;
+	padding: 35px;
+	width: 601px;
+	height: 490px;
+	border-bottom: 1px dashed black;
+}
+.poster-page .poster-container:nth-child(2) {
+	margin-top: 50px;
+}
+.poster-page .poster-container:last-child {
+	border: none;
+}
+
+#book-title .wallpaper-pattern {
+	height: 490px;
+	width: 605px;
+}
+#book-title .poster-container .title-container {
+	height: 120px;
+	width: 300px;
+	color: black;
+	margin: auto;
+	background-color: white;
+
+	position: relative;
+	top: -309;
+}
+#book-title .poster-container h1,
+#book-title .poster-container p {
+	text-align: center;
+	font-size: 1.15em;
+	font-weight: 300;
+	margin: 0;
+	font-family: sans-serif;
+	color: black;
+}
+#book-title .poster-container h1 {
+	padding: 10px;
+	padding-top: 25px;
+	border-bottom: 1px solid black;
+}
+#book-title .poster-container p {
+	padding: 15px;
+	font-size: 0.8em;
+}
+
+path.pattern-design {
+	fill-opacity: 1;
+}
+.blues path.pattern-design:nth-child(odd),
+.blues wallpaper-pattern path.pattern-design:nth-of-type(2) {
+	fill: powderblue;
+}
+.blues path.pattern-design:nth-child(even) {
+	fill: skyblue;
+}
+.blue-green path.pattern-design:nth-child(odd),
+.blue-green wallpaper-pattern path.pattern-design:nth-of-type(2) {
+	fill: darkslategray;
+}
+.blue-green path.pattern-design:nth-child(even) {
+	fill: lightseagreen;
+}
+.oranges path.pattern-design:nth-child(odd),
+.oranges wallpaper-pattern path.pattern-design:nth-of-type(2) {
+	fill: orangered;
+}
+.oranges path.pattern-design:nth-child(even) {
+	fill: coral;
+}
+
+.black path.pattern-design {
+	fill: black;
+}
+.maroon path.pattern-design {
+	fill: maroon;
+}
+
+/* note: blocks menu  */
+.poster-page .button-container {
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	height: 20px;
+	background-color: white;
+	width: 100%;
+	padding: 15px;
+	border-bottom: 1px dashed black;
+
+}
+.poster-page .button-container p {
+	font-style: italic;
+	cursor: pointer;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+</style>
+
+<div id="book-title" class="poster-page">
+	<div class='button-container'>
+		<p ng-click="redraw1();redraw2();redraw3();redraw4();redraw5();">click to restart animation</p>
+	</div>
+	
+	<div class="poster-container black">
+		<wallpaper-pattern
+			pattern-function=trianglesPath2
+			draw-options='{"contain": true}'
+			group-name='cmm'
+			fundamental-domain-width=30
+			fundamental-domain-height=30
+			redraw-fn='redraw1'
+		></wallpaper-pattern>
+		<div class='title-container'>
+
+			<h1 style="">BEAUTIFUL SYMMETRY</h1>
+			<p>A COLORING BOOK ABOUT MATH</p>
+		</div>
+	</div>
+	
+	<div class="poster-container blues">
+		<wallpaper-pattern
+			pattern-function=trianglesPath2
+			draw-options='{"contain": true}'
+			group-name='cmm'
+			fundamental-domain-width=30
+			fundamental-domain-height=30
+			redraw-fn='redraw2'
+		></wallpaper-pattern>
+		<div class='title-container'>
+
+			<h1 style="">BEAUTIFUL SYMMETRY</h1>
+			<p>A COLORING BOOK ABOUT MATH</p>
+		</div>
+	</div>
+	
+	<div class="poster-container blue-green">
+		<wallpaper-pattern
+			pattern-function=quarterEllipse
+			draw-options='{"contain": true}'
+			group-name='442'
+			fundamental-domain-width=30
+			fundamental-domain-height=30
+			redraw-fn='redraw3'
+		></wallpaper-pattern>
+		<div class='title-container'>
+
+			<h1 style="">BEAUTIFUL SYMMETRY</h1>
+			<p>A COLORING BOOK ABOUT MATH</p>
+		</div>
+	</div>
+	
+	<div class="poster-container oranges">
+		<wallpaper-pattern
+			pattern-function=quarterEllipse
+			draw-options='{"contain": true}'
+			group-name='4∗2'
+			fundamental-domain-width=30
+			fundamental-domain-height=30
+			redraw-fn='redraw4'
+		></wallpaper-pattern>
+		<div class='title-container'>
+
+			<h1 style="">BEAUTIFUL SYMMETRY</h1>
+			<p>A COLORING BOOK ABOUT MATH</p>
+		</div>
+	</div>
+	
+	<div class="poster-container maroon">
+		<wallpaper-pattern
+			pattern-function=curves2
+			draw-options='{"contain": true}'
+			group-name='pg'
+			fundamental-domain-width=30
+			fundamental-domain-height=30
+			redraw-fn='redraw5'
+		></wallpaper-pattern>
+		<div class='title-container'>
+
+			<h1 style="">BEAUTIFUL SYMMETRY</h1>
+			<p>A COLORING BOOK ABOUT MATH</p>
+		</div>
+	</div>
+</div>

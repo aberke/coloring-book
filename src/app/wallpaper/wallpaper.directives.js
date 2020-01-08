@@ -9,6 +9,7 @@ Use
     group-name={"p1" | "p11g" | ... one of the 17 wallpaper groups to draw; either orbifold or IUC notation can be used}
     fundamental-domain-width={number}
     fundamental-domain-height={number}
+    redraw-fn={function name}
     disable-animations=true|false // optional - if true animations and interactions are removed
 ></wallpaper-pattern>
 **/
@@ -101,7 +102,7 @@ function WallpaperPatternDirective($window, $location) {
         };
         
         scope.redrawFn = function() {
-            scope.paper.clear();
+            scope.paper.remove();
             scope.drawPattern();
         }
 
