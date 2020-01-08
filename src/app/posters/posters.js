@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app.posters', [])
-.controller('PostersCntl', function($anchorScroll, $routeParams) {
+.controller('PostersCntl', function($anchorScroll, $location) {
 	/*
 	For Frieze Pattern posters: redirects to frieze pattern page
 
@@ -42,7 +42,7 @@ angular.module('app.posters', [])
 	];
 
 	let friezePosterUrlBase = '/frieze?print';
-	let otherPostersUrlBase = '/posters/';
+	let otherPostersUrlBase = '/posters?poster-name=';
 
 	function setupFriezePosters() {
 		friezeGroupNames.forEach(function(fg) {
@@ -61,8 +61,8 @@ angular.module('app.posters', [])
 		setupOtherPosters();
 
 		// get the page from the url
-		let posterName = $routeParams.posterName;
-		if (!posterName || otherPosterNames.indexOf(posterName) < 0)
+		let posterName = $location.search()['poster-name'];
+		if (!posterName || otherPosterNames.indexOf(posterName) < 0) 
 			return;
 
 		vm.posterName = posterName;

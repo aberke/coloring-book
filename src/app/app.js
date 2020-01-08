@@ -83,11 +83,6 @@ angular.module('app', [
         .when('/wallpaper', {
             templateUrl: '/app/wallpaper/wallpaper.html',
         })
-
-        // posters routes
-        .when('/posters/:posterName', {
-            templateUrl: '/app/posters/posters-index.html',
-        })
         .when('/posters', {
             templateUrl: '/app/posters/posters-index.html',
         })

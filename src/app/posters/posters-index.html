@@ -24,10 +24,10 @@
 <div id="posters" class="view" ng-controller="PostersCntl as posters">
 
 	<!-- If poster page is selected, then include it -->
-	<ng-include ng-if="posters.posterPageSrc" src="posters.posterPageSrc"></ng-include>
+	<ng-include ng-show="posters.posterPageSrc" src="posters.posterPageSrc"></ng-include>
 
 	<!-- Otherwise show the list of pages -->
-	<div id="posters-index" ng-if="!posters.posterPageSrc">
+	<div id="posters-index" ng-show="!posters.posterPageSrc">
 		<h1>POSTERS</h1>
 
 		<ul>
