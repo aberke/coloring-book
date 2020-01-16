@@ -11,7 +11,7 @@
 	</div>
 
 <div id="solutions-sections">
-<span ng-if="vm.selectedSection === 'shapes'">
+<span ng-if="vm.selectedSection === 'shapes & symmetries'">
 
 <ng-include src="'/app/solutions/solutions-pages/solution-page-4.html'"></ng-include>
 <ng-include src="'/app/solutions/solutions-pages/solution-page-5.html'"></ng-include>
@@ -40,7 +40,7 @@
 </span>
 <!-- shapes -->
 
-<span ng-if="vm.selectedSection === 'frieze'">
+<span ng-if="vm.selectedSection === 'frieze groups'">
 <ng-include src="'/app/solutions/solutions-pages/solution-page-62.html'"></ng-include>
 <ng-include src="'/app/solutions/solutions-pages/solution-page-63.html'"></ng-include>
 <ng-include src="'/app/solutions/solutions-pages/solution-page-64.html'"></ng-include>
@@ -53,7 +53,7 @@
 </span>
 <!-- frieze -->
 
-<span ng-if="vm.selectedSection === 'wallpaper'">
+<span ng-if="vm.selectedSection === 'wallpaper groups'">
 <ng-include src="'/app/solutions/solutions-pages/solution-page-wallpaper-o.html'"></ng-include>
 <ng-include src="'/app/solutions/solutions-pages/solution-page-wallpaper-STARSTAR.html'"></ng-include>
 <ng-include src="'/app/solutions/solutions-pages/solution-page-wallpaper-xx.html'"></ng-include>
@@ -76,17 +76,20 @@
 
 </div>
 
-<p id="more-solutions">more solutions</p>
-<span ng-repeat="s in vm.sections">
-	<p class="solutions-link" ng-class="{'selected':s!==vm.selectedSection}"><a ng-click="vm.selectSection(s)">{{s}}</a></p>
-</span>
-
+<div class="solution-info">
+	<p class="more-solutions">more solutions</p>
+	<span ng-repeat="s in vm.sections">
+		<p class="solutions-link" ng-class="{'selected':s!==vm.selectedSection}"><a ng-click="vm.selectSection(s)">{{s}} section solutions</a></p>
+	</span>
+</div>
 
 
 
 <div class="solution-info">
 
-	<p style="font-style: italic;">If you would like to share your solutions, please send them to <a href="mailto:colorbymath@gmail.com?subject=Coloring%20Book%20Challenge%20Solution">colorbymath@gmail.com</a>. Optionally include your name, or social media username, or anything else that you would like to credit.</p>
+	<p class="more-solutions">share your solutions</p>
+	<p style="font-style: italic;">Social Media: Share on Instagram or Facebook and tag @BeautifulSymmetry.</p>
+	<p style="font-style: italic;">Email: Or send your solutions by email to <a href="mailto:contact@beautifulsymmetry.onl?subject=Coloring%20Book%20Challenge%20Solution">contact@beautifulsymmetry.onl</a>. Optionally include your name, or social media username, or anything else that you would like to credit.</p>
 </div>
 
 </section>
