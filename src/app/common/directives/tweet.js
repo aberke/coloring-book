@@ -15,7 +15,7 @@ function tweetDirective($timeout) {
                     element[0],
                     function(el) {}, {
                         count: "none",
-                        hashtags: "colorByMath",
+                        hashtags: "BeautifulSymmetry",
                         text: "Math is about more than just numbers. In this 'book' the language of math is visual, shown in shapes and patterns. This is a coloring book about group theory."
                     }
                 );

@@ -6,12 +6,12 @@ function SolutionsPageCntl($location, $anchorScroll) {
 	let vm = this;
 
 	vm.sections = [
-		"shapes",
-		"frieze",
-		"wallpaper"
+		"shapes & symmetries",
+		"frieze groups",
+		"wallpaper groups"
 	];
 
-	vm.selectedSection = $location.search().section || "shapes";
+	vm.selectedSection = $location.search().section || "shapes & symmetries";
 
 	vm.selectSection = function(section) {
 		vm.selectedSection = section;

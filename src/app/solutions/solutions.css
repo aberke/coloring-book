@@ -8,7 +8,6 @@ section#solutions-pages {
 }
 section#solutions-pages .solution-info {
     padding: 0.5in;
-    font-size: 10pt;
 }
 
 #solutions-pages h1 {
@@ -74,15 +73,12 @@ Desired: Better way to make this look good on mobile
 }
 
 /*more solutions*/
-#more-solutions,
-.solutions-link {
-    text-align: center;
-    font-size: 1.5em;
-}
-#more-solutions {
+
+.more-solutions {
     color: #3bcca6;
     font-weight: 600;
     text-transform: lowercase;
+    font-size: 1.5em;
 }
 .solutions-link {
     text-transform: uppercase;
