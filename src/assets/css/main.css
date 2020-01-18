@@ -211,23 +211,6 @@ Note: So far this seems to work best with Firefox -- Preview as PDF
 	display: none;
 }
 
-#get-updates-form-container {
-	text-align: center;
-	width: 90%;
-	margin: 20px auto;
-	padding-top: 30px;
-}
-#get-updates-form-container iframe, #get-updates-form-container p {
-	width: 90%;
-	max-width: 550px;
-	margin: auto;
-	text-align: center;
-	padding-top: 20px;
-}
-#get-updates-form-container iframe {
-	min-height: 1100px;
-}
-
 #go-online-partial {
 	margin: 25px auto;
 }
