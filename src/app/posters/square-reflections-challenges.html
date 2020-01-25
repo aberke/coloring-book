@@ -1,0 +1,76 @@
+
+<link rel="stylesheet" href="/app/posters/posters.css">
+<style>
+
+
+/*specific to drawings*/
+#square-reflections-challenges.poster-page .text-content-graphic .canvas .mirror-line {
+    stroke: black;
+    stroke-width: 2;
+}
+
+/*#square-reflections-challenges.poster-page canvas-centered-drawing {
+	fill: gray;
+}*/
+
+</style>
+
+<div id="square-reflections-challenges" class="poster-page">
+	
+	<div class="poster-container">
+		<p>This is a set of simple visual puzzles from <span style='font-style: italic; display: inline-block;'>Beautiful Symmetry: A Coloring Book About Math</span>.  You can figure it out in your head or get a boost by sketching it out on paper.</p>
+		<p>Here is a square with lines breaking it into equal segments:</p>
+		<div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+        <p>Squares have symmetries such as mirror symmetries, which these puzzles are about. We can reflect the square across any of the lines that break it ingo segments, such as this horizontal line:</p>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":[0,0,1,0], "margin":15}'
+	        ></canvas-centered-drawing>
+        </div>
+        <p>Or a vertical line:</p>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":1, "margin":15}'
+	        ></canvas-centered-drawing>
+        </div>
+        <p>Or diagonal lines:</p>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":[0,0,0,1], "margin":30}'
+	        ></canvas-centered-drawing>
+            <canvas-centered-drawing
+            	class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":[0,1,0,0], "margin":30}'
+	        ></canvas-centered-drawing>
+        </div>
+        <p>And each segment of the square lands on an identical segment and the square is visually unchanged.  For this reason, we'll call these lines "mirror lines" and they are symmetries of the square.</p>
+        <p>However, we can use color to take away these symmetries.  I can color the square with two colors <span style="display: inline-block;">(gray and white)</span> as</p>
+		<div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,1,0,1,1,0,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+
+	</div>
+</div>

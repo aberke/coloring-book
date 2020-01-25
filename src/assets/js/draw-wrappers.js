@@ -103,26 +103,30 @@ function drawInCanvasCenter(paper, drawFunction, functionOptions={}, options={})
 function setupInteractions(paper, pathSet, origin, size, drawFunction,
                            functionOptions, options) {
 
+    let interactionFn;
     // Optionally redraw or rotate on click/mouseup/tap.
     if (options.tapRedraw)
-        setTapRedraw(paper, pathSet, origin, size, drawFunction, functionOptions);
+        interactionFn = setTapRedraw(paper, pathSet, origin, size, drawFunction, functionOptions);
     else if (options.tapRotate)
-        setTapRotate(paper, pathSet, origin, options.tapRotate);
+        interactionFn = setTapRotate(paper, pathSet, origin, options.tapRotate);
     else if (options.tapReflect)
-        setTapReflect(paper, pathSet, origin, options.tapReflect);
+        interactionFn = setTapReflect(paper, pathSet, origin, options.tapReflect);
 
     // There are automatic animations that occur on interval.
     // Feedback about intuitiveness of interface was that anything that
     // animates should be controllable by the user.  So here anything that
     // has an auto animation can also have a tap controlled animation.
     if (options.autoReflect) {
-        setAutoReflect(pathSet, origin, options.autoReflect);
+        interactionFn = setAutoReflect(pathSet, origin, options.autoReflect);
         setTapReflect(paper, pathSet, origin, options.autoReflect);
     }
     if (options.autoRotateDegrees) {
-        setAutoRotate(pathSet, origin, options.autoRotateDegrees);
+        interactionFn = setAutoRotate(pathSet, origin, options.autoRotateDegrees);
         setTapRotate(paper, pathSet, origin, options.autoRotateDegrees);
     }
+
+    if (!!interactionFn && options.animateOnclick)
+        document.getElementById(options.animateOnclick).addEventListener("mouseup", interactionFn);
 }
 
 
@@ -171,16 +175,19 @@ function setMirror(pathSet, origin, mirror) {
 }
 
 function setTapRedraw(paper, pathSet, origin, size, drawFunction, functionOptions) {
-    paper.canvas.addEventListener("mouseup", function() {
+    let redrawFn = function() {
         paper.clear();
         drawFunction(paper, origin, size, functionOptions, true);
         analytics.trackRedraw(drawFunction.name);
-    });
+    };
+    paper.canvas.addEventListener("mouseup", redrawFn);
+    return redrawFn;
 }
 
 function setTapReflect(paper, pathSet, origin, mirror) {
     let reflectFn = util.getReflectFn(pathSet, origin, mirror, ANIMATION_LENGTH);
     paper.canvas.addEventListener("mouseup", reflectFn);
+    return reflectFn;
 }
 
 function setAutoReflect(pathSet, origin, mirror) {
@@ -188,6 +195,7 @@ function setAutoReflect(pathSet, origin, mirror) {
     if (!reflectFn)
         return;
     setIntervalWrapper(reflectFn);
+    return reflectFn;
 }
 
 function setInitialRotation(pathSet, origin, rotateDegrees) {
@@ -201,6 +209,7 @@ function setTapRotate(paper, pathSet, origin, rotateDegrees) {
     if (!rotateFn)
         return;
     paper.canvas.addEventListener("mouseup", rotateFn);
+    return rotateFn;
 }
 
 function setAutoRotate(pathSet, origin, rotateDegrees) {
@@ -208,6 +217,7 @@ function setAutoRotate(pathSet, origin, rotateDegrees) {
     if (!rotateFn)
         return;
     setIntervalWrapper(rotateFn);
+    return rotateFn;
 }
 
 

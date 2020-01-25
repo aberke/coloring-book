@@ -2,18 +2,9 @@
 <link rel="stylesheet" href="/app/posters/posters.css">
 <style>
 
-.poster-page .poster-container {
-	margin: auto;
-	padding: 35px;
+#book-title .poster-container {
 	width: 601px;
 	height: 490px;
-	border-bottom: 1px dashed black;
-}
-.poster-page .poster-container:nth-child(2) {
-	margin-top: 50px;
-}
-.poster-page .poster-container:last-child {
-	border: none;
 }
 
 #book-title .wallpaper-pattern {
@@ -83,30 +74,10 @@ path.pattern-design {
 	fill: maroon;
 }
 
-/* note: blocks menu  */
-.poster-page .button-container {
-	position: fixed;
-	z-index: 10;
-	top: 0;
-	height: 20px;
-	background-color: white;
-	width: 100%;
-	padding: 15px;
-	border-bottom: 1px dashed black;
-
-}
-.poster-page .button-container p {
-	font-style: italic;
-	cursor: pointer;
-	text-align: center;
-	padding: 0;
-	margin: 0;
-}
-
 </style>
 
 <div id="book-title" class="poster-page">
-	<div class='button-container'>
+	<div class='single-restart-button-container'>
 		<p ng-click="redraw1();redraw2();redraw3();redraw4();redraw5();">click to restart animation</p>
 	</div>
 	
