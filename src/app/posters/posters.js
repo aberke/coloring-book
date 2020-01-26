@@ -32,13 +32,12 @@ angular.module('app.posters', [])
 		'p2mm'
 	];
 	let otherPosterNames = [
+		'book-title',
+		'book-parts-titles',
+		'square-reflections-challenges',
 		'you-may-know',
-		'triangles',
-		'cn-2-5',
-		'cn-6-9',
 		'wallpaper-repeated',
 		'radial-ideas',
-		'book-title',
 	];
 
 	let friezePosterUrlBase = '/frieze?print';

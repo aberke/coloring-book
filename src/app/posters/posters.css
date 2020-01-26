@@ -7,3 +7,37 @@ poster styles
 .poster-page svg {
 	overflow: overlay !important;
 }
+
+.poster-page {
+	margin-top: 50px;
+}
+
+/* note: blocks menu  */
+.poster-page .single-restart-button-container {
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	height: 20px;
+	background-color: white;
+	width: 100%;
+	padding: 15px;
+	border-bottom: 1px dashed black;
+
+}
+.poster-page .single-restart-button-container p {
+	font-style: italic;
+	cursor: pointer;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+.poster-page .poster-container {
+	margin: auto;
+	padding: 35px;
+	border-bottom: 1px dashed black;
+}
+
+.poster-page .poster-container:last-child {
+	border: none;
+}

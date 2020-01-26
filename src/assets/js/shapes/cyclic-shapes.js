@@ -89,8 +89,10 @@ class CyclicShape {
 	// eg, options.coloring = [0,0,1,1,2,2] will use fills from the list styling.getColoringFillArray()
 	// by default shapes are not filled with color
 	colorPathSection(path, n) {
-		if (this.coloring && this.coloring.length > n && this.coloring[n] < styling.getColoringFillArray().length)
+		if (this.coloring && this.coloring.length > n && this.coloring[n] < styling.getColoringFillArray().length) {
 			path.attr("fill", styling.getColoringFillArray()[this.coloring[n]]);
+			path.attr("class", "filled");
+		}
 	}
 
 
