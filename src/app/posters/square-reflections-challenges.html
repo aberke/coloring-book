@@ -1,0 +1,492 @@
+
+<link rel="stylesheet" href="/app/posters/posters.css">
+<style>
+
+#square-reflections-challenges.poster-page h2,
+#square-reflections-challenges.poster-page h3 {
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
+/*specific to drawings*/
+#square-reflections-challenges.poster-page .text-content-graphic .canvas .mirror-line {
+    stroke: black;
+    stroke-width: 2;
+}
+
+
+</style>
+
+<div id="square-reflections-challenges" class="poster-page">
+	
+	<div class="poster-container">
+		<p>This is a set of simple visual puzzles from <a href="https://mitpress.mit.edu/books/beautiful-symmetry" target="_blank" style='font-style: italic; display: inline-block;'>Beautiful Symmetry: A Coloring Book About Math</a>.  You can work them out in your head or get a boost by sketching them out on paper.</p>
+		<p>Here is a square with lines breaking it into equal segments:</p>
+		<div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+        <p>Squares have symmetries such as mirror reflections, which these puzzles are about. We can reflect the square across any of the lines that break it ingo segments, such as this horizontal line:</p>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":[0,0,1,0], "margin":15}'
+	        ></canvas-centered-drawing>
+        </div>
+        <p>Or the vertical line or diagonal lines,</p>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":1, "margin":30}'
+	        ></canvas-centered-drawing>
+            <canvas-centered-drawing
+            	class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":[0,0,0,1], "margin":30}'
+	        ></canvas-centered-drawing>
+            <canvas-centered-drawing
+            	class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":[0,1,0,0], "margin":30}'
+	        ></canvas-centered-drawing>
+        </div>
+        <p>And each segment of the square lands on an identical segment and the square is visually unchanged.  For this reason, we'll call these lines "mirror lines".</p>
+        <p>However, we can use color to take away these mirrors.  I can color the square with two colors <span style="display: inline-block;">(green and white)</span> as</p>
+		<div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,1,0,1,1,0,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+        <p>So now the only mirror line is the vertical mirror line.  See, I can reflect the square across the vertical mirror and it will remain unchanged.  Each segment lands on an identical segment with the same color.</p>
+
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":1, "margin":30}'
+	        ></canvas-centered-drawing>
+            <p class="text">:</p>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,1,0,1,1,0,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <p class="text"><span class="operator">&rarr;</span></p>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,1,0,1,1,0,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+
+        <p>But if I reflect it across the horizontal line or a diagonal line then the square is visually changed because the colored segments do not land on identically colored segments.</p>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":[0,0,1,0], "margin":30}'
+	        ></canvas-centered-drawing>
+            <p class="text">:</p>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,1,0,1,1,0,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <p class="text"><span class="operator">&rarr;</span></p>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [1,1,0,1,0,0,1,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":[0,0,0,1], "margin":30}'
+	        ></canvas-centered-drawing>
+            <p class="text">:</p>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,1,0,1,1,0,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <p class="text"><span class="operator">&rarr;</span></p>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [1,0,1,1,0,1,0,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+
+        <p>There are other ways to color the square for the same effect, such as:</p>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,0,1,1,0,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+        <p>Again, the only mirror line of the square is the vertical mirror line.</p>
+        
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":1, "margin":30}'
+	        ></canvas-centered-drawing>
+            <p class="text">:</p>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,0,1,1,0,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <p class="text"><span class="operator">&rarr;</span></p>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,0,1,1,0,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":[0,0,1,0], "margin":30}'
+	        ></canvas-centered-drawing>
+            <p class="text">:</p>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,0,1,1,0,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <p class="text"><span class="operator">&rarr;</span></p>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [1,1,0,0,0,0,0,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":[0,0,0,1], "margin":30}'
+	        ></canvas-centered-drawing>
+            <p class="text">:</p>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,0,1,1,0,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <p class="text"><span class="operator">&rarr;</span></p>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,1,1,0,0,0,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+
+        <br/>
+
+        <h2>Puzzle 1</h2>
+
+        <p>How many different ways can you color the square with two colors so that the only mirror line is the horizontal mirror line?</p>
+
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":[0,0,1,0], "margin":30}'
+	        ></canvas-centered-drawing>
+        </div>
+        <p>Here is one way:</p>
+
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,0,0,0,1,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+        <p>Now find <span style="font-style: italic;">all</span> of the ways and count them.*</p>
+
+        <p>Careful: This way cannot count because there is also a vertical mirror line:</p>
+
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,1,1,0,0,1,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+
+        <p>*Note: When counting the ways to color, do not count again when the colors are simply swapped. i.e. These two colorings must be counted only once:</p>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,0,0,0,1,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [1,1,1,1,1,1,0,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+        <br/>
+        <br/>
+
+        <h2>Puzzle 2</h2>
+
+        <p>How many ways can you color the square with two colors so that the only mirror line is this diagonal mirror?</p>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{"mirrorLines":[0,1,0,0], "margin":30}'
+	        ></canvas-centered-drawing>
+        </div> 
+        <p>Here is one way:</p>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,0,1,1,1,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+        <p>Now find and count the others.</p>
+        <br/>
+        <br/>
+
+        <h2>Puzzle 3</h2>
+        <p>How many ways can you color the square with two colors so that it has both horizontal and vertical mirror lines, but no diagonal mirror lines?</p>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": []}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+        <br/>
+        <br/>
+
+        <h2>Puzzle 4</h2>
+        <p>How many ways can you color the square so that it has a diagonal mirror line and a horizontal mirror line, but not a vertical mirror line?</p>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": []}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+
+        <br/>
+        <br/>
+
+        <hr/>
+        <p>If you enjoyed these puzzles, then you'll likely enjoy <a href="https://mitpress.mit.edu/books/beautiful-symmetry" target="_blank" style='font-style: italic; display: inline-block;'>Beautiful Symmetry: A Coloring Book About Math</a>, authored by Alex Berke, with a forward by Alex Bellos.  In this "book" there are coloring challenges with shapes</p>
+
+        <div class="text-content-graphic line">
+            <div class='canvas black clickable'
+                canvas-centered-drawing
+                draw-function='drawSierpinskiTriangle'
+                function-options='{"level": 2, "orientation": 1}'
+                options='{"tapRedraw": true, "stroke-width":1}'
+            ></div>
+            <circular-pattern style="stroke-width: 1;"
+                class="black" 
+                with-redraw
+                rotations=8
+                slices-count=1
+                levels=1
+                margin=10
+                inscribed="square"
+            ></circular-pattern>
+
+            <div class='canvas black'
+                canvas-centered-drawing
+                draw-function='drawRegularPolygon'
+                function-options='{"N":6, "withMirrorSections":true, "coloring":[1,0,0,0,1,0,0,0,1,0,0,0], "concave":true}'
+                options='{"autoRotateDegrees": 120, "stroke-width":1}'
+            ></div>
+
+            <circular-pattern style="stroke-width: 1;"
+                class="canvas black"
+                rings="[0.8]" 
+                with-redraw
+                rotations=7
+                slices-count=1
+                levels=1
+                margin=5
+            ></circular-pattern>
+        </div>
+
+        <p>as well as infinitely repeating patterns.</p>
+        <frieze-pattern
+            pattern-function='trianglePath'
+            group-name='22∞'
+            fundamental-domain-width=30
+            fundamental-domain-height=30
+            draw-options='{"contain":true}'
+        ></frieze-pattern>
+        <frieze-pattern
+            pattern-function=curves2
+            group-name='22∞'
+            fundamental-domain-width=30
+            fundamental-domain-height=30
+            draw-options='{"contain":true}'
+        ></frieze-pattern>
+
+        <p>It is also a gentle introduction to the mathematics of symmetry.</p>
+
+        <p>The book is published by the MIT Press and is available in print via all major booksellers: <a target="_blank" href="https://mitpress.mit.edu/books/beautiful-symmetry">https://mitpress.mit.edu/books/beautiful-symmetry</a>.  There is also a (free) online version of the book that brings the symmetries of its illustrations to life with interactive animations: <a href="http://www.beautifulsymmetry.onl">http://beautifulsymmetry.onl</a>.</p>
+
+        <br/>
+        <br/>
+	</div>
+
+	<div class="poster-container">
+		<h2>Solutions</h2>
+		<p style="font-style: italic;">spoiler alert! spoiler alert! spoiler alert!</p>
+        <br/>
+        <br/>
+
+		<p><span style="font-weight: 400;" class="puzzle-answer">Puzzle 1:</span> 6 ways</p>
+		<div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [1,0,0,0,0,1,0,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [1,0,0,0,0,1,1,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,0,0,1,0,0,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [1,1,0,0,1,1,1,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,0,0,0,1,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,0,0,1,0,1,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+        <br/>
+        <br/>
+
+		<p><span style="font-weight: 400;" class="puzzle-answer">Puzzle 2:</span> 5 ways</p>
+		<div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,0,1,1,1,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,0,0,1,1,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,0,1,0,0,1]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [1,0,0,1,0,0,0,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,1,1,0,0,0,0,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+        <br/>
+        <br/>
+
+		<p><span style="font-weight: 400;" class="puzzle-answer">Puzzle 3:</span> 1 way</p>
+		<div class="text-content-graphic line">
+            <canvas-centered-drawing
+            	class='canvas small'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true, "coloring": [1,1,0,0,1,1,0,0]}'
+                options='{}'
+	        ></canvas-centered-drawing>
+        </div>
+        <br/>
+        <br/>
+
+		<p><span style="font-weight: 400;" class="puzzle-answer">Puzzle 4:</span> 0 ways</p>
+		<p>Combining a diagonal mirror reflection with a horizontal mirror reflection leads to a vertical mirror reflection.</p>
+        <br/>
+        <br/>
+
+	</div>
+</div>

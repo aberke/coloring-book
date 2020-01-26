@@ -56,8 +56,8 @@ angular.module('app.posters', [])
 
 
 	vm.init = function() {
-		setupFriezePosters();
 		setupOtherPosters();
+		setupFriezePosters();
 
 		// get the page from the url
 		let posterName = $location.search()['poster-name'];
