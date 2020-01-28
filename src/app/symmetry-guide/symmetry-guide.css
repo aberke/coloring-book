@@ -1,5 +1,7 @@
 
-#symmetry-guide-page {
+#symmetry-guide-page,
+.print #symmetry-guide-page,
+.print #symmetry-guide-page .text-content-graphic {
 	text-align: center;
 }
 .print #symmetry-guide-page {
@@ -16,13 +18,13 @@
 .print #symmetry-guide-page .book-section-title {
 	margin-top: 0;
 	padding: 10px 30px;
-	border-bottom: 5px double purple;
 }
 #symmetry-guide-page .book-section-title h2 {
 	font-weight: 400;
 	margin-bottom: 10;
 	margin-top: 10;
 	font-size: 1.2em; /* small enough for one line on a phone */
+	text-align: center;
 }
 #symmetry-guide-page .book-section-title h3,
 #symmetry-guide-page .book-section-title h4 {
