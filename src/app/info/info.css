@@ -142,8 +142,7 @@
 	font-size: 1.5em;
 }
 .info-view .event {
-	margin: auto;
-	margin-bottom: 25px;
+	margin: 25px auto;
 	padding-bottom: 20px;
 	border-bottom: 1px dashed gray;
 }

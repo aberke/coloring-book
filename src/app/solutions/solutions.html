@@ -1,13 +1,21 @@
 
 <section id="solutions-pages" ng-controller="SolutionsPageCntl as vm">
-	<div class="solution-info">
+	<div style="padding-bottom: 0;" class="solution-info">
 
 		<h1>challenge solutions</h1>
 
 		<p>Throughout this book, there are challenges to puzzle over and color through.  Many of these challenges can be successfully completed in numerous ways.</p>
 
 		<p>A sample of solutions is provided.</p>
-		<br/>
+	</div>
+	<div class="solution-info">
+		<p class="more-solutions">this is the page for</p>
+		<p class="solutions-link"><a ng-click="vm.selectSection(vm.selectedSection)">{{vm.selectedSection}} section solutions</a></p>
+
+		<p class="more-solutions">also see</p>
+		<span ng-repeat="s in vm.sections">
+			<p class="solutions-link" ng-show="s!==vm.selectedSection" ng-class="{'selected':s!==vm.selectedSection}"><a ng-click="vm.selectSection(s)">{{s}} section solutions</a></p>
+		</span>
 	</div>
 
 <div id="solutions-sections">
