@@ -7,7 +7,7 @@ section#solutions-pages {
     margin: auto;
 }
 section#solutions-pages .solution-info {
-    padding: 0.5in;
+    padding: 0.25in 0.5in;
 }
 
 #solutions-pages h1 {
@@ -72,13 +72,17 @@ Desired: Better way to make this look good on mobile
     }
 }
 
+#solutions-sections {
+    margin: 20px auto;
+}
+
 /*more solutions*/
 
 .more-solutions {
     color: #3bcca6;
     font-weight: 600;
     text-transform: lowercase;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 .solutions-link {
     text-transform: uppercase;
