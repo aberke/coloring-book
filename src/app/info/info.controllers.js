@@ -8,7 +8,7 @@ The InfoCntl handles jumping to the right section
 function InfoCntl($anchorScroll, $location, $timeout) {
     // view model is this InfoCntl
     let vm = this;
-    const timeout = 3500;
+    const timeout = 3000;
 
     // scroll to the section indicated by the hash
     vm.setupPage = function() {
