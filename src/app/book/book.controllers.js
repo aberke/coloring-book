@@ -176,7 +176,7 @@ function BookCntl($scope, $rootScope, $window, $location, $anchorScroll) {
         vm.showNextPageBtn = (vm.pageNumber < (vm.pageSets.length - 1)) ? true : false;    
 
         // scroll to the top of the new book-page that is shown
-        $anchorScroll();   
+        $anchorScroll();
     };
 
 
