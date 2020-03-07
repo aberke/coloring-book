@@ -13,6 +13,7 @@ angular.module('app.posters', [])
 			- add {name} to the vm.otherPosterNames list
 	**/
 	let vm = this;
+	vm.showVersion = 0; // Some posters hide/show based on parameter 's'
 
 
 	vm.posterPageSrcBase = '/app/posters';
@@ -54,18 +55,24 @@ angular.module('app.posters', [])
 		});
 	}
 
+	function getShowVersion() {
+		return $location.search()['s'] || 0;
+	}
+
 
 	vm.init = function() {
 		setupOtherPosters();
 		setupFriezePosters();
 
 		// get the page from the url
-		let posterName = $location.search()['poster-name'];
+		let posterName = $location.search()['poster-name'] || $location.search()['p'];
 		if (!posterName || otherPosterNames.indexOf(posterName) < 0) 
 			return;
 
 		vm.posterName = posterName;
 		vm.posterPageSrc = vm.getPosterPageSrc(posterName);
+
+		vm.showVersion = getShowVersion();
 
 		// scroll to the top
 		$anchorScroll();	

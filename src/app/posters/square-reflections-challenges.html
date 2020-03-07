@@ -34,20 +34,23 @@
     stroke-width: 2;
 }
 
+@media print {
+    .poster-container {page-break-after: always;}
+}
 
 </style>
 
 <div id="square-reflections-challenges" class="poster-page">
     
-    <div class="poster-container">
+    <div ng-if="posters.showVersion==0" class="poster-container">
 
         <div class="poster-hero-img">
 
-            <div class="text-content-graphic line">
+            <div class="text-content-graphic line colored">
                 <div class="canvas" draw-function="drawRegularPolygon" function-options="{&quot;N&quot;: 4, &quot;withMirrorSections&quot;: true}" options="{&quot;mirrorLines&quot;:4, &quot;margin&quot;:0}" style="height: 70px; padding: 0px;"><svg height="70" version="1.1" width="70" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.3.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#000000" d="M35,35L35,70M35,35L35.00000000000001,0M35,35L59.748737341529164,59.748737341529164M35,35L10.25126265847084,10.251262658470832M35,35L70,35M35,35L0,34.99999999999999M35,35L59.748737341529164,10.25126265847084M35,35L10.251262658470832,59.74873734152916" stroke-width="1.3" class="mirror-line" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,59.748737341529164L35,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L35,59.748737341529164L59.748737341529164,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,59.748737341529164L59.748737341529164,35" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;/* fill: white; */"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,35L59.748737341529164,10.25126265847084" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,10.25126265847084L35,10.251262658470836" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L35,10.251262658470836L10.25126265847084,10.251262658470832" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,10.251262658470832L10.251262658470836,34.99999999999999" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;/* fill: white; */"></path><path fill="none" stroke="#000000" d="M35,35L10.251262658470836,34.99999999999999L10.251262658470832,59.74873734152916" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path></svg></div><div class="canvas" draw-function="drawRegularPolygon" function-options="{&quot;N&quot;: 4, &quot;withMirrorSections&quot;: true}" options="{&quot;mirrorLines&quot;:4, &quot;margin&quot;:0}" style="height: 70px; padding: 0px;"><svg height="70" version="1.1" width="70" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.3.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#000000" d="M35,35L35,70M35,35L35.00000000000001,0M35,35L59.748737341529164,59.748737341529164M35,35L10.25126265847084,10.251262658470832M35,35L70,35M35,35L0,34.99999999999999M35,35L59.748737341529164,10.25126265847084M35,35L10.251262658470832,59.74873734152916" stroke-width="1.3" class="mirror-line" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,59.748737341529164L35,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L35,59.748737341529164L59.748737341529164,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,59.748737341529164L59.748737341529164,35" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,35L59.748737341529164,10.25126265847084" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,10.25126265847084L35,10.251262658470836" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L35,10.251262658470836L10.25126265847084,10.251262658470832" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,10.251262658470832L10.251262658470836,34.99999999999999" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L10.251262658470836,34.99999999999999L10.251262658470832,59.74873734152916" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path></svg></div><div class="canvas" draw-function="drawRegularPolygon" function-options="{&quot;N&quot;: 4, &quot;withMirrorSections&quot;: true}" options="{&quot;mirrorLines&quot;:4, &quot;margin&quot;:0}" style="height: 70px; padding: 0px;"><svg height="70" version="1.1" width="70" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.3.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#000000" d="M35,35L35,70M35,35L35.00000000000001,0M35,35L59.748737341529164,59.748737341529164M35,35L10.25126265847084,10.251262658470832M35,35L70,35M35,35L0,34.99999999999999M35,35L59.748737341529164,10.25126265847084M35,35L10.251262658470832,59.74873734152916" stroke-width="1.3" class="mirror-line" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,59.748737341529164L35,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L35,59.748737341529164L59.748737341529164,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,59.748737341529164L59.748737341529164,35" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;/* fill: white; */"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,35L59.748737341529164,10.25126265847084" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,10.25126265847084L35,10.251262658470836" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L35,10.251262658470836L10.25126265847084,10.251262658470832" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,10.251262658470832L10.251262658470836,34.99999999999999" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;/* fill: white; */"></path><path fill="none" stroke="#000000" d="M35,35L10.251262658470836,34.99999999999999L10.251262658470832,59.74873734152916" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path></svg></div>
-            </div><div class="text-content-graphic line">
+            </div><div class="text-content-graphic line colored">
                 <div class="canvas" draw-function="drawRegularPolygon" function-options="{&quot;N&quot;: 4, &quot;withMirrorSections&quot;: true}" options="{&quot;mirrorLines&quot;:4, &quot;margin&quot;:0}" style="height: 70px; padding: 0px;"><svg height="70" version="1.1" width="70" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.3.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#000000" d="M35,35L35,70M35,35L35.00000000000001,0M35,35L59.748737341529164,59.748737341529164M35,35L10.25126265847084,10.251262658470832M35,35L70,35M35,35L0,34.99999999999999M35,35L59.748737341529164,10.25126265847084M35,35L10.251262658470832,59.74873734152916" stroke-width="1.3" class="mirror-line" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,59.748737341529164L35,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L35,59.748737341529164L59.748737341529164,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,59.748737341529164L59.748737341529164,35" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,35L59.748737341529164,10.25126265847084" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,10.25126265847084L35,10.251262658470836" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L35,10.251262658470836L10.25126265847084,10.251262658470832" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,10.251262658470832L10.251262658470836,34.99999999999999" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L10.251262658470836,34.99999999999999L10.251262658470832,59.74873734152916" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path></svg></div><div class="canvas" draw-function="drawRegularPolygon" function-options="{&quot;N&quot;: 4, &quot;withMirrorSections&quot;: true}" options="{&quot;mirrorLines&quot;:4, &quot;margin&quot;:0}" style="height: 70px; padding: 0px;"><svg height="70" version="1.1" width="70" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.3.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#000000" d="M35,35L35,70M35,35L35.00000000000001,0M35,35L59.748737341529164,59.748737341529164M35,35L10.25126265847084,10.251262658470832M35,35L70,35M35,35L0,34.99999999999999M35,35L59.748737341529164,10.25126265847084M35,35L10.251262658470832,59.74873734152916" stroke-width="1.3" class="mirror-line" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,59.748737341529164L35,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L35,59.748737341529164L59.748737341529164,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,59.748737341529164L59.748737341529164,35" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,35L59.748737341529164,10.25126265847084" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,10.25126265847084L35,10.251262658470836" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L35,10.251262658470836L10.25126265847084,10.251262658470832" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,10.251262658470832L10.251262658470836,34.99999999999999" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L10.251262658470836,34.99999999999999L10.251262658470832,59.74873734152916" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path></svg></div><div class="canvas" draw-function="drawRegularPolygon" function-options="{&quot;N&quot;: 4, &quot;withMirrorSections&quot;: true}" options="{&quot;mirrorLines&quot;:4, &quot;margin&quot;:0}" style="height: 70px; padding: 0px;"><svg height="70" version="1.1" width="70" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.3.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#000000" d="M35,35L35,70M35,35L35.00000000000001,0M35,35L59.748737341529164,59.748737341529164M35,35L10.25126265847084,10.251262658470832M35,35L70,35M35,35L0,34.99999999999999M35,35L59.748737341529164,10.25126265847084M35,35L10.251262658470832,59.74873734152916" stroke-width="1.3" class="mirror-line" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,59.748737341529164L35,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L35,59.748737341529164L59.748737341529164,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,59.748737341529164L59.748737341529164,35" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,35L59.748737341529164,10.25126265847084" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,10.25126265847084L35,10.251262658470836" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L35,10.251262658470836L10.25126265847084,10.251262658470832" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,10.251262658470832L10.251262658470836,34.99999999999999" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L10.251262658470836,34.99999999999999L10.251262658470832,59.74873734152916" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path></svg></div>
-            </div><div class="text-content-graphic line">
+            </div><div class="text-content-graphic line colored">
                 <div class="canvas" draw-function="drawRegularPolygon" function-options="{&quot;N&quot;: 4, &quot;withMirrorSections&quot;: true}" options="{&quot;mirrorLines&quot;:4, &quot;margin&quot;:0}" style="height: 70px; padding: 0px;"><svg height="70" version="1.1" width="70" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.3.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#000000" d="M35,35L35,70M35,35L35.00000000000001,0M35,35L59.748737341529164,59.748737341529164M35,35L10.25126265847084,10.251262658470832M35,35L70,35M35,35L0,34.99999999999999M35,35L59.748737341529164,10.25126265847084M35,35L10.251262658470832,59.74873734152916" stroke-width="1.3" class="mirror-line" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,59.748737341529164L35,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L35,59.748737341529164L59.748737341529164,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,59.748737341529164L59.748737341529164,35" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;/* fill: white; */"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,35L59.748737341529164,10.25126265847084" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,10.25126265847084L35,10.251262658470836" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L35,10.251262658470836L10.25126265847084,10.251262658470832" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,10.251262658470832L10.251262658470836,34.99999999999999" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;/* fill: white; */"></path><path fill="none" stroke="#000000" d="M35,35L10.251262658470836,34.99999999999999L10.251262658470832,59.74873734152916" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path></svg></div><div class="canvas" draw-function="drawRegularPolygon" function-options="{&quot;N&quot;: 4, &quot;withMirrorSections&quot;: true}" options="{&quot;mirrorLines&quot;:4, &quot;margin&quot;:0}" style="height: 70px; padding: 0px;"><svg height="70" version="1.1" width="70" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.3.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#000000" d="M35,35L35,70M35,35L35.00000000000001,0M35,35L59.748737341529164,59.748737341529164M35,35L10.25126265847084,10.251262658470832M35,35L70,35M35,35L0,34.99999999999999M35,35L59.748737341529164,10.25126265847084M35,35L10.251262658470832,59.74873734152916" stroke-width="1.3" class="mirror-line" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,59.748737341529164L35,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L35,59.748737341529164L59.748737341529164,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,59.748737341529164L59.748737341529164,35" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,35L59.748737341529164,10.25126265847084" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,10.25126265847084L35,10.251262658470836" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L35,10.251262658470836L10.25126265847084,10.251262658470832" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,10.251262658470832L10.251262658470836,34.99999999999999" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L10.251262658470836,34.99999999999999L10.251262658470832,59.74873734152916" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path></svg></div><div class="canvas" draw-function="drawRegularPolygon" function-options="{&quot;N&quot;: 4, &quot;withMirrorSections&quot;: true}" options="{&quot;mirrorLines&quot;:4, &quot;margin&quot;:0}" style="height: 70px; padding: 0px;"><svg height="70" version="1.1" width="70" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.3.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#000000" d="M35,35L35,70M35,35L35.00000000000001,0M35,35L59.748737341529164,59.748737341529164M35,35L10.25126265847084,10.251262658470832M35,35L70,35M35,35L0,34.99999999999999M35,35L59.748737341529164,10.25126265847084M35,35L10.251262658470832,59.74873734152916" stroke-width="1.3" class="mirror-line" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,59.748737341529164L35,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L35,59.748737341529164L59.748737341529164,59.748737341529164" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,59.748737341529164L59.748737341529164,35" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;/* fill: white; */"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,35L59.748737341529164,10.25126265847084" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L59.748737341529164,10.25126265847084L35,10.251262658470836" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-linecap: square;"></path><path fill="none" stroke="#000000" d="M35,35L35,10.251262658470836L10.25126265847084,10.251262658470832" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path><path fill="none" stroke="#000000" d="M35,35L10.25126265847084,10.251262658470832L10.251262658470836,34.99999999999999" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;/* fill: white; */"></path><path fill="none" stroke="#000000" d="M35,35L10.251262658470836,34.99999999999999L10.251262658470832,59.74873734152916" class="filled" stroke-width="1.3" stroke-linecap="square" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);stroke-linecap: square;fill: white;"></path></svg></div>
             </div>
 
@@ -57,7 +60,7 @@
             <br/>
 
 
-            <div class="text-content-graphic line">
+            <div class="text-content-graphic line colored">
                 <canvas-centered-drawing
                     class='canvas'
                     draw-function='drawRegularPolygon'
@@ -74,7 +77,7 @@
                     function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,0,0,0,0,0]}'
                     options='{"mirrorLines":4, "margin":0}'
                 ></canvas-centered-drawing>
-            </div><div class="text-content-graphic line">
+            </div><div class="text-content-graphic line colored">
                 <canvas-centered-drawing
                     class='canvas'
                     draw-function='drawRegularPolygon'
@@ -91,7 +94,7 @@
                     function-options='{"N": 4, "withMirrorSections": true, "coloring": [0,0,0,0,0,0,0,0]}'
                     options='{"mirrorLines":4, "margin":0}'
                 ></canvas-centered-drawing>
-            </div><div class="text-content-graphic line">
+            </div><div class="text-content-graphic line colored">
                 <canvas-centered-drawing
                     class='canvas'
                     draw-function='drawRegularPolygon'
@@ -214,6 +217,7 @@
             ></canvas-centered-drawing>
         </div> 
         -->
+
 
         <p>And each segment of the square lands on an identical segment and the square is visually unchanged.  For this reason, we'll call these lines "mirror lines".</p>
         <p>However, we can use color to take away these mirrors.  I can color the square with two colors <span style="display: inline-block;">(green and white)</span> as</p>
@@ -480,7 +484,217 @@
         <br/>
         <br/>
 
-        <hr/>
+        <!-- <hr/> -->
+    </div>
+
+
+    <div class="poster-container">
+        <h2>Squares &amp; Reflections</h2>
+        <p style="font-style: italic;">print these out for your puzzling and coloring needs</p>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+        </div>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+        </div>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+        </div>
+        <div class="text-content-graphic line">
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+            <canvas-centered-drawing
+                class='canvas'
+                draw-function='drawRegularPolygon'
+                function-options='{"N": 4, "withMirrorSections": true}'
+                options='{}'
+            ></canvas-centered-drawing>
+        </div>
+        <br/>
+        <p style='font-style: italic;'>From a puzzling coloring challenge at <a href="http://www.beautifulsymmetry.onl/posters?p=square-reflections-challenges" style='display: inline-block;'>http://beautifulsymmetry.onl/posters?p=square-reflections-challenges</a></p>
+    </div>
+    <div class="poster-container">
         <p>If you enjoyed these puzzles, then you'll likely enjoy <a href="https://mitpress.mit.edu/books/beautiful-symmetry" target="_blank" style='font-style: italic; display: inline-block;'>Beautiful Symmetry: A Coloring Book About Math</a>, authored by Alex Berke, with a forward by Alex Bellos.  In this "book" there are visual puzzles and coloring challenges, somewhat like the puzzles above, with shapes</p>
 
         <div class="text-content-graphic line">
@@ -542,9 +756,14 @@
         <br/>
 	</div>
 
-	<div class="poster-container">
+    <div ng-if="posters.showVersion==0" class="poster-container">
 		<h2>Solutions</h2>
 		<p style="font-style: italic;">spoiler alert! spoiler alert! spoiler alert!</p>
+        <p style="font-style: italic;">spoiler alert! spoiler alert! spoiler alert!</p>
+        <p style="font-style: italic;">spoiler alert! spoiler alert! spoiler alert!</p>
+        <p style="font-style: italic;">spoiler alert! spoiler alert! spoiler alert!</p>
+        <p style="font-style: italic;">spoiler alert! spoiler alert! spoiler alert!</p>
+        <p style="font-style: italic;">spoiler alert! spoiler alert! spoiler alert!</p>
         <br/>
         <br/>
 
