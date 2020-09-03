@@ -136,6 +136,24 @@
 	max-width: 350px;
 }
 
+/*  Info > Publicity & Press */
+.info-view#publicity-and-press {
+
+}
+.info-view .pub {
+	margin-top: 35px;
+	margin-bottom: 20px;
+}
+.info-view .pub .quote {
+	
+}
+.info-view .pub .attribution {
+	
+}
+.info-view .pub .attribution-link {
+	
+}
+
 
 /* Info > Events */
 .info-view#events .book-section-title {
