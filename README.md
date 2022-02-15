@@ -187,18 +187,9 @@ Can upload images to combine into GIFs here: http://gifmaker.me/
 - OR Use https://giphy.com/create/gifmaker to convert .mov file to gif
 
 
-
 ### Pieces
 
 /pieces
-
-
-### Notes:
-
-#### Sharing
-
-Share with http://www.beautifulsymmetry.onl not http://beautifulsymmetry.onl to avoid redirect
-
 
 ### License
 
