@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "babel-preset-env": "^1.4.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-batch": "^1.0.5",
